@@ -10,8 +10,7 @@
 
 <b><details><summary>➕ HTML</summary></b>
 
-* [C 语言实现封装、继承和多态](http://dongxicheng.org/cpp/ooc/)
-* [C 语言实现封装、继承和多态](http://dongxicheng.org/cpp/ooc/)
+* [HTML问答题](/Html/01.md)
 
 </details>
 
