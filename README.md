@@ -11,6 +11,7 @@
 <b><details><summary>➕ HTML</summary></b>
 
 - <details><summary>1.简述一下你对HTML语义化的理解？</summary>
+
     用正确的标签做正确的事情。
 
     html 语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;即使在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的;
@@ -22,6 +23,7 @@
   </details>
 
 - <details><summary>2.Label的作用是什么？是怎么用的？</summary>
+
     label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
     
     ```
