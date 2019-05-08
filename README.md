@@ -14,25 +14,25 @@
 
 </details>
 
-<b><details><summary>📦 STL</summary></b>
+<b><details><summary>📦 CSS</summary></b>
 
 * [HTML问答题](/HTML/01.md)
 
 </details>
 
-<b><details><summary>〽️ 数据结构</summary></b>
+<b><details><summary>〽️ JS</summary></b>
 
 * [HTML问答题](/HTML/01.md)
 
 </details>
 
-<b><details><summary>⚡️ 算法</summary></b>
+<b><details><summary>⚡️ Vue</summary></b>
 
 * [HTML问答题](/HTML/01.md)
 
 </details>
 
-<b><details><summary>❓ Problems</summary></b>
+<b><details><summary>❓ React</summary></b>
 
 * [HTML问答题](/HTML/01.md)
 
