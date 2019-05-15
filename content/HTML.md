@@ -1,6 +1,6 @@
 # [返回主页](../README.md)
 
-- <details><summary>1.简述一下你对HTML语义化的理解？</summary>
+</b><details><summary>1.简述一下你对HTML语义化的理解？</summary></b>
 
   用正确的标签做正确的事情。
 
