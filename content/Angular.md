@@ -122,6 +122,294 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>12.在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
 
+AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
+
+</details>
+
+<b><details><summary>13.在 angular 项目中你如何控制静态资源的合理加载</summary></b>
+
+</details>
+
+<b><details><summary>14.在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
+
+1.简化代码（这个是所有开发人员都要具备的）
+
+2.坚决不能操作 dom 节点 这个时候可能会问 为什么不能啊
+
+你的回答是：DOM 操作只能出现在指令（directive）中。最不应该出现的位置就是服务（service）中。Angular 倡导以测试驱动开发，在 service 或者 controller 中出现了 DOM 操作，那么也就意味着的测试是无法通过的。当然，这只是一点，重要的是使用 Angular 的其中一个好处是啥，那就是双向数据绑定，这样就能专注于处理业务逻辑，无需关系一堆堆的 DOM 操作。如果在 Angular 的代码中还到处充斥着各种 DOM 操作，那为什么不直接使用 jquery 去开发呢。
+
+测试驱动开发是什么呢？普及一下：
+
+测试驱动开发，英文全称 Test-Driven Development，简称 TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程。
+
+</details>
+
+<b><details><summary>15.AngularJS 的数据双向绑定是怎么实现的？</summary></b>
+
+1、每个双向绑定的元素都有一个 watcher
+
+2、在某些事件发生的时候，调用 digest 脏数据检测。
+
+这些事件有：表单元素内容变化、Ajax 请求响应、点击按钮执行的函数等。
+
+3、脏数据检测会检测 rootscope 下所有被 watcher 的元素。
+
+\$digest 函数就是脏数据监测
+
+又附上一篇原理性的文章  https://github.com/xufei/Make-Your-Own-AngularJS/blob/master/01.md
+
+</details>
+
+<b><details><summary>16.controller之间怎么通讯</summary></b>
+
+1、event
+
+这里可以有两种方式，一种是$scope.$emit，然后通过监听$rootScope的事件获取参数；另一种是$rootScope.$broadcast，通过监听$scope 的事件获取参数。
+
+这两种方法在最新版本的 Angular 中已经没有性能区别了，主要就是事件发送的方向不同，可以按实际情况选择。
+
+2、service
+
+可以创建一个专用的事件 Service，也可以按照业务逻辑切分，将数据存储在相应的 Service 中
+
+3、\$rootScope
+
+这个方法可能会比较 dirty 一点，胜在方便，也就是把数据存在$rootScope中，这样各个子$scope 都可以调用，不过需要注意一下生命周期
+
+4、直接使用$scope.$\$nextSibling 及类似的属性
+
+类似的还有$scope.$parent。这个方法的缺点就更多了，官方不推荐使用任何\$\$开头的属性，既增加了耦合，又需要处理异步的问题，而且 scope 的顺序也不是固定的。不推荐
+
+另外就是通过本地存储、全局变量或者现代浏览器的 postMessage 来传递参数了，除非特殊情况，请避免这类方式。
+
+</details>
+
+<b><details><summary>17.自定义指令的几个参数</summary></b>
+
+说几个常用的如：
+
+restrict:指令在 dom 中的声明形式 E（元素）A（属性）C（类名）M（注释）
+
+template：两种形式，一种 HTML 文本；一个可以接受两个参数的函数，tElemetn 和 tAttrs，并返回一个代表模板的字符串。模板字符串必须存在一个根 DOM 元素
+
+templateUrl:两种形式，一种代表外部 HTML 文件路径的字符串；一个可以接受两个参数的函数，参数为 tElement 和 tAttrs，并返回一个外部 HTML 文件路径的字符串
+
+compile (对象或函数)：compile 选项可以返回一个对象或函数。如果设置了 compile 函数,说明我们希望在指令和实时数据被放到 DOM 中之前进行 DOM 操作,在这个函数中进行诸如添加和删除节点等 DOM 操作是安全的。本质上,当我们设置了 link 选项,实际上是创建了一个 postLink() 链接函数,以便 compile() 函数可以定义链接函数。
+
+然后又是传送门：http://www.cnblogs.com/mliudong/p/4180680.html
+
+compile 和 link 的区别：
+
+编译的时候，compile 转换 dom，碰到绑定监听器的地方就先存着，有几个存几个，到最后汇总成一个 link 函数，一并执行，提升了性能。
+
+</details>
+
+<b><details><summary>18.angular中的$http</summary></b>
+
+\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
+
+我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
+
+1、链式调用
+
+\$http 服务是只能接受一个参数的函数，这个参数是一个对象，包含了用来生成 HTTP 请求的
+
+配置内容。这个函数返回一个 promise 对象，具有 success 和 error 两个方法。
+
+2、返回一个 promise 对象
+
+3、快捷的 get 请求
+
+4、响应对象
+
+传送门：http://www.2cto.com/kf/201506/405137.html
+
+</details>
+
+<b><details><summary>19.angular和jquery的区别</summary></b>
+
+angular 是基于数据驱动，所以 angular 适合做数据操作比较繁琐的项目（这里可以再提一下单页面应用，如果你不会福利又来了 http://www.zhihu.com/question/20792064）
+
+jquery 是基于 dom 驱动，jquery 适合做 dom 操作多的项目
+
+</details>
+
+<b><details><summary>20.对angular中的form表单了解多少</summary></b>
+
+Angular 对 input 元素的 type 进行了扩展，一共提供了以下 10 种类型：
+
+text
+
+number
+
+url
+
+email
+
+radio
+
+checkbox
+
+hidden
+
+button
+
+submit
+
+reset
+
+Angular 为表单内置了 4 中 CSS 样式。
+
+ng-valid 校验合法状态
+
+ng-invalid 校验非法状态
+
+ng-pristine 如果要使用原生的 form，需要设置这个值
+
+ng-dirty      表单处于脏数据状态
+
+Angular 在对表单进行自动校验的时候会校验 Model 上的属性，如果不设置 ng-model，则 Angular 无法知道 myForm.\$invalid 这个值是否为真。
+
+校验的一下内容
+
+required 表示是否输入内容
+
+ng-maxlength 最大长度
+
+ng-minlength 最小长度
+
+例子：传送门https://github.com/18500047564/clutter
+
+</details>
+
+<b><details><summary>21. ng-show/ng-hide 与 ng-if 的区别？ </summary></b>
+
+我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载确认的话，那么 ng-if 的性能好过 ng-show.
+
+</details>
+
+<b><details><summary>22.解释下什么是 $rootScrope 以及和 $scope 的区别？</summary></b>
+
+$rootScrope是所有$scope 的父对象
+
+</details>
+
+<b><details><summary>23. 表达式 {{yourModel}} 是如何工作的？</summary></b>
+
+它依赖于 $interpolation服务，在初始化页面html后，它会找到这些表达式，并且进行标记，于是每遇见一个 {{}} ，则会设置一个 $watch 。而 $interpolation 会返回一个带有上下文参数的函数，最后该函数执行，则算是表达式 $parse 到那个作用域上。
+
+</details>
+
+<b><details><summary>24.fliter是什么你了解的有多少？实现一个自定义fliter</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 </details>
 
 <b><details><summary></summary></b>
