@@ -1,4 +1,4 @@
-# [返回主页](./README.md)
+# [返回主页](../README.md)
 
 - <details><summary>1.简述一下你对HTML语义化的理解？</summary>
 
