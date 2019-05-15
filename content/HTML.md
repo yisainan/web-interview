@@ -1,237 +1,237 @@
 # [返回主页](../README.md)
 
-</b><details><summary>1.简述一下你对HTML语义化的理解？</summary></b>
+<b><details><summary>1.简述一下你对 HTML 语义化的理解？</summary></b></b>
 
-  用正确的标签做正确的事情。
+用正确的标签做正确的事情。
 
-  html 语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;即使在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的;
+html 语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;即使在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的;
 
-  搜索引擎的爬虫也依赖于 HTML 标记来确定上下文和各个关键字的权重，利于 SEO;
+搜索引擎的爬虫也依赖于 HTML 标记来确定上下文和各个关键字的权重，利于 SEO;
 
-  使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
+使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
 
-  </details>
+</details>
 
-- <details><summary>2.Label的作用是什么？是怎么用的？</summary>
+<b><details><summary>2.Label 的作用是什么？是怎么用的？</summary></b>
 
-  label 标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
+label 标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
 
-  ```
+```
 
-  <label for="Name">Number:</label>
+<label for="Name">Number:</label>
 
-  <input type=“text“name="Name" id="Name"/>
+<input type=“text“name="Name" id="Name"/>
 
-  <label>Date:<input type="text" name="B"/></label>
+<label>Date:<input type="text" name="B"/></label>
 
-  ```
+```
 
-  </details>
+</details>
 
-- <details><summary>3.iframe有那些缺点？</summary>
+<b><details><summary>3.iframe 有那些缺点？</summary></b>
 
-  - iframe 会阻塞主页面的 Onload 事件；
+- iframe 会阻塞主页面的 Onload 事件；
 
-  - 搜索引擎的检索程序无法解读这种页面，不利于 SEO;
+- 搜索引擎的检索程序无法解读这种页面，不利于 SEO;
 
-  - iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
+- iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
 
-  使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript。动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
+使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript。动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
 
-  </details>
+</details>
 
-- <details><summary>4.HTML与XHTML —— 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary>
+<b><details><summary>4.HTML 与 XHTML —— 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary></b>
 
-  ```
+```
 
-  1.XHTML 元素必须被正确地嵌套。
+1.XHTML 元素必须被正确地嵌套。
 
-  错误：<p><span>this is example.</p></span>
+错误：<p><span>this is example.</p></span>
 
-  正确：<p><span>this is example.</span></p>
+正确：<p><span>this is example.</span></p>
 
-  2.XHTML 元素必须被关闭。
+2.XHTML 元素必须被关闭。
 
-  错误：<p>this is example.
+错误：<p>this is example.
 
-  正确：<p>this is example.</p>
+正确：<p>this is example.</p>
 
-  3.标签名必须用小写字母。
+3.标签名必须用小写字母。
 
-  错误：<P>this is example.<P>
+错误：<P>this is example.<P>
 
-  正确：<p>this is example.</p>
+正确：<p>this is example.</p>
 
-  3.1空标签也必须被关闭
+3.1空标签也必须被关闭
 
-  错误：<br>
+错误：<br>
 
-  正确：<br/>
+正确：<br/>
 
-  4.XHTML 文档必须拥有根元素。
+4.XHTML 文档必须拥有根元素。
 
-  所有的 XHTML 元素必须被嵌套于 <html> 根元素中。
+所有的 XHTML 元素必须被嵌套于 <html> 根元素中。
 
-  ```
+```
 
-  </details>
+</details>
 
-- <details><summary>5.常见的浏览器内核有哪些？</summary>
+<b><details><summary>5.常见的浏览器内核有哪些？</summary></b>
 
-  Trident 内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML]
+Trident 内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML]
 
-  Gecko 内核：Netscape6 及以上版本，FF,MozillaSuite/SeaMonkey 等
+Gecko 内核：Netscape6 及以上版本，FF,MozillaSuite/SeaMonkey 等
 
-  Presto 内核：Opera7 及以上。 [Opera 内核原为：Presto，现为：Blink;]
+Presto 内核：Opera7 及以上。 [Opera 内核原为：Presto，现为：Blink;]
 
-  Webkit 内核：Safari,Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]
+Webkit 内核：Safari,Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]
 
-  </details>
+</details>
 
-- <details><summary>6.HTML5的form如何关闭自动完成功能？</summary>
+<b><details><summary>6.HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
-  给不想要提示的 form 或某个 input 设置为 autocomplete=off。
+给不想要提示的 form 或某个 input 设置为 autocomplete=off。
 
-  </details>
+</details>
 
-- <details><summary>8.实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary>
+<b><details><summary>8.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
-  ```
+```
 
-  <div style="height:1px;overflow:hidden;background:red"></div>
+<div style="height:1px;overflow:hidden;background:red"></div>
 
-  ```
+```
 
-  </details>
+</details>
 
-- <details><summary>9.title与h1的区别、b与strong的区别、i与em的区别？</summary>
+<b><details><summary>9.title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？</summary></b>
 
-  ```
+```
 
-  title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；
+title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；
 
-  strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<strong>会重读，而<B>是展示强调内容。
+strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<strong>会重读，而<B>是展示强调内容。
 
-  i内容展示为斜体，em表示强调的文本；
+i内容展示为斜体，em表示强调的文本；
 
-  Physical Style Elements -- 自然样式标签
+Physical Style Elements -- 自然样式标签
 
-  b, i, u, s, pre
+b, i, u, s, pre
 
-  Semantic Style Elements -- 语义样式标签
+Semantic Style Elements -- 语义样式标签
 
-  strong, em, ins, del, code
+strong, em, ins, del, code
 
-  应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签。
+应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签。
 
-  ```
+```
 
-  </details>
+</details>
 
-- <details><summary>10.请描述下SEO中的TDK？</summary>
+<b><details><summary>10.请描述下 SEO 中的 TDK？</summary></b>
 
-  在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，这三个标签在网站的优化过程中
+在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，这三个标签在网站的优化过程中
 
-  title 标题标签，description 描述标签，keywords 关键词标签
+title 标题标签，description 描述标签，keywords 关键词标签
 
-  </details>
+</details>
 
-- <details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary>
+<b><details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary></b>
 
-  分成：结构层、表示层、行为层。
+分成：结构层、表示层、行为层。
 
-  结构层（structural layer）
+结构层（structural layer）
 
-  由 HTML 或 XHTML 之类的标记语言负责创建。标签，也就是那些出现在尖括号里的单词，对网页内容的语义含义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。例如，P 标签表达了这样一种语义：“这是一个文本段。”
+由 HTML 或 XHTML 之类的标记语言负责创建。标签，也就是那些出现在尖括号里的单词，对网页内容的语义含义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。例如，P 标签表达了这样一种语义：“这是一个文本段。”
 
-  表示层（presentation layer）
+表示层（presentation layer）
 
-  由 CSS 负责创建。 CSS 对“如何显示有关内容”的问题做出了回答。
+由 CSS 负责创建。 CSS 对“如何显示有关内容”的问题做出了回答。
 
-  行为层（behaviorlayer）
+行为层（behaviorlayer）
 
-  负责回答“内容应该如何对事件做出反应”这一问题。这是 Javascript 语言和 DOM 主宰的领域。
+负责回答“内容应该如何对事件做出反应”这一问题。这是 Javascript 语言和 DOM 主宰的领域。
 
-  </details>
+</details>
 
-- <details><summary>14.每个HTML文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary>
+<b><details><summary>14.每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
 
   <!DOCTYPE> 声明位于文档中的最前面的位置，处于 <html> 标签之前。
 
-  作用：
+作用：
 
-  1.告知浏览器文档使用哪种 HTML 或 XHTML 规范。
+1.告知浏览器文档使用哪种 HTML 或 XHTML 规范。
 
-  2.告诉浏览器按照何种规范解析页（如果你的页面没有 DOCTYPE 的声明，那么 compatMode 默认就是 BackCompat,浏览器按照自己的方式解析渲染页面）
+2.告诉浏览器按照何种规范解析页（如果你的页面没有 DOCTYPE 的声明，那么 compatMode 默认就是 BackCompat,浏览器按照自己的方式解析渲染页面）
 
-  </details>
+</details>
 
-- <details><summary>15.为什么用多个域名存储网站资源更有效？</summary>
+<b><details><summary>15.为什么用多个域名存储网站资源更有效？</summary></b>
 
-  1、CDN 缓存更方便
+1、CDN 缓存更方便
 
-  2、突破浏览器并发限制
+2、突破浏览器并发限制
 
-  3、节约 cookie 带宽
+3、节约 cookie 带宽
 
-  4、节约主域名的连接数，优化页面响应速度
+4、节约主域名的连接数，优化页面响应速度
 
-  5、防止不必要的安全问题
+5、防止不必要的安全问题
 
-  </details>
+</details>
 
-- <details><summary>16.请描述一下 cookies，sessionStorage 和 localStorage 的区别</summary>
+<b><details><summary>16.请描述一下 cookies，sessionStorage 和 localStorage 的区别</summary></b>
 
-  cookie 在浏览器和服务器间来回传递。 sessionStorage 和 localStorage 不会
+cookie 在浏览器和服务器间来回传递。 sessionStorage 和 localStorage 不会
 
-  sessionStorage 和 localStorage 的存储空间更大；
+sessionStorage 和 localStorage 的存储空间更大；
 
-  sessionStorage 和 localStorage 有更多丰富易用的接口；
+sessionStorage 和 localStorage 有更多丰富易用的接口；
 
-  sessionStorage 和 localStorage 各自独立的存储空间；
+sessionStorage 和 localStorage 各自独立的存储空间；
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
