@@ -1,6 +1,6 @@
 # [返回主页](../README.md)
 
-- <details><summary>1.介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</summary>
+<b><details><summary>1.介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</summary></b>
 
   （1）有两种， IE 盒子模型、W3C 盒子模型；
 
@@ -8,9 +8,9 @@
 
   （3）区 别： IE 的 content 部分把 border 和 padding 计算了进去;
 
-  </details>
+</details>
 
-- <details><summary>2.CSS隐藏元素的几种方法（至少说出三种）</summary>
+<b><details><summary>2.CSS隐藏元素的几种方法（至少说出三种）</summary></b>
 
   Opacity:元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互;
 
@@ -22,9 +22,9 @@
 
   Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如果要在你的 clip-path 中使用外部的 SVG 文件，浏览器支持度还要低;
 
-  </details>
+</details>
 
-- <details><summary>3.CSS清除浮动的几种方法（至少两种）</summary>
+<b><details><summary>3.CSS清除浮动的几种方法（至少两种）</summary></b>
 
   使用带 clear 属性的空元素
 
@@ -34,18 +34,18 @@
 
   使用邻接元素处理；
 
-  </details>
+</details>
 
-- <details><summary>4.页面导入样式时，使用link和@import有什么区别？</summary>
+<b><details><summary>4.页面导入样式时，使用link和@import有什么区别？</summary></b>
 
   link 属于 XHTML 标签，除了加载 CSS 外，还能用于定义 RSS, 定义 rel 连接属性等作用；而@import 是 CSS 提供的，只能用于加载 CSS;
   页面被加载的时，link 会同时被加载，而@import 引用的 CSS 会等到页面被加载完再加载;
 
   import 是 CSS2.1 提出的，只在 IE5 以上才能被识别，而 link 是 XHTML 标签，无兼容问题;
 
-  </details>
+</details>
 
-- <details><summary>5.CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</summary>
+<b><details><summary>5.CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</summary></b>
 
   id 选择器（ # myid）
 
@@ -77,48 +77,48 @@
 
   important 比 内联优先级高
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>

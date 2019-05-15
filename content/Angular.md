@@ -1,6 +1,6 @@
 # [返回主页](../README.md)
 
-- <details><summary>1.angular的数据绑定采用什么机制？详述原理</summary>
+<b><details><summary>1.angular的数据绑定采用什么机制？详述原理</summary></b>
 
   脏检查机制。
 
@@ -8,9 +8,9 @@
 
   原理就是，Angular 在 scope 模型上设置了一个监听队列，用来监听数据变化并更新 view 。每次绑定一个东西到 view 上时 AngularJS 就会往 $watch 队列里插入一条 $watch ，用来检测它监视的 model 里是否有变化的东西。当浏览器接收到可以被 angular context 处理的事件时， $digest 循环就会触发，遍历所有的 $watch ，最后更新 dom。
 
-  </details>
+</details>
 
-- <details><summary>2.AngularJS的数据双向绑定是怎么实现的？</summary>
+<b><details><summary>2.AngularJS的数据双向绑定是怎么实现的？</summary></b>
 
   1、每个双向绑定的元素都有一个 watcher
 
@@ -22,21 +22,21 @@
 
   \$digest 函数就是脏数据监测
 
-  </details>
+</details>
 
-- <details><summary>3.在使用angularjs项目开发中 你使用过那些第三方的插件</summary>
+<b><details><summary>3.在使用angularjs项目开发中 你使用过那些第三方的插件</summary></b>
 
   AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
 
-  </details>
+</details>
 
-- <details><summary>4.ng-show/ng-hide 与 ng-if的区别？</summary>
+<b><details><summary>4.ng-show/ng-hide 与 ng-if的区别？</summary></b>
 
   我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
 
-  </details>
+</details>
 
-- <details><summary>5.解释下什么是$rootScrope以及和$scope的区别？</summary>
+<b><details><summary>5.解释下什么是$rootScrope以及和$scope的区别？</summary></b>
 
   通俗的说$rootScrope 页面所有$scope 的父亲。
 
@@ -48,9 +48,9 @@
 
   step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controller 函数。 这个时候在这个 controller 函数变成一个\$scope 对象实例。
 
-  </details>
+</details>
 
-- <details><summary>6.列出至少三种实现不同模块之间通信方式？</summary>
+<b><details><summary>6.列出至少三种实现不同模块之间通信方式？</summary></b>
 
   Service
 
@@ -62,29 +62,29 @@
 
   directive 指定属性进行数据绑定
 
-  </details>
+</details>
 
-- <details><summary>7. 表达式 {{yourModel}} 是如何工作的？</summary>
+<b><details><summary>7. 表达式 {{yourModel}} 是如何工作的？</summary></b>
 
   它依赖于 $interpolation服务，在初始化页面html后，它会找到这些表达式，并且进行标记，于是每遇见一个 {{}} ，则会设置一个 $watch 。而 $interpolation 会返回一个带有上下文参数的函数，最后该函数执行，则算是表达式 $parse 到那个作用域上。
 
-  </details>
+</details>
 
-- <details><summary>8.angular中的$http</summary>
+<b><details><summary>8.angular中的$http</summary></b>
 
   \$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
 
   我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
 
-  </details>
+</details>
 
-- <details><summary>9.ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</summary>
+<b><details><summary>9.ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</summary></b>
 
   会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
 
-  </details>
+</details>
 
-- <details><summary>10.angularjs 是mvc还是mvvm框架</summary>
+<b><details><summary>10.angularjs 是mvc还是mvvm框架</summary></b>
 
   首先阐述下你对 mvc 和 mvvm 的理解:
 
@@ -112,26 +112,26 @@
 
   mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的界面与 viewmode 是松耦合，界面数据从 viewmodel 中获取。所以 angularjs 更倾向于 mvvm
 
-  </details>
+</details>
 
-- <details><summary>11.angularjs中$scope，controller，directive，sevice在mvvm中充当什么角色</summary>
+<b><details><summary>11.angularjs中$scope，controller，directive，sevice在mvvm中充当什么角色</summary></b>
 
   如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
 
-  </details>
+</details>
 
-- <details><summary>12.在使用angularjs项目开发中 你使用过那些第三方的插件</summary>
+<b><details><summary>12.在使用angularjs项目开发中 你使用过那些第三方的插件</summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
 
-- <details><summary></summary>
+<b><details><summary></summary></b>
 
-  </details>
+</details>
