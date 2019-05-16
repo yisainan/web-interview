@@ -32,7 +32,7 @@
 
 </details>
 
-<b><details><summary>☁️ 计算机网络</summary></b>
+<b><details><summary>☁️ [Ajax](./content/Ajax.md)</summary></b>
 
 - <details><summary></summary>
 
