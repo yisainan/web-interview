@@ -97,13 +97,43 @@ import {default as alias, a as a_a, b, c} from './a'; ======>用在开头
 import 特点：语言规格层面支持模块功能。支持编译时静态分析，便于 JS 引入宏和类型检验。动态绑定。
 
 </details>
-<b><details><summary></summary></b>
+<b><details><summary>javascript对象的几种创建方式</summary></b>
+
+1，工厂模式
+
+2，构造函数模式
+
+3，原型模式
+
+4，混合构造函数和原型模式
+
+5，动态原型模式
+
+6，寄生构造函数模式
+
+7，稳妥构造函数模式
 
 </details>
-<b><details><summary></summary></b>
+<b><details><summary>javascript继承的6种方法</summary></b>
+
+1，原型链继承
+
+2，借用构造函数继承
+
+3，组合继承(原型+借用构造)
+
+4，原型式继承
+
+5，寄生式继承
+
+6，寄生组合式继承
+
+详情：JavaScript继承方式详解
 
 </details>
-<b><details><summary></summary></b>
+<b><details><summary>javascript里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
+
+用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
 
 </details>
 <b><details><summary></summary></b>
