@@ -16,31 +16,6 @@ obj.constructor === String
 
 </details>
 
-<b><details><summary>3.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
-
-```
-
-function showWindowHref(){
-    var sHref = window.location.href;
-    var args = sHref.split('?');
-    if(args[0] == sHref){
-        return "";
-    }
-    var arr = args[1].split('&');
-    var obj = {};
-    for(var i = 0;i< arr.length;i++){
-        var arg = arr[i].split('=');
-        obj[arg[0]] = arg[1];
-    }
-    return obj;
-}
-var href = showWindowHref(); // obj
-console.log(href['name']); // xiaoming
-
-```
-
-</details>
-
 <b><details><summary>4.怎样添加、移除、移动、复制、创建和查找节点？</summary></b>
 
 1）创建新节点
@@ -97,7 +72,8 @@ import {default as alias, a as a_a, b, c} from './a'; ======>用在开头
 import 特点：语言规格层面支持模块功能。支持编译时静态分析，便于 JS 引入宏和类型检验。动态绑定。
 
 </details>
-<b><details><summary>javascript对象的几种创建方式</summary></b>
+
+<b><details><summary>8.javascript对象的几种创建方式</summary></b>
 
 1，工厂模式
 
@@ -114,7 +90,8 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 7，稳妥构造函数模式
 
 </details>
-<b><details><summary>javascript继承的6种方法</summary></b>
+
+<b><details><summary>9.javascript继承的6种方法</summary></b>
 
 1，原型链继承
 
@@ -128,53 +105,144 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 6，寄生组合式继承
 
-详情：JavaScript继承方式详解
+详情：JavaScript 继承方式详解
 
 </details>
-<b><details><summary>javascript里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
 
-用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
+<b><details><summary>10.javascript里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
+
+用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的 extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
 
 </details>
+
+<b><details><summary>13.变量提升</summary></b>
+
+</details>
+
+<b><details><summary>14.this和apply的应用</summary></b>
+
+</details>
+
+<b><details><summary>15.sort 排序原理</summary></b>
+
+</details>
+
+<b><details><summary>16. jsonp 优缺点？ 事件委托怎么取索引</summary></b>
+
+</details>
+
+<b><details><summary>17.如何判断 NaN</summary></b>
+
+</details>
+
+<b><details><summary>18. null/undefined 的区别</summary></b>
+
+</details>
+
+<b><details><summary>19.简单介绍下 JS 的原型和原型链</summary></b>
+
+</details>
+
+<b><details><summary>20. 如何判断 JS 变量的一个类型（至少三种方式）</summary></b>
+
+</details>
+
+<b><details><summary>21. for/in、Object.keys 和 Object.getOwnPropertyNames 对属性遍历有什么区别？</summary></b>
+
+</details>
+
+<b><details><summary>22.在子 iframe 中调用外层页面的接口，传入一个对象，外层页面如何判断该对象是否为数组？</summary></b>
+
+</details>
+
+<b><details><summary>23.请简要描述 webview 中通过 js bridge 和 native 通信的技术实现</summary></b>
+
+</details>
+
+<b><details><summary>24.如何判断一个对象是否为数组</summary></b>
+
+</details>
+
+<b><details><summary>25.`<script>` 标签的 defer 和 asnyc 属性的作用以及二者的区别？</summary></b>
+
+</details>
+
+<b><details><summary>26.Object.prototype.toString.call() 和 instanceOf 和 Array.isArray() 区别好坏</summary></b>
+
+</details>
+
+<b><details><summary>27.ES6 都有什么 iterater 遍历器</summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary>28.松散类型的数组</summary></b>
+
+</details>
+
+<b><details><summary>29.JS严格模式和正常模式</summary></b>
+
+</details>
+
+<b><details><summary>30.移动端tap点击事件和click的区别</summary></b>
+
+</details>
+
+<b><details><summary>31.JS单线程还是多线程，如何显示异步操作</summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary>32. JavaScript数组的函数 map/forEach/reduce/filter</summary></b>
+
+</details>
+
+<b><details><summary>33. JS块级作用域、变量提升</summary></b>
+
+</details>
+
+<b><details><summary>34.说下 jQuery/Zepto 中的 on 方法有哪些参数，分别代表什么意思？</summary></b>
+
+</details>
+
+<b><details><summary>35. JS 哪些操作会造成内存泄露</summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary>36.重排与重绘的区别，什么情况下会触发？</summary></b>
+
+</details>
+
+<b><details><summary>37.发布订阅设计模式</summary></b>
+
+</details>
+
+<b><details><summary>38.防抖，节流</summary></b>
+
+</details>
+
+<b><details><summary>39.兼容各种浏览器版本的事件绑定</summary></b>
+
+</details>
+
+</details>
+
+<b><details><summary>40.typescript 遇到过什么坑</summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>
+
 <b><details><summary></summary></b>
 
 </details>
-<b><details><summary></summary></b>
 
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
-<b><details><summary></summary></b>
-
-</details>
 <b><details><summary></summary></b>
 
 </details>
