@@ -192,49 +192,45 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>3. Quirks(怪癖）模式是什么？它和Standards（标准）模式有什么区别</summary></b>
+<b><details><summary>3. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
 
-1以ie6为例，如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。
+1 以 ie6 为例，如果写了 DTD，就意味着这个页面将采用对 CSS 支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是 Quirks 模式（怪癖模式，诡异模式，怪异模式）。
 
 2 区别：总体会有布局、样式解析和脚本执行三个方面的区别。
 
-     设置一个元素的宽度和高度
+设置一个元素的宽度和高度
 
-     给<span>等行内元素设置width和height
+给<span>等行内元素设置 width 和 height
 
-     用margin:0 auto设置水平居中
+用 margin:0 auto 设置水平居中
 
- 
+从 IE6 开始，引入了 Standards 模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。
 
-从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。
+在 IE6 之前 CSS 还不够成熟，所以 IE5 等之前的浏览器对 CSS 的支持很差， IE6 将对 CSS 提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果 IE6  支持 CSS 则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？
 
-在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？
-
-在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。
+在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数   不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6 也是类似这样做的，它将 DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写 DTD，所以 IE6 就假定   如果写了 DTD，就意味着这个页面将采用对 CSS 支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是 Quirks 模式（怪癖模式，诡异模式，怪异模式）。
 
 区别：
 
 总体会有布局、样式解析和脚本执行三个方面的区别。
 
-盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks 模式下，IE的宽度和高度还包含了padding和border。
+盒模型：在 W3C 标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在 Quirks  模式下，IE 的宽度和高度还包含了 padding 和 border。
 
- 
+设置行内元素的高宽：在 Standards 模式下，给<span>等行内元素设置 wdith 和 height 都不会生效，而在 quirks 模式下，则会生效。
 
-设置行内元素的高宽：在Standards模式下，给<span>等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。
+设置百分比的高度：在 standards 模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的
 
-设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的
-
-用margin:0 auto设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。
+用 margin:0 auto 设置水平居中：使用 margin:0 auto 在 standards 模式下可以使元素水平居中，但在 quirks 模式下却会失效。
 
 （还有很多，答出什么不重要，关键是看他答出的这些是不是自己经验遇到的，还是说都是看文章看的，甚至完全不知道。）
 
 </details>
 
-<b><details><summary>4. div+css的布局较table布局有什么优点？</summary></b>
+<b><details><summary>4. div+css 的布局较 table 布局有什么优点？</summary></b>
 
 分离 方便改版 快清晰简洁 seo
 
-1.改版的时候更方便 只要改css文件。
+1.改版的时候更方便 只要改 css 文件。
 
 2.页面加载速度更快、结构化清晰、页面显示简洁。
 
@@ -246,11 +242,11 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 <b><details><summary>6. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b>
 
-渐进增强 progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
+渐进增强  progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
 （一开始保证最基本的功能，再改进和追加功能）
 
-优雅降级 graceful degradation：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
+优雅降级  graceful degradation：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
 
 （一开始就构建完整的功能，再针对低版本浏览器进行兼容。）
 
@@ -260,27 +256,27 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 <b><details><summary>8. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
 
-降低开发难度及开发成本，减少各种BUG、安全问题， 提高网站易用性
+降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
 
 </details>
 
-<b><details><summary>10. 简述一下src与href的区别。</summary></b>
+<b><details><summary>10. 简述一下 src 与 href 的区别。</summary></b>
 
-src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。
+src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
 
 </details>
 
 <b><details><summary>12. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
 
-微格式（Microformats）是一种让机器可读的语义化XHTML词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
+微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
-优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行google）
+优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行 google）
 
 </details>
 
-<b><details><summary>13. 在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求一般情况下有哪些地方会有缓存处理？</summary></b>
+<b><details><summary>13. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
 
-答案：dns缓存，cdn缓存，浏览器缓存，服务器缓存。
+答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
 
 </details>
 
@@ -290,7 +286,7 @@ src用于替换当前元素，href用于在当前文档和引用资源之间确�
 
 如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。
 
-如果图片为css图片，可以使用CSSsprite，SVGsprite，Iconfont、Base64等技术。
+如果图片为 css 图片，可以使用 CSSsprite，SVGsprite，Iconfont、Base64 等技术。
 
 如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
 
@@ -298,47 +294,47 @@ src用于替换当前元素，href用于在当前文档和引用资源之间确�
 
 </details>
 
-<b><details><summary>39. html常见兼容性问题？</summary></b>
+<b><details><summary>39. html 常见兼容性问题？</summary></b>
 
-1.双边距BUG float引起的  使用display
+1.双边距 BUG float 引起的   使用 display
 
-2.3像素问题 使用float引起的 使用dislpay:inline -3px  
+2.3 像素问题 使用 float 引起的 使用 dislpay:inline -3px
 
-3.超链接hover 点击后失效  使用正确的书写顺序 link visited hover active
+3.超链接 hover 点击后失效   使用正确的书写顺序 link visited hover active
 
-4.Ie z-index问题 给父级添加position:relative
+4.Ie z-index 问题 给父级添加 position:relative
 
-5.Png 透明 使用js代码 改
+5.Png 透明 使用 js 代码 改
 
 6.Min-height 最小高度 ！Important 解决’
 
-7.select 在ie6下遮盖 使用iframe嵌套
+7.select 在 ie6 下遮盖 使用 iframe 嵌套
 
-8.为什么没有办法定义1px左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08 line-height:1px）
+8.为什么没有办法定义 1px 左右的宽度容器（IE6 默认的行高造成的，使用 over:hidden,zoom:0.08 line-height:1px）
 
-9.IE5-8不支持opacity，解决办法：
+9.IE5-8 不支持 opacity，解决办法：
 
 .opacity {
 
-    opacity: 0.4
+opacity: 0.4
 
-    filter: alpha(opacity=60); /* for IE5-7 */
+filter: alpha(opacity=60); /_ for IE5-7 _/
 
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* for IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /_ for IE 8_/
 
 }
 
-10. IE6不支持PNG透明背景，解决办法: IE6下使用gif图片
+10. IE6 不支持 PNG 透明背景，解决办法: IE6 下使用 gif 图片
 
 </details>
 
-<b><details><summary>40. 对WEB标准以及W3C的理解与认识</summary></b>
+<b><details><summary>40. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
-答：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链css和js脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
+答：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
 </details>
 
-<b><details><summary>44. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</summary></b>
+<b><details><summary>44. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
 ```
 
