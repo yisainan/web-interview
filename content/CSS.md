@@ -87,7 +87,7 @@ important 比 内联优先级高
 
 </details>
 
-<b><details><summary>19. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
+<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
 
 最基本的：
 
@@ -99,13 +99,13 @@ important 比 内联优先级高
 
 </details>
 
-<b><details><summary>20. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
+<b><details><summary>7. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
 
 答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
 
 </details>
 
-<b><details><summary>21. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
+<b><details><summary>8. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
 
 答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
 
@@ -146,7 +146,7 @@ important 比 内联优先级高
 
 </details>
 
-<b><details><summary>22. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
+<b><details><summary>9. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
 
 块级元素(block)特性：
 
@@ -166,7 +166,7 @@ important 比 内联优先级高
 
 </details>
 
-<b><details><summary>23. 什么是外边距重叠？重叠的结果是什么？</summary></b>
+<b><details><summary>10. 什么是外边距重叠？重叠的结果是什么？</summary></b>
 
 外边距重叠就是 margin-collapse。
 
@@ -182,7 +182,7 @@ important 比 内联优先级高
 
 </details>
 
-<b><details><summary>24. rgba()和 opacity 的透明效果有什么不同？</summary></b>
+<b><details><summary>11. rgba()和 opacity 的透明效果有什么不同？</summary></b>
 
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
@@ -190,7 +190,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>25. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
+<b><details><summary>12. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
 
 垂直方向：line-height
 
@@ -202,7 +202,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>26. 如何垂直居中一个浮动元素？</summary></b>
+<b><details><summary>13. 如何垂直居中一个浮动元素？</summary></b>
 
 ```
 
@@ -280,7 +280,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>27. px 和 em 的区别。</summary></b>
+<b><details><summary>14. px 和 em 的区别。</summary></b>
 
 px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
@@ -288,7 +288,7 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 
 </details>
 
-<b><details><summary>28. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
+<b><details><summary>15. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
 
 重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置 CSS 文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。
 
@@ -298,7 +298,7 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 
 </details>
 
-<b><details><summary>29. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
+<b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
 
 他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
 
@@ -316,7 +316,7 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 
 </details>
 
-<b><details><summary>30. display:none 与 visibility:hidden 的区别是什么？</summary></b>
+<b><details><summary>17. display:none 与 visibility:hidden 的区别是什么？</summary></b>
 
 display :  隐藏对应的元素但不挤占该元素原来的空间。
 
@@ -326,7 +326,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 </details>
 
-<b><details><summary>34. BFC 是什么?</summary></b>
+<b><details><summary>18. BFC 是什么?</summary></b>
 
 BFC（块级格式化上下文），一个创建了新的 BFC 的盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个 BFC 中的两个相邻的盒子在垂直方向发生 margin 重叠的问题
 
@@ -334,7 +334,7 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>56. 哪些 css 属性可以继承？</summary></b>
+<b><details><summary>19. 哪些 css 属性可以继承？</summary></b>
 
 可继承： font-size font-family color, ul li dl dd dt;
 
@@ -342,7 +342,7 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>57. css优先级算法如何计算？</summary></b>
+<b><details><summary>20. css优先级算法如何计算？</summary></b>
 
 !important >  id > class > 标签
 
@@ -354,7 +354,7 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>58. b标签和strong标签,i标签和em标签的区别？</summary></b>
+<b><details><summary>21. b标签和strong标签,i标签和em标签的区别？</summary></b>
 
 后者有语义，前者则无。
 
