@@ -64,8 +64,8 @@
 
 包括勘误的 Issue、PR，排序按照贡献时间。
 
-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>>
-[ravencrown](https://github.com/ravencrown/web-interview)<br/>>
+[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
+[ravencrown](https://github.com/ravencrown/web-interview)<br/>
 
 </details>
 
