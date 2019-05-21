@@ -40,11 +40,13 @@ createDocumentFragment() //创建一个 DOM 片段
 <b><details><summary>5.事件委托是什么</summary></b>
 
 让利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
+<summary>阻止事件冒泡</summary>
+  event.stopPropagation() || e.cancelBubble = true || return false
 
 </details>
 
 <b><details><summary>6.你对闭包的理解？</summary></b>
-
+1.闭包就是能够读取其他函数内部变量的函数。由于在ECMA2015中，只有函数才能分割作用域，函数内部可以当前作用域链的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
 </details>
 
 <b><details><summary>7.require 与 import 的区别</summary></b>
