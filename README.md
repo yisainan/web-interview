@@ -1,8 +1,13 @@
 # 目录
 
-<b><details><summary>💡 关于</summary></b>
+<b><details><summary>💡 介绍</summary></b>
 
-📚 本仓库是面向 <b>web 前端开发者</b> 准备面试使用
+1、本仓库是面向 <b>web 前端开发者</b> 准备面试使用；知识在于积累，切勿刷题作面霸！
+
+2、建议阅读
+
+*  [写给前端面试者](https://github.com/amfe/article/issues/5)
+
 
 🙏 仓库将持续更新，如有内容错误或改进意见，欢迎 issue 或 pr。本仓库遵循 CC BY-NC-SA 4.0 协议，转载请注明出处。
 
