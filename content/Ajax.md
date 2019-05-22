@@ -2,33 +2,42 @@
 
 <b><details><summary>1、Ajax 是什么?如何创建一个 Ajax？</summary></b>
 
-Ajax 并不算是一种新的技术，全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新，早期的浏览器并不能原生支持 ajax，可以使用隐藏帧（iframe）方式变相实现异步效果，后来的浏览器提供了对 ajax 的原生支持
+Ajax 并不算是一种新的技术，全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新。
 
 使用 ajax 原生方式发送请求主要通过 XMLHttpRequest(标准浏览器)、ActiveXObject(IE 浏览器)对象实现异步通信效果
 
-基本步骤：
+基本步骤 4 步走：
 
-var xhr =null;//创建对象
+```
 
-if(window.XMLHttpRequest){
+    1：我要创建一个XMLHttpRequest 对象。
+    var xhr=new XMLHttpRequest() 创建对象
 
-xhr = new XMLHttpRequest();
+    2：我要发送请求，我要跟服务器建立一个连接。
 
-}else{
+    open("type 提交方式", "url  提交的地址")
 
-xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    2.1:如果是post请求，需要设置请求头
 
-}
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
-xhr.open(“方式”,”地址”,”标志位”);//初始化请求
+    3：我要发送数据给服务器。
 
-xhr.setRequestHeader(“”,””);//设置 http 头信息
+    如果说是get 请求，请求的数据在地址的后面。
+    send() 发送数据，这一步不能省略
 
-xhr.onreadystatechange =function(){}//指定回调函数
+    4：接收服务器的数据。
+        服务端返回数据会调用一个回调函数。
+        通过回调函数去接收数据.
+    xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){ 响应完成了
+                    if(xhr.status==200){ //响应成功了
+                          responseText 属性接收服务端返回的数据.
+                    }
+            }
+    }
 
-xhr.send();//发送请求
-
-js 框架（jQuery/EXTJS 等）提供的 ajax  API 对原生的 ajax 进行了封装，熟悉了基础理论，再学习别的框架就会得心应手，好多都是换汤不换药的内容
+```
 
 </details>
 
@@ -52,13 +61,21 @@ js 框架（jQuery/EXTJS 等）提供的 ajax  API 对原生的 ajax 进行了�
 
 理解跨域的概念：协议、域名、端口都相同才同域，否则都是跨域
 
-出于安全考虑，服务器不允许 ajax 跨域获取数据，但是可以跨域获取文件内容，所以基于这一点，可以动态创建 script 标签，使用标签的 src 属性访问 js 文件的形式获取 js 脚本，并且这个 js 脚本中的内容是函数调用，该函数调用的参数是服务器返回的数据，为了获取这里的参数数据，需要事先在页面中定义回调函数，在回调函数中处理服务器返回的数据，这就是解决跨域问题的主流解决方案
+常用解决跨域：JSONP、CORS、服务端代理
+
+扩展：window.name、flash URLLoader、Access Control、document.domain（两个 iframe 之间）、location.hash（两个 iframe 之间）
+
+CORS:
+
+服务端添加
+header("Access-Control-Allow-Origin", "_");  
+---“_”号表示允许任何域向我们的服务端提交请求
 
 </details>
 
 <b><details><summary>4、页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
 
-对于 ajax 请求传递的参数，如果是 get 请求方式，参数如果传递中文，在有些浏览器会乱码，不同的浏览器对参数编码的处理方式不同，所以对于 get 请求的参数需要使用 encodeURIComponent 函数对参数进行编码处理，后台开发语言都有相应的解码 api。对于 post 请求不需要进行编码
+答：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
 
 </details>
 
@@ -112,7 +129,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 </details>
 
-<b><details><summary>9、ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域问题?</summary></b>
+<b><details><summary>9、ajax 是的优点</summary></b>
 
 1.  通过异步模式，提升了用户体验
 
@@ -150,7 +167,7 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 <b><details><summary>13、解释 jsonp 的原理，以及为什么不是真正的 ajax</summary></b>
 
-Jsonp 并不是一种数据格式，而 json 是一种数据格式，jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
+jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
 
 </details>
 
@@ -170,23 +187,21 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 <b><details><summary>16、一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</summary></b>
 
-分为 4 个步骤：
+1、浏览器地址栏输入 url
 
-1. 当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。
+2、浏览器会先查看浏览器缓存--系统缓存--路由缓存，如有存在缓存，就直接显示。如果没有，接着第三步
 
-2. 浏览器与远程 Web 服务器通过 TCP 三次握手协商来建立一个 TCP/IP 连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+3、域名解析（DNS）获取相应的 ip
 
-3. 一旦 TCP/IP 连接建立，浏览器会通过该连接向远程服务器发送 HTTP 的 GET 请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。
+4、浏览器向服务器发起 tcp 连接，与浏览器建立 tcp 三次握手
 
-4. 此时，Web 服务器提供资源服务，客户端开始下载资源。
+5、握手成功，浏览器向服务器发送 http 请求，请求数据包
 
-</details>
+6、服务器请求数据，将数据返回到浏览器
 
-<b><details><summary>17、ajax 请求的时候 get 和 post 方式的区别</summary></b>
+7、浏览器接收响应，读取页面内容，解析 html 源码，生成 DOm 树
 
-get 一般用来进行查询操作，url 地址有长度限制，请求的参数都暴露在 url 地址当中，如果传递中文参数，需要自己进行编码操作，安全性较低。
-
-post 请求方式主要用来提交数据，没有数据长度的限制，提交的数据内容存在于 http 请求体中，数据不会暴漏在 url 地址中。
+8、解析 css 样式、浏览器渲染，js 交互绑定多个域名，数量不限；
 
 </details>
 
@@ -320,7 +335,17 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>13.三次握手</summary></b>
+
+TCP协议是面向连接的通信协议，即在传输数据前先在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。
+
+在TCP连接中必须要明确客户端与服务器端，由客户端向服务端发出连接请求，每次连接的创建都需要经过“三次握手”
+
+第一次握手，客户端向服务器端发出连接请求，等待服务器确认
+
+第二次握手，服务器端向客户端回送一个响应，通知客户端收到了连接请求
+
+第三次握手，客户端再次向服务器端发送确认信息，确认连接
 
 </details>
 
