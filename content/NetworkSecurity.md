@@ -1,33 +1,5 @@
 # [返回主页](../README.md)
 
-<b><details><summary>1. Get/POST 的区别</summary></b>
-
-    get参数通过url传递，post放在request body中。
-
-    get请求在url中传递的参数是有长度限制的，而post没有。
-
-    get比post更不安全，因为参数直接暴露在url中，所以不能用来传递敏感信息。
-
-        get请求只能进行url编码，而post支持多种编码方式
-
-        get请求会浏览器主动cache，而post支持多种编码方式。
-
-        get请求参数会被完整保留在浏览历史记录里，而post中的参数不会被保留。
-
-    GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。
-
-    GET产生一个TCP数据包；POST产生两个TCP数据包。
-
-长的说：
-
-对于 GET 方式的请求，浏览器会把 http header 和 data 一并发送出去，服务器响应 200（返回数据）；
-
-而对于 POST，浏览器先发送 header，服务器响应 100 continue，浏览器再发送 data，服务器响应 200 ok（返回数据）。
-
-（据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的 TCP 在验证数据包完整性上，有非常大的优点。）
-
-</details>
-
 <b><details><summary>2. Http 状态码，Http2 是什么</summary></b>
 
 200 欢迎回来，主人 （正常；请求已完成。）
@@ -52,7 +24,7 @@
 
 101 服务姬傲娇中 （服务器将遵从客户的请求转换到另外一种协议）
 
-100 人家... 还要... （初始的请求已经接受，客户应当继续发送请求的其余部分。
+100 人家... 还要... （初始的请求已经接受，客户应当继续发送请求的其余部分。）
 
 HTTP/2（超文本传输协议第 2 版，最初命名为 HTTP 2.0），是 HTTP 协议的的第二个主要版本，使用于万维网。HTTP/2 是 HTTP 协议自 1999 年 HTTP 1.1 发布后的首个更新，主要基于 SPDY 协议（是 Google 开发的基于 TCP 的应用层协议，用以最小化网络延迟，提升网络速度，优化用户的网络使用体验）。
 
@@ -66,7 +38,13 @@ HTTP/2 让服务器可以将响应主动“推送”到客户端缓存中
 
 <b><details><summary>3. Http 请求的整个过程</summary></b>
 
-域名解析 --> 发起 TCP 的 3 次握手 --> 建立 TCP 连接后发起 http 请求 --> 服务器响应 http 请求，浏览器得到 html 代码 --> 浏览器解析 html 代码，并请求 html 代码中的资源（如 js、css、图片等） --> 浏览器对页面进行渲染呈现给用户
+简洁版：
+1.域名解析 --> 
+2.发起 TCP 的 3 次握手 --> 
+3.建立 TCP 连接后发起 http 请求 --> 
+4.服务器响应 http 请求，浏览器得到 html 代码 --> 
+5.浏览器解析 html 代码，并请求 html 代码中的资源（如 js、css、图片等） --> 
+6.浏览器对页面进行渲染呈现给用户
 
 </details>
 
@@ -153,10 +131,6 @@ ETag: "20b1add7ec1cd1:0" 服务器端文件的 Etag 值
 
 </details>
 
-<b><details><summary>5. 操作系统线程怎么操作</summary></b>
-
-</details>
-
 <b><details><summary>6. 常见的浏览器端的存储技术有哪些， 以及它们的优缺点和使用场景？</summary></b>
 
 1. cookie
@@ -229,64 +203,6 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 
 </details>
 
-<b><details><summary>7. 最常见的跨域技术方案有哪些？其中 JSONP 的原理和缺点是什么？</summary></b>
-
-跨域解决方案
-
-```
-
-1、 通过jsonp跨域
-2、 document.domain + iframe跨域
-3、 location.hash + iframe
-4、 window.name + iframe跨域
-5、 postMessage跨域
-6、 跨域资源共享（CORS）
-7、 nginx代理跨域
-8、 nodejs中间件代理跨域
-9、 WebSocket协议跨域
-
-```
-
-1.jsonp 的原理
-
-jsonp,即 json+padding,动态创建 script 标签,利用 script 标签的 src 属性可以获取任何域下的 js 脚本,通过这个特性(也可以说漏洞),服
-务器端不在返货 json 格式,而是返回一段调用
-
-某个函数的 js 代码，在 src 中进行了调用，这样实现了跨域.
-
-2.优缺点
-jsonp 优点:
-完美解决在测试或者开发中获取不同域下的数据,用户传递一个 callback 参数给服务端，然后服务端返回数据时会将这个 callback
-参数作为函数名来包裹住 JSON 数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。简单来说数据的格式没有发生
-
-很大变化
-
-jsonp 缺点:
-
-这里主要讲 jsonp 的缺点,也就是我上面说的没有用这个的原因
-
-1.jsonp 只支持 get 请求而不支持 post 请求,也即是说如果想传给后台一个 json 格式的数据,此时问题就来了,浏览器会报一个 http 状态码
-
-415 错误,告诉你请求格式不正确,这让我很蛋
-
-疼(在登录注册中需要给后台传一大串数据),如果都用参数的形式拼接在 url 后面的话不太现实,后台取值也会显得繁琐,
-
-2.在登录模块中需要用到 session 来判断当前用户的登录状态,这时候由于是跨域的原因,前后台的取到的 session 是不一样的,那么就不
-
-能就行 session 来判断.
-
-3.由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的,还是另有高招?)
-
-后来考虑到上面的一系列问题,采用的是后台进行设置允许跨域请求(但还是存在缺陷的,实质上还是跨域,如上面说的 session 问题)
-
-.Header set Access-Control-Allow-Origin \*
-
-为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如
-
-Access-Control-Allow-Origin: http://blog.csdn.net
-
-</details>
-
 <b><details><summary>8. 在 HTTP 响应 Header 中，set-cookie 选项有哪些，分别代表什么含义？</summary></b>
 
 </details>
@@ -320,10 +236,6 @@ Access-Control-Allow-Origin: http://blog.csdn.net
 </details>
 
 <b><details><summary>16. https 实现原理</summary></b>
-
-</details>
-
-<b><details><summary>17. 浏览器从输入 URL 到页面加载发生了什么</summary></b>
 
 </details>
 

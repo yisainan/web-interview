@@ -1,7 +1,7 @@
 # [返回主页](../README.md)
 
 
-<b><details><summary>3.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
+<b><details><summary>1.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 
 ```
 
@@ -26,7 +26,7 @@ console.log(href['name']); // xiaoming
 
 </details>
 
-<b><details><summary>11.js实现一个打点计时器</summary></b>
+<b><details><summary>2.js实现一个打点计时器</summary></b>
 
 问题描述：
 
@@ -81,7 +81,7 @@ setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用�
 
 </details>
 
-<b><details><summary>12.用js实现一个标准的排序算法</summary></b>
+<b><details><summary>3.用js实现一个标准的排序算法</summary></b>
 
 一.冒泡排序
 ```
