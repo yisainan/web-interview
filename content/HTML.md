@@ -390,6 +390,34 @@ CSS3新增伪类举例：
 
 </details>
 
+<b><details><summary>webSocket如何兼容低浏览器？</summary></b>
+
+</details>
+
+<b><details><summary>页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
+
+</details>
+
+<b><details><summary>如何在页面上实现一个圆形的可点击区域？</summary></b>
+
+</details>
+
+<b><details><summary>网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

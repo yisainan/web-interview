@@ -388,6 +388,98 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
+<b><details><summary>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
+
+</details>
+
+<b><details><summary>用纯CSS创建一个三角形的原理是什么？</summary></b>
+
+</details>
+
+<b><details><summary>一个满屏 品 字布局 如何设计?</summary></b>
+
+</details>
+
+<b><details><summary>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
+
+</details>
+
+<b><details><summary>全屏滚动的原理是什么？用到了CSS的那些属性？</summary></b>
+
+</details>
+
+<b><details><summary>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</summary></b>
+
+</details>
+
+<b><details><summary>如何修改chrome记住密码后自动填充表单的黄色背景 ？</summary></b>
+
+</details>
+
+<b><details><summary>你对line-height是如何理解的？</summary></b>
+
+</details>
+
+<b><details><summary>设置元素浮动后，该元素的display值是多少？</summary></b>
+
+自动变成display:block
+
+</details>
+
+<b><details><summary>怎么让Chrome支持小于12px 的文字？</summary></b>
+
+</details>
+
+<b><details><summary>让页面里的字体变清晰，变细用CSS怎么做？</summary></b>
+
+-webkit-font-smoothing: antialiased;
+
+</details>
+
+<b><details><summary>font-style属性可以让它赋值为“oblique” oblique是什么意思？</summary></b>
+
+</details>
+
+<b><details><summary>position:fixed;在android下无效怎么处理？</summary></b>
+
+</details>
+
+<b><details><summary>如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
+
+</details>
+
+<b><details><summary>display:inline-block 什么时候会显示间隙？</summary></b>
+
+</details>
+
+<b><details><summary>overflow: scroll时不能平滑滚动的问题怎么处理？</summary></b>
+
+</details>
+
+<b><details><summary>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</summary></b>
+
+</details>
+
+<b><details><summary>png、jpg、gif 这些图片格式解释一下，分别什么时候用？</summary></b>
+
+</details>
+
+<b><details><summary>style标签写在body后与body前有什么区别？</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

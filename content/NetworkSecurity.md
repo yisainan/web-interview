@@ -259,7 +259,7 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</summary></b>
 
 </details>
 

@@ -244,6 +244,85 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
+<b><details><summary>JavaScript的基本数据类型</summary></b>
+
+</details>
+
+<b><details><summary>如何判断一个对象是否属于某个类？</summary></b>
+
+</details>
+
+<b><details><summary>new操作符具体干了什么呢?</summary></b>
+
+</details>
+
+<b><details><summary>.call() 和 .apply() 的含义和区别？</summary></b>
+
+</details>
+
+<b><details><summary>那些操作会造成内存泄漏？</summary></b>
+
+</details>
+
+<b><details><summary>谈一下Jquery中的bind(),live(),delegate(),on()的区别？</summary></b>
+
+</details>
+<b><details><summary>jQuery 的队列是如何实现的？队列可以用在哪些地方？</summary></b>
+
+</details>
+
+<b><details><summary>jquery.extend 与 jquery.fn.extend的区别？</summary></b>
+
+</details>
+
+<b><details><summary>jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？</summary></b>
+
+</details>
+
+<b><details><summary>jquery中如何将数组转化为json字符串，然后再转化回来？</summary></b>
+
+</details>
+
+<b><details><summary>jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？</summary></b>
+
+</details>
+
+<b><details><summary>Jquery与jQuery UI有啥区别？</summary></b>
+
+</details>
+
+<b><details><summary>Zepto的点透问题如何解决？</summary></b>
+
+</details>
+
+<b><details><summary>如何判断当前脚本运行在浏览器还是node环境中？</summary></b>
+
+</details>
+
+<b><details><summary>移动端最小触控区域是多大？</summary></b>
+
+</details>
+
+<b><details><summary>jQuery 的 slideUp动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?</summary></b>
+
+</details>
+
+<b><details><summary>移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？</summary></b>
+
+</details>
+
+<b><details><summary>解释JavaScript中的作用域与变量声明提升？</summary></b>
+
+</details>
+
+<b><details><summary>Node.js的适用场景？</summary></b>
+
+</details>
+
+<b><details><summary>什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>
