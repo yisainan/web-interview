@@ -20,6 +20,38 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 </details>
 
+<b><details><summary>React 之所以速度快是因为帮组 webkit 做了虚拟 diff</summary></b>
+
+</details>
+
+<b><details><summary>React 为什么要设置 key 值</summary></b>
+
+</details>
+
+<b><details><summary>React 优势</summary></b>
+
+</details>
+
+<b><details><summary>React 很多个 setState 为什么是执行完再 render</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

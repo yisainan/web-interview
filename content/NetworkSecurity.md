@@ -255,7 +255,7 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>22.如何启动浏览器硬件加速，小Hack</summary></b>
 
 </details>
 

@@ -234,3 +234,209 @@ console.log(result);
 六.快速排序
 
 </details>
+
+<b><details><summary>1. JS 字符串使用堆栈处理 "(a,b,(c,d),f,g)"</summary></b>
+
+</details>
+
+<b><details><summary>2. 二维数组操作</summary></b>
+
+</details>
+
+<b><details><summary>3. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5,7,9,42,18,29]</summary></b>
+
+</details>
+
+<b><details><summary>4. 正则表达式，验证手机号码，验证规则：11位数字，以1位开头</summary></b>
+
+</details>
+
+<b><details><summary>5. 以下代码求结果</summary></b>
+
+```
+
+function SuperClass() {
+    this.name = "women";
+    this.bra = ["a", "b"];
+}
+
+SuperClass.prototype.sayWhat = function() {
+    console.log("hello")
+}
+
+function SubClass() {
+    this.subname = "you sister";
+    SuperClass.call(this);
+}
+
+var sub = new SubClass();
+console.log(sub.sayWhat());
+
+```
+
+</details>
+
+<b><details><summary>7. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
+
+</details>
+
+<b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合pattern， 则以 result 对结果进行转义输出。 如</summary></b>
+
+```
+
+'/foo'.rewrite(/^\/foo/, '/bar')
+'u1234'.rewrite(/^\/u(\d+)/, '/user/$1')
+'/i'.rewrite(/^\o/, '/ooo')
+
+```
+
+</details>
+
+<b><details><summary>9. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求1.尽量和json兼容，2.支持不可序列化的值，如undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date等</summary></b>
+
+```
+
+serialize({})
+serialize({ a: 'b' })
+serialize({ a: 0/0 })
+serialize({ a: /foo/ })
+
+```
+
+</details>
+
+<b><details><summary>10. 设计一道 JavaScript 的 range 算法如下：</summary></b>
+
+range(1, 10, 3) 返回 [1, 4, 7, 10];
+range('A', 'F', 2) 返回 ['A', 'C', 'E']
+// 请使用 JavaScript 语言实现该功能（可以使用 ES6）
+
+</details>
+
+<b><details><summary>11. 头条的视频网站上支持了弹幕，假设一个视频有很多弹幕，弹幕的数据是一个数组，格式定义如下：</summary></b>
+
+```
+
+[
+    {
+        time: Number,
+        content: String
+    },
+    {
+        time: Number,
+        content: String
+    }...
+]
+(其中 time 表示时间，content表示弹幕内容)，那么如何快速定位到某个时间点的弹幕，请编码实现（不使用数组的 sort 方法）
+
+```
+
+</details>
+
+<b><details><summary>12. 请写出以下代码的执行结果</summary></b>
+```
+(function() {
+    fn();
+    var fn = function() {
+        alert(1);
+    }
+    fn();
+    function fn() {
+        alert(2)
+    }
+})()
+```
+</details>
+
+<b><details><summary>13. 请说明以下各种情况的执行结果，并注明产生对应结果的理由</summary></b>
+```
+function doSomething() {
+    alert(this);
+}
+
+a) element.onclick = doSomething, 点击 element 元素后
+b) element.onclick = function() doSomething(){}, 点击 element 元素后
+c) 直接执行 doSomething()
+```
+</details>
+
+<b><details><summary>14. 请写出以下代码的执行结果</summary></b>
+```
+var obj = {};
+var events = { m1: "clicked", m2: "changed"};
+for(e in events) {
+    obj[e] = function() {
+        alert(events[e])
+    }
+}
+
+alert(obj.m1 == obj.m2);
+obj.m1();
+obj.m2();
+```
+</details>
+
+<b><details><summary>15. 请写出类 Son 继承类 Father</summary></b>
+function Father() {}
+function Son() {}
+</details>
+
+<b><details><summary>16. 请用 JS 写出一个遍历 DOM 节点树的方法</summary></b>
+
+</details>
+
+<b><details><summary>17. 尝试实现注释部分的 JavaScript 代码， 可在其他任何地方添加更多代码。</summary></b>
+```
+var Obj = function(msg) {
+    this.msg = msg;
+    this.shout = function () {
+        alert(this.msg)
+    }
+    this.waitAndShout = function() {
+        // 隔五秒钟后执行上面的 shout 方法
+    }
+}
+```
+</details>
+
+<b><details><summary>18. 请编写一个 JavaScript 函数 parseQuerySting, 它的用途是把 URL 参数解析为一个对象，如</summary></b>
+```
+var url = "http://www.58.com/index.aspx?key0=0&key1=1&key2=2..."
+var obj = parseQuerySting(url);
+alert(obj.key0) // 输出 0
+```
+</details>
+
+<b><details><summary>19. 请给 Array 本地对象添加一个原型方法，它用于删除数组条目中重复的条目（可能有多个重复），返回值是一个包含被删除的重复条目的新数组</summary></b>
+
+</details>
+
+<b><details><summary>20. 我们把一个数字倒着读和原数字相同的数字称之为对称数，例如（1, 121, 88, 8998）,不考虑性能，请找出 1 - 10000 之间的对称数，要求用 JS 实现</summary></b>
+
+</details>
+
+<b><details><summary>21. 以下代码输出多少</summary></b>
+```
+var name = "world";
+(function () {
+    if (typeof name === "undefined") {
+        var name = "jack";
+        console.log("Hi!" + name);
+    } else {
+        console.log("Hello," + name)
+    }
+})()
+```
+</details>
+
+<b><details><summary>22. 数组拍平</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
