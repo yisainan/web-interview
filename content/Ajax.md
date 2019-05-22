@@ -211,23 +211,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>1、ajax 过程</summary></b>
-
-(1)创建 XMLHttpRequest 对象,也就是创建一个异步调用对象.
-
-(2)创建一个新的 HTTP 请求,并指定该 HTTP 请求的方法、URL 及验证信息.
-
-(3)设置响应 HTTP 请求状态变化的函数.
-
-(4)发送 HTTP 请求.
-
-(5)获取异步调用返回的数据.
-
-(6)使用 JavaScript 和 DOM 实现局部刷新.
-
-</details>
-
-<b><details><summary>2、异步加载和延迟加载</summary></b>
+<b><details><summary>19、异步加载和延迟加载</summary></b>
 
 1.异步加载的方案： 动态插入 script 标签
 
@@ -241,7 +225,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>5、eval 是做什么的？</summary></b>
+<b><details><summary>20、eval 是做什么的？</summary></b>
 
 它的功能是把对应的字符串解析成 JS 代码并运行；
 
@@ -249,7 +233,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>7、AMD 和 CMD 规范的区别</summary></b>
+<b><details><summary>21、AMD 和 CMD 规范的区别</summary></b>
 
 1、对于依赖的模块，AMD 是提前执行，CMD 是延迟执行
 
@@ -257,7 +241,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>8、HTTP 状态码</summary></b>
+<b><details><summary>22、HTTP 状态码</summary></b>
 
 100 ?Continue ?继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息
 
@@ -289,7 +273,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>9、栈和队列的区别?</summary></b>
+<b><details><summary>23、栈和队列的区别?</summary></b>
 
 栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
 
@@ -309,7 +293,7 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>10、XML 和 JSON 的区别？</summary></b>
+<b><details><summary>24、XML 和 JSON 的区别？</summary></b>
 
 (1).数据体积方面。
 
@@ -329,17 +313,17 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>12、ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
+<b><details><summary>25、ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
 答：后台做缓存，读取缓存里面的数据。CDN
 
 </details>
 
-<b><details><summary>13.三次握手</summary></b>
+<b><details><summary>26、三次握手</summary></b>
 
-TCP协议是面向连接的通信协议，即在传输数据前先在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。
+TCP 协议是面向连接的通信协议，即在传输数据前先在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。
 
-在TCP连接中必须要明确客户端与服务器端，由客户端向服务端发出连接请求，每次连接的创建都需要经过“三次握手”
+在 TCP 连接中必须要明确客户端与服务器端，由客户端向服务端发出连接请求，每次连接的创建都需要经过“三次握手”
 
 第一次握手，客户端向服务器端发出连接请求，等待服务器确认
 
@@ -349,7 +333,15 @@ TCP协议是面向连接的通信协议，即在传输数据前先在发送端�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>27、四次挥手</summary></b>
+
+1、主机向服务器发送一个断开连接的请求（不早了，我该走了）；
+
+2、服务器接到请求后发送确认收到请求的信号（知道了）；
+
+3、服务器向主机发送断开通知（我也该走了）；
+
+4、主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接；
 
 </details>
 
