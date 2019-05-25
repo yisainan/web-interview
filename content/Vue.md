@@ -32,6 +32,8 @@ Vue 应用加载性能优化措施
 
 <b><details><summary> Vue的双向数据绑定的原理</summary></b>
 
+VUE实现双向数据绑定的原理就是利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的。
+
 </details>
 
 <b><details><summary>构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
