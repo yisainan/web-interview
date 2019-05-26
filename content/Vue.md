@@ -141,6 +141,10 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 <b><details><summary>请问 v-if 和 v-show 有什么区别</summary></b>
 
+显示来看v-if 是“真正的”条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；而v-show 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
+
+一般来说， v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件不太可能改变，则使用 v-if 较好。
+
 </details>
 
 <b><details><summary>vue常用的修饰符</summary></b>
