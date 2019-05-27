@@ -149,17 +149,29 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 <b><details><summary>vue常用的修饰符</summary></b>
 
+[答案](https://blog.csdn.net/qq_42238554/article/details/86592295)
+
 </details>
 
 <b><details><summary>v-on可以监听多个方法吗？</summary></b>
+
+肯定可以的。
+```
+<input type="text" :value="name" @input="onInput" @focus="onFocus" @blur="onBlur" />
+```
 
 </details>
 
 <b><details><summary>vue中 key 值的作用</summary></b>
 
+需要使用key来给每个节点做一个唯一标识，Diff算法就可以正确的识别此节点，找到正确的位置区插入新的节点
+所以一句话，key的作用主要是为了高效的更新虚拟DOM
+
 </details>
 
 <b><details><summary>vue-cli工程升级vue版本</summary></b>
+
+
 
 </details>
 
