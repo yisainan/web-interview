@@ -38,13 +38,7 @@ HTTP/2 让服务器可以将响应主动“推送”到客户端缓存中
 
 <b><details><summary>3. Http 请求的整个过程</summary></b>
 
-简洁版：
-1.域名解析 --> 
-2.发起 TCP 的 3 次握手 --> 
-3.建立 TCP 连接后发起 http 请求 --> 
-4.服务器响应 http 请求，浏览器得到 html 代码 --> 
-5.浏览器解析 html 代码，并请求 html 代码中的资源（如 js、css、图片等） --> 
-6.浏览器对页面进行渲染呈现给用户
+简洁版： 1.域名解析 --> 2.发起 TCP 的 3 次握手 --> 3.建立 TCP 连接后发起 http 请求 --> 4.服务器响应 http 请求，浏览器得到 html 代码 --> 5.浏览器解析 html 代码，并请求 html 代码中的资源（如 js、css、图片等） --> 6.浏览器对页面进行渲染呈现给用户
 
 </details>
 
@@ -217,13 +211,43 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 
 <b><details><summary>11. 什么是点击劫持？如何防范？</summary></b>
 
+```
+什么点击劫持？最常见的是恶意网站使用 <iframe> 标签把我方的一些含有重要信息类如交易的网页嵌入进去，然后把 iframe 设置透明，用定位的手段的把一些引诱用户在恶意网页上点击。这样用户不知不觉中就进行了某些不安全的操作。
+```
+
+有两种方式可以防范： 1.使用 JS 防范：
+if (top.location.hostname !== self.location.hostname) {
+alert("您正在访问不安全的页面，即将跳转到安全页面！");
+top.location.href = self.location.href;
+}
+
+2.使用 HTTP 头防范：
+通过配置 nginx 发送 X-Frame-Options 响应头，这样浏览器就会阻止嵌入网页的渲染。更详细的可以查阅 MDN 上关于 X-Frame-Options 响应头的内容。
+add_header X-Frame-Options SAMEORIGIN;
+
 </details>
 
 <b><details><summary>12. 什么是 CSRF, 怎么造成的， 有什么防御方法？</summary></b>
 
-</details>
+CSRF 概念：CSRF 跨站点请求伪造(Cross—Site Request Forgery)，跟 XSS 攻击一样，存在巨大的危害性，你可以这样来理解：
+攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 如下：其中 Web A 为存在 CSRF 漏洞的网站，Web B 为攻击者构建的恶意网站，User C 为 Web A 网站的合法用户。
 
-<b><details><summary>13. cookie 和 Session 有什么区别？</summary></b>
+CSRF 攻击攻击原理及过程如下：
+
+       1. 用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；
+
+       2.在用户信息通过验证后，网站A产生Cookie信息并返回给浏览器，此时用户登录网站A成功，可以正常发送请求到网站A；
+
+       3. 用户未退出网站A之前，在同一浏览器中，打开一个TAB页访问网站B；
+
+       4. 网站B接收到用户请求后，返回一些攻击性代码，并发出一个请求要求访问第三方站点A；
+
+
+       5. 浏览器在接收到这些攻击性代码后，根据网站B的请求，在用户不知情的情况下携带Cookie信息，向网站A发出请求。网站A并不知道该请求其实是由B发起的，所以会根据用户C的Cookie信息以C的权限处理该请求，导致来自网站B的恶意代码被执行。
+
+防御 CSRF 攻击：
+
+       目前防御 CSRF 攻击主要有三种策略：验证 HTTP Referer 字段；在请求地址中添加 token 并验证；在 HTTP 头中自定义属性并验证。
 
 </details>
 
@@ -236,6 +260,16 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 </details>
 
 <b><details><summary>16. https 实现原理</summary></b>
+
+HTTPS 在通讯过程中的原理，总共分为 8 步
+STEP 1: 客户端发起 HTTPS 请求
+STEP 2: 服务端的配置
+STEP 3: 传送证书
+STEP 4: 客户端解析证书
+STEP 5: 传送加密信息
+STEP 6: 服务端解密信息
+STEP 7: 传输加密后的信息
+STEP 8: 客户端解密信息
 
 </details>
 
@@ -255,11 +289,11 @@ Web Storage 的 api 接口使用更方便，cookie 的原生接口不友好，�
 
 </details>
 
-<b><details><summary>22.如何启动浏览器硬件加速，小Hack</summary></b>
+<b><details><summary>22.如何启动浏览器硬件加速，小 Hack</summary></b>
 
 </details>
 
-<b><details><summary>什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</summary></b>
+<b><details><summary>什么是 Cookie 隔离？（或者说：请求资源的时候不要让它带 cookie 怎么做）</summary></b>
 
 </details>
 

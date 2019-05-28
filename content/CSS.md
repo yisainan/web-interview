@@ -342,19 +342,19 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>20. css优先级算法如何计算？</summary></b>
+<b><details><summary>20. css 优先级算法如何计算？</summary></b>
 
-!important >  id > class > 标签
+!important > id > class > 标签
 
-  !important 比 内联优先级高
+!important 比 内联优先级高
 
-  *优先级就近原则，样式定义最近者为准;
+\*优先级就近原则，样式定义最近者为准;
 
-  *以最后载入的样式为准;
+\*以最后载入的样式为准;
 
 </details>
 
-<b><details><summary>21. b标签和strong标签,i标签和em标签的区别？</summary></b>
+<b><details><summary>21. b 标签和 strong 标签,i 标签和 em 标签的区别？</summary></b>
 
 后者有语义，前者则无。
 
@@ -388,11 +388,11 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
+<b><details><summary>请解释一下 CSS3 的 Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
 
 </details>
 
-<b><details><summary>用纯CSS创建一个三角形的原理是什么？</summary></b>
+<b><details><summary>用纯 CSS 创建一个三角形的原理是什么？</summary></b>
 
 </details>
 
@@ -400,47 +400,47 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
+<b><details><summary>li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
 
 </details>
 
-<b><details><summary>全屏滚动的原理是什么？用到了CSS的那些属性？</summary></b>
+<b><details><summary>全屏滚动的原理是什么？用到了 CSS 的那些属性？</summary></b>
 
 </details>
 
-<b><details><summary>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</summary></b>
+<b><details><summary>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</summary></b>
 
 </details>
 
-<b><details><summary>如何修改chrome记住密码后自动填充表单的黄色背景 ？</summary></b>
+<b><details><summary>如何修改 chrome 记住密码后自动填充表单的黄色背景 ？</summary></b>
 
 </details>
 
-<b><details><summary>你对line-height是如何理解的？</summary></b>
+<b><details><summary>你对 line-height 是如何理解的？</summary></b>
 
 </details>
 
-<b><details><summary>设置元素浮动后，该元素的display值是多少？</summary></b>
+<b><details><summary>设置元素浮动后，该元素的 display 值是多少？</summary></b>
 
-自动变成display:block
-
-</details>
-
-<b><details><summary>怎么让Chrome支持小于12px 的文字？</summary></b>
+自动变成 display:block
 
 </details>
 
-<b><details><summary>让页面里的字体变清晰，变细用CSS怎么做？</summary></b>
+<b><details><summary>怎么让 Chrome 支持小于 12px 的文字？</summary></b>
+
+</details>
+
+<b><details><summary>让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
 
 -webkit-font-smoothing: antialiased;
 
 </details>
 
-<b><details><summary>font-style属性可以让它赋值为“oblique” oblique是什么意思？</summary></b>
+<b><details><summary>font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
 
 </details>
 
-<b><details><summary>position:fixed;在android下无效怎么处理？</summary></b>
+<b><details><summary>position:fixed;在 android 下无效怎么处理？</summary></b>
 
 </details>
 
@@ -450,21 +450,38 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 <b><details><summary>display:inline-block 什么时候会显示间隙？</summary></b>
 
-</details>
+间隙产生的原因是因为，换行或空格会占据一定的位置
 
-<b><details><summary>overflow: scroll时不能平滑滚动的问题怎么处理？</summary></b>
+推荐解决方法：
 
-</details>
-
-<b><details><summary>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</summary></b>
-
-</details>
-
-<b><details><summary>png、jpg、gif 这些图片格式解释一下，分别什么时候用？</summary></b>
+父元素中设置
+font-size:0;letter-spaceing:-4px;
 
 </details>
 
-<b><details><summary>style标签写在body后与body前有什么区别？</summary></b>
+<b><details><summary>overflow: scroll 时不能平滑滚动的问题怎么处理？</summary></b>
+
+</details>
+
+<b><details><summary>有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
+
+</details>
+
+<b><details><summary>png、jpg、gif 这些图片格式解释一下，分别什么时候用？，webp 呢</summary></b>
+
+gif 图形交换格式，索引颜色格式，颜色少的情况下，产生的文件极小，支持背景透明，动画，图形渐进，无损压缩（适合线条，图标等），缺点只有 256 种颜色
+
+jpg 支持上百万种颜色，有损压缩，压缩比可达 180：1，而且质量受损不明显，不支持图形渐进与背景透明，不支持动画
+
+png 为替代 gif 产生的，位图文件，支持透明，半透明，不透明。不支持动画，无损图像格式。Png8 简单说是静态 gif，也只有 256 色，png24 不透明，但不止 256 色。
+
+webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩体积是 jpeg 的 2/3，有损压缩。高版本的 W3C 浏览器才支持，google39+，safari7+
+
+</details>
+
+<b><details><summary>style 标签写在 body 后与 body 前有什么区别？</summary></b>
+
+从上向下加载，加载顺序不同
 
 </details>
 
