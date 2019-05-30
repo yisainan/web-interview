@@ -236,29 +236,37 @@ v-on 指令（可以简写为 @）
 （一）事件的 event 对象
 
 你说你是搞前端的，那么你肯定就知道事件，知道事件，你就肯定知道 event 对象吧？各种的库、框架多少都有针对 event 对象的处理。比如 jquery，通过它内部进行一定的封装，我们开发的时候，就无需关注 event 对象的部分兼容性问题。最典型的，如果我们要阻止默认事件，在 chrome 等浏览器中，我们可能要写一个：
+
 ```
 event.preventDefault();
 ```
+
 而在 IE 中，我们则需要写：
+
 ```
 event.returnValue = false;
 ```
+
 多亏了 jquery ，跨浏览器的实现，我们统一只需要写：
+
 ```
 event.preventDefault();
 ```
-兼容？jquery 内部帮我们搞定了。类似的还有比如阻止事件冒泡以以及事件绑定（addEventListener / attachEvent）等，简单到很多的后端都会使用 $('xxx').bind(...)，这不是我们今天的重点，我们往下看。
+
+兼容？jquery 内部帮我们搞定了。类似的还有比如阻止事件冒泡以以及事件绑定（addEventListener / attachEvent）等，简单到很多的后端都会使用 \$('xxx').bind(...)，这不是我们今天的重点，我们往下看。
 
 （二）vue 中的 event 对象
 
-我们知道，相比于 jquery，vue 的事件绑定可以显得更加直观和便捷，我们只需要在模板上添加一个 v-on 指令（还可以简写为 @），即可完成类似于 $('xxx').bind 的效果，少了一个利用选择器查询元素的操作。我们知道，jquery 中，event 对象会被默认当做实参传入到处理函数中，如下
+我们知道，相比于 jquery，vue 的事件绑定可以显得更加直观和便捷，我们只需要在模板上添加一个 v-on 指令（还可以简写为 @），即可完成类似于 \$('xxx').bind 的效果，少了一个利用选择器查询元素的操作。我们知道，jquery 中，event 对象会被默认当做实参传入到处理函数中，如下
 
 ```
 $('body').bind('click', function (event) {
-  console.log(typeof event);        // object 
+  console.log(typeof event);        // object
 });
 ```
+
 这里直接就获取到了 event 对象，那么问题来了，vue 中呢？
+
 ```
 <div id="app">
     <button v-on:click="click">click me</button>
@@ -273,7 +281,9 @@ var app = new Vue({
     }
 });
 ```
+
 这里的实现方式看起来和 jquery 是一致的啊，但是实际上，vue 比 jquery 要要复杂得多，jquery 官方也明确的说，v-on 不简单是 addEventListener 的语法糖。在 jquery 中，我们传入到 bind 方法中的回调，只能是一个函数表类型的变量或者一个匿名函数，传递的时候，还不能执行它（在后面加上一堆圆括号），否则就变成了取这一个函数的返回值作为事件回调。而我们知道，vue 的 v-on 指令接受的值可以是函数执行的形式，比如 v-on:click="click(233)" 。这里我们可以传递任何需要传递的参数，甚至可以不传递参数：
+
 ```
 <div id="app">
     <button v-on:click="click()">click me</button>
@@ -288,11 +298,13 @@ var app = new Vue({
     }
 });
 ```
+
 咦？我的 event 对象呢？怎么不见了？打印看看 arguments.length 也是 0，说明这时候确实没有实参被传入进来。T_T，那我们如果既需要传递参数，又需要用到 event 对象，这个该怎么办呢？
 
-（三）$event
+（三）\$event
 
-翻看 vue 文档，不难发现，其实我们可以通过将一个特殊变量 $event 传入到回调中解决这个问题：
+翻看 vue 文档，不难发现，其实我们可以通过将一个特殊变量 \$event 传入到回调中解决这个问题：
+
 ```
 <div id="app">
     <button v-on:click="click($event, 233)">click me</button>
@@ -307,17 +319,18 @@ var app = new Vue({
     }
 });
 ```
+
 好吧，这样看起来就正常了。
 简单总结来说：
 
 使用不带圆括号的形式，event 对象将被自动当做实参传入；
 
-使用带圆括号的形式，我们需要使用 $event 变量显式传入 event 对象。
-
+使用带圆括号的形式，我们需要使用 \$event 变量显式传入 event 对象。
 
 二、乌龙
 前面都算是铺垫吧，现在真正的乌龙来了。
 翻看小伙伴儿的代码，偶然看到了类似下面的代码：
+
 ```
 <div id="app">
     <button v-on:click="click(233)">click me</button>
@@ -332,6 +345,7 @@ var app = new Vue({
     }
 });
 ```
+
 看到这一段代码，我的内心是崩溃的，丢进 chrome 里面一跑，尼玛还真可以，打印 arguments.length，也是正常的 1。尼玛！这是什么鬼？毁三观啊？
 既没有传入实参，也没有接收的形参，这个 event 对象的来源，要么是上级作用链，要么。。。是全局作用域。。。全局的，不禁想到了 window.event
 。再次上 MDN 确认了一下，果然，window.event，ie 和 chrome 都在 window 对象上有这样一个属性：
@@ -342,47 +356,573 @@ var app = new Vue({
 
 </details>
 
-<b><details><summary>17. $nextTick 的使用</summary></b>
+<b><details><summary>17. \$nextTick 的使用</summary></b>
+
+1、什么是 Vue.nextTick()？？
+
+定义：在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+
+所以就衍生出了这个获取更新后的 DOM 的 Vue 方法。所以放在 Vue.nextTick()回调函数中的执行的应该是会对 DOM 进行操作的 js 代码；
+
+理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数，
+
+```
+
+<template>
+  <div class="hello">
+    <div>
+      <button id="firstBtn" @click="testClick()" ref="aa">{{testMsg}}</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      testMsg:"原始值",
+    }
+  },
+  methods:{
+    testClick:function(){
+      let that=this;
+      that.testMsg="修改后的值";
+      console.log(that.$refs.aa.innerText);   //that.$refs.aa获取指定DOM，输出：原始值
+    }
+  }
+}
+</script>
+```
+
+使用 this.\$nextTick()
+
+```
+methods:{
+    testClick:function(){
+      let that=this;
+      that.testMsg="修改后的值";
+      that.$nextTick(function(){
+        console.log(that.$refs.aa.innerText);  //输出：修改后的值
+      });
+    }
+  }
+```
+
+注意：Vue 实现响应式并不是数据发生变化之后 DOM 立即变化，而是按一定的策略进行 DOM 的更新。$nextTick 是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用 $nextTick，则可以在回调中获取更新后的 DOM，
+
+2、什么时候需要用的 Vue.nextTick()？？
+
+1、Vue 生命周期的 created()钩子函数进行的 DOM 操作一定要放在 Vue.nextTick()的回调函数中，原因是在 created()钩子函数执行的时候 DOM 其实并未进行任何渲染，而此时进行 DOM 操作无异于徒劳，所以此处一定要将 DOM 操作的 js 代码放进 Vue.nextTick()的回调函数中。与之对应的就是 mounted 钩子函数，因为该钩子函数执行时所有的 DOM 挂载已完成。
+
+```
+created(){
+    let that=this;
+    that.$nextTick(function(){  //不使用this.$nextTick()方法会报错
+        that.$refs.aa.innerHTML="created中更改了按钮内容";  //写入到DOM元素
+    });
+}
+```
+
+2、当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue.nextTick()的回调函数中；通俗的理解是：更改数据后当你想立即使用 js 操作新的视图的时候需要使用它
+
+```
+
+<template>
+  <div class="hello">
+    <h3 id="h">{{testMsg}}</h3>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      testMsg:"原始值",
+    }
+  },
+  methods:{
+    changeTxt:function(){
+      let that=this;
+      that.testMsg="修改后的文本值";  //vue数据改变，改变dom结构
+      let domTxt=document.getElementById('h').innerText;  //后续js对dom的操作
+      console.log(domTxt);  //输出可以看到vue数据修改后DOM并没有立即更新，后续的dom都不是最新的
+      if(domTxt==="原始值"){
+        console.log("文本data被修改后dom内容没立即更新");
+      }else {
+        console.log("文本data被修改后dom内容被马上更新了");
+      }
+    },
+
+  }
+}
+</script>
+```
+
+正确的用法是：vue 改变 dom 元素结构后使用 vue.\$nextTick()方法来实现 dom 数据更新后延迟执行后续代码
+
+```
+    changeTxt:function(){
+      let that=this;
+      that.testMsg="修改后的文本值";  //修改dom结构
+
+      that.$nextTick(function(){  //使用vue.$nextTick()方法可以dom数据更新后延迟执行
+        let domTxt=document.getElementById('h').innerText;
+        console.log(domTxt);  //输出可以看到vue数据修改后并没有DOM没有立即更新，
+        if(domTxt==="原始值"){
+          console.log("文本data被修改后dom内容没立即更新");
+        }else {
+          console.log("文本data被修改后dom内容被马上更新了");
+        }
+      });
+    }
+```
+
+3、在使用某个第三方插件时 ，希望在 vue 生成的某些 dom 动态发生变化时重新应用该插件，也会用到该方法，这时候就需要在 \$nextTick 的回调函数中执行重新应用插件的方法。
+
+Vue.nextTick(callback) 使用原理：
+
+原因是，Vue 是异步执行 dom 更新的，一旦观察到数据变化，Vue 就会开启一个队列，然后把在同一个事件循环 (event loop) 当中观察到数据变化的 watcher 推送进这个队列。如果这个 watcher 被触发多次，只会被推送到队列一次。这种缓冲行为可以有效的去掉重复数据造成的不必要的计算和 DOm 操作。而在下一个事件循环时，Vue 会清空队列，并进行必要的 DOM 更新。
+当你设置 vm.someData = 'new value'，DOM 并不会马上更新，而是在异步队列被清除，也就是下一个事件循环开始时执行更新时才会进行必要的 DOM 更新。如果此时你想要根据更新的 DOM 状态去做某些事情，就会出现问题。。为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用。
 
 </details>
 
 <b><details><summary>18. Vue 组件中 data 为什么必须是函数</summary></b>
 
+在 new Vue() 中，data 是可以作为一个对象进行操作的，然而在 component 中，data 只能以函数的形式存在，不能直接将对象赋值给它，这并非是 Vue 自身如此设计，而是跟 JavaScript 特性相关，我们来回顾下 JavaScript 的原型链
+
+```
+var Component = function() {};
+Component.prototype.data = {
+    message: 'Love'
+}
+var component1 = new Component(),
+    component2 = new Component();
+component1.data.message = 'Peace';
+console.log(component2.data.message);  // Peace
+```
+
+以上两个实例都引用同一个对象，当其中一个实例属性改变时，另一个实例属性也随之改变，只有当两个实例拥有自己的作用域时，才不会互相干扰 ！！！！！这句是重点！！！！！
+
+```
+var Component = function() {
+    this.data = this.data()
+}
+Component.prototype.data = function(){
+    return {
+        message: 'Love'
+    }
+}
+var component1 = new Component(),
+    component2 = new Component();
+component1.data.message = 'Peace';
+console.log(component2.data.message);  // Love
+```
+
 </details>
 
 <b><details><summary>19. v-for 与 v-if 的优先级</summary></b>
+
+v-for 比 v-if 优先
 
 </details>
 
 <b><details><summary>20. vue 中子组件调用父组件的方法</summary></b>
 
+第一种方法是直接在子组件中通过 this.\$parent.event 来调用父组件的方法
+
+父组件
+
+```
+<template>
+  <div>
+    <child></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
+    components: {
+      child
+    },
+    methods: {
+      fatherMethod() {
+        console.log('测试');
+      }
+    }
+  };
+</script>
+```
+
+子组件
+
+```
+<template>
+  <div>
+    <button @click="childMethod()">点击</button>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      childMethod() {
+        this.$parent.fatherMethod();
+      }
+    }
+  };
+</script>
+```
+
+第二种方法是在子组件里用\$emit 向父组件触发一个事件，父组件监听这个事件就行了
+
+父组件
+
+```
+<template>
+  <div>
+    <child @fatherMethod="fatherMethod"></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
+    components: {
+      child
+    },
+    methods: {
+      fatherMethod() {
+        console.log('测试');
+      }
+    }
+  };
+</script>
+```
+
+子组件
+
+```
+<template>
+  <div>
+    <button @click="childMethod()">点击</button>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      childMethod() {
+        this.$emit('fatherMethod');
+      }
+    }
+  };
+</script>
+```
+
+第三种是父组件把方法传入子组件中，在子组件里直接调用这个方法
+
+父组件
+
+```
+<template>
+  <div>
+    <child :fatherMethod="fatherMethod"></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
+    components: {
+      child
+    },
+    methods: {
+      fatherMethod() {
+        console.log('测试');
+      }
+    }
+  };
+</script>
+```
+
+子组件
+
+```
+<template>
+  <div>
+    <button @click="childMethod()">点击</button>
+  </div>
+</template>
+<script>
+  export default {
+    props: {
+      fatherMethod: {
+        type: Function,
+        default: null
+      }
+    },
+    methods: {
+      childMethod() {
+        if (this.fatherMethod) {
+          this.fatherMethod();
+        }
+      }
+    }
+  };
+</script>
+```
+
 </details>
 
 <b><details><summary>21. vue 中父组件调用子组件的方法</summary></b>
+
+使用\$refs
+
+父组件
+
+```
+<template>
+  <div>
+    <button @click="clickParent">点击</button>
+    <child ref="mychild"></child>
+  </div>
+</template>
+
+<script>
+  import Child from './child';
+  export default {
+    name: "parent",
+    components: {
+      child: Child
+    },
+    methods: {
+      clickParent() {
+        this.$refs.mychild.parentHandleclick("嘿嘿嘿");  // 划重点！！！！
+      }
+    }
+  }
+</script>
+```
+
+子组件
+
+```
+<template>
+  <div>
+    child
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "child",
+    props: "someprops",
+    methods: {
+      parentHandleclick(e) {
+        console.log(e)
+      }
+    }
+  }
+</script>
+```
 
 </details>
 
 <b><details><summary>22. vue 中 keep-alive 组件的作用</summary></b>
 
+keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。
+
+用法也很简单：
+
+```
+<keep-alive>
+  <component>
+    <!-- 该组件将被缓存！ -->
+  </component>
+</keep-alive>
+```
+
+props
+_ include - 字符串或正则表达，只有匹配的组件会被缓存
+_ exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存
+
+```
+// 组件 a
+export default {
+  name: ‘a‘,
+  data () {
+    return {}
+  }
+}
+```
+
+```
+<keep-alive include="a">
+  <component>
+    <!-- name 为 a 的组件将被缓存！ -->
+  </component>
+</keep-alive>可以保留它的状态或避免重新渲染
+```
+
+```
+<keep-alive exclude="a">
+  <component>
+    <!-- 除了 name 为 a 的组件都将被缓存！ -->
+  </component>
+</keep-alive>可以保留它的状态或避免重新渲染
+```
+
+但实际项目中,需要配合 vue-router 共同使用.
+
+router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：
+
+```
+<keep-alive>
+    <router-view>
+        <!-- 所有路径匹配到的视图组件都会被缓存！ -->
+    </router-view>
+</keep-alive>
+```
+
+如果只想 router-view 里面某个组件被缓存，怎么办？
+
+增加 router.meta 属性
+
+```
+// routes 配置
+export default [
+  {
+    path: ‘/‘,
+    name: ‘home‘,
+    component: Home,
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
+  }, {
+    path: ‘/:id‘,
+    name: ‘edit‘,
+    component: Edit,
+    meta: {
+      keepAlive: false // 不需要被缓存
+    }
+  }
+]
+```
+
+```
+<keep-alive>
+    <router-view v-if="$route.meta.keepAlive">
+        <!-- 这里是会被缓存的视图组件，比如 Home！ -->
+    </router-view>
+</keep-alive>
+
+<router-view v-if="!$route.meta.keepAlive">
+    <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
+</router-view>
+```
+
 </details>
 
 <b><details><summary>23. vue 中如何编写可复用的组件？</summary></b>
+
+总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
 
 </details>
 
 <b><details><summary>24. 什么是 vue 生命周期和生命周期钩子函数？</summary></b>
 
+vue 的生命周期就是 vue 实例从创建到销毁的过程
+
+![vue_004](../images/vue_004.jpg)
+![vue_005](../images/vue_005.jpg)
+
 </details>
 
 <b><details><summary>25. vue 生命周期钩子函数有哪些？</summary></b>
+
+![vue_005](../images/vue_005.jpg)
 
 </details>
 
 <b><details><summary>26. vue 如何监听键盘事件中的按键？</summary></b>
 
+[链接](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
+
 </details>
 
 <b><details><summary>27. vue 更新数组时触发视图更新的方法</summary></b>
+
+1.Vue.set 可以设置对象或数组的值，通过 key 或数组索引，可以触发视图更新
+
+```
+数组修改
+
+Vue.set(array, indexOfItem, newValue)
+this.array.$set(indexOfItem, newValue)
+对象修改
+
+Vue.set(obj, keyOfItem, newValue)
+this.obj.$set(keyOfItem, newValue)
+```
+
+2.Vue.delete 删除对象或数组中元素，通过 key 或数组索引，可以触发视图更新
+
+```
+数组修改
+
+Vue.delete(array, indexOfItem)
+this.array.$delete(indexOfItem)
+对象修改
+
+Vue.delete(obj, keyOfItem)
+this.obj.$delete(keyOfItem)
+```
+
+3.数组对象直接修改属性，可以触发视图更新
+
+```
+this.array[0].show = true;
+this.array.forEach(function(item){
+    item.show = true;
+});
+```
+
+4.splice 方法修改数组，可以触发视图更新
+
+```
+this.array.splice(indexOfItem, 1, newElement)
+```
+
+5.数组整体修改，可以触发视图更新
+
+```
+var tempArray = this.array;
+tempArray[0].show = true;
+this.array = tempArray;
+```
+
+6.用 Object.assign 或 lodash.assign 可以为对象添加响应式属性，可以触发视图更新
+
+```
+//Object.assign的单层的覆盖前面的属性，不会递归的合并属性
+this.obj = Object.assign({},this.obj,{a:1, b:2})
+
+//assign与Object.assign一样
+this.obj = _.assign({},this.obj,{a:1, b:2})
+
+//merge会递归的合并属性
+this.obj = _.merge({},this.obj,{a:1, b:2})
+```
+
+7.Vue 提供了如下的数组的变异方法，可以触发视图更新
+
+```
+push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse()
+```
 
 </details>
 
