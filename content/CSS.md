@@ -360,95 +360,95 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary> 设备像素比</summary></b>
+<b><details><summary> 22. 设备像素比</summary></b>
 
 </details>
 
-<b><details><summary>BFC</summary></b>
+<b><details><summary>23.BFC</summary></b>
 
 </details>
 
-<b><details><summary>::bofore 和 :after 中双冒号和单冒号有什么区别？</summary></b>
+<b><details><summary>24. ::bofore 和 :after 中双冒号和单冒号有什么区别？</summary></b>
 
 </details>
 
-<b><details><summary>说下 CSS3 中一些样式的兼容，分别指兼容哪些浏览器</summary></b>
+<b><details><summary>25. 说下 CSS3 中一些样式的兼容，分别指兼容哪些浏览器</summary></b>
 
 </details>
 
-<b><details><summary>有哪些手段可以优化 CSS, 提高性能</summary></b>
+<b><details><summary>26. 有哪些手段可以优化 CSS, 提高性能</summary></b>
 
 </details>
 
-<b><details><summary>怎么样实现边框 0.5 个像素？</summary></b>
+<b><details><summary>27. 怎么样实现边框 0.5 个像素？</summary></b>
 
 </details>
 
-<b><details><summary>transform translate transition 的区别</summary></b>
+<b><details><summary>28. transform translate transition 的区别</summary></b>
 
 </details>
 
-<b><details><summary>请解释一下 CSS3 的 Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
+<b><details><summary>29. 请解释一下 CSS3 的 Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
 
 </details>
 
-<b><details><summary>用纯 CSS 创建一个三角形的原理是什么？</summary></b>
+<b><details><summary>30. 用纯 CSS 创建一个三角形的原理是什么？</summary></b>
 
 </details>
 
-<b><details><summary>一个满屏 品 字布局 如何设计?</summary></b>
+<b><details><summary>31. 一个满屏 品 字布局 如何设计?</summary></b>
 
 </details>
 
-<b><details><summary>li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
+<b><details><summary>32. li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
 
 </details>
 
-<b><details><summary>全屏滚动的原理是什么？用到了 CSS 的那些属性？</summary></b>
+<b><details><summary>33. 全屏滚动的原理是什么？用到了 CSS 的那些属性？</summary></b>
 
 </details>
 
-<b><details><summary>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</summary></b>
+<b><details><summary>34. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</summary></b>
 
 </details>
 
-<b><details><summary>如何修改 chrome 记住密码后自动填充表单的黄色背景 ？</summary></b>
+<b><details><summary>35. 何修改 chrome 记住密码后自动填充表单的黄色背景 ？</summary></b>
 
 </details>
 
-<b><details><summary>你对 line-height 是如何理解的？</summary></b>
+<b><details><summary>36. 你对 line-height 是如何理解的？</summary></b>
 
 </details>
 
-<b><details><summary>设置元素浮动后，该元素的 display 值是多少？</summary></b>
+<b><details><summary>37 .设置元素浮动后，该元素的 display 值是多少？</summary></b>
 
 自动变成 display:block
 
 </details>
 
-<b><details><summary>怎么让 Chrome 支持小于 12px 的文字？</summary></b>
+<b><details><summary>38. 怎么让 Chrome 支持小于 12px 的文字？</summary></b>
 
 </details>
 
-<b><details><summary>让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
+<b><details><summary>39. 让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
 
 -webkit-font-smoothing: antialiased;
 
 </details>
 
-<b><details><summary>font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
+<b><details><summary>40. font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
 
 </details>
 
-<b><details><summary>position:fixed;在 android 下无效怎么处理？</summary></b>
+<b><details><summary>41 .position:fixed;在 android 下无效怎么处理？</summary></b>
 
 </details>
 
-<b><details><summary>如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
+<b><details><summary>42. 如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
 
 </details>
 
-<b><details><summary>display:inline-block 什么时候会显示间隙？</summary></b>
+<b><details><summary>43. display:inline-block 什么时候会显示间隙？</summary></b>
 
 间隙产生的原因是因为，换行或空格会占据一定的位置
 
@@ -459,15 +459,15 @@ font-size:0;letter-spaceing:-4px;
 
 </details>
 
-<b><details><summary>overflow: scroll 时不能平滑滚动的问题怎么处理？</summary></b>
+<b><details><summary>44. overflow: scroll 时不能平滑滚动的问题怎么处理？</summary></b>
 
 </details>
 
-<b><details><summary>有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
+<b><details><summary>45. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
 
 </details>
 
-<b><details><summary>png、jpg、gif 这些图片格式解释一下，分别什么时候用？，webp 呢</summary></b>
+<b><details><summary>46. png、jpg、gif 这些图片格式解释一下，分别什么时候用？，webp 呢</summary></b>
 
 gif 图形交换格式，索引颜色格式，颜色少的情况下，产生的文件极小，支持背景透明，动画，图形渐进，无损压缩（适合线条，图标等），缺点只有 256 种颜色
 
@@ -479,7 +479,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 </details>
 
-<b><details><summary>style 标签写在 body 后与 body 前有什么区别？</summary></b>
+<b><details><summary>47. style 标签写在 body 后与 body 前有什么区别？</summary></b>
 
 从上向下加载，加载顺序不同
 

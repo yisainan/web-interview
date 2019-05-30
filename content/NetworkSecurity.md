@@ -253,6 +253,32 @@ CSRF 攻击攻击原理及过程如下：
 
 <b><details><summary>14. 请简述如何在 HTML 中开启和关闭 DNS 预读取?</summary></b>
 
+DNS 预读取
+
+概念：
+
+浏览器主动去执行域名解析功能。
+
+当浏览网页时，浏览器会对网页中的域名进行解析缓存，这样当单击当前网页中的连接时就无需进行 DNS 解析，减少用户等待时间，提高用户体验。
+
+范围：
+
+图片、CSS、JS 或 html 上的 link 等 URL。
+
+开关和使用：
+
+```
+<meta http-equiv="x-dns-prefetch-control" content="off">
+
+<link rel="dns-prefetch" href="//www.spreadfirefox.com">
+```
+
+前端优化：
+
+减少 DNS 请求次数；
+
+进行 DNS 预获取；
+
 </details>
 
 <b><details><summary>15. DNS 回源策略</summary></b>

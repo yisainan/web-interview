@@ -44,33 +44,23 @@ label 标签来定义表单控制间的关系,当用户选择该标签时，浏�
 
 ```
 
-1.XHTML 元素必须被正确地嵌套。
+应该使用XHTML，因为XHTML是XML重写了HTML的规范，比HTML更加严格，表现如下：
 
-错误：<p><span>this is example.</p></span>
+1、XHTML中所有的标记都必须有一个相应的结束标签；
 
-正确：<p><span>this is example.</span></p>
+2、XHTML所有标签的元素和属性的名字都必须使用小写；
 
-2.XHTML 元素必须被关闭。
+3、所有的XML标记都必须合理嵌套；
 
-错误：<p>this is example.
+4、所有的属性都必须用引号“”括起来；
 
-正确：<p>this is example.</p>
+5、把所有<和&特殊符号用编码表示；
 
-3.标签名必须用小写字母。
+6、给所有属性附一个值；
 
-错误：<P>this is example.<P>
+7、不要在注释内容中使用“--”；
 
-正确：<p>this is example.</p>
-
-3.1空标签也必须被关闭
-
-错误：<br>
-
-正确：<br/>
-
-4.XHTML 文档必须拥有根元素。
-
-所有的 XHTML 元素必须被嵌套于 <html> 根元素中。
+8、图片必须使用说明文字。
 
 ```
 
@@ -390,7 +380,15 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>webSocket如何兼容低浏览器？</summary></b>
+<b><details><summary>webSocket如何兼容低版本浏览器？</summary></b>
+
+对于低端不支持websocket的浏览器，一般有几个解决方案
+
+使用轮询或长连接的方式实现伪websocket的通信
+
+使用flash或其他方法实现一个websocket客户端 ：https://segmentfault.com/q/1010000005000671/a-1020000005003936
+
+https://blog.csdn.net/u011925826/article/details/17532465
 
 </details>
 
@@ -399,6 +397,59 @@ CSS3新增伪类举例：
 </details>
 
 <b><details><summary>如何在页面上实现一个圆形的可点击区域？</summary></b>
+
+一.border-radius (css3)
+
+对于圆形，最直接的方法想到的就是css3的圆角属性，这个属性可以将html元素的形状设置为圆形，这之后你想对该圆形区域设置什么事件就设置什么事件(当然包括点击)。（这里就不做具体的test了）
+
+二.通过事件坐标来实现（js）
+
+也就是通过js来进行一个区域判断，进而简介地的形成可点区域，以下给出主要的js测试代码：
+
+```
+// 获取目标元素
+var box = document.getElementById('box');
+
+// 对目标元素target的圆形区域进行一个点击事件绑定
+function bindClickOnCircleArea(target, callback) {
+  target.onclick = function (e) {
+    e = e || window.event;
+
+    // target中心点的坐标
+    var x1 = 100;
+    var y1 = 100;
+
+    // 事件源坐标
+    var x2 = e.offsetX;
+    var y2 = e.offsetY;
+
+    // 校验是否在圆形点击区，在的话就执行callback回调
+    // 计算事件触发点与target中心的位置
+    var len = Math.abs(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
+    // 通过半径进行校验
+    if (len <= 100) {
+      callback();
+    } else {
+      alert('死鬼，跑哪去啊，你老婆我是黄皮肤还是白皮肤都分不清了吗');
+    }
+  }
+}
+
+// 执行
+bindClickOnCircleArea(box, function () {
+  alert('老婆，你让我好找啊，呜呜呜');
+});
+```
+
+三.通过map加area
+
+```
+<img src="../imgs/test.jpg" width="200" border="0" usemap="#Map" />
+<map name="Map" id="Map">
+  <area shape="circle" coords="100,100,100" href="http://www.baidu.com" target="_blank" />
+</map>
+```
+[参考](https://zhuanlan.zhihu.com/p/48168812)
 
 </details>
 
