@@ -182,7 +182,7 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>3. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
+<b><details><summary>17. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
 
 1 以 ie6 为例，如果写了 DTD，就意味着这个页面将采用对 CSS 支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是 Quirks 模式（怪癖模式，诡异模式，怪异模式）。
 
@@ -216,7 +216,7 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>4. div+css 的布局较 table 布局有什么优点？</summary></b>
+<b><details><summary>18. div+css 的布局较 table 布局有什么优点？</summary></b>
 
 分离 方便改版 快清晰简洁 seo
 
@@ -230,7 +230,7 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>6. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b>
+<b><details><summary>19. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b>
 
 渐进增强  progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
@@ -244,19 +244,19 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>8. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
+<b><details><summary>20. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
 
 降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
 
 </details>
 
-<b><details><summary>10. 简述一下 src 与 href 的区别。</summary></b>
+<b><details><summary>21. 简述一下 src 与 href 的区别。</summary></b>
 
 src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
 
 </details>
 
-<b><details><summary>12. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
+<b><details><summary>22. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
 
 微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
@@ -264,13 +264,13 @@ src 用于替换当前元素，href 用于在当前文档和引用资源之间�
 
 </details>
 
-<b><details><summary>13. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
+<b><details><summary>23. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
 
 答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
 
 </details>
 
-<b><details><summary>14. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
+<b><details><summary>24. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
 
 图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。
 
@@ -284,7 +284,7 @@ src 用于替换当前元素，href 用于在当前文档和引用资源之间�
 
 </details>
 
-<b><details><summary>39. html 常见兼容性问题？</summary></b>
+<b><details><summary>25. html 常见兼容性问题？</summary></b>
 
 1.双边距 BUG float 引起的   使用 display
 
@@ -318,13 +318,13 @@ filter: alpha(opacity=60); /_ for IE5-7 _/
 
 </details>
 
-<b><details><summary>40. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
+<b><details><summary>26. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
 答：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
 </details>
 
-<b><details><summary>44. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
+<b><details><summary>27. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
 ```
 
@@ -380,7 +380,7 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>webSocket如何兼容低版本浏览器？</summary></b>
+<b><details><summary>28. webSocket如何兼容低版本浏览器？</summary></b>
 
 对于低端不支持websocket的浏览器，一般有几个解决方案
 
@@ -392,11 +392,11 @@ https://blog.csdn.net/u011925826/article/details/17532465
 
 </details>
 
-<b><details><summary>页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
+<b><details><summary>29. 页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
 
 </details>
 
-<b><details><summary>如何在页面上实现一个圆形的可点击区域？</summary></b>
+<b><details><summary>30. 如何在页面上实现一个圆形的可点击区域？</summary></b>
 
 一.border-radius (css3)
 
@@ -453,7 +453,7 @@ bindClickOnCircleArea(box, function () {
 
 </details>
 
-<b><details><summary>网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
+<b><details><summary>31. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
 
 </details>
 

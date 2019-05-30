@@ -6,8 +6,7 @@
 
 2、建议阅读
 
-*  [写给前端面试者](https://github.com/amfe/article/issues/5)
-
+- [写给前端面试者](https://github.com/amfe/article/issues/5)
 
 🙏 仓库将持续更新，如有内容错误或改进意见，欢迎 issue 或 pr。本仓库遵循 CC BY-NC-SA 4.0 协议，转载请注明出处。
 
@@ -21,11 +20,25 @@
 
 </details>
 
-<b><details><summary>〽️ [JS](./content/JS.md)</summary></b>
+<b><details><summary>〽️ JS</summary></b>
+
+- [js](./content/js/js.md)
+- [prototype 原型](./content/js/prototype.md)
+- [es6](./content/js/es6.md)
+- [jquery](./content/js/jquery.md)
+- [node](./content/js/node.md)
 
 </details>
 
-<b><details><summary>⚡️ [Vue](./content/Vue.md)</summary></b>
+<b><details><summary>⚡️ Vue</summary></b>
+
+- [vue-cli](./content/vue/vue-cli.md)
+- [vue.js](./content/vue/vue.md)
+- [vue-router](./content/vue/vue-router.md)
+- [vuex](./content/vue/vuex.md)
+- [api 请求](./content/vue/api.md)
+- [MVVM 设计模式](./content/vue/MVVM.md)
+
 
 </details>
 
@@ -68,7 +81,6 @@
 <b><details><summary>👬 贡献者</summary></b>
 
 [qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
-[ravencrown](https://github.com/ravencrown/web-interview)<br/>
 
 </details>
 
