@@ -433,6 +433,31 @@ var name = "world";
 
 </details>
 
+<b><details><summary>如何解决数组塌陷问题</summary></b>
+
+```
+
+    // 1 使用i--
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]===4){
+            arr.splice(i,1);
+            i--;
+        }
+    }
+    console.log(arr)
+
+    // 2 从数组的末尾一项开始遍历
+    for(var i =arr.length;i>=0;i--){
+        if(arr[i]===4){
+            arr.splice(i,1);
+        }
+    }
+    console.log(arr)
+
+```
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

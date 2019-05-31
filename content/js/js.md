@@ -231,7 +231,9 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
-<b><details><summary>JavaScript 的基本数据类型</summary></b>
+<b><details><summary>JavaScript 的数据类型</summary></b>
+
+JS数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
 
 </details>
 
@@ -310,31 +312,6 @@ F10、F11 代码的逐行调试
 1 在浏览器当中打断点
 
 2 直接在代码中加 debugger
-
-</details>
-
-<b><details><summary>如何解决数组塌陷问题</summary></b>
-
-```
-
-    // 1 使用i--
-    for(var i=0;i<arr.length;i++){
-        if(arr[i]===4){
-            arr.splice(i,1);
-            i--;
-        }
-    }
-    console.log(arr)
-
-    // 2 从数组的末尾一项开始遍历
-    for(var i =arr.length;i>=0;i--){
-        if(arr[i]===4){
-            arr.splice(i,1);
-        }
-    }
-    console.log(arr)
-
-```
 
 </details>
 
