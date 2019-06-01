@@ -12,11 +12,15 @@
 
 </details>
 
-<b><details><summary>➕ [HTML](./content/HTML.md)</summary></b>
+<b><details><summary>➕ HTML</summary></b>
+
+- [详情](./content/HTML.md)
 
 </details>
 
-<b><details><summary>📦 [CSS](./content/CSS.md)</summary></b>
+<b><details><summary>📦 CSS</summary></b>
+
+- [详情](./content/CSS.md)
 
 </details>
 
@@ -42,27 +46,39 @@
 
 </details>
 
-<b><details><summary>❓ [React](./content/React.md)</summary></b>
+<b><details><summary>❓ React</summary></b>
+
+- [详情](./content/React.md)
 
 </details>
 
-<b><details><summary>💻 [Angular](./content/Angular.md)</summary></b>
+<b><details><summary>💻 Angular</summary></b>
+  
+- [详情](./content/Angular.md)
 
 </details>
 
-<b><details><summary>☁️ [Ajax](./content/Ajax.md)</summary></b>
+<b><details><summary>☁️ Ajax</summary></b>
+
+- [详情](./content/Ajax.md)
 
 </details>
 
-<b><details><summary>🌩 [编程题](./content/Program.md)</summary></b>
+<b><details><summary>🌩 编程题</summary></b>
+
+- [详情](./content/Program.md)
 
 </details>
 
-<b><details><summary>💾 [网络安全存储](./content/NetworkSecurity.md)</summary></b>
+<b><details><summary>💾 网络安全存储</summary></b>
+
+- [详情](./content/NetworkSecurity.md)
 
 </details>
 
-<b><details><summary>📏 [框架/工程/项目](./content/Project.md)</summary></b>
+<b><details><summary>📏 框架/工程/项目</summary></b>
+
+- [详情](./content/Project.md)
 
 </details>
 
@@ -74,7 +90,9 @@
 
 </details>
 
-<b><details><summary>🔱 [面试中经常遇到的问题(非技术)](./content/Question.md)</summary></b>
+<b><details><summary>🔱 面试中经常遇到的问题(非技术)</summary></b>
+
+- [详情](./content/Question.md)
 
 </details>
 
