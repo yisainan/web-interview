@@ -36,7 +36,9 @@
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>怎么定义vue-router的动态路由？怎么获取传过来的动态参数？ </summary></b>
+
+答：在router目录下的index.js文件中，对path属性加上/:id。  使用router对象的params.id
 
 </details>
 

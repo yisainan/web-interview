@@ -1,6 +1,6 @@
 # [返回主页](../../README.md)
 
-<b><details><summary>4. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
+<b><details><summary>1. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
 
 1、vue.js：vue-cli 工程的核心，主要特点是 双向数据绑定 和 组件系统。
 
@@ -18,7 +18,7 @@
 
 </details>
 
-<b><details><summary>5. vue-cli 工程常用的 npm 命令有哪些？</summary></b>
+<b><details><summary>2. vue-cli 工程常用的 npm 命令有哪些？</summary></b>
 
 下载 node_modules 资源包的命令：
 
@@ -40,7 +40,7 @@ npm run build --report
 
 </details>
 
-<b><details><summary>6. 请说出 vue-cli 工程中每个文件夹和文件的用处</summary></b>
+<b><details><summary>3. 请说出 vue-cli 工程中每个文件夹和文件的用处</summary></b>
 
 ```
 vue-cli目录解析：
@@ -66,7 +66,7 @@ package.json：用于 node_modules资源部 和 启动、打包项目的 npm 命
 
 </details>
 
-<b><details><summary>7. config 文件夹 下 index.js 的对于工程 开发环境 和 生产环境 的配置</summary></b>
+<b><details><summary>4. config 文件夹 下 index.js 的对于工程 开发环境 和 生产环境 的配置</summary></b>
 
 ```
 build 对象下 对于 生产环境 的配置：
@@ -85,7 +85,7 @@ proxyTable：vue设置的代理，用以解决 跨域 问题
 
 </details>
 
-<b><details><summary>8. 请你详细介绍一些 package.json 里面的配置</summary></b>
+<b><details><summary>5. 请你详细介绍一些 package.json 里面的配置</summary></b>
 
 ```
 scripts：npm run xxx 命令调用node执行的 .js 文件
@@ -95,11 +95,32 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 </details>
 
-<b><details><summary>vue-cli中常用到的加载器</summary></b>
+<b><details><summary>6. vue-cli 中常用到的加载器</summary></b>
+
+1.安装 sass:
+
+2.安装 axios:
+
+3.安装 mock:
+
+4.安装 lib-flexible: --实现移动端自适应
+
+5.安装 sass-resourses-loader
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b>
+
+第一步：在 components 目录新建你的组件文件（如：indexPage.vue），script 一定要 export default {}
+
+第二步：在需要用的页面（组件）中导入：import indexPage from '@/components/indexPage.vue'
+
+第三步：注入到 vue 的子组件的 components 属性上面,components:{indexPage}
+
+第四步：在 template 视图 view 中使用
+
+遇到的问题：
+例如有 indexPage 命名，使用的时候则 index-page
 
 </details>
 

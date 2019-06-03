@@ -24,13 +24,13 @@ Vue 应用加载性能优化措施
 
 组件懒加载
 
-减少http请求，合理设置 HTTP缓存
+减少 http 请求，合理设置 HTTP 缓存
 使用浏览器缓存
 启用压缩
 CSS Sprites
 LazyLoad Images
-CSS放在页面最上部，javascript放在页面最下面
-尽量避免使用 eval和 Function
+CSS 放在页面最上部，javascript 放在页面最下面
+尽量避免使用 eval 和 Function
 
 </details>
 
@@ -99,9 +99,9 @@ VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这
 
 <b><details><summary>11. 请问 v-if 和 v-show 有什么区别</summary></b>
 
-显示来看 v-if 是“真正的”条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；而 v-show 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
+v-show指令是通过修改元素的display的CSS属性让其显示或者隐藏
 
-一般来说， v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件不太可能改变，则使用 v-if 较好。
+v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果
 
 </details>
 
@@ -895,17 +895,17 @@ reverse()
 
 </details>
 
-<b><details><summary>42. vue如何优化首屏加载速度？</summary></b>
+<b><details><summary>42. vue 如何优化首屏加载速度？</summary></b>
 
 </details>
 
-<b><details><summary>43. vue打包命令是什么？</summary></b>
+<b><details><summary>43. vue 打包命令是什么？</summary></b>
 
 npm run build
 
 </details>
 
-<b><details><summary>44. vue打包后会生成哪些文件？</summary></b>
+<b><details><summary>44. vue 打包后会生成哪些文件？</summary></b>
 
 </details>
 
@@ -913,11 +913,11 @@ npm run build
 
 </details>
 
-<b><details><summary>46. vue的服务器端渲染</summary></b>
+<b><details><summary>46. vue 的服务器端渲染</summary></b>
 
 </details>
 
-<b><details><summary>47. vue开发命令 npm run dev 输入后的执行过程</summary></b>
+<b><details><summary>47. vue 开发命令 npm run dev 输入后的执行过程</summary></b>
 
 </details>
 
@@ -933,11 +933,11 @@ npm run build
 
 </details>
 
-<b><details><summary>51. 如何编译template 模板？</summary></b>
+<b><details><summary>51. 如何编译 template 模板？</summary></b>
 
 </details>
 
-<b><details><summary>52. diff算法</summary></b>
+<b><details><summary>52. diff 算法</summary></b>
 
 </details>
 
@@ -945,34 +945,120 @@ npm run build
 
 </details>
 
-<b><details><summary>54. proxy代理？</summary></b>
+<b><details><summary>54. proxy 代理？</summary></b>
 
 </details>
 
-<b><details><summary>55. vue中如何实现tab切换功能？</summary></b>
+<b><details><summary>55. vue 中如何实现 tab 切换功能？</summary></b>
 
 </details>
 
-<b><details><summary>56. vue中如何利用 keep-alive 标签实现某个组件缓存功能？</summary></b>
+<b><details><summary>56. vue 中如何利用 keep-alive 标签实现某个组件缓存功能？</summary></b>
 
 </details>
 
-<b><details><summary>57. vue中实现切换页面时为左滑出效果</summary></b>
+<b><details><summary>57. vue 中实现切换页面时为左滑出效果</summary></b>
 
 </details>
 
-<b><details><summary>58. vue中央事件总线的使用</summary></b>
+<b><details><summary>58. vue 中央事件总线的使用</summary></b>
 
 </details>
 
-<b><details><summary>59. vue的渲染机制</summary></b>
+<b><details><summary>59. vue 的渲染机制</summary></b>
 
 </details>
 
-<b><details><summary>60. vue在什么情况下在数据发生改变的时候不会触发视图更新</summary></b>
+<b><details><summary>60. vue 在什么情况下在数据发生改变的时候不会触发视图更新</summary></b>
 
-v-for遍历的数组，当数组内容使用的是arr[0].xx =xx更改数据，vue无法监测到
-vm.arr.length = newLength也是无法检测的到的
+v-for 遍历的数组，当数组内容使用的是 arr[0].xx =xx 更改数据，vue 无法监测到
+vm.arr.length = newLength 也是无法检测的到的
+
+</details>
+
+<b><details><summary>vue 的优点是什么？</summary></b>
+
+低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的"View"上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。
+
+可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。
+
+独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。
+
+可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。
+
+</details>
+
+<b><details><summary>vue 如何实现按需加载配合 webpack 设置</summary></b>
+
+```
+webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。
+不进行页面按需加载引入方式：import home from '../../common/home.vue'
+进行页面按需加载的引入方式：const home = r => require.ensure( [], () => r (require('../../common/home.vue')))
+```
+
+在音乐 app 中使用的路由懒加载方式为：
+
+```
+const Recommend = (resolve) => {
+  import('components/recommend/recommend').then((module) => {
+    resolve(module)
+  })
+}
+
+const Singer = (resolve) => {
+  import('components/singer/singer').then((module) => {
+    resolve(module)
+  })
+}
+```
+
+</details>
+
+<b><details><summary>如何让CSS只在当前组件中起作用</summary></b>
+
+```
+将当前组件的<style>修改为<style scoped>
+```
+
+</details>
+
+<b><details><summary>指令v-el的作用是什么?</summary></b>
+
+提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
+
+</details>
+
+<b><details><summary>vue-router有哪几种导航钩子？</summary></b>
+
+三种，一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
+第二种：组件内的钩子；
+第三种：单独路由独享组件
+
+</details>
+
+<b><details><summary>vue-loader是什么？使用它的用途有哪些？</summary></b>
+
+解析.vue文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
+用途：js可以写es6、style样式可以scss或less、template可以加jade等
+
+</details>
+
+<b><details><summary>为什么避免 v-if 和 v-for 用在一起</summary></b>
+
+当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+
+</details>
+
+<b><details><summary>组件的设计原则</summary></b>
+```
+(1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块) 
+(2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中) 
+(每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑) 
+(3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
+```
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
 
