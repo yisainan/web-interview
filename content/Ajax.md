@@ -2,11 +2,9 @@
 
 <b><details><summary>1、Ajax 是什么?如何创建一个 Ajax？</summary></b>
 
-Ajax 并不算是一种新的技术，全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新。
+Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
 
-使用 ajax 原生方式发送请求主要通过 XMLHttpRequest(标准浏览器)、ActiveXObject(IE 浏览器)对象实现异步通信效果
-
-基本步骤 4 步走：
+基本步骤 4 步走：（创建对象、建立连接、发送数据、接收数据）
 
 ```
 
@@ -15,7 +13,7 @@ Ajax 并不算是一种新的技术，全称是 asychronous javascript and xml�
 
     2：我要发送请求，我要跟服务器建立一个连接。
 
-    open("type 提交方式", "url  提交的地址")
+    xhr.open("type 提交方式", "url  提交的地址")
 
     2.1:如果是post请求，需要设置请求头
 
@@ -24,7 +22,7 @@ Ajax 并不算是一种新的技术，全称是 asychronous javascript and xml�
     3：我要发送数据给服务器。
 
     如果说是get 请求，请求的数据在地址的后面。
-    send() 发送数据，这一步不能省略
+    xhr.send() 发送数据，这一步不能省略
 
     4：接收服务器的数据。
         服务端返回数据会调用一个回调函数。
