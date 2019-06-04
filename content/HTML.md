@@ -480,7 +480,3 @@ bindClickOnCircleArea(box, function () {
 <b><details><summary></summary></b>
 
 </details>
-
-<b><details><summary></summary></b>
-
-</details>
