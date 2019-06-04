@@ -3,7 +3,7 @@
 
 <b><details><summary>1.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 
-```
+```js
 
 function showWindowHref(){
     var sHref = window.location.href;
@@ -34,9 +34,9 @@ console.log(href['name']); // xiaoming
 2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作
 3、第一个数需要立即输出
 
-```
+```js
 
-实现法一（setTimeout()方法）：
+// 实现法一（setTimeout()方法）：
 
 function count(start, end) {
     if(start <= end){
@@ -50,7 +50,7 @@ function count(start, end) {
 count(1, 10);
 
 
-实现法二（setInterval()方法）：
+// 实现法二（setInterval()方法）：
 
 function count(start, end) {
     console.log(start++);
@@ -84,7 +84,7 @@ setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用�
 <b><details><summary>3.用js实现一个标准的排序算法</summary></b>
 
 一.冒泡排序
-```
+```js
 
 function BubbleSort(array) {
   var length = array.length;
@@ -129,7 +129,7 @@ console.log(result);
 ```
 二.选择排序
 
-```
+```js
 
 function SelectionSort(array) {
   var length = array.length;
@@ -183,7 +183,7 @@ console.log(result);
 ```
 三.插入排序
 
-```
+```js
 
 function InsertionSort(array) {
   var length = array.length;
@@ -253,7 +253,7 @@ console.log(result);
 
 <b><details><summary>5. 以下代码求结果</summary></b>
 
-```
+```js
 
 function SuperClass() {
     this.name = "women";
@@ -282,7 +282,7 @@ console.log(sub.sayWhat());
 
 <b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合pattern， 则以 result 对结果进行转义输出。 如</summary></b>
 
-```
+```js
 
 '/foo'.rewrite(/^\/foo/, '/bar')
 'u1234'.rewrite(/^\/u(\d+)/, '/user/$1')
@@ -294,7 +294,7 @@ console.log(sub.sayWhat());
 
 <b><details><summary>9. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求1.尽量和json兼容，2.支持不可序列化的值，如undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date等</summary></b>
 
-```
+```js
 
 serialize({})
 serialize({ a: 'b' })
@@ -416,7 +416,7 @@ alert(obj.key0) // 输出 0
 </details>
 
 <b><details><summary>21. 以下代码输出多少</summary></b>
-```
+```js
 var name = "world";
 (function () {
     if (typeof name === "undefined") {
@@ -435,7 +435,7 @@ var name = "world";
 
 <b><details><summary>如何解决数组塌陷问题</summary></b>
 
-```
+```js
 
     // 1 使用i--
     for(var i=0;i<arr.length;i++){

@@ -16,7 +16,7 @@ html 语义化让页面的内容结构化，结构更清晰，便于对浏览器
 
 label 标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
 
-```
+```html
 
 <label for="Name">Number:</label>
 
@@ -86,7 +86,7 @@ Webkit 内核：Safari,Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]
 
 <b><details><summary>8.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
-```
+```html
 
 <div style="height:1px;overflow:hidden;background:red"></div>
 
@@ -406,7 +406,7 @@ https://blog.csdn.net/u011925826/article/details/17532465
 
 也就是通过js来进行一个区域判断，进而简介地的形成可点区域，以下给出主要的js测试代码：
 
-```
+```js
 // 获取目标元素
 var box = document.getElementById('box');
 
@@ -443,7 +443,7 @@ bindClickOnCircleArea(box, function () {
 
 三.通过map加area
 
-```
+```html
 <img src="../imgs/test.jpg" width="200" border="0" usemap="#Map" />
 <map name="Map" id="Map">
   <area shape="circle" coords="100,100,100" href="http://www.baidu.com" target="_blank" />

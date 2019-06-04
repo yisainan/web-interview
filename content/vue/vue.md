@@ -115,7 +115,7 @@ v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果
 
 肯定可以的。
 
-```
+```html
 <input type="text" :value="name" @input="onInput" @focus="onFocus" @blur="onBlur" />
 ```
 
@@ -150,19 +150,19 @@ v-on 指令（可以简写为 @）
 
 你说你是搞前端的，那么你肯定就知道事件，知道事件，你就肯定知道 event 对象吧？各种的库、框架多少都有针对 event 对象的处理。比如 jquery，通过它内部进行一定的封装，我们开发的时候，就无需关注 event 对象的部分兼容性问题。最典型的，如果我们要阻止默认事件，在 chrome 等浏览器中，我们可能要写一个：
 
-```
+```js
 event.preventDefault();
 ```
 
 而在 IE 中，我们则需要写：
 
-```
+```js
 event.returnValue = false;
 ```
 
 多亏了 jquery ，跨浏览器的实现，我们统一只需要写：
 
-```
+```js
 event.preventDefault();
 ```
 
@@ -172,7 +172,7 @@ event.preventDefault();
 
 我们知道，相比于 jquery，vue 的事件绑定可以显得更加直观和便捷，我们只需要在模板上添加一个 v-on 指令（还可以简写为 @），即可完成类似于 \$('xxx').bind 的效果，少了一个利用选择器查询元素的操作。我们知道，jquery 中，event 对象会被默认当做实参传入到处理函数中，如下
 
-```
+```js
 $('body').bind('click', function (event) {
   console.log(typeof event);        // object
 });
@@ -180,7 +180,7 @@ $('body').bind('click', function (event) {
 
 这里直接就获取到了 event 对象，那么问题来了，vue 中呢？
 
-```
+```js
 <div id="app">
     <button v-on:click="click">click me</button>
 </div>
@@ -197,7 +197,7 @@ var app = new Vue({
 
 这里的实现方式看起来和 jquery 是一致的啊，但是实际上，vue 比 jquery 要要复杂得多，jquery 官方也明确的说，v-on 不简单是 addEventListener 的语法糖。在 jquery 中，我们传入到 bind 方法中的回调，只能是一个函数表类型的变量或者一个匿名函数，传递的时候，还不能执行它（在后面加上一堆圆括号），否则就变成了取这一个函数的返回值作为事件回调。而我们知道，vue 的 v-on 指令接受的值可以是函数执行的形式，比如 v-on:click="click(233)" 。这里我们可以传递任何需要传递的参数，甚至可以不传递参数：
 
-```
+```js
 <div id="app">
     <button v-on:click="click()">click me</button>
 </div>
@@ -218,7 +218,7 @@ var app = new Vue({
 
 翻看 vue 文档，不难发现，其实我们可以通过将一个特殊变量 \$event 传入到回调中解决这个问题：
 
-```
+```js
 <div id="app">
     <button v-on:click="click($event, 233)">click me</button>
 </div>
@@ -244,7 +244,7 @@ var app = new Vue({
 前面都算是铺垫吧，现在真正的乌龙来了。
 翻看小伙伴儿的代码，偶然看到了类似下面的代码：
 
-```
+```js
 <div id="app">
     <button v-on:click="click(233)">click me</button>
 </div>
@@ -279,7 +279,7 @@ var app = new Vue({
 
 理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数，
 
-```
+```js
 
 <template>
   <div class="hello">
@@ -310,7 +310,7 @@ export default {
 
 使用 this.\$nextTick()
 
-```
+```js
 methods:{
     testClick:function(){
       let that=this;
@@ -328,7 +328,7 @@ methods:{
 
 1、Vue 生命周期的 created()钩子函数进行的 DOM 操作一定要放在 Vue.nextTick()的回调函数中，原因是在 created()钩子函数执行的时候 DOM 其实并未进行任何渲染，而此时进行 DOM 操作无异于徒劳，所以此处一定要将 DOM 操作的 js 代码放进 Vue.nextTick()的回调函数中。与之对应的就是 mounted 钩子函数，因为该钩子函数执行时所有的 DOM 挂载已完成。
 
-```
+```js
 created(){
     let that=this;
     that.$nextTick(function(){  //不使用this.$nextTick()方法会报错
@@ -339,7 +339,7 @@ created(){
 
 2、当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue.nextTick()的回调函数中；通俗的理解是：更改数据后当你想立即使用 js 操作新的视图的时候需要使用它
 
-```
+```js
 
 <template>
   <div class="hello">
@@ -375,7 +375,7 @@ export default {
 
 正确的用法是：vue 改变 dom 元素结构后使用 vue.\$nextTick()方法来实现 dom 数据更新后延迟执行后续代码
 
-```
+```js
     changeTxt:function(){
       let that=this;
       that.testMsg="修改后的文本值";  //修改dom结构
@@ -405,7 +405,7 @@ Vue.nextTick(callback) 使用原理：
 
 在 new Vue() 中，data 是可以作为一个对象进行操作的，然而在 component 中，data 只能以函数的形式存在，不能直接将对象赋值给它，这并非是 Vue 自身如此设计，而是跟 JavaScript 特性相关，我们来回顾下 JavaScript 的原型链
 
-```
+```js
 var Component = function() {};
 Component.prototype.data = {
     message: 'Love'
@@ -418,7 +418,7 @@ console.log(component2.data.message);  // Peace
 
 以上两个实例都引用同一个对象，当其中一个实例属性改变时，另一个实例属性也随之改变，只有当两个实例拥有自己的作用域时，才不会互相干扰 ！！！！！这句是重点！！！！！
 
-```
+```js
 var Component = function() {
     this.data = this.data()
 }
@@ -447,7 +447,7 @@ v-for 比 v-if 优先
 
 父组件
 
-```
+```js
 <template>
   <div>
     <child></child>

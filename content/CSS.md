@@ -111,7 +111,7 @@ important 比 内联优先级高
 
 示例如下：
 
-```
+```css
 
 #test{
 
@@ -204,7 +204,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>13. 如何垂直居中一个浮动元素？</summary></b>
 
-```
+```css
 
 // 方法一：已知元素的高宽
 
@@ -262,7 +262,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 那么问题来了，如何垂直居中一个`<img>?`（用更简便的方法。）
 
-```
+```css
 
 #container     //<img>的容器设置如下
 

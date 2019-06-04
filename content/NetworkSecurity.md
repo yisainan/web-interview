@@ -48,7 +48,7 @@ HTTP/2 让服务器可以将响应主动“推送”到客户端缓存中
 
 设置如下网页元信息:
 
-```
+```html
 
  <meta http-equiv="Cache-Control" content="max-age=7200" />
  <meta http-equiv="Expires" content="Mon, 20 Jul 2013 23:00:00 GMT" />
@@ -90,7 +90,7 @@ HTML meta 标签参考手册 HTML <meta> 标签
 实例
 每隔 30 秒刷新一次文档：
 
-```
+```html
 
 <head>
 <meta http-equiv="refresh" content="30">
@@ -133,7 +133,7 @@ h5 之前，存储主要用 cookies，缺点是在请求头上带着数据，导
 
 操作方式：
 
-```
+```html
 
 document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/" // 设置 cookie
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT" // 删除 cookie
@@ -267,7 +267,7 @@ DNS 预读取
 
 开关和使用：
 
-```
+```html
 <meta http-equiv="x-dns-prefetch-control" content="off">
 
 <link rel="dns-prefetch" href="//www.spreadfirefox.com">
