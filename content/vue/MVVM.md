@@ -61,22 +61,6 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 </details>
 
-<b><details><summary>6、 ES6 中类和定义</summary></b>
-
-</details>
-
-<b><details><summary>7、JS 中的文档碎片</summary></b>
-
-</details>
-
-<b><details><summary>8、解构赋值</summary></b>
-
-</details>
-
-<b><details><summary>9、Array.from 与 Array.reduce</summary></b>
-
-</details>
-
 <b><details><summary>10、递归的使用</summary></b>
 
 </details>

@@ -66,19 +66,19 @@
 
 <b><details><summary>🌩 编程题</summary></b>
 
-- [详情](./content/Program.md)
+- [详情](./content/编程题.md)
 
 </details>
 
-<b><details><summary>💾 网络安全存储</summary></b>
+<b><details><summary>💾 网络问题</summary></b>
 
-- [详情](./content/NetworkSecurity.md)
+- [详情](./content/网络问题.md)
 
 </details>
 
 <b><details><summary>📏 框架/工程/项目</summary></b>
 
-- [详情](./content/Project.md)
+- [详情](./content/框架工程项目.md)
 
 </details>
 
@@ -92,7 +92,7 @@
 
 <b><details><summary>🔱 面试中经常遇到的问题(非技术)</summary></b>
 
-- [详情](./content/Question.md)
+- [详情](./content/非技术问题.md)
 
 </details>
 
