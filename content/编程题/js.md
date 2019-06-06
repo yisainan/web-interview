@@ -460,6 +460,31 @@ var name = "world";
 
 <b><details><summary></summary></b>
 
+```js
+   function fun(n, o){
+       console.log(o);
+       return {
+           fun:function(m){
+               return fun(m,n)
+           }
+       }
+   }
+//    var a = fun(0);
+//    a.fun(1)
+//    a.fun(2)
+//    a.fun(3)
+
+// 打印
+// undefined 0 0 0
+
+//    var b = fun(0).fun(1).fun(2).fun(3)
+// 打印 undefined 0 1 2
+
+
+var c = fun(0).fun(1); c.fun(2);c.fun(3)
+// 打印
+// undefined 0 1 1
+```
 </details>
 
 <b><details><summary></summary></b>

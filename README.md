@@ -66,7 +66,7 @@
 
 <b><details><summary>🌩 编程题</summary></b>
 
-- [详情](./content/编程题.md)
+- [详情](./content/编程题/js.md)
 
 </details>
 
