@@ -40,7 +40,6 @@
 - [vue.js](./content/vue/vue.md)
 - [vue-router](./content/vue/vue-router.md)
 - [vuex](./content/vue/vuex.md)
-- [api 请求](./content/vue/api.md)
 - [MVVM 设计模式](./content/vue/MVVM.md)
 
 
