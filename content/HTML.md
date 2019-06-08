@@ -327,7 +327,6 @@ filter: alpha(opacity=60); /_ for IE5-7 _/
 <b><details><summary>27. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
 ```
-
   1.id选择器（ # myid）
 
         2.类选择器（.myclassname）
