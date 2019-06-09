@@ -406,10 +406,6 @@ $rootScrope是所有$scope 的父对象
 
 </details>
 
-<b><details><summary></summary></b>
-
-</details>
-
 </details>
 
 <b><details><summary></summary></b>
