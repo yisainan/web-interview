@@ -458,7 +458,28 @@ bindClickOnCircleArea(box, function () {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>32. 移动端1px问题的解决办法</summary></b>
+
+推荐解决方法：媒体查询 + transfrom 
+
+```
+/* 2倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+/* 3倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+    }
+}
+```
+
+[其他解决方案参考](https://www.jianshu.com/p/31f8907637a6)
 
 </details>
 
