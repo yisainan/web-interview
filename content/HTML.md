@@ -460,7 +460,7 @@ bindClickOnCircleArea(box, function () {
 
 <b><details><summary>32. 移动端1px问题的解决办法</summary></b>
 
-推荐解决方法：媒体查询 + transfrom 
+推荐解决方法：媒体查询 + transfrom
 
 ```
 /* 2倍屏 */
@@ -480,6 +480,70 @@ bindClickOnCircleArea(box, function () {
 ```
 
 [其他解决方案参考](https://www.jianshu.com/p/31f8907637a6)
+
+</details>
+
+<b><details><summary>严格模式与混杂模式</summary></b>
+
+严格模式：以浏览器支持的最高标准运行
+
+混杂模式：页面以宽松向下兼容的方式显示，模拟老式浏览器的行为
+
+</details>
+
+<b><details><summary>对w3c的理解</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
 

@@ -46,7 +46,9 @@ createDocumentFragment() //创建一个 DOM 片段
 
 </details>
 
-<b><details><summary>6.你对闭包的理解？</summary></b> 1.闭包就是能够读取其他函数内部变量的函数。由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
+<b><details><summary>6.你对闭包的理解？优缺点？</summary></b>
+
+1.闭包就是能够读取其他函数内部变量的函数。由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
 
 </details>
 
@@ -245,7 +247,7 @@ JS数据类型共有六种，分别是 String、Number、Boolean、Null、Undefi
 
 </details>
 
-<b><details><summary>.call() 和 .apply() 的含义和区别？</summary></b>
+<b><details><summary>call() 和 apply() 的含义和区别？</summary></b>
 
 </details>
 
@@ -396,6 +398,118 @@ F10、F11 代码的逐行调试
 <!--1 面向对象和面向过程的异同-->
 <!--2 在JavaScript中面向对象的表现形式-->
 <!--3 其他语言中面向对象的表现形式（了解）-->
+
+</details>
+
+<b><details><summary>javascript的typeof返回哪些数据类型</summary></b>
+
+</details>
+
+<b><details><summary>列举3种强制类型转换和2种隐式类型转换</summary></b>
+
+</details>
+
+<b><details><summary>split() join()的区别</summary></b>
+
+</details>
+
+<b><details><summary>如何对网站文件和资源优化</summary></b>
+
+```
+文件合并及压缩
+使用CDN托管
+使用缓存
+```
+
+</details>
+
+<b><details><summary>标准模式与怪异模式的区别</summary></b>
+
+</details>
+
+<b><details><summary>img上title与alt</summary></b>
+
+title：图片的信息；alt：图片不显示时显示的文字
+
+</details>
+
+<b><details><summary>css reset 与 css sprites</summary></b>
+
+css reset ：重置浏览器默认属性
+
+css sprites ：由多个小图片组成的大图，减少服务器对图片的请求数
+
+</details>
+
+<b><details><summary>IE6遇到什么bug？解决办法是？</summary></b>
+
+</details>
+
+<b><details><summary>数组方法pop() push() unshift() shift()</summary></b>
+
+</details>
+
+<b><details><summary>事件绑定与普通事件有什么区别</summary></b>
+
+用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
+
+普通事件是针对非dom元素，时间绑定是针对dom元素的事件
+
+</details>
+
+<b><details><summary>IE和DOM事件流的区别</summary></b>
+
+</details>
+
+<b><details><summary>IE和标准下有哪些兼容性的写法</summary></b>
+
+</details>
+
+<b><details><summary>css可以继承的属性</summary></b>
+
+list- font- text-
+
+</details>
+
+<b><details><summary>如何阻止冒泡与默认行为</summary></b>
+
+</details>
+
+<b><details><summary>如何实现js中的继承</summary></b>
+
+</details>
+
+<b><details><summary>js中this 闭包 作用域</summary></b>
+
+this：指向调用上下文
+
+闭包：定义一个函数就开辟了一个局部作用域，整个js执行环境有一个全局作用域
+
+作用域：一个函数可以访问其他函数中的变量（闭包是一个受保护的变量空间）
+
+```js
+var f = (function fn() {
+  var name = 1;
+  return function () {
+    name++;
+    console.log(name)
+  }
+})()
+
+==>undefined 有疑问
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
 
