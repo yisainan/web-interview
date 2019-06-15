@@ -426,6 +426,20 @@ var name = "world";
         console.log("Hello," + name)
     }
 })()
+
+==> Hi!jack
+
+var name = "world";
+(function (name) {
+    if (typeof name === "undefined") {
+        var name = "jack";
+        console.log("Hi!" + name);
+    } else {
+        console.log("Hello," + name)
+    }
+})(name)
+
+==> Hello,world
 ```
 </details>
 
