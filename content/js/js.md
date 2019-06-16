@@ -501,6 +501,30 @@ var f = (function fn() {
 
 </details>
 
+<b><details><summary>添加 删除 替换 插入到某个节点的方法</summary></b>
+
+</details>
+
+<b><details><summary>javascript的本地对象，内置对象和宿主对象</summary></b>
+
+</details>
+
+<b><details><summary>== 和 === 的不同</summary></b>
+
+</details>
+
+<b><details><summary>javascript的同源策略</summary></b>
+
+</details>
+
+<b><details><summary>js是一门怎样的语言，它有什么特点</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

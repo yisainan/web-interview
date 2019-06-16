@@ -495,7 +495,7 @@ bindClickOnCircleArea(box, function () {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>document load 和 document ready 的区别</summary></b>
 
 </details>
 

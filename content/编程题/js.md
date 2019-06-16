@@ -90,7 +90,7 @@ function BubbleSort(array) {
   var length = array.length;
   for (var i = length - 1; i > 0; i--) { //用于缩小范围
     for (var j = 0; j < i; j++) { //在范围内进行冒泡，在此范围内最大的一个将冒到最后面
-      if (array[j] > array[j+1]) { 
+      if (array[j] > array[j+1]) {
         var temp = array[j];
         array[j] = array[j+1];
         array[j+1] = temp;
@@ -101,11 +101,11 @@ function BubbleSort(array) {
   }
   return array;
 }
- 
- 
+
+
 var arr = [10,9,8,7,7,6,5,11,3];
 var result = BubbleSort(arr);
-console.log(result); 
+console.log(result);
 /*
 [ 9, 8, 7, 7, 6, 5, 10, 3, 11 ]
 -----------------------------
@@ -152,7 +152,7 @@ function SelectionSort(array) {
   }
   return array;
 }
- 
+
 var arr = [ 1, 10, 100, 90, 65, 5, 4, 10, 2, 4 ];
 var result = SelectionSort(arr);
 console.log(result);
@@ -204,7 +204,7 @@ function InsertionSort(array) {
   }
   return array;
 }
- 
+
 var arr = [100,90,80,62,80,8,1,2,39];
 var result = InsertionSort(arr);
 console.log(result);
@@ -499,6 +499,51 @@ var c = fun(0).fun(1); c.fun(2);c.fun(3)
 // 打印
 // undefined 0 1 1
 ```
+</details>
+
+<b><details><summary>编写一个数组去重的方法</summary></b>
+
+</details>
+
+<b><details><summary>已知id的input输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
+
+document.getElementById('id').value
+
+</details>
+
+<b><details><summary>获取到页面中所有的checkbox怎么做？（不使用第三方框架）</summary></b>
+
+var domList = document.getElementsByTagName('input')
+var ckList = []; // 返回的所有的checkbox
+var len = domList.length
+for (var i = 0; i < len; i++) {
+  if (domList[i].type == 'checkbox') {
+    ckList.push(domList[i])
+  }
+}
+
+</details>
+
+<b><details><summary>设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色（不使用第三方框架）</summary></b>
+
+```
+var dom = document.getElementById('id');
+dom.innerHTML = 'xxxx';
+dom.style.color = '#000'; // 'black'
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
 </details>
 
 <b><details><summary></summary></b>
