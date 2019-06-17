@@ -65,7 +65,10 @@
 
 <b><details><summary>🌩 编程题</summary></b>
 
-- [详情](./content/编程题/js.md)
+- [js](./content/编程题/js.md)
+- [es6](./content/编程题/es6.md)
+- [prototype 原型](./content/编程题/prototype.md)
+- [变量提升](./content/编程题/变量提升.md)
 
 </details>
 
