@@ -407,6 +407,8 @@ F10、F11 代码的逐行调试
 
 <b><details><summary>列举3种强制类型转换和2种隐式类型转换</summary></b>
 
+强制（parseInt,parseFloat,Number）隐式（+ -）
+
 </details>
 
 <b><details><summary>split() join()的区别</summary></b>
