@@ -518,7 +518,15 @@ W3C对web标准提出了规范化的要求，也就是在实际编程中的一�
 </details>
 
 <b><details><summary>document load 和 document ready 的区别</summary></b>
+```
+页面加载完成有两种事件
 
+1.load是当页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数
+问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
+
+2.$(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
+在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
+```
 </details>
 
 <b><details><summary></summary></b>
