@@ -1,14 +1,12 @@
 # [返回主页](../../README.md)
 
-<b><details><summary>vuex 工作原理详解 </summary></b>
+<b><details><summary>1.vuex 工作原理详解 </summary></b>
 
-Vue.mixin
-
-Vue.use
+vuex整体思想诞生于flux,可其的实现方式完完全全的使用了vue自身的响应式设计，依赖监听、依赖收集都属于vue对对象Property set get方法的代理劫持。最后一句话结束vuex工作原理，vuex中的store本质就是没有template的隐藏着的vue组件；
 
 </details>
 
-<b><details><summary>vuex 是什么？怎么使用？哪种功能场景使用它？</summary></b>
+<b><details><summary>2.vuex 是什么？怎么使用？哪种功能场景使用它？</summary></b>
 
 vue 框架中状态管理。在 main.js 引入 store，注入。新建一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车
 
@@ -26,7 +24,7 @@ store
 
 </details>
 
-<b><details><summary>vuex 有哪几种属性？</summary></b>
+<b><details><summary>3.vuex 有哪几种属性？</summary></b>
 
 有五种，分别是 State、 Getter、Mutation 、Action、 Module
 
@@ -47,7 +45,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 </details>
 
-<b><details><summary>不用 Vuex 会带来什么问题？</summary></b>
+<b><details><summary>4.不用 Vuex 会带来什么问题？</summary></b>
 
 可维护性会下降，想修改数据要维护三个地方；
 

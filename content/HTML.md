@@ -529,7 +529,17 @@ bindClickOnCircleArea(box, function () {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>列举IE与其他浏览器不一样的特性？</summary></b>
+
+a. IE的排版引擎是Trident （又称为MSHTML）
+
+b. Trident内核曾经几乎与W3C标准脱节（2005年）
+
+c. Trident内核的大量 Bug等安全性问题没有得到及时解决
+
+d. JS方面，有很多独立的方法，例如绑定事件的attachEvent、创建事件的createEventObject等
+
+e. CSS方面，也有自己独有的处理方式，例如设置透明，低版本IE中使用滤镜的方式
 
 </details>
 
