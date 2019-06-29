@@ -523,11 +523,27 @@ var f = (function fn() {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>事件冒泡与事件捕获</summary></b>
+
+事件冒泡：由最具体的元素（目标元素）向外传播到最不具体的元素
+
+事件捕获：由最不确定的元素到目标元素
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>foo = foo||bar ，这行代码是什么意思？为什么要这样写？</summary></b>
+
+这种写法称为短路表达式
+相当于
+```js
+var foo;
+if (foo) {
+  foo = foo
+} else {
+  foo = bar
+}
+```
+答案：常用于函数参数的空判断
 
 </details>
 

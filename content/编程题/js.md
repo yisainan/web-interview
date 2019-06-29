@@ -536,9 +536,27 @@ dom.style.color = '#000'; // 'black'
 
 <b><details><summary></summary></b>
 
+2 == true
+[] == false
+[] == ![]
+
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>已知有字符串foo=“get-element-by-id”,写一个function将其转化为驼峰表示法“getElementById”</summary></b>
+
+```js
+var string = 'get-element-by-id';
+
+function combo(msg) {
+    var arr = msg.split("-"); //split("-")以-为分隔符截取字符串，返回数组
+    for(var i = 1; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    msg = arr.join(""); //join()返回字符串
+    return msg;
+}
+console.log(combo(string))
+```
 
 </details>
 
