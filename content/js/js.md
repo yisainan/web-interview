@@ -475,9 +475,37 @@ list- font- text-
 
 <b><details><summary>如何阻止冒泡与默认行为</summary></b>
 
+当需要停止冒泡行为时，可以使用
+```js
+function stopBubble(e) { 
+//如果提供了事件对象，则这是一个非IE浏览器 
+if ( e && e.stopPropagation ) 
+    //因此它支持W3C的stopPropagation()方法 
+    e.stopPropagation(); 
+else 
+    //否则，我们需要使用IE的方式来取消事件冒泡 
+    window.event.cancelBubble = true; 
+}
+```
+当需要阻止默认行为时，可以使用
+```js
+//阻止浏览器的默认行为 
+function stopDefault( e ) { 
+    //阻止默认浏览器动作(W3C) 
+    if ( e && e.preventDefault ) 
+        e.preventDefault(); 
+    //IE中阻止函数器默认动作的方式 
+    else 
+        window.event.returnValue = false; 
+    return false; 
+}
+```
+
 </details>
 
 <b><details><summary>如何实现js中的继承</summary></b>
+
+[详情](https://www.cnblogs.com/diligentYe/p/6413450.html)
 
 </details>
 
@@ -500,10 +528,6 @@ var f = (function fn() {
 
 ==>undefined 有疑问
 ```
-
-</details>
-
-<b><details><summary>添加 删除 替换 插入到某个节点的方法</summary></b>
 
 </details>
 
