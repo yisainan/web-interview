@@ -114,6 +114,24 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
+<b><details><summary>10.什么是面向对象？</summary></b>
+
+<!--1 面向对象和面向过程的异同-->
+<!--2 在JavaScript中面向对象的表现形式-->
+<!--3 其他语言中面向对象的表现形式（了解）-->
+
+</details>
+
+<b><details><summary>11.javascript的typeof返回哪些数据类型</summary></b>
+
+</details>
+
+<b><details><summary>12.列举3种强制类型转换和2种隐式类型转换</summary></b>
+
+强制（parseInt,parseFloat,Number）隐式（+ -）
+
+</details>
+
 <b><details><summary>13.变量提升</summary></b>
 
 [变量提升概念]()
@@ -229,61 +247,65 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
-<b><details><summary>ES6 的动态加载，如何动态 import</summary></b>
+<b><details><summary>41.ES6 的动态加载，如何动态 import</summary></b>
 
 </details>
 
-<b><details><summary>JavaScript 的数据类型</summary></b>
+<b><details><summary>42.split() join()的区别</summary></b>
+
+</details>
+
+<b><details><summary>43.JavaScript 的数据类型</summary></b>
 
 JS数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
 
 </details>
 
-<b><details><summary>如何判断一个对象是否属于某个类？</summary></b>
+<b><details><summary>44.如何判断一个对象是否属于某个类？</summary></b>
 
 </details>
 
-<b><details><summary>new 操作符具体干了什么呢?</summary></b>
+<b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
 
 </details>
 
-<b><details><summary>call() 和 apply() 的含义和区别？</summary></b>
+<b><details><summary>46.call() 和 apply() 的含义和区别？</summary></b>
 
 </details>
 
-<b><details><summary>那些操作会造成内存泄漏？</summary></b>
+<b><details><summary>47.那些操作会造成内存泄漏？</summary></b>
 
 </details>
 
-<b><details><summary>Zepto 的点透问题如何解决？</summary></b>
+<b><details><summary>48.Zepto 的点透问题如何解决？</summary></b>
 
 </details>
 
-<b><details><summary>如何判断当前脚本运行在浏览器还是 node 环境中？</summary></b>
+<b><details><summary>49.如何判断当前脚本运行在浏览器还是 node 环境中？</summary></b>
 
 </details>
 
-<b><details><summary>移动端最小触控区域是多大？</summary></b>
+<b><details><summary>50.移动端最小触控区域是多大？</summary></b>
 
 </details>
 
-<b><details><summary>移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？</summary></b>
+<b><details><summary>51.移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？</summary></b>
 
 </details>
 
-<b><details><summary>解释 JavaScript 中的作用域与变量声明提升？</summary></b>
+<b><details><summary>52.解释 JavaScript 中的作用域与变量声明提升？</summary></b>
 
 </details>
 
-<b><details><summary>Node.js 的适用场景？</summary></b>
+<b><details><summary>53.Node.js 的适用场景？</summary></b>
 
 </details>
 
-<b><details><summary>什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
+<b><details><summary>54.什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
 
 </details>
 
-<b><details><summary>使用构造函数的注意点</summary></b>
+<b><details><summary>55.使用构造函数的注意点</summary></b>
 
     *  1 一般情况下构造函数的首字母需要大写，因为我们在看到一个函数首字母
     *  大写的情况，就认定这是一个构造函数，需要跟new关键字进行搭配使用，创建一个新的
@@ -298,13 +320,13 @@ JS数据类型共有六种，分别是 String、Number、Boolean、Null、Undefi
 
 </details>
 
-<b><details><summary>如何获取浏览器版本信息</summary></b>
+<b><details><summary>56.如何获取浏览器版本信息</summary></b>
 
 window.navigator.userAgent
 
 </details>
 
-<b><details><summary>调试工具的使用</summary></b>
+<b><details><summary>57.调试工具的使用</summary></b>
 
 调试模式中的按钮作用
 F8 跳出断点调试模式
@@ -317,15 +339,15 @@ F10、F11 代码的逐行调试
 
 </details>
 
-<b><details><summary>数组的常用方法</summary></b>
+<b><details><summary>58.数组的常用方法</summary></b>
 
 </details>
 
-<b><details><summary>字符串常用操作</summary></b>
+<b><details><summary>59.字符串常用操作</summary></b>
 
 </details>
 
-<b><details><summary>作用域的概念及作用</summary></b>
+<b><details><summary>60.作用域的概念及作用</summary></b>
 
  * 作用域 ： 起作用的一块区域
  * 作用域的概念： 对变量起保护作用的一块区域
@@ -333,7 +355,7 @@ F10、F11 代码的逐行调试
 
 </details>
 
-<b><details><summary>作用域的分类</summary></b>
+<b><details><summary>61.作用域的分类</summary></b>
 
 1 块作用域  花括号 {}
 
@@ -344,7 +366,7 @@ F10、F11 代码的逐行调试
 作用域只跟在何处被调用有关系，跟在何处被创建没有关系
 </details>
 
-<b><details><summary>js属于哪种作用域</summary></b>
+<b><details><summary>62.js属于哪种作用域</summary></b>
 
 ```js
  // 块作用域
@@ -393,29 +415,7 @@ F10、F11 代码的逐行调试
 
 </details>
 
-<b><details><summary>什么是面向对象？</summary></b>
-
-<!--1 面向对象和面向过程的异同-->
-<!--2 在JavaScript中面向对象的表现形式-->
-<!--3 其他语言中面向对象的表现形式（了解）-->
-
-</details>
-
-<b><details><summary>javascript的typeof返回哪些数据类型</summary></b>
-
-</details>
-
-<b><details><summary>列举3种强制类型转换和2种隐式类型转换</summary></b>
-
-强制（parseInt,parseFloat,Number）隐式（+ -）
-
-</details>
-
-<b><details><summary>split() join()的区别</summary></b>
-
-</details>
-
-<b><details><summary>如何对网站文件和资源优化</summary></b>
+<b><details><summary>63.如何对网站文件和资源优化</summary></b>
 
 ```
 文件合并及压缩
@@ -425,17 +425,17 @@ F10、F11 代码的逐行调试
 
 </details>
 
-<b><details><summary>标准模式与怪异模式的区别</summary></b>
+<b><details><summary>64.标准模式与怪异模式的区别</summary></b>
 
 </details>
 
-<b><details><summary>img上title与alt</summary></b>
+<b><details><summary>65.img上title与alt</summary></b>
 
 title：图片的信息；alt：图片不显示时显示的文字
 
 </details>
 
-<b><details><summary>css reset 与 css sprites</summary></b>
+<b><details><summary>66.css reset 与 css sprites</summary></b>
 
 css reset ：重置浏览器默认属性
 
@@ -443,15 +443,15 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 </details>
 
-<b><details><summary>IE6遇到什么bug？解决办法是？</summary></b>
+<b><details><summary>67.IE6遇到什么bug？解决办法是？</summary></b>
 
 </details>
 
-<b><details><summary>数组方法pop() push() unshift() shift()</summary></b>
+<b><details><summary>68.数组方法pop() push() unshift() shift()</summary></b>
 
 </details>
 
-<b><details><summary>事件绑定与普通事件有什么区别</summary></b>
+<b><details><summary>69.事件绑定与普通事件有什么区别</summary></b>
 
 用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
 
@@ -459,21 +459,21 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 </details>
 
-<b><details><summary>IE和DOM事件流的区别</summary></b>
+<b><details><summary>70.IE和DOM事件流的区别</summary></b>
 
 </details>
 
-<b><details><summary>IE和标准下有哪些兼容性的写法</summary></b>
+<b><details><summary>71.IE和标准下有哪些兼容性的写法</summary></b>
 
 </details>
 
-<b><details><summary>css可以继承的属性</summary></b>
+<b><details><summary>72.css可以继承的属性</summary></b>
 
 list- font- text-
 
 </details>
 
-<b><details><summary>如何阻止冒泡与默认行为</summary></b>
+<b><details><summary>73.如何阻止冒泡与默认行为</summary></b>
 
 当需要停止冒泡行为时，可以使用
 ```js
@@ -503,13 +503,13 @@ function stopDefault( e ) {
 
 </details>
 
-<b><details><summary>如何实现js中的继承</summary></b>
+<b><details><summary>74.如何实现js中的继承</summary></b>
 
 [详情](https://www.cnblogs.com/diligentYe/p/6413450.html)
 
 </details>
 
-<b><details><summary>js中this 闭包 作用域</summary></b>
+<b><details><summary>75.js中this 闭包 作用域</summary></b>
 
 this：指向调用上下文
 
@@ -531,23 +531,65 @@ var f = (function fn() {
 
 </details>
 
-<b><details><summary>javascript的本地对象，内置对象和宿主对象</summary></b>
+<b><details><summary>76.javascript的本地对象，内置对象和宿主对象</summary></b>
+
+```
+本地对象
+ECMA-262 把本地对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。它们包括：Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
+```
+```
+内置对象
+JS中内置了17个对象，常用的是Array对象、Date对象、正则表达式对象、string对象、Global对象 
+```
+```
+宿主对象
+由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。
+```
 
 </details>
 
-<b><details><summary>== 和 === 的不同</summary></b>
+<b><details><summary>77.== 和 === 的不同</summary></b>
+
+==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
 
 </details>
 
-<b><details><summary>javascript的同源策略</summary></b>
+<b><details><summary>78.javascript的同源策略</summary></b>
+
+同源策略：限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。（来自MDN官方的解释）
+
+简单来说就是：一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合
+具体解释：
+
+（1）源包括三个部分：协议、域名、端口（http协议的默认端口是80）。如果有任何一个部分不同，则源不同，那就是跨域了。
+
+（2）限制：这个源的文档没有权利去操作另一个源的文档。这个限制体现在：（要记住）
+
+Cookie、LocalStorage和IndexDB无法获取。
+
+无法获取和操作DOM。
+
+不能发送Ajax请求。我们要注意，Ajax只适合同源的通信。
+
+同源策略带来的麻烦：ajax在不同域名下的请求无法实现，需要进行跨域操作
 
 </details>
 
-<b><details><summary>js是一门怎样的语言，它有什么特点</summary></b>
+<b><details><summary>79.js是一门怎样的语言，它有什么特点</summary></b>
+
+1.脚本语言。JavaScript是一种解释型的脚本语言,C、C++等语言先编译后执行,而JavaScript是在程序的运行过程中逐行进行解释。
+
+2.基于对象。JavaScript是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象。
+
+3.简单。JavaScript语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于Java基本语句和控制的脚本语言,其设计简单紧凑。
+
+4.动态性。JavaScript是一种采用事件驱动的脚本语言,它不需要经过Web服务器就可以对用户的输入做出响应。
+
+5.跨平台性。JavaScript脚本语言不依赖于操作系统,仅需要浏览器的支持。
 
 </details>
 
-<b><details><summary>事件冒泡与事件捕获</summary></b>
+<b><details><summary>80.事件冒泡与事件捕获</summary></b>
 
 事件冒泡：由最具体的元素（目标元素）向外传播到最不具体的元素
 
@@ -555,7 +597,7 @@ var f = (function fn() {
 
 </details>
 
-<b><details><summary>foo = foo||bar ，这行代码是什么意思？为什么要这样写？</summary></b>
+<b><details><summary>81.foo = foo||bar ，这行代码是什么意思？为什么要这样写？</summary></b>
 
 这种写法称为短路表达式
 相当于
