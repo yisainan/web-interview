@@ -122,11 +122,27 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
-<b><details><summary>11.javascript的typeof返回哪些数据类型</summary></b>
+<b><details><summary>11.javascript 的 typeof 返回哪些数据类型</summary></b>
+
+7种
+
+undefined
+
+string
+
+boolean
+
+number
+
+symbol(ES6)
+
+Object
+
+Function
 
 </details>
 
-<b><details><summary>12.列举3种强制类型转换和2种隐式类型转换</summary></b>
+<b><details><summary>12.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
 强制（parseInt,parseFloat,Number）隐式（+ -）
 
@@ -157,9 +173,15 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 <b><details><summary>18. null/undefined 的区别</summary></b>
 
+null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值。
+
+undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。
+
 </details>
 
 <b><details><summary>20. 如何判断 JS 变量的一个类型（至少三种方式）</summary></b>
+
+typeof、instanceof、 constructor、 prototype
 
 </details>
 
@@ -176,6 +198,18 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 </details>
 
 <b><details><summary>24.如何判断一个对象是否为数组</summary></b>
+
+第一种方法：
+
+使用instanceof操作符。
+
+第二种方法：
+
+使用ECMAScript 5新增的Array.isArray()方法。
+
+第三种方法：
+
+使用使用Object.prototype上的原生toString()方法判断。
 
 </details>
 
@@ -257,7 +291,7 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 <b><details><summary>43.JavaScript 的数据类型</summary></b>
 
-JS数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
+JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
 
 </details>
 
@@ -349,68 +383,66 @@ F10、F11 代码的逐行调试
 
 <b><details><summary>60.作用域的概念及作用</summary></b>
 
- * 作用域 ： 起作用的一块区域
- * 作用域的概念： 对变量起保护作用的一块区域
- * 作用： 作用域外部无法获取到作用域内部声明的变量，作用域内部能够获取到作用域外界声明的变量。
+- 作用域 ： 起作用的一块区域
+- 作用域的概念： 对变量起保护作用的一块区域
+- 作用： 作用域外部无法获取到作用域内部声明的变量，作用域内部能够获取到作用域外界声明的变量。
 
 </details>
 
 <b><details><summary>61.作用域的分类</summary></b>
 
-1 块作用域  花括号 {}
+1 块作用域 花括号 {}
 
-2 词法作用域
+2 词法作用域（js属于词法作用域）
 作用域只跟在何处被创建有关系，跟在何处被调用没有关系
 
 3 动态作用域
 作用域只跟在何处被调用有关系，跟在何处被创建没有关系
+
 </details>
 
-<b><details><summary>62.js属于哪种作用域</summary></b>
+<b><details><summary>62.js 属于哪种作用域</summary></b>
 
 ```js
- // 块作用域
-    /*{
+// 块作用域
+/*{
         var num =123;
     }
     console.log(num);*/
-    // 如果js属于块作用域，那么在花括号外部就无法访问到花括号内部的声明的num变量。
-    // 如果js不属于块级作用域，那么花括号外部就能够访问到花括号内部声明的num变量
-    // 能够输出num变量，也就说明js不属于块级作用。
-    // 在ES6 之前的版本js是不存在块级作用域的。
+// 如果js属于块作用域，那么在花括号外部就无法访问到花括号内部的声明的num变量。
+// 如果js不属于块级作用域，那么花括号外部就能够访问到花括号内部声明的num变量
+// 能够输出num变量，也就说明js不属于块级作用。
+// 在ES6 之前的版本js是不存在块级作用域的。
 
+//js属于词法作用域还是动态作用域
 
-    //js属于词法作用域还是动态作用域
+// js中函数可以帮我们去形成一个作用域
 
-    // js中函数可以帮我们去形成一个作用域
-
-   /* function fn(){
+/* function fn(){
         var num =123;
     }
     fn();
     //在函数外界能否访问到num这样一个变量
-    console.log(num)*///Uncaught ReferenceError: num is not defined
-    // 如果函数能够生成一个作用域，那么在函数外界就无法访问到函数内部声明的变量。
-    // js中的函数能够生成一个作用。  函数作用域 。
+    console.log(num)*/ //Uncaught ReferenceError: num is not defined
+// 如果函数能够生成一个作用域，那么在函数外界就无法访问到函数内部声明的变量。
+// js中的函数能够生成一个作用。  函数作用域 。
 
+// 词法作用域：作用的外界只跟作用域在何处创建有关系，跟作用域在何处被调用没有关系
 
-    // 词法作用域：作用的外界只跟作用域在何处创建有关系，跟作用域在何处被调用没有关系
+var num = 123;
+function f1() {
+  console.log(num); //
+}
+function f2() {
+  var num = 456;
+  f1(); //f1在f2被调用的时候会被执行 。
+}
+f2();
 
-    var num = 123;
-    function f1() {
-        console.log(num);//
-    }
-    function f2() {
-        var num = 456;
-        f1();//f1在f2被调用的时候会被执行 。
-    }
-    f2();
+//如果js是词法作用域，那么就会输出f1被创建的时候外部的num变量 123
+//如果js是动态作用域，那么f1执行的时候就会输出f1被调用时外部环境中的num  456
 
-    //如果js是词法作用域，那么就会输出f1被创建的时候外部的num变量 123
-    //如果js是动态作用域，那么f1执行的时候就会输出f1被调用时外部环境中的num  456
-
-    // js中的作用域属于词法作用域（函数作用域）
-
+// js中的作用域属于词法作用域（函数作用域）
 ```
 
 </details>
@@ -429,7 +461,7 @@ F10、F11 代码的逐行调试
 
 </details>
 
-<b><details><summary>65.img上title与alt</summary></b>
+<b><details><summary>65.img 上 title 与 alt</summary></b>
 
 title：图片的信息；alt：图片不显示时显示的文字
 
@@ -443,11 +475,11 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 </details>
 
-<b><details><summary>67.IE6遇到什么bug？解决办法是？</summary></b>
+<b><details><summary>67.IE6 遇到什么 bug？解决办法是？</summary></b>
 
 </details>
 
-<b><details><summary>68.数组方法pop() push() unshift() shift()</summary></b>
+<b><details><summary>68.数组方法 pop() push() unshift() shift()</summary></b>
 
 </details>
 
@@ -455,19 +487,19 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
 
-普通事件是针对非dom元素，时间绑定是针对dom元素的事件
+普通事件是针对非 dom 元素，事件绑定是针对 dom 元素的事件
 
 </details>
 
-<b><details><summary>70.IE和DOM事件流的区别</summary></b>
+<b><details><summary>70. IE 和 DOM 事件流的区别</summary></b>
 
 </details>
 
-<b><details><summary>71.IE和标准下有哪些兼容性的写法</summary></b>
+<b><details><summary>71. IE 和标准下有哪些兼容性的写法</summary></b>
 
 </details>
 
-<b><details><summary>72.css可以继承的属性</summary></b>
+<b><details><summary>72.css 可以继承的属性</summary></b>
 
 list- font- text-
 
@@ -476,44 +508,44 @@ list- font- text-
 <b><details><summary>73.如何阻止冒泡与默认行为</summary></b>
 
 当需要停止冒泡行为时，可以使用
+
 ```js
-function stopBubble(e) { 
-//如果提供了事件对象，则这是一个非IE浏览器 
-if ( e && e.stopPropagation ) 
-    //因此它支持W3C的stopPropagation()方法 
-    e.stopPropagation(); 
-else 
-    //否则，我们需要使用IE的方式来取消事件冒泡 
-    window.event.cancelBubble = true; 
+function stopBubble(e) {
+  //如果提供了事件对象，则这是一个非IE浏览器
+  if (e && e.stopPropagation)
+    //因此它支持W3C的stopPropagation()方法
+    e.stopPropagation();
+  //否则，我们需要使用IE的方式来取消事件冒泡
+  else window.event.cancelBubble = true;
 }
 ```
+
 当需要阻止默认行为时，可以使用
+
 ```js
-//阻止浏览器的默认行为 
-function stopDefault( e ) { 
-    //阻止默认浏览器动作(W3C) 
-    if ( e && e.preventDefault ) 
-        e.preventDefault(); 
-    //IE中阻止函数器默认动作的方式 
-    else 
-        window.event.returnValue = false; 
-    return false; 
+//阻止浏览器的默认行为
+function stopDefault(e) {
+  //阻止默认浏览器动作(W3C)
+  if (e && e.preventDefault) e.preventDefault();
+  //IE中阻止函数器默认动作的方式
+  else window.event.returnValue = false;
+  return false;
 }
 ```
 
 </details>
 
-<b><details><summary>74.如何实现js中的继承</summary></b>
+<b><details><summary>74.如何实现 js 中的继承</summary></b>
 
 [详情](https://www.cnblogs.com/diligentYe/p/6413450.html)
 
 </details>
 
-<b><details><summary>75.js中this 闭包 作用域</summary></b>
+<b><details><summary>75.js 中 this 闭包 作用域</summary></b>
 
 this：指向调用上下文
 
-闭包：定义一个函数就开辟了一个局部作用域，整个js执行环境有一个全局作用域
+闭包：定义一个函数就开辟了一个局部作用域，整个 js 执行环境有一个全局作用域
 
 作用域：一个函数可以访问其他函数中的变量（闭包是一个受保护的变量空间）
 
@@ -531,16 +563,18 @@ var f = (function fn() {
 
 </details>
 
-<b><details><summary>76.javascript的本地对象，内置对象和宿主对象</summary></b>
+<b><details><summary>76.javascript 的本地对象，内置对象和宿主对象</summary></b>
 
 ```
 本地对象
 ECMA-262 把本地对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。它们包括：Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
 ```
+
 ```
 内置对象
-JS中内置了17个对象，常用的是Array对象、Date对象、正则表达式对象、string对象、Global对象 
+JS中内置了17个对象，常用的是Array对象、Date对象、正则表达式对象、string对象、Global对象
 ```
+
 ```
 宿主对象
 由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。
@@ -554,38 +588,38 @@ JS中内置了17个对象，常用的是Array对象、Date对象、正则表达�
 
 </details>
 
-<b><details><summary>78.javascript的同源策略</summary></b>
+<b><details><summary>78.javascript 的同源策略</summary></b>
 
-同源策略：限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。（来自MDN官方的解释）
+同源策略：限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。（来自 MDN 官方的解释）
 
 简单来说就是：一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合
 具体解释：
 
-（1）源包括三个部分：协议、域名、端口（http协议的默认端口是80）。如果有任何一个部分不同，则源不同，那就是跨域了。
+（1）源包括三个部分：协议、域名、端口（http 协议的默认端口是 80）。如果有任何一个部分不同，则源不同，那就是跨域了。
 
 （2）限制：这个源的文档没有权利去操作另一个源的文档。这个限制体现在：（要记住）
 
-Cookie、LocalStorage和IndexDB无法获取。
+Cookie、LocalStorage 和 IndexDB 无法获取。
 
-无法获取和操作DOM。
+无法获取和操作 DOM。
 
-不能发送Ajax请求。我们要注意，Ajax只适合同源的通信。
+不能发送 Ajax 请求。我们要注意，Ajax 只适合同源的通信。
 
-同源策略带来的麻烦：ajax在不同域名下的请求无法实现，需要进行跨域操作
+同源策略带来的麻烦：ajax 在不同域名下的请求无法实现，需要进行跨域操作
 
 </details>
 
-<b><details><summary>79.js是一门怎样的语言，它有什么特点</summary></b>
+<b><details><summary>79.js 是一门怎样的语言，它有什么特点</summary></b>
 
-1.脚本语言。JavaScript是一种解释型的脚本语言,C、C++等语言先编译后执行,而JavaScript是在程序的运行过程中逐行进行解释。
+1.脚本语言。JavaScript 是一种解释型的脚本语言,C、C++等语言先编译后执行,而 JavaScript 是在程序的运行过程中逐行进行解释。
 
-2.基于对象。JavaScript是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象。
+2.基于对象。JavaScript 是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象。
 
-3.简单。JavaScript语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于Java基本语句和控制的脚本语言,其设计简单紧凑。
+3.简单。JavaScript 语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于 Java 基本语句和控制的脚本语言,其设计简单紧凑。
 
-4.动态性。JavaScript是一种采用事件驱动的脚本语言,它不需要经过Web服务器就可以对用户的输入做出响应。
+4.动态性。JavaScript 是一种采用事件驱动的脚本语言,它不需要经过 Web 服务器就可以对用户的输入做出响应。
 
-5.跨平台性。JavaScript脚本语言不依赖于操作系统,仅需要浏览器的支持。
+5.跨平台性。JavaScript 脚本语言不依赖于操作系统,仅需要浏览器的支持。
 
 </details>
 
@@ -601,27 +635,50 @@ Cookie、LocalStorage和IndexDB无法获取。
 
 这种写法称为短路表达式
 相当于
+
 ```js
 var foo;
 if (foo) {
-  foo = foo
+  foo = foo;
 } else {
-  foo = bar
+  foo = bar;
 }
 ```
+
 答案：常用于函数参数的空判断
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>82.复杂数据类型如何转变为字符串</summary></b>
+
+- 首先，会调用 valueOf 方法，如果方法的返回值是一个基本数据类型，就返回这个值
+- 如果调用 valueOf 方法之后的返回值仍旧是一个复杂数据类型，就会调用该对象的 toString 方法
+- 如果 toString 方法调用之后的返回值是一个基本数据类型，就返回这个值，
+- 如果 toString 方法调用之后的返回值是一个复杂数据类型，就报一个错误。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>83.javascript中this的指向问题</summary></b>
+
+一、普通函数调用
+
+二、对象函数调用
+
+三、构造函数调用
+
+四、apply和call调用
+
+五、箭头函数调用
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>84.call与apply区别</summary></b>
+
+ call 和 apply 的作用，完全一样，唯一的区别就是在参数上面。
+
+call 接收的参数不固定，第一个参数是函数体内 this 的指向，第二个参数以下是依次传入的参数。
+
+apply接收两个参数，第一个参数也是函数体内 this 的指向。第二个参数是一个集合对象（数组或者类数组）
 
 </details>
 

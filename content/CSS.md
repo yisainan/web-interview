@@ -26,13 +26,45 @@ Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如�
 
 <b><details><summary>3.CSS 清除浮动的几种方法（至少两种）</summary></b>
 
-使用带 clear 属性的空元素
+```
+清除浮动： 核心：clear:both;
 
-使用 CSS 的 overflow 属性；
+1.使用额外标签法（不推荐使用）
 
-使用 CSS 的:after 伪元素；
+在浮动的盒子下面再放一个标签，使用 clear:both;来清除浮动
 
-使用邻接元素处理；
+a 内部标签：会将父盒子的高度重新撑开
+
+b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
+
+2.使用 overflow 清除浮动（不推荐使用）
+
+先找到浮动盒子的父元素，给父元素添加一个属性：overflow:hidden;就会清除子元素对页面的影响
+
+3.使用伪元素清除浮动(用的最多)
+
+伪元素：在页面上不存在的元素，但是可以通过 css 添加上去
+
+种类：
+                  :after(在。。。之后)
+                  :before(在。。。之前)
+
+注意：每个元素都有自己的伪元素
+
+.clearfix:after {
+    content:"";
+    height:0;
+    line-height:0;
+    display:block;
+    clear:both;
+    visibility:hidden;  /_将元素隐藏起来_/ 
+      在页面的 clearfix 元素后面添加了一个空的块级元素
+     （这个元素的高为 0 行高也为 0   并且这个元素清除了浮动）
+}
+.clearfix {
+  zoom:1;/_为了兼容 IE6_/
+}
+```
 
 </details>
 
@@ -53,37 +85,58 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 </details>
 
-<b><details><summary>5.CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
+<b><details><summary>27. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
-id 选择器（ # myid）
+```
+  1.id选择器（ # myid）
 
-类选择器（.myclassname）
+        2.类选择器（.myclassname）
 
-标签选择器（div, h1, p）
+        3.标签选择器（div, h1, p）
 
-相邻选择器（h1 + p）
+        4.相邻选择器（h1 + p）
 
-子选择器（ul > li）
+        5.子选择器（ul < li）
 
-后代选择器（li a）
+        6.后代选择器（li a）
 
-通配符选择器（ \* ）
+        7.通配符选择器（ * ）
 
-属性选择器（a[rel = “external”]）
+        8.属性选择器（a[rel = "external"]）
 
-伪类选择器（a: hover, li: nth – child）
+        9.伪类选择器（a: hover, li: nth - child）
 
-可继承的样式： font-size font-family color, UL LI DL DD DT;
+    *   可继承： font-size font-family color, UL LI DL DD DT;
 
-不可继承的样式：border padding margin width height ;
+    *   不可继承 ：border padding margin width height ;
 
-优先级就近原则，同权重情况下样式定义最近者为准;
+    *   优先级就近原则，样式定义最近者为准;
+
+    *   载入样式以最后载入的定位为准;
 
 优先级为:
 
-!important > id > class > tag
+       !important >  id > class > tag  
 
-important 比 内联优先级高
+       important 比 内联优先级高
+
+CSS3新增伪类举例：
+
+    p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
+
+    p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
+
+    p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。
+
+    p:only-child    选择属于其父元素的唯一子元素的每个 <p> 元素。
+
+    p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素。
+
+    :enabled、:disabled 控制表单控件的禁用状态。
+
+    :checked，单选框或复选框被选中。
+
+```
 
 </details>
 
@@ -263,19 +316,15 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 那么问题来了，如何垂直居中一个`<img>?`（用更简便的方法。）
 
 ```css
-
 #container     //<img>的容器设置如下
 
-{
+ {
+  display: table-cell;
 
-    display:table-cell;
+  text-align: center;
 
-    text-align:center;
-
-    vertical-align:middle;
-
+  vertical-align: middle;
 }
-
 ```
 
 </details>
@@ -342,18 +391,6 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary>20. css 优先级算法如何计算？</summary></b>
-
-!important > id > class > 标签
-
-!important 比 内联优先级高
-
-\*优先级就近原则，样式定义最近者为准;
-
-\*以最后载入的样式为准;
-
-</details>
-
 <b><details><summary>21. b 标签和 strong 标签,i 标签和 em 标签的区别？</summary></b>
 
 后者有语义，前者则无。
@@ -404,34 +441,48 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 引起这种空白间隔的原因：
 
-浏览器的默认行为是把inline元素间的空白字符（空格换行tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
+浏览器的默认行为是把 inline 元素间的空白字符（空格换行 tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
 
 解决方案：
 
 方法一：既然是因为`<li>`换行导致的，那就可以将`<li>`代码全部写在一排，如下
+
 ```html
 <div class="wrap">
-<h3>li标签空白测试</h3>
-<ul>
-<li class="part1"></li><li class="part2"></li><li class="part3"></li><li class="part4"></li>
-</ul>
+  <h3>li标签空白测试</h3>
+  <ul>
+    <li class="part1"></li>
+    <li class="part2"></li>
+    <li class="part3"></li>
+    <li class="part4"></li>
+  </ul>
 </div>
 ```
-方法二：我们为了代码美观以及方便修改，很多时候我们不可能将`<li>`全部写在一排，那怎么办？既然是空格占一个字符的宽度，那我们索性就将`<ul>`内的字符尺寸直接设为0，将下面样式放入样式表，问题解决。
+
+方法二：我们为了代码美观以及方便修改，很多时候我们不可能将`<li>`全部写在一排，那怎么办？既然是空格占一个字符的宽度，那我们索性就将`<ul>`内的字符尺寸直接设为 0，将下面样式放入样式表，问题解决。
+
 ```css
-.wrap ul{font-size:0px;}
-```
-但随着而来的就是`<ul>`中的其他文字就不见了，因为其尺寸被设为0px了，我们只好将他们重新设定字符尺寸。
-方法三：本来以为方法二能够完全解决问题，但经测试，将li父级标签字符设置为0在Safari浏览器依然出现间隔空白；既然设置字符大小为0不行，那咱就将间隔消除了，将下面代码替换方法二的代码，目前测试完美解决。同样随来而来的问题是li内的字符间隔也被设置了，我们需要将li内的字符间隔设为默认。
-```css
-.wrap ul{letter-spacing: -5px;}
-```
-之后记得设置li内字符间隔
-```css
-.wrap ul li{letter-spacing: normal;}
+.wrap ul {
+  font-size: 0px;
+}
 ```
 
+但随着而来的就是`<ul>`中的其他文字就不见了，因为其尺寸被设为 0px 了，我们只好将他们重新设定字符尺寸。
+方法三：本来以为方法二能够完全解决问题，但经测试，将 li 父级标签字符设置为 0 在 Safari 浏览器依然出现间隔空白；既然设置字符大小为 0 不行，那咱就将间隔消除了，将下面代码替换方法二的代码，目前测试完美解决。同样随来而来的问题是 li 内的字符间隔也被设置了，我们需要将 li 内的字符间隔设为默认。
 
+```css
+.wrap ul {
+  letter-spacing: -5px;
+}
+```
+
+之后记得设置 li 内字符间隔
+
+```css
+.wrap ul li {
+  letter-spacing: normal;
+}
+```
 
 </details>
 
