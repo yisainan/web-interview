@@ -443,7 +443,7 @@ v-for 比 v-if 优先
 
 <b><details><summary>20. vue 中子组件调用父组件的方法</summary></b>
 
-第一种方法是直接在子组件中通过 this.\$parent.event 来调用父组件的方法
+第一种方法是直接在子组件中通过 this.$parent.event 来调用父组件的方法
 
 父组件
 
@@ -487,7 +487,7 @@ v-for 比 v-if 优先
 </script>
 ```
 
-第二种方法是在子组件里用\$emit 向父组件触发一个事件，父组件监听这个事件就行了
+第二种方法是在子组件里用$emit 向父组件触发一个事件，父组件监听这个事件就行了
 
 父组件
 
@@ -587,7 +587,7 @@ v-for 比 v-if 优先
 
 <b><details><summary>21. vue 中父组件调用子组件的方法</summary></b>
 
-使用\$refs
+使用$refs
 
 父组件
 
@@ -923,9 +923,15 @@ npm run build
 
 <b><details><summary>48. 什么是 Virtual DOM？</summary></b>
 
+可以看作是一个使用javascript模拟了DOM结构的树形结构
+
+[详情])(https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
+
 </details>
 
 <b><details><summary>49. 响应式系统的基本原理</summary></b>
+
+Object.defineProperty，Vue.js就是基于它实现「响应式系统」的。
 
 </details>
 
@@ -934,6 +940,8 @@ npm run build
 </details>
 
 <b><details><summary>51. 如何编译 template 模板？</summary></b>
+
+[详情](http://www.itcast.cn/news/20190110/15320198690.shtml)
 
 </details>
 

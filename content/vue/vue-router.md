@@ -26,9 +26,13 @@
 
 <b><details><summary>8、vue-router实现路由懒加载（ 动态加载路由 ）</summary></b>
 
+[详情](https://segmentfault.com/a/1190000011519350)
+
 </details>
 
 <b><details><summary>9、vue-router路由的两种模式</summary></b>
+
+hash history
 
 </details>
 

@@ -80,19 +80,17 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 <b><details><summary>8.javascript 对象的几种创建方式</summary></b>
 
-1，工厂模式
+第一种：Object构造函数创建
 
-2，构造函数模式
+第二种：使用对象字面量表示法
 
-3，原型模式
+第三种：使用工厂模式创建对象
 
-4，混合构造函数和原型模式
+第四种:使用构造函数创建对象
 
-5，动态原型模式
+第五种：原型创建对象模式
 
-6，寄生构造函数模式
-
-7，稳妥构造函数模式
+第六种：组合使用构造函数模式和原型模式
 
 </details>
 
@@ -168,6 +166,8 @@ Function
 </details>
 
 <b><details><summary>17.如何判断 NaN</summary></b>
+
+isNaN()方法
 
 </details>
 
@@ -297,9 +297,14 @@ JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undef
 
 <b><details><summary>44.如何判断一个对象是否属于某个类？</summary></b>
 
+instanceof
+
 </details>
 
 <b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
+
+new共经过了4几个阶段
+1、创建一个空对象2、设置原型链3、让Func中的this指向obj，并执行Func的函数体4、判断Func的返回值类型：
 
 </details>
 
@@ -308,6 +313,12 @@ JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undef
 </details>
 
 <b><details><summary>47.那些操作会造成内存泄漏？</summary></b>
+
+闭包
+
+死循环
+
+全局变量
 
 </details>
 
