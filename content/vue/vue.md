@@ -953,7 +953,20 @@ Object.defineProperty，Vue.js就是基于它实现「响应式系统」的。
 
 </details>
 
-<b><details><summary>54. proxy 代理？</summary></b>
+<b><details><summary>54. Vue中如何实现proxy代理？</summary></b>
+
+webpack自带的devServer中集成了http-proxy-middleware。配置devServer的proxy选项即可
+```js
+proxyTable: {
+   '/api': {
+    target: 'http://192.168.149.90:8080/', // 设置你调用的接口域名和端口号
+    changeOrigin: true,   // 跨域
+    pathRewrite: {
+     '^/api': '/'    
+    }
+   }
+  }
+```
 
 </details>
 
