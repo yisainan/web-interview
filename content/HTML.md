@@ -128,7 +128,7 @@ title 标题标签，description 描述标签，keywords 关键词标签
 
 </details>
 
-<b><details><summary>11.于对WEB标准以及W3C的理解与认识问题</summary></b>
+<b><details><summary>11.对于WEB标准以及W3C的理解与认识问题</summary></b>
 
 <b>web标准</b>简单来说可以分为<b>结构、表现和行为</b>。其中结构主要是有HTML标签组成。或许通俗点说，在页面body里面我们写入的标签都是为了页面的结构。表现即指css样式表，通过css可以是页面的结构标签更具美感。行为是指页面和用户具有一定的交互，同时页面结构或者表现发生变化，主要是有js组成。
 

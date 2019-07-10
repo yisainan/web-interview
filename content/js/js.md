@@ -2,9 +2,22 @@
 
 <b><details><summary>1. JavaScript 中如何检测一个变量是一个 String 类型？请写出函数实现</summary></b>
 
-typeof(obj) === "string"
-typeof obj === "string"
-obj.constructor === String
+三种方法： 
+
+①typeof
+
+typeof('123') === "string" // true
+
+typeof '123' === "string" // true
+
+②constructor 
+
+'123'.constructor === String  // true
+
+③Object.prototype.toString.call()
+
+Object.prototype.toString.call('123') === '[object String]' // true
+
 
 </details>
 
