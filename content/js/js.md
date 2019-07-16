@@ -1,8 +1,20 @@
 # [返回主页](../../README.md)
 
-<b><details><summary>1. JavaScript 中如何检测一个变量是一个 String 类型？请写出函数实现</summary></b>
+<b><details><summary>1.document load 和 document ready 的区别</summary></b>
+```
+页面加载完成有两种事件
 
-三种方法： 
+1.load是当页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数
+问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
+
+2.$(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
+在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
+```
+</details>
+
+<b><details><summary>2. JavaScript 中如何检测一个变量是一个 String 类型？</summary></b>
+
+三种方法：
 
 ①typeof
 
@@ -10,30 +22,101 @@ typeof('123') === "string" // true
 
 typeof '123' === "string" // true
 
-②constructor 
+②constructor
 
-'123'.constructor === String  // true
+'123'.constructor === String // true
 
 ③Object.prototype.toString.call()
 
 Object.prototype.toString.call('123') === '[object String]' // true
 
+</details>
+
+<b><details><summary>3.请用 js 去除字符串空格？</summary></b>
+
+方法一：replace 正则匹配方法
+
+去除字符串内所有的空格：str = str.replace(/\s*/g,"");
+
+去除字符串内两头的空格：str = str.replace(/^\s*|\s*$/g,"");
+
+去除字符串内左侧的空格：str = str.replace(/^\s*/,"");
+
+去除字符串内右侧的空格：str = str.replace(/(\s*$)/g,"");
+
+示例：
+
+```js
+var str = " 6 6 ";
+var str_1 = str.replace(/\s*/g,"");
+console.log(str_1); //66
+
+var str = " 6 6 ";
+var str_1 = str.replace(/^\s*|\s*$/g,"");
+console.log(str_1); //6 6//输出左右侧均无空格
+
+var str = " 6 6 ";
+var str_1 = str.replace(/^\s*/,"");
+console.log(str_1); //6 6 //输出右侧有空格左侧无空格
+
+var str = " 6 6 ";
+var str_1 = str.replace(/(\s*$)/g,"");
+console.log(str_1); // 6 6//输出左侧有空格右侧无空格
+```
+
+方法二：str.trim()方法
+
+trim()方法是用来删除字符串两端的空白字符并返回，trim方法并不影响原来的字符串本身，它返回的是一个新的字符串。
+
+缺陷：只能去除字符串两端的空格，不能去除中间的空格
+
+示例：
+```js
+var str = " 6 6 ";
+var str_1 = str.trim();
+console.log(str_1); //6 6//输出左右侧均无空格
+```
+
+方法三：JQ方法：$.trim(str)方法
+
+$.trim() 函数用于去除字符串两端的空白字符。
+
+注意：$.trim()函数会移除字符串开始和末尾处的所有换行符，空格(包括连续的空格)和制表符。如果这些空白字符在字符串中间时，它们将被保留，不会被移除。
+
+示例：
+```js
+var str = " 6 6 ";
+var str_1 = $.trim(str);
+console.log(str_1); //6 6//输出左右侧均无空格
+```
 
 </details>
 
-<b><details><summary>2.请用 js 去除字符串空格？</summary></b>
+<b><details><summary>4.js 是一门怎样的语言，它有什么特点</summary></b>
 
-方法一：使用 replace 正则匹配的方法
-方法二：使用 str.trim()方法
-方法三：使用 jquery,\$.trim(str)方法
+1.脚本语言。JavaScript 是一种解释型的脚本语言,C、C++等语言先编译后执行,而 JavaScript 是在程序的运行过程中逐行进行解释。
+
+2.基于对象。JavaScript 是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象。
+
+3.简单。JavaScript 语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于 Java 基本语句和控制的脚本语言,其设计简单紧凑。
+
+4.动态性。JavaScript 是一种采用事件驱动的脚本语言,它不需要经过 Web 服务器就可以对用户的输入做出响应。
+
+5.跨平台性。JavaScript 脚本语言不依赖于操作系统,仅需要浏览器的支持。
 
 </details>
 
-<b><details><summary>4.怎样添加、移除、移动、复制、创建和查找节点？</summary></b>
+<b><details><summary>5.== 和 === 的不同</summary></b>
+
+==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
+
+</details>
+
+<b><details><summary>6.怎样添加、移除、移动、复制、创建和查找节点？</summary></b>
 
 1）创建新节点
 
-createDocumentFragment() //创建一个 DOM 片段
+     createDocumentFragment() //创建一个 DOM 片段
 　　 createElement() //创建一个具体的元素
 　　 createTextNode() //创建一个文本节点
 
@@ -50,22 +133,13 @@ createDocumentFragment() //创建一个 DOM 片段
 
 </details>
 
-<b><details><summary>5.事件委托是什么</summary></b>
+<b><details><summary>7.事件委托是什么</summary></b>
 
 利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
 
-<summary>阻止事件冒泡</summary>
-  event.stopPropagation() || e.cancelBubble = true || return false
-
 </details>
 
-<b><details><summary>6.你对闭包的理解？优缺点？</summary></b>
-
-1.闭包就是能够读取其他函数内部变量的函数。由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
-
-</details>
-
-<b><details><summary>7.require 与 import 的区别</summary></b>
+<b><details><summary>8.require 与 import 的区别</summary></b>
 
 第一、两者的加载方式不同，require 是在运行时加载，而 import 是在编译时加载
 
@@ -91,51 +165,95 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 </details>
 
-<b><details><summary>8.javascript 对象的几种创建方式</summary></b>
+<b><details><summary>9.javascript 对象的几种创建方式</summary></b>
 
-第一种：Object构造函数创建
-
-第二种：使用对象字面量表示法
-
-第三种：使用工厂模式创建对象
-
-第四种:使用构造函数创建对象
-
-第五种：原型创建对象模式
-
-第六种：组合使用构造函数模式和原型模式
+[详情](https://www.red-ring.cn/post/8715-237024)
 
 </details>
 
-<b><details><summary>9.javascript 继承的 6 种方法</summary></b>
+<b><details><summary>10.JavaScript继承的方式和优缺点</summary></b>
 
-1，原型链继承
-
-2，借用构造函数继承
-
-3，组合继承(原型+借用构造)
-
-4，原型式继承
-
-5，寄生式继承
-
-6，寄生组合式继承
-
-详情：JavaScript 继承方式详解
+[详情](https://www.red-ring.cn/post/8715-237041)
 
 </details>
 
-<b><details><summary>10.什么是面向对象？</summary></b>
+<b><details><summary>11.什么是原型链？ </summary></b>
 
-<!--1 面向对象和面向过程的异同-->
-<!--2 在JavaScript中面向对象的表现形式-->
-<!--3 其他语言中面向对象的表现形式（了解）-->
+通过一个对象的__proto__可以找到它的原型对象，原型对象也是一个对象，就可以通过原型对象的__proto__，最后找到了我们的Object.prototype,从实例的原型对象开始一直到Object.prototype就是我们的原型链
 
 </details>
 
-<b><details><summary>11.javascript 的 typeof 返回哪些数据类型</summary></b>
+<b><details><summary>12.复杂数据类型如何转变为字符串 </summary></b>
 
-7种
+首先，会调用valueOf方法，如果方法的返回值是一个基本数据类型，就返回这个值，
+如果调用valueOf方法之后的返回值仍旧是一个复杂数据类型，就会调用该对象的toString方法，
+如果toString方法调用之后的返回值是一个基本数据类型，就返回这个值，
+如果toString方法调用之后的返回值是一个复杂数据类型，就报一个错误。
+
+详解：
+```js
+1.
+var obj = {
+	valueOf: function() {
+		return 1;
+	}
+}
+console.log(obj + '') //'1'
+2.
+var obj = {
+	valueOf: function() {
+		return [1, 2];
+	}
+}
+console.log(obj + '') //'[object Object]';
+3.
+var obj = {
+	valueOf: function() {
+		return [1, 2];
+	},
+	toString: function() {
+		return 1;
+	}
+}
+console.log(obj + '') //'1';
+4.
+var obj = {
+	valueOf: function() {
+		return [1, 2];
+	},
+	toString: function() {
+		return [1, 2, 3];
+	}
+}
+console.log(obj + '') // 报错 Uncaught TypeError: Cannot convert object to primitive value
+
+```
+
+拓展：
+```js
+var arr = [new Object(), new Date(), new RegExp(), new String(), new Number(), new Boolean(), new Function(), new Array(), Math] console.log(arr.length) // 9
+for (var i = 0; i < arr.length; i++) {
+	arr[i].valueOf = function() {
+		return [1, 2, 3]
+	}
+	arr[i].toString = function() {
+		return 'toString'
+	}
+	console.log(arr[i] + '')
+}
+```
+
+1、若return [1,2,3]处为 return "valueof"，得到的返回值是valueof toString 7valueof
+说明：其他八种复杂数据类型是先调用valueOf方法，时间对象是先调用toString方法
+
+2、改成return [1,2,3]，得到的返回值是9toString
+说明：执行valueof后都来执行toString
+
+</details>
+
+<b><details><summary>13.javascript 的 typeof 返回哪些数据类型</summary></b>
+
+7 种
 
 undefined
 
@@ -153,9 +271,29 @@ Function
 
 </details>
 
+<b><details><summary>14. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
+
+答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
+
+</details>
+
+<b><details><summary>10.什么是面向对象？</summary></b>
+
+<!--1 面向对象和面向过程的异同-->
+<!--2 在JavaScript中面向对象的表现形式-->
+<!--3 其他语言中面向对象的表现形式（了解）-->
+
+</details>
+
 <b><details><summary>12.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
 强制（parseInt,parseFloat,Number）隐式（+ -）
+
+</details>
+
+<b><details><summary>6.你对闭包的理解？优缺点？</summary></b>
+
+1.闭包就是能够读取其他函数内部变量的函数。由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
 
 </details>
 
@@ -186,9 +324,9 @@ isNaN()方法
 
 <b><details><summary>18. null/undefined 的区别</summary></b>
 
-null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值。
+null： Null 类型，代表“空值”，代表一个空对象指针，使用 typeof 运算得到 “object”，所以你可以认为它是一个特殊的对象值。
 
-undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。
+undefined： Undefined 类型，当一个声明了一个变量未初始化时，得到的就是 undefined。
 
 </details>
 
@@ -214,15 +352,15 @@ typeof、instanceof、 constructor、 prototype
 
 第一种方法：
 
-使用instanceof操作符。
+使用 instanceof 操作符。
 
 第二种方法：
 
-使用ECMAScript 5新增的Array.isArray()方法。
+使用 ECMAScript 5 新增的 Array.isArray()方法。
 
 第三种方法：
 
-使用使用Object.prototype上的原生toString()方法判断。
+使用使用 Object.prototype 上的原生 toString()方法判断。
 
 </details>
 
@@ -316,8 +454,8 @@ instanceof
 
 <b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
 
-new共经过了4几个阶段
-1、创建一个空对象2、设置原型链3、让Func中的this指向obj，并执行Func的函数体4、判断Func的返回值类型：
+new 共经过了 4 几个阶段
+1、创建一个空对象 2、设置原型链 3、让 Func 中的 this 指向 obj，并执行 Func 的函数体 4、判断 Func 的返回值类型：
 
 </details>
 
@@ -417,7 +555,7 @@ F10、F11 代码的逐行调试
 
 1 块作用域 花括号 {}
 
-2 词法作用域（js属于词法作用域）
+2 词法作用域（js 属于词法作用域）
 作用域只跟在何处被创建有关系，跟在何处被调用没有关系
 
 3 动态作用域
@@ -606,12 +744,6 @@ JS中内置了17个对象，常用的是Array对象、Date对象、正则表达�
 
 </details>
 
-<b><details><summary>77.== 和 === 的不同</summary></b>
-
-==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
-
-</details>
-
 <b><details><summary>78.javascript 的同源策略</summary></b>
 
 同源策略：限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。（来自 MDN 官方的解释）
@@ -630,20 +762,6 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 不能发送 Ajax 请求。我们要注意，Ajax 只适合同源的通信。
 
 同源策略带来的麻烦：ajax 在不同域名下的请求无法实现，需要进行跨域操作
-
-</details>
-
-<b><details><summary>79.js 是一门怎样的语言，它有什么特点</summary></b>
-
-1.脚本语言。JavaScript 是一种解释型的脚本语言,C、C++等语言先编译后执行,而 JavaScript 是在程序的运行过程中逐行进行解释。
-
-2.基于对象。JavaScript 是一种基于对象的脚本语言,它不仅可以创建对象,也能使用现有的对象。
-
-3.简单。JavaScript 语言中采用的是弱类型的变量类型,对使用的数据类型未做出严格的要求,是基于 Java 基本语句和控制的脚本语言,其设计简单紧凑。
-
-4.动态性。JavaScript 是一种采用事件驱动的脚本语言,它不需要经过 Web 服务器就可以对用户的输入做出响应。
-
-5.跨平台性。JavaScript 脚本语言不依赖于操作系统,仅需要浏览器的支持。
 
 </details>
 
@@ -682,7 +800,7 @@ if (foo) {
 
 </details>
 
-<b><details><summary>83.javascript中this的指向问题</summary></b>
+<b><details><summary>83.javascript 中 this 的指向问题</summary></b>
 
 一、普通函数调用
 
@@ -690,19 +808,19 @@ if (foo) {
 
 三、构造函数调用
 
-四、apply和call调用
+四、apply 和 call 调用
 
 五、箭头函数调用
 
 </details>
 
-<b><details><summary>84.call与apply区别</summary></b>
+<b><details><summary>84.call 与 apply 区别</summary></b>
 
- call 和 apply 的作用，完全一样，唯一的区别就是在参数上面。
+call 和 apply 的作用，完全一样，唯一的区别就是在参数上面。
 
 call 接收的参数不固定，第一个参数是函数体内 this 的指向，第二个参数以下是依次传入的参数。
 
-apply接收两个参数，第一个参数也是函数体内 this 的指向。第二个参数是一个集合对象（数组或者类数组）
+apply 接收两个参数，第一个参数也是函数体内 this 的指向。第二个参数是一个集合对象（数组或者类数组）
 
 </details>
 

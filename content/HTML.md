@@ -68,35 +68,13 @@ label 标签来定义表单控制间的关系,**当用户选择该标签时，�
 
 </details>
 
-<b><details><summary>5.常见的浏览器内核有哪些？</summary></b>
-
-Trident 内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML]
-
-Gecko 内核：Netscape6 及以上版本，FF,MozillaSuite/SeaMonkey 等
-
-Presto 内核：Opera7 及以上。 [Opera 内核原为：Presto，现为：Blink;]
-
-Webkit 内核：Safari,Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]
-
-</details>
-
-<b><details><summary>6.HTML5 的 form 如何关闭自动完成功能？</summary></b>
+<b><details><summary>5.HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
 给不想要提示的 form 或某个 input 设置为 autocomplete=off。
 
 </details>
 
-<b><details><summary>8.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
-
-```html
-
-<div style="height:1px;overflow:hidden;background:red"></div>
-
-```
-
-</details>
-
-<b><details><summary>9.title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？</summary></b>
+<b><details><summary>6.title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？</summary></b>
 
 ```
 
@@ -132,11 +110,29 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 </details>
 
-<b><details><summary>10.请描述下 SEO 中的 TDK？</summary></b>
+<b><details><summary>7.请描述下 SEO 中的 TDK？</summary></b>
 
 在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，这三个标签在网站的优化过程中
 
 title 标题标签，description 描述标签，keywords 关键词标签
+
+</details>
+
+<b><details><summary>8.每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
+
+  `<!DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
+
+作用：
+
+1.告知浏览器文档使用哪种 HTML 或 XHTML 规范。
+
+2.告诉浏览器按照何种规范解析页（如果你的页面没有 DOCTYPE 的声明，那么 compatMode 默认就是 BackCompat,浏览器按照自己的方式解析渲染页面）
+
+</details>
+
+<b><details><summary>9. 简述一下 src 与 href 的区别。</summary></b>
+
+src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
 
 </details>
 
@@ -166,18 +162,6 @@ W3C对web标准提出了规范化的要求，也就是在实际编程中的一�
 
 </details>
 
-<b><details><summary>12.document load 和 document ready 的区别</summary></b>
-```
-页面加载完成有两种事件
-
-1.load是当页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数
-问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
-
-2.$(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
-在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
-```
-</details>
-
 <b><details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary></b>
 
 分成：结构层、表示层、行为层。
@@ -193,18 +177,6 @@ W3C对web标准提出了规范化的要求，也就是在实际编程中的一�
 行为层（behaviorlayer）
 
 负责回答“内容应该如何对事件做出反应”这一问题。这是 Javascript 语言和 DOM 主宰的领域。
-
-</details>
-
-<b><details><summary>14.每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
-
-  <!DOCTYPE> 声明位于文档中的最前面的位置，处于 <html> 标签之前。
-
-作用：
-
-1.告知浏览器文档使用哪种 HTML 或 XHTML 规范。
-
-2.告诉浏览器按照何种规范解析页（如果你的页面没有 DOCTYPE 的声明，那么 compatMode 默认就是 BackCompat,浏览器按照自己的方式解析渲染页面）
 
 </details>
 
@@ -302,23 +274,11 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>21. 简述一下 src 与 href 的区别。</summary></b>
-
-src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
-
-</details>
-
 <b><details><summary>22. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
 
 微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
 优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行 google）
-
-</details>
-
-<b><details><summary>23. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
-
-答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
 
 </details>
 

@@ -272,25 +272,37 @@ console.log(result);
 
 </details>
 
-<b><details><summary>1. JS 字符串使用堆栈处理 "(a,b,(c,d),f,g)"</summary></b>
-
-</details>
-
-<b><details><summary>2. 二维数组操作</summary></b>
-
-</details>
-
-<b><details><summary>3. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5,7,9,42,18,29]</summary></b>
+<b><details><summary>4. 正则表达式，验证手机号码，验证规则：11 位数字，以 1 位开头</summary></b>
 
 ```js
-var a = [1, 2, 3, 5];
-alert(Math.max.apply(null, a)); //最大值
-alert(Math.min.apply(null, a)); //最小值
+checkphonenumber(number) {
+	if (number == null || number.length != 11) {
+		return false
+	} else {
+		// 移动号段正则表达式
+		var pat1 = '^((13[4-9])|(147)|(15[0-2,7-9])|(178)|(18[2-4,7-8]))\\d{8}|(1705)\\d{7}$';
+		// 联通号段正则表达式
+		var pat2 = '^((13[0-2])|(145)|(15[5-6])|(176)|(18[5,6]))\\d{8}|(1709)\\d{7}$';
+		// 电信号段正则表达式
+		var pat3 = '^((133)|(153)|(177)|(18[0,1,9])|(149))\\d{8}$';
+		// 虚拟运营商正则表达式
+		var pat4 = '^((170))\\d{8}|(1718)|(1719)\\d{7}$';
+		if (!part1.test(number)) {
+			return false
+		}
+		if (!part2.test(number)) {
+			return false
+		}
+		if (!part3.test(number)) {
+			return false
+		}
+		if (!part4.test(number)) {
+			return false
+		}
+	}
+	return true
+}
 ```
-
-</details>
-
-<b><details><summary>4. 正则表达式，验证手机号码，验证规则：11 位数字，以 1 位开头</summary></b>
 
 </details>
 
@@ -615,5 +627,23 @@ console.log(combo(string));
 </details>
 
 <b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary>1. JS 字符串使用堆栈处理 "(a,b,(c,d),f,g)"</summary></b>
+
+</details>
+
+<b><details><summary>2. 二维数组操作</summary></b>
+
+</details>
+
+<b><details><summary>3. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5,7,9,42,18,29]</summary></b>
+
+```js
+var a = [1, 2, 3, 5];
+alert(Math.max.apply(null, a)); //最大值
+alert(Math.min.apply(null, a)); //最小值
+```
 
 </details>

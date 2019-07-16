@@ -1,6 +1,16 @@
 # [返回主页](../README.md)
 
-<b><details><summary>1.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
+<b><details><summary>1.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
+
+```html
+
+<div style="height:1px;overflow:hidden;background:red"></div>
+
+```
+
+</details>
+
+<b><details><summary>2.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
 
 （1）有两种， IE 盒子模型、W3C 盒子模型；
 
@@ -10,7 +20,7 @@
 
 </details>
 
-<b><details><summary>2.CSS 隐藏元素的几种方法（至少说出三种）</summary></b>
+<b><details><summary>3.CSS 隐藏元素的几种方法（至少说出三种）</summary></b>
 
 Opacity:元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互;
 
@@ -24,7 +34,7 @@ Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如�
 
 </details>
 
-<b><details><summary>3.CSS 清除浮动的几种方法（至少两种）</summary></b>
+<b><details><summary>4.CSS 清除浮动的几种方法（至少两种）</summary></b>
 
 ```
 清除浮动： 核心：clear:both;
@@ -68,7 +78,7 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 </details>
 
-<b><details><summary>4.页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
+<b><details><summary>5.页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
 
 link 属于 XHTML 标签，除了加载 CSS 外，还能用于定义 RSS, 定义 rel 连接属性等作用；而@import 是 CSS 提供的，只能用于加载 CSS;
 页面被加载的时，link 会同时被加载，而@import 引用的 CSS 会等到页面被加载完再加载;
@@ -85,7 +95,20 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 </details>
 
-<b><details><summary>27. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
+<b><details><summary>6.伪元素和伪类的区别？</summary></b>
+
+1、伪元素使用2个冒号，常见的有：::before，::after，::first-line，::first-letter，::selection、::placeholder等；
+
+	  伪类使用1个冒号，常见的有：:hover，:link，:active，:target，:not()，:focus等。
+
+
+2、伪元素添加了一个页面中没有的元素（只是从视觉效果上添加了，不是在文档树中添加）；
+
+	  伪类是给页面中已经存在的元素添加一个类。
+
+</details>
+
+<b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
 ```
         1.id选择器（ # myid）
@@ -140,66 +163,7 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
-
-最基本的：
-
-设置 display 属性为 none，或者设置 visibility 属性为 hidden
-
-技巧性：
-
-设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
-
-</details>
-
-<b><details><summary>7. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
-
-答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
-
-</details>
-
-<b><details><summary>8. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
-
-答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
-
-示例如下：
-
-```css
-
-#test{
-
-    width:300px;
-
-    height:300px;
-
-    background-color:blue;      /_firefox_/
-
-    background-color:red\9;      /_all ie_/
-
-    background-color:yellow;    /_ie8_/
-
-    +background-color:pink;        /_ie7_/
-
-    \_background-color:orange;       /_ie6_/   
-
-}
-
- :root #test { background-color:purple\9; }  /*ie9*/
-
-@media all and (min-width:0px)
-
-     { #test {background-color:black;} }  /*opera*/
-
-@media screen and (-webkit-min-device-pixel-ratio:0)
-
-{ #test {background-color:gray;} }       /*chrome and safari*/
-
-
-```
-
-</details>
-
-<b><details><summary>9. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
+<b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
 
 块级元素(block)特性：
 
@@ -219,7 +183,7 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>10. 什么是外边距重叠？重叠的结果是什么？</summary></b>
+<b><details><summary>9. 什么是外边距重叠？重叠的结果是什么？</summary></b>
 
 外边距重叠就是 margin-collapse。
 
@@ -332,6 +296,77 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
+
+</details>
+
+<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
+
+最基本的：
+
+设置 display 属性为 none，或者设置 visibility 属性为 hidden
+
+技巧性：
+
+设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
+
+</details>
+
+<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
+
+最基本的：
+
+设置 display 属性为 none，或者设置 visibility 属性为 hidden
+
+技巧性：
+
+设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
+
+</details>
+
+<b><details><summary>7. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
+
+答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
+
+</details>
+
+<b><details><summary>8. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
+
+答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
+
+示例如下：
+
+```css
+
+#test{
+
+    width:300px;
+
+    height:300px;
+
+    background-color:blue;      /_firefox_/
+
+    background-color:red\9;      /_all ie_/
+
+    background-color:yellow;    /_ie8_/
+
+    +background-color:pink;        /_ie7_/
+
+    \_background-color:orange;       /_ie6_/   
+
+}
+
+ :root #test { background-color:purple\9; }  /*ie9*/
+
+@media all and (min-width:0px)
+
+     { #test {background-color:black;} }  /*opera*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+
+{ #test {background-color:gray;} }       /*chrome and safari*/
+
+
+```
 
 </details>
 
