@@ -1,32 +1,67 @@
 # [返回主页](../README.md)
 
-
 <b><details><summary>1.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 
+方法一：(基础版)
+
 ```js
-
-function showWindowHref(){
-    var sHref = window.location.href;
-    var args = sHref.split('?');
-    if(args[0] == sHref){
-        return "";
-    }
-    var arr = args[1].split('&');
-    var obj = {};
-    for(var i = 0;i< arr.length;i++){
-        var arg = arr[i].split('=');
-        obj[arg[0]] = arg[1];
-    }
-    return obj;
+function getQueryString() {
+  var sHref = window.location.href;
+  var args = sHref.split("?");
+  if (args[0] == sHref) {
+    // 没有参数，直接返回空即可
+    return "";
+  }
+  var arr = args[1].split("&");
+  var obj = {};
+  for (var i = 0; i < arr.length; i++) {
+    var arg = arr[i].split("=");
+    obj[arg[0]] = arg[1];
+  }
+  return obj;
 }
-var href = showWindowHref(); // obj
-console.log(href['name']); // xiaoming
+var href = getQueryString();
+console.log(href["categoryId"]);
+```
 
+方法二：(正则版,URL存在#则不适用)
+
+```js
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]);
+  return null;
+}
+console.log(getQueryString('categoryId'))
+```
+
+方法三：(正则升级版)
+
+```js
+function getQueryString(name) {
+  // 未传参，返回空
+  if (!name) return null;
+  // 查询参数：先通过search取值，如果取不到就通过hash来取
+  var after = window.location.search;
+  after = after.substr(1) || window.location.hash.split("?")[1];
+  // 地址栏URL没有查询参数，返回空
+  if (!after) return null;
+  // 如果查询参数中没有"name"，返回空
+  if (after.indexOf(name) === -1) return null;
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  // 当地址栏参数存在中文时，需要解码，不然会乱码
+  var r = decodeURI(after).match(reg);
+  // 如果url中"name"没有值，返回空
+  if (!r) return null;
+  return r[2];
+}
+console.log(getQueryString('categoryId'))
 ```
 
 </details>
 
-<b><details><summary>2.js实现一个打点计时器</summary></b>
+<b><details><summary>2.js 实现一个打点计时器</summary></b>
 
 问题描述：
 
@@ -35,39 +70,39 @@ console.log(href['name']); // xiaoming
 3、第一个数需要立即输出
 
 ```js
-
 // 实现法一（setTimeout()方法）：
 
 function count(start, end) {
-    if(start <= end){
-        console.log(start++);
-        st = setTimeout(function(){count(start, end)}, 100);
+  if (start <= end) {
+    console.log(start++);
+    st = setTimeout(function() {
+      count(start, end);
+    }, 100);
+  }
+  return {
+    cancel: function() {
+      clearTimeout(st);
     }
-    return {
-        cancel: function(){clearTimeout(st);}
-    }
+  };
 }
 count(1, 10);
-
 
 // 实现法二（setInterval()方法）：
 
 function count(start, end) {
-    console.log(start++);
-    var timer = setInterval(function () {
-        if (start <= end) {
-            console.log(start++)
-        }
-    }, 100);
-    return {
-        cancel: function () {
-            clearInterval(timer)
-        }
+  console.log(start++);
+  var timer = setInterval(function() {
+    if (start <= end) {
+      console.log(start++);
     }
+  }, 100);
+  return {
+    cancel: function() {
+      clearInterval(timer);
+    }
+  };
 }
 count(1, 10);
-
-
 ```
 
 知识点：
@@ -81,19 +116,21 @@ setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用�
 
 </details>
 
-<b><details><summary>3.用js实现一个标准的排序算法</summary></b>
+<b><details><summary>3.用 js 实现一个标准的排序算法</summary></b>
 
 一.冒泡排序
-```js
 
+```js
 function BubbleSort(array) {
   var length = array.length;
-  for (var i = length - 1; i > 0; i--) { //用于缩小范围
-    for (var j = 0; j < i; j++) { //在范围内进行冒泡，在此范围内最大的一个将冒到最后面
-      if (array[j] > array[j+1]) {
+  for (var i = length - 1; i > 0; i--) {
+    //用于缩小范围
+    for (var j = 0; j < i; j++) {
+      //在范围内进行冒泡，在此范围内最大的一个将冒到最后面
+      if (array[j] > array[j + 1]) {
         var temp = array[j];
-        array[j] = array[j+1];
-        array[j+1] = temp;
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
       }
     }
     console.log(array);
@@ -102,8 +139,7 @@ function BubbleSort(array) {
   return array;
 }
 
-
-var arr = [10,9,8,7,7,6,5,11,3];
+var arr = [10, 9, 8, 7, 7, 6, 5, 11, 3];
 var result = BubbleSort(arr);
 console.log(result);
 /*
@@ -125,24 +161,26 @@ console.log(result);
 -----------------------------
 [ 3, 5, 6, 7, 7, 8, 9, 10, 11 ]
 */
-
 ```
+
 二.选择排序
 
 ```js
-
 function SelectionSort(array) {
   var length = array.length;
-  for (var i = 0; i < length; i++) { //缩小选择的范围
+  for (var i = 0; i < length; i++) {
+    //缩小选择的范围
     var min = array[i]; //假定范围内第一个为最小值
     var index = i; //记录最小值的下标
-    for (var j = i + 1; j < length; j++) { //在范围内选取最小值
+    for (var j = i + 1; j < length; j++) {
+      //在范围内选取最小值
       if (array[j] < min) {
         min = array[j];
         index = j;
       }
     }
-    if (index != i) { //把范围内最小值交换到范围内第一个
+    if (index != i) {
+      //把范围内最小值交换到范围内第一个
       var temp = array[i];
       array[i] = array[index];
       array[index] = temp;
@@ -153,7 +191,7 @@ function SelectionSort(array) {
   return array;
 }
 
-var arr = [ 1, 10, 100, 90, 65, 5, 4, 10, 2, 4 ];
+var arr = [1, 10, 100, 90, 65, 5, 4, 10, 2, 4];
 var result = SelectionSort(arr);
 console.log(result);
 /*
@@ -179,22 +217,21 @@ console.log(result);
 ---------------------
 [ 1, 2, 4, 4, 5, 10, 10, 65, 90, 100 ]
 */
-
 ```
+
 三.插入排序
 
 ```js
-
 function InsertionSort(array) {
   var length = array.length;
   for (var i = 0; i < length - 1; i++) {
     //i代表已经排序好的序列最后一项下标
-    var insert = array[i+1];
-    var index = i + 1;//记录要被插入的下标
+    var insert = array[i + 1];
+    var index = i + 1; //记录要被插入的下标
     for (var j = i; j >= 0; j--) {
       if (insert < array[j]) {
         //要插入的项比它小，往后移动
-        array[j+1] = array[j];
+        array[j + 1] = array[j];
         index = j;
       }
     }
@@ -205,7 +242,7 @@ function InsertionSort(array) {
   return array;
 }
 
-var arr = [100,90,80,62,80,8,1,2,39];
+var arr = [100, 90, 80, 62, 80, 8, 1, 2, 39];
 var result = InsertionSort(arr);
 console.log(result);
 /*
@@ -227,8 +264,8 @@ console.log(result);
 -----------------------
 [ 1, 2, 8, 39, 62, 80, 80, 90, 100 ]
 */
-
 ```
+
 四.希尔排序
 五.归并排序
 六.快速排序
@@ -245,33 +282,37 @@ console.log(result);
 
 <b><details><summary>3. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5,7,9,42,18,29]</summary></b>
 
+```js
+var a = [1, 2, 3, 5];
+alert(Math.max.apply(null, a)); //最大值
+alert(Math.min.apply(null, a)); //最小值
+```
+
 </details>
 
-<b><details><summary>4. 正则表达式，验证手机号码，验证规则：11位数字，以1位开头</summary></b>
+<b><details><summary>4. 正则表达式，验证手机号码，验证规则：11 位数字，以 1 位开头</summary></b>
 
 </details>
 
 <b><details><summary>5. 以下代码求结果</summary></b>
 
 ```js
-
 function SuperClass() {
-    this.name = "women";
-    this.bra = ["a", "b"];
+  this.name = "women";
+  this.bra = ["a", "b"];
 }
 
 SuperClass.prototype.sayWhat = function() {
-    console.log("hello")
-}
+  console.log("hello");
+};
 
 function SubClass() {
-    this.subname = "you sister";
-    SuperClass.call(this);
+  this.subname = "you sister";
+  SuperClass.call(this);
 }
 
 var sub = new SubClass();
 console.log(sub.sayWhat());
-
 ```
 
 </details>
@@ -280,27 +321,23 @@ console.log(sub.sayWhat());
 
 </details>
 
-<b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合pattern， 则以 result 对结果进行转义输出。 如</summary></b>
+<b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。 如</summary></b>
 
 ```js
-
-'/foo'.rewrite(/^\/foo/, '/bar')
-'u1234'.rewrite(/^\/u(\d+)/, '/user/$1')
-'/i'.rewrite(/^\o/, '/ooo')
-
+"/foo".rewrite(/^\/foo/, "/bar");
+"u1234".rewrite(/^\/u(\d+)/, "/user/$1");
+"/i".rewrite(/^\o/, "/ooo");
 ```
 
 </details>
 
-<b><details><summary>9. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求1.尽量和json兼容，2.支持不可序列化的值，如undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date等</summary></b>
+<b><details><summary>9. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求 1.尽量和 json 兼容，2.支持不可序列化的值，如 undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date 等</summary></b>
 
 ```js
-
-serialize({})
-serialize({ a: 'b' })
-serialize({ a: 0/0 })
-serialize({ a: /foo/ })
-
+serialize({});
+serialize({ a: "b" });
+serialize({ a: 0 / 0 });
+serialize({ a: /foo/ });
 ```
 
 </details>
@@ -334,6 +371,7 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 </details>
 
 <b><details><summary>12. 请写出以下代码的执行结果</summary></b>
+
 ```
 (function() {
     fn();
@@ -346,9 +384,11 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
     }
 })()
 ```
+
 </details>
 
 <b><details><summary>13. 请说明以下各种情况的执行结果，并注明产生对应结果的理由</summary></b>
+
 ```
 function doSomething() {
     alert(this);
@@ -358,9 +398,11 @@ a) element.onclick = doSomething, 点击 element 元素后
 b) element.onclick = function() doSomething(){}, 点击 element 元素后
 c) 直接执行 doSomething()
 ```
+
 </details>
 
 <b><details><summary>14. 请写出以下代码的执行结果</summary></b>
+
 ```
 var obj = {};
 var events = { m1: "clicked", m2: "changed"};
@@ -374,11 +416,13 @@ alert(obj.m1 == obj.m2);
 obj.m1();
 obj.m2();
 ```
+
 </details>
 
 <b><details><summary>15. 请写出类 Son 继承类 Father</summary></b>
 function Father() {}
 function Son() {}
+
 </details>
 
 <b><details><summary>16. 请用 JS 写出一个遍历 DOM 节点树的方法</summary></b>
@@ -386,6 +430,7 @@ function Son() {}
 </details>
 
 <b><details><summary>17. 尝试实现注释部分的 JavaScript 代码， 可在其他任何地方添加更多代码。</summary></b>
+
 ```
 var Obj = function(msg) {
     this.msg = msg;
@@ -397,14 +442,17 @@ var Obj = function(msg) {
     }
 }
 ```
+
 </details>
 
 <b><details><summary>18. 请编写一个 JavaScript 函数 parseQuerySting, 它的用途是把 URL 参数解析为一个对象，如</summary></b>
+
 ```
 var url = "http://www.58.com/index.aspx?key0=0&key1=1&key2=2..."
 var obj = parseQuerySting(url);
 alert(obj.key0) // 输出 0
 ```
+
 </details>
 
 <b><details><summary>19. 请给 Array 本地对象添加一个原型方法，它用于删除数组条目中重复的条目（可能有多个重复），返回值是一个包含被删除的重复条目的新数组</summary></b>
@@ -416,6 +464,7 @@ alert(obj.key0) // 输出 0
 </details>
 
 <b><details><summary>21. 以下代码输出多少</summary></b>
+
 ```js
 var name = "world";
 (function () {
@@ -441,6 +490,7 @@ var name = "world";
 
 ==> Hello,world
 ```
+
 </details>
 
 <b><details><summary>22. 数组拍平</summary></b>
@@ -450,24 +500,22 @@ var name = "world";
 <b><details><summary>如何解决数组塌陷问题</summary></b>
 
 ```js
+// 1 使用i--
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i] === 4) {
+    arr.splice(i, 1);
+    i--;
+  }
+}
+console.log(arr);
 
-    // 1 使用i--
-    for(var i=0;i<arr.length;i++){
-        if(arr[i]===4){
-            arr.splice(i,1);
-            i--;
-        }
-    }
-    console.log(arr)
-
-    // 2 从数组的末尾一项开始遍历
-    for(var i =arr.length;i>=0;i--){
-        if(arr[i]===4){
-            arr.splice(i,1);
-        }
-    }
-    console.log(arr)
-
+// 2 从数组的末尾一项开始遍历
+for (var i = arr.length; i >= 0; i--) {
+  if (arr[i] === 4) {
+    arr.splice(i, 1);
+  }
+}
+console.log(arr);
 ```
 
 </details>
@@ -475,14 +523,14 @@ var name = "world";
 <b><details><summary></summary></b>
 
 ```js
-   function fun(n, o){
-       console.log(o);
-       return {
-           fun:function(m){
-               return fun(m,n)
-           }
-       }
-   }
+function fun(n, o) {
+  console.log(o);
+  return {
+    fun: function(m) {
+      return fun(m, n);
+    }
+  };
+}
 //    var a = fun(0);
 //    a.fun(1)
 //    a.fun(2)
@@ -494,37 +542,39 @@ var name = "world";
 //    var b = fun(0).fun(1).fun(2).fun(3)
 // 打印 undefined 0 1 2
 
-
-var c = fun(0).fun(1); c.fun(2);c.fun(3)
+var c = fun(0).fun(1);
+c.fun(2);
+c.fun(3);
 // 打印
 // undefined 0 1 1
 ```
+
 </details>
 
 <b><details><summary>编写一个数组去重的方法</summary></b>
 
 </details>
 
-<b><details><summary>已知id的input输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
+<b><details><summary>已知 id 的 input 输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
 
 document.getElementById('id').value
 
 </details>
 
-<b><details><summary>获取到页面中所有的checkbox怎么做？（不使用第三方框架）</summary></b>
+<b><details><summary>获取到页面中所有的 checkbox 怎么做？（不使用第三方框架）</summary></b>
 
 var domList = document.getElementsByTagName('input')
-var ckList = []; // 返回的所有的checkbox
+var ckList = []; // 返回的所有的 checkbox
 var len = domList.length
 for (var i = 0; i < len; i++) {
-  if (domList[i].type == 'checkbox') {
-    ckList.push(domList[i])
-  }
+if (domList[i].type == 'checkbox') {
+ckList.push(domList[i])
+}
 }
 
 </details>
 
-<b><details><summary>设置一个已知id的div的html内容为xxxx，字体颜色设置为黑色（不使用第三方框架）</summary></b>
+<b><details><summary>设置一个已知 id 的 div 的 html 内容为 xxxx，字体颜色设置为黑色（不使用第三方框架）</summary></b>
 
 ```
 var dom = document.getElementById('id');
@@ -542,20 +592,20 @@ dom.style.color = '#000'; // 'black'
 
 </details>
 
-<b><details><summary>已知有字符串foo=“get-element-by-id”,写一个function将其转化为驼峰表示法“getElementById”</summary></b>
+<b><details><summary>已知有字符串 foo=“get-element-by-id”,写一个 function 将其转化为驼峰表示法“getElementById”</summary></b>
 
 ```js
-var string = 'get-element-by-id';
+var string = "get-element-by-id";
 
 function combo(msg) {
-    var arr = msg.split("-"); //split("-")以-为分隔符截取字符串，返回数组
-    for(var i = 1; i < arr.length; i++) {
-        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-    }
-    msg = arr.join(""); //join()返回字符串
-    return msg;
+  var arr = msg.split("-"); //split("-")以-为分隔符截取字符串，返回数组
+  for (var i = 1; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  msg = arr.join(""); //join()返回字符串
+  return msg;
 }
-console.log(combo(string))
+console.log(combo(string));
 ```
 
 </details>
