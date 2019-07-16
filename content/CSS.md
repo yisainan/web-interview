@@ -88,7 +88,7 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 <b><details><summary>27. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
 ```
-  1.id选择器（ # myid）
+        1.id选择器（ # myid）
 
         2.类选择器（.myclassname）
 
@@ -294,8 +294,6 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
     height: 200px;
 
     background-color: #6699FF;
-
- 
 
     margin:auto;
 

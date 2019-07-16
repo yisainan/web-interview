@@ -52,7 +52,7 @@ createDocumentFragment() //创建一个 DOM 片段
 
 <b><details><summary>5.事件委托是什么</summary></b>
 
-让利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
+利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
 
 <summary>阻止事件冒泡</summary>
   event.stopPropagation() || e.cancelBubble = true || return false
