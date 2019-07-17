@@ -1,17 +1,5 @@
 # [返回主页](../../README.md)
 
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
 <b><details><summary>34.说下 jQuery/Zepto 中的 on 方法有哪些参数，分别代表什么意思？</summary></b>
 
 </details>
@@ -45,5 +33,17 @@
 </details>
 
 <b><details><summary>jQuery 的 slideUp动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?</summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
