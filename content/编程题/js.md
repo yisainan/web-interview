@@ -622,11 +622,36 @@ console.log(combo(string));
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>看下面代码，给出输出结果</summary></b>
+```js
+for (var i = 1; i <= 3; i++) {
+  setTimeout(()=>{
+    console.log(i)
+  },0)
+}
+// 4 4 4
+```
+如何输出1 2 3
 
-</details>
-
-<b><details><summary></summary></b>
+立即执行函数
+```js
+for (var i = 1; i <= 3; i++) {
+  setTimeout(((i)=>{
+    console.log(i)
+  })(i),0)
+}
+```
+闭包
+```js
+for (var i = 1; i <= 3; i++) {
+  setTimeout((()=>{
+    var j = i
+    return function () {
+      console.log(j)
+    }
+  })(),0)
+}
+```
 
 </details>
 
@@ -645,5 +670,35 @@ var a = [1, 2, 3, 5];
 alert(Math.max.apply(null, a)); //最大值
 alert(Math.min.apply(null, a)); //最小值
 ```
+
+</details>
+
+<b><details><summary>写一个function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
+
+```js
+//重写trim方法
+if(!String.prototype.trim){
+    String.prototype.trim = function(){
+        return this.replace(/^\s+/,"").replace(/\s+$/,"");
+    }
+}
+```
+</details>
+
+<b><details><summary>算出最终结果</summary></b>
+```js
+var a = 10, b = 20, c = 30;
+++a;
+a++;
+e = ++a+(++b)+(c++)+a++;
+console.log(e) // 77
+```
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
