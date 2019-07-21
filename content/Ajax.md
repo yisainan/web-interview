@@ -352,7 +352,8 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>27.Ajax加载的页面，跳转到一个页面又跳转回来，内容相同，如何节约请求</summary></b>
+后台做缓存，读取缓存里的数据
 
 </details>
 
