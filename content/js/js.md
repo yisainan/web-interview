@@ -283,30 +283,59 @@ Function
 
 </details>
 
-<b><details><summary>10.什么是面向对象？</summary></b>
+<b><details><summary>15.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
-<!--1 面向对象和面向过程的异同-->
-<!--2 在JavaScript中面向对象的表现形式-->
-<!--3 其他语言中面向对象的表现形式（了解）-->
+强制（parseInt,parseFloat,Number）
 
-</details>
-
-<b><details><summary>12.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
-
-强制（parseInt,parseFloat,Number）隐式（+ -）
+隐式（+ -）
 
 </details>
 
-<b><details><summary>6.你对闭包的理解？优缺点？</summary></b>
+<b><details><summary>16.你对闭包的理解？优缺点？</summary></b>
 
-1.闭包就是能够读取其他函数内部变量的函数。由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
+概念：闭包就是能够读取其他函数内部变量的函数。
+
+三大特性：
+
+- 函数嵌套函数。
+- 函数内部可以引用外部的参数和变量。
+- 参数和变量不会被垃圾回收机制回收。
+
+优点：
+
+- 希望一个变量长期存储在内存中。
+- 避免全局变量的污染。
+- 私有成员的存在。
+
+缺点：
+
+- 常驻内存，增加内存使用量。
+- 使用不当会很容易造成内存泄露。
+
+示例：
+
+```js
+function outer() {
+  var name = "jack";
+  function inner() {
+    console.log(name);
+  }
+  return inner;
+}
+outer()() // jack
+```
+
+详解：
+
+由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
 
 </details>
 
-<b><details><summary>13.变量提升</summary></b>
+<b><details><summary>17.如何判断 NaN</summary></b>
 
-[变量提升概念]()
-[变量提升面试题]()
+isNaN()方法
+
+isNaN(NaN) // true
 
 </details>
 
@@ -322,9 +351,10 @@ Function
 
 </details>
 
-<b><details><summary>17.如何判断 NaN</summary></b>
+<b><details><summary>13.变量提升</summary></b>
 
-isNaN()方法
+[变量提升概念]()
+[变量提升面试题]()
 
 </details>
 
@@ -375,6 +405,14 @@ typeof、instanceof、 constructor、 prototype
 </details>
 
 <b><details><summary>26.Object.prototype.toString.call() 和 instanceOf 和 Array.isArray() 区别好坏</summary></b>
+
+</details>
+
+<b><details><summary>15.什么是面向对象？</summary></b>
+
+<!--1 面向对象和面向过程的异同-->
+<!--2 在JavaScript中面向对象的表现形式-->
+<!--3 其他语言中面向对象的表现形式（了解）-->
 
 </details>
 
@@ -827,7 +865,7 @@ console.log(window.a); // 37
 
 普通函数内部的 this 分两种情况，严格模式和非严格模式。
 
-（1）非严格模式下，this 默认指向全局对象 window。
+（1）非严格模式下，没有被上一级的对象所调用,this 默认指向全局对象 window。
 
 ```js
 function f1() {
@@ -848,7 +886,7 @@ f2() === undefined; // true
 
 2.2 函数作为对象的方法
 
-（1）当函数作为对象里的方法被调用时，它们的 this 是调用该函数的对象。
+（1）函数有被上一级的对象所调用，那么 this 指向的就是上一级的对象。
 
 （2）多层嵌套的对象，内部方法的 this 指向离被调用函数最近的对象（window 也是对象，其内部对象调用方法的 this 指向内部对象， 而非 window）。
 
@@ -876,6 +914,37 @@ console.log(o.f()); // logs 37
 //this 的绑定只受最靠近的成员引用的影响
 o.b = { g: independent, prop: 42 };
 console.log(o.b.g()); // 42
+```
+
+特殊例子
+
+```js
+// 例子1
+var o = {
+  a: 10,
+  b: {
+    // a:12,
+    fn: function() {
+      console.log(this.a); //undefined
+      console.log(this); //{fn: ƒ}
+    }
+  }
+};
+o.b.fn();
+// 例子2
+var o = {
+  a: 10,
+  b: {
+    a: 12,
+    fn: function() {
+      console.log(this.a); //undefined
+      console.log(this); //window
+    }
+  }
+};
+var j = o.b.fn;
+j();
+// this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的，例子2中虽然函数fn是被对象b所引用，但是在将fn赋值给变量j的时候并没有执行所以最终指向的是window，这和例子1是不一样的，例子1是直接执行了fn
 ```
 
 2.3 原型链中的 this
@@ -945,6 +1014,7 @@ function C() {
 
 var o = new C();
 console.log(o.a); // 37
+// 为什么this会指向o？首先new关键字会创建一个空的对象，然后会自动调用一个函数apply方法，将this指向这个空对象，这样的话函数内部的this就会被这个空的对象替代。
 
 function C2() {
   this.a = 37;
@@ -953,6 +1023,58 @@ function C2() {
 
 o = new C2();
 console.log(o.a); // 38
+```
+
+特殊例子
+
+当 this 碰到 return 时
+
+```js
+// 例子1
+function fn() {
+  this.user = "追梦子";
+  return {};
+}
+var a = new fn();
+console.log(a.user); //undefined
+// 例子2
+function fn() {
+  this.user = "追梦子";
+  return function() {};
+}
+var a = new fn();
+console.log(a.user); //undefined
+// 例子3
+function fn() {
+  this.user = "追梦子";
+  return 1;
+}
+var a = new fn();
+console.log(a.user); //追梦子
+// 例子4
+function fn() {
+  this.user = "追梦子";
+  return undefined;
+}
+var a = new fn();
+console.log(a.user); //追梦子
+// 例子5
+function fn() {
+  this.user = "追梦子";
+  return undefined;
+}
+var a = new fn();
+console.log(a); //fn {user: "追梦子"}
+// 例子6
+// 虽然null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊
+function fn() {
+  this.user = "追梦子";
+  return null;
+}
+var a = new fn();
+console.log(a.user); //追梦子
+
+// 总结：如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
 ```
 
 2.5 setTimeout & setInterval
@@ -985,7 +1107,7 @@ function Person() {
 var p = new Person(); //3秒后返回构造函数新生成的对象 Person{...}
 ```
 
-##  3、在 DOM 事件中
+## 3、在 DOM 事件中
 
 3.1 作为一个 DOM 事件处理函数
 
@@ -1203,15 +1325,15 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 
 </details>
 
-<b><details><summary>85.正则表达式构造函数 var reg = new RegExp('xxx')与正则表达字面量var reg  = // 有什么不同？</summary></b>
+<b><details><summary>85.正则表达式构造函数 var reg = new RegExp('xxx')与正则表达字面量 var reg = // 有什么不同？</summary></b>
 
 </details>
 
-<b><details><summary>86.js中callee与caller的作用</summary></b>
+<b><details><summary>86.js 中 callee 与 caller 的作用</summary></b>
 
 </details>
 
-<b><details><summary>87.异步加载js的方法 </summary></b>
+<b><details><summary>87.异步加载 js 的方法 </summary></b>
 
 </details>
 
