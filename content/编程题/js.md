@@ -24,7 +24,7 @@ var href = getQueryString();
 console.log(href["categoryId"]);
 ```
 
-方法二：(正则版,URL存在#则不适用)
+方法二：(正则版,URL 存在#则不适用)
 
 ```js
 function getQueryString(name) {
@@ -33,7 +33,7 @@ function getQueryString(name) {
   if (r != null) return unescape(r[2]);
   return null;
 }
-console.log(getQueryString('categoryId'))
+console.log(getQueryString("categoryId"));
 ```
 
 方法三：(正则升级版)
@@ -56,7 +56,7 @@ function getQueryString(name) {
   if (!r) return null;
   return r[2];
 }
-console.log(getQueryString('categoryId'))
+console.log(getQueryString("categoryId"));
 ```
 
 </details>
@@ -623,33 +623,44 @@ console.log(combo(string));
 </details>
 
 <b><details><summary>看下面代码，给出输出结果</summary></b>
+
 ```js
 for (var i = 1; i <= 3; i++) {
-  setTimeout(()=>{
-    console.log(i)
-  },0)
+  setTimeout(() => {
+    console.log(i);
+  }, 0);
 }
 // 4 4 4
 ```
-如何输出1 2 3
+
+如何输出 1 2 3
 
 立即执行函数
+
 ```js
 for (var i = 1; i <= 3; i++) {
-  setTimeout(((i)=>{
-    console.log(i)
-  })(i),0)
+  setTimeout(
+    (i => {
+      console.log(i);
+    })(i),
+    0
+  );
 }
 ```
+
 闭包
+
 ```js
 for (var i = 1; i <= 3; i++) {
-  setTimeout((()=>{
-    var j = i
-    return function () {
-      console.log(j)
-    }
-  })(),0)
+  setTimeout(
+    (() => {
+      var j = i;
+      return function() {
+        console.log(j);
+      };
+    })(),
+    0
+  );
 }
 ```
 
@@ -673,29 +684,170 @@ alert(Math.min.apply(null, a)); //最小值
 
 </details>
 
-<b><details><summary>写一个function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
+<b><details><summary>写一个 function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
 
 ```js
 //重写trim方法
-if(!String.prototype.trim){
-    String.prototype.trim = function(){
-        return this.replace(/^\s+/,"").replace(/\s+$/,"");
-    }
+if (!String.prototype.trim) {
+  String.prototype.trim = function() {
+    return this.replace(/^\s+/, "").replace(/\s+$/, "");
+  };
 }
 ```
+
 </details>
 
-<b><details><summary>算出最终结果</summary></b>
+<b><details><summary>++ 运算面试题</summary></b>
+
 ```js
-var a = 10, b = 20, c = 30;
+var a = 10,
+  b = 20,
+  c = 30;
 ++a;
 a++;
-e = ++a+(++b)+(c++)+a++;
-console.log(e) // 77
+e = ++a + ++b + c++ + a++;
+console.log(e); // 77
 ```
+
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>this 面试题</summary></b>
+
+
+```js
+//#1题
+function Fn() {
+  console.log(this);
+}
+Fn(); //window 普通函数调用模式
+new Fn(); //{}  构造函数调用模式
+Fn.apply(Fn); // Fn的函数体   方法借用模式
+
+//#2题
+var o = {
+  f: function() {
+    console.log(this);
+  },
+  2: function() {
+    console.log(this);
+    console.log(this.__proto__ === o[2].prototype);
+  }
+};
+o.f(); //o   对象调用模式
+o[2](); //o  对象调用模式
+new o[2](); //存疑，存在着优先级的问题 {}  通过构造函数模式进行调用
+o.f.call([1, 2]); //[1,2]   call方法进行方法借用。
+o[2].call([1, 2, 3, 4]); // [1,2,3,4]  call方法进行方法借用
+
+//#3题
+var name = "out";
+var obj = {
+  name: "in",
+  prop: {
+    name: "inside",
+    getName: function() {
+      return this.name;
+    }
+  }
+};
+
+console.log(obj.prop.getName()); //对象调用模式来进行调用  obj.prop.name  'inside'
+var test = obj.prop.getName; // 把test这个变量指向了obj.prop.getName所在的内存地址。
+console.log(test()); //普通函数模式来进行调用  window 'out'
+console.log(obj.prop.getName.apply(window)); //方法借用模式  'out'
+console.log(obj.prop.getName.apply(this)); //方法借用模式  'out'
+console.log(this === window); //true
+
+//#4题
+var length = 10;
+function fn() {
+  console.log(this.length);
+}
+var obj = {
+  length: 5,
+  method: function(f) {
+    console.log(this);
+    f(); // f在调用的时候是什么调用模式？普通函数调用模式  window.length  10
+    arguments[0](); // 通过什么模式来进行调用的。执行之前有[]和.就是对象调用模式。
+    //arguments是一个类数组，也就是一个对象，就是通过arguments来进行调用的
+    //arguments.length实参的数量。实参长度是1
+    //通过arguments对象进行调用，因此函数内部的this是  arguments
+    // 如果一个函数在调用的时候它前面有call和apply那么就肯定是方法借用模式调用
+    arguments[0].call(this);
+    // 调用method方法是通过obj.method 因此在这里的this就是 obj
+    //通过call方法把fn内的this指向了obj
+    // 输出obj.length  5
+  }
+};
+obj.method(fn);
+
+//#5题
+function Foo() {
+  getName = function() {
+    console.log(1);
+  };
+  return this;
+}
+Foo.getName = function() {
+  console.log(2);
+};
+Foo.prototype.getName = function() {
+  console.log(3);
+};
+var getName = function() {
+  console.log(4);
+};
+function getName() {
+  console.log(5);
+}
+//请写出以下输出结果：
+Foo.getName(); //2
+getName(); //4
+Foo().getName(); //1
+getName(); //1
+new Foo.getName(); //2
+new Foo().getName(); //3
+new new Foo().getName(); //3
+// new Foo()创建了一个构造函数，然后这个函数再去访问getName这个函数，
+//对它进行调用
+/*console.log(new Foo().getName)*/
+/*var o = new new Foo().getName(); //
+    console.log(o.__proto__===Foo.prototype.getName.prototype)*/
+//用new Foo创建出来了一个实例，然后这个实例去访问 (new Foo().getName)
+
+/*console.log(new new Foo().getName())
+
+    console.log(new Foo().getName())*/
+
+/*function Foo() {
+        getName = function () {
+            console.log(1);
+        };
+        return this;
+    }
+    var getName;
+    Foo.getName = function () {
+        console.log(2);
+    };
+    Foo.prototype.getName = function () {
+        console.log(3);
+    };
+    getName = function () {
+        console.log(4);
+    };
+    //请写出以下输出结果：
+    Foo.getName();// 2
+    getName();//4
+/!*    Foo().getName();//!*!/
+    window.getName()//1
+    getName();//1
+  /!*  var o = new Foo.getName();//2
+    console.log(o);// {}
+    console.log(o.__proto__===Foo.getName.prototype)//true*!/
+    new Foo.getName();// 2
+    new Foo().getName();//
+    new new Foo().getName();*/
+```
 
 </details>
 
