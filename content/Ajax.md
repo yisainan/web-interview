@@ -66,7 +66,7 @@ Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组�
 CORS:
 
 服务端添加
-header("Access-Control-Allow-Origin", "_");  
+header("Access-Control-Allow-Origin", "_");
 ---“_”号表示允许任何域向我们的服务端提交请求
 
 </details>
@@ -348,11 +348,12 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>26.什么是json，优缺点</summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>27.Ajax加载的页面，跳转到一个页面又跳转回来，内容相同，如何节约请求</summary></b>
+后台做缓存，读取缓存里的数据
 
 </details>
 

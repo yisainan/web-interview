@@ -397,6 +397,7 @@ typeof、instanceof、 constructor、 prototype
 </details>
 
 <b><details><summary>31.JS 单线程还是多线程，如何显示异步操作</summary></b>
+单线程
 
 </details>
 
@@ -1202,15 +1203,15 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>85.正则表达式构造函数 var reg = new RegExp('xxx')与正则表达字面量var reg  = // 有什么不同？</summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>86.js中callee与caller的作用</summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>87.异步加载js的方法 </summary></b>
 
 </details>
 

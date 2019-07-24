@@ -52,7 +52,7 @@
 </details>
 
 <b><details><summary>💻 Angular</summary></b>
-  
+
 - [详情](./content/Angular.md)
 
 </details>
@@ -84,9 +84,11 @@
 
 </details>
 
-<!-- <b><details><summary>⚙️ 链接装载库</summary></b>
+<b><details><summary>⚙️ 兼容性问题</summary></b>
 
-</details> -->
+- [详情](./content/兼容性问题.md)
+
+</details>
 
 <b><details><summary>📚 大厂高频题</summary></b>
 
@@ -94,7 +96,7 @@
 
 </details>
 
-<b><details><summary>🔱 面试中经常遇到的问题(非技术)</summary></b>
+<b><details><summary>🔱 非技术问题</summary></b>
 
 - [详情](./content/非技术问题.md)
 
