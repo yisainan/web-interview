@@ -322,7 +322,7 @@ function outer() {
   }
   return inner;
 }
-outer()() // jack
+outer()(); // jack
 ```
 
 详解：
@@ -336,6 +336,20 @@ outer()() // jack
 isNaN()方法
 
 isNaN(NaN) // true
+
+</details>
+
+<b><details><summary>18.new 一个对象的过程中发生了什么</summary></b>
+
+```
+1. 创建空对象；
+   var obj = {};
+2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象；
+   obj.__proto__ = ClassA.prototype;
+3. 使用新对象调用函数，函数中的 this 被指向新实例对象：
+   ClassA.call(obj);//{}.构造函数();
+4. 如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接直接返回该对象。
+```
 
 </details>
 
@@ -1334,6 +1348,41 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 </details>
 
 <b><details><summary>87.异步加载 js 的方法 </summary></b>
+
+</details>
+
+<b><details><summary>去除数组重复成员的方法</summary></b>
+
+方法 1 扩展运算符和 Set 结构相结合，就可以去除数组的重复成员
+
+```js
+// 去除数组的重复成员
+[...new Set([1, 2, 2, 3, 4, 5, 5])];
+// [1, 2, 3, 4, 5]
+```
+
+方法 2
+
+```js
+function dedupe(array) {
+  return Array.from(new Set(array));
+}
+dedupe([1, 1, 2, 3]); // [1, 2, 3]
+```
+
+</details>
+
+<b><details><summary>去除字符串里面的重复字符</summary></b>
+最简单的方式
+
+```js
+[...new Set("ababbc")].join("");
+// "abc"
+```
+
+</details>
+
+<b><details><summary></summary></b>
 
 </details>
 

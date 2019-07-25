@@ -306,29 +306,6 @@ checkphonenumber(number) {
 
 </details>
 
-<b><details><summary>5. 以下代码求结果</summary></b>
-
-```js
-function SuperClass() {
-  this.name = "women";
-  this.bra = ["a", "b"];
-}
-
-SuperClass.prototype.sayWhat = function() {
-  console.log("hello");
-};
-
-function SubClass() {
-  this.subname = "you sister";
-  SuperClass.call(this);
-}
-
-var sub = new SubClass();
-console.log(sub.sayWhat());
-```
-
-</details>
-
 <b><details><summary>7. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
 
 </details>
@@ -697,7 +674,7 @@ if (!String.prototype.trim) {
 
 </details>
 
-<b><details><summary>++ 运算面试题</summary></b>
+<b><details><summary>运算符面试题</summary></b>
 
 ```js
 var a = 10,
@@ -713,6 +690,14 @@ console.log(e); // 77
 
 <b><details><summary>this 面试题</summary></b>
 
+```
+ this指向了谁？
+ 看函数在执行的时候是如何调用的，
+ 1 如果这个函数是用普通函数调用模式来进行调用，它内部的this指向了window
+ 2如果一个函数在调用的时候是通过对象方法模式来进行调用，则它内部的this就是我们的对象
+ 3 如果一个函数在调用的时候通过构造函数模式调用，则它内部的this指向了生成的实例
+ 4 如果这个函数是通过方法借用模式调用，则这个函数内部的this就是我们手动指定this。
+```
 
 ```js
 //#1题
@@ -847,6 +832,57 @@ new new Foo().getName(); //3
     new Foo.getName();// 2
     new Foo().getName();//
     new new Foo().getName();*/
+
+//#6题
+var obj = {
+  fn: function() {
+    console.log(this);
+  }
+};
+obj.fn(); //obj
+var f = obj.fn;
+f(); //window
+console.log(f === obj.fn); // true
+
+// f和obj.fn是同一个函数，但是他们在调用的时候使用的函数调用模式不同，因此，它们内部的this指向也就不同。
+
+// #7题
+var arr = [
+  function() {
+    console.log(this);
+  }
+];
+arr[0](); //数组本身
+//数组也是一个复杂数据类型，也是一个对象，那用数组去调用函数，使用的模式就是对象方法调用模式。
+function f() {
+  console.log(this);
+}
+function fn() {
+  console.log(arguments); // 类数组，也是就一个对象    [0:function f(){}]
+  console.log(this); // window
+  arguments[0]();
+  console.log(arguments[0]); //内部的this就是arguments
+  // 通过arguments对f这个方法进行调用，使用的是对象方法调用模式。
+}
+fn(f);
+
+// #8题
+function SuperClass() {
+  this.name = "women";
+  this.bra = ["a", "b"];
+}
+
+SuperClass.prototype.sayWhat = function() {
+  console.log("hello");
+};
+
+function SubClass() {
+  this.subname = "you sister";
+  SuperClass.call(this);
+}
+
+var sub = new SubClass();
+console.log(sub.sayWhat());
 ```
 
 </details>

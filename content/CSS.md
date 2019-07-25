@@ -3,9 +3,7 @@
 <b><details><summary>1.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
 ```html
-
 <div style="height:1px;overflow:hidden;background:red"></div>
-
 ```
 
 </details>
@@ -97,14 +95,13 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 <b><details><summary>6.伪元素和伪类的区别？</summary></b>
 
-1、伪元素使用2个冒号，常见的有：::before，::after，::first-line，::first-letter，::selection、::placeholder等；
+1、伪元素使用 2 个冒号，常见的有：::before，::after，::first-line，::first-letter，::selection、::placeholder 等；
 
-	  伪类使用1个冒号，常见的有：:hover，:link，:active，:target，:not()，:focus等。
-
+      伪类使用1个冒号，常见的有：:hover，:link，:active，:target，:not()，:focus等。
 
 2、伪元素添加了一个页面中没有的元素（只是从视觉效果上添加了，不是在文档树中添加）；
 
-	  伪类是给页面中已经存在的元素添加一个类。
+      伪类是给页面中已经存在的元素添加一个类。
 
 </details>
 
@@ -199,7 +196,7 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>11. rgba()和 opacity 的透明效果有什么不同？</summary></b>
+<b><details><summary>10. rgba()和 opacity 的透明效果有什么不同？</summary></b>
 
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
@@ -207,7 +204,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>12. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
+<b><details><summary>11. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
 
 垂直方向：line-height
 
@@ -216,6 +213,14 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 那么问题来了，关于 letter-spacing 的妙用知道有哪些么？
 
 答案:可以用于消除 inline-block 元素间的换行符空格间隙问题。
+
+</details>
+
+<b><details><summary>12. px 和 em 的区别。</summary></b>
+
+px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
+
+浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
 
 </details>
 
@@ -291,11 +296,41 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>14. px 和 em 的区别。</summary></b>
+<b><details><summary>14.BFC </summary></b>
 
-px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
+- 什么是 BFC
 
-浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
+  BFC（Block Formatting Context）格式化上下文，是 Web 页面中盒模型布局的 CSS 渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。
+
+- 形成 BFC 的条件
+
+  - 浮动元素，float 除 none 以外的值
+  - 定位元素，position（absolute，fixed）
+  - display 为以下其中之一的值 inline-block，table-cell，table-caption
+  - overflow 除了 visible 以外的值（hidden，auto，scroll）
+
+- BFC 的特性
+  - 内部的 Box 会在垂直方向上一个接一个的放置。
+  - 垂直方向上的距离由 margin 决定
+  - bfc 的区域不会与 float 的元素区域重叠。
+  - 计算 bfc 的高度时，浮动元素也参与计算
+  - bfc 就是页面上的一个独立容器，容器里面的子元素不会影响外面元素。
+    </details>
+
+<b><details><summary>15.用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
+
+```css
+span {
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid #ff0000;
+}
+```
+
+![css_001](../images/css_001.jpg)
 
 </details>
 
