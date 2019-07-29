@@ -308,6 +308,23 @@ checkphonenumber(number) {
 
 <b><details><summary>7. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
 
+```js
+Array.prototype.distinct = function() {
+  var ret = [];
+  for (var i = 0; i < this.length; i++) {
+    for (var j = i + 1; j < this.length; ) {
+      if (this[i] === this[j]) {
+        ret.push(this.splice(j, 1)[0]);
+      } else {
+        j++;
+      }
+    }
+  }
+  return ret;
+};
+console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
+```
+
 </details>
 
 <b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。 如</summary></b>
@@ -1074,57 +1091,121 @@ p.then(function(x) {
 </details>
 
 <b><details><summary>手写防抖(Debouncing)和节流(Throttling)</summary></b>
+
 ```js
 // 防抖函数
 function debounce(fn, wait) {
-    let timer;
-    return function() {
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(() => {
-            fn.apply(this, arguments)
-        }, wait)
-    }
+  let timer;
+  return function() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, wait);
+  };
 }
 ```
+
 ```js
 // 节流函数
 function throttle(fn, wait) {
-    let prev = new Date();
-    return function() {
-        const args = arguments;
-        const now = new Date();
-        if (now - prev > wait) {
-            fn.apply(this, args);
-            prev = new Date();
-        }
+  let prev = new Date();
+  return function() {
+    const args = arguments;
+    const now = new Date();
+    if (now - prev > wait) {
+      fn.apply(this, args);
+      prev = new Date();
     }
+  };
 }
 ```
+
 </details>
 
-<b><details><summary>手写一个JS深拷贝</summary></b>
+<b><details><summary>手写一个 JS 深拷贝</summary></b>
+
 ```js
 function deepCopy(obj) {
-    //判断是否是简单数据类型，
-    if (typeof obj == "object") {
-        //复杂数据类型
-        var result = obj.constructor == Array ? [] : {};
-        for (let i in obj) {
-            result[i] = typeof obj[i] == "object" ? deepCopy(obj[i]) : obj[i];
-        }
-    } else {
-        //简单数据类型 直接 == 赋值
-        var result = obj;
+  //判断是否是简单数据类型，
+  if (typeof obj == "object") {
+    //复杂数据类型
+    var result = obj.constructor == Array ? [] : {};
+    for (let i in obj) {
+      result[i] = typeof obj[i] == "object" ? deepCopy(obj[i]) : obj[i];
     }
-    return result;
+  } else {
+    //简单数据类型 直接 == 赋值
+    var result = obj;
+  }
+  return result;
 }
 ```
-</details>
-
-<b><details><summary></summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>看下面代码，给出输出结果(考察闭包及++运算符)</summary></b>
+
+```js
+function Foo() {
+  var i = 0;
+  return function() {
+    console.log(i++);
+  };
+}
+var f1 = Foo(),
+  f2 = Foo();
+
+f1(); // 0
+f1(); // 1
+f2(); // 0
+```
+
+```js
+function fn() {
+  var a = 1;
+  return function() {
+    a++;
+    console.log(a);
+  };
+}
+var b = fn();
+console.log(b());
+// 2
+```
+
+```js
+function fn() {
+  var a = 1;
+  return function() {
+    console.log(a++);
+  };
+}
+var b = fn();
+console.log(b());
+// 1
+```
+
+</details>
+
+<b><details><summary>看下面代码，给出输出结果(考察时间戳)</summary></b>
+
+```js
+//总结：第一个setTimeout，时间间隔<1000的话，输出1000多，>1000的话，输出间隔值多
+//     第二个setTimeout，是1000+时间间隔
+var dateNum = new Date();
+setTimeout(function() {
+  console.log(new Date() - dateNum);
+}, 1200); //1200多
+while (new Date() - dateNum < 1000) {
+  var a = 1;
+}
+setTimeout(function() {
+  console.log(new Date() - dateNum);
+}, 1500); // 2500左右
+```
+
+</details>
+
+<b><details><summary>看下面代码，给出输出结果</summary></b>
 
 </details>

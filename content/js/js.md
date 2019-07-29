@@ -1387,7 +1387,7 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 
 </details>
 
-<b><details><summary>去除数组重复成员的方法</summary></b>
+<b><details><summary>88.去除数组重复成员的方法</summary></b>
 
 方法 1 扩展运算符和 Set 结构相结合，就可以去除数组的重复成员
 
@@ -1408,7 +1408,7 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 
 </details>
 
-<b><details><summary>去除字符串里面的重复字符</summary></b>
+<b><details><summary>89.去除字符串里面的重复字符</summary></b>
 最简单的方式
 
 ```js
@@ -1418,7 +1418,13 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>90.求数组的最大值</summary></b>
+
+```js
+var a = [1, 2, 3, 5];
+alert(Math.max.apply(null, a)); //最大值
+alert(Math.min.apply(null, a)); //最小值
+```
 
 </details>
 
