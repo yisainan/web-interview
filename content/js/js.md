@@ -353,6 +353,42 @@ isNaN(NaN) // true
 
 </details>
 
+<b><details><summary>19.for in 和 for of</summary></b>
+
+1、for in
+
+- 1.一般用于遍历对象的可枚举属性。以及对象从构造函数原型中继承的属性。对于每个不同的属性，语句都会被执行。
+- 2.不建议使用 for in 遍历数组，因为输出的顺序是不固定的。
+- 3.如果迭代的对象的变量值是 null 或者 undefined, for in 不执行循环体，建议在使用 for in 循环之前，先检查该对象的值是不是 null 或者 undefined
+
+2、for of
+
+- 1.for…of 语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句
+
+遍历对象
+
+```js
+var s = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+var s1 = Object.create(s);
+for (var prop in s1) {
+  console.log(prop); //a b c
+  console.log(s1[prop]); //1 2 3
+}
+for (let prop of s1) {
+  console.log(prop); //报错如下 Uncaught TypeError: s1 is not iterable
+}
+for (let prop of Object.keys(s1)) {
+  console.log(prop); // a b c
+  console.log(s1[prop]); //1 2 3
+}
+```
+
+</details>
+
 <b><details><summary>14.this 和 apply 的应用</summary></b>
 
 </details>

@@ -60,6 +60,26 @@ CSS 放在页面最上部，javascript 放在页面最下面
 
 VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的。
 
+Vue3.0 将用原生 Proxy 替换 Object.defineProperty
+
+</details>
+
+<b><details><summary>3. 为什么要替换 Object.defineProperty？</summary></b>
+
+在 Vue 中，Object.defineProperty 无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。
+
+Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历。
+
+</details>
+
+<b><details><summary>3. 什么是 Proxy？</summary></b>
+
+Proxy 是 ES6 中新增的一个特性，翻译过来意思是"代理"，用在这里表示由它来“代理”某些操作。 Proxy 让我们能够以简洁易懂的方式控制外部对对象的访问。其功能非常类似于设计模式中的代理模式。
+
+Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
+
+使用 Proxy 的核心优点是可以交由它来处理一些非核心逻辑（如：读取或设置对象的某些属性前记录日志；设置对象的某些属性值前，需要验证；某些属性的访问控制等）。 从而可以让对象只需关注于核心逻辑，达到关注点分离，降低对象复杂度等目的。
+
 </details>
 
 <b><details><summary>9. 对于 Vue 是一套渐进式框架的理解</summary></b>
@@ -99,9 +119,9 @@ VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这
 
 <b><details><summary>11. 请问 v-if 和 v-show 有什么区别</summary></b>
 
-v-show指令是通过修改元素的display的CSS属性让其显示或者隐藏
+v-show 指令是通过修改元素的 display 的 CSS 属性让其显示或者隐藏
 
-v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果
+v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 </details>
 
@@ -116,7 +136,13 @@ v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果
 肯定可以的。
 
 ```html
-<input type="text" :value="name" @input="onInput" @focus="onFocus" @blur="onBlur" />
+<input
+  type="text"
+  :value="name"
+  @input="onInput"
+  @focus="onFocus"
+  @blur="onBlur"
+/>
 ```
 
 </details>
@@ -173,8 +199,8 @@ event.preventDefault();
 我们知道，相比于 jquery，vue 的事件绑定可以显得更加直观和便捷，我们只需要在模板上添加一个 v-on 指令（还可以简写为 @），即可完成类似于 \$('xxx').bind 的效果，少了一个利用选择器查询元素的操作。我们知道，jquery 中，event 对象会被默认当做实参传入到处理函数中，如下
 
 ```js
-$('body').bind('click', function (event) {
-  console.log(typeof event);        // object
+$("body").bind("click", function(event) {
+  console.log(typeof event); // object
 });
 ```
 
@@ -408,29 +434,29 @@ Vue.nextTick(callback) 使用原理：
 ```js
 var Component = function() {};
 Component.prototype.data = {
-    message: 'Love'
-}
+  message: "Love"
+};
 var component1 = new Component(),
-    component2 = new Component();
-component1.data.message = 'Peace';
-console.log(component2.data.message);  // Peace
+  component2 = new Component();
+component1.data.message = "Peace";
+console.log(component2.data.message); // Peace
 ```
 
 以上两个实例都引用同一个对象，当其中一个实例属性改变时，另一个实例属性也随之改变，只有当两个实例拥有自己的作用域时，才不会互相干扰 ！！！！！这句是重点！！！！！
 
 ```js
 var Component = function() {
-    this.data = this.data()
-}
-Component.prototype.data = function(){
-    return {
-        message: 'Love'
-    }
-}
+  this.data = this.data();
+};
+Component.prototype.data = function() {
+  return {
+    message: "Love"
+  };
+};
 var component1 = new Component(),
-    component2 = new Component();
-component1.data.message = 'Peace';
-console.log(component2.data.message);  // Love
+  component2 = new Component();
+component1.data.message = "Peace";
+console.log(component2.data.message); // Love
 ```
 
 </details>
@@ -443,7 +469,7 @@ v-for 比 v-if 优先
 
 <b><details><summary>20. vue 中子组件调用父组件的方法</summary></b>
 
-第一种方法是直接在子组件中通过 this.$parent.event 来调用父组件的方法
+第一种方法是直接在子组件中通过 this.\$parent.event 来调用父组件的方法
 
 父组件
 
@@ -487,7 +513,7 @@ v-for 比 v-if 优先
 </script>
 ```
 
-第二种方法是在子组件里用$emit 向父组件触发一个事件，父组件监听这个事件就行了
+第二种方法是在子组件里用\$emit 向父组件触发一个事件，父组件监听这个事件就行了
 
 父组件
 
@@ -587,7 +613,7 @@ v-for 比 v-if 优先
 
 <b><details><summary>21. vue 中父组件调用子组件的方法</summary></b>
 
-使用$refs
+使用\$refs
 
 父组件
 
@@ -923,7 +949,7 @@ npm run build
 
 <b><details><summary>48. 什么是 Virtual DOM？</summary></b>
 
-可以看作是一个使用javascript模拟了DOM结构的树形结构
+可以看作是一个使用 javascript 模拟了 DOM 结构的树形结构
 
 [详情])(https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
 
@@ -931,7 +957,7 @@ npm run build
 
 <b><details><summary>49. 响应式系统的基本原理</summary></b>
 
-Object.defineProperty，Vue.js就是基于它实现「响应式系统」的。
+Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
 </details>
 
@@ -953,16 +979,17 @@ Object.defineProperty，Vue.js就是基于它实现「响应式系统」的。
 
 </details>
 
-<b><details><summary>54. Vue中如何实现proxy代理？</summary></b>
+<b><details><summary>54. Vue 中如何实现 proxy 代理？</summary></b>
 
-webpack自带的devServer中集成了http-proxy-middleware。配置devServer的proxy选项即可
+webpack 自带的 devServer 中集成了 http-proxy-middleware。配置 devServer 的 proxy 选项即可
+
 ```js
 proxyTable: {
    '/api': {
     target: 'http://192.168.149.90:8080/', // 设置你调用的接口域名和端口号
     changeOrigin: true,   // 跨域
     pathRewrite: {
-     '^/api': '/'    
+     '^/api': '/'
     }
    }
   }
@@ -1035,7 +1062,7 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary>如何让CSS只在当前组件中起作用</summary></b>
+<b><details><summary>如何让 CSS 只在当前组件中起作用</summary></b>
 
 ```
 将当前组件的<style>修改为<style scoped>
@@ -1043,13 +1070,13 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary>指令v-el的作用是什么?</summary></b>
+<b><details><summary>指令 v-el 的作用是什么?</summary></b>
 
 提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
 
 </details>
 
-<b><details><summary>vue-router有哪几种导航钩子？</summary></b>
+<b><details><summary>vue-router 有哪几种导航钩子？</summary></b>
 
 三种，一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
 第二种：组件内的钩子；
@@ -1057,26 +1084,28 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary>vue-loader是什么？使用它的用途有哪些？</summary></b>
+<b><details><summary>vue-loader 是什么？使用它的用途有哪些？</summary></b>
 
-解析.vue文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
-用途：js可以写es6、style样式可以scss或less、template可以加jade等
+解析.vue 文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
+用途：js 可以写 es6、style 样式可以 scss 或 less、template 可以加 jade 等
 
 </details>
 
 <b><details><summary>为什么避免 v-if 和 v-for 用在一起</summary></b>
 
-当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
 
 </details>
 
 <b><details><summary>组件的设计原则</summary></b>
+
 ```
-(1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块) 
-(2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中) 
-(每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑) 
+(1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块)
+(2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中)
+(每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑)
 (3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
 ```
+
 </details>
 
 <b><details><summary></summary></b>

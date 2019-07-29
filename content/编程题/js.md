@@ -887,6 +887,244 @@ console.log(sub.sayWhat());
 
 </details>
 
+<b><details><summary>实现一个 new 操作符</summary></b>
+
+```js
+function New(func) {
+  var res = {};
+  if (func.prototype !== null) {
+    res.__proto__ = func.prototype;
+  }
+  var ret = func.apply(res, Array.prototype.slice.call(arguments, 1));
+  if ((typeof ret === "object" || typeof ret === "function") && ret !== null) {
+    return;
+    ret;
+  }
+  return;
+  res;
+}
+var obj = New(A, 1, 2);
+// equals to
+var obj = new A(1, 2);
+```
+
+</details>
+
+<b><details><summary>实现一个 call 或 apply</summary></b>
+call
+
+```js
+Function.prototype.call2 = function(context) {
+  var context = context || window;
+  context.fn = this;
+
+  var args = [];
+  for (var i = 1, len = arguments.length; i < len; i++) {
+    args.push("arguments[" + i + "]");
+  }
+
+  var result = eval("context.fn(" + args + ")");
+
+  delete context.fn;
+  return result;
+};
+```
+
+apply
+
+```js
+Function.prototype.apply2 = function(context, arr) {
+  var context = Object(context) || window;
+  context.fn = this;
+
+  var result;
+  if (!arr) {
+    result = context.fn();
+  } else {
+    var args = [];
+    for (var i = 0, len = arr.length; i < len; i++) {
+      args.push("arr[" + i + "]");
+    }
+    result = eval("context.fn(" + args + ")");
+  }
+
+  delete context.fn;
+  return result;
+};
+```
+
+</details>
+
+<b><details><summary>实现一个 Function.bind</summary></b>
+
+```js
+Function.prototype.bind2 = function(context) {
+  if (typeof this !== "function") {
+    throw new Error(
+      "Function.prototype.bind - what is trying to be bound is not callable"
+    );
+  }
+  var self = this;
+  var args = Array.prototype.slice.call(arguments, 1);
+  var fNOP = function() {};
+  var fbound = function() {
+    self.apply(
+      this instanceof self ? this : context,
+      args.concat(Array.prototype.slice.call(arguments))
+    );
+  };
+  fNOP.prototype = this.prototype;
+  fbound.prototype = new fNOP();
+  return fbound;
+};
+```
+
+</details>
+
+<b><details><summary>实现一个继承</summary></b>
+
+```js
+function Parent(name) {
+  this.name = name;
+}
+
+Parent.prototype.sayName = function() {
+  console.log("parent name:", this.name);
+};
+
+function Child(name, parentName) {
+  Parent.call(this, parentName);
+  this.name = name;
+}
+
+function create(proto) {
+  function F() {}
+  F.prototype = proto;
+  return new F();
+}
+Child.prototype = create(Parent.prototype);
+Child.prototype.sayName = function() {
+  console.log("child name:", this.name);
+};
+
+Child.prototype.constructor = Child;
+var parent = new Parent("汪某");
+parent.sayName(); // parent name: 汪某
+var child = new Child("son", "汪某");
+```
+
+</details>
+
+<b><details><summary>手写一个 Promise(中高级必考)</summary></b>
+
+```js
+function myPromise(constructor) {
+  let self = this;
+  self.status = "pending";
+  //定义状态改变前的初始状态
+  self.value = undefined;
+  //定义状态为resolved的时候的状态
+  self.reason = undefined;
+  //定义状态为rejected的时候的状态
+  function resolve(value) {
+    //两个==="pending"，保证了状态的改变是不可逆的
+    if (self.status === "pending") {
+      self.value = value;
+      self.status = "resolved";
+    }
+  }
+  function reject(reason) {
+    //两个==="pending"，保证了状态的改变是不可逆的
+    if (self.status === "pending") {
+      self.reason = reason;
+      self.status = "rejected";
+    }
+  }
+  //捕获构造异常
+  try {
+    constructor(resolve, reject);
+  } catch (e) {
+    reject(e);
+  }
+}
+
+//同时，需要在 myPromise的原型上定义链式调用的 then方法：
+myPromise.prototype.then = function(onFullfilled, onRejected) {
+  let self = this;
+  switch (self.status) {
+    case "resolved":
+      onFullfilled(self.value);
+      break;
+    case "rejected":
+      onRejected(self.reason);
+      break;
+    default:
+  }
+};
+
+//测试一下：
+var p = new myPromise(function(resolve, reject) {
+  resolve(1);
+});
+p.then(function(x) {
+  console.log(x);
+});
+```
+
+</details>
+
+<b><details><summary>手写防抖(Debouncing)和节流(Throttling)</summary></b>
+```js
+// 防抖函数
+function debounce(fn, wait) {
+    let timer;
+    return function() {
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+            fn.apply(this, arguments)
+        }, wait)
+    }
+}
+```
+```js
+// 节流函数
+function throttle(fn, wait) {
+    let prev = new Date();
+    return function() {
+        const args = arguments;
+        const now = new Date();
+        if (now - prev > wait) {
+            fn.apply(this, args);
+            prev = new Date();
+        }
+    }
+}
+```
+</details>
+
+<b><details><summary>手写一个JS深拷贝</summary></b>
+```js
+function deepCopy(obj) {
+    //判断是否是简单数据类型，
+    if (typeof obj == "object") {
+        //复杂数据类型
+        var result = obj.constructor == Array ? [] : {};
+        for (let i in obj) {
+            result[i] = typeof obj[i] == "object" ? deepCopy(obj[i]) : obj[i];
+        }
+    } else {
+        //简单数据类型 直接 == 赋值
+        var result = obj;
+    }
+    return result;
+}
+```
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>
