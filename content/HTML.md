@@ -1,4 +1,4 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1.简述一下你对 HTML 语义化的理解？</summary></b></b>
 
@@ -136,6 +136,15 @@ src 用于替换当前元素，href 用于在当前文档和引用资源之间�
 
 </details>
 
+
+<b><details><summary>10.严格模式与混杂模式</summary></b>
+
+严格模式：以浏览器支持的最高标准运行
+
+混杂模式：页面以宽松向下兼容的方式显示，模拟老式浏览器的行为
+
+</details>
+
 <b><details><summary>11.对于WEB标准以及W3C的理解与认识问题</summary></b>
 
 <b>web标准</b>简单来说可以分为<b>结构、表现和行为</b>。其中结构主要是有HTML标签组成。或许通俗点说，在页面body里面我们写入的标签都是为了页面的结构。表现即指css样式表，通过css可以是页面的结构标签更具美感。行为是指页面和用户具有一定的交互，同时页面结构或者表现发生变化，主要是有js组成。
@@ -159,6 +168,20 @@ W3C对web标准提出了规范化的要求，也就是在实际编程中的一�
 2）样式尽量少用行间样式表，使结构与表现分离，标签的id和class等属性命名要做到见文知义，标签越少，加载越快，用户体验提高，代码维护简单，便于改版
 
 3）不需要变动页面内容，便可提供打印版本而不需要复制内容，提高网站易用性。
+
+</details>
+
+<b><details><summary>12.列举IE与其他浏览器不一样的特性？</summary></b>
+
+a. IE的排版引擎是Trident （又称为MSHTML）
+
+b. Trident内核曾经几乎与W3C标准脱节（2005年）
+
+c. Trident内核的大量 Bug等安全性问题没有得到及时解决
+
+d. JS方面，有很多独立的方法，例如绑定事件的attachEvent、创建事件的createEventObject等
+
+e. CSS方面，也有自己独有的处理方式，例如设置透明，低版本IE中使用滤镜的方式
 
 </details>
 
@@ -410,53 +433,6 @@ bindClickOnCircleArea(box, function () {
 </details>
 
 <b><details><summary>31. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
-
-</details>
-
-<b><details><summary>32. 移动端1px问题的解决办法</summary></b>
-
-推荐解决方法：媒体查询 + transfrom
-
-```
-/* 2倍屏 */
-@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
-    .border-bottom::after {
-        -webkit-transform: scaleY(0.5);
-        transform: scaleY(0.5);
-    }
-}
-/* 3倍屏 */
-@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
-    .border-bottom::after {
-        -webkit-transform: scaleY(0.33);
-        transform: scaleY(0.33);
-    }
-}
-```
-
-[其他解决方案参考](https://www.jianshu.com/p/31f8907637a6)
-
-</details>
-
-<b><details><summary>严格模式与混杂模式</summary></b>
-
-严格模式：以浏览器支持的最高标准运行
-
-混杂模式：页面以宽松向下兼容的方式显示，模拟老式浏览器的行为
-
-</details>
-
-<b><details><summary>列举IE与其他浏览器不一样的特性？</summary></b>
-
-a. IE的排版引擎是Trident （又称为MSHTML）
-
-b. Trident内核曾经几乎与W3C标准脱节（2005年）
-
-c. Trident内核的大量 Bug等安全性问题没有得到及时解决
-
-d. JS方面，有很多独立的方法，例如绑定事件的attachEvent、创建事件的createEventObject等
-
-e. CSS方面，也有自己独有的处理方式，例如设置透明，低版本IE中使用滤镜的方式
 
 </details>
 

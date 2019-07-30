@@ -1,4 +1,4 @@
-# [返回主页](../../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>箭头函数与 ES5 的区别</summary></b>
 

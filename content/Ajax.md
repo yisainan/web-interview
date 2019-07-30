@@ -1,4 +1,4 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1、Ajax 是什么?如何创建一个 Ajax？</summary></b>
 

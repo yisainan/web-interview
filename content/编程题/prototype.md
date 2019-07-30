@@ -1,7 +1,7 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>原型链面试题</summary></b>
-
+<b><details><summary>1.原型链面试题</summary></b>
+```js
 
     // 1
     function A() {}
@@ -36,14 +36,7 @@
     console.log(Function.__proto__.__proto__===Object.prototype);
     // Function.__proto__===Function.prototype
     // Function.prototype.__proto__ === Object.prototype
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
+```
 
 </details>
 
@@ -59,6 +52,14 @@ function foo(obj) {
 foo(o);
 console.log(o.name); //想要的是原来对象的name，所以输出腐女
 ```
+</details>
+
+<b><details><summary></summary></b>
+
+</details>
+
+<b><details><summary></summary></b>
+
 </details>
 
 <b><details><summary></summary></b>

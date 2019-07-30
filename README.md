@@ -26,8 +26,8 @@
 
 <b><details><summary>〽️ JS</summary></b>
 
-- [js](./content/js/js.md)
-- [prototype 原型](./content/js/prototype.md)
+- [js 基础](./content/js/js.md)
+- [js 原型](./content/js/prototype.md)
 - [es6](./content/js/es6.md)
 - [jquery](./content/js/jquery.md)
 - [node](./content/js/node.md)
@@ -41,7 +41,6 @@
 - [vue-router](./content/vue/vue-router.md)
 - [vuex](./content/vue/vuex.md)
 - [MVVM 设计模式](./content/vue/MVVM.md)
-
 
 </details>
 
@@ -65,9 +64,9 @@
 
 <b><details><summary>🌩 编程题</summary></b>
 
-- [js](./content/编程题/js.md)
+- [js 基础](./content/编程题/js.md)
+- [js 原型](./content/编程题/prototype.md)
 - [es6](./content/编程题/es6.md)
-- [prototype 原型](./content/编程题/prototype.md)
 - [变量提升](./content/编程题/变量提升.md)
 
 </details>
@@ -98,7 +97,8 @@
 
 <b><details><summary>🔱 非技术问题</summary></b>
 
-- [详情](./content/非技术问题.md)
+- [常问的非技术问题](./content/非技术问题/非技术问题.md)
+- [面试技巧及注意事项](./content/非技术问题/面试技巧及注意事项.md)
 
 </details>
 

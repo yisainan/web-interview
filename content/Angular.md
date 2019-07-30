@@ -1,4 +1,4 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1.angular 的数据绑定采用什么机制？详述原理</summary></b>
 

@@ -1,4 +1,4 @@
-# [返回主页](../../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 
 <b><details><summary>什么是 MVVM？</summary></b>

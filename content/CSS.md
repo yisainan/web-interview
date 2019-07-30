@@ -1,4 +1,4 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
@@ -334,87 +334,6 @@ span {
 
 </details>
 
-<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
-
-最基本的：
-
-设置 display 属性为 none，或者设置 visibility 属性为 hidden
-
-技巧性：
-
-设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
-
-</details>
-
-<b><details><summary>6. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
-
-最基本的：
-
-设置 display 属性为 none，或者设置 visibility 属性为 hidden
-
-技巧性：
-
-设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
-
-</details>
-
-<b><details><summary>7. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
-
-答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
-
-</details>
-
-<b><details><summary>8. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
-
-答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
-
-示例如下：
-
-```css
-
-#test{
-
-    width:300px;
-
-    height:300px;
-
-    background-color:blue;      /_firefox_/
-
-    background-color:red\9;      /_all ie_/
-
-    background-color:yellow;    /_ie8_/
-
-    +background-color:pink;        /_ie7_/
-
-    \_background-color:orange;       /_ie6_/   
-
-}
-
- :root #test { background-color:purple\9; }  /*ie9*/
-
-@media all and (min-width:0px)
-
-     { #test {background-color:black;} }  /*opera*/
-
-@media screen and (-webkit-min-device-pixel-ratio:0)
-
-{ #test {background-color:gray;} }       /*chrome and safari*/
-
-
-```
-
-</details>
-
-<b><details><summary>15. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
-
-重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置 CSS 文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。
-
-你可能会用 Normalize 来代替你的重置样式文件。它没有重置所有的样式风格，但仅提供了一套合理的默认样式值。既能让众多浏览器达到一致和合理，但又不扰乱其他的东西（如粗体的标题）。
-
-在这一方面，无法做每一个复位重置。它也确实有些超过一个重置，它处理了你永远都不用考虑的怪癖，像 HTML 的 audio 元素不一致或 line-height 不一致。
-
-</details>
-
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
 
 他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
@@ -443,11 +362,29 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 </details>
 
-<b><details><summary>18. BFC 是什么?</summary></b>
 
-BFC（块级格式化上下文），一个创建了新的 BFC 的盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个 BFC 中的两个相邻的盒子在垂直方向发生 margin 重叠的问题
+<b><details><summary>18. 移动端1px问题的解决办法</summary></b>
 
-BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域只对块级元素起作用
+推荐解决方法：媒体查询 + transfrom
+
+```
+/* 2倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+/* 3倍屏 */
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
+    .border-bottom::after {
+        -webkit-transform: scaleY(0.33);
+        transform: scaleY(0.33);
+    }
+}
+```
+
+[其他解决方案参考](https://www.jianshu.com/p/31f8907637a6)
 
 </details>
 
@@ -465,11 +402,7 @@ BFC 是指浏览器中创建了一个独立的渲染区域，该区域内所有�
 
 </details>
 
-<b><details><summary> 22. 设备像素比</summary></b>
-
-</details>
-
-<b><details><summary>23.BFC</summary></b>
+<b><details><summary>22. 设备像素比</summary></b>
 
 </details>
 
@@ -632,6 +565,75 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 <b><details><summary>47. style 标签写在 body 后与 body 前有什么区别？</summary></b>
 
 从上向下加载，加载顺序不同
+
+</details>
+
+<b><details><summary>48. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
+
+最基本的：
+
+设置 display 属性为 none，或者设置 visibility 属性为 hidden
+
+技巧性：
+
+设置宽高为 0，设置透明度为 0，设置 z-index 位置在-1000em
+
+</details>
+
+<b><details><summary>49. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
+
+答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
+
+</details>
+
+<b><details><summary>50. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
+
+答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
+
+示例如下：
+
+```css
+
+#test{
+
+    width:300px;
+
+    height:300px;
+
+    background-color:blue;      /_firefox_/
+
+    background-color:red\9;      /_all ie_/
+
+    background-color:yellow;    /_ie8_/
+
+    +background-color:pink;        /_ie7_/
+
+    \_background-color:orange;       /_ie6_/   
+
+}
+
+ :root #test { background-color:purple\9; }  /*ie9*/
+
+@media all and (min-width:0px)
+
+     { #test {background-color:black;} }  /*opera*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+
+{ #test {background-color:gray;} }       /*chrome and safari*/
+
+
+```
+
+</details>
+
+<b><details><summary>51. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
+
+重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置 CSS 文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。
+
+你可能会用 Normalize 来代替你的重置样式文件。它没有重置所有的样式风格，但仅提供了一套合理的默认样式值。既能让众多浏览器达到一致和合理，但又不扰乱其他的东西（如粗体的标题）。
+
+在这一方面，无法做每一个复位重置。它也确实有些超过一个重置，它处理了你永远都不用考虑的怪癖，像 HTML 的 audio 元素不一致或 line-height 不一致。
 
 </details>
 

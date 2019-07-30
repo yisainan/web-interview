@@ -1,4 +1,4 @@
-# [返回主页](../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 

@@ -1,26 +1,26 @@
-# [返回主页](../../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>27.ES6 都有什么 iterater 遍历器</summary></b>
-
-</details>
-
-<b><details><summary>6、 ES6 中类和定义</summary></b>
+<b><details><summary>1.ES6 都有什么 iterater 遍历器</summary></b>
 
 </details>
 
-<b><details><summary>7、JS 中的文档碎片</summary></b>
+<b><details><summary>2. ES6 中类和定义</summary></b>
 
 </details>
 
-<b><details><summary>8、解构赋值</summary></b>
+<b><details><summary>3.JS 中的文档碎片</summary></b>
 
 </details>
 
-<b><details><summary>9、Array.from 与 Array.reduce</summary></b>
+<b><details><summary>4.解构赋值</summary></b>
 
 </details>
 
-<b><details><summary>箭头函数需要注意的地方</summary></b>
+<b><details><summary>5.Array.from 与 Array.reduce</summary></b>
+
+</details>
+
+<b><details><summary>6.箭头函数需要注意的地方</summary></b>
 
 ```
 箭头函数有几个使用注意点。
@@ -48,13 +48,13 @@ foo.call({ id: 42 });
 
 </details>
 
-<b><details><summary>var let 在for循环中的区别</summary></b>
+<b><details><summary>7.var let 在for循环中的区别</summary></b>
 
 [参考](https://blog.csdn.net/zoelinjf/article/details/79618688)
 
 </details>
 
-<b><details><summary>Set数据结构</summary></b>
+<b><details><summary>8.Set数据结构</summary></b>
 
 * es6方法,Set本身是一个构造函数，它类似于数组，但是成员值都是唯一的。
 
@@ -65,7 +65,7 @@ console.log(Array.from(new Set([2,3,3,5,6]))); //[2,3,5,6]
 ```
 </details>
 
-<b><details><summary>Class的讲解</summary></b>
+<b><details><summary>9.Class的讲解</summary></b>
 
 * class语法相对原型、构造函数、继承更接近传统语法，它的写法能够让对象原型的写法更加清晰、面向对象编程的语法更加通俗
 这是class的具体用法。
@@ -74,7 +74,7 @@ console.log(Array.from(new Set([2,3,3,5,6]))); //[2,3,5,6]
 
 </details>
 
-<b><details><summary>模板字符串</summary></b>
+<b><details><summary>10.模板字符串</summary></b>
 
 * 就是这种形式${varible},在以往的时候我们在连接字符串和变量的时候需要使用这种方式'string' + varible + 'string'但是有了模版语言后我们可以使用string${varible}string这种进行连接。基本用途有如下：
 

@@ -1,4 +1,4 @@
-# [返回主页](../../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
 

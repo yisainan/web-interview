@@ -1,4 +1,4 @@
-# [返回主页](../../README.md)
+# [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 <b><details><summary>1.document load 和 document ready 的区别</summary></b>
 
@@ -753,12 +753,6 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 </details>
 
 <b><details><summary>71. IE 和标准下有哪些兼容性的写法</summary></b>
-
-</details>
-
-<b><details><summary>72.css 可以继承的属性</summary></b>
-
-list- font- text-
 
 </details>
 
