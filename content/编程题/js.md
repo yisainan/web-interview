@@ -678,7 +678,7 @@ alert(Math.min.apply(null, a)); //最小值
 
 </details>
 
-<b><details><summary>写一个 function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
+<b><details><summary>4.写一个 function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
 
 ```js
 //重写trim方法
@@ -691,7 +691,7 @@ if (!String.prototype.trim) {
 
 </details>
 
-<b><details><summary>运算符面试题</summary></b>
+<b><details><summary>5.运算符面试题</summary></b>
 
 ```js
 var a = 10,
@@ -705,7 +705,7 @@ console.log(e); // 77
 
 </details>
 
-<b><details><summary>this 面试题</summary></b>
+<b><details><summary>6.this 面试题</summary></b>
 
 ```
  this指向了谁？
@@ -717,7 +717,7 @@ console.log(e); // 77
 ```
 
 ```js
-//#1题
+//第1题
 function Fn() {
   console.log(this);
 }
@@ -725,7 +725,7 @@ Fn(); //window 普通函数调用模式
 new Fn(); //{}  构造函数调用模式
 Fn.apply(Fn); // Fn的函数体   方法借用模式
 
-//#2题
+//第2题
 var o = {
   f: function() {
     console.log(this);
@@ -741,7 +741,7 @@ new o[2](); //存疑，存在着优先级的问题 {}  通过构造函数模式�
 o.f.call([1, 2]); //[1,2]   call方法进行方法借用。
 o[2].call([1, 2, 3, 4]); // [1,2,3,4]  call方法进行方法借用
 
-//#3题
+//第3题
 var name = "out";
 var obj = {
   name: "in",
@@ -760,7 +760,7 @@ console.log(obj.prop.getName.apply(window)); //方法借用模式  'out'
 console.log(obj.prop.getName.apply(this)); //方法借用模式  'out'
 console.log(this === window); //true
 
-//#4题
+//第4题
 var length = 10;
 function fn() {
   console.log(this.length);
@@ -783,7 +783,7 @@ var obj = {
 };
 obj.method(fn);
 
-//#5题
+//第5题
 function Foo() {
   getName = function() {
     console.log(1);
@@ -850,7 +850,7 @@ new new Foo().getName(); //3
     new Foo().getName();//
     new new Foo().getName();*/
 
-//#6题
+//第6题
 var obj = {
   fn: function() {
     console.log(this);

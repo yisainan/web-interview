@@ -1,6 +1,6 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>箭头函数与 ES5 的区别</summary></b>
+<b><details><summary>1.箭头函数</summary></b>
 
 在使用=>定义函数的时候，this 的指向是定义时所在的对象，而不是使用时所在的对象；
 
@@ -38,7 +38,7 @@ animal.say("hi"); //animal says hi
 
 </details>
 
-<b><details><summary>箭头函数转成 ES5</summary></b>
+<b><details><summary>2.箭头函数转成 ES5</summary></b>
 
 箭头函数里面根本没有自己的 this，而是引用外层的 this
 
@@ -62,7 +62,7 @@ function foo() {
 
 </details>
 
-<b><details><summary>把以下代码使用两种方法，依次输出 0-9</summary></b>
+<b><details><summary>3.把以下代码使用两种方法，依次输出 0-9</summary></b>
 
 ```js
 var funcs = [];
@@ -129,7 +129,7 @@ funcs.forEach(function(func) {
 
 </details>
 
-<b><details><summary>手写一个 promise</summary></b>
+<b><details><summary>4.手写一个 promise</summary></b>
 
 ```js
 var promise = new Promise((resolve, reject) => {
@@ -151,7 +151,7 @@ promise.then(
 
 </details>
 
-<b><details><summary>怎么解决回调函数里面回调另一个函数，另一个函数的参数需要依赖这个回调函数。需要被解决的代码如下：</summary></b>
+<b><details><summary>5.怎么解决回调函数里面回调另一个函数，另一个函数的参数需要依赖这个回调函数。需要被解决的代码如下：</summary></b>
 
 ```js
 $http.get(url).success(function (res) {
@@ -180,7 +180,7 @@ function success(data) {
 
 </details>
 
-<b><details><summary>以下代码依次输出的内容是？</summary></b>
+<b><details><summary>6.以下代码依次输出的内容是？</summary></b>
 
 ```js
 setTimeout(function() {
@@ -210,7 +210,7 @@ console.log(5);
 
 </details>
 
-<b><details><summary>jQuery 的 ajax 返回的是 promise 对象吗？</summary></b>
+<b><details><summary>7.jQuery 的 ajax 返回的是 promise 对象吗？</summary></b>
 
 jquery 的 ajax 返回的是 deferred 对象，通过 promise 的 resolve()方法将其转换为 promise 对象。
 
@@ -218,7 +218,7 @@ var jsPromise = Promise.resolve(\$.ajax('/whatever.json'));
 
 </details>
 
-<b><details><summary> promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b>
+<b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b>
 
 ```
 使用promise.all()
@@ -237,7 +237,8 @@ p的状态由p1、p2、p3决定，分为两种情况。
 
 </details>
 
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+<b><details><summary>9.Promise 编程题</summary></b>
+第 1 题
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -251,6 +252,7 @@ promise.then(() => {
 console.log(4);
 ```
 
+```
 运行结果及原因
 
 运行结果：
@@ -258,10 +260,9 @@ console.log(4);
 
 原因：
 Promise 构造函数是同步执行的，promise.then 中的函数是异步执行的。
+```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 2 题
 
 ```js
 const promise1 = new Promise((resolve, reject) => {
@@ -301,9 +302,7 @@ promise2 Promise {
 promise 有 3 种状态：pending（进行中）、fulfilled（已完成，又称为Resolved） 或 rejected（已失败）。状态改变只能是 pending->fulfilled 或者 pending->rejected，状态一旦改变则不能再变。上面 promise2 并不是 promise1，而是返回的一个新的 Promise 实例。
 ```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 3 题
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -321,6 +320,7 @@ promise
   });
 ```
 
+```
 运行结果及原因
 
 运行结果：
@@ -328,10 +328,9 @@ then：success1
 
 原因：
 构造函数中的 resolve 或 reject 只有第一次执行有效，多次调用没有任何作用，呼应代码二结论：promise 状态一旦改变则不能再变。
+```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 4 题
 
 ```js
 Promise.resolve(1)
@@ -353,40 +352,7 @@ Promise.resolve(1)
 原因：
 promise 可以链式调用。提起链式调用我们通常会想到通过 return this 实现，不过 Promise 并不是这样实现的。promise 每次调用 .then 或者 .catch 都会返回一个新的 promise，从而实现了链式调用。
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
-
-```js
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("once");
-    resolve("success");
-  }, 1000);
-});
-
-const start = Date.now();
-promise.then(res => {
-  console.log(res, Date.now() - start);
-});
-promise.then(res => {
-  console.log(res, Date.now() - start);
-});
-```
-
-```
-运行结果：
-once
-success 1001
-success 1001
-
-原因：
-promise 的 .then 或者 .catch 可以被调用多次，但这里 Promise 构造函数只执行一次。或者说 promise 内部状态一经改变，并且有了一个值，那么后续每次调用 .then 或者 .catch 都会直接拿到该值。
-```
-
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 5 题
 
 ```js
 Promise.resolve()
@@ -415,9 +381,36 @@ throw new Error('error!!!')
 因为返回任意一个非 promise 的值都会被包裹成 promise 对象，即 return new Error('error!!!') 等价于 return Promise.resolve(new Error('error!!!'))。
 ```
 
-</details>
+第 6 题
 
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+```js
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("once");
+    resolve("success");
+  }, 1000);
+});
+
+const start = Date.now();
+promise.then(res => {
+  console.log(res, Date.now() - start);
+});
+promise.then(res => {
+  console.log(res, Date.now() - start);
+});
+```
+
+```
+运行结果：
+once
+success 1001
+success 1001
+
+原因：
+promise 的 .then 或者 .catch 可以被调用多次，但这里 Promise 构造函数只执行一次。或者说 promise 内部状态一经改变，并且有了一个值，那么后续每次调用 .then 或者 .catch 都会直接拿到该值。
+```
+
+第 7 题
 
 ```js
 const promise = Promise.resolve().then(() => {
@@ -439,9 +432,7 @@ TypeError: Chaining cycle detected for promise #<Promise>
 .then 或 .catch 返回的值不能是 promise 本身，否则会造成死循环。
 ```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 8 题
 
 ```js
 Promise.resolve(1)
@@ -458,9 +449,7 @@ Promise.resolve(1)
 .then 或者 .catch 的参数期望是函数，传入非函数则会发生值穿透。
 ```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 9 题
 
 ```js
 Promise.resolve()
@@ -487,9 +476,7 @@ fail2: Error: error
 .then 可以接收两个参数，第一个是处理成功的函数，第二个是处理错误的函数。.catch 是 .then 第二个参数的简便写法，但是它们用法上有一点需要注意：.then 的第二个处理错误的函数捕获不了第一个处理成功的函数抛出的错误，而后续的 .catch 可以捕获之前的错误。
 ```
 
-</details>
-
-<b><details><summary>分析下列程序代码，得出运行结果，解释其原因</summary></b>
+第 10 题
 
 ```js
 process.nextTick(() => {
