@@ -1,36 +1,42 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.简述一下你对 HTML 语义化的理解？</summary></b></b>
+<b><details><summary>1.简述一下你对 HTML 语义化的理解？</summary></b>
+
+答案：
 
 ①**用正确的标签做正确的事情。**
 
 ②html 语义化让页面的**内容结构化，结构更清晰**，便于对浏览器、搜索引擎解析；即使在没有样式 CSS 情况下也以一种文档格式显示，并且是容易阅读的;
 
-③搜索引擎的爬虫也依赖于 HTML 标记来确定上下文和各个关键字的权重，**利于 SEO**;
+③ 搜索引擎的爬虫也依赖于 HTML 标记来确定上下文和各个关键字的权重，**利于 SEO**;
 
-④使阅读源代码的人对网站更容易将网站分块，**便于阅读维护理解**。
+④ 使阅读源代码的人对网站更容易将网站分块，**便于阅读维护理解**。
 
 </details>
 
 <b><details><summary>2.Label 的作用是什么？是怎么用的？</summary></b>
 
+答案：
+
 label 标签来定义表单控制间的关系,**当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上**。
 
-两种用法：**一种是id绑定，一种是嵌套**
+解析：
+
+两种用法：**一种是 id 绑定，一种是嵌套**
 
 ```html
-
 <label for="Name">Number:</label>
 
 <input type=“text“name="Name" id="Name"/>
 
 <label>Date:<input type="text" name="B"/></label>
-
 ```
 
 </details>
 
 <b><details><summary>3.iframe 有那些缺点？</summary></b>
+
+答案：
 
 - iframe 会阻塞主页面的 Onload 事件；
 
@@ -43,6 +49,8 @@ label 标签来定义表单控制间的关系,**当用户选择该标签时，�
 </details>
 
 <b><details><summary>4.HTML 与 XHTML —— 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary></b>
+
+答案：
 
 ```
 
@@ -70,18 +78,22 @@ label 标签来定义表单控制间的关系,**当用户选择该标签时，�
 
 <b><details><summary>5.HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
+答案：
+
 给不想要提示的 form 或某个 input 设置为 autocomplete=off。
 
 </details>
 
 <b><details><summary>6.title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？</summary></b>
 
+答案：
+
 ```
 
 ①title用于网站信息标题，突出网站标题或关键字，一个网站可以有多个title，seo权重高于H1；H1概括的是文章主题，一个页面最好只用一个H1，seo权重低于title。
 
 
-详解：
+解析：
 
 A.从网站角度而言，title则重于网站信息标题，突出网站标题或关键字用title，一篇文章，一个页面最好只
 
@@ -97,7 +109,7 @@ C.从SEO角度而言，title的权重高于H1，其适用性要比H1广。
 ②b为了加粗而加粗，strong为了标明重点而加粗
 
 
-详解：
+解析：
 
 A.b这个标签对应 bold，即文本加粗，其目的仅仅是为了加粗显示文本，是一种样式／风格需求；
 
@@ -112,6 +124,8 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 <b><details><summary>7.请描述下 SEO 中的 TDK？</summary></b>
 
+答案：
+
 在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，这三个标签在网站的优化过程中
 
 title 标题标签，description 描述标签，keywords 关键词标签
@@ -120,7 +134,9 @@ title 标题标签，description 描述标签，keywords 关键词标签
 
 <b><details><summary>8.每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
 
-  `<!DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
+答案：
+
+`<!DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
 
 作用：
 
@@ -132,12 +148,15 @@ title 标题标签，description 描述标签，keywords 关键词标签
 
 <b><details><summary>9. 简述一下 src 与 href 的区别。</summary></b>
 
+答案：
+
 src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
 
 </details>
 
-
 <b><details><summary>10.严格模式与混杂模式</summary></b>
+
+ 答案：
 
 严格模式：以浏览器支持的最高标准运行
 
@@ -145,15 +164,17 @@ src 用于替换当前元素，href 用于在当前文档和引用资源之间�
 
 </details>
 
-<b><details><summary>11.对于WEB标准以及W3C的理解与认识问题</summary></b>
+<b><details><summary>11.对于 WEB 标准以及 W3C 的理解与认识问题</summary></b>
 
-<b>web标准</b>简单来说可以分为<b>结构、表现和行为</b>。其中结构主要是有HTML标签组成。或许通俗点说，在页面body里面我们写入的标签都是为了页面的结构。表现即指css样式表，通过css可以是页面的结构标签更具美感。行为是指页面和用户具有一定的交互，同时页面结构或者表现发生变化，主要是有js组成。
+ 答案：
 
-web标准一般是将该三部分独立分开，使其更具有模块化。但一般产生行为时，就会有结构或者表现的变化，也使这三者的界限并不那么清晰。
+<b>web 标准</b>简单来说可以分为<b>结构、表现和行为</b>。其中结构主要是有 HTML 标签组成。或许通俗点说，在页面 body 里面我们写入的标签都是为了页面的结构。表现即指 css 样式表，通过 css 可以是页面的结构标签更具美感。行为是指页面和用户具有一定的交互，同时页面结构或者表现发生变化，主要是有 js 组成。
 
-W3C对web标准提出了规范化的要求，也就是在实际编程中的一些代码规范：包含如下几点
+web 标准一般是将该三部分独立分开，使其更具有模块化。但一般产生行为时，就会有结构或者表现的变化，也使这三者的界限并不那么清晰。
 
-1.对于结构要求：（标签规范可以提高搜索引擎对页面的抓取效率，对SEO很有帮助）
+W3C 对 web 标准提出了规范化的要求，也就是在实际编程中的一些代码规范：包含如下几点
+
+1.对于结构要求：（标签规范可以提高搜索引擎对页面的抓取效率，对 SEO 很有帮助）
 
 1）标签字母要小写
 
@@ -161,31 +182,35 @@ W3C对web标准提出了规范化的要求，也就是在实际编程中的一�
 
 3）标签不允许随意嵌套
 
-2.对于css和js来说
+2.对于 css 和 js 来说
 
-1）尽量使用外链css样式表和js脚本。是结构、表现和行为分为三块，符合规范。同时提高页面渲染速度，提高用户的体验。
+1）尽量使用外链 css 样式表和 js 脚本。是结构、表现和行为分为三块，符合规范。同时提高页面渲染速度，提高用户的体验。
 
-2）样式尽量少用行间样式表，使结构与表现分离，标签的id和class等属性命名要做到见文知义，标签越少，加载越快，用户体验提高，代码维护简单，便于改版
+2）样式尽量少用行间样式表，使结构与表现分离，标签的 id 和 class 等属性命名要做到见文知义，标签越少，加载越快，用户体验提高，代码维护简单，便于改版
 
 3）不需要变动页面内容，便可提供打印版本而不需要复制内容，提高网站易用性。
 
 </details>
 
-<b><details><summary>12.列举IE与其他浏览器不一样的特性？</summary></b>
+<b><details><summary>12.列举 IE 与其他浏览器不一样的特性？</summary></b>
 
-a. IE的排版引擎是Trident （又称为MSHTML）
+ 答案：
 
-b. Trident内核曾经几乎与W3C标准脱节（2005年）
+a. IE 的排版引擎是 Trident （又称为 MSHTML）
 
-c. Trident内核的大量 Bug等安全性问题没有得到及时解决
+b. Trident 内核曾经几乎与 W3C 标准脱节（2005 年）
 
-d. JS方面，有很多独立的方法，例如绑定事件的attachEvent、创建事件的createEventObject等
+c. Trident 内核的大量 Bug 等安全性问题没有得到及时解决
 
-e. CSS方面，也有自己独有的处理方式，例如设置透明，低版本IE中使用滤镜的方式
+d. JS 方面，有很多独立的方法，例如绑定事件的 attachEvent、创建事件的 createEventObject 等
+
+e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版本 IE 中使用滤镜的方式
 
 </details>
 
-<b><details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary></b>
+<b><details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary></b> 
+
+答案：
 
 分成：结构层、表示层、行为层。
 
@@ -205,6 +230,8 @@ e. CSS方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>15.为什么用多个域名存储网站资源更有效？</summary></b>
 
+ 答案：
+
 1、CDN 缓存更方便
 
 2、突破浏览器并发限制
@@ -217,19 +244,9 @@ e. CSS方面，也有自己独有的处理方式，例如设置透明，低版�
 
 </details>
 
-<b><details><summary>16.请描述一下 cookies，sessionStorage 和 localStorage 的区别</summary></b>
-
-cookie 在浏览器和服务器间来回传递。 sessionStorage 和 localStorage 不会
-
-sessionStorage 和 localStorage 的存储空间更大；
-
-sessionStorage 和 localStorage 有更多丰富易用的接口；
-
-sessionStorage 和 localStorage 各自独立的存储空间；
-
-</details>
-
 <b><details><summary>17. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
+
+ 答案：
 
 1 以 ie6 为例，如果写了 DTD，就意味着这个页面将采用对 CSS 支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是 Quirks 模式（怪癖模式，诡异模式，怪异模式）。
 
@@ -265,6 +282,8 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 <b><details><summary>18. div+css 的布局较 table 布局有什么优点？</summary></b>
 
+ 答案：
+
 分离 方便改版 快清晰简洁 seo
 
 1.改版的时候更方便 只要改 css 文件。
@@ -277,7 +296,9 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 </details>
 
-<b><details><summary>19. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b>
+<b><details><summary>19. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b> 
+
+答案：
 
 渐进增强  progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
@@ -293,11 +314,15 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 
 <b><details><summary>20. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
 
+ 答案：
+
 降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
 
 </details>
 
 <b><details><summary>22. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
+
+ 答案：
 
 微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
@@ -306,6 +331,8 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 </details>
 
 <b><details><summary>24. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
+
+ 答案：
 
 图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。
 
@@ -320,6 +347,8 @@ sessionStorage 和 localStorage 各自独立的存储空间；
 </details>
 
 <b><details><summary>25. html 常见兼容性问题？</summary></b>
+
+ 答案：
 
 1.双边距 BUG float 引起的   使用 display
 
@@ -355,17 +384,21 @@ filter: alpha(opacity=60); /_ for IE5-7 _/
 
 <b><details><summary>26. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
+ 答案：
+
 答：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
 </details>
 
-<b><details><summary>28. webSocket如何兼容低版本浏览器？</summary></b>
+<b><details><summary>28. webSocket 如何兼容低版本浏览器？</summary></b> 
 
-对于低端不支持websocket的浏览器，一般有几个解决方案
+答案：
 
-使用轮询或长连接的方式实现伪websocket的通信
+对于低端不支持 websocket 的浏览器，一般有几个解决方案
 
-使用flash或其他方法实现一个websocket客户端 ：https://segmentfault.com/q/1010000005000671/a-1020000005003936
+使用轮询或长连接的方式实现伪 websocket 的通信
+
+使用 flash 或其他方法实现一个 websocket 客户端 ：https://segmentfault.com/q/1010000005000671/a-1020000005003936
 
 https://blog.csdn.net/u011925826/article/details/17532465
 
@@ -373,25 +406,29 @@ https://blog.csdn.net/u011925826/article/details/17532465
 
 <b><details><summary>29. 页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
 
+ 答案：
+
 </details>
 
-<b><details><summary>30. 如何在页面上实现一个圆形的可点击区域？</summary></b>
+<b><details><summary>30. 如何在页面上实现一个圆形的可点击区域？</summary></b> 
+
+答案：css3、js、map 加 area
 
 一.border-radius (css3)
 
-对于圆形，最直接的方法想到的就是css3的圆角属性，这个属性可以将html元素的形状设置为圆形，这之后你想对该圆形区域设置什么事件就设置什么事件(当然包括点击)。（这里就不做具体的test了）
+对于圆形，最直接的方法想到的就是 css3 的圆角属性，这个属性可以将 html 元素的形状设置为圆形，这之后你想对该圆形区域设置什么事件就设置什么事件(当然包括点击)。（这里就不做具体的 test 了）
 
 二.通过事件坐标来实现（js）
 
-也就是通过js来进行一个区域判断，进而简介地的形成可点区域，以下给出主要的js测试代码：
+也就是通过 js 来进行一个区域判断，进而简介地的形成可点区域，以下给出主要的 js 测试代码：
 
 ```js
 // 获取目标元素
-var box = document.getElementById('box');
+var box = document.getElementById("box");
 
 // 对目标元素target的圆形区域进行一个点击事件绑定
 function bindClickOnCircleArea(target, callback) {
-  target.onclick = function (e) {
+  target.onclick = function(e) {
     e = e || window.event;
 
     // target中心点的坐标
@@ -409,93 +446,73 @@ function bindClickOnCircleArea(target, callback) {
     if (len <= 100) {
       callback();
     } else {
-      alert('死鬼，跑哪去啊，你老婆我是黄皮肤还是白皮肤都分不清了吗');
+      alert("死鬼，跑哪去啊，你老婆我是黄皮肤还是白皮肤都分不清了吗");
     }
-  }
+  };
 }
 
 // 执行
-bindClickOnCircleArea(box, function () {
-  alert('老婆，你让我好找啊，呜呜呜');
+bindClickOnCircleArea(box, function() {
+  alert("老婆，你让我好找啊，呜呜呜");
 });
 ```
 
-三.通过map加area
+三.通过 map 加 area
 
 ```html
 <img src="../imgs/test.jpg" width="200" border="0" usemap="#Map" />
 <map name="Map" id="Map">
-  <area shape="circle" coords="100,100,100" href="http://www.baidu.com" target="_blank" />
+  <area
+    shape="circle"
+    coords="100,100,100"
+    href="http://www.baidu.com"
+    target="_blank"
+  />
 </map>
 ```
+
 [参考](https://zhuanlan.zhihu.com/p/48168812)
 
 </details>
 
 <b><details><summary>31. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
 
-</details>
-
-<b><details><summary></summary></b>
+ 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary></summary></b> 
 
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
+答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-</details>
-
-<b><details><summary></summary></b>
+ 答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-</details>
-
-<b><details><summary></summary></b>
+ 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary></summary></b> 
 
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
+答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-</details>
-
-<b><details><summary></summary></b>
+ 答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
+ 答案：
 
 </details>

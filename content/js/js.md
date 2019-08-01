@@ -1422,6 +1422,38 @@ alert(Math.min.apply(null, a)); //最小值
 
 </details>
 
+<b><details><summary>3.JS 中 文档碎片的理解和使用</summary></b>
+
+```js
+// 1、什么是文档碎片？
+
+document.createDocumentFragment(); // 一个容器，用于暂时存放创建的dom元素
+
+// 2、文档碎片有什么用？
+
+// 将需要添加的大量元素,先添加到文档碎片中，再将文档碎片添加到需要插入的位置，大大 减少dom操作，提高性能（IE和火狐比较明显）
+```
+
+## 举个栗子：
+
+```js
+// 普通方式：（操作了100次dom）
+for (var i = 100; i > 0; i--) {
+  var elem = document.createElement("div");
+  document.body.appendChild(elem); //放到body中
+}
+
+//  文档碎片：(操作1次dom)
+var df = document.createDocumentFragment();
+for (var i = 100; i > 0; i--) {
+  var elem = document.createElement("div");
+  df.appendChild(elem);
+}
+//最后放入到页面上
+document.body.appendChild(df);
+```
+</details>
+
 <b><details><summary></summary></b>
 
 </details>
