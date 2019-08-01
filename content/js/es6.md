@@ -20,6 +20,8 @@
 
 <b><details><summary>2. ES6 中类的定义</summary></b>
 
+ 答案：
+
 
 
 ```js
@@ -139,7 +141,8 @@ console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 
 </details>
 
-<b><details><summary>4.解构赋值及其原理</summary></b>
+<b><details><summary>4.解构赋值及其原理</summary></b> 
+
 答案：
 
 解析：
@@ -193,6 +196,8 @@ foo.call({ id: 42 });
 
 <b><details><summary>8.Set 数据结构</summary></b>
 
+答案：
+
 - es6 方法,Set 本身是一个构造函数，它类似于数组，但是成员值都是唯一的。
 
 ```js
@@ -205,9 +210,11 @@ console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 
 <b><details><summary>9.Class 的讲解</summary></b>
 
+答案：
 - class 语法相对原型、构造函数、继承更接近传统语法，它的写法能够让对象原型的写法更加清晰、面向对象编程的语法更加通俗
   这是 class 的具体用法。
 
+解析：
 [参考](https://www.cnblogs.com/fengxiongZz/p/8191503.html)
 
 </details>

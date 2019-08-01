@@ -2,6 +2,8 @@
 
 <b><details><summary>1.箭头函数</summary></b>
 
+答案：
+
 在使用=>定义函数的时候，this 的指向是定义时所在的对象，而不是使用时所在的对象；
 
 ```js
@@ -40,6 +42,8 @@ animal.say("hi"); //animal says hi
 
 <b><details><summary>2.箭头函数转成 ES5</summary></b>
 
+答案：
+
 箭头函数里面根本没有自己的 this，而是引用外层的 this
 
 ```js
@@ -63,6 +67,8 @@ function foo() {
 </details>
 
 <b><details><summary>3.把以下代码使用两种方法，依次输出 0-9</summary></b>
+
+答案：
 
 ```js
 var funcs = [];
@@ -131,6 +137,8 @@ funcs.forEach(function(func) {
 
 <b><details><summary>4.手写一个 promise</summary></b>
 
+答案：
+
 ```js
 var promise = new Promise((resolve, reject) => {
   if (操作成功) {
@@ -152,6 +160,8 @@ promise.then(
 </details>
 
 <b><details><summary>5.怎么解决回调函数里面回调另一个函数，另一个函数的参数需要依赖这个回调函数。需要被解决的代码如下：</summary></b>
+
+答案：
 
 ```js
 $http.get(url).success(function (res) {
@@ -181,6 +191,8 @@ function success(data) {
 </details>
 
 <b><details><summary>6.以下代码依次输出的内容是？</summary></b>
+
+答案：
 
 ```js
 setTimeout(function() {
@@ -212,13 +224,17 @@ console.log(5);
 
 <b><details><summary>7.jQuery 的 ajax 返回的是 promise 对象吗？</summary></b>
 
+答案：
+
 jquery 的 ajax 返回的是 deferred 对象，通过 promise 的 resolve()方法将其转换为 promise 对象。
 
 var jsPromise = Promise.resolve(\$.ajax('/whatever.json'));
 
 </details>
 
-<b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b>
+<b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b
+
+> 答案：
 
 ```
 使用promise.all()
@@ -238,6 +254,8 @@ p的状态由p1、p2、p3决定，分为两种情况。
 </details>
 
 <b><details><summary>9.Promise 编程题</summary></b>
+
+答案：
 第 1 题
 
 ```js

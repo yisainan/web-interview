@@ -1,9 +1,11 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 
-<b><details><summary>什么是 MVVM？</summary></b>
+<b><details><summary>什么是 MVVM？</summary></b> 
 
-技巧：1.拆分说明（M，V，VM 都是干啥的） 2.之间联系（Model 和 ViewModel 的双向数据绑定）
+答案：1.拆分说明（M，V，VM 都是干啥的） 2.之间联系（Model 和 ViewModel 的双向数据绑定）
+
+解析：
 
 MVVM 是 Model-View-ViewModel 的缩写。MVVM 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象（桥梁）。
 
@@ -14,6 +16,8 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 </details>
 
 <b><details><summary>2、MVC、MVP 与 MVVM 模式</summary></b>
+
+ 答案：
 
 一、MVC
 
@@ -49,100 +53,56 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 </details>
 
-<b><details><summary>3、常见的实现 MVVM 几种方式</summary></b>
+<b><details><summary>3、常见的实现 MVVM 几种方式</summary></b> 
+
+答案：
 
 </details>
 
-<b><details><summary>4、Object.defineProperty()方法</summary></b>
+<b><details><summary>4、Object.defineProperty()方法</summary></b> 
+
+答案：
 
 </details>
 
-<b><details><summary>5、实现一个自己的 MVVM（原理剖析）</summary></b>
+<b><details><summary>5、实现一个自己的 MVVM（原理剖析）</summary></b> 
+
+答案：
 
 </details>
 
 <b><details><summary>10、递归的使用</summary></b>
 
-</details>
-
-<b><details><summary>11、Obj.keys()与 Obj.defineProperty</summary></b>
+ 答案：
 
 </details>
 
-<b><details><summary>12、发布-订阅模式</summary></b>
+<b><details><summary>11、Obj.keys()与 Obj.defineProperty</summary></b> 
+
+答案：
 
 </details>
 
-<b><details><summary>13、实现 MVVM 的思路分析</summary></b>
+<b><details><summary>12、发布-订阅模式</summary></b> 
+
+答案：
+
+</details>
+
+<b><details><summary>13、实现 MVVM 的思路分析</summary></b> 
+
+答案：
 
 </details>
 
 <b><details><summary>mvvm 和 mvc 区别？它和其它框架（jquery）的区别是什么？哪些场景适合？</summary></b>
+
+ 答案：
 
 mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。
 
 区别：vue 数据驱动，通过数据来显示视图层而不是节点操作。
 
 场景：数据操作比较多的场景，更加便捷
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
 
 </details>

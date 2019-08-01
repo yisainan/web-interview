@@ -2,6 +2,8 @@
 
 <b><details><summary>1.你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 
+答案：
+
 方法一：(基础版)
 
 ```js
@@ -63,6 +65,8 @@ console.log(getQueryString("categoryId"));
 
 <b><details><summary>2.js 实现一个打点计时器</summary></b>
 
+答案：
+
 问题描述：
 
 1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅 1
@@ -117,6 +121,8 @@ setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用�
 </details>
 
 <b><details><summary>3.用 js 实现一个标准的排序算法</summary></b>
+
+答案：
 
 一.冒泡排序
 
@@ -274,6 +280,8 @@ console.log(result);
 
 <b><details><summary>4. 正则表达式，验证手机号码，验证规则：11 位数字，以 1 位开头</summary></b>
 
+答案：
+
 ```js
 checkphonenumber(number) {
 	if (number == null || number.length != 11) {
@@ -308,6 +316,8 @@ checkphonenumber(number) {
 
 <b><details><summary>7. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
 
+答案：
+
 ```js
 Array.prototype.distinct = function() {
   var ret = [];
@@ -329,6 +339,8 @@ console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
 
 <b><details><summary>8. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。 如</summary></b>
 
+答案：
+
 ```js
 "/foo".rewrite(/^\/foo/, "/bar");
 "u1234".rewrite(/^\/u(\d+)/, "/user/$1");
@@ -338,6 +350,8 @@ console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
 </details>
 
 <b><details><summary>9. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求 1.尽量和 json 兼容，2.支持不可序列化的值，如 undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date 等</summary></b>
+
+答案：
 
 ```js
 serialize({});
@@ -350,6 +364,8 @@ serialize({ a: /foo/ });
 
 <b><details><summary>10. 设计一道 JavaScript 的 range 算法如下：</summary></b>
 
+答案：
+
 range(1, 10, 3) 返回 [1, 4, 7, 10];
 range('A', 'F', 2) 返回 ['A', 'C', 'E']
 // 请使用 JavaScript 语言实现该功能（可以使用 ES6）
@@ -357,6 +373,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 </details>
 
 <b><details><summary>11. 头条的视频网站上支持了弹幕，假设一个视频有很多弹幕，弹幕的数据是一个数组，格式定义如下：</summary></b>
+
+答案：
 
 ```
 
@@ -378,6 +396,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 
 <b><details><summary>12. 请写出以下代码的执行结果</summary></b>
 
+答案：
+
 ```
 (function() {
     fn();
@@ -395,6 +415,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 
 <b><details><summary>13. 请说明以下各种情况的执行结果，并注明产生对应结果的理由</summary></b>
 
+答案：
+
 ```
 function doSomething() {
     alert(this);
@@ -408,6 +430,8 @@ c) 直接执行 doSomething()
 </details>
 
 <b><details><summary>14. 请写出以下代码的执行结果</summary></b>
+
+答案：
 
 ```
 var obj = {};
@@ -426,6 +450,8 @@ obj.m2();
 </details>
 
 <b><details><summary>15. 请写出类 Son 继承类 Father</summary></b>
+
+答案：
 function Father() {}
 function Son() {}
 
@@ -433,9 +459,13 @@ function Son() {}
 
 <b><details><summary>16. 请用 JS 写出一个遍历 DOM 节点树的方法</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>17. 尝试实现注释部分的 JavaScript 代码， 可在其他任何地方添加更多代码。</summary></b>
+
+答案：
 
 ```
 var Obj = function(msg) {
@@ -453,6 +483,8 @@ var Obj = function(msg) {
 
 <b><details><summary>18. 请编写一个 JavaScript 函数 parseQuerySting, 它的用途是把 URL 参数解析为一个对象，如</summary></b>
 
+答案：
+
 ```
 var url = "http://www.58.com/index.aspx?key0=0&key1=1&key2=2..."
 var obj = parseQuerySting(url);
@@ -463,13 +495,19 @@ alert(obj.key0) // 输出 0
 
 <b><details><summary>19. 请给 Array 本地对象添加一个原型方法，它用于删除数组条目中重复的条目（可能有多个重复），返回值是一个包含被删除的重复条目的新数组</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>20. 我们把一个数字倒着读和原数字相同的数字称之为对称数，例如（1, 121, 88, 8998）,不考虑性能，请找出 1 - 10000 之间的对称数，要求用 JS 实现</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>21. 以下代码输出多少</summary></b>
+
+答案：
 
 ```js
 var name = "world";
@@ -501,9 +539,13 @@ var name = "world";
 
 <b><details><summary>22. 数组拍平</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>如何解决数组塌陷问题</summary></b>
+
+答案：
 
 ```js
 // 1 使用i--
@@ -527,6 +569,8 @@ console.log(arr);
 </details>
 
 <b><details><summary></summary></b>
+
+答案：
 
 ```js
 function fun(n, o) {
@@ -559,15 +603,21 @@ c.fun(3);
 
 <b><details><summary>编写一个数组去重的方法</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>已知 id 的 input 输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
+
+答案：
 
 document.getElementById('id').value
 
 </details>
 
 <b><details><summary>获取到页面中所有的 checkbox 怎么做？（不使用第三方框架）</summary></b>
+
+答案：
 
 var domList = document.getElementsByTagName('input')
 var ckList = []; // 返回的所有的 checkbox
@@ -582,6 +632,8 @@ ckList.push(domList[i])
 
 <b><details><summary>设置一个已知 id 的 div 的 html 内容为 xxxx，字体颜色设置为黑色（不使用第三方框架）</summary></b>
 
+答案：
+
 ```
 var dom = document.getElementById('id');
 dom.innerHTML = 'xxxx';
@@ -590,7 +642,9 @@ dom.style.color = '#000'; // 'black'
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>判断相等</summary></b>
+
+答案：
 
 2 == true
 [] == false
@@ -599,6 +653,8 @@ dom.style.color = '#000'; // 'black'
 </details>
 
 <b><details><summary>已知有字符串 foo=“get-element-by-id”,写一个 function 将其转化为驼峰表示法“getElementById”</summary></b>
+
+答案：
 
 ```js
 var string = "get-element-by-id";
@@ -617,6 +673,8 @@ console.log(combo(string));
 </details>
 
 <b><details><summary>看下面代码，给出输出结果</summary></b>
+
+答案：
 
 ```js
 for (var i = 1; i <= 3; i++) {
@@ -662,13 +720,19 @@ for (var i = 1; i <= 3; i++) {
 
 <b><details><summary>1. JS 字符串使用堆栈处理 "(a,b,(c,d),f,g)"</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>2. 二维数组操作</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>3. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5,7,9,42,18,29]</summary></b>
+
+答案：
 
 ```js
 var a = [1, 2, 3, 5];
@@ -679,6 +743,8 @@ alert(Math.min.apply(null, a)); //最小值
 </details>
 
 <b><details><summary>4.写一个 function，清除字符串前后的空格（兼容所有的浏览器）</summary></b>
+
+答案：
 
 ```js
 //重写trim方法
@@ -693,6 +759,8 @@ if (!String.prototype.trim) {
 
 <b><details><summary>5.运算符面试题</summary></b>
 
+答案：
+
 ```js
 var a = 10,
   b = 20,
@@ -706,6 +774,8 @@ console.log(e); // 77
 </details>
 
 <b><details><summary>6.this 面试题</summary></b>
+
+答案：
 
 ```
  this指向了谁？
@@ -906,6 +976,8 @@ console.log(sub.sayWhat());
 
 <b><details><summary>实现一个 new 操作符</summary></b>
 
+答案：
+
 ```js
 function New(func) {
   var res = {};
@@ -928,6 +1000,8 @@ var obj = new A(1, 2);
 </details>
 
 <b><details><summary>实现一个 call 或 apply</summary></b>
+
+答案：
 call
 
 ```js
@@ -974,6 +1048,8 @@ Function.prototype.apply2 = function(context, arr) {
 
 <b><details><summary>实现一个 Function.bind</summary></b>
 
+答案：
+
 ```js
 Function.prototype.bind2 = function(context) {
   if (typeof this !== "function") {
@@ -999,6 +1075,8 @@ Function.prototype.bind2 = function(context) {
 </details>
 
 <b><details><summary>实现一个继承</summary></b>
+
+答案：
 
 ```js
 function Parent(name) {
@@ -1033,6 +1111,8 @@ var child = new Child("son", "汪某");
 </details>
 
 <b><details><summary>手写一个 Promise(中高级必考)</summary></b>
+
+答案：
 
 ```js
 function myPromise(constructor) {
@@ -1092,6 +1172,8 @@ p.then(function(x) {
 
 <b><details><summary>手写防抖(Debouncing)和节流(Throttling)</summary></b>
 
+答案：
+
 ```js
 // 防抖函数
 function debounce(fn, wait) {
@@ -1124,6 +1206,8 @@ function throttle(fn, wait) {
 
 <b><details><summary>手写一个 JS 深拷贝</summary></b>
 
+答案：
+
 ```js
 function deepCopy(obj) {
   //判断是否是简单数据类型，
@@ -1144,6 +1228,8 @@ function deepCopy(obj) {
 </details>
 
 <b><details><summary>看下面代码，给出输出结果(考察闭包及++运算符)</summary></b>
+
+答案：
 
 ```js
 function Foo() {
@@ -1189,6 +1275,8 @@ console.log(b());
 
 <b><details><summary>看下面代码，给出输出结果(考察时间戳)</summary></b>
 
+答案：
+
 ```js
 //总结：第一个setTimeout，时间间隔<1000的话，输出1000多，>1000的话，输出间隔值多
 //     第二个setTimeout，是1000+时间间隔
@@ -1207,5 +1295,7 @@ setTimeout(function() {
 </details>
 
 <b><details><summary>看下面代码，给出输出结果</summary></b>
+
+答案：
 
 </details>

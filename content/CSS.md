@@ -2,6 +2,8 @@
 
 <b><details><summary>1.实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
+答案：
+
 ```html
 <div style="height:1px;overflow:hidden;background:red"></div>
 ```
@@ -9,6 +11,8 @@
 </details>
 
 <b><details><summary>2.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
+
+答案：
 
 （1）有两种， IE 盒子模型、W3C 盒子模型；
 
@@ -19,6 +23,8 @@
 </details>
 
 <b><details><summary>3.CSS 隐藏元素的几种方法（至少说出三种）</summary></b>
+
+答案：
 
 Opacity:元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互;
 
@@ -33,6 +39,8 @@ Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如�
 </details>
 
 <b><details><summary>4.CSS 清除浮动的几种方法（至少两种）</summary></b>
+
+答案：
 
 ```
 清除浮动： 核心：clear:both;
@@ -78,6 +86,8 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 <b><details><summary>5.页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
 
+答案：
+
 link 属于 XHTML 标签，除了加载 CSS 外，还能用于定义 RSS, 定义 rel 连接属性等作用；而@import 是 CSS 提供的，只能用于加载 CSS;
 页面被加载的时，link 会同时被加载，而@import 引用的 CSS 会等到页面被加载完再加载;
 
@@ -95,6 +105,8 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 <b><details><summary>6.伪元素和伪类的区别？</summary></b>
 
+答案：
+
 1、伪元素使用 2 个冒号，常见的有：::before，::after，::first-line，::first-letter，::selection、::placeholder 等；
 
       伪类使用1个冒号，常见的有：:hover，:link，:active，:target，:not()，:focus等。
@@ -105,7 +117,9 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 </details>
 
-<b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
+<b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b
+
+> 答案：
 
 ```
         1.id选择器（ # myid）
@@ -160,7 +174,9 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
+<b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b
+
+> 答案：
 
 块级元素(block)特性：
 
@@ -182,6 +198,8 @@ CSS3新增伪类举例：
 
 <b><details><summary>9. 什么是外边距重叠？重叠的结果是什么？</summary></b>
 
+答案：
+
 外边距重叠就是 margin-collapse。
 
 在 CSS 当中，相邻的两个盒子（可能是兄弟关系也可能是祖先关系）的外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为折叠，并且因而所结合成的外边距称为折叠外边距。
@@ -198,6 +216,8 @@ CSS3新增伪类举例：
 
 <b><details><summary>10. rgba()和 opacity 的透明效果有什么不同？</summary></b>
 
+答案：
+
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
 而 rgba()只作用于元素的颜色或其背景色。（设置 rgba 透明的元素的子元素不会继承透明效果！）
@@ -205,6 +225,8 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 </details>
 
 <b><details><summary>11. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
+
+答案：
 
 垂直方向：line-height
 
@@ -218,6 +240,8 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>12. px 和 em 的区别。</summary></b>
 
+答案：
+
 px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
@@ -225,6 +249,8 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 </details>
 
 <b><details><summary>13. 如何垂直居中一个浮动元素？</summary></b>
+
+答案：
 
 ```css
 
@@ -298,6 +324,8 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 
 <b><details><summary>14.BFC </summary></b>
 
+答案：
+
 - 什么是 BFC
 
   BFC（Block Formatting Context）格式化上下文，是 Web 页面中盒模型布局的 CSS 渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。
@@ -319,6 +347,8 @@ px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多�
 
 <b><details><summary>15.用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
 
+答案：
+
 ```css
 span {
   width: 0;
@@ -335,6 +365,8 @@ span {
 </details>
 
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
+
+答案：
 
 他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
 
@@ -354,6 +386,8 @@ span {
 
 <b><details><summary>17. display:none 与 visibility:hidden 的区别是什么？</summary></b>
 
+答案：
+
 display :  隐藏对应的元素但不挤占该元素原来的空间。
 
 visibility:  隐藏对应的元素并且挤占该元素原来的空间。
@@ -362,8 +396,9 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 </details>
 
+<b><details><summary>18. 移动端 1px 问题的解决办法</summary></b>
 
-<b><details><summary>18. 移动端1px问题的解决办法</summary></b>
+答案：
 
 推荐解决方法：媒体查询 + transfrom
 
@@ -390,6 +425,8 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>19. 哪些 css 属性可以继承？</summary></b>
 
+答案：
+
 可继承： font-size font-family color, ul li dl dd dt;
 
 不可继承 ：border padding margin width height ;
@@ -398,47 +435,69 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>21. b 标签和 strong 标签,i 标签和 em 标签的区别？</summary></b>
 
+答案：
+
 后者有语义，前者则无。
 
 </details>
 
 <b><details><summary>22. 设备像素比</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>24. ::bofore 和 :after 中双冒号和单冒号有什么区别？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>25. 说下 CSS3 中一些样式的兼容，分别指兼容哪些浏览器</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>26. 有哪些手段可以优化 CSS, 提高性能</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>27. 怎么样实现边框 0.5 个像素？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>28. transform translate transition 的区别</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>29. 请解释一下 CSS3 的 Flexbox（弹性盒布局模型）,以及适用场景？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>30. 用纯 CSS 创建一个三角形的原理是什么？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>31. 一个满屏 品 字布局 如何设计?</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>32. li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
+
+答案：
 
 引起这种空白间隔的原因：
 
@@ -489,21 +548,31 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>33. 全屏滚动的原理是什么？用到了 CSS 的那些属性？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>34. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>35. 何修改 chrome 记住密码后自动填充表单的黄色背景 ？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>36. 你对 line-height 是如何理解的？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>37 .设置元素浮动后，该元素的 display 值是多少？</summary></b>
+
+答案：
 
 自动变成 display:block
 
@@ -511,9 +580,13 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>38. 怎么让 Chrome 支持小于 12px 的文字？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>39. 让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
+
+答案：
 
 -webkit-font-smoothing: antialiased;
 
@@ -521,17 +594,25 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>40. font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>41 .position:fixed;在 android 下无效怎么处理？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>42. 如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>43. display:inline-block 什么时候会显示间隙？</summary></b>
+
+答案：
 
 间隙产生的原因是因为，换行或空格会占据一定的位置
 
@@ -544,13 +625,19 @@ font-size:0;letter-spaceing:-4px;
 
 <b><details><summary>44. overflow: scroll 时不能平滑滚动的问题怎么处理？</summary></b>
 
+答案：
+
 </details>
 
-<b><details><summary>45. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
+<b><details><summary>45. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b
+
+> 答案：
 
 </details>
 
 <b><details><summary>46. png、jpg、gif 这些图片格式解释一下，分别什么时候用？，webp 呢</summary></b>
+
+答案：
 
 gif 图形交换格式，索引颜色格式，颜色少的情况下，产生的文件极小，支持背景透明，动画，图形渐进，无损压缩（适合线条，图标等），缺点只有 256 种颜色
 
@@ -564,11 +651,15 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>47. style 标签写在 body 后与 body 前有什么区别？</summary></b>
 
+答案：
+
 从上向下加载，加载顺序不同
 
 </details>
 
 <b><details><summary>48. CSS 中可以通过哪些属性定义，使得一个 DOM 元素不显示在浏览器可视范围内？</summary></b>
+
+答案：
 
 最基本的：
 
@@ -582,11 +673,15 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>49. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
 
+答案：
+
 答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
 
 </details>
 
 <b><details><summary>50. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
+
+答案：
 
 答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
 
@@ -629,30 +724,12 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>51. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
 
+答案：
+
 重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置 CSS 文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。
 
 你可能会用 Normalize 来代替你的重置样式文件。它没有重置所有的样式风格，但仅提供了一套合理的默认样式值。既能让众多浏览器达到一致和合理，但又不扰乱其他的东西（如粗体的标题）。
 
 在这一方面，无法做每一个复位重置。它也确实有些超过一个重置，它处理了你永远都不用考虑的怪癖，像 HTML 的 audio 元素不一致或 line-height 不一致。
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
 
 </details>

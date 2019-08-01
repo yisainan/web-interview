@@ -1,6 +1,8 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
+<b><details><summary>1. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b> 
+
+答案：
 
 1、vue.js：vue-cli 工程的核心，主要特点是 双向数据绑定 和 组件系统。
 
@@ -20,19 +22,19 @@
 
 <b><details><summary>2. vue-cli 工程常用的 npm 命令有哪些？</summary></b>
 
-下载 node_modules 资源包的命令：
+ 答案：npm install、npm run dev、npm run build --report等
 
-npm install
-启动 vue-cli 开发环境的 npm 命令：
 
-npm run dev
-vue-cli 生成 生产环境部署资源 的 npm 命令：
+解析：
 
-npm run build
-用于查看 vue-cli 生产环境部署资源文件大小的 npm 命令：
+下载 node_modules 资源包的命令：npm install
 
-npm run build --report
-此命令必答，可以加深面试官好感！
+启动 vue-cli 开发环境的 npm 命令：npm run dev
+
+vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
+
+用于查看 vue-cli 生产环境部署资源文件大小的 npm 命令：npm run build --report，此命令必答
+
 命令效果：
 ![vue_001](../images/vue_001.jpg)
 
@@ -41,6 +43,8 @@ npm run build --report
 </details>
 
 <b><details><summary>3. 请说出 vue-cli 工程中每个文件夹和文件的用处</summary></b>
+
+ 答案：
 
 ```
 vue-cli目录解析：
@@ -68,6 +72,8 @@ package.json：用于 node_modules资源部 和 启动、打包项目的 npm 命
 
 <b><details><summary>4. config 文件夹 下 index.js 的对于工程 开发环境 和 生产环境 的配置</summary></b>
 
+ 答案：
+
 ```
 build 对象下 对于 生产环境 的配置：
 
@@ -87,6 +93,8 @@ proxyTable：vue设置的代理，用以解决 跨域 问题
 
 <b><details><summary>5. 请你详细介绍一些 package.json 里面的配置</summary></b>
 
+ 答案：
+
 ```
 scripts：npm run xxx 命令调用node执行的 .js 文件
 dependencies：生产环境依赖包的名称和版本号，即这些 依赖包 都会打包进 生产环境的JS文件里面
@@ -96,6 +104,8 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 </details>
 
 <b><details><summary>6. vue-cli 中常用到的加载器</summary></b>
+
+ 答案：
 
 1.安装 sass:
 
@@ -109,7 +119,9 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 </details>
 
-<b><details><summary>vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b>
+<b><details><summary>vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b> 
+
+答案：
 
 第一步：在 components 目录新建你的组件文件（如：indexPage.vue），script 一定要 export default {}
 
@@ -121,17 +133,5 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 遇到的问题：
 例如有 indexPage 命名，使用的时候则 index-page
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
 
 </details>

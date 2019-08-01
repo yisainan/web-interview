@@ -2,6 +2,8 @@
 
 <b><details><summary>1. vue 中的性能优化</summary></b>
 
+答案：
+
 Vue 应用运行时性能优化措施
 
 引入生产环境的 Vue 文件
@@ -36,6 +38,8 @@ CSS 放在页面最上部，javascript 放在页面最下面
 
 <b><details><summary>2. Vue 的实例生命周期</summary></b>
 
+答案：
+
 ![vue_002](../images/vue_002.jpg)
 
 （1） beforeCreate 初始化实例后 数据观测和事件配置之前调用
@@ -58,6 +62,8 @@ CSS 放在页面最上部，javascript 放在页面最下面
 
 <b><details><summary>3. Vue 的双向数据绑定的原理</summary></b>
 
+答案：
+
 VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的。
 
 Vue3.0 将用原生 Proxy 替换 Object.defineProperty
@@ -66,6 +72,8 @@ Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
 <b><details><summary>3. 为什么要替换 Object.defineProperty？</summary></b>
 
+答案：
+
 在 Vue 中，Object.defineProperty 无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。
 
 Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历。
@@ -73,6 +81,8 @@ Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对
 </details>
 
 <b><details><summary>3. 什么是 Proxy？</summary></b>
+
+答案：
 
 Proxy 是 ES6 中新增的一个特性，翻译过来意思是"代理"，用在这里表示由它来“代理”某些操作。 Proxy 让我们能够以简洁易懂的方式控制外部对对象的访问。其功能非常类似于设计模式中的代理模式。
 
@@ -83,6 +93,8 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 </details>
 
 <b><details><summary>9. 对于 Vue 是一套渐进式框架的理解</summary></b>
+
+答案：
 
 每个框架都不可避免会有自己的一些特点，从而会对使用者有一定的要求，这些要求就是主张，主张有强有弱，它的强势程度会影响在业务开发中的使用方式。
 
@@ -113,11 +125,13 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 <b><details><summary>10. vue.js 的两个核心是什么？</summary></b>
 
-数据驱动和组件化思想
+答案：数据驱动和组件化思想
 
 </details>
 
 <b><details><summary>11. 请问 v-if 和 v-show 有什么区别</summary></b>
+
+答案：
 
 v-show 指令是通过修改元素的 display 的 CSS 属性让其显示或者隐藏
 
@@ -127,13 +141,19 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 <b><details><summary>12. vue 常用的修饰符</summary></b>
 
-[答案](https://blog.csdn.net/qq_42238554/article/details/86592295)
+答案：
+
+解析：
+
+[参考](https://blog.csdn.net/qq_42238554/article/details/86592295)
 
 </details>
 
 <b><details><summary>13. v-on 可以监听多个方法吗？</summary></b>
 
-肯定可以的。
+答案：肯定可以的。
+
+解析：
 
 ```html
 <input
@@ -149,6 +169,8 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 <b><details><summary>14. vue 中 key 值的作用</summary></b>
 
+答案：
+
 需要使用 key 来给每个节点做一个唯一标识，Diff 算法就可以正确的识别此节点，找到正确的位置区插入新的节点
 所以一句话，key 的作用主要是为了高效的更新虚拟 DOM
 
@@ -156,11 +178,15 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 <b><details><summary>15. vue-cli 工程升级 vue 版本</summary></b>
 
+答案：
+
 在项目目录里运行 npm upgrade vue vue-template-compiler，不出意外的话，可以正常运行和 build。如果有任何问题，删除 node_modules 文件夹然后重新运行 npm i 即可。（简单的说就是升级 vue 和 vue-template-compiler 两个插件）
 
 </details>
 
 <b><details><summary>16. vue 事件中如何使用 event 对象？</summary></b>
+
+答案：
 
 v-on 指令（可以简写为 @）
 
@@ -168,7 +194,7 @@ v-on 指令（可以简写为 @）
 
 2、使用带圆括号的形式，我们需要使用 \$event 变量显式传入 event 对象。
 
-解释：
+解析：
 
 一、event 对象
 
@@ -295,9 +321,11 @@ var app = new Vue({
 
 </details>
 
-<b><details><summary>17. \$nextTick 的使用</summary></b>
+<b><details><summary>17.\$nextTick 的使用</summary></b>
 
-1、什么是 Vue.nextTick()？？
+答案：
+
+1、什么是 Vue.nextTick()？
 
 定义：在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
 
@@ -429,6 +457,8 @@ Vue.nextTick(callback) 使用原理：
 
 <b><details><summary>18. Vue 组件中 data 为什么必须是函数</summary></b>
 
+答案：
+
 在 new Vue() 中，data 是可以作为一个对象进行操作的，然而在 component 中，data 只能以函数的形式存在，不能直接将对象赋值给它，这并非是 Vue 自身如此设计，而是跟 JavaScript 特性相关，我们来回顾下 JavaScript 的原型链
 
 ```js
@@ -463,11 +493,19 @@ console.log(component2.data.message); // Love
 
 <b><details><summary>19. v-for 与 v-if 的优先级</summary></b>
 
-v-for 比 v-if 优先
+答案：v-for 比 v-if 优先
 
 </details>
 
 <b><details><summary>20. vue 中子组件调用父组件的方法</summary></b>
+
+答案：
+
+- 第一种方法是直接在子组件中通过 this.\$parent.event 来调用父组件的方法
+- 第二种方法是在子组件里用\$emit 向父组件触发一个事件，父组件监听这个事件就行了
+- 第三种是父组件把方法传入子组件中，在子组件里直接调用这个方法
+
+解析：
 
 第一种方法是直接在子组件中通过 this.\$parent.event 来调用父组件的方法
 
@@ -496,7 +534,7 @@ v-for 比 v-if 优先
 
 子组件
 
-```
+```html
 <template>
   <div>
     <button @click="childMethod()">点击</button>
@@ -517,21 +555,21 @@ v-for 比 v-if 优先
 
 父组件
 
-```
+```html
 <template>
   <div>
     <child @fatherMethod="fatherMethod"></child>
   </div>
 </template>
 <script>
-  import child from '~/components/dam/child';
+  import child from "~/components/dam/child";
   export default {
     components: {
       child
     },
     methods: {
       fatherMethod() {
-        console.log('测试');
+        console.log("测试");
       }
     }
   };
@@ -540,7 +578,7 @@ v-for 比 v-if 优先
 
 子组件
 
-```
+```html
 <template>
   <div>
     <button @click="childMethod()">点击</button>
@@ -550,7 +588,7 @@ v-for 比 v-if 优先
   export default {
     methods: {
       childMethod() {
-        this.$emit('fatherMethod');
+        this.$emit("fatherMethod");
       }
     }
   };
@@ -561,21 +599,21 @@ v-for 比 v-if 优先
 
 父组件
 
-```
+```html
 <template>
   <div>
     <child :fatherMethod="fatherMethod"></child>
   </div>
 </template>
 <script>
-  import child from '~/components/dam/child';
+  import child from "~/components/dam/child";
   export default {
     components: {
       child
     },
     methods: {
       fatherMethod() {
-        console.log('测试');
+        console.log("测试");
       }
     }
   };
@@ -584,7 +622,7 @@ v-for 比 v-if 优先
 
 子组件
 
-```
+```html
 <template>
   <div>
     <button @click="childMethod()">点击</button>
@@ -613,11 +651,13 @@ v-for 比 v-if 优先
 
 <b><details><summary>21. vue 中父组件调用子组件的方法</summary></b>
 
-使用\$refs
+答案：使用\$refs
+
+解析：
 
 父组件
 
-```
+```html
 <template>
   <div>
     <button @click="clickParent">点击</button>
@@ -626,7 +666,7 @@ v-for 比 v-if 优先
 </template>
 
 <script>
-  import Child from './child';
+  import Child from "./child";
   export default {
     name: "parent",
     components: {
@@ -634,16 +674,16 @@ v-for 比 v-if 优先
     },
     methods: {
       clickParent() {
-        this.$refs.mychild.parentHandleclick("嘿嘿嘿");  // 划重点！！！！
+        this.$refs.mychild.parentHandleclick("嘿嘿嘿"); // 划重点！！！！
       }
     }
-  }
+  };
 </script>
 ```
 
 子组件
 
-```
+```html
 <template>
   <div>
     child
@@ -656,10 +696,10 @@ v-for 比 v-if 优先
     props: "someprops",
     methods: {
       parentHandleclick(e) {
-        console.log(e)
+        console.log(e);
       }
     }
-  }
+  };
 </script>
 ```
 
@@ -667,11 +707,13 @@ v-for 比 v-if 优先
 
 <b><details><summary>22. vue 中 keep-alive 组件的作用</summary></b>
 
-keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。
+答案：keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。
+
+解析：
 
 用法也很简单：
 
-```
+```html
 <keep-alive>
   <component>
     <!-- 该组件将被缓存！ -->
@@ -683,41 +725,41 @@ props
 _ include - 字符串或正则表达，只有匹配的组件会被缓存
 _ exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存
 
-```
+```js
 // 组件 a
 export default {
-  name: ‘a‘,
-  data () {
-    return {}
+  name: "a",
+  data() {
+    return {};
   }
-}
+};
 ```
 
-```
+```html
 <keep-alive include="a">
   <component>
     <!-- name 为 a 的组件将被缓存！ -->
-  </component>
-</keep-alive>可以保留它的状态或避免重新渲染
+  </component> </keep-alive
+>可以保留它的状态或避免重新渲染
 ```
 
-```
+```html
 <keep-alive exclude="a">
   <component>
     <!-- 除了 name 为 a 的组件都将被缓存！ -->
-  </component>
-</keep-alive>可以保留它的状态或避免重新渲染
+  </component> </keep-alive
+>可以保留它的状态或避免重新渲染
 ```
 
 但实际项目中,需要配合 vue-router 共同使用.
 
 router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：
 
-```
+```html
 <keep-alive>
-    <router-view>
-        <!-- 所有路径匹配到的视图组件都会被缓存！ -->
-    </router-view>
+  <router-view>
+    <!-- 所有路径匹配到的视图组件都会被缓存！ -->
+  </router-view>
 </keep-alive>
 ```
 
@@ -725,25 +767,26 @@ router-view 也是一个组件，如果直接被包在 keep-alive 里面，所�
 
 增加 router.meta 属性
 
-```
+```js
 // routes 配置
 export default [
   {
-    path: ‘/‘,
-    name: ‘home‘,
+    path: "/",
+    name: "home",
     component: Home,
     meta: {
       keepAlive: true // 需要被缓存
     }
-  }, {
-    path: ‘/:id‘,
-    name: ‘edit‘,
+  },
+  {
+    path: "/:id",
+    name: "edit",
     component: Edit,
     meta: {
       keepAlive: false // 不需要被缓存
     }
   }
-]
+];
 ```
 
 ```
@@ -762,13 +805,17 @@ export default [
 
 <b><details><summary>23. vue 中如何编写可复用的组件？</summary></b>
 
-总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
+答案：总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
 
 </details>
 
 <b><details><summary>24. 什么是 vue 生命周期和生命周期钩子函数？</summary></b>
 
+答案：
+
 vue 的生命周期就是 vue 实例从创建到销毁的过程
+
+解析：
 
 ![vue_004](../images/vue_004.jpg)
 ![vue_005](../images/vue_005.jpg)
@@ -777,17 +824,24 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 <b><details><summary>25. vue 生命周期钩子函数有哪些？</summary></b>
 
+答案：
+
 ![vue_005](../images/vue_005.jpg)
 
 </details>
 
 <b><details><summary>26. vue 如何监听键盘事件中的按键？</summary></b>
 
-[链接](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
+答案：
+
+解析：
+[参考](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
 
 </details>
 
 <b><details><summary>27. vue 更新数组时触发视图更新的方法</summary></b>
+
+答案：
 
 1.Vue.set 可以设置对象或数组的值，通过 key 或数组索引，可以触发视图更新
 
@@ -867,65 +921,97 @@ reverse()
 
 <b><details><summary>28. vue 中对象更改检测的注意事项</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>29. 解决非工程化项目初始化页面闪动问题</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>30. v-for 产生的列表，实现 active 的切换</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>31. v-model 语法糖的组件中的使用</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>32. 十个常用的自定义过滤器</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>33. vue 等单页面应用及其优缺点</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>34. 什么是 vue 的计算属性？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>35. vue-cli 提供的几种脚手架模板</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>36. vue 父组件如何向子组件中传递数据？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>37. vue-cli 开发环境使用全局常量</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>38. vue-cli 生产环境使用全局常量</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>39. vue 弹窗后如何禁止滚动条滚动？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>40. 计算属性的缓存和方法调用的区别</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>41. vue-cli 中自定义指令的使用</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>42. vue 如何优化首屏加载速度？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>43. vue 打包命令是什么？</summary></b>
+
+答案：
 
 npm run build
 
@@ -933,21 +1019,31 @@ npm run build
 
 <b><details><summary>44. vue 打包后会生成哪些文件？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>45. 如何配置 vue 打包生成文件的路径？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>46. vue 的服务器端渲染</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>47. vue 开发命令 npm run dev 输入后的执行过程</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>48. 什么是 Virtual DOM？</summary></b>
+
+答案：
 
 可以看作是一个使用 javascript 模拟了 DOM 结构的树形结构
 
@@ -957,15 +1053,21 @@ npm run build
 
 <b><details><summary>49. 响应式系统的基本原理</summary></b>
 
+答案：
+
 Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
 </details>
 
 <b><details><summary>50. Vue.js 全局运行机制</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>51. 如何编译 template 模板？</summary></b>
+
+答案：
 
 [详情](http://www.itcast.cn/news/20190110/15320198690.shtml)
 
@@ -973,13 +1075,19 @@ Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
 <b><details><summary>52. diff 算法</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>53. 批量异步更新策略及 nextTick 原理？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>54. Vue 中如何实现 proxy 代理？</summary></b>
+
+答案：
 
 webpack 自带的 devServer 中集成了 http-proxy-middleware。配置 devServer 的 proxy 选项即可
 
@@ -999,25 +1107,37 @@ proxyTable: {
 
 <b><details><summary>55. vue 中如何实现 tab 切换功能？</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>56. vue 中如何利用 keep-alive 标签实现某个组件缓存功能？</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>57. vue 中实现切换页面时为左滑出效果</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>58. vue 中央事件总线的使用</summary></b>
+
+答案：
 
 </details>
 
 <b><details><summary>59. vue 的渲染机制</summary></b>
 
+答案：
+
 </details>
 
 <b><details><summary>60. vue 在什么情况下在数据发生改变的时候不会触发视图更新</summary></b>
+
+答案：
 
 v-for 遍历的数组，当数组内容使用的是 arr[0].xx =xx 更改数据，vue 无法监测到
 vm.arr.length = newLength 也是无法检测的到的
@@ -1025,6 +1145,8 @@ vm.arr.length = newLength 也是无法检测的到的
 </details>
 
 <b><details><summary>vue 的优点是什么？</summary></b>
+
+答案：
 
 低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的"View"上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。
 
@@ -1037,6 +1159,8 @@ vm.arr.length = newLength 也是无法检测的到的
 </details>
 
 <b><details><summary>vue 如何实现按需加载配合 webpack 设置</summary></b>
+
+答案：
 
 ```
 webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。
@@ -1064,21 +1188,21 @@ const Singer = (resolve) => {
 
 <b><details><summary>如何让 CSS 只在当前组件中起作用</summary></b>
 
-```
-将当前组件的<style>修改为<style scoped>
-```
+答案：将当前组件的<style>修改为<style scoped>
 
 </details>
 
 <b><details><summary>指令 v-el 的作用是什么?</summary></b>
 
-提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
+答案：提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
 
 </details>
 
 <b><details><summary>vue-router 有哪几种导航钩子？</summary></b>
 
-三种，一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
+答案：三种
+
+第一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
 第二种：组件内的钩子；
 第三种：单独路由独享组件
 
@@ -1086,12 +1210,18 @@ const Singer = (resolve) => {
 
 <b><details><summary>vue-loader 是什么？使用它的用途有哪些？</summary></b>
 
-解析.vue 文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
+答案：
+
+解析：
+
+.vue 文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
 用途：js 可以写 es6、style 样式可以 scss 或 less、template 可以加 jade 等
 
 </details>
 
 <b><details><summary>为什么避免 v-if 和 v-for 用在一起</summary></b>
+
+ 答案：
 
 当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
 
@@ -1099,39 +1229,13 @@ const Singer = (resolve) => {
 
 <b><details><summary>组件的设计原则</summary></b>
 
+ 答案：
+
 ```
 (1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块)
 (2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中)
 (每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑)
 (3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
 ```
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
-
-</details>
-
-<b><details><summary></summary></b>
 
 </details>
