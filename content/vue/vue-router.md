@@ -40,7 +40,7 @@
 
 答案：
 
-[详情](https://segmentfault.com/a/1190000011519350)
+[参考](https://segmentfault.com/a/1190000011519350)
 
 </details>
 

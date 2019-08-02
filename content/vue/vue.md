@@ -1047,7 +1047,7 @@ npm run build
 
 可以看作是一个使用 javascript 模拟了 DOM 结构的树形结构
 
-[详情])(https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
+[参考](https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
 
 </details>
 
@@ -1069,7 +1069,7 @@ Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
 答案：
 
-[详情](http://www.itcast.cn/news/20190110/15320198690.shtml)
+[参考](http://www.itcast.cn/news/20190110/15320198690.shtml)
 
 </details>
 

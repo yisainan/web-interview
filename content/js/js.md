@@ -18,30 +18,35 @@
 
 <b><details><summary>2. JavaScript 中如何检测一个变量是一个 String 类型？</summary></b>
 
-答案：
-
-三种方法（typeof、constructor、Object.prototype.toString.call()）
+答案：三种方法（typeof、constructor、Object.prototype.toString.call()）
 
 解析：
+
+```js
 ①typeof
 
 typeof('123') === "string" // true
 
 typeof '123' === "string" // true
 
+
 ②constructor
 
 '123'.constructor === String // true
 
+
 ③Object.prototype.toString.call()
 
 Object.prototype.toString.call('123') === '[object String]' // true
+```
 
 </details>
 
 <b><details><summary>3.请用 js 去除字符串空格？</summary></b>
 
-答案：
+答案：replace 正则匹配方法、str.trim()方法、JQ 方法：\$.trim(str)方法
+
+解析：
 
 方法一：replace 正则匹配方法
 
@@ -121,9 +126,7 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 <b><details><summary>5.== 和 === 的不同</summary></b>
 
-答案：
-
-==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
+答案：==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
 
 </details>
 
@@ -133,35 +136,34 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 1）创建新节点
 
-     createDocumentFragment() //创建一个 DOM 片段
-
-createElement() //创建一个具体的元素
-　　 createTextNode() //创建一个文本节点
+- createDocumentFragment() //创建一个 DOM 片段
+- createElement() //创建一个具体的元素
+- createTextNode() //创建一个文本节点
 
 2）添加、移除、替换、插入
-　　 appendChild() //添加
-　　 removeChild() //移除
-　　 replaceChild() //替换
-　　 insertBefore() //插入
+
+- appendChild() //添加
+- removeChild() //移除
+- replaceChild() //替换
+- insertBefore() //插入
 
 3）查找
-　　 getElementsByTagName() //通过标签名称
-　　 getElementsByName() //通过元素的 Name 属性的值
-　　 getElementById() //通过元素 Id，唯一性
+
+- getElementsByTagName() //通过标签名称
+- getElementsByName() //通过元素的 Name 属性的值
+- getElementById() //通过元素 Id，唯一性
 
 </details>
 
 <b><details><summary>7.事件委托是什么</summary></b>
 
-答案：
-
-利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
+答案：利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
 
 </details>
 
 <b><details><summary>8.require 与 import 的区别</summary></b>
 
-答案：
+答案：两者的加载方式不同、规范不同
 
 第一、两者的加载方式不同，require 是在运行时加载，而 import 是在编译时加载
 
@@ -191,24 +193,202 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 答案：
 
+第一种：Object 构造函数创建
+
+```js
+var Person = new Object();
+Person.name = "Nike";
+Person.age = 29;
+```
+
+这行代码创建了 Object 引用类型的一个新实例，然后把实例保存在变量 Person 中。
+
+第二种：使用对象字面量表示法
+
+```js
+var Person = {}; //相当于 var Person = new Object();
+var Person = {
+	name: 'Nike';
+	age: 29;
+}
+```
+
+对象字面量是对象定义的一种简写形式，目的在于简化创建包含大量属性的对象的过程。也就是说，第一种和第二种方式创建对象的方法其实都是一样的，只是写法上的区别不同
+
+在介绍第三种的创建方法之前，我们应该要明白为什么还要用别的方法来创建对象，也就是第一种，第二种方法的缺点所在：它们都是用了同一个接口创建很多对象，会产生大量的重复代码，就是如果你有 100 个对象，那你要输入 100 次很多相同的代码。那我们有什么方法来避免过多的重复代码呢，就是把创建对象的过程封装在函数体内，通过函数的调用直接生成对象。
+
+第三种：使用工厂模式创建对象
+
+```js
+function createPerson(name, age, job) {
+  var o = new Object();
+  o.name = name;
+  o.age = age;
+  o.job = job;
+  o.sayName = function() {
+    alert(this.name);
+  };
+  return o;
+}
+var person1 = createPerson("Nike", 29, "teacher");
+var person2 = createPerson("Arvin", 20, "student");
+```
+
+在使用工厂模式创建对象的时候，我们都可以注意到，在 createPerson 函数中，返回的是一个对象。那么我们就无法判断返回的对象究竟是一个什么样的类型。于是就出现了第四种创建对象的模式。
+
+第四种:使用构造函数创建对象
+
+```js
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function() {
+    alert(this.name);
+  };
+}
+var person1 = new Person("Nike", 29, "teacher");
+var person2 = new Person("Arvin", 20, "student");
+```
+
+对比工厂模式，我们可以发现以下区别：
+
+1.没有显示地创建对象
+
+2.直接将属性和方法赋给了 this 对象
+
+3.没有 return 语句
+
+4.终于可以识别的对象的类型。对于检测对象类型，我们应该使用 instanceof 操作符，我们来进行自主检测：
+
+```js
+alert(person1 instanceof Object); //ture
+
+alert(person1 instanceof Person); //ture
+
+alert(person2 instanceof Object); //ture
+
+alert(person2 instanceof Object); //ture
+```
+
+同时我们也应该明白，按照惯例，构造函数始终要应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。
+
+那么构造函数确实挺好用的，但是它也有它的缺点：
+
+就是每个方法都要在每个实例上重新创建一遍，方法指的就是我们在对象里面定义的函数。如果方法的数量很多，就会占用很多不必要的内存。于是出现了第五种创建对象的方法
+
+第五种：原型创建对象模式
+
+```js
+function Person() {}
+Person.prototype.name = "Nike";
+Person.prototype.age = 20;
+Person.prototype.jbo = "teacher";
+Person.prototype.sayName = function() {
+  alert(this.name);
+};
+var person1 = new Person();
+person1.sayName();
+```
+
+使用原型创建对象的方式，可以让所有对象实例共享它所包含的属性和方法。
+
+如果是使用原型创建对象模式，请看下面代码：
+
+```js
+function Person() {}
+Person.prototype.name = "Nike";
+Person.prototype.age = 20;
+Person.prototype.jbo = "teacher";
+Person.prototype.sayName = function() {
+  alert(this.name);
+};
+var person1 = new Person();
+var person2 = new Person();
+person1.name = "Greg";
+alert(person1.name); //'Greg' --来自实例
+alert(person2.name); //'Nike' --来自原型
+```
+
+当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性。
+
+这时候我们就可以使用构造函数模式与原型模式结合的方式，构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性
+
+第六种：组合使用构造函数模式和原型模式
+
+```js
+function Person(name, age, job) {
+	this.name = name;
+	this.age = age;
+	this.job = job;
+}
+Person.prototype = {
+	constructor: Person,
+	sayName: function() {
+		alert(this.name);
+	};
+}
+var person1 = new Person('Nike', 20, 'teacher');
+```
+
 解析：
-[详情](https://www.red-ring.cn/post/8715-237024)
+[参考](https://zhidao.baidu.com/question/1180348878138910499.html)
 
 </details>
 
 <b><details><summary>10.JavaScript 继承的方式和优缺点</summary></b>
-答案：
+
+答案：六种方式
+
+- 一、原型链继承
+
+  - 缺点：
+  - 1.引用类型的属性被所有实例共享
+  - 2.在创建 Child 的实例时，不能向 Parent 传参
+
+- 二、借用构造函数(经典继承)
+
+  - 优点：
+  - 1.避免了引用类型的属性被所有实例共享
+  - 2.可以在 Child 中向 Parent 传参
+
+  * 缺点：
+  * 1.方法都在构造函数中定义，每次创建实例都会创建一遍方法。
+
+- 三、组合继承
+
+  - 优点：
+  - 1.融合原型链继承和构造函数的优点，是 JavaScript 中最常用的继承模式。
+
+- 四、原型式继承
+
+  - 缺点：
+  - 1.包含引用类型的属性值始终都会共享相应的值，这点跟原型链继承一样。
+
+- 五、寄生式继承
+
+  - 缺点：
+  - 1.跟借用构造函数模式一样，每次创建对象都会创建一遍方法。
+
+- 六、寄生组合式继承
+  - 优点：
+  - 1.这种方式的高效率体现它只调用了一次 Parent 构造函数，并且因此避免了在 Parent.prototype 上面创建不必要的、多余的属性。
+  - 2.与此同时，原型链还能保持不变；
+  - 3.因此，还能够正常使用 instanceof 和 isPrototypeOf。
+  - 开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式
 
 解析：
-[详情](https://www.red-ring.cn/post/8715-237041)
+[参考](https://www.jianshu.com/p/09ad43c7fe8f)
 
 </details>
 
 <b><details><summary>11.什么是原型链？ </summary></b>
 
-答案：
+答案：通过一个对象的**proto**可以找到它的原型对象，原型对象也是一个对象，就可以通过原型对象的**proto**，最后找到了我们的 Object.prototype,从实例的原型对象开始一直到 Object.prototype 就是我们的原型链
 
-通过一个对象的**proto**可以找到它的原型对象，原型对象也是一个对象，就可以通过原型对象的**proto**，最后找到了我们的 Object.prototype,从实例的原型对象开始一直到 Object.prototype 就是我们的原型链
+解析：
+
+![js_001](../../images/js_001.png)
 
 </details>
 
@@ -216,10 +396,10 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 答案：
 
-首先，会调用 valueOf 方法，如果方法的返回值是一个基本数据类型，就返回这个值，
-如果调用 valueOf 方法之后的返回值仍旧是一个复杂数据类型，就会调用该对象的 toString 方法，
-如果 toString 方法调用之后的返回值是一个基本数据类型，就返回这个值，
-如果 toString 方法调用之后的返回值是一个复杂数据类型，就报一个错误。
+- 首先，会调用 valueOf 方法，如果方法的返回值是一个基本数据类型，就返回这个值，
+- 如果调用 valueOf 方法之后的返回值仍旧是一个复杂数据类型，就会调用该对象的 toString 方法，
+- 如果 toString 方法调用之后的返回值是一个基本数据类型，就返回这个值，
+- 如果 toString 方法调用之后的返回值是一个复杂数据类型，就报一个错误。
 
 解析：
 
@@ -285,29 +465,11 @@ for (var i = 0; i < arr.length; i++) {
 
 <b><details><summary>13.javascript 的 typeof 返回哪些数据类型</summary></b>
 
-答案：
-
-7 种
-
-undefined
-
-string
-
-boolean
-
-number
-
-symbol(ES6)
-
-Object
-
-Function
+答案：7 种分别为 string、boolean、number、Object、Function、undefined、symbol(ES6)、
 
 </details>
 
 <b><details><summary>14. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
-
-答案：
 
 答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
 
@@ -315,11 +477,7 @@ Function
 
 <b><details><summary>15.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
-答案：
-
-强制（parseInt,parseFloat,Number）
-
-隐式（+ -）
+答案：强制（parseInt,parseFloat,Number）、隐式（+ -）
 
 </details>
 
@@ -367,11 +525,9 @@ outer()(); // jack
 
 <b><details><summary>17.如何判断 NaN</summary></b>
 
-答案：
+答案：isNaN()方法
 
-isNaN()方法
-
-isNaN(NaN) // true
+解析：isNaN(NaN) // true
 
 </details>
 
@@ -379,14 +535,14 @@ isNaN(NaN) // true
 
 答案：
 
-```
-1. 创建空对象；
-   var obj = {};
-2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象；
-   obj.__proto__ = ClassA.prototype;
-3. 使用新对象调用函数，函数中的 this 被指向新实例对象：
-   ClassA.call(obj);//{}.构造函数();
-4. 如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接直接返回该对象。
+```js
+// 1. 创建空对象；
+var obj = {};
+// 2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象；
+obj.__proto__ = ClassA.prototype;
+// 3. 使用新对象调用函数，函数中的 this 被指向新实例对象：
+ClassA.call(obj); //{}.构造函数();
+// 4. 如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接直接返回该对象。
 ```
 
 </details>
@@ -431,23 +587,95 @@ for (let prop of Object.keys(s1)) {
 
 <b><details><summary>14.this 和 apply 的应用</summary></b>
 
-答案：
+答案：比如求数组的最大值 Math.max.apply(this, 数组)
+
+```js
+var numbers = [5, 458, 120, -215];
+var maxInNumbers = Math.max.apply(this, numbers); //第一个参数也可以填Math或null
+console.log(maxInNumbers); // 458
+var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
+console.log(maxInNumbers); // 458
+```
 
 </details>
 
 <b><details><summary>15.sort 排序原理</summary></b>
 
-答案：
+答案：冒泡排序法
+
+解析：
+
+冒泡排序法的原理：
+
+- 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+- 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+- 针对所有的元素重复以上的步骤，除了最后一个。
+- 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+
+示例：
+
+```js
+var arr = [1, 5, 4, 2];
+// sort()方法的比较逻辑为：
+// 第一轮：1和5比，1和4比，1和2比
+// 第二轮：5和4比，5和2比
+// 第三轮：4和2比
+```
+
+```js
+// 一.sort排序规则 return大于0则交换数组相邻2个元素的位置
+// 二.arr.sort(function (a,b) {})中
+//         a -->代表每一次执行匿名函时候，找到的数组中的当前项；
+//         b -->代表当前项的后一项；
+
+// 1.升序
+var apple = [45, 42, 10, 147, 7, 65, -74];
+// ①默认法,缺点:只根据首位排序
+console.log(apple.sort());
+// ②指定排序规则法,return可返回任何值
+console.log(
+  apple.sort(function(a, b) {
+    return a - b; //若return返回值大于0(即a＞b),则a,b交换位置
+  })
+);
+
+//2.降序
+var arr = [45, 42, 10, 111, 7, 65, -74];
+console.log(
+  apple.sort(function(a, b) {
+    return b - a; //若return返回值大于零(即b＞a),则a,b交换位置
+  })
+);
+```
+
+原文：https://blog.csdn.net/soraru/article/details/82255616
+https://www.cnblogs.com/huoxiao/p/10239284.html
 
 </details>
 
-<b><details><summary>16. jsonp 优缺点？ 事件委托怎么取索引</summary></b>
+<b><details><summary>16. jsonp 优缺点？ 事件委托怎么取索引？</summary></b>
 
 答案：
 
+### jsonp 优缺点
+
+- 1.优点
+  - 1.1 它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制，JSONP 可以跨越同源策略；
+  - 1.2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
+  - 1.3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
+- 2.缺点
+  _ 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
+  _ 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
+  _ 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
+  _ 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
+
+### 事件委托怎么取索引
+
+我的书签
+
 </details>
 
-<b><details><summary>13.变量提升</summary></b>
+<b><details><summary>17.变量提升</summary></b>
 
 答案：
 
@@ -459,7 +687,7 @@ for (let prop of Object.keys(s1)) {
 
 答案：
 
-null： Null 类型，代表“空值”，代表一个空对象指针，使用 typeof 运算得到 “object”，所以你可以认为它是一个特殊的对象值。
+null： Null 类型，代表“空值"，代表一个空对象指针，使用 typeof 运算得到 “object"，所以你可以认为它是一个特殊的对象值。
 
 undefined： Undefined 类型，当一个声明了一个变量未初始化时，得到的就是 undefined。
 
@@ -703,7 +931,7 @@ new 共经过了 4 几个阶段
 
 </details>
 
-<b><details><summary>54.什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
+<b><details><summary>54.什么是“前端路由"?什么时候适合使用“前端路由"? “前端路由"有哪些优点和缺点?</summary></b>
 
 答案：
 
@@ -848,9 +1076,7 @@ f2();
 
 <b><details><summary>65.img 上 title 与 alt</summary></b>
 
-答案：
-
-title：图片的信息；alt：图片不显示时显示的文字
+答案：title 指图片的信息、alt 指图片不显示时显示的文字
 
 </details>
 
@@ -874,15 +1100,19 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 答案：
 
+- arr.pop() 从后面删除元素，只能是一个，返回值是删除的元素
+- arr.push() 从后面添加元素，返回值为添加完后的数组的长度
+- arr.unshift() 从前面添加元素, 返回值是添加完后的数组的长度
+- arr.shift() 从前面删除元素，只能删除一个 返回值是删除的元素
+
 </details>
 
 <b><details><summary>69.事件绑定与普通事件有什么区别</summary></b>
 
 答案：
 
-用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
-
-普通事件是针对非 dom 元素，事件绑定是针对 dom 元素的事件
+- 用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
+- 普通事件是针对非 dom 元素，事件绑定是针对 dom 元素的事件
 
 </details>
 
@@ -902,7 +1132,12 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 答案：
 
-当需要停止冒泡行为时，可以使用
+- 阻止冒泡行为：非 IE 浏览器 stopPropagation()，IE 浏览器 window.event.cancelBubble = true
+- 阻止默认行为：非 IE 浏览器 preventDefault()，IE 浏览器 window.event.returnValue = false
+
+解析：
+
+当需要阻止冒泡行为时，可以使用
 
 ```js
 function stopBubble(e) {
@@ -927,14 +1162,6 @@ function stopDefault(e) {
   return false;
 }
 ```
-
-</details>
-
-<b><details><summary>74.如何实现 js 中的继承</summary></b>
-
-答案：
-
-[详情](https://www.cnblogs.com/diligentYe/p/6413450.html)
 
 </details>
 
@@ -968,7 +1195,7 @@ var f = (function fn() {
 
 ```
 本地对象
-ECMA-262 把本地对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。它们包括：Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
+ECMA-262 把本地对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象"。简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。它们包括：Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
 ```
 
 ```
