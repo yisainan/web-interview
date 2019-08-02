@@ -27,7 +27,6 @@
 <b><details><summary>〽️ JS</summary></b>
 
 - [js 基础](./content/js/js.md)
-- [js 原型](./content/js/prototype.md)
 - [es6](./content/js/es6.md)
 - [jquery](./content/js/jquery.md)
 - [node](./content/js/node.md)

@@ -159,6 +159,59 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 答案：利用事件冒泡的原理，让自己的所触发的事件，让他的父元素代替执行！
 
+解析：
+
+1、那什么样的事件可以用事件委托，什么样的事件不可以用呢？
+
+- 适合用事件委托的事件：click，mousedown，mouseup，keydown，keyup，keypress。
+- 值得注意的是，mouseover 和 mouseout 虽然也有事件冒泡，但是处理它们的时候需要特别的注意，因为需要经常计算它们的位置，处理起来不太容易。
+- 不适合的就有很多了，举个例子，mousemove，每次都要计算它的位置，非常不好把控，在不如说 focus，blur 之类的，本身就没用冒泡的特性，自然就不用事件委托了。
+
+2、为什么要用事件委托
+
+- 1.提高性能
+- 2.新添加的元素还会有之前的事件。
+
+3、事件冒泡与事件委托的对比
+
+- 事件冒泡：box 内部无论是什么元素，点击后都会触发 box 的点击事件
+- 事件委托：可以对 box 内部的元素进行筛选
+
+4、事件委托怎么取索引？
+
+```js
+    <ul id="ul">
+        <li>aaaaaaaa</li>
+        <li>事件委托了 点击当前，如何获取 这个点击的下标</li>
+        <li>cccccccc</li>
+    </ul>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById("ul");
+            var aLi = oUl.getElementsByTagName("li");
+            oUl.onclick = function (ev) {
+                var ev = ev || window.event;
+                var target = ev.target || ev.srcElement;
+                if (target.nodeName.toLowerCase() == "li") {
+                    var that = target;
+                    var index;
+                    for (var i = 0; i < aLi.length; i++)
+                        if (aLi[i] === target) index = i;
+                    if (index >= 0) alert('我的下标是第' + index + '个');
+                    target.style.background = "red";
+                }
+            }
+        }
+    </script>
+```
+
+拓展：
+
+- 键盘事件：keydown keypress keyup
+- 鼠标事件：mousedown mouseup mousemove mouseout mouseover
+
+[参考](https://github.com/qiilee/js/tree/master/JS/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98)
+
 </details>
 
 <b><details><summary>8.require 与 import 的区别</summary></b>
@@ -653,7 +706,7 @@ https://www.cnblogs.com/huoxiao/p/10239284.html
 
 </details>
 
-<b><details><summary>16. jsonp 优缺点？ 事件委托怎么取索引？</summary></b>
+<b><details><summary>16. jsonp 优缺点？ </summary></b>
 
 答案：
 
@@ -669,17 +722,211 @@ https://www.cnblogs.com/huoxiao/p/10239284.html
   _ 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
   _ 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
 
-### 事件委托怎么取索引
-
-我的书签
-
 </details>
 
 <b><details><summary>17.变量提升</summary></b>
 
 答案：
 
-[面试题]()
+### 变量提升
+
+A、js 代码执行的过程
+
+- 1 变量提升
+- 2 代码从上到下依次执行
+
+var 关键字和 function 关键字声明的变量会进行变量提升
+
+B、变量提升发生的环境：发生在代码所处的当前作用域。
+
+- 变量提升
+- 1 var 关键字进行的变量提升，会把变量提前声明，但是不会提前赋值 。
+- 2 function 关键字对变量进行变量提升，既会把变量提前声明，又会把变量提前赋值，也就是把整个函数体提升到代码的顶部
+- 3 有一些代码是不会执行的但是仍旧会发生变量提升,规则适用于 1,2
+- 3.1 return 之后的代码依旧会发生变量提升，规则适用于 1，2
+- 3.2 代码报错之后的代码依旧会发生变量提升，规则适用于 1，2
+- 3.3 break 之后的代码依旧会发生变量提升，规则适用于 1,2
+- 4 有一些代码是不会执行但是仍旧会发生变量提升，但是规则要发生变化
+- 4.1 if 判断语句 if 判断语句中 var 关键字以及 function 关键字声明的变量只会发生提前声明，不会发生提前赋值,也就是不会吧函数体整体提升到当前作用域顶部。规则跟 1,2 不适用
+- 4.2 switch case 规则跟 1,2 不适用
+- 4.3 do while 规则跟 1,2 不适用
+- 4.4 try catch catch 中声明的变量只会发生提前声明，不会发生提前赋值。
+- Ps:在条件判断语句和 try catch 中的声明的变量不管是否能够执行，都只会发生提前
+- 声明，不会发生提前赋值。
+
+解析：
+
+```js
+// 如果一个变量声明了但是未赋值，那么输出这个变量就会输出 undefined
+var num;
+console.log(num);
+
+// 如果一个变量没有声明也没有赋值，那么就会报一个错：
+console.log(num); // 输出一个不存在的变量 Uncaught ReferenceError: num is not defined
+```
+
+```js
+// var 关键字进行的变量提升
+console.log(num);
+var num = 123;
+console.log(num);
+var num = 456;
+console.log(num);
+
+// 变量提升之后的代码：
+var num;
+console.log(num);
+num = 123;
+console.log(num);
+num = 456;
+console.log(num);
+```
+
+```js
+// function 关键字的变量提升
+console.log(fn);
+function fn() {
+  console.log(1);
+}
+
+// 变量提升之后的代码：
+function fn() {
+  console.log(1);
+}
+console.log(fn); // 输出fn的函数体
+```
+
+```js
+// 3.1 return 之后的代码依旧会发生变量提升  规则适用于1，2
+function fn() {
+  console.log(num);
+  return;
+  var num = 123;
+}
+fn();
+
+// 变量提升之后的代码：
+function fn() {
+  var num;
+  console.log(num);
+  return;
+  num = 123;
+}
+fn(); // undefined
+
+function fn() {
+  console.log(fo);
+  return;
+  function fo() {}
+}
+fn();
+
+// 变量提升之后的代码：
+function fn() {
+  function fo() {}
+  console.log(fo);
+  return;
+}
+fn(); //输出fo的函数体
+```
+
+```js
+//3.2 代码报错之后的代码依旧会进行变量提升，规则适用于1,2
+console.log(num);
+xsasfgdsfqdfsdf; //报一个错
+var num = 123;
+console.log(num);
+
+// 变量提升之后的代码：
+var num;
+console.log(num); //输出 undefined
+dsagdsqghdwfh; // 报一个错误 ，错误之后的代码不会被执行
+num = 123;
+console.log(num);
+```
+
+```js
+//function 关键字
+console.log(fn);
+sasgfdhwhsdqg;
+function fn() {}
+console.log(fn);
+
+// 变量提升之后的代码：
+function fn() {}
+console.log(fn); // 输出 fn 的函数体
+asdgsdgdfgfdg; // 报一个错误，报错之后的代码不会被执行
+console.log(fn);
+```
+
+```js
+//4 代码不执行，但是会进行变量提升，不过规则不适用于1,2
+//4.1 if判断语句
+console.log(num);
+if (false) {
+	var num = 123;
+}
+console.log(num)
+
+//  变量提升之后的代码：
+var num;
+console.log(num); //undefined
+if (false) {
+	num = 123;
+}
+console.log(num) //undefined
+
+console.log(fn);
+if (false) {
+	function fn() {}
+}
+console.log(fn);
+
+// 变量提升之后的代码：
+var fn;
+function fn;
+console.log(fn) //undefined
+if (false) {
+	function fn() {}
+}
+console.log(fn) //undefined
+/*function fn//Uncaught SyntaxError: Unexpected end of input*/
+```
+
+```js
+// try catch
+try {
+  console.log(num);
+} catch (e) {
+  var num = 123;
+}
+console.log(num);
+
+var num;
+try {
+  console.log(num); // undefined
+} catch (e) {
+  num = 123;
+}
+console.log(num); // undefined
+
+try {
+  console.log(fn);
+} catch (e) {
+  function fn() {}
+}
+console.log(fn);
+
+var fn;
+try {
+  console.log(fn); // undefined
+} catch (e) {
+  num = 123;
+}
+console.log(fn); // undefined
+```
+
+[对应面试题](../编程题/变量提升.md)
 
 </details>
 
@@ -695,27 +942,202 @@ undefined： Undefined 类型，当一个声明了一个变量未初始化时，
 
 <b><details><summary>20. 如何判断 JS 变量的一个类型（至少三种方式）</summary></b>
 
-答案：
-
-typeof、instanceof、 constructor、 prototype
+答案：typeof、instanceof、 constructor、 prototype
 
 </details>
 
-<b><details><summary>21. for/in、Object.keys 和 Object.getOwnPropertyNames 对属性遍历有什么区别？</summary></b>
+<b><details><summary>21. for in、Object.keys 和 Object.getOwnPropertyNames 对属性遍历有什么区别？</summary></b>
 
 答案：
+
+- for in 会遍历自身及原型链上的可枚举属性
+- Object.keys 会将对象自身的可枚举属性的 key 输出
+- 会将自身所有的属性的 key 输出
+
+解析：
+
+ECMAScript 将对象的属性分为两种：数据属性和访问器属性。
+
+```js
+var parent = Object.create(Object.prototype, {
+  a: {
+    value: 123,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  }
+});
+// parent继承自Object.prototype，有一个可枚举的属性a（enumerable:true）。
+
+var child = Object.create(parent, {
+  b: {
+    value: 2,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  c: {
+    value: 3,
+    writable: true,
+    enumerable: false,
+    configurable: true
+  }
+});
+//child 继承自 parent ，b可枚举，c不可枚举
+```
+
+### for in
+
+```js
+for (var key in child) {
+  console.log(key);
+}
+// b
+// a
+// for in 会遍历自身及原型链上的可枚举属性
+```
+
+如果只想输出自身的可枚举属性，可使用 hasOwnProperty 进行判断(数组与对象都可以，此处用数组做例子)
+
+```js
+let arr = [1, 2, 3];
+Array.prototype.xxx = 1231235;
+for (let i in arr) {
+  if (arr.hasOwnProperty(i)) {
+    console.log(arr[i]);
+  }
+}
+// 1
+// 2
+// 3
+```
+
+### Object.keys
+
+```js
+console.log(Object.keys(child));
+// ["b"]
+// Object.keys 会将对象自身的可枚举属性的key输出
+```
+
+### Object.getOwnPropertyNames
+
+```js
+console.log(Object.getOwnPropertyNames(child));
+// ["b","c"]
+// 会将自身所有的属性的key输出
+```
 
 </details>
 
-<b><details><summary>22.在子 iframe 中调用外层页面的接口，传入一个对象，外层页面如何判断该对象是否为数组？</summary></b>
+<b><details><summary>22.iframe 跨域通信和不跨域通信</summary></b>
 
 答案：
+
+# 不跨域通信
+
+主页面
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <iframe
+      name="myIframe"
+      id="iframe"
+      class=""
+      src="flexible.html"
+      width="500px"
+      height="500px"
+    >
+    </iframe>
+  </body>
+  <script type="text/javascript" charset="utf-8">
+    function fullscreen() {
+      alert(1111);
+    }
+  </script>
+</html>
+```
+
+子页面 flexible.html
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    我是子页面
+  </body>
+  <script type="text/javascript" charset="utf-8">
+    // window.parent.fullScreens()
+    function showalert() {
+      alert(222);
+    }
+  </script>
+</html>
+```
+
+1、主页面要是想要调取子页面的 showalert 方法
+
+```js
+myIframe.window.showalert();
+```
+
+2、子页面要掉主页面的 fullscreen 方法
+
+```js
+window.parent.fullScreens();
+```
+
+3、js 在 iframe 子页面获取父页面元素:
+
+```js
+window.parent.document.getElementById("元素id");
+```
+
+4、js 在父页面获取 iframe 子页面元素代码如下:
+
+```js
+window.frames["iframe_ID"].document.getElementById("元素id");
+```
+
+### 跨域通信
+
+使用[postMessage(官方用法）](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
+
+子页面
+
+```js
+window.parent.postMessage("hello", "http://127.0.0.1:8089");
+```
+
+父页面接收
+
+```js
+window.addEventListener("message", function(event) {
+  alert(123);
+});
+```
+
+解析：
+[参考](https://blog.csdn.net/weixin_41229588/article/details/93719894)
 
 </details>
 
-<b><details><summary>23.请简要描述 webview 中通过 js bridge 和 native 通信的技术实现</summary></b>
+<b><details><summary>23.H5 与 Native 如何交互</summary></b>
 
-答案：
+答案：jsBridge
+
+解析：
+[参考](https://segmentfault.com/a/1190000010356403)
 
 </details>
 
@@ -723,17 +1145,11 @@ typeof、instanceof、 constructor、 prototype
 
 答案：
 
-第一种方法：
+第一种方法：使用 instanceof 操作符。
 
-使用 instanceof 操作符。
+第二种方法：使用 ECMAScript 5 新增的 Array.isArray()方法。
 
-第二种方法：
-
-使用 ECMAScript 5 新增的 Array.isArray()方法。
-
-第三种方法：
-
-使用使用 Object.prototype 上的原生 toString()方法判断。
+第三种方法：使用使用 Object.prototype 上的原生 toString()方法判断。
 
 </details>
 
@@ -741,35 +1157,224 @@ typeof、instanceof、 constructor、 prototype
 
 答案：
 
+- 1、defer 和 async 的网络加载过程是一致的，都是异步执行。
+- 2、区别在于加载完成之后什么时候执行，可以看出 defer 是文档所有元素解析完成之后才执行的。
+- 3、如果存在多个 defer 脚本，那么它们是按照顺序执行脚本的，而 async，无论声明顺序如何，只要加载完成就立刻执行
+
+解析：
+
+无论`<script>`标签是嵌入代码还是引用外部文件，只要不包含 defer 属性和 async 属性（这两个属性只对外部文件有效），浏览器会按照`<script>`的出现顺序对他们依次进行解析，也就是说，只有在第一个`<script>`中的代码执行完成之后，浏览器才会执行第二个`<script>`中的代码，并且在解析时，页面的处理会暂时停止。
+
+嵌入代码的解析=执行
+外部文件的解析=下载+执行
+
+script 标签存在两个属性，defer 和 async，这两个属性只对外部文件有效
+
+## 只有一个脚本的情况
+
+```js
+<script src="a.js" />
+```
+
+没有 defer 或 async 属性，浏览器会立即下载并执行相应的脚本，并且在下载和执行时页面的处理会停止。
+
+```js
+<script defer src="a.js" />
+```
+
+有了 defer 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，等到文档解析完成脚本才会执行。
+
+```js
+<script async src="a.js" />
+```
+
+有了 async 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，下载完成后立即执行，执行过程中页面处理会停止。
+
+```js
+<script defer async src="a.js" />
+```
+
+如果同时指定了两个属性,则会遵从 async 属性而忽略 defer 属性。
+
+下图可以直观的看出三者之间的区别:
+
+![js_002](../../images/js_002.png)
+
+其中蓝色代表 js 脚本网络下载时间，红色代表 js 脚本执行，绿色代表 html 解析。
+
+## 多个脚本的情况
+
+这里只列举两个脚本的情况：
+
+```js
+<script src="a.js"></script>
+<script src="b.js"></script>
+```
+
+没有 defer 或 async 属性，浏览器会立即下载并执行脚本 a.js，在 a.js 脚本执行完成后才会下载并执行脚本 b.js，在脚本下载和执行时页面的处理会停止。
+
+```js
+<script defer src="a.js"></script>
+<script defer src="b.js"></script>
+```
+
+有了 defer 属性，浏览器会立即下载相应的脚本 a.js 和 b.js，在下载的过程中页面的处理不会停止，等到文档解析完成才会执行这两个脚本。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件执行。
+在现实当中，延迟脚本并不一定会按照顺序执行，也不一定会在 DOMContentLoaded 事件触发前执行，因此最好只包含一个延迟脚本。
+
+```js
+<script async src="a.js"></script>
+<script async src="b.js"></script>
+```
+
+有了 async 属性，浏览器会立即下载相应的脚本 a.js 和 b.js，在下载的过程中页面的处理不会停止，a.js 和 b.js 哪个先下载完成哪个就立即执行，执行过程中页面处理会停止，但是其他脚本的下载不会停止。标记为 async 的脚本并不保证按照制定它们的先后顺序执行。异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之后执行。
+
+[参考](https://blog.csdn.net/weixin_42561383/article/details/86564715)
+
 </details>
 
 <b><details><summary>26.Object.prototype.toString.call() 和 instanceOf 和 Array.isArray() 区别好坏</summary></b>
 
 答案：
 
+- Object.prototype.toString.call()
+  - 优点：这种方法对于所有基本的数据类型都能进行判断，即使是 null 和 undefined 。
+  * 缺点：不能精准判断自定义对象，对于自定义对象只会返回[object Object]
+- instanceOf
+  - 优点：instanceof 可以弥补 Object.prototype.toString.call()不能判断自定义实例化对象的缺点。
+  - 缺点： instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true，且不同于其他两种方法的是它不能检测出 iframes。
+- Array.isArray()
+  - 优点：当检测 Array 实例时，Array.isArray 优于 instanceof ，因为 Array.isArray 可以检测出 iframes
+  - 缺点：只能判别数组
+    解析：
+
+### Object.prototype.toString.call()
+
+每一个继承 Object 的对象都有 toString 方法，如果 toString 方法没有重写的话，会返回 [Object type]，其中 type 为对象的类型。但当除了 Object 类型的对象外，其他类型直接使用 toString 方法时，会直接返回都是内容的字符串，所以我们需要使用 call 或者 apply 方法来改变 toString 方法的执行上下文。
+
+```js
+const an = ["Hello", "An"];
+an.toString(); // "Hello,An"
+Object.prototype.toString.call(an); // "[object Array]"
+```
+
+这种方法对于所有基本的数据类型都能进行判断，即使是 null 和 undefined 。
+
+```js
+Object.prototype.toString.call("An"); // "[object String]"
+Object.prototype.toString.call(1); // "[object Number]"
+Object.prototype.toString.call(Symbol(1)); // "[object Symbol]"
+Object.prototype.toString.call(null); // "[object Null]"
+Object.prototype.toString.call(undefined); // "[object Undefined]"
+Object.prototype.toString.call(function() {}); // "[object Function]"
+Object.prototype.toString.call({ name: "An" }); // "[object Object]"
+```
+
+缺点：不能精准判断自定义对象，对于自定义对象只会返回[object Object]
+
+```js
+function f(name) {
+  this.name = name;
+}
+var f1 = new f("martin");
+console.log(Object.prototype.toString.call(f1)); //[object Object]
+
+Object.prototype.toString.call(); // 常用于判断浏览器内置对象。
+```
+
+### instanceof
+
+instanceof 的内部机制是通过判断对象的原型链中是不是能找到类型的 prototype。
+
+使用 instanceof 判断一个对象是否为数组，instanceof 会判断这个对象的原型链上是否会找到对应的 Array 的原型，找到返回 true，否则返回 false。
+
+```js
+[] instanceof Array; // true
+```
+
+但 instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true。
+
+```js
+[] instanceof Object; // true
+```
+
+优点：instanceof 可以弥补 Object.prototype.toString.call()不能判断自定义实例化对象的缺点。
+
+缺点：instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true，且不同于其他两种方法的是它不能检测出 iframes。
+
+```js
+function f(name) {
+  this.name = name;
+}
+var f1 = new f("martin");
+console.log(f1 instanceof f); //true
+```
+
+### Array.isArray()
+
+- 功能：用来判断对象是否为数组
+
+- instanceof 与 isArray
+
+当检测 Array 实例时，Array.isArray 优于 instanceof ，因为 Array.isArray 可以检测出 iframes
+
+```js
+var iframe = document.createElement("iframe");
+document.body.appendChild(iframe);
+xArray = window.frames[window.frames.length - 1].Array;
+var arr = new xArray(1, 2, 3); // [1,2,3]
+
+// Correctly checking for Array
+Array.isArray(arr); // true
+Object.prototype.toString.call(arr); // true
+// Considered harmful, because doesn't work though iframes
+arr instanceof Array; // false
+```
+
+缺点：只能判别数组
+
+- Array.isArray() 与 Object.prototype.toString.call()
+
+Array.isArray()是 ES5 新增的方法，当不存在 Array.isArray() ，可以用 Object.prototype.toString.call() 实现。
+
+```js
+if (!Array.isArray) {
+  Array.isArray = function(arg) {
+    return Object.prototype.toString.call(arg) === "[object Array]";
+  };
+}
+```
+
+[参考](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/23)
+
 </details>
 
-<b><details><summary>15.什么是面向对象？</summary></b>
+<b><details><summary>27.什么是面向对象？</summary></b>
+
+答案：面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+
+解析：
+
+- 面向对象和面向过程的异同
+  - 面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。
+  - 面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+
+</details>
+
+</details>
+
+<b><details><summary>28.你对松散类型的理解</summary></b>
 
 答案：
 
-<!--1 面向对象和面向过程的异同-->
-<!--2 在JavaScript中面向对象的表现形式-->
-<!--3 其他语言中面向对象的表现形式（了解）-->
+JavaScript中的变量为松散类型，所谓松散类型就是指当一个变量被申明出来就可以保存任意类型的值，就是不像SQL一样申明某个键值为int就只能保存整型数值，申明varchar只能保存字符串。一个变量所保存值的类型也可以改变，这在JavaScript中是完全有效的，只是不推荐。相比较于将变量理解为“盒子“，《JavaScript编程精解》中提到应该将变量理解为“触手”，它不保存值，而是抓取值。这一点在当变量保存引用类型值时更加明显。
 
-</details>
-
-</details>
-
-<b><details><summary>28.松散类型的数组</summary></b>
-
-答案：
+JavaScript中变量可能包含两种不同的数据类型的值：基本类型和引用类型。基本类型是指简单的数据段，而引用类型指那些可能包含多个值的对象。
 
 </details>
 
 <b><details><summary>29.JS 严格模式和正常模式</summary></b>
 
-答案：
+答案：我的书签
 
 </details>
 
@@ -1872,6 +2477,27 @@ for (var i = 100; i > 0; i--) {
 //最后放入到页面上
 document.body.appendChild(df);
 ```
+
+</details>
+
+<b><details><summary>1.原型的作用 以及什么是原型</summary></b>
+
+答案：
+
+作用：实现资源共享
+什么是原型:实例在被创建的那一刻，构造函数的 prototype 属性的值。
+
+</details>
+
+<b><details><summary>2.javascript 里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
+
+答案：用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的 extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
+
+</details>
+
+<b><details><summary>3.简单介绍下 JS 的原型和原型链</summary></b>
+
+答案：
 
 </details>
 

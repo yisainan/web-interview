@@ -141,7 +141,7 @@ console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 
 <b><details><summary>4.解构赋值及其原理</summary></b>
 
-答案：
+答案：我的书签
 
 解析：
 

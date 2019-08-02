@@ -2,11 +2,11 @@
 
 <b><details><summary>1、Ajax 是什么?如何创建一个 Ajax？</summary></b>
 
-答案：
-
-Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
+答案：Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
 
 基本步骤 4 步走：（创建对象、建立连接、发送数据、接收数据）
+
+解析：
 
 ```
 
@@ -43,7 +43,9 @@ Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组�
 
 <b><details><summary>2、同步和异步的区别?</summary></b>
 
-答案：
+答案：同步：阻塞的；异步：非阻塞的。
+
+解析：
 
 同步：阻塞的
 
@@ -61,27 +63,23 @@ Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组�
 
 <b><details><summary>3、如何解决跨域问题?</summary></b>
 
-答案：
+答案：JSONP、CORS、服务端代理
+
+解析：
 
 理解跨域的概念：协议、域名、端口都相同才同域，否则都是跨域
-
-常用解决跨域：JSONP、CORS、服务端代理
 
 扩展：window.name、flash URLLoader、Access Control、document.domain（两个 iframe 之间）、location.hash（两个 iframe 之间）
 
 CORS:
 
-服务端添加
-header("Access-Control-Allow-Origin", "_");
----“_”号表示允许任何域向我们的服务端提交请求
+服务端添加 header("Access-Control-Allow-Origin", "_");其中“_”号表示允许任何域向我们的服务端提交请求
 
 </details>
 
 <b><details><summary>4、页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
 
-答案：
-
-答：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
+答案：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
 
 </details>
 
@@ -117,11 +115,9 @@ header("Access-Control-Allow-Origin", "_");
 
 </details>
 
-<b><details><summary>7、请解释一下 JavaScript 的同源策略。</summary></b>
+<b><details><summary>7、请解释一下 JavaScript 的同源策略</summary></b>
 
-答案：
-
-同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
+答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
 
 </details>
 
@@ -157,9 +153,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 <b><details><summary>10、 Ajax 的最大的特点是什么。</summary></b>
 
-答案：
-
-Ajax 可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；按需获取数据，节约带宽资源；
+答案：Ajax 可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；按需获取数据，节约带宽资源；
 
 </details>
 
@@ -194,35 +188,16 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 1.jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
 
 2.优缺点
-jsonp 优点:
-完美解决在测试或者开发中获取不同域下的数据,用户传递一个 callback 参数给服务端，然后服务端返回数据时会将这个 callback
-参数作为函数名来包裹住 JSON 数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。简单来说数据的格式没有发生
 
-很大变化
+- jsonp 优点:
 
-jsonp 缺点:
+  - 完美解决在测试或者开发中获取不同域下的数据,用户传递一个 callback 参数给服务端，然后服务端返回数据时会将这个 callback 参数作为函数名来包裹住 JSON 数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。简单来说数据的格式没有发生很大变化
 
-这里主要讲 jsonp 的缺点,也就是我上面说的没有用这个的原因
+- jsonp 缺点:
 
-1.jsonp 只支持 get 请求而不支持 post 请求,也即是说如果想传给后台一个 json 格式的数据,此时问题就来了,浏览器会报一个 http 状态码
-
-415 错误,告诉你请求格式不正确,这让我很蛋
-
-疼(在登录注册中需要给后台传一大串数据),如果都用参数的形式拼接在 url 后面的话不太现实,后台取值也会显得繁琐,
-
-2.在登录模块中需要用到 session 来判断当前用户的登录状态,这时候由于是跨域的原因,前后台的取到的 session 是不一样的,那么就不
-
-能就行 session 来判断.
-
-3.由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的,还是另有高招?)
-
-后来考虑到上面的一系列问题,采用的是后台进行设置允许跨域请求(但还是存在缺陷的,实质上还是跨域,如上面说的 session 问题)
-
-.Header set Access-Control-Allow-Origin \*
-
-为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如
-
-Access-Control-Allow-Origin: http://blog.csdn.net
+  - 1.jsonp 只支持 get 请求而不支持 post 请求,也即是说如果想传给后台一个 json 格式的数据,此时问题就来了,浏览器会报一个 http 状态码 415 错误,告诉你请求格式不正确,这让我很蛋疼(在登录注册中需要给后台传一大串数据),如果都用参数的形式拼接在 url 后面的话不太现实,后台取值也会显得繁琐,
+  - 2.在登录模块中需要用到 session 来判断当前用户的登录状态,这时候由于是跨域的原因,前后台的取到的 session 是不一样的,那么就不能就行 session 来判断.
+  - 3.由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的,还是另有高招?)，后来考虑到上面的一系列问题,采用的是后台进行设置允许跨域请求(但还是存在缺陷的,实质上还是跨域,如上面说的 session 问题).Header set Access-Control-Allow-Origin \*为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如 Access-Control-Allow-Origin: http://blog.csdn.net
 
 </details>
 
@@ -230,15 +205,15 @@ Access-Control-Allow-Origin: http://blog.csdn.net
 
 答案：
 
-Ajax 是全称是 asynchronous JavaScript andXML，即异步 JavaScript 和 xml，用于在 Web 页面中实现异步数据交互，实现页面局部刷新。
+- Ajax 是全称是 asynchronous JavaScript andXML，即异步 JavaScript 和 xml，用于在 Web 页面中实现异步数据交互，实现页面局部刷新。
 
-优点：可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量，避免用户不断刷新或者跳转页面，提高用户体验
+  - 优点：可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量，避免用户不断刷新或者跳转页面，提高用户体验
 
-缺点：对搜索引擎不友好；要实现 ajax 下的前后退功能成本较大；可能造成请求数的增加跨域问题限制；
+  - 缺点：对搜索引擎不友好；要实现 ajax 下的前后退功能成本较大；可能造成请求数的增加跨域问题限制；
 
-JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
+- JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
-优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
+  - 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
 
 </details>
 
@@ -264,11 +239,9 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 </details>
 
-<b><details><summary>18、ajax 请求时，如何解释 json 数据</summary></b>
+<b><details><summary>18、ajax 请求时，如何解析 json 数据</summary></b>
 
-答案：
-
-使用 eval() 或者 JSON.parse() 鉴于安全性考虑，推荐使用 JSON.parse()更靠谱，对数据的安全性更好。
+答案：使用 eval() 或者 JSON.parse() 鉴于安全性考虑，推荐使用 JSON.parse()更靠谱，对数据的安全性更好。
 
 </details>
 
@@ -290,11 +263,9 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 <b><details><summary>20、eval 是做什么的？</summary></b>
 
-答案：
+答案：它的功能是把对应的字符串解析成 JS 代码并运行；
 
-它的功能是把对应的字符串解析成 JS 代码并运行；
-
-应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）。
+解析：应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）。
 
 </details>
 
@@ -346,11 +317,11 @@ JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
 答案：
 
-栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
+- 栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
+- 队列先进先出，栈先进后出。
+- 栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除
 
-队列先进先出，栈先进后出。
-
-栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除
+拓展：
 
 栈和堆的区别？
 
@@ -388,9 +359,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>25、ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
-答案：
-
-答：后台做缓存，读取缓存里面的数据。CDN
+答案：后台做缓存，读取缓存里面的数据。CDN
 
 </details>
 
@@ -398,11 +367,18 @@ JSON 的速度要远远快于 XML。
 
 答案：
 
-</details>
+JSON (JavaScript Object Notation)
 
-<b><details><summary>27.Ajax 加载的页面，跳转到一个页面又跳转回来，内容相同，如何节约请求</summary></b>
+优点:
+1. 数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小
+2. 易于解析这种语言, 客户端 javascript 可以简单的通过 eval()进行 JSON 数据的读取搜索
+3. 支持多种语言, 包括 ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, php, Python, Ruby 等语言服务器端语言, 便于服务器端的解析
+4. 在 PHP 世界, 已经有 PHP-JSON 和 JSON-PHP 出现了, 便于 PHP 序列化后的程序直接调用. PHP 服务器端的对象、数组等能够直接生 JSON 格式, 便于客户端的访问提取. 另外 PHP 的 PEAR 类已经提出了支持 (http://pear.php.net/pepr/pepr-proposal-show.php?id=198)
+5. 因为 JSON 格式能够直接为服务器端代码使用, 大大简化了服务器端和客户端的代码开发量, 但是完成的任务不变, 且易于维护
 
-答案：
-后台做缓存，读取缓存里的数据
+缺点:
+
+1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性 
+2. JSON 格式目前在 Web Service 中推广还属于初级阶段 PS: 据说 Google 的 Ajax 是使用 JSON+模板 做的
 
 </details>

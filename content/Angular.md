@@ -2,10 +2,9 @@
 
 <b><details><summary>1.angular 的数据绑定采用什么机制？详述原理</summary></b>
 
-答案：
+答案：脏检查机制。
 
-脏检查机制。
-
+解析：
 双向数据绑定是 AngularJS 的核心机制之一。当 view 中有任何数据变化时，会更新到 model ，当 model 中数据有变化时，view 也会同步更新，显然，这需要一个监控。
 
 原理就是，Angular 在 scope 模型上设置了一个监听队列，用来监听数据变化并更新 view 。每次绑定一个东西到 view 上时 AngularJS 就会往 $watch 队列里插入一条 $watch ，用来检测它监视的 model 里是否有变化的东西。当浏览器接收到可以被 angular context 处理的事件时， $digest 循环就会触发，遍历所有的 $watch ，最后更新 dom。
@@ -30,25 +29,21 @@
 
 <b><details><summary>3.在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
 
-答案：
-
-AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
+答案：AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
 
 </details>
 
 <b><details><summary>4.ng-show/ng-hide 与 ng-if 的区别？</summary></b>
 
-答案：
-
-我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
+答案：我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
 
 </details>
 
 <b><details><summary>5.解释下什么是$rootScrope以及和$scope 的区别？</summary></b>
 
-答案：
+答案：通俗的说$rootScrope 页面所有$scope 的父亲。
 
-通俗的说$rootScrope 页面所有$scope 的父亲。
+解析：
 
 我们来看下如何产生$rootScope和$scope 吧。
 
@@ -64,15 +59,11 @@ step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controll
 
 答案：
 
-Service
-
-events,指定绑定的事件
-
-使用 \$rootScope
-
-controller 之间直接使用$parent, $\$childHead 等
-
-directive 指定属性进行数据绑定
+* Service
+* events,指定绑定的事件
+* 使用 \$rootScope
+* controller 之间直接使用$parent, $\$childHead 等
+* directive 指定属性进行数据绑定
 
 </details>
 
@@ -86,9 +77,7 @@ directive 指定属性进行数据绑定
 
 <b><details><summary>8.angular 中的\$http</summary></b>
 
-答案：
-
-\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
+答案：\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
 
 我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
 
@@ -96,15 +85,15 @@ directive 指定属性进行数据绑定
 
 <b><details><summary>9.ng-repeat 迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</summary></b>
 
-答案：
-
-会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
+答案：会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
 
 </details>
 
 <b><details><summary>10.angularjs 是 mvc 还是 mvvm 框架</summary></b>
 
-答案：
+答案：mvvm
+
+解析：
 
 首先阐述下你对 mvc 和 mvvm 的理解:
 
@@ -136,17 +125,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>11.angularjs 中\$scope，controller，directive，sevice 在 mvvm 中充当什么角色</summary></b>
 
-答案：
-
-如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
-
-</details>
-
-<b><details><summary>12.在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
-
-答案：
-
-AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
+答案：如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
 
 </details>
 
@@ -169,24 +148,6 @@ AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://
 测试驱动开发是什么呢？普及一下：
 
 测试驱动开发，英文全称 Test-Driven Development，简称 TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程。
-
-</details>
-
-<b><details><summary>15.AngularJS 的数据双向绑定是怎么实现的？</summary></b>
-
-答案：
-
-1、每个双向绑定的元素都有一个 watcher
-
-2、在某些事件发生的时候，调用 digest 脏数据检测。
-
-这些事件有：表单元素内容变化、Ajax 请求响应、点击按钮执行的函数等。
-
-3、脏数据检测会检测 rootscope 下所有被 watcher 的元素。
-
-\$digest 函数就是脏数据监测
-
-又附上一篇原理性的文章  https://github.com/xufei/Make-Your-Own-AngularJS/blob/master/01.md
 
 </details>
 
@@ -235,30 +196,6 @@ compile (对象或函数)：compile 选项可以返回一个对象或函数。�
 compile 和 link 的区别：
 
 编译的时候，compile 转换 dom，碰到绑定监听器的地方就先存着，有几个存几个，到最后汇总成一个 link 函数，一并执行，提升了性能。
-
-</details>
-
-<b><details><summary>18.angular 中的\$http</summary></b>
-
-答案：
-
-\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
-
-我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
-
-1、链式调用
-
-\$http 服务是只能接受一个参数的函数，这个参数是一个对象，包含了用来生成 HTTP 请求的
-
-配置内容。这个函数返回一个 promise 对象，具有 success 和 error 两个方法。
-
-2、返回一个 promise 对象
-
-3、快捷的 get 请求
-
-4、响应对象
-
-传送门：http://www.2cto.com/kf/201506/405137.html
 
 </details>
 
@@ -319,30 +256,6 @@ ng-maxlength 最大长度
 ng-minlength 最小长度
 
 例子：传送门https://github.com/18500047564/clutter
-
-</details>
-
-<b><details><summary>21. ng-show/ng-hide 与 ng-if 的区别？ </summary></b>
-
-答案：
-
-我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载确认的话，那么 ng-if 的性能好过 ng-show.
-
-</details>
-
-<b><details><summary>22.解释下什么是 $rootScrope 以及和 $scope 的区别？</summary></b>
-
-答案：
-
-$rootScrope是所有$scope 的父对象
-
-</details>
-
-<b><details><summary>23. 表达式 {{yourModel}} 是如何工作的？</summary></b>
-
-答案：
-
-它依赖于 $interpolation服务，在初始化页面html后，它会找到这些表达式，并且进行标记，于是每遇见一个 {{}} ，则会设置一个 $watch 。而 $interpolation 会返回一个带有上下文参数的函数，最后该函数执行，则算是表达式 $parse 到那个作用域上。
 
 </details>
 

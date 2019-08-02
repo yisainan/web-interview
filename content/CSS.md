@@ -88,18 +88,13 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 答案：
 
-link 属于 XHTML 标签，除了加载 CSS 外，还能用于定义 RSS, 定义 rel 连接属性等作用；而@import 是 CSS 提供的，只能用于加载 CSS;
-页面被加载的时，link 会同时被加载，而@import 引用的 CSS 会等到页面被加载完再加载;
+1. Link 属于 html 标签，而@import 是 CSS 中提供的
 
-import 是 CSS2.1 提出的，只在 IE5 以上才能被识别，而 link 是 XHTML 标签，无兼容问题;
+2. 在页面加载的时候，link 会同时被加载，而@import 引用的 CSS 会在页面加载完成后才会加载引用的 CSS
 
-Link 属于 html 标签，而@import 是 CSS 中提供的
+3. @import 只有在 ie5 以上才可以被识别，而 link 是 html 标签，不存在浏览器兼容性问题
 
-在页面加载的时候，link 会同时被加载，而@import 引用的 CSS 会在页面加载完成后才会加载引用的 CSS
-
-@import 只有在 ie5 以上才可以被识别，而 link 是 html 标签，不存在浏览器兼容性问题
-
-Link 引入样式的权重大于@import 的引用（@import 是将引用的样式导入到当前的页面中）
+4. Link 引入样式的权重大于@import 的引用（@import 是将引用的样式导入到当前的页面中）
 
 </details>
 
@@ -117,9 +112,9 @@ Link 引入样式的权重大于@import 的引用（@import 是将引用的样�
 
 </details>
 
-<b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b
+<b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
-> 答案：
+答案：
 
 ```
         1.id选择器（ # myid）
@@ -174,21 +169,18 @@ CSS3新增伪类举例：
 
 </details>
 
-<b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b
+<b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
 
-> 答案：
+答案：
 
-块级元素(block)特性：
+- 块级元素(block)特性：
 
-总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;
+  - 总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;
+  - 宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;
 
-宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;
-
-内联元素(inline)特性：
-
-和相邻的内联元素在同一行;
-
-宽度(width)、高度(height)、内边距的 top/bottom(padding-top/padding-bottom)和外边距的 top/bottom(margin-top/margin-bottom)都不可改变（也就是 padding 和 margin 的 left 和 right 是可以设置的），就是里面文字或图片的大小。
+- 内联元素(inline)特性：
+  - 和相邻的内联元素在同一行;
+  - 宽度(width)、高度(height)、内边距的 top/bottom(padding-top/padding-bottom)和外边距的 top/bottom(margin-top/margin-bottom)都不可改变（也就是 padding 和 margin 的 left 和 right 是可以设置的），就是里面文字或图片的大小。
 
 那么问题来了，浏览器还有默认的天生 inline-block 元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？
 
@@ -206,11 +198,11 @@ CSS3新增伪类举例：
 
 折叠结果遵循下列计算规则：
 
-两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
+1. 两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
 
-两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
+2. 两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
 
-两个外边距一正一负时，折叠结果是两者的相加的和。
+3. 两个外边距一正一负时，折叠结果是两者的相加的和。
 
 </details>
 
@@ -366,9 +358,7 @@ span {
 
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
 
-答案：
-
-他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
+答案：他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
 
 例如 Less 是一种动态样式语言. 将 CSS 赋予了动态语言的特性，如变量，继承，运算， 函数. LESS 既可以在客户端上运行 (支持 IE 6+, Webkit, Firefox)，也可一在服务端运行 (借助 Node.js)。
 
@@ -433,14 +423,6 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 </details>
 
-<b><details><summary>21. b 标签和 strong 标签,i 标签和 em 标签的区别？</summary></b>
-
-答案：
-
-后者有语义，前者则无。
-
-</details>
-
 <b><details><summary>22. 设备像素比</summary></b>
 
 答案：
@@ -497,11 +479,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>32. li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
 
-答案：
-
-引起这种空白间隔的原因：
-
-浏览器的默认行为是把 inline 元素间的空白字符（空格换行 tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
+答案：浏览器的默认行为是把 inline 元素间的空白字符（空格换行 tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
 
 解决方案：
 
@@ -629,9 +607,9 @@ font-size:0;letter-spaceing:-4px;
 
 </details>
 
-<b><details><summary>45. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b
+<b><details><summary>45. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
 
-> 答案：
+答案：
 
 </details>
 
