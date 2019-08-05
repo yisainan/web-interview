@@ -1366,28 +1366,512 @@ if (!Array.isArray) {
 
 答案：
 
-JavaScript中的变量为松散类型，所谓松散类型就是指当一个变量被申明出来就可以保存任意类型的值，就是不像SQL一样申明某个键值为int就只能保存整型数值，申明varchar只能保存字符串。一个变量所保存值的类型也可以改变，这在JavaScript中是完全有效的，只是不推荐。相比较于将变量理解为“盒子“，《JavaScript编程精解》中提到应该将变量理解为“触手”，它不保存值，而是抓取值。这一点在当变量保存引用类型值时更加明显。
+JavaScript 中的变量为松散类型，所谓松散类型就是指当一个变量被申明出来就可以保存任意类型的值，就是不像 SQL 一样申明某个键值为 int 就只能保存整型数值，申明 varchar 只能保存字符串。一个变量所保存值的类型也可以改变，这在 JavaScript 中是完全有效的，只是不推荐。相比较于将变量理解为“盒子“，《JavaScript 编程精解》中提到应该将变量理解为“触手”，它不保存值，而是抓取值。这一点在当变量保存引用类型值时更加明显。
 
-JavaScript中变量可能包含两种不同的数据类型的值：基本类型和引用类型。基本类型是指简单的数据段，而引用类型指那些可能包含多个值的对象。
+JavaScript 中变量可能包含两种不同的数据类型的值：基本类型和引用类型。基本类型是指简单的数据段，而引用类型指那些可能包含多个值的对象。
 
 </details>
 
 <b><details><summary>29.JS 严格模式和正常模式</summary></b>
 
-答案：我的书签
+答案：严格模式使用"use strict";
+
+作用：
+
+- 消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为;
+- 消除代码运行的一些不安全之处，保证代码运行的安全；
+- 提高编译器效率，增加运行速度；
+- 为未来新版本的 Javascript 做好铺垫。
+
+表现：
+
+- 严格模式下, delete 运算符后跟随非法标识符(即 delete 不存在的标识符)，会抛出语法错误； 非严格模式下，会静默失败并返回 false
+- 严格模式中，对象直接量中定义同名属性会抛出语法错误； 非严格模式不会报错
+- 严格模式中，函数形参存在同名的，抛出错误； 非严格模式不会
+- 严格模式不允许八进制整数直接量（如：023）
+- 严格模式中，arguments 对象是传入函数内实参列表的静态副本；非严格模式下，arguments 对象里的元素和对应的实参是指向同一个值的引用
+- 严格模式中 eval 和 arguments 当做关键字，它们不能被赋值和用作变量声明
+- 严格模式会限制对调用栈的检测能力，访问 arguments.callee.caller 会抛出异常
+- 严格模式 变量必须先声明，直接给变量赋值，不会隐式创建全局变量，不能用 with,
+- 严格模式中 call apply 传入 null undefined 保持原样不被转换为 window
+
+解析：
+
+一、概述
+
+除了正常运行模式，ECMAscript 5 添加了第二种运行模式："严格模式"（strict mode）。顾名思义，这种模式使得 Javascript 在更严格的条件下运行。
+
+设立"严格模式"的目的，主要有以下几个：
+
+- 消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为;
+
+- 消除代码运行的一些不安全之处，保证代码运行的安全；
+
+- 提高编译器效率，增加运行速度；
+
+- 为未来新版本的 Javascript 做好铺垫。
+
+"严格模式"体现了 Javascript 更合理、更安全、更严谨的发展方向，包括 IE 10 在内的主流浏览器，都已经支持它，许多大项目已经开始全面拥抱它。
+
+另一方面，同样的代码，在"严格模式"中，可能会有不一样的运行结果；一些在"正常模式"下可以运行的语句，在"严格模式"下将不能运行。掌握这些内容，有助于更细致深入地理解 Javascript，让你变成一个更好的程序员。
+
+本文将对"严格模式"做详细介绍。
+
+二、进入标志
+
+进入"严格模式"的标志，是下面这行语句：
+
+"use strict";
+
+老版本的浏览器会把它当作一行普通字符串，加以忽略。
+
+三、如何调用
+
+"严格模式"有两种调用方法，适用于不同的场合。
+
+3.1 针对整个脚本文件
+
+将"use strict"放在脚本文件的第一行，则整个脚本都将以"严格模式"运行。如果这行语句不在第一行，则无效，整个脚本以"正常模式"运行。如果不同模式的代码文件合并成一个文件，这一点需要特别注意。
+
+(严格地说，只要前面不是产生实际运行结果的语句，"use strict"可以不在第一行，比如直接跟在一个空的分号后面。)
+
+```js
+　　<script>
+　　　　"use strict";
+　　　　console.log("这是严格模式。");
+　　</script>
+
+　　<script>
+　　　　console.log("这是正常模式。");kly, it's almost 2 years ago now. I can admit it now - I run it on my school's network that has about 50 computers.
+　　</script>
+```
+
+上面的代码表示，一个网页中依次有两段 Javascript 代码。前一个 script 标签是严格模式，后一个不是。
+
+3.2 针对单个函数
+
+将"use strict"放在函数体的第一行，则整个函数以"严格模式"运行。
+
+```js
+function strict() {
+  "use strict";
+  return "这是严格模式。";
+}
+
+function notStrict() {
+  return "这是正常模式。";
+}
+```
+
+3.3 脚本文件的变通写法
+
+因为第一种调用方法不利于文件合并，所以更好的做法是，借用第二种方法，将整个脚本文件放在一个立即执行的匿名函数之中。
+
+```js
+(function() {
+  "use strict"; // some code here
+
+})();
+```
+
+四、语法和行为改变
+
+严格模式对 Javascript 的语法和行为，都做了一些改变。
+
+4.1 全局变量显式声明
+
+在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。
+
+```js
+"use strict";
+
+v = 1; // 报错，v未声明
+
+for (i = 0; i < 2; i++) {
+  // 报错，i未声明
+}
+```
+
+因此，严格模式下，变量都必须先用 var 命令声明，然后再使用。
+
+4.2 静态绑定
+
+Javascript 语言的一个特点，就是允许"动态绑定"，即某些属性和方法到底属于哪一个对象，不是在编译时确定的，而是在运行时（runtime）确定的。
+
+严格模式对动态绑定做了一些限制。某些情况下，只允许静态绑定。也就是说，属性和方法到底归属哪个对象，在编译阶段就确定。这样做有利于编译效率的提高，也使得代码更容易阅读，更少出现意外。
+
+具体来说，涉及以下几个方面。
+
+（1）禁止使用 with 语句
+
+因为 with 语句无法在编译时就确定，属性到底归属哪个对象。
+
+```js
+　　"use strict";
+
+　　var v = 1;
+
+　　with (o){ // 语法错误
+　　　　v = 2;
+　　}
+```
+
+（2）创设 eval 作用域
+
+正常模式下，Javascript 语言有两种变量作用域（scope）：全局作用域和函数作用域。严格模式创设了第三种作用域：eval 作用域。
+
+正常模式下，eval 语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval 语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于 eval 内部。
+
+```js
+"use strict";
+
+var x = 2;
+
+console.info(eval("var x = 5; x")); // 5
+
+console.info(x); // 2
+```
+
+4.3 增强的安全措施
+
+（1）禁止 this 关键字指向全局对象
+
+```js
+function f() {
+  return !this;
+} // 返回false，因为"this"指向全局对象，"!this"就是false
+function f() {
+  "use strict";
+  return !this;
+} // 返回true，因为严格模式下，this的值为undefined，所以"!this"为true。
+```
+
+因此，使用构造函数时，如果忘了加 new，this 不再指向全局对象，而是报错。
+
+```js
+function f() {
+  "use strict";
+
+  this.a = 1;
+}
+
+f(); // 报错，this未定义
+```
+
+（2）禁止在函数内部遍历调用栈
+
+```js
+function f1() {
+  "use strict";
+
+  f1.caller; // 报错
+
+  f1.arguments; // 报错
+}
+
+f1();
+```
+
+4.4 禁止删除变量
+
+严格模式下无法删除变量。只有 configurable 设置为 true 的对象属性，才能被删除。
+
+```js
+　　"use strict";
+
+　　var x;
+
+　　delete x; // 语法错误
+
+　　var o = Object.create(null, {'x': {
+　　　　　　value: 1,
+　　　　　　configurable: true
+　　}});
+
+　　delete o.x; // 删除成功
+```
+
+4.5 显式报错
+
+正常模式下，对一个对象的只读属性进行赋值，不会报错，只会默默地失败。严格模式下，将报错。
+
+```js
+"use strict";
+
+var o = {};
+
+Object.defineProperty(o, "v", { value: 1, writable: false });
+
+o.v = 2; // 报错
+```
+
+严格模式下，对一个使用 getter 方法读取的属性进行赋值，会报错。
+
+```js
+"use strict";
+
+var o = {
+  get v() {
+    return 1;
+  }
+};
+
+o.v = 2; // 报错
+```
+
+严格模式下，对禁止扩展的对象添加新属性，会报错。
+
+```js
+"use strict";
+
+var o = {};
+
+Object.preventExtensions(o);
+
+o.v = 1; // 报错
+```
+
+严格模式下，删除一个不可删除的属性，会报错。
+
+```js
+"use strict";
+
+delete Object.prototype; // 报错
+```
+
+4.6 重名错误
+
+严格模式新增了一些语法错误。
+
+（1）对象不能有重名的属性
+
+正常模式下，如果对象有多个重名属性，最后赋值的那个属性会覆盖前面的值。严格模式下，这属于语法错误。
+
+```js
+"use strict";
+
+var o = {
+  p: 1,
+  p: 2
+}; // 语法错误
+```
+
+（2）函数不能有重名的参数
+
+正常模式下，如果函数有多个重名的参数，可以用 arguments[i]读取。严格模式下，这属于语法错误。
+
+```js
+　　"use strict";
+
+　　function f(a, a, b) { // 语法错误
+
+　　　　return ;
+
+　　}
+```
+
+4.7 禁止八进制表示法
+
+正常模式下，整数的第一位如果是 0，表示这是八进制数，比如 0100 等于十进制的 64。严格模式禁止这种表示法，整数第一位为 0，将报错。
+
+```js
+　　"use strict";
+
+　　var n = 0100; // 语法错误
+```
+
+4.8 arguments 对象的限制
+
+arguments 是函数的参数对象，严格模式对它的使用做了限制。
+
+（1）不允许对 arguments 赋值
+
+```js
+　　"use strict";
+
+　　arguments++; // 语法错误
+
+　　var obj = { set p(arguments) { } }; // 语法错误
+
+　　try { } catch (arguments) { } // 语法错误
+
+　　function arguments() { } // 语法错误
+
+　　var f = new Function("arguments", "'use strict'; return 17;"); // 语法错误
+```
+
+（2）arguments 不再追踪参数的变化
+
+```js
+function f(a) {
+  a = 2;
+
+  return [a, arguments[0]];
+}
+
+f(1); // 正常模式为[2,2]
+
+function f(a) {
+  "use strict";
+
+  a = 2;
+
+  return [a, arguments[0]];
+}
+
+f(1); // 严格模式为[2,1]
+```
+
+（3）禁止使用 arguments.callee
+
+这意味着，你无法在匿名函数内部调用自身了。
+
+```js
+"use strict";
+
+var f = function() {
+  return arguments.callee;
+};
+
+f(); // 报错
+```
+
+4.9 函数必须声明在顶层
+
+将来 Javascript 的新版本会引入"块级作用域"。为了与新版本接轨，严格模式只允许在全局作用域或函数作用域的顶层声明函数。也就是说，不允许在非函数的代码块内声明函数。
+
+```js
+"use strict";
+
+if (true) {
+  function f() {} // 语法错误
+}
+
+for (var i = 0; i < 5; i++) {
+  function f2() {} // 语法错误
+}
+```
+
+4.10 保留字
+
+为了向将来 Javascript 的新版本过渡，严格模式新增了一些保留字：implements, interface, let, package, private, protected, public, static, yield。
+
+使用这些词作为变量名将会报错。
+
+```js
+　　function package(protected) { // 语法错误
+
+　　　　"use strict";
+
+　　　　var implements; // 语法错误
+
+　　}
+```
+
+此外，ECMAscript 第五版本身还规定了另一些保留字（class, enum, export, extends, import, super），以及各大浏览器自行增加的 const 保留字，也是不能作为变量名的。
+
+[参考](https://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
 
 </details>
 
-<b><details><summary>30.移动端 tap 点击事件和 click 的区别</summary></b>
+<b><details><summary>30.移动端 click 事件、touch 事件、tap 事件的区别</summary></b>
 
 答案：
+
+1. click 事件在移动端会有 200-300ms ms 的延迟，主要原因是苹果手机在设计时，考虑到用户在浏览网页时需要放大，所以，在用户点击的 200-300ms 之后，才触发 click，如果 200-300ms 之内还有 click，就会进行放大缩小。
+
+2. touch 事件是针对触屏手机上的触摸事件。现今大多数触屏手机 webkit 内核提供了 touch 事件的监听，让开发者可以获取用户触摸屏幕时的一些信息。其中包括：touchstart,touchmove,touchend,touchcancel 这四个事件，touchstart touchmove touchend 事件可以类比于 mousedown mouseover mouseup 的触发
+
+3. tap 事件在移动端，代替 click 作为点击事件，tap 事件被很多框架（如 zepto）封装，来减少这延迟问题， tap 事件不是原生的，所以是封装的，那么具体是如何实现的呢？
+
+```js
+  <script>
+    function tap(ele, callback) {
+      // 记录开始时间
+      var startTime = 0,
+      // 控制允许延迟的时间
+          delayTime = 200,
+      // 记录是否移动，如果移动，则不触发tap事件
+          isMove = false;
+
+      // 在touchstart时记录开始的时间
+      ele.addEventListener('touchstart', function (e) {
+        startTime = Date.now();
+      });
+
+      // 如果touchmove事件被触发，则isMove为true
+      ele.addEventListener('touchmove', function (e) {
+        isMove = true;
+      });
+
+      // 如果touchmove事件触发或者中间时间超过了延迟时间，则返回，否则，调用回调函数。
+      ele.addEventListener('touchend', function (e) {
+        if (isMove || (Date.now() - startTime > delayTime)) {
+          return;
+        } else {
+          callback(e);
+        }
+      })
+    }
+
+    var btn = document.getElementById('btn');
+    tap(btn, function () {
+      alert('taped');
+    });
+  </script>
+```
+
+拓展：
+
+点透问题
+
+如果我们在移动端所有的 click 都替换为了 tap 事件，还是会触发点透问题的，因为实质是： 在同一个 z 轴上，z-index 不同的两个元素，上面的元素是一个绑定了 tap 事件的，下面是一个 a 标签，一旦 tap 触发，这个元素就会 display: none，而从上面的 tap 可以看出，有 touchstart、touchend，所以会 300ms 之后触发 click 事件，而 z-index 已经消失了，所以，触发了下面的 a 的 click 事件，注意： 我们认为 a 标签默认是绑定了 click 事件的。而这种现象不是我们所期待的。
+
+解决方案： （1）使用 fastclick。 （2）添加一个延迟。
+
+（1）直接引入 fastclick 库。
+
+```js
+window.addEventListener(
+  "load",
+  function() {
+    FastClick.attach(document.body);
+  },
+  false
+);
+```
+
+这样，就可以成功解决问题了。
+
+（2）对于上一个 tap 做延迟。
+
+```js
+tap(ele, function() {
+  setTimeout(function() {
+    ele.style.display = "none";
+  }, 300);
+});
+```
+
+这样，过了 300ms，那么 click 事件就不会触发在下面的 a 标签上了。
 
 </details>
 
 <b><details><summary>31.JS 单线程还是多线程，如何显示异步操作</summary></b>
 
-答案：
-单线程
+答案：JS 本身是单线程的，他是依靠浏览器完成的异步操作。
+
+解析：
+
+具体步骤，
+
+1、主线程 执行 js 中所有的代码。
+
+2、主线程 在执行过程中发现了需要异步的任务任务后扔给浏览器（浏览器创建多个线程执行），并在  callback queque  中创建对应的回调函数（回调函数是一个对象，包含该函数是否执行完毕等）。
+
+3、主线程 已经执行完毕所有同步代码。开始监听  callback queque 一旦 浏览器 中某个线程任务完成将会改变回调函数的状态。主线程查看到某个函数的状态为已完成，就会执行该函数。
+
+![js_003](../../images/js_003.png)
 
 </details>
 
@@ -1397,17 +1881,365 @@ JavaScript中变量可能包含两种不同的数据类型的值：基本类型�
 
 答案：
 
+1. map
+
+```js
+// map
+//作用：对数组进行遍历
+//返回值：新的数组
+// 是否改变：否
+var arr = [2, 5, 3, 4];
+var ret = arr.map(function(value) {
+  return value + 1;
+});
+console.log(ret); //[3,6,4,5]
+console.log(arr); //[2,5,3,4]
+```
+
+2. forEach
+
+```js
+// forEach 方法
+// 作用：遍历数组的每一项
+// 返回值：undefined
+// 是否改变：否
+var arr = [2, 5, 3, 4];
+var ret = arr.forEach(function(value) {
+  console.log(value); // 2, 5, 3, 4
+});
+console.log(ret); //undefined
+console.log(arr); //[2,5,3,4]
+```
+
+3. reduce
+
+```js
+// reduce 方法
+// 作用：对数组进行迭代，然后两两进行操作，最后返回一个值
+// 返回值：return出来的结果
+// 是否改变：不会
+var arr = [1, 2, 3, 4];
+var ret = arr.reduce(function(a, b) {
+  return a * b;
+});
+console.log(ret); // 24
+console.log(arr); // [1, 2, 3, 4]
+```
+
+4. filter
+
+```js
+// filter 过滤
+// 作用： 筛选一部分元素
+// 返回值： 一个满足筛选条件的新数组
+// 是否改变原有数组：不会
+
+var arr = [2, 5, 3, 4];
+var ret = arr.filter(function(value) {
+  return value > 3;
+});
+console.log(ret); //[5,4]
+console.log(arr); //[2,5,3,4]
+```
+
 </details>
 
 <b><details><summary>33. JS 块级作用域、变量提升</summary></b>
 
 答案：
 
+1. 块级作用域
+
+JS 中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称 ES6)中新增了块级作用域。块作用域由 { } 包括，if 语句和 for 语句里面的{ }也属于块作用域。
+
+2. 变量提升
+
+- 如果变量声明在函数里面，则将变量声明提升到函数的开头
+- 如果变量声明是一个全局变量，则将变量声明提升到全局作用域的开头
+
+解析：
+
+```js
+<script type="text/javascript">
+	{
+		var a = 1;
+		console.log(a); // 1
+	}
+	console.log(a); // 1
+	// 可见，通过var定义的变量可以跨块作用域访问到。
+
+	(function A() {
+		var b = 2;
+		console.log(b); // 2
+	})();
+	// console.log(b); // 报错，
+	// 可见，通过var定义的变量不能跨函数作用域访问到
+
+	if(true) {
+		var c = 3;
+	}
+	console.log(c); // 3
+	for(var i = 0; i < 4; i++) {
+		var d = 5;
+	};
+	console.log(i);	// 4   (循环结束i已经是4，所以此处i为4)
+	console.log(d); // 5
+	// if语句和for语句中用var定义的变量可以在外面访问到，
+	// 可见，if语句和for语句属于块作用域，不属于函数作用域。
+
+	{
+		var a = 1;
+		let b = 2;
+		const c = 3;
+
+		{
+			console.log(a);		// 1	子作用域可以访问到父作用域的变量
+			console.log(b);		// 2	子作用域可以访问到父作用域的变量
+			console.log(c);		// 3	子作用域可以访问到父作用域的变量
+
+			var aa = 11;
+			let bb = 22;
+			const cc = 33;
+		}
+
+		console.log(aa);	// 11	// 可以跨块访问到子 块作用域 的变量
+		// console.log(bb);	// 报错	bb is not defined
+		// console.log(cc);	// 报错	cc is not defined
+	}
+</script>
+```
+
+拓展：
+
+var、let、const 的区别
+
+- var 定义的变量，没有块的概念，可以跨块访问, 不能跨函数访问。
+- let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。
+- const 用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，而且不能修改。
+- 同一个变量只能使用一种方式声明，不然会报错
+
+```js
+<script type="text/javascript">
+	// 块作用域
+	{
+		var a = 1;
+		let b = 2;
+		const c = 3;
+		// c = 4; // 报错
+
+		// let a = 'a';	// 报错  注：是上面 var a = 1; 那行报错
+		// var b = 'b';	// 报错：本行报错
+		// const a = 'a1';	// 报错  注：是上面 var a = 1; 那行报错
+		// let c = 'c';	// 报错：本行报错
+
+		var aa;
+		let bb;
+		// const cc; // 报错
+		console.log(a); // 1
+		console.log(b); // 2
+		console.log(c); // 3
+		console.log(aa); // undefined
+		console.log(bb); // undefined
+	}
+	console.log(a); // 1
+	// console.log(b); // 报错
+	// console.log(c); // 报错
+
+	// 函数作用域
+	(function A() {
+		var d = 5;
+		let e = 6;
+		const f = 7;
+		console.log(d); // 5
+		console.log(e); // 6  (在同一个{ }中,也属于同一个块，可以正常访问到)
+		console.log(f); // 7  (在同一个{ }中,也属于同一个块，可以正常访问到)
+	})();
+	// console.log(d); // 报错
+	// console.log(e); // 报错
+	// console.log(f); // 报错
+</script>
+```
+
 </details>
 
 <b><details><summary>35. JS 哪些操作会造成内存泄露</summary></b>
 
 答案：
+
+1）意外的全局变量引起的内存泄露
+
+```js
+function leak() {
+  leak = "xxx"; //leak成为一个全局变量，不会被回收
+}
+```
+
+2）闭包引起的内存泄露
+
+```js
+function bindEvent() {
+  var obj = document.createElement("XXX");
+  obj.οnclick = function() {
+    //Even if it's a empty function
+  };
+}
+```
+
+闭包可以维持函数内局部变量，使其得不到释放。 上例定义事件回调时，由于是函数内定义函数，并且内部函数--事件回调的引用外暴了，形成了闭包。
+解决之道，将事件处理函数定义在外部，解除闭包,或者在定义事件处理函数的外部函数中，删除对 dom 的引用。
+
+```js
+//将事件处理函数定义在外部
+function onclickHandler() {
+  //do something
+}
+function bindEvent() {
+  var obj = document.createElement("XXX");
+  obj.οnclick = onclickHandler;
+}
+
+//在定义事件处理函数的外部函数中，删除对dom的引用
+function bindEvent() {
+  var obj = document.createElement("XXX");
+  obj.οnclick = function() {
+    //Even if it's a empty function
+  };
+  obj = null;
+}
+```
+
+3）没有清理的 DOM 元素引用
+
+```js
+var elements={
+    button: document.getElementById("button"),
+    image: document.getElementById("image"),
+    text: document.getElementById("text")
+};
+function doStuff(){
+    image.src="http://some.url/image";
+    button.click():
+    console.log(text.innerHTML)
+}
+function removeButton(){
+    document.body.removeChild(document.getElementById('button'))
+}
+```
+
+4）被遗忘的定时器或者回调
+
+```js
+var someResouce = getData();
+setInterval(function() {
+  var node = document.getElementById("Node");
+  if (node) {
+    node.innerHTML = JSON.stringify(someResouce);
+  }
+}, 1000);
+```
+
+这样的代码很常见, 如果 id 为 Node 的元素从 DOM 中移除, 该定时器仍会存在, 同时, 因为回调函数中包含对 someResource 的引用, 定时器外面的 someResource 也不会被释放。
+
+5）子元素存在引起的内存泄露
+
+![js_004](../../images/js_004.png)
+
+黄色是指直接被 js 变量所引用，在内存里，红色是指间接被 js 变量所引用，如上图，refB 被 refA 间接引用，导致即使 refB 变量被清空，也是不会被回收的子元素 refB 由于 parentNode 的间接引用，只要它不被删除，它所有的父元素（图中红色部分）都不会被删除。
+
+6）IE7/8 引用计数使用循环引用产生的问题
+
+```js
+function fn() {
+  var a = {};
+  var b = {};
+  a.pro = b;
+  b.pro = a;
+}
+fn();
+```
+
+fn()执行完毕后，两个对象都已经离开环境，在标记清除方式下是没有问题的，但是在引用计数策略下，因为 a 和 b 的引用次数不为 0，所以不会被垃圾回收器回收内存，如果 fn 函数被大量调用，就会造成内存泄漏。在 IE7 与 IE8 上，内存直线上升。
+IE 中有一部分对象并不是原生 js 对象。例如，其内存泄漏 DOM 和 BOM 中的对象就是使用 C++以 COM 对象的形式实现的，而 COM 对象的垃圾回收机制采用的就是引用计数策略。因此，即使 IE 的 js 引擎采用标记清除策略来实现，但 js 访问的 COM 对象依然是基于引用计数策略的。换句话说，只要在 IE 中涉及 COM 对象，就会存在循环引用的问题。
+
+```js
+var element = document.getElementById("some_element");
+var myObject = new Object();
+myObject.e = element;
+element.o = myObject;
+```
+
+上面的例子在一个 DOM 元素（element)与一个原生 js 对象（myObject)之间创建了循环引用。其中，变量 myObject 有一个名为 e 的属性指向 element 对象；而变量 element 也有一个属性名为 o 回指 myObject。由于存在这个循环引用，即使例子中的 DOM 从页面中移除，它也永远不会被回收。
+
+看上面的例子，有人会觉得太弱了，谁会做这样无聊的事情，但是其实我们经常会这样做
+
+```js
+window.οnlοad=function outerFunction(){
+  var obj=document.getElementById("element"):
+  obj.οnclick=function innerFunction(){};
+};
+```
+
+这段代码看起来没什么问题，但是 obj 引用了 document.getElementById(“element”)，而 document.getElementById(“element”)的 onclick 方法会引用外部环境中的变量，自然也包括 obj，是不是很隐蔽啊。
+
+最简单的解决方式就是自己手工解除循环引用，比如刚才的函数可以这样
+
+```js
+myObject.element=null;
+element.o=null;
+window.οnlοad=function outerFunction(){
+  var obj=document.getElementById("element"):
+  obj.οnclick=function innerFunction(){};
+  obj=null;
+};
+```
+
+将变量设置为 null 意味着切断变量与它此前引用的值之间的连接。当垃圾回收器下次运行时，就会删除这些值并回收它们占用的内存。 要注意的是，IE9+并不存在循环引用导致 Dom 内存泄漏问题，可能是微软做了优化，或者 Dom 的回收方式已经改变
+
+解析：
+
+1、JS 的回收机制
+
+JavaScript 垃圾回收的机制很简单：找出不再使用的变量，然后释放掉其占用的内存，但是这个过程不是实时的，因为其开销比较大，所以垃圾回收系统（GC）会按照固定的时间间隔,周期性的执行。
+
+到底哪个变量是没有用的？所以垃圾收集器必须跟踪到底哪个变量没用，对于不再有用的变量打上标记，以备将来收回其内存。用于标记的无用变量的策略可能因实现而有所区别，通常情况下有两种实现方式：标记清除和引用计数。引用计数不太常用，标记清除较为常用。
+
+2、标记清除
+
+js 中最常用的垃圾回收方式就是标记清除。当变量进入环境时，例如，在函数中声明一个变量，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到它们。而当变量离开环境时，则将其标记为“离开环境”。
+
+```js
+function test() {
+  var a = 10; //被标记，进入环境
+  var b = 20; //被标记，进入环境
+}
+test(); //执行完毕之后a、b又被标记离开环境，被回收
+```
+
+3、引用此时
+引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值（function object array）赋给该变量时，则这个值的引用次数就是 1。如果同一个值又被赋给另一个变量，则该值的引用次数加 1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1。当这个值的引用次数变成 0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾回收器下次再运行时，它就会释放那些引用次数为 0 的值所占用的内存。
+
+```js
+function test() {
+  var a = {}; //a的引用次数为0
+  var b = a; //a的引用次数加1，为1
+  var c = a; //a的引用次数加1，为2
+  var b = {}; //a的引用次数减1，为1
+}
+```
+
+4、如何分析内存的使用情况
+
+Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 profiles 视图让你可以对 JavaScript 代码运行时的内存进行快照，并且可以比较这些内存快照。它还让你可以记录一段时间内的内存分配情况。在每一个结果视图中都可以展示不同类型的列表，但是对我们最有用的是 summary 列表和 comparison 列表。 summary 视图提供了不同类型的分配对象以及它们的合计大小：shallow size （一个特定类型的所有对象的总和）和 retained size （shallow size 加上保留此对象的其它对象的大小）。distance 显示了对象到达 GC 根（校者注：最初引用的那块内存，具体内容可自行搜索该术语）的最短距离。 comparison 视图提供了同样的信息但是允许对比不同的快照。这对于找到泄漏很有帮助。
+
+5、怎样避免内存泄露
+
+1）减少不必要的全局变量，或者生命周期较长的对象，及时对无用的数据进行垃圾回收；
+
+2）注意程序逻辑，避免“死循环”之类的 ；
+
+3）避免创建过多的对象 原则：不用了的东西要及时归还。
+
+[参考](https://blog.csdn.net/michael8512/article/details/77888000)
 
 </details>
 
@@ -1417,23 +2249,62 @@ JavaScript中变量可能包含两种不同的数据类型的值：基本类型�
 
 答案：
 
+1. 简述重排的概念
+
+浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM 树和渲染树），DOM 树表示页面结构，渲染树表示 DOM 节点如何显示。重排是 DOM 元素的几何属性变化，DOM 树的结构变化，渲染树需要重新计算。
+
+2. 简述重绘的概念
+
+重绘是一个元素外观的改变所触发的浏览器行为，例如改变 visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。由于浏览器的流布局，对渲染树的计算通常只需要遍历一次就可以完成。但 table 及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用 table 布局页面的原因之一。
+
+3. 简述重绘和重排的关系
+   重绘不会引起重排，但重排一定会引起重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。
+
+4. 什么情况下会触发重排？
+
+- 页面渲染初始化时；（这个无法避免）
+- 浏览器窗口改变尺寸；
+- 元素尺寸改变时；
+- 元素位置改变时；
+- 元素内容改变时；
+- 添加或删除可见的 DOM 元素时。
+
+5. 重排优化有如下五种方法
+
+- 将多次改变样式属性的操作合并成一次操作，减少 DOM 访问。
+- 如果要批量添加 DOM，可以先让元素脱离文档流，操作完后再带入文档流，这样只会触发一次重排。（fragment 元素的应用）
+- 将需要多次重排的元素，position 属性设为 absolute 或 fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。
+- 由于 display 属性为 none 的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发两次重排。
+- 在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的 html 片段，再一次性添加到文档中去，而不是循环添加每一行。
+
 </details>
 
 <b><details><summary>37.发布订阅设计模式</summary></b>
 
-答案：
+答案：发布/订阅模式(Publish Subscribe Pattern)属于设计模式中的行为(Behavioral Patterns)
 
-</details>
-
-<b><details><summary>38.防抖，节流</summary></b>
-
-答案：
+解析：[参考](https://www.jianshu.com/p/c391c77a8771)
 
 </details>
 
 <b><details><summary>39.兼容各种浏览器版本的事件绑定</summary></b>
 
 答案：
+
+```js
+/*
+兼容低版本IE，ele为需要绑定事件的元素，
+eventName为事件名（保持addEventListener语法，去掉on），fun为事件响应函数
+*/
+
+function addEvent(ele, eventName, fun) {
+  if (ele.addEventListener) {
+    ele.addEventListener(eventName, fun, false);
+  } else {
+    ele.attachEvent("on" + eventNme, fun);
+  }
+}
+```
 
 </details>
 
@@ -1443,11 +2314,11 @@ JavaScript中变量可能包含两种不同的数据类型的值：基本类型�
 
 答案：
 
-</details>
+main.ts 报错（ Cannot find module './App.vue'.）
 
-<b><details><summary>41.ES6 的动态加载，如何动态 import</summary></b>
+原因： typescript 不能识别.vue 文件
 
-答案：
+解决办法： 引入 vue 的 typescript declare 库
 
 </details>
 
@@ -1455,30 +2326,32 @@ JavaScript中变量可能包含两种不同的数据类型的值：基本类型�
 
 答案：
 
+join()：用于把数组中的所有元素通过指定的分隔符进行分隔放入一个字符串。
+
+split()：用于把一个字符串通过指定的分隔符进行分隔成数组.
+
 </details>
 
 <b><details><summary>43.JavaScript 的数据类型</summary></b>
 
-答案：
-
-JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
+答案：JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
 
 </details>
 
 <b><details><summary>44.如何判断一个对象是否属于某个类？</summary></b>
 
-答案：
-
-instanceof
+答案：instanceof
 
 </details>
 
 <b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
 
-答案：
+答案：new 共经过了 4 几个阶段
 
-new 共经过了 4 几个阶段
-1、创建一个空对象 2、设置原型链 3、让 Func 中的 this 指向 obj，并执行 Func 的函数体 4、判断 Func 的返回值类型：
+- 1、创建一个空对象
+- 2、设置原型链
+- 3、让 Func 中的 this 指向 obj，并执行 Func 的函数体
+- 4、判断 Func 的返回值类型：
 
 </details>
 
@@ -1486,17 +2359,20 @@ new 共经过了 4 几个阶段
 
 答案：
 
-</details>
+首先说明两个方法的含义：
 
-<b><details><summary>47.那些操作会造成内存泄漏？</summary></b>
+- call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即 A 对象调用 B 对象的方法。
+- apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即 A 对象应用 B 对象的方法。
 
-答案：
+call 与 apply 的相同点：
 
-闭包
+- 方法的含义是一样的，即方法功能是一样的；
+- 第一个参数的作用是一样的；
 
-死循环
+call 与 apply 的不同点：两者传入的列表形式不一样
 
-全局变量
+- call 可以传入多个参数；
+- apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入
 
 </details>
 
@@ -1504,17 +2380,81 @@ new 共经过了 4 几个阶段
 
 答案：
 
+方案一：来得很直接 github 上有个 fastclick 可以完美解决https://github.com/ftlabs/fastclick
+
+引入 fastclick.js，因为 fastclick 源码不依赖其他库所以你可以在原生的 js 前直接加上
+
+```js
+window.addEventListener(
+  "load",
+  function() {
+    FastClick.attach(document.body);
+  },
+  false
+);
+```
+
+或者有 zepto 或者 jqm 的 js 里面加上
+
+```js
+$(function() {
+  FastClick.attach(document.body);
+});
+```
+
+当然 require 的话就这样：
+
+```js
+var FastClick = require("fastclick");
+FastClick.attach(document.body, options);
+```
+
+方案二：用 touchend 代替 tap 事件并阻止掉 touchend 的默认行为 preventDefault()
+
+```js
+$("#cbFinish").on("touchend", function(event) {
+  //很多处理比如隐藏什么的
+  event.preventDefault();
+});
+```
+
+方案三：延迟一定的时间(300ms+)来处理事件
+
+```js
+$("#cbFinish").on("tap", function(event) {
+  setTimeout(function() {
+    //很多处理比如隐藏什么的
+  }, 320);
+});
+```
+
+这种方法其实很好，可以和 fadeInIn/fadeOut 等动画结合使用，可以做出过渡效果
+
+理论上上面的方法可以完美的解决 tap 的点透问题，如果真的不行，用 click
+
+解析：
+
+1、“点透”是什么？
+
+你可能碰到过在列表页面上创建一个弹出层，弹出层有个关闭的按钮，你点了这个按钮关闭弹出层后后，这个按钮正下方的内容也会执行点击事件（或打开链接）。这个被定义为这是一个“点透”现象。
+
+2、为什么会出现点透呢？
+
+[参考](https://www.cnblogs.com/axl234/p/5554281.html)
+
 </details>
 
 <b><details><summary>49.如何判断当前脚本运行在浏览器还是 node 环境中？</summary></b>
 
-答案：
+答案：通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中
 
 </details>
 
 <b><details><summary>50.移动端最小触控区域是多大？</summary></b>
 
-答案：
+答案：苹果推荐是 44pt x 44pt
+
+解析：[参考](https://developer.apple.com/ios/human-interface-guidelines/visual-design/layout/)
 
 </details>
 
@@ -1522,23 +2462,56 @@ new 共经过了 4 几个阶段
 
 答案：
 
+1. 300 毫秒
+2. 因为浏览器捕获第一次单击后，会先等待一段时间，如果在这段时间区间里用户未进行下一次点击，则浏览器会做单击事件的处理。如果这段时间里用户进行了第二次单击操作，则浏览器会做双击事件处理。
+3. 推荐 fastclick.js
+
 </details>
 
 <b><details><summary>52.解释 JavaScript 中的作用域与变量声明提升？</summary></b>
 
 答案：
 
+- 我对作用域的理解是只会对某个范围产生作用，而不会对外产生影响的封闭空间。在这样的一些空间里，外部不能访问内部变量，但内部可以访问外部变量。
+- 所有申明都会被提升到作用域的最顶上
+- 同一个变量申明只进行一次，并且因此其他申明都会被忽略
+- 函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
+
 </details>
 
 <b><details><summary>53.Node.js 的适用场景？</summary></b>
 
-答案：
+答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
+
+[参考](https://www.cnblogs.com/kevin9103/p/5053517.html)
 
 </details>
 
 <b><details><summary>54.什么是“前端路由"?什么时候适合使用“前端路由"? “前端路由"有哪些优点和缺点?</summary></b>
 
 答案：
+
+1. 什么是前端路由？
+
+   路由是根据不同的 url 地址展示不同的内容或页面
+
+   前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
+
+2. 什么时候使用前端路由？
+
+   在单页面应用，大部分页面结构不变，只改变部分内容的使用
+
+3. 前端路由有什么优点和缺点？
+
+   优点
+
+   用户体验好，不需要每次都从服务器全部获取，快速展现给用户
+
+   缺点
+
+   使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
+
+   单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
 
 </details>
 
@@ -1561,9 +2534,7 @@ new 共经过了 4 几个阶段
 
 <b><details><summary>56.如何获取浏览器版本信息</summary></b>
 
-答案：
-
-window.navigator.userAgent
+答案：window.navigator.userAgent
 
 </details>
 
@@ -1576,9 +2547,9 @@ F8 跳出断点调试模式
 F10、F11 代码的逐行调试
 
 进入断点调试模式的 方法
-1 在浏览器当中打断点
 
-2 直接在代码中加 debugger
+1. 在浏览器当中打断点
+2. 直接在代码中加 debugger
 
 </details>
 
@@ -1586,11 +2557,191 @@ F10、F11 代码的逐行调试
 
 答案：
 
+1. Array.map()
+
+此方法是将数组中的每个元素调用一个提供的函数，结果作为一个新的数组返回，并没有改变原来的数组
+
+```js
+let arr = [1, 2, 3, 4, 5];
+let newArr = arr.map(x => x * 2);
+//arr= [1, 2, 3, 4, 5]   原数组保持不变
+//newArr = [2, 4, 6, 8, 10] 返回新数组
+```
+
+2. Array.forEach()
+
+此方法是将数组中的每个元素执行传进提供的函数，没有返回值，直接改变原数组，注意和 map 方法区分
+
+```js
+let arr = [1, 2, 3, 4, 5];
+num.forEach(x => x * 2);
+// arr = [2, 4, 6, 8, 10]  数组改变,注意和map区分
+```
+
+3. Array.filter()
+
+此方法是将所有元素进行判断，将满足条件的元素作为一个新的数组返回
+
+```js
+let arr = [1, 2, 3, 4, 5]
+    const isBigEnough => value => value >= 3
+    let newArr = arr.filter(isBigEnough )
+    //newNum = [3, 4, 5] 满足条件的元素返回为一个新的数组
+　　
+```
+
+4. Array.every()
+
+此方法是将所有元素进行判断返回一个布尔值，如果所有元素都满足判断条件，则返回 true，否则为 false：
+
+```js
+let arr = [1, 2, 3, 4, 5]
+    const isLessThan4 => value => value < 4
+    const isLessThan6 => value => value < 6
+    arr.every(isLessThan4 ) //false
+    arr.every(isLessThan6 ) //true
+　　
+```
+
+5. Array.some()
+
+此方法是将所有元素进行判断返回一个布尔值，如果存在元素都满足判断条件，则返回 true，若所有元素都不满足判断条件，则返回 false：
+
+```js
+let arr= [1, 2, 3, 4, 5]
+    const isLessThan4 => value => value < 4
+    const isLessThan6 => value => value > 6
+    arr.some(isLessThan4 ) //true
+    arr.some(isLessThan6 ) //false
+　　
+```
+
+6. Array.reduce()
+
+此方法是所有元素调用返回函数，返回值为最后结果,传入的值必须是函数类型：
+
+```js
+let arr = [1, 2, 3, 4, 5];
+const add = (a, b) => a + b;
+let sum = arr.reduce(add);
+//sum = 15  相当于累加的效果
+```
+
+与之相对应的还有一个 Array.reduceRight() 方法，区别是这个是从右向左操作的
+
+7. Array.push()
+
+此方法是在数组的后面添加新加元素，此方法改变了数组的长度：
+
+8. Array.pop()
+
+此方法在数组后面删除最后一个元素，并返回数组，此方法改变了数组的长度：
+
+```js
+let arr = [1, 2, 3, 4, 5];
+arr.pop();
+console.log(arr); //[1, 2, 3, 4]
+console.log(arr.length); //4
+```
+
+9. Array.shift()
+
+此方法在数组后面删除第一个元素，并返回数组，此方法改变了数组的长度：
+
+```js
+let arr = [1, 2, 3, 4, 5];
+arr.shift();
+console.log(arr); //[2, 3, 4, 5]
+console.log(arr.length); //4
+```
+
+10. Array.unshift()
+
+此方法是将一个或多个元素添加到数组的开头，并返回新数组的长度：
+
+```js
+let arr = [1, 2, 3, 4, 5];
+arr.unshift(6, 7);
+console.log(arr); //[6, 7, 2, 3, 4, 5]
+console.log(arr.length); //7
+```
+
+11. Array.isArray()
+
+判断一个对象是不是数组，返回的是布尔值
+
+12. Array.concat()
+
+此方法是一个可以将多个数组拼接成一个数组：
+
+````js
+let arr1 = [1, 2, 3]
+      arr2 = [4, 5]
+  let arr = arr1.concat(arr2)
+  console.log(arr)//[1, 2, 3, 4, 5]
+```　　
+
+13. Array.toString()
+
+ 此方法将数组转化为字符串：
+```js
+let arr = [1, 2, 3, 4, 5];
+   let str = arr.toString()
+   console.log(str)// 1,2,3,4,5
+```　
+
+14. Array.join()
+
+  此方法也是将数组转化为字符串：
+```js
+let arr = [1, 2, 3, 4, 5];
+   let str1 = arr.toString()
+   let str2 = arr.toString(',')
+   let str3 = arr.toString('##')
+   console.log(str1)// 12345
+   console.log(str2)// 1,2,3,4,5
+   console.log(str3)// 1##2##3##4##5
+　　
+````
+
+通过例子可以看出和 toString 的区别，可以设置元素之间的间隔~
+
+15. Array.splice(开始位置， 删除的个数，元素)
+
+万能方法，可以实现增删改：
+
+```js
+let arr = [1, 2, 3, 4, 5];
+     let arr1 = arr.splice(2, 0 'haha')
+     let arr2 = arr.splice(2, 3)
+     let arr1 = arr.splice(2, 1 'haha')
+     console.log(arr1) //[1, 2, 'haha', 3, 4, 5]新增一个元素
+     console.log(arr2) //[1, 2] 删除三个元素
+     console.log(arr3) //[1, 2, 'haha', 4, 5] 替换一个元素
+```
+
 </details>
 
 <b><details><summary>59.字符串常用操作</summary></b>
 
 答案：
+
+- charAt(index):返回指定索引处的字符串
+- charCodeAt(index):返回指定索引处的字符的 Unicode 的值
+- concat(str1,str2,...):连接多个字符串，返回连接后的字符串的副本
+- fromCharCode():将 Unicode 值转换成实际的字符串
+- indexOf(str):返回 str 在父串中第一次出现的位置，若没有则返回-1
+- lastIndexOf(str):返回 str 在父串中最后一次出现的位置，若没有则返回-1
+- match(regex):搜索字符串，并返回正则表达式的所有匹配
+- replace(str1,str2):str1 也可以为正则表达式，用 str2 替换 str1
+- search(regex):基于正则表达式搜索字符串，并返回第一个匹配的位置
+- slice(start,end)：返回字符索引在 start 和 end（不含）之间的子串
+- split(sep，limit)：将字符串分割为字符数组，limit 为从头开始执行分割的最大数量
+- substr(start，length)：从字符索引 start 的位置开始，返回长度为 length 的子串
+- substring(from,to)：返回字符索引在 from 和 to（不含）之间的子串
+- toLowerCase()：将字符串转换为小写
+- toUpperCase()：将字符串转换为大写
+- valueOf()：返回原始字符串值
 
 </details>
 
@@ -1609,6 +2760,7 @@ F10、F11 代码的逐行调试
 答案：块作用域、词法作用域、动态作用域
 
 解析：
+
 1 块作用域 花括号 {}
 
 2 词法作用域（js 属于词法作用域）
@@ -1675,7 +2827,7 @@ f2();
 
 <b><details><summary>64.标准模式与怪异模式的区别</summary></b>
 
-答案：
+答案：我的书签
 
 </details>
 

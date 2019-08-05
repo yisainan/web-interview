@@ -412,6 +412,19 @@ console.log(template); //hello 空行 world
 
 </details>
 
+<b><details><summary>41.ES6 如何动态加载import</summary></b>
+
+答案：
+```js
+import('lodash').then(_ => {
+  // Do something with lodash (a.k.a '_')...
+ })
+ ```
+
+解析：[参考](https://webpack.js.org/api/module-methods/#import)
+
+</details>
+
 <b><details><summary></summary></b>
 
 </details>

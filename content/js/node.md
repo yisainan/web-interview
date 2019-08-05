@@ -14,4 +14,11 @@
 - nodejs 更新很快，可能会出现版本兼容
 - nodejs 还不算成熟，还没有大制作
 - nodejs 不像其他的服务器，对于不同的链接，不支持进程和线程操作
-  </details>
+
+</details>
+
+<b><details><summary>NodeJS的工作原理</summary></b>
+
+答案：事件循环
+
+</details>

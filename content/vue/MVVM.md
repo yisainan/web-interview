@@ -1,7 +1,7 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
 
-<b><details><summary>什么是 MVVM？</summary></b> 
+<b><details><summary>1.什么是 MVVM？</summary></b> 
 
 答案：1.拆分说明（M，V，VM 都是干啥的） 2.之间联系（Model 和 ViewModel 的双向数据绑定）
 
