@@ -16,13 +16,9 @@
 
 <b><details><summary>2.Label 的作用是什么？是怎么用的？</summary></b>
 
-答案：
+答案：label 标签来定义表单控制间的关系,**当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上**。
 
-label 标签来定义表单控制间的关系,**当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上**。
-
-解析：
-
-两种用法：**一种是 id 绑定，一种是嵌套**
+解析：两种用法：**一种是 id 绑定，一种是嵌套**
 
 ```html
 <label for="Name">Number:</label>
@@ -78,9 +74,7 @@ label 标签来定义表单控制间的关系,**当用户选择该标签时，�
 
 <b><details><summary>5.HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
-答案：
-
-给不想要提示的 form 或某个 input 设置为 autocomplete=off。
+答案：给不想要提示的 form 或某个 input 设置为 autocomplete=off。
 
 </details>
 
@@ -124,21 +118,13 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 <b><details><summary>7.请描述下 SEO 中的 TDK？</summary></b>
 
-答案：
-
-在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，这三个标签在网站的优化过程中
-
-title 标题标签，description 描述标签，keywords 关键词标签
+答案：在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，title 标题标签，description 描述标签，keywords 关键词标签
 
 </details>
 
 <b><details><summary>8.每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
 
-答案：
-
-`<!DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
-
-作用：
+答案：`<!DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
 
 1.告知浏览器文档使用哪种 HTML 或 XHTML 规范。
 
@@ -148,9 +134,7 @@ title 标题标签，description 描述标签，keywords 关键词标签
 
 <b><details><summary>9. 简述一下 src 与 href 的区别。</summary></b>
 
-答案：
-
-src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
+答案：src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
 
 </details>
 
@@ -210,21 +194,28 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>13.前端页面有哪三层构成，分别是什么？作用是什么？</summary></b>
 
-答案：
+答案：分成：结构层、表示层、行为层。
 
-分成：结构层、表示层、行为层。
-
-结构层（structural layer）
+1. 结构层（structural layer）
 
 由 HTML 或 XHTML 之类的标记语言负责创建。标签，也就是那些出现在尖括号里的单词，对网页内容的语义含义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。例如，P 标签表达了这样一种语义：“这是一个文本段。”
 
-表示层（presentation layer）
+2. 表示层（presentation layer）
 
 由 CSS 负责创建。 CSS 对“如何显示有关内容”的问题做出了回答。
 
-行为层（behaviorlayer）
+3. 行为层（behaviorlayer）
 
 负责回答“内容应该如何对事件做出反应”这一问题。这是 Javascript 语言和 DOM 主宰的领域。
+
+</details>
+
+<b><details><summary>14. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
+
+答案：
+
+- 区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水
+- 有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试
 
 </details>
 
@@ -244,6 +235,32 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 </details>
 
+<b><details><summary>16. 页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
+
+答案：
+
+页面可见性： 就是对于用户来说，页面是显示还是隐藏, 所谓显示的页面，就是我们正在看的页面；隐藏的页面，就是我们没有看的页面。 因为，我们一次可以打开好多标签页面来回切换着，始终只有一个页面在我们眼前，其他页面就是隐藏的，还有一种就是.........，(把浏览器最小化，所有的页面就都不可见了)。
+
+API 很简单，document.hidden 就返回一个布尔值，如果是 true, 表示页面可见，false 则表示，页面隐藏。 不同页面之间来回切换，触发 visibilitychange 事件。 还有一个 document.visibilityState, 表示页面所处的状态，取值：visible, hidden 等四个。
+
+```js
+document.addEventListener("visibilitychange", function() {
+  if (document.hidden) {
+    document.title = "hidden";
+  } else {
+    document.title = "visibile";
+  }
+});
+```
+
+我们打开这个页面，然后再打开另一个页面，来回点击这两个页面，当我们看到这个页面时，标题显示 visiable ,当我们看另一个页面时，标题显示 hidden;
+
+动画，视频，音频都可以在页面显示时打开，在页面隐藏时关闭
+
+解析：[参考](https://www.cnblogs.com/king18181753985/p/6510315.html)
+
+</details>
+
 <b><details><summary>17. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
 
 答案：
@@ -254,7 +271,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 设置一个元素的宽度和高度
 
-给<span>等行内元素设置 width 和 height
+给`<span>`等行内元素设置 width 和 height
 
 用 margin:0 auto 设置水平居中
 
@@ -270,7 +287,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 盒模型：在 W3C 标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在 Quirks  模式下，IE 的宽度和高度还包含了 padding 和 border。
 
-设置行内元素的高宽：在 Standards 模式下，给<span>等行内元素设置 wdith 和 height 都不会生效，而在 quirks 模式下，则会生效。
+设置行内元素的高宽：在 Standards 模式下，给`<span>`等行内元素设置 wdith 和 height 都不会生效，而在 quirks 模式下，则会生效。
 
 设置百分比的高度：在 standards 模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的
 
@@ -282,9 +299,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>18. div+css 的布局较 table 布局有什么优点？</summary></b>
 
-答案：
-
-分离 方便改版 快清晰简洁 seo
+答案：分离 方便改版 快清晰简洁 seo
 
 1.改版的时候更方便 只要改 css 文件。
 
@@ -314,23 +329,19 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>20. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
 
-答案：
-
-降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
+答案：降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
 
 </details>
 
-<b><details><summary>22. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
+<b><details><summary>21. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
 
-答案：
-
-微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
+答案：微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
 优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行 google）
 
 </details>
 
-<b><details><summary>24. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
+<b><details><summary>22. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
 
 答案：
 
@@ -346,7 +357,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 </details>
 
-<b><details><summary>25. html 常见兼容性问题？</summary></b>
+<b><details><summary>23. html 常见兼容性问题？</summary></b>
 
 答案：
 
@@ -368,49 +379,38 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 9.IE5-8 不支持 opacity，解决办法：
 
+```css
 .opacity {
-
-opacity: 0.4
-
-filter: alpha(opacity=60); /_ for IE5-7 _/
-
--ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /_ for IE 8_/
-
+  opacity: 0.4;
+  filter: alpha(opacity=60); /_ for IE5-7 _/
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /_ for IE 8_/
 }
+```
 
-10. IE6 不支持 PNG 透明背景，解决办法: IE6 下使用 gif 图片
-
-</details>
-
-<b><details><summary>26. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
-
-答案：
-
-答：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
+10.IE6 不支持 PNG 透明背景，解决办法: IE6 下使用 gif 图片
 
 </details>
 
-<b><details><summary>28. webSocket 如何兼容低版本浏览器？</summary></b>
+<b><details><summary>24. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
-答案：
-
-对于低端不支持 websocket 的浏览器，一般有几个解决方案
-
-使用轮询或长连接的方式实现伪 websocket 的通信
-
-使用 flash 或其他方法实现一个 websocket 客户端 ：https://segmentfault.com/q/1010000005000671/a-1020000005003936
-
-https://blog.csdn.net/u011925826/article/details/17532465
+答案：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
 </details>
 
-<b><details><summary>29. 页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
+<b><details><summary>25. webSocket 如何兼容低版本浏览器？</summary></b>
 
-答案：
+答案：对于低端不支持 websocket 的浏览器，一般有几个解决方案
+
+1. 使用轮询或长连接的方式实现伪 websocket 的通信
+
+2. 使用 flash 或其他方法实现一个 websocket 客户端 ：
+
+[参考](https://segmentfault.com/q/1010000005000671/a-1020000005003936)
+[参考](https://blog.csdn.net/u011925826/article/details/17532465)
 
 </details>
 
-<b><details><summary>30. 如何在页面上实现一个圆形的可点击区域？</summary></b>
+<b><details><summary>26. 如何在页面上实现一个圆形的可点击区域？</summary></b>
 
 答案：css3、js、map 加 area
 
@@ -472,42 +472,6 @@ bindClickOnCircleArea(box, function() {
 ```
 
 [参考](https://zhuanlan.zhihu.com/p/48168812)
-
-</details>
-
-<b><details><summary>31. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
 
 </details>
 

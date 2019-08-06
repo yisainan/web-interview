@@ -217,6 +217,26 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 </details>
 
+<b><details><summary>15、什么是 json，优缺点</summary></b>
+
+答案：
+
+JSON (JavaScript Object Notation)
+
+优点:
+1. 数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小
+2. 易于解析这种语言, 客户端 javascript 可以简单的通过 eval()进行 JSON 数据的读取搜索
+3. 支持多种语言, 包括 ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, php, Python, Ruby 等语言服务器端语言, 便于服务器端的解析
+4. 在 PHP 世界, 已经有 PHP-JSON 和 JSON-PHP 出现了, 便于 PHP 序列化后的程序直接调用. PHP 服务器端的对象、数组等能够直接生 JSON 格式, 便于客户端的访问提取. 另外 PHP 的 PEAR 类已经提出了支持 (http://pear.php.net/pepr/pepr-proposal-show.php?id=198)
+5. 因为 JSON 格式能够直接为服务器端代码使用, 大大简化了服务器端和客户端的代码开发量, 但是完成的任务不变, 且易于维护
+
+缺点:
+
+1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性 
+2. JSON 格式目前在 Web Service 中推广还属于初级阶段 PS: 据说 Google 的 Ajax 是使用 JSON+模板 做的
+
+</details>
+
 <b><details><summary>16、一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</summary></b>
 
 答案：
@@ -236,6 +256,28 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 7、浏览器接收响应，读取页面内容，解析 html 源码，生成 DOm 树
 
 8、解析 css 样式、浏览器渲染，js 交互绑定多个域名，数量不限；
+
+</details>
+
+<b><details><summary>17、XML 和 JSON 的区别？</summary></b>
+
+答案：
+
+(1).数据体积方面。
+
+JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。
+
+(2).数据交互方面。
+
+JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互。
+
+(3).数据描述方面。
+
+JSON 对数据的描述性比 XML 较差。
+
+(4).传输速度方面。
+
+JSON 的速度要远远快于 XML。
 
 </details>
 
@@ -335,50 +377,8 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 </details>
 
-<b><details><summary>24、XML 和 JSON 的区别？</summary></b>
-
-答案：
-
-(1).数据体积方面。
-
-JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。
-
-(2).数据交互方面。
-
-JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互。
-
-(3).数据描述方面。
-
-JSON 对数据的描述性比 XML 较差。
-
-(4).传输速度方面。
-
-JSON 的速度要远远快于 XML。
-
-</details>
-
-<b><details><summary>25、ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
+<b><details><summary>24、ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
 答案：后台做缓存，读取缓存里面的数据。CDN
-
-</details>
-
-<b><details><summary>26.什么是 json，优缺点</summary></b>
-
-答案：
-
-JSON (JavaScript Object Notation)
-
-优点:
-1. 数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小
-2. 易于解析这种语言, 客户端 javascript 可以简单的通过 eval()进行 JSON 数据的读取搜索
-3. 支持多种语言, 包括 ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, php, Python, Ruby 等语言服务器端语言, 便于服务器端的解析
-4. 在 PHP 世界, 已经有 PHP-JSON 和 JSON-PHP 出现了, 便于 PHP 序列化后的程序直接调用. PHP 服务器端的对象、数组等能够直接生 JSON 格式, 便于客户端的访问提取. 另外 PHP 的 PEAR 类已经提出了支持 (http://pear.php.net/pepr/pepr-proposal-show.php?id=198)
-5. 因为 JSON 格式能够直接为服务器端代码使用, 大大简化了服务器端和客户端的代码开发量, 但是完成的任务不变, 且易于维护
-
-缺点:
-
-1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性 
-2. JSON 格式目前在 Web Service 中推广还属于初级阶段 PS: 据说 Google 的 Ajax 是使用 JSON+模板 做的
 
 </details>

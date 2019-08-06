@@ -232,9 +232,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>12. px 和 em 的区别。</summary></b>
 
-答案：
-
-px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
+答案：px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
 
@@ -388,9 +386,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>18. 移动端 1px 问题的解决办法</summary></b>
 
-答案：
-
-推荐解决方法：媒体查询 + transfrom
+答案：推荐解决方法：媒体查询 + transfrom
 
 ```
 /* 2倍屏 */
@@ -425,7 +421,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>22. 设备像素比</summary></b>
 
-答案：
+答案：我的书签
 
 </details>
 
@@ -590,9 +586,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>43. display:inline-block 什么时候会显示间隙？</summary></b>
 
-答案：
-
-间隙产生的原因是因为，换行或空格会占据一定的位置
+答案：间隙产生的原因是因为，换行或空格会占据一定的位置
 
 推荐解决方法：
 
@@ -651,15 +645,11 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>49. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
 
-答案：
-
 答案：被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link,visited,hover,active）
 
 </details>
 
 <b><details><summary>50. 什么是 Css Hack？ie6,7,8 的 hack 分别是什么？</summary></b>
-
-答案：
 
 答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
 
@@ -668,21 +658,13 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 ```css
 
 #test{
-
     width:300px;
-
     height:300px;
-
     background-color:blue;      /_firefox_/
-
     background-color:red\9;      /_all ie_/
-
     background-color:yellow;    /_ie8_/
-
     +background-color:pink;        /_ie7_/
-
     \_background-color:orange;       /_ie6_/   
-
 }
 
  :root #test { background-color:purple\9; }  /*ie9*/
