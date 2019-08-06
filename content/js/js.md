@@ -638,308 +638,6 @@ for (let prop of Object.keys(s1)) {
 
 </details>
 
-<b><details><summary>14.this 和 apply 的应用</summary></b>
-
-答案：比如求数组的最大值 Math.max.apply(this, 数组)
-
-```js
-var numbers = [5, 458, 120, -215];
-var maxInNumbers = Math.max.apply(this, numbers); //第一个参数也可以填Math或null
-console.log(maxInNumbers); // 458
-var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
-console.log(maxInNumbers); // 458
-```
-
-</details>
-
-<b><details><summary>15.sort 排序原理</summary></b>
-
-答案：冒泡排序法
-
-解析：
-
-冒泡排序法的原理：
-
-- 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
-- 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
-- 针对所有的元素重复以上的步骤，除了最后一个。
-- 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-
-示例：
-
-```js
-var arr = [1, 5, 4, 2];
-// sort()方法的比较逻辑为：
-// 第一轮：1和5比，1和4比，1和2比
-// 第二轮：5和4比，5和2比
-// 第三轮：4和2比
-```
-
-```js
-// 一.sort排序规则 return大于0则交换数组相邻2个元素的位置
-// 二.arr.sort(function (a,b) {})中
-//         a -->代表每一次执行匿名函时候，找到的数组中的当前项；
-//         b -->代表当前项的后一项；
-
-// 1.升序
-var apple = [45, 42, 10, 147, 7, 65, -74];
-// ①默认法,缺点:只根据首位排序
-console.log(apple.sort());
-// ②指定排序规则法,return可返回任何值
-console.log(
-  apple.sort(function(a, b) {
-    return a - b; //若return返回值大于0(即a＞b),则a,b交换位置
-  })
-);
-
-//2.降序
-var arr = [45, 42, 10, 111, 7, 65, -74];
-console.log(
-  apple.sort(function(a, b) {
-    return b - a; //若return返回值大于零(即b＞a),则a,b交换位置
-  })
-);
-```
-
-原文：https://blog.csdn.net/soraru/article/details/82255616
-https://www.cnblogs.com/huoxiao/p/10239284.html
-
-</details>
-
-<b><details><summary>16. jsonp 优缺点？ </summary></b>
-
-答案：
-
-### jsonp 优缺点
-
-- 1.优点
-  - 1.1 它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制，JSONP 可以跨越同源策略；
-  - 1.2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
-  - 1.3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
-- 2.缺点
-  _ 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
-  _ 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
-  _ 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
-  _ 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
-
-</details>
-
-<b><details><summary>17.变量提升</summary></b>
-
-答案：
-
-### 变量提升
-
-A、js 代码执行的过程
-
-- 1 变量提升
-- 2 代码从上到下依次执行
-
-var 关键字和 function 关键字声明的变量会进行变量提升
-
-B、变量提升发生的环境：发生在代码所处的当前作用域。
-
-- 变量提升
-- 1 var 关键字进行的变量提升，会把变量提前声明，但是不会提前赋值 。
-- 2 function 关键字对变量进行变量提升，既会把变量提前声明，又会把变量提前赋值，也就是把整个函数体提升到代码的顶部
-- 3 有一些代码是不会执行的但是仍旧会发生变量提升,规则适用于 1,2
-- 3.1 return 之后的代码依旧会发生变量提升，规则适用于 1，2
-- 3.2 代码报错之后的代码依旧会发生变量提升，规则适用于 1，2
-- 3.3 break 之后的代码依旧会发生变量提升，规则适用于 1,2
-- 4 有一些代码是不会执行但是仍旧会发生变量提升，但是规则要发生变化
-- 4.1 if 判断语句 if 判断语句中 var 关键字以及 function 关键字声明的变量只会发生提前声明，不会发生提前赋值,也就是不会吧函数体整体提升到当前作用域顶部。规则跟 1,2 不适用
-- 4.2 switch case 规则跟 1,2 不适用
-- 4.3 do while 规则跟 1,2 不适用
-- 4.4 try catch catch 中声明的变量只会发生提前声明，不会发生提前赋值。
-- Ps:在条件判断语句和 try catch 中的声明的变量不管是否能够执行，都只会发生提前
-- 声明，不会发生提前赋值。
-
-解析：
-
-```js
-// 如果一个变量声明了但是未赋值，那么输出这个变量就会输出 undefined
-var num;
-console.log(num);
-
-// 如果一个变量没有声明也没有赋值，那么就会报一个错：
-console.log(num); // 输出一个不存在的变量 Uncaught ReferenceError: num is not defined
-```
-
-```js
-// var 关键字进行的变量提升
-console.log(num);
-var num = 123;
-console.log(num);
-var num = 456;
-console.log(num);
-
-// 变量提升之后的代码：
-var num;
-console.log(num);
-num = 123;
-console.log(num);
-num = 456;
-console.log(num);
-```
-
-```js
-// function 关键字的变量提升
-console.log(fn);
-function fn() {
-  console.log(1);
-}
-
-// 变量提升之后的代码：
-function fn() {
-  console.log(1);
-}
-console.log(fn); // 输出fn的函数体
-```
-
-```js
-// 3.1 return 之后的代码依旧会发生变量提升  规则适用于1，2
-function fn() {
-  console.log(num);
-  return;
-  var num = 123;
-}
-fn();
-
-// 变量提升之后的代码：
-function fn() {
-  var num;
-  console.log(num);
-  return;
-  num = 123;
-}
-fn(); // undefined
-
-function fn() {
-  console.log(fo);
-  return;
-  function fo() {}
-}
-fn();
-
-// 变量提升之后的代码：
-function fn() {
-  function fo() {}
-  console.log(fo);
-  return;
-}
-fn(); //输出fo的函数体
-```
-
-```js
-//3.2 代码报错之后的代码依旧会进行变量提升，规则适用于1,2
-console.log(num);
-xsasfgdsfqdfsdf; //报一个错
-var num = 123;
-console.log(num);
-
-// 变量提升之后的代码：
-var num;
-console.log(num); //输出 undefined
-dsagdsqghdwfh; // 报一个错误 ，错误之后的代码不会被执行
-num = 123;
-console.log(num);
-```
-
-```js
-//function 关键字
-console.log(fn);
-sasgfdhwhsdqg;
-function fn() {}
-console.log(fn);
-
-// 变量提升之后的代码：
-function fn() {}
-console.log(fn); // 输出 fn 的函数体
-asdgsdgdfgfdg; // 报一个错误，报错之后的代码不会被执行
-console.log(fn);
-```
-
-```js
-//4 代码不执行，但是会进行变量提升，不过规则不适用于1,2
-//4.1 if判断语句
-console.log(num);
-if (false) {
-	var num = 123;
-}
-console.log(num)
-
-//  变量提升之后的代码：
-var num;
-console.log(num); //undefined
-if (false) {
-	num = 123;
-}
-console.log(num) //undefined
-
-console.log(fn);
-if (false) {
-	function fn() {}
-}
-console.log(fn);
-
-// 变量提升之后的代码：
-var fn;
-function fn;
-console.log(fn) //undefined
-if (false) {
-	function fn() {}
-}
-console.log(fn) //undefined
-/*function fn//Uncaught SyntaxError: Unexpected end of input*/
-```
-
-```js
-// try catch
-try {
-  console.log(num);
-} catch (e) {
-  var num = 123;
-}
-console.log(num);
-
-var num;
-try {
-  console.log(num); // undefined
-} catch (e) {
-  num = 123;
-}
-console.log(num); // undefined
-
-try {
-  console.log(fn);
-} catch (e) {
-  function fn() {}
-}
-console.log(fn);
-
-var fn;
-try {
-  console.log(fn); // undefined
-} catch (e) {
-  num = 123;
-}
-console.log(fn); // undefined
-```
-
-[对应面试题](../编程题/变量提升.md)
-
-</details>
-
-<b><details><summary>18. null/undefined 的区别</summary></b>
-
-答案：
-
-null： Null 类型，代表“空值"，代表一个空对象指针，使用 typeof 运算得到 “object"，所以你可以认为它是一个特殊的对象值。
-
-undefined： Undefined 类型，当一个声明了一个变量未初始化时，得到的就是 undefined。
-
-</details>
-
 <b><details><summary>20. 如何判断 JS 变量的一个类型（至少三种方式）</summary></b>
 
 答案：typeof、instanceof、 constructor、 prototype
@@ -2062,6 +1760,16 @@ var、let、const 的区别
 
 </details>
 
+<b><details><summary>34. null/undefined 的区别</summary></b>
+
+答案：
+
+null： Null 类型，代表“空值"，代表一个空对象指针，使用 typeof 运算得到 “object"，所以你可以认为它是一个特殊的对象值。
+
+undefined： Undefined 类型，当一个声明了一个变量未初始化时，得到的就是 undefined。
+
+</details>
+
 <b><details><summary>35. JS 哪些操作会造成内存泄露</summary></b>
 
 答案：
@@ -2287,6 +1995,24 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 </details>
 
+<b><details><summary>38. jsonp 优缺点？ </summary></b>
+
+答案：
+
+### jsonp 优缺点
+
+- 1.优点
+  - 1.1 它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制，JSONP 可以跨越同源策略；
+  - 1.2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
+  - 1.3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
+- 2.缺点
+  _ 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
+  _ 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
+  _ 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
+  _ 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
+
+</details>
+
 <b><details><summary>39.兼容各种浏览器版本的事件绑定</summary></b>
 
 答案：
@@ -2319,6 +2045,20 @@ main.ts 报错（ Cannot find module './App.vue'.）
 原因： typescript 不能识别.vue 文件
 
 解决办法： 引入 vue 的 typescript declare 库
+
+</details>
+
+<b><details><summary>41.this 和 apply 的应用</summary></b>
+
+答案：比如求数组的最大值 Math.max.apply(this, 数组)
+
+```js
+var numbers = [5, 458, 120, -215];
+var maxInNumbers = Math.max.apply(this, numbers); //第一个参数也可以填Math或null
+console.log(maxInNumbers); // 458
+var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
+console.log(maxInNumbers); // 458
+```
 
 </details>
 
@@ -2373,6 +2113,60 @@ call 与 apply 的不同点：两者传入的列表形式不一样
 
 - call 可以传入多个参数；
 - apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入
+
+</details>
+
+<b><details><summary>47.sort 排序原理</summary></b>
+
+答案：冒泡排序法
+
+解析：
+
+冒泡排序法的原理：
+
+- 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+- 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+- 针对所有的元素重复以上的步骤，除了最后一个。
+- 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+
+示例：
+
+```js
+var arr = [1, 5, 4, 2];
+// sort()方法的比较逻辑为：
+// 第一轮：1和5比，1和4比，1和2比
+// 第二轮：5和4比，5和2比
+// 第三轮：4和2比
+```
+
+```js
+// 一.sort排序规则 return大于0则交换数组相邻2个元素的位置
+// 二.arr.sort(function (a,b) {})中
+//         a -->代表每一次执行匿名函时候，找到的数组中的当前项；
+//         b -->代表当前项的后一项；
+
+// 1.升序
+var apple = [45, 42, 10, 147, 7, 65, -74];
+// ①默认法,缺点:只根据首位排序
+console.log(apple.sort());
+// ②指定排序规则法,return可返回任何值
+console.log(
+  apple.sort(function(a, b) {
+    return a - b; //若return返回值大于0(即a＞b),则a,b交换位置
+  })
+);
+
+//2.降序
+var arr = [45, 42, 10, 111, 7, 65, -74];
+console.log(
+  apple.sort(function(a, b) {
+    return b - a; //若return返回值大于零(即b＞a),则a,b交换位置
+  })
+);
+```
+
+原文：https://blog.csdn.net/soraru/article/details/82255616
+https://www.cnblogs.com/huoxiao/p/10239284.html
 
 </details>
 
@@ -2827,7 +2621,46 @@ f2();
 
 <b><details><summary>64.标准模式与怪异模式的区别</summary></b>
 
-答案：我的书签
+答案：浏览器解析 CSS 的两种模式：标准模式(strict mode)和怪异模式(quirks mode)
+
+标准模式：浏览器按 W3C 标准解析执行代码；
+
+怪异模式：使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以称之为怪异模式。
+
+浏览器解析时使用标准模式还是怪异模式，与网页中的 DTD 声明直接相关，DTD 声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相关的方式加载网页并显示，忽略 DTD 声明，将使网页进入怪异模式（quirks mode）。
+
+区别是：
+
+1、盒模型：
+
+在怪异模式下，盒模型为 IE 模型
+
+![html_001.jpg](../../images/html_001.jpg)
+
+而在 W3C 标准的盒模型中为：
+
+![html_002.jpg](../../images/html_002.jpg)
+
+2、图片元素的垂直对齐方式
+
+对于 inline 元素和 table-cell 元素，标准模式下 vertical-align 属性默认取值是 baseline；在怪异模式下，table 单元格中的图片的 vertical-align 属性默认取值是 bottom。因此在图片底部会有及像素的空间。
+
+3、`<table>`元素中的字体
+CSS 中，对于 font 的属性都是可以继承的。怪异模式下，对于 table 元素，字体的某些元素将不会从 body 等其他封装元素继承中的得到，特别是 font-size 属性。
+
+4、内联元素的尺寸
+
+- 标准模式下，non-replaced inline 元素无法自定义大写；
+- 怪异模式下，定义这些元素的 width、height 属性可以影响这些元素显示的尺寸。
+
+5、元素的百分比高度
+
+- CSS 中对于元素的百分比高度规定：百分比为元素包含块的高度，不可为负值；如果包含块的高度没有显示给出，该值等同于 auto，所以百分比的高度必须是在元素有高度声明的情况下使用。
+- 当一个元素使用百分比高度是，标准模式下，高度取决于内容变化，怪异模式下，百分比高度被准确应用
+
+6、元素溢出的处理
+
+标准模式下，overflow 取值默认为 visible；在怪异模式在，该溢出会被当做扩展 box 来对待，即元素的大小由内容决定，溢出不会裁剪，元素框自动调整，包含溢出内容。
 
 </details>
 
@@ -2850,6 +2683,58 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 <b><details><summary>67.IE6 遇到什么 bug？解决办法是？</summary></b>
 
 答案：
+
+一、IE6 双倍边距 bug
+
+当页面上的元素使用 float 浮动时，不管是向左还是向右浮动;只要该元素带有 margin 像素都会使该值乘以 2，例如“margin-left:10px” 在 IE6 中，该值就会被解析为 20px。想要解决这个 BUG 就需要在该元素中加入 display:inline 或 display:block 明确其元素类型即可解决双倍边距的 BUG
+
+二、IE6 中 3 像素问题及解决办法
+
+当元素使用 float 浮动后，元素与相邻的元素之间会产生 3px 的间隙。诡异的是如果右侧的容器没设置高度时 3px 的间隙在相邻容器的内部，当设定高度后又跑到容器的相反侧了。要解决这类 BUG 的话，需要使布局在同一行的元素都加上 float 浮动。
+
+三、IE6 中奇数宽高的 BUG
+
+IE6 中奇数的高宽显示大小与偶数高宽显示大小存在一定的不同。其中要问题是出在奇数高宽上。要解决此类问题，只需要尽量将外部定位的 div 高宽写成偶数即可。
+
+四、IE6 中图片链接的下方有间隙
+
+IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图片的时候，即可看到这样的间隙。要解决此类问题，需要将 img 标签定义为 display:block 或定义 vertical-align 对应的属性。也可以为 img 对应的样式写入 font-size:0
+
+五、IE6 下空元素的高度 BUG
+
+如果一个元素中没有任何内容，当在样式中为这个元素设置了 0-19px 之间的高度时。此元素的高度始终为 19px。
+
+解决的方法有四种:
+
+1.在元素的 css 中加入：overflow:hidden
+
+2.在元素中插入 html 注释：
+
+3.在元素中插入 html 的空白符：
+
+4.在元素的 css 中加入：font-size:0
+
+六、重复文字的 BUG
+
+在某些比较复杂的排版中，有时候浮动元素的最后一些字符会出现在 clear 清除元素的下面。
+
+解决方法如下：
+
+1.确保元素都带有 display:inline
+
+2.在最后一个元素上使用“margin-right:-3px
+
+3.为浮动元素的最后一个条目加上条件注释，xxx
+
+4.在容器的最后元素使用一个空白的 div，为这个 div 指定不超过容器的宽度。
+
+七、IE6 中 z-index 失效
+
+具体 BUG 为，元素的父级元素设置的 z-index 为 1，那么其子级元素再设置 z-index 时会失效，其层级会继承父级元素的设置，造成某些层级调整上的 BUG。
+
+写在最后：实际上 IE6 中，很多 BUG 的解决方法都可以使用 display:inline、font-size:0、float 解决。因此我们在书写代码时要记住，一旦使用了 float 浮动，就为元素增加一个 display:inline 样式，可以有效的避免浮动造成的样式错乱问题。使用空 DIV 时，为了避免其高度影响布局美观，也可以为其加上 font-size:0 这样就很容易避免一些兼容上的问题。
+
+解析：[参考](https://www.cnblogs.com/rightzhao/p/3474162.html)
 
 </details>
 
@@ -2877,11 +2762,262 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 答案：
 
+1.事件流的区别
+
+IE 采用冒泡型事件 Netscape 使用捕获型事件 DOM 使用先捕获后冒泡型事件
+示例：
+
+复制代码代码如下:
+
+```html
+<body>
+  <div>
+    <button>点击这里</button>
+  </div>
+</body>
+```
+
+冒泡型事件模型： button->div->body (IE 事件流)
+
+捕获型事件模型： body->div->button (Netscape 事件流)
+
+DOM 事件模型： body->div->button->button->div->body (先捕获后冒泡)
+
+2.事件侦听函数的区别
+
+IE 使用:
+
+```js
+[Object].attachEvent("name_of_event_handler", fnHandler); //绑定函数
+[Object].detachEvent("name_of_event_handler", fnHandler); //移除绑定
+```
+
+DOM 使用：
+
+```js
+[Object].addEventListener("name_of_event", fnHandler, bCapture); //绑定函数
+[Object].removeEventListener("name_of_event", fnHandler, bCapture); //移除绑定
+```
+
+bCapture 参数用于设置事件绑定的阶段，true 为捕获阶段，false 为冒泡阶段。
+
 </details>
 
 <b><details><summary>71. IE 和标准下有哪些兼容性的写法</summary></b>
 
 答案：
+
+```js
+var ev = ev || window.event;
+document.documentElement.clientWidth || document.body.clientWidth;
+var target = ev.srcElement || ev.target;
+```
+
+</details>
+
+<b><details><summary>72.变量提升</summary></b>
+
+答案：
+
+### 变量提升
+
+A、js 代码执行的过程
+
+- 1 变量提升
+- 2 代码从上到下依次执行
+
+var 关键字和 function 关键字声明的变量会进行变量提升
+
+B、变量提升发生的环境：发生在代码所处的当前作用域。
+
+- 变量提升
+- 1 var 关键字进行的变量提升，会把变量提前声明，但是不会提前赋值 。
+- 2 function 关键字对变量进行变量提升，既会把变量提前声明，又会把变量提前赋值，也就是把整个函数体提升到代码的顶部
+- 3 有一些代码是不会执行的但是仍旧会发生变量提升,规则适用于 1,2
+- 3.1 return 之后的代码依旧会发生变量提升，规则适用于 1，2
+- 3.2 代码报错之后的代码依旧会发生变量提升，规则适用于 1，2
+- 3.3 break 之后的代码依旧会发生变量提升，规则适用于 1,2
+- 4 有一些代码是不会执行但是仍旧会发生变量提升，但是规则要发生变化
+- 4.1 if 判断语句 if 判断语句中 var 关键字以及 function 关键字声明的变量只会发生提前声明，不会发生提前赋值,也就是不会吧函数体整体提升到当前作用域顶部。规则跟 1,2 不适用
+- 4.2 switch case 规则跟 1,2 不适用
+- 4.3 do while 规则跟 1,2 不适用
+- 4.4 try catch catch 中声明的变量只会发生提前声明，不会发生提前赋值。
+- Ps:在条件判断语句和 try catch 中的声明的变量不管是否能够执行，都只会发生提前
+- 声明，不会发生提前赋值。
+
+解析：
+
+```js
+// 如果一个变量声明了但是未赋值，那么输出这个变量就会输出 undefined
+var num;
+console.log(num);
+
+// 如果一个变量没有声明也没有赋值，那么就会报一个错：
+console.log(num); // 输出一个不存在的变量 Uncaught ReferenceError: num is not defined
+```
+
+```js
+// var 关键字进行的变量提升
+console.log(num);
+var num = 123;
+console.log(num);
+var num = 456;
+console.log(num);
+
+// 变量提升之后的代码：
+var num;
+console.log(num);
+num = 123;
+console.log(num);
+num = 456;
+console.log(num);
+```
+
+```js
+// function 关键字的变量提升
+console.log(fn);
+function fn() {
+  console.log(1);
+}
+
+// 变量提升之后的代码：
+function fn() {
+  console.log(1);
+}
+console.log(fn); // 输出fn的函数体
+```
+
+```js
+// 3.1 return 之后的代码依旧会发生变量提升  规则适用于1，2
+function fn() {
+  console.log(num);
+  return;
+  var num = 123;
+}
+fn();
+
+// 变量提升之后的代码：
+function fn() {
+  var num;
+  console.log(num);
+  return;
+  num = 123;
+}
+fn(); // undefined
+
+function fn() {
+  console.log(fo);
+  return;
+  function fo() {}
+}
+fn();
+
+// 变量提升之后的代码：
+function fn() {
+  function fo() {}
+  console.log(fo);
+  return;
+}
+fn(); //输出fo的函数体
+```
+
+```js
+//3.2 代码报错之后的代码依旧会进行变量提升，规则适用于1,2
+console.log(num);
+xsasfgdsfqdfsdf; //报一个错
+var num = 123;
+console.log(num);
+
+// 变量提升之后的代码：
+var num;
+console.log(num); //输出 undefined
+dsagdsqghdwfh; // 报一个错误 ，错误之后的代码不会被执行
+num = 123;
+console.log(num);
+```
+
+```js
+//function 关键字
+console.log(fn);
+sasgfdhwhsdqg;
+function fn() {}
+console.log(fn);
+
+// 变量提升之后的代码：
+function fn() {}
+console.log(fn); // 输出 fn 的函数体
+asdgsdgdfgfdg; // 报一个错误，报错之后的代码不会被执行
+console.log(fn);
+```
+
+```js
+//4 代码不执行，但是会进行变量提升，不过规则不适用于1,2
+//4.1 if判断语句
+console.log(num);
+if (false) {
+	var num = 123;
+}
+console.log(num)
+
+//  变量提升之后的代码：
+var num;
+console.log(num); //undefined
+if (false) {
+	num = 123;
+}
+console.log(num) //undefined
+
+console.log(fn);
+if (false) {
+	function fn() {}
+}
+console.log(fn);
+
+// 变量提升之后的代码：
+var fn;
+function fn;
+console.log(fn) //undefined
+if (false) {
+	function fn() {}
+}
+console.log(fn) //undefined
+/*function fn//Uncaught SyntaxError: Unexpected end of input*/
+```
+
+```js
+// try catch
+try {
+  console.log(num);
+} catch (e) {
+  var num = 123;
+}
+console.log(num);
+
+var num;
+try {
+  console.log(num); // undefined
+} catch (e) {
+  num = 123;
+}
+console.log(num); // undefined
+
+try {
+  console.log(fn);
+} catch (e) {
+  function fn() {}
+}
+console.log(fn);
+
+var fn;
+try {
+  console.log(fn); // undefined
+} catch (e) {
+  num = 123;
+}
+console.log(fn); // undefined
+```
+
+[对应面试题](../编程题/变量提升.md)
 
 </details>
 
@@ -2922,7 +3058,7 @@ function stopDefault(e) {
 
 </details>
 
-<b><details><summary>75.js 中 this 闭包 作用域</summary></b>
+<b><details><summary>74.js 中 this 闭包 作用域</summary></b>
 
 答案：
 
@@ -2946,7 +3082,7 @@ var f = (function fn() {
 
 </details>
 
-<b><details><summary>76.javascript 的本地对象，内置对象和宿主对象</summary></b>
+<b><details><summary>75.javascript 的本地对象，内置对象和宿主对象</summary></b>
 
 答案：
 
@@ -2967,7 +3103,7 @@ JS中内置了17个对象，常用的是Array对象、Date对象、正则表达�
 
 </details>
 
-<b><details><summary>78.javascript 的同源策略</summary></b>
+<b><details><summary>76.javascript 的同源策略</summary></b>
 
 答案：一段脚本只能读取来自于同一来源的窗口和文档的属性
 
@@ -2992,7 +3128,7 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 
 </details>
 
-<b><details><summary>80.事件冒泡与事件捕获</summary></b>
+<b><details><summary>77.事件冒泡与事件捕获</summary></b>
 
 答案：
 
@@ -3002,7 +3138,7 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 
 </details>
 
-<b><details><summary>81.foo = foo||bar ，这行代码是什么意思？为什么要这样写？</summary></b>
+<b><details><summary>78.foo = foo||bar ，这行代码是什么意思？为什么要这样写？</summary></b>
 
 答案：
 
@@ -3025,7 +3161,7 @@ if (foo) {
 
 </details>
 
-<b><details><summary>82.复杂数据类型如何转变为字符串</summary></b>
+<b><details><summary>79.复杂数据类型如何转变为字符串</summary></b>
 
 答案：
 
@@ -3036,7 +3172,7 @@ if (foo) {
 
 </details>
 
-<b><details><summary>83.javascript 中 this 的指向问题</summary></b>
+<b><details><summary>80.javascript 中 this 的指向问题</summary></b>
 
 答案：
 
@@ -3517,7 +3653,7 @@ button.addEventListener("click", () => {
 
 </details>
 
-<b><details><summary>84.call 与 apply 区别</summary></b>
+<b><details><summary>81.call 与 apply 区别</summary></b>
 
 答案：第二个参数的类型不同
 
@@ -3531,25 +3667,115 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 
 </details>
 
-<b><details><summary>85.正则表达式构造函数 var reg = new RegExp('xxx')与正则表达字面量 var reg = // 有什么不同？</summary></b>
+<b><details><summary>82.正则表达式构造函数 var reg = new RegExp('xxx')与正则表达字面量 var reg = // 有什么不同？</summary></b>
 
-答案：
+答案：使用正则表达字面量的效率更高
+
+解析：下面的示例代码演示了两种可用于创建正则表达式以匹配反斜杠的方法：
+
+```js
+//正则表达字面量
+var re = /\\/gm;
+
+//正则构造函数
+var reg = new RegExp("\\\\", "gm");
+
+var foo = "abc\\123"; // foo的值为"abc\123"
+console.log(re.test(foo)); //true
+console.log(reg.test(foo)); //true
+```
+
+如上面的代码中可以看到，使用正则表达式字面量表示法时式子显得更加简短，而且不用按照类似类（class-like）的构造函数方式思考。
+
+其次，在当使用构造函数的时候，在这里要使用四个反斜杠才能匹配单个反斜杠。这使得正则表达式模式显得更长，更加难以阅读和修改。正确来说，当使用 RegExp()构造函数的时候，不仅需要转义引号（即\"表示"），并且通常还需要双反斜杠（即\\表示一个\）。
+
+使用 new RegExp()的原因之一在于，某些场景中无法事先确定模式，而只能在运行时以字符串方式创建。
+
+[参考](https://www.cnblogs.com/coco1s/p/4008955.html)
 
 </details>
 
-<b><details><summary>86.js 中 callee 与 caller 的作用</summary></b>
+<b><details><summary>83.js 中 callee 与 caller 的作用</summary></b>
 
 答案：
 
+1. caller 返回一个调用当前函数的引用 如果是由顶层调用的话 则返回 null
+
+（举个栗子哈 caller 给你打电话的人 谁给你打电话了 谁调用了你 很显然是下面 a 函数的执行 只有在打电话的时候你才能知道打电话的人是谁 所以对于函数来说 只有 caller 在函数执行的时候才存在）
+
+```js
+var callerTest = function() {
+  console.log(callerTest.caller);
+};
+function a() {
+  callerTest();
+}
+a(); //输出function a() {callerTest();}
+callerTest(); //输出null
+```
+
+2. callee 返回一个正在被执行函数的引用 （这里常用来递归匿名函数本身 但是在严格模式下不可行）
+
+   callee 是 arguments 对象的一个成员 表示对函数对象本身的引用 它有个 length 属性（代表形参的长度）
+
+```js
+var c = function(x, y) {
+  console.log(arguments.length, arguments.callee.length, arguments.callee);
+};
+c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.callee.length,arguments.callee)}
+```
+
 </details>
 
-<b><details><summary>87.异步加载 js 的方法 </summary></b>
+<b><details><summary>84.异步加载 js 的方法 </summary></b>
 
 答案：
 
+方案一：`<script>`标签的 async="async"属性（详细参见：script 标签的 async 属性）
+
+点评：HTML5 中新增的属性，Chrome、FF、IE9&IE9+均支持（IE6~8 不支持）。此外，这种方法不能保证脚本按顺序执行。
+
+方案二：`<script>`标签的 defer="defer"属性
+
+点评：兼容所有浏览器。此外，这种方法可以确保所有设置 defer 属性的脚本按顺序执行。
+
+方案三：动态创建`<script>`标签
+
+示例：
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      (function() {
+        var s = document.createElement_x("script");
+        s.type = "text/javascript";
+        s.src = "http://code.jquery.com/jquery-1.7.2.min.js";
+        var tmp = document.getElementsByTagName_r("script")[0];
+        tmp.parentNode.insertBefore(s, tmp);
+      })();
+    </script>
+  </head>
+  <body>
+    <img src="http://xybtv.com/uploads/allimg/100601/48-100601162913.jpg" />
+  </body>
+</html>
+```
+
+点评：兼容所有浏览器。
+
+方案四：AJAX eval（使用 AJAX 得到脚本内容，然后通过 eval_r(xmlhttp.responseText)来运行脚本）
+
+点评：兼容所有浏览器。
+
+方案五：iframe 方式（这里可以参照：iframe 异步加载技术及性能 中关于 Meboo 的部分）
+
+点评：兼容所有浏览器。
+
 </details>
 
-<b><details><summary>88.去除数组重复成员的方法</summary></b>
+<b><details><summary>85.去除数组重复成员的方法</summary></b>
 
 答案：
 
@@ -3572,7 +3798,7 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 
 </details>
 
-<b><details><summary>89.去除字符串里面的重复字符</summary></b>
+<b><details><summary>86.去除字符串里面的重复字符</summary></b>
 
 答案：
 
@@ -3585,7 +3811,7 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 
 </details>
 
-<b><details><summary>90.求数组的最大值</summary></b>
+<b><details><summary>87.求数组的最大值</summary></b>
 
 答案：Math.max.apply(null, 数组)
 
@@ -3597,7 +3823,7 @@ alert(Math.min.apply(null, a)); //最小值
 
 </details>
 
-<b><details><summary>3.JS 中 文档碎片的理解和使用</summary></b>
+<b><details><summary>88.JS 中 文档碎片的理解和使用</summary></b>
 
 答案：
 
@@ -3632,28 +3858,21 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary>1.原型的作用 以及什么是原型</summary></b>
+<b><details><summary>89.原型的作用 以及什么是原型</summary></b>
 
-答案：
+答案：作用：实现资源共享
 
-作用：实现资源共享
 什么是原型:实例在被创建的那一刻，构造函数的 prototype 属性的值。
 
 </details>
 
-<b><details><summary>2.javascript 里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
+<b><details><summary>90.javascript 里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
 
 答案：用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的 extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
 
 </details>
 
-<b><details><summary>3.简单介绍下 JS 的原型和原型链</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
+<b><details><summary>91.简单介绍下 JS 的原型和原型链</summary></b>
 
 答案：
 

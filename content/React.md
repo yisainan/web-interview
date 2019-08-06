@@ -2,33 +2,25 @@
 
 <b><details><summary>1.当你调用 setState 的时候，发生了什么事？</summary></b>
 
-答案：
-
-将传递给 setState 的对象合并到组件的当前状态，这将启动一个和解的过程，构建一个新的 react 元素树，与上一个元素树进行对比（ diff ），从而进行最小化的重渲染。
+答案：将传递给 setState 的对象合并到组件的当前状态，这将启动一个和解的过程，构建一个新的 react 元素树，与上一个元素树进行对比（ diff ），从而进行最小化的重渲染。
 
 </details>
 
 <b><details><summary>2.React 项目用过什么脚手架（本题是开放性题目）</summary></b>
 
-答案：
-
-creat-react-app Yeoman 等
+答案：creat-react-app Yeoman 等
 
 </details>
     
-<b><details><summary>3.什么时候在功能组件( Class Component )上使用类组件( Functional Component )？</summary></b
+<b><details><summary>3.什么时候在功能组件( Class Component )上使用类组件( Functional Component )？</summary></b>
 
-> 答案：
-
-如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
+答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
 
 </details>
 
 <b><details><summary>4.React 中 keys 的作用是什么？</summary></b>
 
-答案：
-
-Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
+答案：Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
 
 ```js
 render () {
@@ -72,9 +64,7 @@ render () {
 
 <b><details><summary>7.react diff 原理（常考，大厂必考）</summary></b>
 
-答案：
-
-把树形结构按照层级分解，只比较同级元素。
+答案：把树形结构按照层级分解，只比较同级元素。
 
 给列表结构的每个单元添加唯一的 key 属性，方便比较。
 
@@ -88,8 +78,6 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
 <b><details><summary>8.react 生命周期函数</summary></b>
 
 答案：
-
-回答要点：有三大阶段，每阶段的细分 5 5 1
 
 - 初始化阶段：
   - getDefaultProps:获取实例的默认属性
@@ -105,6 +93,8 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
   - componentDidUpdate:组件已经更新
 - 销毁阶段：
   - componentWillUnmount:组件即将销毁
+
+解析：有三大阶段，每阶段的细分 5-5-1
 
 </details>
 
@@ -175,9 +165,7 @@ function CustomForm({ handleSubmit }) {
 
 <b><details><summary>14.简述 flux 思想</summary></b>
 
-答案：
-
-Flux 的最大特点，就是数据的"单向流动"。
+答案：Flux 的最大特点，就是数据的"单向流动"。
 
 1. 用户访问 View
 2. View 发出用户的 Action
@@ -198,9 +186,7 @@ Flux 的最大特点，就是数据的"单向流动"。
 
 <b><details><summary>16.React 中有三种构建组件的方式</summary></b>
 
-答案：
-
-React.createClass()、ES6 class 和无状态函数。
+答案：React.createClass()、ES6 class 和无状态函数。
 
 </details>
 
@@ -304,7 +290,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 答案：
 
-总结：1. 函数式组件比类组件操作简单，只是简单的调取和返回 JSX；而类组件可以使用生命周期函数来操作业务
+1. 函数式组件比类组件操作简单，只是简单的调取和返回 JSX；而类组件可以使用生命周期函数来操作业务
 
 2. 函数式组件可以理解为静态组件（组件中的内容调取的时候已经固定了，很难再修改），而类组件，可以基于组件内部的状态来动态更新渲染的内容
 
@@ -315,9 +301,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 <b><details><summary>29.createElement 和 cloneElement 有什么区别？</summary></b>
 
-答案：
-
-总结：传入的第一个参数不同
+答案：传入的第一个参数不同
 
 React.createElement():JSX 语法就是用 React.createElement()来构建 React 元素的。它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组件。第二个参数为传入的属性。第三个以及之后的参数，皆作为组件的子组件。
 
