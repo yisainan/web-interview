@@ -103,16 +103,22 @@
 
 <b><details><summary>👬 贡献者</summary></b>
 
-* 作者-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
-* 简书-[面试问题答案综合版(web)](https://www.jianshu.com/p/bc764e15d2a8)
-* Github-[Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question)
+- 作者-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
+- 简书-[面试问题答案综合版(web)](https://www.jianshu.com/p/bc764e15d2a8)
+- Github-[Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 
 </details>
 
 <b><details><summary>📜 License</summary></b>
 
-本仓库遵循 MIT 协议，转载请注明出处。
-
-[Copyright (c) 2019 Yisainan](LICENSE)
+本仓库遵循 [MIT 协议](LICENSE)，转载请注明出处。
 
 </details>
+
+<br/>
+
+# 微信公众号
+
+关注微信公众号「前端面试秘籍」，加入微信群，一起聊聊面试发生的事儿...
+
+![qrcode_001](./images/qrcode_001.jpg)
