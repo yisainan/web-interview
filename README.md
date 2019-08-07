@@ -103,7 +103,9 @@
 
 <b><details><summary>👬 贡献者</summary></b>
 
-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
+* 作者-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
+* 简书-[面试问题答案综合版(web)](https://www.jianshu.com/p/bc764e15d2a8)
+* Github-[Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 
 </details>
 

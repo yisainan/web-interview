@@ -425,15 +425,15 @@ import('lodash').then(_ => {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>42.说说你对promise的了解</summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>43.谈谈你对ES6的理解</summary></b>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>44.ECMAScript6 怎么写class么，为什么会出现class这种东西?</summary></b>
 
 </details>
 

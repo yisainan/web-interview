@@ -42,7 +42,7 @@
 
 </details>
 
-<b><details><summary>8.Jquery 与 jQuery UI 有啥区别？</summary></b>
+<b><details><summary>8.jQuery 与 jQuery UI、jQuery Mobile区别？</summary></b>
 
 答案：
 
@@ -54,19 +54,61 @@
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>10.你觉得 jQuery 源码有哪些写的好的地方</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>11.你觉得jQuery或zepto源码有哪些写的好的地方</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>12.jQuery 的实现原理？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>13.是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>14.jQuery 通过哪个方法和 Sizzle 选择器结合的？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>15.jQuery 一个对象可以同时绑定多个事件，这是如何实现的？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>16.针对 jQuery的优化方法？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>17.jQuery UI 如何自定义组件？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>18.jQuery 和 Zepto 的区别？ 各自的使用场景？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>19.jQuery对象的特点</summary></b>
 
 答案：
 
