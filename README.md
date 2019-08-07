@@ -8,7 +8,7 @@
 
 - [写给前端面试者](https://github.com/amfe/article/issues/5)
 
-🙏 仓库将持续更新，如有内容错误或改进意见，欢迎 issue 或 pr。本仓库遵循 CC BY-NC-SA 4.0 协议，转载请注明出处。
+🙏 仓库将持续更新，如有内容错误或改进意见，欢迎 issue 或 pr。
 
 </details>
 
@@ -111,8 +111,8 @@
 
 <b><details><summary>📜 License</summary></b>
 
-本仓库遵循 CC BY-NC-SA 4.0（署名 - 非商业性使用） 协议，转载请注明出处。
+本仓库遵循 MIT 协议，转载请注明出处。
 
-[![CC BY-NC-SA 4.0](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)](LICENSE)
+[Copyright (c) 2019 Yisainan](LICENSE)
 
 </details>
