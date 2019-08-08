@@ -82,7 +82,7 @@
 
 </details>
 
-<b><details><summary>🐹 兼容性问题</summary></b>
+<b><details><summary>🐶 兼容性问题</summary></b>
 
 - [详情](./content/兼容性问题.md)
 
