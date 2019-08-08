@@ -12,19 +12,19 @@
 
 </details>
 
-<b><details><summary>➕ HTML</summary></b>
+<b><details><summary>🐭 HTML</summary></b>
 
 - [详情](./content/HTML.md)
 
 </details>
 
-<b><details><summary>📦 CSS</summary></b>
+<b><details><summary>🐮 CSS</summary></b>
 
 - [详情](./content/CSS.md)
 
 </details>
 
-<b><details><summary>〽️ JS</summary></b>
+<b><details><summary>🐯 JS</summary></b>
 
 - [js 基础](./content/js/js.md)
 - [es6](./content/js/es6.md)
@@ -33,7 +33,7 @@
 
 </details>
 
-<b><details><summary>⚡️ Vue</summary></b>
+<b><details><summary>🐰 Vue</summary></b>
 
 - [vue-cli](./content/vue/vue-cli.md)
 - [vue.js](./content/vue/vue.md)
@@ -43,25 +43,25 @@
 
 </details>
 
-<b><details><summary>❓ React</summary></b>
+<b><details><summary>🐉 React</summary></b>
 
 - [详情](./content/React.md)
 
 </details>
 
-<b><details><summary>💻 Angular</summary></b>
+<b><details><summary>🐍 Angular</summary></b>
 
 - [详情](./content/Angular.md)
 
 </details>
 
-<b><details><summary>☁️ Ajax</summary></b>
+<b><details><summary>🐎 Ajax</summary></b>
 
 - [详情](./content/Ajax.md)
 
 </details>
 
-<b><details><summary>🌩 编程题</summary></b>
+<b><details><summary>🐐 编程题</summary></b>
 
 - [js 基础](./content/编程题/js.md)
 - [js 原型](./content/编程题/prototype.md)
@@ -70,31 +70,31 @@
 
 </details>
 
-<b><details><summary>💾 网络问题</summary></b>
+<b><details><summary>🙊 网络问题</summary></b>
 
 - [详情](./content/网络问题.md)
 
 </details>
 
-<b><details><summary>📏 框架/工程/项目</summary></b>
+<b><details><summary>🐔 框架/工程/项目</summary></b>
 
 - [详情](./content/框架工程项目.md)
 
 </details>
 
-<b><details><summary>⚙️ 兼容性问题</summary></b>
+<b><details><summary>🐹 兼容性问题</summary></b>
 
 - [详情](./content/兼容性问题.md)
 
 </details>
 
-<b><details><summary>📚 大厂高频题</summary></b>
+<b><details><summary>🐷 大厂高频题</summary></b>
 
 - [详情](./content/大厂高频题.md)
 
 </details>
 
-<b><details><summary>🔱 非技术问题</summary></b>
+<b><details><summary>❓ 非技术问题</summary></b>
 
 - [常问的非技术问题](./content/非技术问题/非技术问题.md)
 - [面试技巧及注意事项](./content/非技术问题/面试技巧及注意事项.md)
@@ -102,6 +102,8 @@
 </details>
 
 <b><details><summary>👬 贡献者</summary></b>
+
+包括勘误的 Issue、PR，排序按照贡献时间。
 
 - 作者-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
 - 简书-[面试问题答案综合版(web)](https://www.jianshu.com/p/bc764e15d2a8)
@@ -121,4 +123,4 @@
 
 关注微信公众号「**前端面试秘籍**」，加入微信群，一起聊聊面试发生的事儿...
 
-![qrcode_001](./images/qrcode_001.jpg)
+![二维码](./images/qrcode_001.jpg)

@@ -694,115 +694,391 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 </details>
 
-<b><details><summary>css sprite是什么,有什么优缺点</summary></b> 
+<b><details><summary>52.css sprite 是什么,有什么优缺点</summary></b>
+
+答案：概念：将多个小图片拼接到一个图片中。通过 background-position 和元素尺寸调节需要显示的背景图案。
+
+优点：
+
+- 减少 HTTP 请求数，极大地提高页面加载速度。
+- 增加图片信息重复度，提高压缩比，减少图片大小。
+- 更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现。
+
+缺点：
+
+- 图片合并麻烦。
+- 维护麻烦，修改一个图片可能需要从新布局整个图片，样式。
+
+</details>
+
+<b><details><summary>53.什么是 FOUC?如何避免</summary></b>
+
+答案：
+
+1. 什么是 Fouc(文档样式短暂失效)？
+
+在引用 css 的过程中，如果方法不当或者位置引用不对，会导致某些页面在 windows 下的 ie 出现一些奇怪的现象，以无样式显示页面内容的瞬间闪烁，这种现象称之为文档样式短暂失效，简称 FOCU。
+
+2. 原因大致为：
+
+- 使用 import 方法导入样式表
+- 将样式表放在页面底部
+- 有几个样式表，放在 html 结构的不同位置。
+
+3. 其实原理很清楚：当样式表晚于结构性 html 加载，当加载到此样式表时，页面将停止之前的渲染。此样式表被下载和解析后，将重新渲染页面，也就出现了短暂的花屏现象。
+
+4. 解决方法：使用 link 标签将样式表放在文档 head 中。
+
+</details>
+
+<b><details><summary>54.css3 有哪些新特性</summary></b>
+
+答案：
+
+1. 选择器
+
+- E:last-child 匹配父元素的最后一个子元素 E。
+- E:nth-child(n)匹配父元素的第 n 个子元素 E。
+- E:nth-last-child(n) CSS3 匹配父元素的倒数第 n 个子元素 E。
+
+2. RGBA
+
+回答此问题，面试官很可能继续问：rgba()和 opacity 的透明效果有什么不同？
+
+3. 多栏布局
+
+```html
+<div class="mul-col">
+  <div>
+    <h3>新手上路</h3>
+    <p>新手专区 消费警示 交易安全 24小时在线帮助 免费开店</p>
+  </div>
+  <div>
+    <h3>付款方式</h3>
+    <p>快捷支付 信用卡 余额宝 蚂蚁花呗 货到付款</p>
+  </div>
+  <div>
+    <h3>淘宝特色</h3>
+    <p>手机淘宝 旺信 大众评审 B格指南</p>
+  </div>
+</div>
+```
+
+```css
+.mul-col {
+  column-count: 3;
+  column-gap: 5px;
+  column-rule: 1px solid gray;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+}
+```
+
+4. 多背景图
+
+```css
+/* backgroundimage:url('1.jpg),url('2.jpg') */
+```
+
+5. CSS3 word-wrap 属性
+
+```css
+p.test {
+  word-wrap: break-word;
+}
+```
+
+6. 文字阴影
+
+```css
+text-shadow: 5px 2px 6px rgba(64, 64, 64, 0.5);
+```
+
+7. @font-face 属性
+
+Font-face 可以用来加载字体样式，而且它还能够加载服务器端的字体文件，让客户端显示客户端所没有安装的字体。
+
+```css
+@font-face {
+  font-family: BorderWeb;
+  src: url(BORDERW0.eot);
+}
+@font-face {
+  font-family: Runic;
+  src: url(RUNICMT0.eot);
+}
+.border {
+  font-size: 35px;
+  color: black;
+  font-family: "BorderWeb";
+}
+.event {
+  font-size: 110px;
+  color: black;
+  font-family: "Runic";
+}
+
+/* 淘宝网字体使用 */
+
+@font-face {
+  font-family: iconfont;
+  src: url(//at.alicdn.com/t/font_1465189805_4518812.eot);
+}
+```
+
+8. 圆角
+
+```css
+border-radius: 15px;
+```
+
+9. 边框图片
+
+CSS3 border-image 属性
+
+10. 盒阴影
+
+```css
+/* box-shadow: 水平方向的偏移量 垂直方向的偏移量 模糊程度 扩展程度 颜色 是否具有内阴影 */
+```
+
+11. 盒子大小
+
+CSS3 box-sizing 属性
+
+12. 媒体查询
+
+CSS3 @media 查询
+
+13. CSS3 动画
+
+@keyframes
+
+```css
+@keyframes abc {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+```
+
+animation 属性
+
+```css
+/* animation ： name duration timing-function delay interation-count direction play-state */
+```
+
+14. 渐变效果
+
+```css
+background-image: -webkit-gradient(
+  linear,
+  0% 0%,
+  100% 0%,
+  from(#2a8bbe),
+  to(#fe280e)
+);
+```
+
+15. CSS3 弹性盒子模型
+
+- 弹性盒子是 CSS3 的一种新的布局模式。
+- CSS3 弹性盒（ Flexible Box 或 flexbox），是一种当页面需要适应不同的屏幕大小以及设备类型时确保元素拥有恰当的行为的布局方式。
+- 引入弹性盒布局模型的目的是提供一种更加有效的方式来对一个容器中的子元素进行排列、对齐和分配空白空间。
+
+16. CSS3 过渡
+
+```css
+div {
+  transition: width 2s;
+  -moz-transition: width 2s; /* Firefox 4 */
+  -webkit-transition: width 2s; /* Safari 和 Chrome */
+  -o-transition: width 2s; /* Opera */
+}
+```
+
+17. CSS3 变换
+
+- rotate()旋转
+- translate()平移
+- scale( )缩放
+- skew()扭曲/倾斜
+- 变换基点
+- 3d 转换
+
+[参考](https://www.w3school.com.cn/css3/index.asp)
+
+</details>
+
+<b><details><summary>55.display 有哪些值？说明他们的作用</summary></b>
+
+答案：
+
+display： none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
+
+解析：
+
+默认值：inline
+
+```
+none： 隐藏对象。与visibility属性的hidden值不同，其不为被隐藏的对象保留其物理空间
+inline： 指定对象为内联元素。
+block： 指定对象为块元素。
+list-item： 指定对象为列表项目。
+inline-block： 指定对象为内联块元素。（CSS2）
+table： 指定对象作为块元素级的表格。类同于html标签<table>（CSS2）
+inline-table： 指定对象作为内联元素级的表格。类同于html标签<table>（CSS2）
+table-caption： 指定对象作为表格标题。类同于html标签<caption>（CSS2）
+table-cell： 指定对象作为表格单元格。类同于html标签<td>（CSS2）
+table-row： 指定对象作为表格行。类同于html标签<tr>（CSS2）
+table-row-group： 指定对象作为表格行组。类同于html标签<tbody>（CSS2）
+table-column： 指定对象作为表格列。类同于html标签<col>（CSS2）
+table-column-group： 指定对象作为表格列组显示。类同于html标签<colgroup>（CSS2）
+table-header-group： 指定对象作为表格标题组。类同于html标签<thead>（CSS2）
+table-footer-group： 指定对象作为表格脚注组。类同于html标签<tfoot>（CSS2）
+run-in： 根据上下文决定对象是内联对象还是块级对象。（CSS3）
+box： 将对象作为弹性伸缩盒显示。（伸缩盒最老版本）（CSS3）
+inline-box： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最老版本）（CSS3）
+flexbox： 将对象作为弹性伸缩盒显示。（伸缩盒过渡版本）（CSS3）
+inline-flexbox： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒过渡版本）（CSS3）
+flex： 将对象作为弹性伸缩盒显示。（伸缩盒最新版本）（CSS3）
+inline-flex： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒最新版本）（CSS3）
+```
+
+[参考](https://www.jianshu.com/p/77e1c36c0895)
+
+</details>
+
+<b><details><summary>56.display:inline-block 什么时候不会显示间隙？(携程)</summary></b>
+
+答案：inline-block 布局的元素在编辑器里写在同一行
+
+</details>
+
+<b><details><summary>57.PNG,GIF,JPG 的区别及如何选</summary></b>
+
+答案：
+
+GIF：
+
+- 1：256 色
+- 2： 无损，编辑 保存时候，不会损失。
+- 3：支持简单动画。
+- 4：支持 boolean 透明，也就是要么完全透明，要么不透明
+
+JPEG：
+
+- 1：millions of colors
+- 2： 有损压缩， 意味着每次编辑都会失去质量。
+- 3：不支持透明。
+- 4：适合照片，实际上很多相机使用的都是这个格式。
+
+PNG：
+
+- 1：无损，其实 PNG 有好几种格式的，一般分为两类：PNG8 和 truecolor PNGs；
+
+- 与 GIF 相比：
+
+  - 它通常会产生较小的文件大小。
+  - 它支持阿尔法（变量）透明度。
+  - 无动画支持
+
+- 与 JPEG 相比：
+
+  - 文件更大
+  - 无损
+  - 因此可以作为 JPEG 图片中间编辑的中转格式。
+
+- 结论：
+
+  - JPEG 适合照片
+  - GIF 适合动画
+  - PNG 适合其他任何种类——图表，buttons，背景，图表等等。
+
+[参考](https://www.cnblogs.com/yadiblogs/p/9546935.html)
+
+</details>
+
+<b><details><summary>58.行内元素 float:left 后是否变为块级元素？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>什么是FOUC?如何避免</summary></b> 
+<b><details><summary>59.在网页中的应该使用奇数还是偶数的字体？为什么呢？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>css3有哪些新特性</summary></b> 
+<b><details><summary>60.CSS 合并方法</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>display有哪些值？说明他们的作用</summary></b> 
+<b><details><summary>61.列出你所知道可以改变页面布局的属性</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>display:inline-block 什么时候不会显示间隙？(携程)</summary></b> 
+<b><details><summary>62.CSS 在性能优化方面的实践</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>PNG,GIF,JPG的区别及如何选</summary></b> 
+<b><details><summary>63.CSS3 动画（简单动画的实现，如旋转等）</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>行内元素float:left后是否变为块级元素？</summary></b> 
+<b><details><summary>64.base64 的原理及优缺点</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>在网页中的应该使用奇数还是偶数的字体？为什么呢？</summary></b> 
+<b><details><summary>65.几种常见的 CSS 布局</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>CSS合并方法</summary></b> 
+<b><details><summary>66.stylus/sass/less 区别</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>列出你所知道可以改变页面布局的属性</summary></b> 
+<b><details><summary>67.postcss 的作用</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>CSS在性能优化方面的实践</summary></b> 
+<b><details><summary>68.自定义字体的使用场景</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>CSS3动画（简单动画的实现，如旋转等）</summary></b> 
+<b><details><summary>69.如何美化 CheckBox</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>base64的原理及优缺点</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>几种常见的CSS布局</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>stylus/sass/less区别</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>postcss的作用</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>自定义字体的使用场景</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>如何美化CheckBox</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>base64的使用</summary></b> 
+<b><details><summary>70.base64 的使用</summary></b>
 
 答案：
 
