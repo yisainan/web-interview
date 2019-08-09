@@ -25,11 +25,11 @@
 
 <b><details><summary>3.Node的应用场景</summary></b>
 
-答案：
+答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线APP等。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>4.如何用NodeJS搭建中间层？</summary></b>
 
 答案：
 

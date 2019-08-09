@@ -389,13 +389,13 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>26.ajax如何实现，readyState的五种状态的含义？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>27.restful的method解释？</summary></b>
 
 答案：
 

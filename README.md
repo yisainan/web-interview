@@ -103,11 +103,12 @@
 
 <b><details><summary>👬 贡献者</summary></b>
 
-包括勘误的 Issue、PR，排序按照贡献时间。
+按照本仓库收集时间排序，如有侵权请联系删除
 
-- 作者-[qiilee](https://blog.csdn.net/qq_34543438/article/category/6943844)<br/>
-- 简书-[面试问题答案综合版(web)](https://www.jianshu.com/p/bc764e15d2a8)
-- Github-[Advanced-Frontend/Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question)
+- CSDN-[手掌日月摘星辰](https://blog.csdn.net/qq_34543438/article/category/6943844)
+- 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
+- Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
+- 简书-[E刘大仁](https://www.jianshu.com/p/5285bdc834c6)
 
 </details>
 
@@ -118,6 +119,13 @@
 </details>
 
 <br/>
+
+<!-- # 本周经典（每周日更新）
+
+繁忙的一周又过去了，这几道题你看了吗？
+
+
+<br/> -->
 
 # 学习交流
 

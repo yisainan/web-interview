@@ -70,7 +70,7 @@ Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
 </details>
 
-<b><details><summary>3. 为什么要替换 Object.defineProperty？</summary></b>
+<b><details><summary>4. 为什么要替换 Object.defineProperty？</summary></b>
 
 答案：
 
@@ -80,7 +80,7 @@ Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对
 
 </details>
 
-<b><details><summary>3. 什么是 Proxy？</summary></b>
+<b><details><summary>5. 什么是 Proxy？</summary></b>
 
 答案：
 
@@ -89,6 +89,34 @@ Proxy 是 ES6 中新增的一个特性，翻译过来意思是"代理"，用在�
 Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
 
 使用 Proxy 的核心优点是可以交由它来处理一些非核心逻辑（如：读取或设置对象的某些属性前记录日志；设置对象的某些属性值前，需要验证；某些属性的访问控制等）。 从而可以让对象只需关注于核心逻辑，达到关注点分离，降低对象复杂度等目的。
+
+</details>
+
+
+<b><details><summary>6.为什么避免 v-if 和 v-for 用在一起</summary></b>
+
+答案：
+
+当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+
+</details>
+
+<b><details><summary>7.组件的设计原则</summary></b>
+
+答案：
+
+```
+(1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块)
+(2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中)
+(每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑)
+(3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
+```
+
+</details>
+
+<b><details><summary>8.vue slot是做什么的?</summary></b> 
+
+答案：
 
 </details>
 
@@ -1144,7 +1172,7 @@ vm.arr.length = newLength 也是无法检测的到的
 
 </details>
 
-<b><details><summary>vue 的优点是什么？</summary></b>
+<b><details><summary>61.vue 的优点是什么？</summary></b>
 
 答案：
 
@@ -1158,7 +1186,7 @@ vm.arr.length = newLength 也是无法检测的到的
 
 </details>
 
-<b><details><summary>vue 如何实现按需加载配合 webpack 设置</summary></b>
+<b><details><summary>62.vue 如何实现按需加载配合 webpack 设置</summary></b>
 
 答案：
 
@@ -1186,29 +1214,19 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary>如何让 CSS 只在当前组件中起作用</summary></b>
+<b><details><summary>63.如何让 CSS 只在当前组件中起作用</summary></b>
 
 答案：将当前组件的<style>修改为<style scoped>
 
 </details>
 
-<b><details><summary>指令 v-el 的作用是什么?</summary></b>
+<b><details><summary>64.指令 v-el 的作用是什么?</summary></b>
 
 答案：提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
 
 </details>
 
-<b><details><summary>vue-router 有哪几种导航钩子？</summary></b>
-
-答案：三种
-
-第一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
-第二种：组件内的钩子；
-第三种：单独路由独享组件
-
-</details>
-
-<b><details><summary>vue-loader 是什么？使用它的用途有哪些？</summary></b>
+<b><details><summary>65.vue-loader 是什么？使用它的用途有哪些？</summary></b>
 
 答案：
 
@@ -1219,23 +1237,44 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary>为什么避免 v-if 和 v-for 用在一起</summary></b>
+<b><details><summary>66.vue和angular的优缺点以及适用场合?</summary></b> 
 
- 答案：
-
-当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+答案：
 
 </details>
 
-<b><details><summary>组件的设计原则</summary></b>
+<b><details><summary>67.你们vue项目是打包了一个js文件，一个css文件，还是有多个文件？</summary></b> 
 
- 答案：
+答案：
 
-```
-(1)页面上每个独立的可视/可交互区域视为一个组件(比如页面的头部，尾部，可复用的区块)
-(2)每个组件对应一个工程目录，组件所需要的各种资源在这个目录下就近维护(组件的就近维护思想体现了前端的工程化思想，为前端开发提供了很好的分治策略，在vue.js中，通过.vue文件将组件依赖的模板，js，样式写在一个文件中)
-(每个开发者清楚开发维护的功能单元，它的代码必然存在在对应的组件目录中，在该目录下，可以找到功能单元所有的内部逻辑)
-(3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
-```
+</details>
+
+<b><details><summary>68.vue遇到的坑，如何解决的？</summary></b> 
+
+答案：
+
+</details>
+
+<b><details><summary>69.vue的双向绑定的原理，和angular的对比</summary></b> 
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b> 
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b> 
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b> 
+
+答案：
 
 </details>

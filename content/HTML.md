@@ -535,13 +535,13 @@ bindClickOnCircleArea(box, function() {
 
 </details>
 
-<b><details><summary></summary></b> 
+<b><details><summary>37.meta viewport原理是什么？</summary></b> 
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b> 
+<b><details><summary>38.精灵图和base64如何选择？</summary></b> 
 
 答案：
 

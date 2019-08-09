@@ -119,7 +119,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 </details>
 
-<b><details><summary>vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b> 
+<b><details><summary>7.vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b> 
 
 答案：
 
