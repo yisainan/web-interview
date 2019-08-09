@@ -612,7 +612,7 @@ c.fun(3);
 答案：
 
 ```js
-document.getElementById('id').value
+document.getElementById("id").value;
 ```
 
 </details>
@@ -639,9 +639,9 @@ for (var i = 0; i < len; i++) {
 答案：
 
 ```js
-var dom = document.getElementById('id');
-dom.innerHTML = 'xxxx';
-dom.style.color = '#000'; // 'black'
+var dom = document.getElementById("id");
+dom.innerHTML = "xxxx";
+dom.style.color = "#000"; // 'black'
 ```
 
 </details>
@@ -680,7 +680,17 @@ console.log(combo(string));
 
 ```js
 for (var i = 1; i <= 3; i++) {
+  console.log(i);
+}
+// 1 2 3
+```
+
+但是
+
+```js
+for (var i = 1; i <= 3; i++) {
   setTimeout(() => {
+    // setTimout在for里面是异步执行的，在延迟输出的时候，i的值已经是4了
     console.log(i);
   }, 0);
 }
@@ -1304,15 +1314,38 @@ setTimeout(function() {
 
 </details>
 
-<b><details><summary>46.什么是代理和通知，写一下他们基本的实现方</summary></b>
+<b><details><summary>46.什么是代理和通知，写一下他们基本的实现方法</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>47.看题写结果</summary></b>
+
+```js
+var output = function(i) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+};
+
+for (var i = 0; i < 5; i++) {
+  output(i); // 这里传过去的 i 值被复制了
+}
+
+console.log(i);
+```
 
 答案：
+
+5
+0
+1
+2
+3
+4
+
+解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
 
 </details>
 

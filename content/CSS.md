@@ -1084,37 +1084,43 @@ PNG：
 
 </details>
 
-<b><details><summary>71.float和display:inline-block的区别是什么？</summary></b> 
+<b><details><summary>71.float 和 display:inline-block 的区别是什么？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>72.rem布局字体太大怎么处理?</summary></b> 
+<b><details><summary>72.rem 布局字体太大怎么处理?</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b> 
+<b><details><summary>73.position 的值， relative 和 absolute 分别是相对于谁进行定位的？</summary></b>
+
+答案：
+
+- absolute :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
+- fixed （老 IE 不支持）生成绝对定位的元素，通常相对于浏览器窗口或 frame 进行定位。
+- relative 生成相对定位的元素，相对于其在普通流中的位置进行定位。
+- static 默认值。没有定位，元素出现在正常的流中
+- sticky 生成粘性定位的元素，容器的位置根据正常文档流计算得出
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b> 
+<b><details><summary></summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
+<b><details><summary></summary></b>
 
 答案：
 

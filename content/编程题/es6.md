@@ -141,27 +141,24 @@ funcs.forEach(function(func) {
 
 ```js
 var promise = new Promise((resolve, reject) => {
-  if (操作成功) {
+  if (success) {
+    // 操作成功
     resolve(value);
   } else {
     reject(error);
   }
 });
-promise.then(
-  function(value) {
-    // success
-  },
-  function(value) {
-    // failure
-  }
-);
+
+promise
+  .then(res => console.log(res))
+  .catch(err => {
+    console.log(err);
+  });
 ```
 
 </details>
 
 <b><details><summary>5.怎么解决回调函数里面回调另一个函数，另一个函数的参数需要依赖这个回调函数。需要被解决的代码如下：</summary></b>
-
-答案：
 
 ```js
 $http.get(url).success(function (res) {
@@ -188,11 +185,35 @@ function success(data) {
 }
 ```
 
+答案：使用 Promise/async/await 解决
+
+解析：
+
+```js
+function awaitMethod(num) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2 * num); // 此处模拟接口的请求
+    }, 2000);
+  });
+}
+// 打个比方，await是学生，async是校车，必须等人齐了再开车
+async function test() {
+  let result = await awaitMethod(30); // await 这个关键字只能在使用async定义的函数里面使用
+  console.log(result); // 2秒钟之后控制台输出60 ; 后面利用 result 继续调用函数
+  let next = await awaitMethod(result);
+  console.log(next); // 4秒钟之后控制台输出120
+  return next;
+}
+// 在async里，必须要将结果return回来，不然的话.then .catch获取不到值
+test()
+  .then(success => console.log("成功", success))
+  .catch(error => console.log("失败", error));
+```
+
 </details>
 
 <b><details><summary>6.以下代码依次输出的内容是？</summary></b>
-
-答案：
 
 ```js
 setTimeout(function() {
@@ -210,7 +231,9 @@ new Promise(function executor(resolve) {
 console.log(5);
 ```
 
-上述代码解析：
+答案：打印顺序 2 3 5 4 1
+
+解析：
 
 首先先碰到一个 setTimeout，于是会先设置一个定时，在定时结束后将传递这个函数放到任务队列里面，因此开始肯定不会输出 1 。
 
@@ -219,6 +242,9 @@ console.log(5);
 然后，Promise 的 then 应当会放到当前 tick 的最后，但是还是在当前 tick 中。
 
 因此，应当先输出 5，然后再输出 4 ， 最后在到下一个 tick，就是 1 。
+
+[参考](https://juejin.im/post/5b1ffff96fb9a01e345ba704)
+
 
 </details>
 
@@ -519,5 +545,58 @@ setImmediate
 原因
 process.nextTick 和 promise.then 都属于 microtask，而 setImmediate 属于 macrotask，在事件循环的 check 阶段执行。事件循环的每个阶段（macrotask）之间都会执行 microtask，事件循环的开始会先执行一次 microtask。
 ```
+
+</details>
+
+<b><details><summary>10.看题算结果</summary></b>
+
+```js
+var tasks = []; // 这里存放异步操作的 Promise
+var output = (i) => new Promise((resolve) => {
+ setTimeout(() => {
+  console.log(new Date, i);
+  resolve();
+ }, 1000 * i);
+});
+  
+// 生成全部的异步操作
+for (var i = 0; i < 5; i++) {
+ tasks.push(output(i));
+}
+```
+答案：
+
+解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
+
+</details>
+
+<b><details><summary>11.看题算结果</summary></b>
+
+```js
+// 模拟其他语言中的 sleep，实际上可以是任何异步操作
+const sleep = (timeountMS) => new Promise((resolve) => {
+ setTimeout(resolve, timeountMS);
+});
+  
+(async () => { // 声明即执行的 async 函数表达式
+ for (var i = 0; i < 5; i++) {
+  await sleep(1000);
+  console.log(new Date, i);
+ }
+  
+ await sleep(1000);
+ console.log(new Date, i);
+})();
+```
+
+答案：
+
+解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
 
 </details>

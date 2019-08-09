@@ -83,7 +83,7 @@ CORS:
 
 </details>
 
-<b><details><summary>5、简述 ajax 的过程。</summary></b>
+<b><details><summary>5、创建ajax过程</summary></b>
 
 答案：
 
