@@ -1,7 +1,6 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-
-<b><details><summary>1.什么是 MVVM？</summary></b> 
+<b><details><summary>1.什么是 MVVM？</summary></b>
 
 答案：1.拆分说明（M，V，VM 都是干啥的） 2.之间联系（Model 和 ViewModel 的双向数据绑定）
 
@@ -17,7 +16,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 <b><details><summary>2、MVC、MVP 与 MVVM 模式</summary></b>
 
- 答案：
+答案：
 
 一、MVC
 
@@ -49,23 +48,157 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 ![架构_003](../../images/架构_003.png)
 
-唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。
+唯一的区别是，它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。
 
 </details>
 
-<b><details><summary>3、常见的实现 MVVM 几种方式</summary></b> 
+<b><details><summary>3、常见的实现 MVVM 几种方式</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>4、Object.defineProperty()方法</summary></b> 
+<b><details><summary>4、解释下 Object.defineProperty()方法</summary></b>
 
-答案：
+答案：这是 js 中一个非常重要的方法，ES6 中某些方法的实现依赖于它，VUE 通过它实现双向绑定，此方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象
+
+解析：
+
+## 语法
+
+Object.defineProperty(object, attribute, descriptor)
+
+- 这三个参数都是必输项
+- 第一个参数为 目标对象
+- 第二个参数为 需要定义的属性或者方法
+- 第三个参数为 目标属性所拥有的特性
+
+## descriptor
+
+前两个参数都很明确，重点是第三个参数 descriptor， 它有以下取值
+
+- value: 属性的值
+- writable: 属性的值是否可被重写（默认为 false）
+- configurable: 总开关，是否可配置，若为 false, 则其他都为 false（默认为 false）
+- enumerable: 属性是否可被枚举（默认为 false）
+- get: 获取该属性的值时调用
+- set: 重写该属性的值时调用
+
+一个例子
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 123
+});
+console.log(a.b); //123
+a.b = 456;
+console.log(a.b); //123
+a.c = 110;
+for (item in a) {
+  console.log(item, a[item]); //c 110
+}
+```
+
+因为 writable 和 enumerable 默认值为 false, 所以对 a.b 赋值无效，也无法遍历它
+
+## configurable
+
+总开关，是否可配置，设置为 false 后，就不能再设置了，否则报错， 例子
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  configurable: false
+});
+Object.defineProperty(a, "b", {
+  configurable: true
+});
+//error: Uncaught TypeError: Cannot redefine property: b
+```
+
+## writable
+
+是否可重写
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 123,
+  writable: false
+});
+console.log(a.b); // 打印 123
+a.b = 25; // 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）
+console.log(a.b); // 打印 123， 赋值不起作用。
+```
+
+## enumerable
+
+属性特性 enumerable 定义了对象的属性是否可以在 for...in 循环和 Object.keys() 中被枚举
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 3445,
+  enumerable: true
+});
+console.log(Object.keys(a)); // 打印["b"]
+```
+
+enumerable 改为 false
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 3445,
+  enumerable: false //注意咯这里改了
+});
+console.log(Object.keys(a)); // 打印[]
+```
+
+## set 和 get
+
+如果设置了 set 或 get, 就不能设置 writable 和 value 中的任何一个，否则报错
+
+```js
+var a = {};
+Object.defineProperty(a, "abc", {
+  value: 123,
+  get: function() {
+    return value;
+  }
+});
+//Uncaught TypeError: Invalid property descriptor. Cannot both specify accessors and a value or writable attribute, #<Object> at Function.defineProperty
+```
+
+对目标对象的目标属性 赋值和取值 时， 分别触发 set 和 get 方法
+
+```js
+var a = {};
+var b = 1;
+Object.defineProperty(a, "b", {
+  set: function(newValue) {
+    b = 99;
+    console.log("你要赋值给我,我的新值是" + newValue);
+  },
+  get: function() {
+    console.log("你取我的值");
+    return 2; //注意这里，我硬编码返回2
+  }
+});
+a.b = 1; //打印 你要赋值给我,我的新值是1
+console.log(b); //打印 99
+console.log(a.b); //打印 你取我的值
+//打印 2    注意这里，和我的硬编码相同的
+```
+
+上面的代码中，给 a.b 赋值，b 的值也跟着改变了。原因是给 a.b 赋值，自动调用了 set 方法，在 set 方法中改变了 b 的值。vue 双向绑定的原理就是这个。
+
+扩展：[参考](https://www.cnblogs.com/zhaowj/p/9576450.html)
 
 </details>
 
-<b><details><summary>5、实现一个自己的 MVVM（原理剖析）</summary></b> 
+<b><details><summary>5、实现一个自己的 MVVM（原理剖析）</summary></b>
 
 答案：
 
@@ -73,31 +206,31 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 <b><details><summary>10、递归的使用</summary></b>
 
- 答案：
+答案：
 
 </details>
 
-<b><details><summary>11、Obj.keys()与 Obj.defineProperty</summary></b> 
+<b><details><summary>11、Obj.keys()与 Obj.defineProperty</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>12、发布-订阅模式</summary></b> 
+<b><details><summary>12、发布-订阅模式</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>13、实现 MVVM 的思路分析</summary></b> 
+<b><details><summary>13、实现 MVVM 的思路分析</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>mvvm 和 mvc 区别？它和其它框架（jquery）的区别是什么？哪些场景适合？</summary></b>
+<b><details><summary>14.mvvm 和 mvc 区别？它和其它框架（jquery）的区别是什么？哪些场景适合？</summary></b>
 
- 答案：
+答案：
 
 mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。
 

@@ -42,9 +42,7 @@ animal.say("hi"); //animal says hi
 
 <b><details><summary>2.箭头函数转成 ES5</summary></b>
 
-答案：
-
-箭头函数里面根本没有自己的 this，而是引用外层的 this
+答案：箭头函数里面根本没有自己的 this，而是引用外层的 this
 
 ```js
 // ES6
@@ -54,7 +52,7 @@ function foo() {
   }, 100);
 }
 
-// ES5
+// 转成ES5
 function foo() {
   var _this = this;
 
@@ -245,7 +243,6 @@ console.log(5);
 
 [参考](https://juejin.im/post/5b1ffff96fb9a01e345ba704)
 
-
 </details>
 
 <b><details><summary>7.jQuery 的 ajax 返回的是 promise 对象吗？</summary></b>
@@ -258,9 +255,9 @@ var jsPromise = Promise.resolve(\$.ajax('/whatever.json'));
 
 </details>
 
-<b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b
+<b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b>
 
-> 答案：
+答案：
 
 ```
 使用promise.all()
@@ -333,8 +330,7 @@ setTimeout(() => {
 运行结果：
 promise1 Promise { <pending> }
 promise2 Promise { <pending> }
-(node:50928) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: error!!!
-(node:50928) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+Uncaught (in promise) Error: error!!!
 promise1 Promise { 'success' }
 promise2 Promise {
   <rejected> Error: error!!!
@@ -379,14 +375,14 @@ then：success1
 ```js
 Promise.resolve(1)
   .then(res => {
-    console.log(res);
+    console.log(res); // 打印1
     return 2;
   })
   .catch(err => {
     return 3;
   })
   .then(res => {
-    console.log(res);
+    console.log(res); // 打印2
   });
 ```
 
@@ -449,6 +445,7 @@ promise.then(res => {
 once
 success 1001
 success 1001
+注：1001不是准确数值，也可能是998、999、1000、1002 等
 
 原因：
 promise 的 .then 或者 .catch 可以被调用多次，但这里 Promise 构造函数只执行一次。或者说 promise 内部状态一经改变，并且有了一个值，那么后续每次调用 .then 或者 .catch 都会直接拿到该值。
@@ -465,12 +462,7 @@ promise.catch(console.error);
 
 ```
 运行结果
-TypeError: Chaining cycle detected for promise #<Promise>
-    at <anonymous>
-    at process._tickCallback (internal/process/next_tick.js:188:7)
-    at Function.Module.runMain (module.js:667:11)
-    at startup (bootstrap_node.js:187:16)
-    at bootstrap_node.js:607:3
+TypeError: Chaining cycle detected for promise #<Promise>...
 
 原因
 .then 或 .catch 返回的值不能是 promise 本身，否则会造成死循环。
@@ -552,19 +544,32 @@ process.nextTick 和 promise.then 都属于 microtask，而 setImmediate 属于 
 
 ```js
 var tasks = []; // 这里存放异步操作的 Promise
-var output = (i) => new Promise((resolve) => {
- setTimeout(() => {
-  console.log(new Date, i);
-  resolve();
- }, 1000 * i);
-});
-  
+var output = i =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      console.log(new Date(), i);
+      resolve();
+    }, 1000 * i);
+  });
+
 // 生成全部的异步操作
 for (var i = 0; i < 5; i++) {
- tasks.push(output(i));
+  tasks.push(output(i));
 }
+
+console.log(new Date, i);
 ```
+
 答案：
+```
+Mon Aug 12 2019 09:37:36 GMT+0800 (中国标准时间) 5
+Mon Aug 12 2019 09:33:55 GMT+0800 (中国标准时间) 0
+然后每隔1s打印
+Mon Aug 12 2019 09:33:56 GMT+0800 (中国标准时间) 1
+Mon Aug 12 2019 09:33:57 GMT+0800 (中国标准时间) 2
+Mon Aug 12 2019 09:33:58 GMT+0800 (中国标准时间) 3
+Mon Aug 12 2019 09:33:59 GMT+0800 (中国标准时间) 4
+```
 
 解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
 
@@ -574,22 +579,33 @@ for (var i = 0; i < 5; i++) {
 
 ```js
 // 模拟其他语言中的 sleep，实际上可以是任何异步操作
-const sleep = (timeountMS) => new Promise((resolve) => {
- setTimeout(resolve, timeountMS);
-});
-  
-(async () => { // 声明即执行的 async 函数表达式
- for (var i = 0; i < 5; i++) {
+const sleep = timeountMS =>
+  new Promise(resolve => {
+    setTimeout(resolve, timeountMS);
+  });
+
+(async () => {
+  // 声明即执行的 async 函数表达式
+  for (var i = 0; i < 5; i++) {
+    await sleep(1000);
+    console.log(new Date(), i);
+  }
+
   await sleep(1000);
-  console.log(new Date, i);
- }
-  
- await sleep(1000);
- console.log(new Date, i);
+  console.log(new Date(), i);
 })();
 ```
 
-答案：
+答案：每隔1s打印
+```
+Mon Aug 12 2019 09:39:02 GMT+0800 (中国标准时间) 0
+Mon Aug 12 2019 09:39:03 GMT+0800 (中国标准时间) 1
+Mon Aug 12 2019 09:39:04 GMT+0800 (中国标准时间) 2
+Mon Aug 12 2019 09:39:05 GMT+0800 (中国标准时间) 3
+Mon Aug 12 2019 09:39:06 GMT+0800 (中国标准时间) 4
+Mon Aug 12 2019 09:39:07 GMT+0800 (中国标准时间) 5
+```
+
 
 解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
 
