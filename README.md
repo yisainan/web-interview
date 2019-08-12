@@ -94,6 +94,7 @@
 
 - [常问的非技术问题](./content/非技术问题/非技术问题.md)
 - [面试技巧及注意事项](./content/非技术问题/面试技巧及注意事项.md)
+- [谈钱不伤感情，如何在面试中争取高薪](./content/非技术问题/谈钱不伤感情，如何在面试中争取高薪.md)
 
 </details>
 
@@ -105,6 +106,7 @@
 - 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
 - Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 - 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
+- CSDN-[刘志祥](https://blog.csdn.net/salmonellavaccine/article/details/47443007)
 
 </details>
 
