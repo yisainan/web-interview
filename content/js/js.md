@@ -4008,10 +4008,14 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>113.class.forname的作用?为什么要用?</summary></b>
 
 答案：
-
+```
+1、获取Class对象的方式：类名.class、对象.getClass()、Class.forName(“类名”);
+2、通过Class对象自审
+3、动态调用方法
+```
 </details>
 
 <b><details><summary></summary></b>

@@ -1108,13 +1108,100 @@ PNG：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>74.对偏移、卷曲、可视的理解</summary></b>
 
 答案：
 
+```
+偏移
+offsetWidth	  width  +  padding  +  border
+offsetHeight	height +  padding  +  border
+offsetLeft
+offsetTop
+offsetParent
+注意：没有offsetRight和offsetBottom
+************************************************************************************************
+
+卷曲
+scrollWidth    width  +  padding
+scrollHeight   当内部的内容溢出盒子的时候， 顶边框的底部，计算到内容的底部；如果内容没有溢出盒子，计算方式为盒子内部的真实高度（边框到边框）
+scrollLeft     这个scroll系列属性不是只读的
+scrollTop
+scroll()
+
+此函数可以获取卷曲的高度和卷曲的宽度
+function myScroll() {
+   return {
+      top: window.pageYOffset  || document.documentElement.scrollTop  || document.body.scrollTop  || 0,
+      left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+    };
+
+}
+
+滚动滚动条的时候触发事件
+box（window）.onscroll = function () {}
+************************************************************************************************
+
+可视
+clientWidth   获取的是元素内部的真实宽度 width  +  padding
+clientHeight  边框之间的高度
+clientLeft    相当于左边框的宽度  如果元素包含了滚动条，并且滚动条显示在元素的左侧。这时，clientLeft属性会包含滚动条的宽度17px
+clientTop     相当于顶边框的宽度
+client()
+
+此函数可以获取浏览器可视区域的宽高
+function myClient() {
+    return {
+        wid: window.innerWidth  || document.documentElement.clientWidth  || document.body.clientWidth  || 0,
+       heit: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
+    };
+}
+
+----------------------------------------------------------------------------------------------
+@offsetHeight和style.height的区别
+
+demo.style.height只能获取行内样式，如果样式写到了其他地方，甚至根本就没写，便无法获取
+style.height是字符串（而且带单位），offsetHeight是数值
+demo.style.height可以设置行内样式，offsetHeight是只读属性
+因此，一般用demo.offsetHeight来获取某元素的真实宽度/高度，用style.height来设置宽度/高度
+
+----------------------------------------------------------------------------------------------
+@offsetLeft和style.left的区别
+
+一、style.left只能获取行内样式
+二、offsetLeft只读，style.left可读可写
+三、offsetLeft是数值，style.left是字符串并且有单位px
+四、如果没有加定位，style.left获取的数值可能是无效的
+五、最大区别在于offsetLeft以border左上角为基准，style.left以margin左上角为基准
+
+----------------------------------------------------------------------------------------------
+@scrollHeight和scrollWidth
+
+标签内部实际内容的高度/宽度
+不计算边框，如果内容不超出盒子，值为盒子的宽高（不带边框）
+如果内容超出了盒子，就是从顶部或左部边框内侧一直到内容a的最外部分
+
+----------------------------------------------------------------------------------------------
+@scrollTop和scrollLeft
+
+被卷去部分的 顶部/左侧 到可视区域 顶部/左侧 的距离
+```
+
+解析：
+
+![offset大全](../images/css_002.png)
+
+![scroll大全](../images/css_003.png)
+
+![三个height比较](../images/css_004.png)
+
+![style.left和offsetLeft](../images/css_005.png)
+
+![client大全](../images/css_006.png)
+
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>75.</summary></b>
 
 答案：
 
