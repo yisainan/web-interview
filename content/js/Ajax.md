@@ -83,7 +83,7 @@ CORS:
 
 </details>
 
-<b><details><summary>5、创建ajax过程</summary></b>
+<b><details><summary>5、创建 ajax 过程</summary></b>
 
 答案：
 
@@ -224,6 +224,7 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 JSON (JavaScript Object Notation)
 
 优点:
+
 1. 数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小
 2. 易于解析这种语言, 客户端 javascript 可以简单的通过 eval()进行 JSON 数据的读取搜索
 3. 支持多种语言, 包括 ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, php, Python, Ruby 等语言服务器端语言, 便于服务器端的解析
@@ -232,7 +233,7 @@ JSON (JavaScript Object Notation)
 
 缺点:
 
-1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性 
+1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性
 2. JSON 格式目前在 Web Service 中推广还属于初级阶段 PS: 据说 Google 的 Ajax 是使用 JSON+模板 做的
 
 </details>
@@ -383,19 +384,49 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>25.Ajax实现的原理</summary></b>
+<b><details><summary>25.Ajax 实现的原理</summary></b>
 
-答案：
-
-</details>
-
-<b><details><summary>26.ajax如何实现，readyState的五种状态的含义？</summary></b>
-
-答案：
+答案：浏览器提供的 XMLHttpRequest 对象
 
 </details>
 
-<b><details><summary>27.restful的method解释？</summary></b>
+<b><details><summary>26.ajax 如何实现，readyState 的五种状态的含义？</summary></b>
+
+答案：
+
+- 0 － （未初始化）还没有调用 send()方法
+- 1 － （载入）已调用 send()方法，正在发送请求
+- 2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
+- 3 － （交互）正在解析响应内容
+- 4 － （完成）响应内容解析完成，可以在客户端调用了
+
+解析：
+
+(0)未初始化
+
+此阶段确认 XMLHttpRequest 对象是否创建，并为调用 open()方法进行未初始化作好准备。值为 0 表示对象已经存在，否则浏览器会报错－－对象不存在。
+
+(1)载入
+
+此阶段对 XMLHttpRequest 对象进行初始化，即调用 open()方法，根据参数(method,url,true)完成对象状态的设置。并调用 send()方法开始向服务端发送请求。值为 1 表示正在向服务端发送请求。
+
+(2)载入完成
+
+此阶段接收服务器端的响应数据。但获得的还只是服务端响应的原始数据，并不能直接在客户端使用。值为 2 表示已经接收完全部响应数据。并为下一阶段对数据解析作好准备。
+
+(3)交互
+
+此阶段解析接收到的服务器端响应数据。即根据服务器端响应头部返回的 MIME 类型把数据转换成能通过 responseBody、responseText 或 responseXML 属性存取的格式，为在客户端调用作好准备。状态 3 表示正在解析数据。
+
+(4)完成
+
+此阶段确认全部数据都已经解析为客户端可用的格式，解析已经完成。值为 4 表示数据解析完毕，可以通过 XMLHttpRequest 对象的相应属性取得数据。
+
+[参考](https://blog.csdn.net/u011565547/article/details/78979030)
+
+</details>
+
+<b><details><summary>27.restful 的 method 解释？</summary></b>
 
 答案：
 

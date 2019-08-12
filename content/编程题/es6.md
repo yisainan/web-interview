@@ -1,8 +1,10 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.箭头函数</summary></b>
+<b><details><summary>1.箭头函数问题</summary></b>
 
 答案：
+
+第 1 题
 
 在使用=>定义函数的时候，this 的指向是定义时所在的对象，而不是使用时所在的对象；
 
@@ -38,11 +40,9 @@ var animal = new Animal();
 animal.say("hi"); //animal says hi
 ```
 
-</details>
+第二题：
 
-<b><details><summary>2.箭头函数转成 ES5</summary></b>
-
-答案：箭头函数里面根本没有自己的 this，而是引用外层的 this
+箭头函数里面根本没有自己的 this，而是引用外层的 this
 
 ```js
 // ES6
@@ -62,9 +62,10 @@ function foo() {
 }
 ```
 
+
 </details>
 
-<b><details><summary>3.把以下代码使用两种方法，依次输出 0-9</summary></b>
+<b><details><summary>2.把以下代码使用两种方法，依次输出 0-9</summary></b>
 
 答案：
 
@@ -279,6 +280,7 @@ p的状态由p1、p2、p3决定，分为两种情况。
 <b><details><summary>9.Promise 编程题</summary></b>
 
 答案：
+
 第 1 题
 
 ```js

@@ -15,6 +15,7 @@
 <b><details><summary>🐭 HTML</summary></b>
 
 - [详情](./content/HTML.md)
+- [浏览器](./content/浏览器.md)
 
 </details>
 
@@ -30,6 +31,7 @@
 - [es6](./content/js/es6.md)
 - [jquery](./content/js/jquery.md)
 - [node](./content/js/node.md)
+- [Ajax](./content/js/Ajax.md)
 
 </details>
 
@@ -55,13 +57,7 @@
 
 </details>
 
-<b><details><summary>🐎 Ajax</summary></b>
-
-- [详情](./content/Ajax.md)
-
-</details>
-
-<b><details><summary>🐐 编程题</summary></b>
+<b><details><summary>🐎 编程题</summary></b>
 
 - [js 基础](./content/编程题/js.md)
 - [js 原型](./content/编程题/prototype.md)
@@ -70,31 +66,31 @@
 
 </details>
 
-<b><details><summary>🙊 网络问题</summary></b>
-
-- [详情](./content/网络问题.md)
-
-</details>
-
-<b><details><summary>🐔 框架/工程/项目</summary></b>
-
-- [详情](./content/框架工程项目.md)
-
-</details>
-
-<b><details><summary>🐶 兼容性问题</summary></b>
+<b><details><summary>🐐 兼容性问题</summary></b>
 
 - [详情](./content/兼容性问题.md)
 
 </details>
 
-<b><details><summary>🐷 大厂高频题</summary></b>
+<b><details><summary>🙊 大厂高频题</summary></b>
 
 - [详情](./content/大厂高频题.md)
 
 </details>
 
-<b><details><summary>❓ 非技术问题</summary></b>
+<b><details><summary>🐔 网络及安全防护</summary></b>
+
+- [详情](./content/网络及安全防护.md)
+
+</details>
+
+<b><details><summary>🐶 框架/工程/项目</summary></b>
+
+- [详情](./content/框架工程项目.md)
+
+</details>
+
+<b><details><summary>🐷 非技术问题</summary></b>
 
 - [常问的非技术问题](./content/非技术问题/非技术问题.md)
 - [面试技巧及注意事项](./content/非技术问题/面试技巧及注意事项.md)
@@ -108,7 +104,7 @@
 - CSDN-[手掌日月摘星辰](https://blog.csdn.net/qq_34543438/article/category/6943844)
 - 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
 - Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
-- 简书-[E刘大仁](https://www.jianshu.com/p/5285bdc834c6)
+- 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
 
 </details>
 

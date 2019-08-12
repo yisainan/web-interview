@@ -204,9 +204,11 @@ console.log(a.b); //打印 你取我的值
 
 </details>
 
-<b><details><summary>10、递归的使用</summary></b>
+<b><details><summary>10、递归组件的使用</summary></b>
 
-答案：
+答案：组件是可以在自己的模板中调用自身的，不过他们只能通过name选项来做这件事
+
+解析：
 
 </details>
 
