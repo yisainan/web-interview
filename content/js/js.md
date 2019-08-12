@@ -3987,21 +3987,24 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>110.IE与火狐的事件机制有什么区别？如何阻止冒泡</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>111.在js中哪些会被隐式转换为false</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>112.列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个？</summary></b>
 
 答案：
+
+对象：Window，document，location，screen，history，navigator。
+方法：Alert（），confirm（），prompt（），open（），close（）。
 
 </details>
 

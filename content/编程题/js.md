@@ -1349,19 +1349,50 @@ console.log(i);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>48.告诉我答案是多少</summary></b>
+
+```js
+(function(x){
+  delete x;
+  alert(x)
+})(1+5)
+```
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>49.写一个通用的事件侦听器函数</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>50.谈一下JS中的递归函数，并且用递归简单实现阶乘</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>51.请用正则表达式写一个简单的邮箱验证</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>52.完成foo()函数的内容，要求能够弹出对话框提示当前选中的是第几个单选框</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>53.完成函数showImg()，要求能够动态根据下拉列表的选项变化，更新图片的显示</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>54.截取字符串abcdefg中的efg</summary></b>
 
 答案：
 
