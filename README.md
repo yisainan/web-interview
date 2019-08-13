@@ -100,7 +100,7 @@
 
 <b><details><summary>📝 简历模板</summary></b>
 
-- [详情](./content/简历模板/README.md)
+- [详情](./content/简历模板)
 
 </details>
 
