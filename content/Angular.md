@@ -59,11 +59,11 @@ step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controll
 
 答案：
 
-* Service
-* events,指定绑定的事件
-* 使用 \$rootScope
-* controller 之间直接使用$parent, $\$childHead 等
-* directive 指定属性进行数据绑定
+- Service
+- events,指定绑定的事件
+- 使用 \$rootScope
+- controller 之间直接使用$parent, $\$childHead 等
+- directive 指定属性进行数据绑定
 
 </details>
 
@@ -262,5 +262,56 @@ ng-minlength 最小长度
 <b><details><summary>24.fliter 是什么你了解的有多少？实现一个自定义 fliter</summary></b>
 
 答案：
+
+date（日期）
+
+currency（货币）
+
+limitTo（限制数组或字符串长度）
+
+orderBy（排序）
+
+lowercase（小写）
+
+uppercase（大写）
+
+number（格式化数字，加上千位分隔符，并接收参数限定小数点位数）
+
+filter（处理一个数组，过滤出含有某个子串的元素）
+
+json（格式化 json 对象）
+
+filter 有两种使用方法，
+
+一种是直接在页面里：
+
+```html
+<p>{{now | date : ‘yyyy-MM-dd’}}</p>
+```
+
+另一种是在 js 里面用：
+
+\$filter('过滤器名称')(需要过滤的对象, 参数 1, 参数 2,...)
+
+\$filter('date')(now, 'yyyy-MM-dd hh:mm:ss’);
+
+自定义一个去重数组的
+
+app.filter('unique', function(){
+return function(arr){
+var n = [];
+var obj = {};
+
+        for(var i = 0;i<arr.length;i++){
+           if(!obj[arr[i]]){
+            n.push(arr[i])
+            obj[arr[i]] = 1;
+           }
+        }
+
+       return n;
+    }
+
+})
 
 </details>

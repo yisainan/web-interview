@@ -98,6 +98,12 @@
 
 </details>
 
+<b><details><summary>📝 简历模板</summary></b>
+
+- [详情](./content/简历模板/README.md)
+
+</details>
+
 <b><details><summary>👬 贡献者</summary></b>
 
 按照本仓库收集时间排序，如有侵权请联系删除
