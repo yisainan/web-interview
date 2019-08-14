@@ -42,7 +42,7 @@
 
 </details>
 
-<b><details><summary>8.jQuery 与 jQuery UI、jQuery Mobile区别？</summary></b>
+<b><details><summary>8.jQuery 与 jQuery UI、jQuery Mobile 区别？</summary></b>
 
 答案：
 
@@ -60,7 +60,7 @@
 
 </details>
 
-<b><details><summary>11.你觉得jQuery或zepto源码有哪些写的好的地方</summary></b>
+<b><details><summary>11.你觉得 jQuery 或 zepto 源码有哪些写的好的地方</summary></b>
 
 答案：
 
@@ -90,7 +90,7 @@
 
 </details>
 
-<b><details><summary>16.针对 jQuery的优化方法？</summary></b>
+<b><details><summary>16.针对 jQuery 的优化方法？</summary></b>
 
 答案：
 
@@ -108,7 +108,30 @@
 
 </details>
 
-<b><details><summary>19.jQuery对象的特点</summary></b>
+<b><details><summary>19.jQuery 对象的特点</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>20.Zepto 的点透问题如何解决？</summary></b>
+
+答案：点透主要是由于两个 div 重合，例如：一个 div 调用 show()，一个 div 调用 hide()；这个时候当点击上面的 div 的时候就会影响到下面的那个 div；
+解决办法主要有 2 种：
+
+1. github 上有一个叫做 fastclick 的库，它也能规避移动设备上 click 事件的延迟响应，https://github.com/ftlabs/fastclick
+   将它用 script 标签引入页面（该库支持 AMD，于是你也可以按照 AMD 规范，用诸如 require.js 的模块加载器引入），并且在 dom ready 时初始化在 body 上，
+2. 根据分析，如果不引入其它类库，也不想自己按照上述 fastclcik 的思路再开发一套东西，需要 1.一个优先于下面的“divClickUnder”捕获的事件；2.并且通过这个事件阻止掉默认行为（下面的“divClickUnder”对 click 事件的捕获，在 ios 的 safari，click 的捕获被认为和滚屏、点击输入框弹起键盘等一样，是一种浏览器默认行为，即可以被 event.preventDefault()阻止的行为）。
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 

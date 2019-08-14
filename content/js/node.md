@@ -27,6 +27,13 @@
 
 答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
 
+- 实时应用：如在线聊天，实时通知推送等等（如 socket.io）
+- 分布式应用：通过高效的并行 I/O 使用已有的数据
+- 工具类应用：海量的工具，小到前端压缩部署（如 grunt），大到桌面图形界面应用程序
+- 游戏类应用：游戏领域对实时和并发有很高的要求（如网易的 pomelo 框架）
+- 利用稳定接口提升 Web 渲染能力
+- 前后端编程语言环境统一：前端开发人员可以非常快速地切入到服务器端的开发（如著名的纯 Javascript 全栈式 MEAN 架构）
+
 </details>
 
 <b><details><summary>4.如何用 NodeJS 搭建中间层？</summary></b>
@@ -109,7 +116,7 @@ fs.readFile(filePath, function(err, data) {
 <b><details><summary>12.什么是 stub？说出他的用途？举个使用场景？</summary></b>
 
 答案：Stubs 是模拟模块或组件行为的程序。
-Stubs 提供已知的答案来调用函数，另外你还可以断言哪个stubs 被调用
+Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stubs 被调用
 
 </details>
 
@@ -117,19 +124,20 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个stubs
 
 答案：测试金字塔意思是在写测试时应该编写的底层但愿测试要多于高级的端到端测试。
 对于 HTTP APIs，应该归结为：
-* 对你的模型多很多单元测试
-* 在你的模型与其他交互时更少的集成测试
-* 更少的验收测试，在 HTTP 端
+
+- 对你的模型多很多单元测试
+- 在你的模型与其他交互时更少的集成测试
+- 更少的验收测试，在 HTTP 端
 
 </details>
 
-<b><details><summary>14.你最熟悉的Node框架是什么？为什么？</summary></b>
+<b><details><summary>14.你最熟悉的 Node 框架是什么？为什么？</summary></b>
 
 答案：[参考](http://ourjs.com/detail/15%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84node-js%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6)
 
 </details>
 
-<b><details><summary>15.你最喜欢的HTTP框架，并说明原因？</summary></b>
+<b><details><summary>15.你最喜欢的 HTTP 框架，并说明原因？</summary></b>
 
 答案：LiteHttp 好多的优点
 单线程 灵活的架构 轻量级 多文件上传 自动重定向 禁用一种或多种网络
@@ -138,27 +146,57 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个stubs
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>16. 对 Node 的优点和缺点提出了自己的看法：</summary></b>
+
+答案：
+
+- （优点）因为 Node 是基于事件驱动和无阻塞的，所以非常适合处理并发请求，
+  因此构建在 Node 上的代理服务器相比其他技术实现（如 Ruby）的服务器表现要好得多。
+  此外，与 Node 代理服务器交互的客户端代码是由 javascript 语言编写的，
+  因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。
+
+- （缺点）Node 是一个相对新的开源项目，所以不太稳定，它总是一直在变，
+  而且缺少足够多的第三方库支持。看起来，就像是 Ruby/Rails 当年的样子。
+
+</details>
+
+<b><details><summary>17.需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？</summary></b>
+
+答案：至少给出自己的思路（url-hash,可以使用已有的一些框架 history.js 等）
+
+</details>
+
+<b><details><summary>18.(如果会用 node)知道 route, middleware, cluster, nodemon, pm2, server-side rendering 么?</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>19.解释一下 Backbone 的 MVC 实现方式？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>20.什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>21.对 Node 的优点和缺点提出了自己的看法？</summary></b>
 
 答案：
+
+优点：
+
+1. 因为 Node 是基于事件驱动和无阻塞的，所以非常适合处理并发请求，因此构建在 Node 上的代理服务器相比其他技术实现（如 Ruby）的服务器表现要好得多。
+2. 与 Node 代理服务器交互的客户端代码是由 javascript 语言编写的，因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。
+
+缺点：
+
+1. Node 是一个相对新的开源项目，所以不太稳定，它总是一直在变。
+2. 缺少足够多的第三方库支持。看起来，就像是 Ruby/Rails 当年的样子（第三方库现在已经很丰富了，所以这个缺点可以说不存在了）。
 
 </details>
 

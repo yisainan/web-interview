@@ -2083,6 +2083,14 @@ split()：用于把一个字符串通过指定的分隔符进行分隔成数组.
 
 答案：instanceof
 
+解析：
+
+```js
+if (a instanceof Person) {
+  alert("yes");
+}
+```
+
 </details>
 
 <b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
@@ -3881,13 +3889,37 @@ document.body.appendChild(df);
 
 <b><details><summary>92.说说你对作用域链的理解</summary></b>
 
-答案：作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。
+答案：作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到 window 对象即被终止，作用域链向下访问变量是不被允许的。
 
 </details>
 
-<b><details><summary>93.JavaScript原型，原型链 ? 有什么特点？</summary></b>
+<b><details><summary>93.JavaScript 原型，原型链 ? 有什么特点？</summary></b>
 
 答案：
+
+- 原型对象也是普通的对象，是对象一个自带隐式的`__proto__`属性，原型也有可能有自己的原型，如果一个原型对象的原型不为 null 的话，我们就称之为原型链。
+- 原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链。
+- JavaScript 的数据对象有那些属性值？
+  　　 writable：这个属性的值是否可以改。
+  　　 configurable：这个属性的配置是否可以删除，修改。
+  　　 enumerable：这个属性是否能在 for…in 循环中遍历出来或在 Object.keys 中列举出来。
+  　　 value：属性值。
+- 当我们需要一个属性的时，Javascript 引擎会先看当前对象中是否有这个属性， 如果没有的话，就会查找他的 Prototype 对象是否有这个属性。
+
+```js
+function clone(proto) {
+  function Dummy() {}
+  Dummy.prototype = proto;
+  Dummy.prototype.constructor = Dummy;
+  return new Dummy(); //等价于Object.create(Person);
+}
+function object(old) {
+  function F() {}
+  F.prototype = old;
+  return new F();
+}
+var newObj = object(oldObject);
+```
 
 </details>
 
@@ -3897,49 +3929,49 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary>95.offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别</summary></b>
+<b><details><summary>95.offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>96.谈谈你对AMD、CMD的理解</summary></b>
+<b><details><summary>96.谈谈你对 AMD、CMD 的理解</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>97.web开发中会话跟踪的方法有哪些</summary></b>
+<b><details><summary>97.web 开发中会话跟踪的方法有哪些</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>98.说几条写JavaScript的基本规范？</summary></b>
+<b><details><summary>98.说几条写 JavaScript 的基本规范？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>99.JavaScript有几种类型的值？你能画一下他们的内存图吗？</summary></b>
+<b><details><summary>99.JavaScript 有几种类型的值？你能画一下他们的内存图吗？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>100.eval是做什么的？</summary></b>
+<b><details><summary>100.eval 是做什么的？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>101.js延迟加载的方式有哪些？</summary></b>
+<b><details><summary>101.js 延迟加载的方式有哪些？</summary></b>
 
-答案：
+答案：defer 和 async、动态创建 DOM 方式（用得最多）、按需异步载入 js
 
 </details>
 
-<b><details><summary>102.attribute和property的区别是什么？</summary></b>
+<b><details><summary>102.attribute 和 property 的区别是什么？</summary></b>
 
 答案：
 
@@ -3957,13 +3989,13 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary>105.对原生Javascript了解程度</summary></b>
+<b><details><summary>105.对原生 Javascript 了解程度</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>106.Js动画与CSS动画区别及相应实现</summary></b>
+<b><details><summary>106.Js 动画与 CSS 动画区别及相应实现</summary></b>
 
 答案：
 
@@ -3975,31 +4007,35 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary>108.prototype和__proto__的关系是什么？</summary></b>
+<b><details><summary>108.prototype 和**proto**的关系是什么？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>109.UIWebView和JavaScript之间是怎么交互的?</summary></b>
+<b><details><summary>109.UIWebView 和 JavaScript 之间是怎么交互的?</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>110.IE与火狐的事件机制有什么区别？如何阻止冒泡</summary></b>
+<b><details><summary>110.IE 与火狐的事件机制有什么区别？如何阻止冒泡</summary></b>
+
+答案：
+
+1.  我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。
+2.  事件处理机制：IE 是事件冒泡、火狐是 事件捕获；
+3.  ev.stopPropagation();
+
+</details>
+
+<b><details><summary>111.在 js 中哪些会被隐式转换为 false</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>111.在js中哪些会被隐式转换为false</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>112.列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个？</summary></b>
+<b><details><summary>112.列举浏览器对象模型 BOM 里常用的至少 4 个对象，并列举 window 对象的常用方法至少 5 个？</summary></b>
 
 答案：
 
@@ -4008,14 +4044,34 @@ document.body.appendChild(df);
 
 </details>
 
-<b><details><summary>113.class.forname的作用?为什么要用?</summary></b>
+<b><details><summary>113.class.forname 的作用?为什么要用?</summary></b>
 
 答案：
+
 ```
 1、获取Class对象的方式：类名.class、对象.getClass()、Class.forName(“类名”);
 2、通过Class对象自审
 3、动态调用方法
 ```
+
+</details>
+
+<b><details><summary>114.外部JS文件出现中文字符，会出现什么问题，怎么解决？</summary></b>
+
+答案：会出现乱码，加charset=”GB2312”;
+
+</details>
+
+<b><details><summary>115.定时器setInterval有一个有名函数fn1，setInterval（fn1,500）与setInterval（fn1(),500）有什么区别？</summary></b>
+
+答案：第一个是重复执行每500毫秒执行一次，后面一个只执行一次。
+
+</details>
+
+<b><details><summary>116.在JS中有哪些会被隐式转换为false</summary></b>
+
+答案：Undefined、null、关键字false、NaN、零、空字符串
+
 </details>
 
 <b><details><summary></summary></b>
