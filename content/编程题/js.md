@@ -1450,7 +1450,7 @@ markyun.Event = {
 
 <b><details><summary>50.谈一下JS中的递归函数，并且用递归简单实现阶乘</summary></b>
 
-答案：
+答案：递归即是程序在执行过程中不断调用自身的编程技巧，当然也必须要有一个明确的结束条件，不然就会陷入死循环。
 
 </details>
 
@@ -1481,6 +1481,12 @@ markyun.Event = {
 <b><details><summary>55.JSON 的了解</summary></b>
 
 答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
 
 </details>
 

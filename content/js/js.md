@@ -4056,33 +4056,73 @@ var newObj = object(oldObject);
 
 </details>
 
-<b><details><summary>114.外部JS文件出现中文字符，会出现什么问题，怎么解决？</summary></b>
+<b><details><summary>114.外部 JS 文件出现中文字符，会出现什么问题，怎么解决？</summary></b>
 
-答案：会出现乱码，加charset=”GB2312”;
-
-</details>
-
-<b><details><summary>115.定时器setInterval有一个有名函数fn1，setInterval（fn1,500）与setInterval（fn1(),500）有什么区别？</summary></b>
-
-答案：第一个是重复执行每500毫秒执行一次，后面一个只执行一次。
+答案：会出现乱码，加 charset=”GB2312”;
 
 </details>
 
-<b><details><summary>116.在JS中有哪些会被隐式转换为false</summary></b>
+<b><details><summary>115.定时器 setInterval 有一个有名函数 fn1，setInterval（fn1,500）与 setInterval（fn1(),500）有什么区别？</summary></b>
 
-答案：Undefined、null、关键字false、NaN、零、空字符串
+答案：第一个是重复执行每 500 毫秒执行一次，后面一个只执行一次。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>116.在 JS 中有哪些会被隐式转换为 false</summary></b>
+
+答案：Undefined、null、关键字 false、NaN、零、空字符串
+
+</details>
+
+<b><details><summary>117.你用过 require.js 吗？它有什么特性？</summary></b>
 
 答案：
 
+（1）实现 js 文件的异步加载，避免网页失去响应；
+（2）管理模块之间的依赖性，便于代码的编写和维护。
+
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>118.如何阻止事件冒泡和默认事件？</summary></b>
 
 答案：
+
+阻止浏览器的默认行为
+window.event?window.event.returnValue=false:e.preventDefault();
+
+停止事件冒泡
+window.event?window.event.cancelBubble=true:e.stopPropagation();
+原生 JavaScript 中，return false;只阻止默认行为，不阻止冒泡，jQuery 中的 return false;既阻止默认行为，又阻止冒泡
+
+</details>
+
+<b><details><summary>119.分别阐述 split(),slice(),splice(),join()？</summary></b>
+
+答案：
+
+- join()用于把数组中的所有元素拼接起来放入一个字符串。所带的参数为分割字符串的分隔符，默认是以逗号分开。归属于 Array
+- split()即把字符串分离开，以数组方式存储。归属于 Stringstring
+- slice() 方法可从已有的数组中返回选定的元素。该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()
+- splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。返回的是含有被删除的元素的数组。
+
+</details>
+
+<b><details><summary>120.事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</summary></b>
+
+答案：
+
+1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为
+2. 事件处理机制：IE是事件冒泡、firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件
+3. ev.stopPropagation();
+注意旧ie的方法：ev.cancelBubble = true;
+
+</details>
+
+<b><details><summary>121.eval是做什么的？</summary></b>
+
+答案：
+1. 它的功能是把对应的字符串解析成JS代码并运行
+2. 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）
 
 </details>
 

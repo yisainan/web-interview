@@ -1201,9 +1201,15 @@ demo.style.height可以设置行内样式，offsetHeight是只读属性
 
 </details>
 
-<b><details><summary>75.</summary></b>
+<b><details><summary>75.简述一下 Sass、Less，且说明区别？</summary></b>
 
-答案：
+答案：他们是动态的样式语言，是 CSS 预处理器,CSS 上的一种抽象层。他们是一种特殊的语法/语言而编译成 CSS。
+
+变量符不一样，less 是@，而 Sass 是\$;
+
+Sass 支持条件语句，可以使用 if{}else{},for{}循环等等。而 Less 不支持;
+
+Sass 是基于 Ruby 的，是在服务端处理的，而 Less 是需要引入 less.js 来处理 Less 代码输出 Css 到浏览器
 
 </details>
 
