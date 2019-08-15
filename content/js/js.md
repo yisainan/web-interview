@@ -4126,6 +4126,159 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 
 </details>
 
+<b><details><summary>123.JS 怎么实现一个类。怎么实例化这个类</summary></b>
+
+答案：严格来讲js中并没有类的概念，不过js中的函数可以作为构造函数来使用，通过new来实例化，其实函数本身也是一个对象。
+
+</details>
+
+<b><details><summary>124.如何编写高性能的Javascript？</summary></b>
+
+答案：
+
+* 使用 DocumentFragment 优化多次 append
+* 通过模板元素 clone ，替代 createElement
+* 使用一次 innerHTML 赋值代替构建 dom 元素
+* 使用 firstChild 和 nextSibling 代替 childNodes 遍历 dom 元素 
+* 使用 Array 做为 StringBuffer ，代替字符串拼接的操作 
+* 将循环控制量保存到局部变量
+* 顺序无关的遍历时，用 while 替代 for
+* 将条件分支，按可能性顺序从高到低排列
+* 在同一条件子的多（ >2 ）条件分支时，使用 switch 优于 if
+* 使用三目运算符替代条件分支 
+* 需要不断执行的时候，优先考虑使用 setInterval
+
+</details>
+
+<b><details><summary>125.数组和对象有哪些原生方法，列举一下？</summary></b>
+
+答案：
+
+* Array.concat( ) 连接数组 
+* Array.join( ) 将数组元素连接起来以构建一个字符串 
+* Array.length 数组的大小 
+* Array.pop( ) 删除并返回数组的最后一个元素 
+* Array.push( ) 给数组添加元素 
+* Array.reverse( ) 颠倒数组中元素的顺序 
+* Array.shift( ) 将元素移出数组 
+* Array.slice( ) 返回数组的一部分 
+* Array.sort( ) 对数组元素进行排序 
+* Array.splice( ) 插入、删除或替换数组的元素 
+* Array.toLocaleString( ) 把数组转换成局部字符串 
+* Array.toString( ) 将数组转换成一个字符串 
+* Array.unshift( ) 在数组头部插入一个元素
+
+* Object.hasOwnProperty( ) 检查属性是否被继承 
+* Object.isPrototypeOf( ) 一个对象是否是另一个对象的原型 
+* Object.propertyIsEnumerable( ) 是否可以通过for/in循环看到属性 
+* Object.toLocaleString( ) 返回对象的本地字符串表示 
+* Object.toString( ) 定义一个对象的字符串表示 
+* Object.valueOf( ) 指定对象的原始值
+
+</details>
+
+<b><details><summary>126.documen.write和 innerHTML的区别?</summary></b>
+
+答案：document.write是重写整个document, 写入内容是字符串的html
+innerHTML是HTMLElement的属性，是一个元素的内部html内容
+
+</details>
+
+<b><details><summary>127.让你自己设计实现一个requireJS，你会怎么做？</summary></b>
+
+答案：核心是实现js的加载模块，维护js的依赖关系，控制好文件加载的先后顺序
+
+</details>
+
+<b><details><summary>128.requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）</summary></b>
+
+答案：核心是js的加载模块，通过正则匹配模块以及模块的依赖关系，保证文件加载的先后顺序，根据文件的路径对加载过的文件做了缓存
+
+</details>
+
+<b><details><summary>130.Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
+
+答案：HasOwnProperty
+
+</details>
+
+<b><details><summary>131.用原生JavaScript的实现过什么功能吗？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>132.javascript 代码中的"use strict";是什么意思 ? 使用它区别是什么？</summary></b>
+
+答案：意思是使用严格模式，使用严格模式，一些不规范的语法将不再支持
+
+</details>
+
+<b><details><summary>133.简述创建函数的几种方式</summary></b>
+
+答案：
+
+```
+第一种（函数声明）： 
+function sum1(num1,num2){
+   return num1+num2;
+}
+第二种（函数表达式）：
+var sum2 = function(num1,num2){
+   return num1+num2;
+}
+第三种（函数对象方式）：
+var sum3 = new Function("num1","num2","return num1+num2");
+```
+
+</details>
+
+<b><details><summary>134.window.location.search() 返回的是什么？</summary></b>
+
+答案：查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用javascript来获得相信应的参数值
+返回值：?ver=1.0&id=timlq 也就是问号后面的！
+
+</details>
+
+<b><details><summary>135.window.location.hash 返回的是什么？</summary></b>
+
+答案：锚点 ， 返回值：#love ；
+
+</details>
+
+<b><details><summary>136.window.location.reload() 作用？</summary></b>
+
+答案：刷新当前页面
+
+</details>
+
+<b><details><summary>137.为什么不能定义1px左右的div容器？</summary></b>
+
+答案：
+IE6下这个问题是因为默认的行高造成的，解决的方法也有很多，例如：
+overflow:hidden | zoom:0.08 | line-height:1px
+
+</details>
+
+<b><details><summary>138.BOM对象有哪些，列举window对象？</summary></b>
+
+答案：
+```
+ 1、window对象 ，是JS的最顶层对象，其他的BOM对象都是window对象的属性；
+ 2、document对象，文档对象；
+ 3、location对象，浏览器当前URL信息；
+ 4、navigator对象，浏览器本身信息；
+ 5、screen对象，客户端屏幕信息；
+ 6、history对象，浏览器访问历史信息；
+```
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

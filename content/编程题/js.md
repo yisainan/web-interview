@@ -1352,10 +1352,10 @@ console.log(i);
 <b><details><summary>48.告诉我答案是多少</summary></b>
 
 ```js
-(function(x){
+(function(x) {
   delete x;
-  alert(x)
-})(1+5)
+  alert(x);
+})(1 + 5);
 ```
 
 答案：
@@ -1369,86 +1369,86 @@ console.log(i);
 ```js
 // event(事件)工具集，来源：https://github.com/markyun
 markyun.Event = {
-    // 页面加载完成后
-    readyEvent : function(fn) {
-        if (fn==null) {
-            fn=document;
-        }
-        var oldonload = window.onload;
-        if (typeof window.onload != 'function') {
-            window.onload = fn;
-        } else {
-            window.onload = function() {
-                oldonload();
-                fn();
-            };
-        }
-    },
-    // 视能力分别使用dom0||dom2||IE方式 来绑定事件
-    // 参数： 操作的元素,事件名称 ,事件处理程序
-    addEvent : function(element, type, handler) {
-        if (element.addEventListener) {
-            //事件类型、需要执行的函数、是否捕捉
-            element.addEventListener(type, handler, false);
-        } else if (element.attachEvent) {
-            element.attachEvent('on' + type, function() {
-                handler.call(element);
-            });
-        } else {
-            element['on' + type] = handler;
-        }
-    },
-    // 移除事件
-    removeEvent : function(element, type, handler) {
-        if (element.removeEnentListener) {
-            element.removeEnentListener(type, handler, false);
-        } else if (element.datachEvent) {
-            element.detachEvent('on' + type, handler);
-        } else {
-            element['on' + type] = null;
-        }
-    }, 
-    // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
-    stopPropagation : function(ev) {
-        if (ev.stopPropagation) {
-            ev.stopPropagation();
-        } else {
-            ev.cancelBubble = true;
-        }
-    },
-    // 取消事件的默认行为
-    preventDefault : function(event) {
-        if (event.preventDefault) {
-            event.preventDefault();
-        } else {
-            event.returnValue = false;
-        }
-    },
-    // 获取事件目标
-    getTarget : function(event) {
-        return event.target || event.srcElement;
-    },
-    // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
-    getEvent : function(e) {
-        var ev = e || window.event;
-        if (!ev) {
-            var c = this.getEvent.caller;
-            while (c) {
-                ev = c.arguments[0];
-                if (ev && Event == ev.constructor) {
-                    break;
-                }
-                c = c.caller;
-            }
-        }
-        return ev;
+  // 页面加载完成后
+  readyEvent: function(fn) {
+    if (fn == null) {
+      fn = document;
     }
-}; 
+    var oldonload = window.onload;
+    if (typeof window.onload != "function") {
+      window.onload = fn;
+    } else {
+      window.onload = function() {
+        oldonload();
+        fn();
+      };
+    }
+  },
+  // 视能力分别使用dom0||dom2||IE方式 来绑定事件
+  // 参数： 操作的元素,事件名称 ,事件处理程序
+  addEvent: function(element, type, handler) {
+    if (element.addEventListener) {
+      //事件类型、需要执行的函数、是否捕捉
+      element.addEventListener(type, handler, false);
+    } else if (element.attachEvent) {
+      element.attachEvent("on" + type, function() {
+        handler.call(element);
+      });
+    } else {
+      element["on" + type] = handler;
+    }
+  },
+  // 移除事件
+  removeEvent: function(element, type, handler) {
+    if (element.removeEnentListener) {
+      element.removeEnentListener(type, handler, false);
+    } else if (element.datachEvent) {
+      element.detachEvent("on" + type, handler);
+    } else {
+      element["on" + type] = null;
+    }
+  },
+  // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
+  stopPropagation: function(ev) {
+    if (ev.stopPropagation) {
+      ev.stopPropagation();
+    } else {
+      ev.cancelBubble = true;
+    }
+  },
+  // 取消事件的默认行为
+  preventDefault: function(event) {
+    if (event.preventDefault) {
+      event.preventDefault();
+    } else {
+      event.returnValue = false;
+    }
+  },
+  // 获取事件目标
+  getTarget: function(event) {
+    return event.target || event.srcElement;
+  },
+  // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
+  getEvent: function(e) {
+    var ev = e || window.event;
+    if (!ev) {
+      var c = this.getEvent.caller;
+      while (c) {
+        ev = c.arguments[0];
+        if (ev && Event == ev.constructor) {
+          break;
+        }
+        c = c.caller;
+      }
+    }
+    return ev;
+  }
+};
 ```
 
 </details>
 
-<b><details><summary>50.谈一下JS中的递归函数，并且用递归简单实现阶乘</summary></b>
+<b><details><summary>50.谈一下 JS 中的递归函数，并且用递归简单实现阶乘</summary></b>
 
 答案：递归即是程序在执行过程中不断调用自身的编程技巧，当然也必须要有一个明确的结束条件，不然就会陷入死循环。
 
@@ -1460,19 +1460,19 @@ markyun.Event = {
 
 </details>
 
-<b><details><summary>52.完成foo()函数的内容，要求能够弹出对话框提示当前选中的是第几个单选框</summary></b>
+<b><details><summary>52.完成 foo()函数的内容，要求能够弹出对话框提示当前选中的是第几个单选框</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>53.完成函数showImg()，要求能够动态根据下拉列表的选项变化，更新图片的显示</summary></b>
+<b><details><summary>53.完成函数 showImg()，要求能够动态根据下拉列表的选项变化，更新图片的显示</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>54.截取字符串abcdefg中的efg</summary></b>
+<b><details><summary>54.截取字符串 abcdefg 中的 efg</summary></b>
 
 答案：
 
@@ -1480,7 +1480,553 @@ markyun.Event = {
 
 <b><details><summary>55.JSON 的了解</summary></b>
 
-答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小
+
+</details>
+
+<b><details><summary>56.判断一个字符串中出现次数最多的字符，统计这个次数</summary></b>
+
+答案：
+
+```js
+var str = "asdfssaaasasasasaa";
+var json = {};
+for (var i = 0; i < str.length; i++) {
+  if (!json[str.charAt(i)]) {
+    json[str.charAt(i)] = 1;
+  } else {
+    json[str.charAt(i)]++;
+  }
+}
+var iMax = 0;
+var iIndex = "";
+for (var i in json) {
+  if (json[i] > iMax) {
+    iMax = json[i];
+    iIndex = i;
+  }
+}
+alert("出现次数最多的是:" + iIndex + "出现" + iMax + "次");
+```
+
+</details>
+
+<b><details><summary>57.写一个获取非行间样式的函数</summary></b>
+
+答案：
+
+```js
+function getStyle(obj, attr, value) {
+  if (!value) {
+    if (obj.currentStyle) {
+      return obj.currentStyle(attr);
+    } else {
+      obj.getComputedStyle(attr, false);
+    }
+  } else {
+    obj.style[attr] = value;
+  }
+}
+```
+
+</details>
+
+<b><details><summary>58.字符串反转，如将 '12345678' 变成 '87654321'</summary></b>
+
+答案：
+
+```js
+//思路：先将字符串转换为数组 split()，利用数组的反序函数 reverse()颠倒数组，再利用 jion() 转换为字符串
+var str = "12345678";
+str = str
+  .split("")
+  .reverse()
+  .join("");
+```
+
+</details>
+
+<b><details><summary>59.将数字 12345678 转化成 RMB 形式 如： 12,345,678</summary></b>
+
+答案：
+
+```js
+//个人方法；
+//思路：先将数字转为字符， str= str + '' ;
+//利用反转函数，每三位字符加一个 ','最后一位不加； re()是自定义的反转函数，最后再反转回去！
+for (var i = 1; i <= re(str).length; i++) {
+  tmp += re(str)[i - 1];
+  if (i % 3 == 0 && i != re(str).length) {
+    tmp += ",";
+  }
+}
+```
+
+</details>
+
+<b><details><summary>60.生成 5 个不同的随机数</summary></b>
+
+答案：
+
+```js
+//思路：5个不同的数，每生成一次就和前面的所有数字相比较，如果有相同的，则放弃当前生成的数字！
+var num1 = [];
+for (var i = 0; i < 5; i++) {
+  num1[i] = Math.floor(Math.random() * 10) + 1; //范围是 [1, 10]
+  for (var j = 0; j < i; j++) {
+    if (num1[i] == num1[j]) {
+      i--;
+    }
+  }
+}
+```
+
+</details>
+
+<b><details><summary>61.去掉数组中重复的数字</summary></b>
+
+答案：
+
+方法一
+
+```js
+//思路：每遍历一次就和之前的所有做比较，不相等则放入新的数组中！
+//这里用的原型 个人做法；
+Array.prototype.unique = function() {
+  var len = this.length,
+    newArr = [],
+    flag = 1;
+  for (var i = 0; i < len; i++, flag = 1) {
+    for (var j = 0; j < i; j++) {
+      if (this[i] == this[j]) {
+        flag = 0; //找到相同的数字后，不执行添加数据
+      }
+    }
+    flag ? newArr.push(this[i]) : "";
+  }
+  return newArr;
+};
+```
+
+方法二
+
+```js
+(function(arr) {
+  var len = arr.length,
+    newArr = [],
+    flag;
+  for (var i = 0; i < len; i += 1, flag = 1) {
+    for (var j = 0; j < i; j++) {
+      if (arr[i] == arr[j]) {
+        flag = 0;
+      }
+    }
+    flag ? newArr.push(arr[i]) : "";
+  }
+  alert(newArr);
+})([1, 1, 22, 3, 4, 55, 66]);
+```
+
+</details>
+
+<b><details><summary>62.阶乘函数</summary></b>
+
+答案：
+
+```js
+//原型方法
+Number.prototype.N = function() {
+  var re = 1;
+  for (var i = 1; i <= this; i++) {
+    re *= i;
+  }
+  return re;
+};
+var num = 5;
+alert(num.N());
+```
+
+</details>
+
+<b><details><summary>63.看题做答</summary></b>
+
+答案：
+
+```js
+	function f1(){
+    var tmp = 1;
+    this.x = 3;
+    console.log(tmp);    //A
+    console.log(this.x)；     //B
+}
+var obj = new f1(); //1
+console.log(obj.x)     //2
+console.log(f1());        //3
+```
+
+解析：   
+     这道题让我重新认识了对象和函数，首先看代码（1），这里实例话化了 f1 这个类。相当于执行了 f1 函数。所以这个时候 A 会输出 1， 而 B 这个时候的 this 代表的是 实例化的当前对象 obj B 输出 3.。 代码（2）毋庸置疑会输出 3， 重点 代码（3）首先这里将不再是一个类，它只是一个函数。那么 A 输出 1， B 呢？这里的 this 代表的其实就是 window 对象，那么 this.x 就是一个全局变量 相当于在外部 的一个全局变量。所以 B 输出 3。最后代码由于 f 没有返回值那么一个函数如果没返回值的话，将会返回 underfined ，所以答案就是 ： 1， 3， 3， 1， 3， underfined 。
+
+</details>
+
+<b><details><summary>64.下面输出多少？</summary></b>
+
+答案：
+
+```js
+var o1 = new Object();
+var o2 = o1;
+o2.name = "CSSer";
+console.log(o1.name);
+```
+
+解析：
+
+如果不看答案，你回答真确了的话，那么说明你对 javascript 的数据类型了解的还是比较清楚了。js 中有两种数据类型，分别是：基本数据类型和引用数据类型（object Array）。对于保存基本类型值的变量，变量是按值访问的，因为我们操作的是变量实际保存的值。对于保存引用类型值的变量，变量是按引用访问的，我们操作的是变量值所引用（指向）的对象。答案就清楚了：  //CSSer;
+
+</details>
+
+<b><details><summary>65.下面输出多少？</summary></b>
+
+答案：
+
+```js
+function changeObjectProperty(o) {
+  o.siteUrl = "http://www.csser.com/";
+  o = new Object();
+  o.siteUrl = "http://www.popcg.com/";
+}
+var CSSer = new Object();
+changeObjectProperty(CSSer);
+console.log(CSSer.siteUrl); //
+```
+
+解析：
+
+如果 CSSer 参数是按引用传递的，那么结果应该是"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。    
+    （补充：内部环境可以通过作用域链访问所有的外部环境中的变量对象，但外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数名，反之向下则不能。）
+
+</details>
+
+<b><details><summary>66.输出多少？</summary></b>
+
+答案：
+
+```js
+var a = 6;
+setTimeout(function() {
+  var a = 666;
+  alert(a); // 输出666，
+}, 1000);
+a = 66;
+```
+
+因为 var a = 666;定义了局部变量 a，并且赋值为 666，根据变量作用域链，
+全局变量处在作用域末端，优先访问了局部变量，从而覆盖了全局变量 。
+
+```js
+var a = 6;
+setTimeout(function() {
+  alert(a); // 输出undefined
+  var a = 666;
+}, 1000);
+a = 66;
+```
+
+因为 var a = 666;定义了局部变量 a，同样覆盖了全局变量，但是在 alert(a);之前
+a 并未赋值，所以输出 undefined。
+
+```js
+var a = 6;
+setTimeout(function() {
+  alert(a);
+  var a = 66;
+}, 1000);
+a = 666;
+alert(a);
+// 666, undefined;
+```
+
+记住： 异步处理，一切 OK 声明提前
+
+</details>
+
+<b><details><summary>67.JS 的继承性？</summary></b>
+
+答案：
+
+```js
+window.color = "red";
+var o = { color: "blue" };
+function sayColor() {
+  alert(this.color);
+}
+sayColor(); //red
+sayColor.call(this); //red this-window对象
+sayColor.call(window); //red
+sayColor.call(o); //blue
+```
+
+</details>
+
+<b><details><summary>68.精度问题: JS 精度不能精确到 0.1 所以  。。。。同时存在于值和差值中</summary></b>
+
+答案：
+
+```js
+var n = 0.3,
+  m = 0.2,
+  i = 0.2,
+  j = 0.1;
+alert(n - m == i - j); //false
+alert(n - m == 0.1); //false
+alert(i - j == 0.1); //true
+```
+
+</details>
+
+<b><details><summary>69.加减运算</summary></b>
+
+答案：
+
+```js
+alert("5" + 3); //53 string
+alert("5" + "3"); //53 string
+alert("5" - 3); //2 number
+alert("5" - "3"); //2 number
+```
+
+</details>
+
+<b><details><summary>70.结果是什么？</summary></b>
+
+答案：
+
+```js
+function foo() {
+  foo.a = function() {
+    alert(1);
+  };
+  this.a = function() {
+    alert(2);
+  };
+  a = function() {
+    alert(3);
+  };
+  var a = function() {
+    alert(4);
+  };
+}
+foo.prototype.a = function() {
+  alert(5);
+};
+foo.a = function() {
+  alert(6);
+};
+foo.a(); //6
+var obj = new foo();
+obj.a(); //2
+foo.a(); //1
+```
+
+</details>
+
+<b><details><summary>71.输出结果</summary></b>
+
+答案：
+
+```js
+var a = 5;
+function test() {
+  a = 0;
+  alert(a);
+  alert(this.a); //没有定义 a这个属性
+  var a;
+  alert(a);
+}
+test(); // 0, 5, 0
+new test(); // 0, undefined, 0 //由于类它自身没有属性a， 所以是undefined
+```
+
+</details>
+
+<b><details><summary>72.计算字符串字节数</summary></b>
+
+答案：
+
+```js
+new (function(s) {
+  if (!arguments.length || !s) return null;
+  if ("" == s) return 0;
+  var l = 0;
+  for (var i = 0; i < s.length; i++) {
+    if (s.charCodeAt(i) > 255) l += 2;
+    else l += 1; //charCodeAt()得到的是unCode码
+  } //汉字的unCode码大于 255bit 就是两个字节
+  alert(l);
+})("hello world!");
+```
+
+</details>
+
+<b><details><summary>73.结果是</summary></b>
+
+答案： var bool = !!2; alert(bool)；//true;
+双向非操作可以把字符串和数字转换为布尔值
+
+</details>
+
+<b><details><summary>74.声明对象，添加属性，输出属性</summary></b>
+
+答案：
+
+```js
+var obj = {
+  name: "leipeng",
+  showName: function() {
+    alert(this.name);
+  }
+};
+obj.showName();
+```
+
+</details>
+
+<b><details><summary>75.匹配输入的字符：第一个必须是字母或下划线开头，长度 5-20</summary></b>
+
+答案：
+
+```js
+var reg = /^[a-zA-Z][a-zA-Z0-9_]{5,20}/,
+  name1 = "leipeng",
+  name2 = "0leipeng",
+  name3 = "你好leipeng",
+  name4 = "hi";
+alert(reg.test(name1));
+alert(reg.test(name2));
+alert(reg.test(name3));
+alert(reg.test(name4));
+```
+
+</details>
+
+<b><details><summary>76.检测变量类型</summary></b>
+
+答案：
+
+```js
+function checkStr(str) {
+  typeof str == "string" ? alert("true") : alert("false");
+}
+checkStr("leipeng");
+```
+
+</details>
+
+<b><details><summary>77.如何在 HTML 中添加事件，几种方法？</summary></b>
+
+答案：
+
+```
+1、标签之中直接添加 onclick="fun()";
+2、JS 添加 Eobj.onclick = method;
+3、现代事件  IE： obj.attachEvent('onclick', method)；
+            FF: obj.addEventListener('click', method, false);
+```
+
+</details>
+
+<b><details><summary>78.请问代码实现 outerHTML</summary></b>
+
+答案：
+
+```js
+//说明：outerHTML其实就是innerHTML再加上本身；
+Object.prototype.outerHTML = function() {
+  var innerCon = this.innerHTML, //获得里面的内容
+    outerCon = this.appendChild(innerCon); //添加到里面
+  alert(outerCon);
+};
+```
+
+演示代码：
+
+```html     
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="outer">
+      hello
+    </div>
+    <script>
+      Object.prototype.outerHTML = function() {
+        var innerCon = this.innerHTML, //获得里面的内容
+          outerCon = this.appendChild(innerCon); //添加到里面
+        alert(outerCon);
+      };
+      function $(id) {
+        return document.getElementById(id);
+      }
+      alert($("outer").innerHTML);
+      alert($("outer").outerHTML);
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+<b><details><summary>79.JS 中的简单继承 call 方法！</summary></b>
+
+答案：
+
+```js
+//顶一个父母类，注意：类名都是首字母大写的哦！
+function Parent(name, money) {
+  this.name = name;
+  this.money = money;
+  this.info = function() {
+    alert("姓名： " + this.name + " 钱： " + this.money);
+  };
+} //定义孩子类
+function Children(name) {
+  Parent.call(this, name); //继承 姓名属性，不要钱。
+  this.info = function() {
+    alert("姓名： " + this.name);
+  };
+} //实例化类
+var per = new Parent("parent", 800000000000);
+var chi = new Children("child");
+per.info();
+chi.info();
+```
+
+</details>
+
+<b><details><summary>80.解析 URL 成一个对象？</summary></b>
+
+答案：
+
+```js
+String.prototype.urlQueryString = function() {
+  var url = this.split("?")[1].split("&"),
+    len = url.length;
+  this.url = {};
+  for (var i = 0; i < len; i += 1) {
+    var cell = url[i].split("="),
+      key = cell[0],
+      val = cell[1];
+    this.url["" + key + ""] = val;
+  }
+  return this.url;
+};
+var url = "?name=12&age=23";
+console.log(url.urlQueryString().age);
+```
 
 </details>
 

@@ -827,15 +827,27 @@ import("lodash").then(_ => {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>14.ECMAScript6 怎么写class么，为什么会出现class这种东西?</summary></b>
 
 答案：
+
+```js
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() {
+     return '('+this.x+', '+this.y+')';
+  }
+}
+```
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>15.谈一谈你对ECMAScript6的了解？</summary></b>
 
-答案：
+答案：ES6新的语法糖，类，模块化等新特性
 
 </details>
 
