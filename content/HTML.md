@@ -475,97 +475,275 @@ bindClickOnCircleArea(box, function() {
 
 </details>
 
-<b><details><summary>27.前端需要注意哪些SEO</summary></b>
+<b><details><summary>27.前端需要注意哪些 SEO</summary></b>
+
+答案：
+
+1. 合理的 title、description、keywords：搜索对着三项的权重逐个减小，title 值强调重点即可，重要关键词出现不要超过 2 次，而且要靠前，不同页面 title 要有所不同；description 把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面 description 有所不同；keywords 列举出重要关键词即可
+
+2. 语义化的 HTML 代码，符合 W3C 规范：语义化代码让搜索引擎容易理解网页
+
+3. 重要内容 HTML 代码放在最前：搜索引擎抓取 HTML 顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取
+
+4. 重要内容不要用 js 输出：爬虫不会执行 js 获取内容
+
+5. 少用 iframe：搜索引擎不会抓取 iframe 中的内容
+
+6. 非装饰性图片必须加 alt
+
+7. 提高网站速度：网站速度是搜索引擎排序的一个重要指标
+
+解析：[参考](https://www.cnblogs.com/passkey/p/10081589.html)
+
+</details>
+
+<b><details><summary>28.html5 有哪些新特性、移除了那些元素？</summary></b>
+
+答案：
+
+新特性：
+
+1. 拖拽释放(Drag and drop) API
+
+2. 语义化更好的内容标签（header,nav,footer,aside,article,section）
+
+3. 音频、视频 API(audio,video)
+
+4. 画布(Canvas) API
+
+5. 地理(Geolocation) API
+
+6. 本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+
+7. sessionStorage 的数据在浏览器关闭后自动删除
+
+8. 表单控件，calendar、date、time、email、url、search
+
+9. 新的技术 webworker, websocket, Geolocation
+
+移除的元素：
+
+1. 纯表现的元素：basefont，big，center，font, s，strike，tt，u；
+
+2. 对可用性产生负面影响的元素：frame，frameset，noframes；
+
+</details>
+
+<b><details><summary>29.HTML5 的离线储存怎么使用，工作原理能不能解释一下？</summary></b>
+
+答案：
+
+在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
+
+原理：HTML5 的离线存储是基于一个新建的.appcache 文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像 cookie 一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+
+使用方法
+
+只要在头部加一个 manifest 属性就 ok 了
+
+```html
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+  ...
+</html>
+```
+
+然后 cache.manifest 文件的书写方式如下：
+
+```
+CACHE MANIFEST
+#v0.11
+
+CACHE:
+
+js/app.js
+css/style.css
+
+NETWORK:
+resourse/logo.png
+
+FALLBACK:
+/ /offline.html
+```
+
+解析：
+
+代码说明：
+
+离线存储的 manifest 一般由三个部分组成:
+
+1. CACHE:表示需要离线存储的资源列表，由于包含 manifest 文件的页面将被自动离线存储，所以不需要把页面自身也列出来。
+2. NETWORK:表示在它下面列出来的资源只有在在线的情况下才能访问，他们不会被离线存储，所以在离线情况下无法使用这些资源。不过，如果在 CACHE 和 NETWORK 中有一个相同的资源，那么这个资源还是会被离线存储，也就是说 CACHE 的优先级更高。
+3. FALLBACK:表示如果访问第一个资源失败，那么就使用第二个资源来替换他，比如上面这个文件表示的就是如果访问根目录下任何一个资源失败了，那么就去访问 offline.html。
+
+[参考](https://www.cnblogs.com/zhangym118/archive/2016/09/22/5897056.html)
+
+</details>
+
+<b><details><summary>30.浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢</summary></b>
+
+答案：在线的情况下，浏览器发现 html 头部有 manifest 属性，它会请求 manifest 文件，如果是第一次访问 app，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过 app 并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的 manifest 文件与旧的 manifest 文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+离线的情况下，浏览器就直接使用离线存储的资源。
+
+</details>
+
+<b><details><summary>31.HTML 全局属性(global attribute)有哪些</summary></b>
+
+答案：
+
+- accesskey:设置快捷键，提供快速访问元素如<a href="#" accesskey=“a”>aaa</a>在 windows 下的 firefox 中按 alt + shift + a 可激活元素
+- class:为元素设置类标识，多个类名用空格分开，CSS 和 javascript 可通过 class 属性获取元素
+- contenteditable: 指定元素内容是否可编辑
+- contextmenu: 自定义鼠标右键弹出菜单内容
+- data-\*: 为元素增加自定义属性
+- dir: 设置元素文本方向
+- draggable: 设置元素是否可拖拽
+- dropzone: 设置元素拖放类型： copy, move, link
+- hidden: 表示一个元素是否与文档。样式上会导致元素不显示，但是不能用这个属性实现样式效果
+- id: 元素 id，文档内唯一
+- lang: 元素内容的的语言
+- spellcheck: 是否启动拼写和语法检查
+- style: 行内 css 样式
+- tabindex: 设置元素可以获得焦点，通过 tab 可以导航
+- title: 元素相关的建议信息
+- translate: 元素和子孙节点内容是否需要本地化
+
+解析：[参考](https://funteas.com/topic/5906a8bc8783c1370b809c2a)
+
+</details>
+
+<b><details><summary>32.Canvas 和 SVG 有什么区别？</summary></b>
+
+答案：Canvas 和 SVG 都允许您在浏览器中创建图形，但是它们在根本上是不同的。
+
+## Canvas
+
+描述：
+
+通过 Javascript 来绘制 2D 图形。
+是逐像素进行渲染的。
+其位置发生改变，会重新进行绘制。
+
+## SVG
+
+描述：
+
+一种使用 XML 描述的 2D 图形的语言
+SVG 基于 XML 意味着，SVG DOM 中的每个元素都是可用的，可以为某个元素附加 Javascript 事件处理器。
+在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。
+
+## 比较
+
+Canvas
+
+- 依赖分辨率
+- 不支持事件处理器
+- 弱的文本渲染能力
+- 能够以 .png 或 .jpg 格式保存结果图像
+- 最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+
+SVG
+
+- 不依赖分辨率
+- 支持事件处理器
+- 最适合带有大型渲染区域的应用程序（比如谷歌地图）
+- 复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+- 不适合游戏应用
+
+解析：[参考](http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp)
+
+</details>
+
+<b><details><summary>33.HTML5 为什么只需要写 `<!DOCTYPE HTML>`？</summary></b>
+
+答案：HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。而 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为。其中，SGML 是标准通用标记语言,简单的说，就是比 HTML,XML 更老的标准，这两者都是由 SGML 发展而来的。BUT，HTML5 不是的。
+
+`<!DOCTYPE>`声明位于位于 HTML 文档中的第一行，处于 `<html>` 标签之前。作用：告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE 不存在或格式不正确会导致文档以怪异模式呈现。
+
+</details>
+
+<b><details><summary>34.meta viewport 原理是什么？</summary></b>
+
+答案：meta viewport 标签的作用是让当前 viewport 的宽度等于设备的宽度，同时不允许用户进行手动缩放
+
+viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更宽的虚拟窗口中渲染页面，这个虚拟窗口就是 viewport; 目的是正常展示没有做移动端适配的网页，让他们完整的展示给用户；
+
+</details>
+
+<b><details><summary>35.渲染优化</summary></b>
+
+答案：
+
+```
+1.禁止使用 iframe（阻塞父文档 onload 事件）；
+*iframe 会阻塞主页面的 Onload 事件；
+*搜索引擎的检索程序无法解读这种页面，不利于 SEO;
+\*iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
+
+使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript
+动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
+
+2.禁止使用 gif 图片实现 loading 效果（降低 CPU 消耗，提升渲染性能）；
+3、使用 CSS3 代码代替 JS 动画（尽可能避免重绘重排以及回流）css3 平面动画开启 translateZ(0)，打开浏览器 3d 加速，在一定程度可缓解卡顿。不宜多用；
+
+4、对于一些小图标，可以使用 base64 位编码，以减少网络请求。但不建议大图使用，比较耗费 CPU；
+小图标优势在于： 1.减少 HTTP 请求； 2.避免文件跨域； 3.修改及时生效；
+
+5、页面头部的`<style></style>` 会阻塞页面；（因为 Renderer 进程中 JS 线程和渲染线程是互斥的）；
+6、页面头部`<script</script>` 会阻塞页面；（因为 Renderer 进程中 JS 线程和渲染线程是互斥的）；
+7、页面中空的 href 和 src 会阻塞页面其他资源的加载 (阻塞下载进程)；
+
+8、网页 Gzip，CDN 托管，data 缓存 ，图片服务器；
+9、前端模板 JS+数据，减少由于 HTML 标签导致的带宽浪费，前端用变量保存 AJAX 请求结果，每次操作本地变量，不用请求，减少请求次数
+10、用 innerHTML 代替 DOM 操作，减少 DOM 操作次数，优化 javascript 性能。
+11、当需要设置的样式很多时设置 className 而不是直接操作 style。
+12、少用全局变量、缓存 DOM 节点查找的结果。减少 IO 读取操作。
+13、避免使用 CSS Expression（css 表达式)又称 Dynamic properties(动态属性)。
+14、图片预加载，将样式表放在顶部，将脚本放在底部 加上时间戳。
+
+15、 避免在页面的主体布局中使用 table，table 要等其中的内容完全下载之后才会显示出来，显示比 div+css 布局慢。
+对普通的网站有一个统一的思路，就是尽量向前端优化、减少数据库操作、减少磁盘 IO。
+向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，
+能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，
+本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。
+减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如 join 查询），
+减少磁盘 IO 指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的。
+16、通过改变 src 的情况下\*\*.MP3（不同于 mp3）在移动端有可能不能播放。
+```
+
+</details>
+
+<b><details><summary>36.对 web 标准、可用性、可访问性的理解</summary></b>
+
+答案：
+
+可用性（Usability）：产品是否容易上手，用户能否完成任务，效率如何，以及这过程中用户的主观感受可好，是从用户的角度来看产品的质量。可用性好意味着产品质量高，是企业的核心竞争力。
+
+可访问性（Accessibility）：Web 内容对于残障用户的可阅读和可理解性
+
+可维护性（Maintainability）：一般包含两个层次，一是当系统出现问题时，快速定位并解决问题的成本，成本低则可维护性好。二是代码是否容易被人理解，是否容易修改和增强功能。
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>28.html5有哪些新特性、移除了那些元素？</summary></b>
+<b><details><summary></summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>29.HTML5的离线储存怎么使用，工作原理能不能解释一下？</summary></b> 
+<b><details><summary></summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>30.浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>31.HTML全局属性(global attribute)有哪些</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>32.Canvas和SVG有什么区别？</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>33.HTML5 为什么只需要写 `<!DOCTYPE HTML>`？</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>34.viewport</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>35.渲染优化</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>36.对web标准、可用性、可访问性的理解</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>37.meta viewport原理是什么？</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>38.精灵图和base64如何选择？</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
+<b><details><summary></summary></b>
 
 答案：
 
