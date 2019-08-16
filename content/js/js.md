@@ -4273,6 +4273,24 @@ overflow:hidden | zoom:0.08 | line-height:1px
 ```
 </details>
 
+<b><details><summary>139.简述readonly与disabled的区别</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>140.为什么扩展javascript内置对象不是好的做法？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>141.什么是三元表达式？“三元”表示什么意思？</summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

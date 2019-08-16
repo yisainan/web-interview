@@ -1264,6 +1264,24 @@ css中过多使用base64图片会使得css过大，不利于css的加载。
 
 </details>
 
+<b><details><summary>77.如果设计中使用了非标准的字体，你该如何去实现？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>78.用css分别实现某个div元素上下居中和左右居中</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

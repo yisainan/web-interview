@@ -2030,6 +2030,137 @@ console.log(url.urlQueryString().age);
 
 </details>
 
+<b><details><summary>81.看下列代码输出什么？</summary></b>
+
+答案：
+
+```js
+var foo = "11"+2-"1";
+console.log(foo);
+console.log(typeof foo);
+// 执行完后foo的值为111，foo的类型为Number。
+```
+
+</details>
+
+<b><details><summary>82.看下列代码,输出什么？</summary></b>
+
+答案：
+```js
+var a = new Object();
+a.value = 1;
+b = a;
+b.value = 2;
+alert(a.value);
+// 执行完后输出结果为2
+```
+
+</details>
+
+<b><details><summary>83.已知数组var stringArray = ["This”, "is”, "Baidu”, "Campus”]，Alert出”This is Baidu Campus”。</summary></b>
+
+答案：alert(stringArray.join(""))
+
+</details>
+
+<b><details><summary>84.请描述出下列代码运行的结果</summary></b>
+
+答案：
+
+```js
+function d(){
+		console.log(this);
+}
+d();
+```
+
+</details>
+
+<b><details><summary>85.需要将变量e的值修改为“a+b+c+d”,请写出对应的代码</summary></b>
+
+答案：
+
+var e=”abcd”;
+
+</details>
+
+<b><details><summary>86.设计一段代码能够遍历下列整个DOM节点</summary></b>
+
+```html
+<div>
+    <p>
+      <span><a></a></span>
+      <span><a></a></span>
+    </p>
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+</div>
+```
+
+答案：
+
+</details>
+
+<b><details><summary>87.怎样实现两栏等高？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>88.使用js实现这样的效果：在文本域里输入文字时，当按下enter键时不换行，而是替换成“{{enter}}”,(只需要考虑在行尾按下enter键的情况).</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>89.以下代码中end字符串什么时候输出</summary></b>
+
+```js
+var t=true;
+setTimeout(function(){
+	console.log(123);
+	t=false;
+	},1000);
+while(t){}
+console.log(‘end’);
+```
+
+答案：
+
+</details>
+
+<b><details><summary>90.specify(‘hello,world’)//=>’h,e,l,l,o,w,o,r,l,d’实现specify函数</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>91.请将一个URL的search部分参数与值转换成一个json对象</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>92.请用原生js实现jquery的get\post功能，以及跨域情况下</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>93.判断一个字符吕串出现次数最多的字符，统计这个次数并输出</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>94.写出3个使用this的典型应用</summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：
