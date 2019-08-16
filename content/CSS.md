@@ -1276,6 +1276,30 @@ css中过多使用base64图片会使得css过大，不利于css的加载。
 
 </details>
 
+<b><details><summary>79.知道 css 有个 content 属性吗？有什么作用？有什么应用？</summary></b>
+
+答案：知道。css 的 content 属性专门应用在 before/after 伪元素上，用来插入生成内容。最常见的应用是利用伪类清除浮动。
+
+```css
+//一种常见利用伪类清除浮动的代码
+.clearfix:after {
+  content: "."; //这里利用到了content属性
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+```
+
+after 伪元素通过 content 在元素的后面生成了内容为一个点的块级素，再利用 clear:both 清除浮动。
+　　那么问题继续还有，知道 css 计数器（序列数字字符自动递增）吗？如何通过 css content 属性实现 css 计数器？
+答案：css 计数器是通过设置 counter-reset 、counter-increment 两个属性 、及 counter()/counters()一个方法配合 after / before 伪类实现。
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

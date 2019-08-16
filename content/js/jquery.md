@@ -90,7 +90,7 @@
 
 <b><details><summary>15.jQuery 一个对象可以同时绑定多个事件，这是如何实现的？</summary></b>
 
-答案：
+答案：jQuery可以给一个对象同时绑定多个事件，低层实现方式是使用addEventListner或attachEvent兼容不同的浏览器实现事件的绑定，这样可以给同一个对象注册多个事件。
 
 </details>
 

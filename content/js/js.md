@@ -4107,46 +4107,47 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 
 </details>
 
-<b><details><summary>120.事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</summary></b>
+<b><details><summary>120.事件、IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？</summary></b>
 
 答案：
 
 1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为
-2. 事件处理机制：IE是事件冒泡、firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件
+2. 事件处理机制：IE 是事件冒泡、firefox 同时支持两种事件模型，也就是：捕获型事件和冒泡型事件
 3. ev.stopPropagation();
-注意旧ie的方法：ev.cancelBubble = true;
+   注意旧 ie 的方法：ev.cancelBubble = true;
 
 </details>
 
-<b><details><summary>121.eval是做什么的？</summary></b>
+<b><details><summary>121.eval 是做什么的？</summary></b>
 
 答案：
-1. 它的功能是把对应的字符串解析成JS代码并运行
-2. 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）
+
+1. 它的功能是把对应的字符串解析成 JS 代码并运行
+2. 应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）
 
 </details>
 
 <b><details><summary>123.JS 怎么实现一个类。怎么实例化这个类</summary></b>
 
-答案：严格来讲js中并没有类的概念，不过js中的函数可以作为构造函数来使用，通过new来实例化，其实函数本身也是一个对象。
+答案：严格来讲 js 中并没有类的概念，不过 js 中的函数可以作为构造函数来使用，通过 new 来实例化，其实函数本身也是一个对象。
 
 </details>
 
-<b><details><summary>124.如何编写高性能的Javascript？</summary></b>
+<b><details><summary>124.如何编写高性能的 Javascript？</summary></b>
 
 答案：
 
-* 使用 DocumentFragment 优化多次 append
-* 通过模板元素 clone ，替代 createElement
-* 使用一次 innerHTML 赋值代替构建 dom 元素
-* 使用 firstChild 和 nextSibling 代替 childNodes 遍历 dom 元素 
-* 使用 Array 做为 StringBuffer ，代替字符串拼接的操作 
-* 将循环控制量保存到局部变量
-* 顺序无关的遍历时，用 while 替代 for
-* 将条件分支，按可能性顺序从高到低排列
-* 在同一条件子的多（ >2 ）条件分支时，使用 switch 优于 if
-* 使用三目运算符替代条件分支 
-* 需要不断执行的时候，优先考虑使用 setInterval
+- 使用 DocumentFragment 优化多次 append
+- 通过模板元素 clone ，替代 createElement
+- 使用一次 innerHTML 赋值代替构建 dom 元素
+- 使用 firstChild 和 nextSibling 代替 childNodes 遍历 dom 元素
+- 使用 Array 做为 StringBuffer ，代替字符串拼接的操作
+- 将循环控制量保存到局部变量
+- 顺序无关的遍历时，用 while 替代 for
+- 将条件分支，按可能性顺序从高到低排列
+- 在同一条件子的多（ >2 ）条件分支时，使用 switch 优于 if
+- 使用三目运算符替代条件分支
+- 需要不断执行的时候，优先考虑使用 setInterval
 
 </details>
 
@@ -4154,55 +4155,55 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 
 答案：
 
-* Array.concat( ) 连接数组 
-* Array.join( ) 将数组元素连接起来以构建一个字符串 
-* Array.length 数组的大小 
-* Array.pop( ) 删除并返回数组的最后一个元素 
-* Array.push( ) 给数组添加元素 
-* Array.reverse( ) 颠倒数组中元素的顺序 
-* Array.shift( ) 将元素移出数组 
-* Array.slice( ) 返回数组的一部分 
-* Array.sort( ) 对数组元素进行排序 
-* Array.splice( ) 插入、删除或替换数组的元素 
-* Array.toLocaleString( ) 把数组转换成局部字符串 
-* Array.toString( ) 将数组转换成一个字符串 
-* Array.unshift( ) 在数组头部插入一个元素
+- Array.concat( ) 连接数组
+- Array.join( ) 将数组元素连接起来以构建一个字符串
+- Array.length 数组的大小
+- Array.pop( ) 删除并返回数组的最后一个元素
+- Array.push( ) 给数组添加元素
+- Array.reverse( ) 颠倒数组中元素的顺序
+- Array.shift( ) 将元素移出数组
+- Array.slice( ) 返回数组的一部分
+- Array.sort( ) 对数组元素进行排序
+- Array.splice( ) 插入、删除或替换数组的元素
+- Array.toLocaleString( ) 把数组转换成局部字符串
+- Array.toString( ) 将数组转换成一个字符串
+- Array.unshift( ) 在数组头部插入一个元素
 
-* Object.hasOwnProperty( ) 检查属性是否被继承 
-* Object.isPrototypeOf( ) 一个对象是否是另一个对象的原型 
-* Object.propertyIsEnumerable( ) 是否可以通过for/in循环看到属性 
-* Object.toLocaleString( ) 返回对象的本地字符串表示 
-* Object.toString( ) 定义一个对象的字符串表示 
-* Object.valueOf( ) 指定对象的原始值
-
-</details>
-
-<b><details><summary>126.documen.write和 innerHTML的区别?</summary></b>
-
-答案：document.write是重写整个document, 写入内容是字符串的html
-innerHTML是HTMLElement的属性，是一个元素的内部html内容
+- Object.hasOwnProperty( ) 检查属性是否被继承
+- Object.isPrototypeOf( ) 一个对象是否是另一个对象的原型
+- Object.propertyIsEnumerable( ) 是否可以通过 for/in 循环看到属性
+- Object.toLocaleString( ) 返回对象的本地字符串表示
+- Object.toString( ) 定义一个对象的字符串表示
+- Object.valueOf( ) 指定对象的原始值
 
 </details>
 
-<b><details><summary>127.让你自己设计实现一个requireJS，你会怎么做？</summary></b>
+<b><details><summary>126.documen.write 和 innerHTML 的区别?</summary></b>
 
-答案：核心是实现js的加载模块，维护js的依赖关系，控制好文件加载的先后顺序
-
-</details>
-
-<b><details><summary>128.requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）</summary></b>
-
-答案：核心是js的加载模块，通过正则匹配模块以及模块的依赖关系，保证文件加载的先后顺序，根据文件的路径对加载过的文件做了缓存
+答案：document.write 是重写整个 document, 写入内容是字符串的 html
+innerHTML 是 HTMLElement 的属性，是一个元素的内部 html 内容
 
 </details>
 
-<b><details><summary>130.Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
+<b><details><summary>127.让你自己设计实现一个 requireJS，你会怎么做？</summary></b>
+
+答案：核心是实现 js 的加载模块，维护 js 的依赖关系，控制好文件加载的先后顺序
+
+</details>
+
+<b><details><summary>128.requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）</summary></b>
+
+答案：核心是 js 的加载模块，通过正则匹配模块以及模块的依赖关系，保证文件加载的先后顺序，根据文件的路径对加载过的文件做了缓存
+
+</details>
+
+<b><details><summary>130.Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
 
 答案：HasOwnProperty
 
 </details>
 
-<b><details><summary>131.用原生JavaScript的实现过什么功能吗？</summary></b>
+<b><details><summary>131.用原生 JavaScript 的实现过什么功能吗？</summary></b>
 
 答案：
 
@@ -4219,7 +4220,7 @@ innerHTML是HTMLElement的属性，是一个元素的内部html内容
 答案：
 
 ```
-第一种（函数声明）： 
+第一种（函数声明）：
 function sum1(num1,num2){
    return num1+num2;
 }
@@ -4235,14 +4236,14 @@ var sum3 = new Function("num1","num2","return num1+num2");
 
 <b><details><summary>134.window.location.search() 返回的是什么？</summary></b>
 
-答案：查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用javascript来获得相信应的参数值
+答案：查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用 javascript 来获得相信应的参数值
 返回值：?ver=1.0&id=timlq 也就是问号后面的！
 
 </details>
 
-<b><details><summary>135.window.location.hash 返回的是什么？</summary></b>
+<b><details><summary>135.window.location.hash  返回的是什么？</summary></b>
 
-答案：锚点 ， 返回值：#love ；
+答案：锚点 ，  返回值：#love ；
 
 </details>
 
@@ -4252,17 +4253,18 @@ var sum3 = new Function("num1","num2","return num1+num2");
 
 </details>
 
-<b><details><summary>137.为什么不能定义1px左右的div容器？</summary></b>
+<b><details><summary>137.为什么不能定义 1px 左右的 div 容器？</summary></b>
 
 答案：
-IE6下这个问题是因为默认的行高造成的，解决的方法也有很多，例如：
+IE6 下这个问题是因为默认的行高造成的，解决的方法也有很多，例如：
 overflow:hidden | zoom:0.08 | line-height:1px
 
 </details>
 
-<b><details><summary>138.BOM对象有哪些，列举window对象？</summary></b>
+<b><details><summary>138.BOM 对象有哪些，列举 window 对象？</summary></b>
 
 答案：
+
 ```
  1、window对象 ，是JS的最顶层对象，其他的BOM对象都是window对象的属性；
  2、document对象，文档对象；
@@ -4271,15 +4273,16 @@ overflow:hidden | zoom:0.08 | line-height:1px
  5、screen对象，客户端屏幕信息；
  6、history对象，浏览器访问历史信息；
 ```
+
 </details>
 
-<b><details><summary>139.简述readonly与disabled的区别</summary></b>
+<b><details><summary>139.简述 readonly 与 disabled 的区别</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>140.为什么扩展javascript内置对象不是好的做法？</summary></b>
+<b><details><summary>140.为什么扩展 javascript 内置对象不是好的做法？</summary></b>
 
 答案：
 
@@ -4291,9 +4294,45 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>142.我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡，你来说下会执行几次事件，然后会先执行冒泡还是捕获</summary></b>
 
 答案：
+
+</details>
+
+<b><details><summary>144.简述一下 Handlebars 的基本用法？</summary></b>
+
+答案：没有用过的话说出它是干什么的即可
+
+</details>
+
+<b><details><summary>143.简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>145.前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?</summary></b>
+
+答案：
+
+* Web 模板引擎是为了使用户界面与业务数据（内容）分离而产生的，
+* Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。
+* Underscore封装了常用的JavaScript对象操作方法，用于提高开发效率。
+* Handlebars 是 JavaScript 一个语义模板库，通过对view和data的分离来快速构建Web模板。
+
+</details>
+
+<b><details><summary>146.知道什么是webkit么? 知道怎么用浏览器的各种工具来调试和debug代码么?</summary></b>
+
+答案：Webkit是浏览器引擎，包括html渲染和js解析功能，手机浏览器的主流内核，与之相对应的引擎有Gecko（Mozilla Firefox 等使用）和Trident（也称MSHTML，IE 使用）。 
+对于浏览器的调试工具要熟练使用，主要是页面结构分析，后台请求信息查看，js调试工具使用，熟练使用这些工具可以快速提高解决问题的效率
+
+</details>
+
+<b><details><summary>147.如何测试前端代码? 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?</summary></b>
+
+答案：了解BDD行为驱动开发与TDD测试驱动开发已经单元测试相关概念
 
 </details>
 

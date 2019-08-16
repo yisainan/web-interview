@@ -605,6 +605,25 @@ c.fun(3);
 
 答案：
 
+```js
+var arr = [1, 2, 3, 3, 4, 4, 5, 5, 6, 1, 9, 3, 25, 4];
+function deRepeat() {
+  var newArr = [];
+  var obj = {};
+  var index = 0;
+  var l = arr.length;
+  for (var i = 0; i < l; i++) {
+    if (obj[arr[i]] == undefined) {
+      obj[arr[i]] = 1;
+      newArr[index++] = arr[i];
+    } else if (obj[arr[i]] == 1) continue;
+  }
+  return newArr;
+}
+var newArr2 = deRepeat(arr);
+alert(newArr2); //输出1,2,3,4,5,6,9,25
+```
+
 </details>
 
 <b><details><summary>24.已知 id 的 input 输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
@@ -2035,7 +2054,7 @@ console.log(url.urlQueryString().age);
 答案：
 
 ```js
-var foo = "11"+2-"1";
+var foo = "11" + 2 - "1";
 console.log(foo);
 console.log(typeof foo);
 // 执行完后foo的值为111，foo的类型为Number。
@@ -2046,6 +2065,7 @@ console.log(typeof foo);
 <b><details><summary>82.看下列代码,输出什么？</summary></b>
 
 答案：
+
 ```js
 var a = new Object();
 a.value = 1;
@@ -2057,7 +2077,7 @@ alert(a.value);
 
 </details>
 
-<b><details><summary>83.已知数组var stringArray = ["This”, "is”, "Baidu”, "Campus”]，Alert出”This is Baidu Campus”。</summary></b>
+<b><details><summary>83.已知数组 var stringArray = ["This”, "is”, "Baidu”, "Campus”]，Alert 出”This is Baidu Campus”。</summary></b>
 
 答案：alert(stringArray.join(""))
 
@@ -2068,15 +2088,15 @@ alert(a.value);
 答案：
 
 ```js
-function d(){
-		console.log(this);
+function d() {
+  console.log(this);
 }
 d();
 ```
 
 </details>
 
-<b><details><summary>85.需要将变量e的值修改为“a+b+c+d”,请写出对应的代码</summary></b>
+<b><details><summary>85.需要将变量 e 的值修改为“a+b+c+d”,请写出对应的代码</summary></b>
 
 答案：
 
@@ -2084,18 +2104,18 @@ var e=”abcd”;
 
 </details>
 
-<b><details><summary>86.设计一段代码能够遍历下列整个DOM节点</summary></b>
+<b><details><summary>86.设计一段代码能够遍历下列整个 DOM 节点</summary></b>
 
 ```html
 <div>
-    <p>
-      <span><a></a></span>
-      <span><a></a></span>
-    </p>
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
+  <p>
+    <span><a></a></span>
+    <span><a></a></span>
+  </p>
+  <ul>
+    <li></li>
+    <li></li>
+  </ul>
 </div>
 ```
 
@@ -2109,13 +2129,13 @@ var e=”abcd”;
 
 </details>
 
-<b><details><summary>88.使用js实现这样的效果：在文本域里输入文字时，当按下enter键时不换行，而是替换成“{{enter}}”,(只需要考虑在行尾按下enter键的情况).</summary></b>
+<b><details><summary>88.使用 js 实现这样的效果：在文本域里输入文字时，当按下 enter 键时不换行，而是替换成“{{enter}}”,(只需要考虑在行尾按下 enter 键的情况).</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>89.以下代码中end字符串什么时候输出</summary></b>
+<b><details><summary>89.以下代码中 end 字符串什么时候输出</summary></b>
 
 ```js
 var t=true;
@@ -2131,19 +2151,19 @@ console.log(‘end’);
 
 </details>
 
-<b><details><summary>90.specify(‘hello,world’)//=>’h,e,l,l,o,w,o,r,l,d’实现specify函数</summary></b>
+<b><details><summary>90.specify(‘hello,world’)//=>’h,e,l,l,o,w,o,r,l,d’实现 specify 函数</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>91.请将一个URL的search部分参数与值转换成一个json对象</summary></b>
+<b><details><summary>91.请将一个 URL 的 search 部分参数与值转换成一个 json 对象</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>92.请用原生js实现jquery的get\post功能，以及跨域情况下</summary></b>
+<b><details><summary>92.请用原生 js 实现 jquery 的 get\post 功能，以及跨域情况下</summary></b>
 
 答案：
 
@@ -2155,7 +2175,916 @@ console.log(‘end’);
 
 </details>
 
-<b><details><summary>94.写出3个使用this的典型应用</summary></b>
+<b><details><summary>94.写出 3 个使用 this 的典型应用</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>95.下面这个 ul，如何点击每一列的时候 alert 其 index?（闭包）</summary></b>
+
+```html
+<ul id="”test”">
+  <li>这是第一条</li>
+  <li>这是第二条</li>
+  <li>这是第三条</li>
+</ul>
+```
+
+答案：
+
+```js
+// 方法一：
+var lis = document.getElementById("2223").getElementsByTagName("li");
+for (var i = 0; i < 3; i++) {
+  lis[i].index = i;
+  lis[i].onclick = function() {
+    alert(this.index);
+  };
+}
+//方法二：
+var lis = document.getElementById("2223").getElementsByTagName("li");
+for (var i = 0; i < 3; i++) {
+  lis[i].index = i;
+  lis[i].onclick = (function(a) {
+    return function() {
+      alert(a);
+    };
+  })(i);
+}
+```
+
+</details>
+
+<b><details><summary>96.小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。从这段描述可以得到以下对象：</summary></b>
+
+答案：
+
+```js
+	function Dog() {
+      this.wow = function() {
+               alert(’Wow’);
+      }
+      this.yelp = function() {
+              this.wow();
+      }
+}
+```
+
+小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声(wow)地不停叫唤(yelp)。请根据描述，按示例的形式用代码来实。（继承，原型，setInterval）
+
+```js
+function MadDog() {
+  this.yelp = function() {
+    var self = this;
+    setInterval(function() {
+      self.wow();
+    }, 500);
+  };
+}
+MadDog.prototype = new Dog();
+//for test
+var dog = new Dog();
+dog.yelp();
+var madDog = new MadDog();
+madDog.yelp();
+```
+
+</details>
+
+<b><details><summary>97.实现一个函数 clone，可以对 JavaScript 中的 5 种主要的数据类型（包括 Number、String、Object、Array、Boolean）进行值复制</summary></b>
+
+答案：
+
+- 考察点 1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚
+- 考察点 2：是否知道如何判断一个变量是什么类型的
+- 考察点 3：递归算法的设计
+
+```js
+// 方法一：
+Object.prototype.clone = function() {
+  var o = this.constructor === Array ? [] : {};
+  for (var e in this) {
+    o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+  }
+  return o;
+};
+/**
+ * 克隆一个对象
+ * @param Obj
+ * @returns
+ */
+//方法二：
+function clone(Obj) {
+  var buf;
+  if (Obj instanceof Array) {
+    buf = []; //创建一个空的数组
+    var i = Obj.length;
+    while (i--) {
+      buf[i] = clone(Obj[i]);
+    }
+    return buf;
+  } else if (Obj instanceof Object) {
+    buf = {}; //创建一个空对象
+    for (var k in Obj) {
+      //为这个对象添加新的属性
+      buf[k] = clone(Obj[k]);
+    }
+    return buf;
+  } else {
+    //普通变量直接赋值
+    return Obj;
+  }
+}
+```
+
+</details>
+
+<b><details><summary>98.用 js 实现随机选取 10–100 之间的 10 个数字，存入一个数组，并排序。</summary></b>
+
+答案：
+
+```js
+var iArray = [];
+funtion getRandom(istart, iend){
+var iChoice = istart - iend +1;
+return Math.floor(Math.random() * iChoice + istart;
+}
+for(var i=0; i<10; i++){
+iArray.push(getRandom(10,100));
+}
+iArray.sort();
+```
+
+</details>
+
+<b><details><summary>99.输出今天的日期，以 YYYY-MM-DD 的方式，比如今天是 2014 年 9 月 26 日，则输出 2014-09-26</summary></b>
+
+答案：
+
+```js
+var d = new Date();
+// 获取年，getFullYear()返回4位的数字
+var year = d.getFullYear();
+// 获取月，月份比较特殊，0是1月，11是12月
+var month = d.getMonth() + 1;
+// 变成两位
+month = month < 10 ? "0" + month : month;
+// 获取日
+var day = d.getDate();
+day = day < 10 ? "0" + day : day;
+alert(year + "-" + month + "-" + day);
+```
+
+</details>
+
+<b><details><summary>100.写出函数 DateDemo 的返回结果，系统时间假定为今天</summary></b>
+
+```js
+function DateDemo() {
+  var d,
+    s = "今天日期是：";
+  d = new Date();
+  s += d.getMonth() + "/";
+  s += d.getDate() + "/";
+  s += d.getYear();
+  return s;
+}
+```
+
+答案：今天日期是：7/17/2010
+
+</details>
+
+<b><details><summary>101.下列 JavaScript 代码执行后，依次 alert 的结果是</summary></b>
+
+答案：
+
+```js
+var obj = { proto: { a: 1, b: 2 } };
+function F() {}
+F.prototype = obj.proto;
+var f = new F();
+obj.proto.c = 3;
+obj.proto = { a: -1, b: -2 };
+alert(f.a);
+alert(f.c);
+delete F.prototype["a"];
+alert(f.a);
+alert(obj.proto.a);
+```
+
+</details>
+
+<b><details><summary>102.下列 JavaScript 代码执行后，运行的结果是</summary></b>
+
+答案：
+
+```html
+<button id="btn">点击我</button>
+```
+
+```js
+var btn = document.getElementById("btn");
+var handler = {
+  id: "_eventHandler",
+  exec: function() {
+    alert(this.id);
+  }
+};
+btn.addEventListener("click", handler.exec.false);
+```
+
+</details>
+
+<b><details><summary>103.输出结果是多少？</summary></b>
+
+1）
+
+```js
+var a;
+var b = a * 0;
+if (b == b) {
+  console.log(b * 2 + "2" - 0 + 4);
+} else {
+  console.log(!b * 2 + "2" - 0 + 4);
+}
+```
+
+答案：26
+
+2）
+
+```js
+<script>
+    var a = 1;
+</script>
+<script>
+var a;
+var b = a * 0;
+if (b == b) {
+       console.log(b * 2 + "2" - 0 + 4);
+} else {
+       console.log(!b * 2 + "2" - 0 + 4);
+}
+</script>
+```
+
+答案：6
+
+3）
+
+```js
+var t = 10;
+function test(t) {
+  var t = t++;
+}
+test(t);
+console.log(t);
+```
+
+答案：10
+4）
+
+```js
+var t = 10;
+function test(test) {
+  var t = test++;
+}
+test(t);
+console.log(t);
+```
+
+答案：10
+
+6）
+
+```js
+var t = 10;
+function test(test) {
+  t = test++;
+}
+test(t);
+console.log(t);
+```
+
+答案：10
+
+7）
+
+```js
+var t = 10;
+function test(test) {
+  t = t + test;
+  console.log(t);
+  var t = 3;
+}
+test(t);
+console.log(t);
+```
+
+答案：NaN 10
+
+8）
+
+```js
+var a;
+var b = a / 0;
+if (b == b) {
+  console.log(b * 2 + "2" - 0 + 4);
+} else {
+  console.log(!b * 2 + "2" - 0 + 4);
+}
+```
+
+答案：26
+
+9）
+
+```js
+<script>
+     var a = 1;
+</script>
+<script>
+   var a;
+   var b = a / 0;
+   if (b == b) {
+       console.log(b * 2 + "2" + 4);
+   } else {
+       console.log(!b * 2 + "2" + 4);
+   }
+</script>
+```
+
+答案：Infinity24
+
+</details>
+
+<b><details><summary>104.下列JavaScript代码执行后，iNum的值是</summary></b>
+
+```js
+var iNum = 0;
+for(var i = 1; i< 10; i++){
+     if(i % 5 == 0){
+         continue;
+    }
+    iNum++;
+}
+```
+
+答案：
+
+</details>
+
+<b><details><summary>105.下列JavaScript代码执行后，依次alert的结果是</summary></b>
+
+```js
+(function test(){
+      var a=b=5;
+      alert(typeof a);
+      alert(typeof b);
+})();
+alert(typeof a);
+alert(typeof b);
+```
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>142.说出以下函数的作用是？空白区域应该填写什么？</summary></b>
+
+答案：
+
+```js
+//define
+(function(window) {
+  function fn(str) {
+    this.str = str;
+  }
+  fn.prototype.format = function() {
+    var arg = ______;
+    return this.str.replace(_____, function(a, b) {
+      return arg[b] || "";
+    });
+  };
+  window.fn = fn;
+})(window);
+//use
+(function() {
+  var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>');
+  console.log(t.format("http://www.alibaba.com", "Alibaba", "Welcome"));
+})();
+```
+
+答案：访函数的作用是使用 format 函数将函数的参数替换掉{0}这样的内容，返回一个格式化后的结果：
+第一个空是：arguments
+第二个空是：/\{(\d+)\}/ig
+
+</details>
+
+<b><details><summary>143.（设计题）想实现一个对页面某个节点的拖曳？如何做？（使用原生 JS）</summary></b>
+
+答案：
+
+回答出概念即可，下面是几个要点
+
+1. 给需要拖拽的节点绑定 mousedown, mousemove, mouseup 事件
+2. mousedown 事件触发后，开始拖拽
+3. mousemove 时，需要通过 event.clientX 和 clientY 获取拖拽位置，并实时更新位置
+4. mouseup 时，拖拽结束
+5. 需要注意浏览器边界的情况
+
+</details>
+
+<b><details><summary>144.原生 JS 的 window.onload 与 Jquery 的\$(document).ready(function(){})有什么不同？如何用原生 JS 实现 Jq 的 ready 方法？</summary></b>
+
+答案：
+
+window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
+\$(document).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。
+
+```js
+/*
+ * 传递函数给whenReady()
+ * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
+ */
+var whenReady = (function() {
+  //这个函数返回whenReady()函数
+  var funcs = []; //当获得事件时，要运行的函数
+  var ready = false; //当触发事件处理程序时,切换为true //当文档就绪时,调用事件处理程序
+  function handler(e) {
+    if (ready) return; //确保事件处理程序只完整运行一次 //如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好
+    if (e.type === "onreadystatechange" && document.readyState !== "complete") {
+      return;
+    } //运行所有注册函数 //注意每次都要计算funcs.length //以防这些函数的调用可能会导致注册更多的函数
+    for (var i = 0; i < funcs.length; i++) {
+      funcs[i].call(document);
+    } //事件处理函数完整执行,切换ready状态, 并移除所有函数
+    ready = true;
+    funcs = null;
+  } //为接收到的任何事件注册处理程序
+  if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", handler, false);
+    document.addEventListener("readystatechange", handler, false); //IE9+
+    window.addEventListener("load", handler, false);
+  } else if (document.attachEvent) {
+    document.attachEvent("onreadystatechange", handler);
+    window.attachEvent("onload", handler);
+  } //返回whenReady()函数
+  return function whenReady(fn) {
+    if (ready) {
+      fn.call(document);
+    } else {
+      funcs.push(fn);
+    }
+  };
+})();
+```
+
+如果上述代码十分难懂，下面这个简化版：
+
+```js
+function ready(fn) {
+  if (document.addEventListener) {
+    //标准浏览器
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+        //注销事件, 避免反复触发
+        document.removeEventListener(
+          "DOMContentLoaded",
+          arguments.callee,
+          false
+        );
+        fn(); //执行函数
+      },
+      false
+    );
+  } else if (document.attachEvent) {
+    //IE
+    document.attachEvent("onreadystatechange", function() {
+      if (document.readyState == "complete") {
+        document.detachEvent("onreadystatechange", arguments.callee);
+        fn(); //函数执行
+      }
+    });
+  }
+}
+```
+
+</details>
+
+<b><details><summary>145.对作用域上下文和 this 的理解，看下列代码：</summary></b>
+
+```js
+var User = {
+  count: 1,
+  getCount: function() {
+    return this.count;
+  }
+};
+console.log(User.getCount()); // what?
+var func = User.getCount;
+console.log(func()); // what?
+```
+
+问两处 console 输出什么？为什么？
+
+答案：1 和 undefined。func 是在 winodw 的上下文中被执行的，所以会访问不到 count 属性。
+
+解析：
+
+继续追问，那么如何确保 Uesr 总是能访问到 func 的上下文，即正确返回 1。正确的方法是使用 Function.prototype.bind。兼容各个浏览器完整代码如下：
+
+```js
+Function.prototype.bind =
+  Function.prototype.bind ||
+  function(context) {
+    var self = this;
+    return function() {
+      return self.apply(context, arguments);
+    };
+  };
+var func = User.getCount.bind(User);
+console.log(func());
+```
+
+</details>
+
+<b><details><summary>146.在 Javascript 中什么是伪数组？如何将伪数组转化为标准数组？</summary></b>
+
+答案：
+
+伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName,document.childNodes 之类的,它们都返回 NodeList 对象都属于伪数组。可以使用 Array.prototype.slice.call(fakeArray)将数组转化为真正的 Array 对象。
+
+假设我们要给每个 log 方法添加一个”(app)”前缀，比如’hello world!’ ->’(app)hello world!’。方法如下：
+
+```js
+function log() {
+  var args = Array.prototype.slice.call(arguments); //为了使用unshift数组方法，将argument转化为真正的数组
+  args.unshift("(app)");
+  console.log.apply(console, args);
+}
+```
+
+</details>
+
+<b><details><summary>147.定义一个 log 方法，让它可以代理 console.log 的方法。</summary></b>
+
+答案：
+
+可行的方法一：
+
+```js
+function log(msg) {
+  console.log(msg);
+}
+log("hello world!"); // hello world!
+```
+
+如果要传入多个参数呢？显然上面的方法不能满足要求，所以更好的方法是：
+
+```js
+function log() {
+  console.log.apply(console, arguments);
+}
+```
+
+到此，追问 apply 和 call 方法的异同。
+
+对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+
+但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。  如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
+
+</details>
+
+<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world”) // -> ‘h e l l o  w o r l d’</summary></b>
+
+答案：
+
+```js
+String.prototype.spacify = function() {
+  return this.split("").join(" ");
+};
+```
+
+接着上述问题答案提问，1）直接在对象的原型上添加方法是否安全？尤其是在 Object 对象上。(这个我没能答出？希望知道的说一下。)　 2）函数声明与函数表达式的区别？
+答案：在 js 中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。
+
+</details>
+
+<b><details><summary>149.请评价以下代码并给出改进意见</summary></b>
+
+答案：
+
+```js
+if (window.addEventListener) {
+  var addListener = function(el, type, listener, useCapture) {
+    el.addEventListener(type, listener, useCapture);
+  };
+} else if (document.all) {
+  addListener = function(el, type, listener) {
+    el.attachEvent("on" + type, function() {
+      listener.apply(el);
+    });
+  };
+}
+```
+
+*　不应该在 if 和 else 语句中声明 addListener 函数，应该先声明；
+*　不需要使用 window.addEventListener 或 document.all 来进行检测浏览器，应该使用能力检测； \*　由于 attachEvent 在 IE 中有 this 指向问题，所以调用它时需要处理一下
+
+改进如下：
+
+```js
+function addEvent(elem, type, handler) {
+  if (elem.addEventListener) {
+    elem.addEventListener(type, handler, false);
+  } else if (elem.attachEvent) {
+    elem["temp" + type + handler] = handler;
+    elem[type + handler] = function() {
+      elem["temp" + type + handler].apply(elem);
+    };
+    elem.attachEvent("on" + type, elem[type + handler]);
+  } else {
+    elem["on" + type] = handler;
+  }
+}
+```
+
+</details>
+
+<b><details><summary>150.编写一个 JavaScript 函数，输入指定类型的选择器(仅需支持 id，class，tagName 三种简单 CSS 选择器，无需兼容组合选择器)可以返回匹配的 DOM 节点，需考虑浏览器兼容性和性能。</summary></b>
+
+答案：
+
+```js
+/*** @param selector {String} 传入的CSS选择器。* @return {Array}*/
+var query = function(selector) {
+  var reg = /^(#)?(\.)?(\w+)$/gim;
+  var regResult = reg.exec(selector);
+  var result = [];
+  //如果是id选择器
+  if (regResult[1]) {
+    if (regResult[3]) {
+      if (typeof document.querySelector === "function") {
+        result.push(document.querySelector(regResult[3]));
+      } else {
+        result.push(document.getElementById(regResult[3]));
+      }
+    }
+  } //如果是class选择器
+  else if (regResult[2]) {
+    if (regResult[3]) {
+      if (typeof document.getElementsByClassName === "function") {
+        var doms = document.getElementsByClassName(regResult[3]);
+        if (doms) {
+          result = converToArray(doms);
+        }
+      } //如果不支持getElementsByClassName函数
+      else {
+        var allDoms = document.getElementsByTagName("*");
+        for (var i = 0, len = allDoms.length; i < len; i++) {
+          if (allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
+            result.push(allDoms[i]);
+          }
+        }
+      }
+    }
+  } //如果是标签选择器
+  else if (regResult[3]) {
+    var doms = document.getElementsByTagName(regResult[3].toLowerCase());
+    if (doms) {
+      result = converToArray(doms);
+    }
+  }
+  return result;
+};
+function converToArray(nodes) {
+  var array = null;
+  try {
+    array = Array.prototype.slice.call(nodes, 0); //针对非IE浏览器
+  } catch (ex) {
+    array = new Array();
+    for (var i = 0, len = nodes.length; i < len; i++) {
+      array.push(nodes[i]);
+    }
+  }
+  return array;
+}
+```
+
+</details>
+
+<b><details><summary>151.下列控制台都输出什么</summary></b>
+
+答案：
+
+第 1 题：
+
+```js
+function setName() {
+  name = "张三";
+}
+setName();
+console.log(name);
+```
+
+答案："张三"
+
+第 2 题：
+
+```js
+//考点：1、变量声明提升 2、变量搜索机制
+var a = 1;
+function test() {
+  console.log(a);
+  var a = 1;
+}
+test();
+```
+
+答案：undefined
+
+第 3 题：
+
+```js
+var b = 2;
+function test2() {
+  window.b = 3;
+  console.log(b);
+}
+test2();
+```
+
+答案：3
+
+第 4 题：
+
+```js
+c = 5; //声明一个全局变量c
+function test3() {
+  window.c = 3;
+  console.log(c); //答案：undefined，原因：由于此时的c是一个局部变量c，并且没有被赋值
+  var c;
+  console.log(window.c); //答案：3，原因：这里的c就是一个全局变量c
+}
+test3();
+```
+
+第 5 题：
+
+```js
+var arr = [];
+arr[0] = "a";
+arr[1] = "b";
+arr[10] = "c";
+alert(arr.length); //答案：11
+console.log(arr[5]); //答案：undefined
+```
+
+第 6 题：
+
+```js
+var a = 1;
+console.log(a++); //答案：1
+console.log(++a); //答案：3
+```
+
+第 7 题：
+
+```js
+console.log(null == undefined); //答案：true
+console.log("1" == 1); //答案：true，因为会将数字1先转换为字符串1
+console.log("1" === 1); //答案：false，因为数据类型不一致
+```
+
+第 8 题：
+
+```js
+typeof 1;
+("number");
+typeof "hello";
+("string");
+typeof /[0-9]/;
+("object");
+typeof {};
+("object");
+typeof null;
+("object");
+typeof undefined;
+("undefined");
+typeof [1, 2, 3];
+("object");
+typeof function() {}; //"function"
+```
+
+第 9 题：
+
+```js
+parseInt(3.14); //3
+parseFloat("3asdf"); //3
+parseInt("1.23abc456");
+parseInt(true); //"true" NaN
+```
+
+第 10 题：
+
+```js
+//考点：函数声明提前
+function bar() {
+  return foo;
+  foo = 10;
+  function foo() {}
+  //var foo = 11;
+}
+alert(typeof bar()); //"function"
+```
+
+第 11 题：考点：函数声明提前
+
+```js
+var foo = 1;
+function bar() {
+  foo = 10;
+  return;
+  function foo() {}
+}
+bar();
+alert(foo); //答案：1
+```
+
+第 12 题：
+
+```js
+console.log(a); //是一个函数
+var a = 3;
+function a() {}
+console.log(a); ////3
+```
+
+第 13 题：
+
+```js
+//考点：对arguments的操作
+function foo(a) {
+    arguments[0] = 2;
+    alert(a);//答案：2，因为：a、arguments是对实参的访问，b、通过arguments[i]可以修改指定实参的值
+}
+foo(1);
+265、第14题：
+function foo(a) {
+    alert(arguments.length);//答案：3，因为arguments是对实参的访问
+}
+foo(1, 2, 3);
+```
+
+第 15 题
+
+```js
+bar(); //报错
+var foo = function bar(name) {
+  console.log("hello" + name);
+  console.log(bar);
+};
+//alert(typeof bar);
+foo("world"); //"hello"
+console.log(bar); //undefined
+console.log(foo.toString());
+bar(); //报错
+```
+
+第 16 题
+
+```js
+function test() {
+  console.log("test函数");
+}
+setTimeout(function() {
+  console.log("定时器回调函数");
+}, 0);
+test();
+function foo() {
+  var name = "hello";
+}
+```
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 
