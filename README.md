@@ -57,7 +57,13 @@
 
 </details>
 
-<b><details><summary>🐎 编程题</summary></b>
+<b><details><summary>🐎 选择题</summary></b>
+
+- [详情](./content/选择题/js.md)
+
+</details>
+
+<b><details><summary>🐐 编程题</summary></b>
 
 - [js 基础](./content/编程题/js.md)
 - [js 原型](./content/编程题/prototype.md)
@@ -66,31 +72,31 @@
 
 </details>
 
-<b><details><summary>🐐 兼容性问题</summary></b>
+<b><details><summary>🙊 兼容性问题</summary></b>
 
 - [详情](./content/兼容性问题.md)
 
 </details>
 
-<b><details><summary>🙊 大厂高频题</summary></b>
+<b><details><summary>🐔 大厂高频题</summary></b>
 
 - [详情](./content/大厂高频题.md)
 
 </details>
 
-<b><details><summary>🐔 网络及安全防护</summary></b>
+<b><details><summary>🐶 网络及安全防护</summary></b>
 
 - [详情](./content/网络及安全防护.md)
 
 </details>
 
-<b><details><summary>🐶 框架/工程/项目</summary></b>
+<b><details><summary>🐷 框架/工程/项目</summary></b>
 
 - [详情](./content/框架工程项目.md)
 
 </details>
 
-<b><details><summary>🐷 非技术问题</summary></b>
+<b><details><summary>❓ 非技术问题</summary></b>
 
 - [常问的非技术问题](./content/非技术问题/非技术问题.md)
 - [面试技巧及注意事项](./content/非技术问题/面试技巧及注意事项.md)

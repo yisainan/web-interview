@@ -2402,12 +2402,13 @@ btn.addEventListener("click", handler.exec.false);
 1）
 
 ```js
-var a;
-var b = a * 0;
+var a; // undefined
+var b = a * 0; // NaN
 if (b == b) {
+  // false
   console.log(b * 2 + "2" - 0 + 4);
 } else {
-  console.log(!b * 2 + "2" - 0 + 4);
+  console.log(!b * 2 + "2" - 0 + 4); // 22 + 4 = 26
 }
 ```
 
@@ -2422,8 +2423,8 @@ if (b == b) {
 <script>
 var a;
 var b = a * 0;
-if (b == b) {
-       console.log(b * 2 + "2" - 0 + 4);
+if (b == b) { // true
+       console.log(b * 2 + "2" - 0 + 4); // 6
 } else {
        console.log(!b * 2 + "2" - 0 + 4);
 }
@@ -2440,10 +2441,11 @@ function test(t) {
   var t = t++;
 }
 test(t);
-console.log(t);
+console.log(t); // 外部不能访问函数内的变量
 ```
 
 答案：10
+
 4）
 
 ```js
@@ -2463,6 +2465,7 @@ console.log(t);
 var t = 10;
 function test(test) {
   t = test++;
+  console.log(t);
 }
 test(t);
 console.log(t);
@@ -2520,33 +2523,263 @@ if (b == b) {
 
 </details>
 
-<b><details><summary>104.下列JavaScript代码执行后，iNum的值是</summary></b>
+<b><details><summary>104.下列 JavaScript 代码执行后，iNum 的值是</summary></b>
 
 ```js
 var iNum = 0;
-for(var i = 1; i< 10; i++){
-     if(i % 5 == 0){
-         continue;
-    }
-    iNum++;
+for (var i = 1; i < 10; i++) {
+  if (i % 5 == 0) {
+    continue;
+  }
+  iNum++;
 }
+console.log(iNum);
+```
+
+答案：8
+
+</details>
+
+<b><details><summary>105.下列 JavaScript 代码执行后，依次打印的结果是</summary></b>
+
+```js
+(function test() {
+  var a = (b = 5);
+  console.log(typeof a);
+  console.log(typeof b);
+})();
+console.log(typeof a);
+console.log(typeof b);
+```
+
+答案：
+
+```
+number
+number
+undefined
+number
+```
+
+</details>
+
+<b><details><summary>106.不用任何插件，如何实现一个 tab 栏切换？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>107.js 中如何实现一个 map</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>108.有 1 到 10w 这个 10w 个数，去除 2 个并打乱次序，如何找出那两个数？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>109.如何获取对象 a 拥有的所有属性（可枚举的、不可枚举的，不包括继承来的属性）</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>110.约瑟夫环—已知 n 个人（以编号 1，2，3…分别表示）围坐在一张圆桌周围。从编号为 k 的人开始报数，数到 m 的那个人出列；他的下一个人又从 1 开始报数，数到 m 的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>111.FF 与 IE 中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>112.有下面这样一段 HTML 结构，使用 css 实现这样的效果：</summary></b>
+
+```html
+<!-- 左边容器无论宽度如何变动，右边容器都能自适应填满父容器剩余的宽度。 -->
+<div class="”warp”">
+  <div class="”left”"></div>
+  <div class="”right”"></div>
+</div>
 ```
 
 答案：
 
 </details>
 
-<b><details><summary>105.下列JavaScript代码执行后，依次alert的结果是</summary></b>
+<b><details><summary>113.console.log( 8 | 1 ); 输出值是多少？</summary></b>
+
+答案：9
+
+</details>
+
+<b><details><summary>114.只允许使用 + - _ / 和 Math._ ，求一个函数 y = f(x, a, b);当 x > 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用|,?:,数组。</summary></b>
+
+答案：
 
 ```js
-(function test(){
-      var a=b=5;
-      alert(typeof a);
-      alert(typeof b);
-})();
-alert(typeof a);
-alert(typeof b);
+function f(x, a, b) {
+  var temp = Math.ceil(Math.min(Math.max(x - 100, 0), 1));
+  return a * temp + b * (1 - temp);
+}
+console.log(f(-10, 1, 2));
 ```
+
+</details>
+
+<b><details><summary>115.JavaScript alert(0.4*0.2);结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
+
+答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用try catch return写了一个函数，
+	当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
+
+</details>
+
+<b><details><summary>116.如何显示/隐藏一个dom元素？请用原生的JavaScript方法实现</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>117.闭包：下面这个ul，如何点击每一列的时候alert其index？</summary></b>
+
+```html
+<ul id="test">
+<li>这是第一条</li>
+<li>这是第二条</li>
+<li>这是第三条</li>
+</ul>
+```
+
+答案：
+
+</details>
+
+<b><details><summary>118.如现在有一个效果，有显示用户头像、用户昵称、用户其他信息；当用户鼠标移到头像上时，会弹出用户的所有信息；如果是你，你会如何实现这个功能，请用代码实现？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>119.call与apply有什么作用？又有什么什么区别？用callee属性实现函数递归？</summary></b>
+
+答案：apply的参数是数组,call的参数是单个的值，除此之外，两者没有差别，重点理解this的改变，callee已经不推荐使用
+
+</details>
+
+<b><details><summary>120.用正则表达式，写出由字母开头，其余由数字、字母、下划线组成的6~30的字符串？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>121.写一个函数可以计算 sum(5,0,-5);输出0; sum(1,2,3,4);输出10;</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>122.事件代理怎么实现？</summary></b>
+
+答案：
+
+解析：在元素的父节点注册事件，通过事件冒泡，在父节点捕获事件
+
+</details>
+
+<b><details><summary>123.对于apply和call两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
+
+答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。?如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]) 。
+
+</details>
+
+<b><details><summary>124.《正则》写出正确的正则表达式匹配固话号，区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>125.《算法》 一下A,B可任选一题作答，两题全答加分</summary></b>
+
+A:农场买了一只羊，第一年是小羊，第二年底生一只，第三年不生，第四年底再生一只，第五年死掉。
+
+B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
+
+答案：
+
+</details>
+
+<b><details><summary>126.请写出一张图片的HTML代码，已知道图片地址为“images/abc.jpg”,宽100px，高50px</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>127.请写一个正则表达式：要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
+
+答案：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$
+
+</details>
+
+<b><details><summary>128.统计1到400亿之间的自然数中含有多少个1？比如1-21中，有1、10、11、21这四个自然数有5个1</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>129.删除与某个字符相邻且相同的字符，比如fdaffdaaklfjklja字符串处理之后成为“fdafdaklfjklja”</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个form表单，并在里面添加一个input对象并给它任意赋值后义post方式提交到：http://127.0.0.1/save.php</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>131.请写出三种以上的Firefox有但InternetExplorer没有的属性和函数</summary></b>
+
+答案：
+
+1、在IE下可通过`document.frames["id"];`得到该IFRAME对象，
+
+而在火狐下则是通过`document.getElementById("content_panel_if").contentWindow;`
+
+2、IE的写法： `_tbody=_table.childNodes[0]`
+在FF中，firefox会在子节点中包含空白则第一个子节点为空白""， 而ie不会返回空白
+可以通过`if("" != node.nodeName)`过滤掉空白子对象
+
+3、模拟点击事件
+```js
+if(document.all){  //ie下 
+    document.getElementById("a3").click();  
+}
+else{  //非IE
+    var evt = document.createEvent("MouseEvents");  
+    evt.initEvent("click", true, true);  
+    document.getElementById("a3").dispatchEvent(evt);  
+}  
+```
+4、事件注册
+```js
+if (isIE){window.attachEvent("onload", init);}else{window.addEventListener("load", init, false);}
+```
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 

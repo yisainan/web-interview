@@ -129,6 +129,18 @@
 
 </details>
 
+<b><details><summary>21.一个div，有几种方式得到这个div的jQuery对象？`<div class='aabbcc' id='nodesView'></div>`想直接获取这个div的dom对象，如何获取？dom对象如何转化为jQuery对象？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>22.jQuery框架中$.ajax()的常用参数有哪些？写一个post请求并带有发送数据和返回数据的样例</summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

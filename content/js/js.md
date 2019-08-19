@@ -4336,6 +4336,52 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 </details>
 
+<b><details><summary>148.JavaScript的循环语句有哪些？</summary></b>
+
+答案：while  for  do while  forEach
+
+</details>
+
+<b><details><summary>149.作用域-编译期执行期以及全局局部作用域问题</summary></b>
+
+答案：js执行主要的两个阶段：预解析和执行期
+
+</details>
+
+<b><details><summary>150.如何添加html元素的事件，有几种方法？请列举</summary></b>
+
+答案：直接在标签里添加；在元素上添加、使用事件注册函数添加
+
+</details>
+
+<b><details><summary>151.列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个</summary></b>
+
+答案：
+
+对象：Window document location screen history navigator
+
+方法：Alert() confirm() prompt() open() close() 
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

@@ -746,6 +746,27 @@ viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更
 
 </details>
 
+<b><details><summary>38.新的 HTML5 文档类型和字符集是？</summary></b>
+
+答案：
+```
+HTML5文档类型：<!doctype html>
+HTML5使用的编码<meta charset=”UTF-8”>
+```
+</details>
+
+<b><details><summary>39.HTML5 Canvas 元素有什么用？</summary></b>
+
+答案：Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作。
+
+</details>
+
+<b><details><summary>40.HTML5 存储类型有什么区别？</summary></b>
+
+答案：Media API、Text Track API、Application Cache API、User Interaction、Data Transfer API、Command API、Constraint Validation API、History API
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：
