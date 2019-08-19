@@ -104,9 +104,10 @@
 
 </details>
 
-<b><details><summary>📝 简历模板</summary></b>
+<b><details><summary>📝 前端简历</summary></b>
 
-- [详情](./content/简历模板)
+- [如何写好前端简历](./content/简历/如何写好前端简历.md)
+- [获取简历模板](./content/简历/获取简历模板.md)
 
 </details>
 
