@@ -14,7 +14,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 </details>
 
-<b><details><summary>2、MVC、MVP 与 MVVM 模式</summary></b>
+<b><details><summary>2.MVC、MVP 与 MVVM 模式</summary></b>
 
 答案：
 
@@ -52,13 +52,13 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 </details>
 
-<b><details><summary>3、常见的实现 MVVM 几种方式</summary></b>
+<b><details><summary>3.常见的实现 MVVM 几种方式</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>4、解释下 Object.defineProperty()方法</summary></b>
+<b><details><summary>4.解释下 Object.defineProperty()方法</summary></b>
 
 答案：这是 js 中一个非常重要的方法，ES6 中某些方法的实现依赖于它，VUE 通过它实现双向绑定，此方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象
 
@@ -198,13 +198,13 @@ console.log(a.b); //打印 你取我的值
 
 </details>
 
-<b><details><summary>5、实现一个自己的 MVVM（原理剖析）</summary></b>
+<b><details><summary>5.实现一个自己的 MVVM（原理剖析）</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>10、递归组件的使用</summary></b>
+<b><details><summary>10.递归组件的使用</summary></b>
 
 答案：组件是可以在自己的模板中调用自身的，不过他们只能通过name选项来做这件事
 
@@ -212,19 +212,19 @@ console.log(a.b); //打印 你取我的值
 
 </details>
 
-<b><details><summary>11、Obj.keys()与 Obj.defineProperty</summary></b>
+<b><details><summary>11.Obj.keys()与 Obj.defineProperty</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>12、发布-订阅模式</summary></b>
+<b><details><summary>12.发布-订阅模式</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>13、实现 MVVM 的思路分析</summary></b>
+<b><details><summary>13.实现 MVVM 的思路分析</summary></b>
 
 答案：
 

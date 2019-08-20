@@ -2,7 +2,7 @@
 
 <b><details><summary>1.用H5+CSS3解决下导航栏最后一项掉下来的问题</summary></b> 
 
-答案：
+答案：box-sizing: border-box;
 
 </details>
 

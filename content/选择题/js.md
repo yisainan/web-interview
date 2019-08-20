@@ -19,7 +19,7 @@ D. setTimeout
 E. alert
 ```
 
-答案：（ABC）
+答案：ABC
 
 </details>
 
@@ -32,21 +32,28 @@ C. window.location=”a.html”和window.location.href=”a.html”的作用都�
 D. 定义了全局变量g；可以用window.g的方式来存取该变量
 ```
 
-答案：（ACD）
+答案：ACD
 
 </details>
 
 <b><details><summary>4.描述错误的是</summary></b>
 
 ```
-A：Http状态码302表示暂时性转移 对
-B:domContentLoaded事件早于onload事件  onload 事件会在页面或图像加载完成后立即发生。
+A：HTTP状态码302表示暂时性转移
+B:domContentLoaded事件早于onload事件
 C: IE678不支持事件捕获
-D:localStorage 存储的数据在电脑重启后丢失     没有时间限制
-try...catch 语句。(在 IE5+、Mozilla 1.0、和 Netscape 6 中可用)
+D:localStorage 存储的数据在电脑重启后丢失
 ```
 
-答案：
+答案：D
+
+解析：
+
+HTTP状态码302表示被请求的资源暂时转移(Moved temporatily)，然后会给出一个转移后的URL，而浏览器在处理服务器返回的302错误时，原则上会重新建立一个TCP连接，然后再取重定向后的URL的页面；但是如果页面存在于缓存中，则不重新获取；
+
+onload事件触发时，页面上所有的DOM，样式表，脚本，图片，flash都已经加载完成了，domContentLoaded事件触发时，仅当DOM加载完成，不包括样式表，图片，flash。
+
+C正确，故选D
 
 </details>
 
