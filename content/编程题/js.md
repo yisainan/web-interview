@@ -2633,26 +2633,26 @@ console.log(f(-10, 1, 2));
 
 </details>
 
-<b><details><summary>115.JavaScript alert(0.4*0.2);结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
+<b><details><summary>115.JavaScript alert(0.4\*0.2);结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
 
-答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用try catch return写了一个函数，
-	当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
+答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用 try catch return 写了一个函数，
+当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
 
 </details>
 
-<b><details><summary>116.如何显示/隐藏一个dom元素？请用原生的JavaScript方法实现</summary></b>
+<b><details><summary>116.如何显示/隐藏一个 dom 元素？请用原生的 JavaScript 方法实现</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>117.闭包：下面这个ul，如何点击每一列的时候alert其index？</summary></b>
+<b><details><summary>117.闭包：下面这个 ul，如何点击每一列的时候 alert 其 index？</summary></b>
 
 ```html
 <ul id="test">
-<li>这是第一条</li>
-<li>这是第二条</li>
-<li>这是第三条</li>
+  <li>这是第一条</li>
+  <li>这是第二条</li>
+  <li>这是第三条</li>
 </ul>
 ```
 
@@ -2666,19 +2666,19 @@ console.log(f(-10, 1, 2));
 
 </details>
 
-<b><details><summary>119.call与apply有什么作用？又有什么什么区别？用callee属性实现函数递归？</summary></b>
+<b><details><summary>119.call 与 apply 有什么作用？又有什么什么区别？用 callee 属性实现函数递归？</summary></b>
 
-答案：apply的参数是数组,call的参数是单个的值，除此之外，两者没有差别，重点理解this的改变，callee已经不推荐使用
+答案：apply 的参数是数组,call 的参数是单个的值，除此之外，两者没有差别，重点理解 this 的改变，callee 已经不推荐使用
 
 </details>
 
-<b><details><summary>120.用正则表达式，写出由字母开头，其余由数字、字母、下划线组成的6~30的字符串？</summary></b>
+<b><details><summary>120.用正则表达式，写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串？</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>121.写一个函数可以计算 sum(5,0,-5);输出0; sum(1,2,3,4);输出10;</summary></b>
+<b><details><summary>121.写一个函数可以计算 sum(5,0,-5);输出 0; sum(1,2,3,4);输出 10;</summary></b>
 
 答案：
 
@@ -2692,19 +2692,19 @@ console.log(f(-10, 1, 2));
 
 </details>
 
-<b><details><summary>123.对于apply和call两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
+<b><details><summary>123.对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
 
-答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。?如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3]) 。
+答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。?如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
 
 </details>
 
-<b><details><summary>124.《正则》写出正确的正则表达式匹配固话号，区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号</summary></b>
+<b><details><summary>124.《正则》写出正确的正则表达式匹配固话号，区号 3-4 位，第一位为 0，中横线，7-8 位数字，中横线，3-4 位分机号格式的固话号</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>125.《算法》 一下A,B可任选一题作答，两题全答加分</summary></b>
+<b><details><summary>125.《算法》 一下 A,B 可任选一题作答，两题全答加分</summary></b>
 
 A:农场买了一只羊，第一年是小羊，第二年底生一只，第三年不生，第四年底再生一只，第五年死掉。
 
@@ -2714,69 +2714,133 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 </details>
 
-<b><details><summary>126.请写出一张图片的HTML代码，已知道图片地址为“images/abc.jpg”,宽100px，高50px</summary></b>
+<b><details><summary>126.请写出一张图片的 HTML 代码，已知道图片地址为“images/abc.jpg”,宽 100px，高 50px</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>127.请写一个正则表达式：要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
+<b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-答案：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$
+答案：^(?=._\d)(?=._[a-z])(?=.\*[A-Z])[a-zA-Z\d]{6,20}\$
 
 </details>
 
-<b><details><summary>128.统计1到400亿之间的自然数中含有多少个1？比如1-21中，有1、10、11、21这四个自然数有5个1</summary></b>
+<b><details><summary>128.统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 5 个 1</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>129.删除与某个字符相邻且相同的字符，比如fdaffdaaklfjklja字符串处理之后成为“fdafdaklfjklja”</summary></b>
+<b><details><summary>129.删除与某个字符相邻且相同的字符，比如 fdaffdaaklfjklja 字符串处理之后成为“fdafdaklfjklja”</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个form表单，并在里面添加一个input对象并给它任意赋值后义post方式提交到：http://127.0.0.1/save.php</summary></b>
+<b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个 form 表单，并在里面添加一个 input 对象并给它任意赋值后义 post 方式提交到：http://127.0.0.1/save.php</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>131.请写出三种以上的Firefox有但InternetExplorer没有的属性和函数</summary></b>
+<b><details><summary>131.请写出三种以上的 Firefox 有但 InternetExplorer 没有的属性和函数</summary></b>
 
 答案：
 
-1、在IE下可通过`document.frames["id"];`得到该IFRAME对象，
+1、在 IE 下可通过`document.frames["id"];`得到该 IFRAME 对象，
 
 而在火狐下则是通过`document.getElementById("content_panel_if").contentWindow;`
 
-2、IE的写法： `_tbody=_table.childNodes[0]`
-在FF中，firefox会在子节点中包含空白则第一个子节点为空白""， 而ie不会返回空白
+2、IE 的写法： `_tbody=_table.childNodes[0]`
+在 FF 中，firefox 会在子节点中包含空白则第一个子节点为空白""， 而 ie 不会返回空白
 可以通过`if("" != node.nodeName)`过滤掉空白子对象
 
 3、模拟点击事件
+
 ```js
-if(document.all){  //ie下 
-    document.getElementById("a3").click();  
+if (document.all) {
+  //ie下
+  document.getElementById("a3").click();
+} else {
+  //非IE
+  var evt = document.createEvent("MouseEvents");
+  evt.initEvent("click", true, true);
+  document.getElementById("a3").dispatchEvent(evt);
 }
-else{  //非IE
-    var evt = document.createEvent("MouseEvents");  
-    evt.initEvent("click", true, true);  
-    document.getElementById("a3").dispatchEvent(evt);  
-}  
 ```
+
 4、事件注册
+
 ```js
-if (isIE){window.attachEvent("onload", init);}else{window.addEventListener("load", init, false);}
+if (isIE) {
+  window.attachEvent("onload", init);
+} else {
+  window.addEventListener("load", init, false);
+}
 ```
+
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>132.编写一个快速方法将 html 的 sup 提取转换为一个数组</summary></b>
+
+```js
+// 编写一个快速方法将html的sup提取转换为一个数组，如：
+let str = "气量(10<sup>8</sup>m<sup>3</sup>)"
+// 输出结果
+// ['气量(10',8,'m',3,')']
+```
 
 答案：
 
+```js
+// 方法1
+str.split(/\<\/?sup\>/)
+// 方法2
+str.split(/<[^>]+>/)
+```
+
+</details>
+
+<b><details><summary>133.求num的值</summary></b>
+
+答案：
+
+```js
+//   面试题1
+var num = 123;
+function f1() {
+  console.log(num); // 123
+}
+function f2() {
+  var num = 456;
+  f1();
+}
+f2();
+
+//面试题1 变式
+var num = 123;
+function f1(num) {
+  console.log(num); // 456
+}
+function f2() {
+  var num = 456;
+  f1(num);
+}
+f2();
+
+//面试题1  变式
+var num = 123;
+function f1() {
+  console.log(num); // 456
+}
+f2();
+function f2() {
+  num = 456; //这里是全局变量
+  f1();
+}
+console.log(num); // 456
+```
 </details>
 
 <b><details><summary></summary></b>

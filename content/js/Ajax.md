@@ -69,7 +69,7 @@
 
 理解跨域的概念：协议、域名、端口都相同才同域，否则都是跨域
 
-扩展：window.name、flash URLLoader、Access Control、document.domain（两个 iframe 之间）、location.hash（两个 iframe 之间）
+扩展：`window.name`、flash URLLoader、Access Control、document.domain（两个 iframe 之间）、location.hash（两个 iframe 之间）
 
 CORS:
 
