@@ -769,9 +769,19 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>41.iframe的作用</summary></b>
 
-答案：
+答案：iframe是用来在网页中插入第三方页面，早期的页面使用iframe主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
+
+优点
+1. 便于修改，模拟分离，像一些信息管理系统会用到。
+2. 但现在基本不推荐使用。除非特殊需要，一般不推荐使用。
+
+缺点
+1. iframe的创建比一般的DOM元素慢了1-2个数量级
+2. iframe标签会阻塞页面的的加载，如果页面的onload事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好，在Safari和Chrome中可以通过js动态设置iframe的src属性来避免阻塞。
+3. iframe对于SEO不友好，替换方案一般就是动态语言的Incude机制和ajax动态填充内容等。
+
 
 </details>
 

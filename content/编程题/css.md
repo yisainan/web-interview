@@ -99,6 +99,79 @@ animation：动画名 时长；
 
 </details>
 
+<b><details><summary>5.如何用css实现瀑布流布局</summary></b>
+
+答案：
+利用column-count和break-inside这两个CSS3属性即可，复制如下代码即可察看效果
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+        .waterfall-container {
+            /*分几列*/
+            column-count: 2;
+            width: 100%;
+            /* 列间距 */
+            column-gap: 10px;
+        }
+
+        .waterfall-item {
+            break-inside: avoid;
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            background: #ddd;
+            column-gap: 0;
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="waterfall-container">
+        <div class="waterfall-item" style="height: 100px">1</div>
+        <div class="waterfall-item" style="height: 300px">2</div>
+        <div class="waterfall-item" style="height: 400px">3</div>
+        <div class="waterfall-item" style="height: 100px">4</div>
+        <div class="waterfall-item" style="height: 300px">5</div>
+        <div class="waterfall-item" style="height: 600px">6</div>
+        <div class="waterfall-item" style="height: 400px">7</div>
+        <div class="waterfall-item" style="height: 300px">8</div>
+        <div class="waterfall-item" style="height: 700px">9</div>
+        <div class="waterfall-item" style="height: 100px">10</div>
+    </div>
+</body>
+</html>
+```
+
+</details>
+
+<b><details><summary>6.已知父级盒子的宽高，子级img宽高未知，想让img铺满父级盒子且图片不能变形</summary></b>
+
+答案：需要用到`css`的`object-fit`属性
+
+```css
+div {
+    width: 200px;
+    height: 200px;
+}
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+```
+
+解析：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit)
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

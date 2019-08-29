@@ -110,6 +110,16 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
       伪类是给页面中已经存在的元素添加一个类。
 
+解析：
+
+CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分。它们可以用于装饰（`:first-line`，`:first-letter`）或将元素添加到标记中（与 content:...组合），而不必修改标记（`:before`，`:after`）。
+
+- `:first-line`和`:first-letter`可以用来修饰文字。
+- 上面提到的`.clearfix`方法中，使用`clear: both`来添加不占空间的元素。
+- 使用`:before`和`after`展示提示中的三角箭头。鼓励关注点分离，因为三角被视为样式的一部分，而不是真正的 DOM。如果不使用额外的 HTML 元素，只用 CSS 样式绘制三角形是不太可能的。
+
+[参考](https://css-tricks.com/almanac/selectors/a/after-and-before/)
+
 </details>
 
 <b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
@@ -238,74 +248,77 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 </details>
 
-<b><details><summary>13. 如何垂直居中一个浮动元素？</summary></b>
+<b><details><summary>13. 如何垂直居中一个元素？</summary></b>
 
 答案：
 
+方法一：绝对定位居中（原始版之已知元素的高宽）
+
 ```css
-
-// 方法一：已知元素的高宽
-
-#div1{
-
-    background-color:#6699FF;
-
-    width:200px;
-
-    height:200px;
-
-    position: absolute;        //父元素需要相对定位
-
-    top: 50%;
-
-    left: 50%;
-
-    margin-top:-100px ;   //二分之一的height，width
-
-    margin-left: -100px;
-
-    }
-
- 
-
-//方法二:未知元素的高宽
-
- 
-
-  #div1{
-
-    width: 200px;
-
-    height: 200px;
-
-    background-color: #6699FF;
-
-    margin:auto;
-
-    position: absolute;        //父元素需要相对定位
-
-    left: 0;
-
-    top: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    }
-
+.content {
+  width: 200px;
+  height: 200px;
+  background-color: #6699ff;
+  position: absolute; /*父元素需要相对定位*/
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /*设为高度的1/2*/
+  margin-left: -100px; /*设为宽度的1/2*/
+}
 ```
 
-那么问题来了，如何垂直居中一个`<img>?`（用更简便的方法。）
+方法二：绝对定位居中（改进版之一未知元素的高宽）
 
 ```css
-#container     //<img>的容器设置如下
+.content {
+  width: 200px;
+  height: 200px;
+  background-color: #6699ff;
+  position: absolute; /*父元素需要相对定位*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*在水平和垂直方向上各偏移-50%*/
+}
+```
 
- {
+方法三：绝对定位居中（改进版之二未知元素的高宽）
+
+```css
+.content {
+  width: 200px;
+  height: 200px;
+  background-color: #6699ff;
+  margin: auto; /*很关键的一步*/
+  position: absolute; /*父元素需要相对定位*/
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; /*让四个定位属性都为0*/
+}
+```
+
+方法四：flex 布局居中
+
+```css
+body {
+  display: flex; /*设置外层盒子display为flex*/
+  align-items: center; /*设置内层盒子的垂直居中*/
+  justify-content: center; /*设置内层盒子的水平居中*/
+  .content {
+    width: 200px;
+    height: 200px;
+    background-color: #6699ff;
+  }
+}
+```
+
+那么问题来了，如何垂直居中一个 img（用更简便的方法。）
+
+```css
+.content {
+  //img的容器设置如下
   display: table-cell;
-
   text-align: center;
-
   vertical-align: middle;
 }
 ```
@@ -333,7 +346,8 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
   - bfc 的区域不会与 float 的元素区域重叠。
   - 计算 bfc 的高度时，浮动元素也参与计算
   - bfc 就是页面上的一个独立容器，容器里面的子元素不会影响外面元素。
-    </details>
+
+</details>
 
 <b><details><summary>15.用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
 
@@ -682,15 +696,16 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 </details>
 
-<b><details><summary>51. 描述一个”reset”的 CSS 文件并如何使用它。知道 normalize.css 吗？你了解他们的不同之处？</summary></b>
+<b><details><summary>51. 重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？</summary></b>
 
 答案：
 
-重置样式非常多，凡是一个前端开发人员肯定有一个常用的重置 CSS 文件并知道如何使用它们。他们是盲目的在做还是知道为什么这么做呢？原因是不同的浏览器对一些元素有不同的默认样式，如果你不处理，在不同的浏览器下会存在必要的风险，或者更有戏剧性的性发生。
+- **重置（Resetting）**： 重置意味着除去所有的浏览器默认样式。对于页面所有的元素，像`margin`、`padding`、`font-size`这些样式全部置成一样。你将必须重新定义各种元素的样式。
+- **标准化（Normalizing）**： 标准化没有去掉所有的默认样式，而是保留了有用的一部分，同时还纠正了一些常见错误。
 
-你可能会用 Normalize 来代替你的重置样式文件。它没有重置所有的样式风格，但仅提供了一套合理的默认样式值。既能让众多浏览器达到一致和合理，但又不扰乱其他的东西（如粗体的标题）。
+当需要实现非常个性化的网页设计时，我会选择重置的方式，因为我要写很多自定义的样式以满足设计需求，这时候就不再需要标准化的默认样式了。
 
-在这一方面，无法做每一个复位重置。它也确实有些超过一个重置，它处理了你永远都不用考虑的怪癖，像 HTML 的 audio 元素不一致或 line-height 不一致。
+解析：[参考](https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css)
 
 </details>
 
@@ -1266,11 +1281,7 @@ css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载�
 
 <b><details><summary>77.如果设计中使用了非标准的字体，你该如何去实现？</summary></b>
 
-答案：
-
-1、用图片代替
-
-2、web fonts 在线字库，如 Google Webfonts，[Typekit](http://www.chinaz.com/free/2012/0815/269267.shtml) 等等；
+答案：使用`@font-face`并为不同的`font-weight`定义`font-family`。
 
 </details>
 
@@ -1294,7 +1305,7 @@ css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载�
   clear: both;
 }
 .clearfix {
-   zoom:1;
+  zoom: 1;
 }
 ```
 
@@ -1302,6 +1313,455 @@ after 伪元素通过 content 在元素的后面生成了内容为一个点的�
 那么问题继续还有，知道 css 计数器（序列数字字符自动递增）吗？如何通过 css content 属性实现 css 计数器？
 
 答案：css 计数器是通过设置 counter-reset 、counter-increment 两个属性 、及 counter()/counters()一个方法配合 after / before 伪类实现。
+
+</details>
+
+<b><details><summary>80.CSS 选择器的优先级是如何计算的？</summary></b>
+
+答案：浏览器通过优先级规则，判断元素展示哪些样式。优先级通过 4 个维度指标确定，我们假定以`a、b、c、d`命名，分别代表以下含义：
+
+1. `a`表示是否使用内联样式（inline style）。如果使用，`a`为 1，否则为 0。
+2. `b`表示 ID 选择器的数量。
+3. `c`表示类选择器、属性选择器和伪类选择器数量之和。
+4. `d`表示标签（类型）选择器和伪元素选择器之和。
+
+优先级的结果并非通过以上四个值生成一个得分，而是每个值分开比较。`a、b、c、d`权重从左到右，依次减小。判断优先级时，从左到右，一一比较，直到比较出最大值，即可停止。所以，如果`b`的值不同，那么`c`和`d`不管多大，都不会对结果产生影响。比如`0，1，0，0`的优先级高于`0，0，10，10`。
+
+当出现优先级相等的情况时，最晚出现的样式规则会被采纳。如果你在样式表里写了相同的规则（无论是在该文件内部还是其它样式文件中），那么最后出现的（在文件底部的）样式优先级更高，因此会被采纳。
+
+在写样式时，我会使用较低的优先级，这样这些样式可以轻易地覆盖掉。尤其对写 UI 组件的时候更为重要，这样使用者就不需要通过非常复杂的优先级规则或使用`!important`的方式，去覆盖组件的样式了。
+
+解析：[参考](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/)、[参考](https://www.sitepoint.com/web-foundations/specificity/)
+
+</details>
+
+<b><details><summary>81.请阐述`Float`定位的工作原理。</summary></b>
+
+答案：
+
+浮动（float）是 CSS 定位属性。浮动元素从网页的正常流动中移出，但是保持了部分的流动性，会影响其他元素的定位（比如文字会围绕着浮动元素）。这一点与绝对定位不同，绝对定位的元素完全从文档流中脱离。
+
+CSS 的`clear`属性通过使用`left`、`right`、`both`，让该元素向下移动（清除浮动）到浮动元素下面。
+
+如果父元素只包含浮动元素，那么该父元素的高度将塌缩为 0。我们可以通过清除（clear）从浮动元素后到父元素关闭前之间的浮动来修复这个问题。
+
+有一种 hack 的方法，是自定义一个`.clearfix`类，利用伪元素选择器`::after`清除浮动。[另外还有一些方法](https://css-tricks.com/all-about-floats/#article-header-id-4)，比如添加空的`<div></div>`和设置浮动元素父元素的`overflow`属性。与这些方法不同的是，`clearfix`方法，只需要给父元素添加一个类，定义如下：
+
+```css
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+```
+
+值得一提的是，把父元素属性设置为`overflow: auto`或`overflow: hidden`，会使其内部的子元素形成块格式化上下文（Block Formatting Context），并且父元素会扩张自己，使其能够包围它的子元素。
+
+解析：[参考](https://css-tricks.com/all-about-floats/)
+
+</details>
+
+<b><details><summary>82.请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
+
+</summary></b>
+
+答案：
+
+CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只能影响`position`值不是`static`的元素。
+
+没有定义`z-index`的值时，元素按照它们出现在 DOM 中的顺序堆叠（层级越低，出现位置越靠上）。非静态定位的元素（及其子元素）将始终覆盖静态定位（static）的元素，而不管 HTML 层次结构如何。
+
+层叠上下文是包含一组图层的元素。 在一组层叠上下文中，其子元素的`z-index`值是相对于该父元素而不是 document root 设置的。每个层叠上下文完全独立于它的兄弟元素。如果元素 B 位于元素 A 之上，则即使元素 A 的子元素 C 具有比元素 B 更高的`z-index`值，元素 C 也永远不会在元素 B 之上.
+
+每个层叠上下文是自包含的：当元素的内容发生层叠后，整个该元素将会在父层叠上下文中按顺序进行层叠。少数 CSS 属性会触发一个新的层叠上下文，例如`opacity`小于 1，`filter`不是`none`，`transform`不是`none`。
+
+解析：[参考 1](https://css-tricks.com/almanac/properties/z/z-index/)、[参考 2](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)、[参考 3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+
+</details>
+
+<b><details><summary>83.如何解决不同浏览器的样式兼容性问题？</summary></b>
+
+答案：
+
+- 在确定问题原因和有问题的浏览器后，使用单独的样式表，仅供出现问题的浏览器加载。这种方法需要使用服务器端渲染。
+- 使用已经处理好此类问题的库，比如 Bootstrap。
+- 使用 `autoprefixer` 自动生成 CSS 属性前缀。
+- 使用 Reset CSS 或 Normalize.css。
+
+</details>
+
+<b><details><summary>84.如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？</summary></b>
+
+答案：
+
+- 优雅的降级：为现代浏览器构建应用，同时确保它在旧版浏览器中正常运行。
+- Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
+- 渐进式增强：构建基于用户体验的应用，但在浏览器支持时添加新增功能。
+- 利用 [caniuse.com](https://caniuse.com/) 检查特性支持。
+- 使用 `autoprefixer` 自动生成 CSS 属性前缀。
+- 使用 [Modernizr](https://modernizr.com/)进行特性检测。
+
+</details>
+
+<b><details><summary>85.有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）？</summary></b>
+
+答案：
+
+这些方法与可访问性（a11y）有关。
+
+- `visibility: hidden`：元素仍然在页面流中，并占用空间。
+- `width: 0; height: 0`：使元素不占用屏幕上的任何空间，导致不显示它。
+- `position: absolute; left: -99999px`： 将它置于屏幕之外。
+- `text-indent: -9999px`：这只适用于`block`元素中的文本。
+- Metadata： 例如通过使用 Schema.org，RDF 和 JSON-LD。
+- WAI-ARIA：如何增加网页可访问性的 W3C 技术规范。
+
+即使 WAI-ARIA 是理想的解决方案，我也会采用绝对定位方法，因为它具有最少的注意事项，适用于大多数元素，而且使用起来非常简单。
+
+解析：[参考 1](https://www.w3.org/TR/wai-aria-1.1/)、[参考 2](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)、[参考 3](http://a11yproject.com/)
+
+</details>
+
+<b><details><summary>86.除了`screen`，你还能说出一个 @media 属性的例子吗？</summary></b>
+
+答案：
+
+- all<br>
+  适用于所有设备。
+- print<br>
+  为了加载合适的文档到当前使用的可视窗口. 需要提前咨询 paged media（媒体屏幕尺寸）, 以满足个别设备网页尺寸不匹配等问题。
+- screen<br>
+  主要适用于彩色的电脑屏幕
+- speech<br>
+
+解析：speech 这个合成器. 注意: CSS2 已经有一个相似的媒体类型叫 aural.<br>
+[参考](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media)
+
+</details>
+
+<b><details><summary>87.编写高效的 CSS 应该注意什么？</summary></b>
+
+答案：
+
+首先，浏览器从最右边的选择器，即关键选择器（key selector），向左依次匹配。根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作，去判断这些元素的父元素们是否匹配。
+
+[BEM (Block Element Modifier)](https://bem.info/) methodology recommends that everything has a single class, and, where you need hierarchy, that gets baked into the name of the class as well, this naturally makes the selector efficient and easy to override.
+[BEM (Block Element Modifier)](https://bem.info/)原则上建议为独立的 CSS 类命名，并且在需要层级关系时，将关系也体现在命名中，这自然会使选择器高效且易于覆盖。
+
+搞清楚哪些 CSS 属性会触发重新布局（reflow）、重绘（repaint）和合成（compositing）。在写样式时，避免触发重新布局的可能。
+
+解析：[参考 1](https://developers.google.com/web/fundamentals/performance/rendering/)、[参考 2](https://csstriggers.com/)
+
+</details>
+
+<b><details><summary>88.使用 CSS 预处理的优缺点分别是什么？</summary></b>
+
+答案：
+
+优点：
+
+- 提高 CSS 可维护性。
+- 易于编写嵌套选择器。
+- 引入变量，增添主题功能。可以在不同的项目中共享主题文件。
+- 通过混合（Mixins）生成重复的 CSS。
+- Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+- 将代码分割成多个文件。不进行预处理的 CSS，虽然也可以分割成多个文件，但需要建立多个 HTTP 请求加载这些文件。
+
+缺点：
+
+- 需要预处理工具。
+- 重新编译的时间可能会很慢。
+
+</details>
+
+<b><details><summary>89.对于你使用过的 CSS 预处理，说说喜欢和不喜欢的地方？</summary></b>
+
+答案：
+
+喜欢：
+
+- 绝大部分优点上题以及提过。
+- Less 用 JavaScript 实现，与 NodeJS 高度结合。
+
+**Dislikes:**
+
+- 我通过`node-sass`使用 Sass，它用 C ++ 编写的 LibSass 绑定。在 Node 版本切换时，我必须经常重新编译。
+- Less 中，变量名称以`@`作为前缀，容易与 CSS 关键字混淆，如`@media`、`@import`和`@font-face`。
+
+</details>
+
+<b><details><summary>90. 解释浏览器如何确定哪些元素与 CSS 选择器匹配。</summary></b>
+
+答案：
+
+这部分与上面关于编写高效的 CSS 有关。浏览器从最右边的选择器（关键选择器）根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。
+
+例如，对于形如`p span`的选择器，浏览器首先找到所有`<span>`元素，并遍历它的父元素直到根元素以找到`<p>`元素。对于特定的`<span>`，只要找到一个`<p>`，就知道'<span>`已经匹配并停止继续匹配。
+
+解析：[参考](https://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left)
+
+</details>
+
+<b><details><summary>91.说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。</summary></b>
+
+答案：
+
+CSS 盒模型描述了以文档树中的元素而生成的矩形框，并根据排版模式进行布局。每个盒子都有一个内容区域（例如文本，图像等）以及周围可选的`padding`、`border`和`margin`区域。
+
+CSS 盒模型负责计算：
+
+- 块级元素占用多少空间。
+- 边框是否重叠，边距是否合并。
+- 盒子的尺寸。
+
+盒模型有以下规则：
+
+- 块级元素的大小由`width`、`height`、`padding`、`border`和`margin`决定。
+- 如果没有指定`height`，则块级元素的高度等于其包含子元素的内容高度加上`padding`（除非有浮动元素，请参阅下文）。
+- 如果没有指定`width`，则非浮动块级元素的宽度等于其父元素的宽度减去父元素的`padding`。
+- 元素的`height`是由内容的`height`来计算的。
+- 元素的`width`是由内容的`width`来计算的。
+- 默认情况下，`padding`和`border`不是元素`width`和`height`的组成部分。
+
+解析：[参考](https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model)
+
+</details>
+
+<b><details><summary>92.`* { box-sizing: border-box; }`会产生怎样的效果？</summary></b>
+
+答案：
+
+- 元素默认应用了`box-sizing: content-box`，元素的宽高只会决定内容（content）的大小。
+- `box-sizing: border-box`改变计算元素`width`和`height`的方式，`border`和`padding`的大小也将计算在内。
+- 元素的`height` = 内容（content）的高度 + 垂直方向的`padding` + 垂直方向`border`的宽度
+- 元素的`width` = 内容（content）的宽度 + 水平方向的`padding` + 水平方向`border`的宽度
+
+</details>
+
+<b><details><summary>93.`relative`、`fixed`、`absolute`和`static`四种定位有什么区别？</summary></b>
+
+答案：
+
+经过定位的元素，其`position`属性值必然是`relative`、`absolute`、`fixed`或`static`。
+
+- `static`：默认定位属性值。该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+- `relative`：该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。
+- `absolute`：不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+- `fixed`：不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform 属性非 none 时，容器由视口改为该祖先。
+- `static`：盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下（即便被定位元素为 `table` 时），该元素定位均不对后续元素造成影响。当元素 B 被粘性定位时，后续元素的位置仍按照 B 未定位时的位置来确定。`position: static` 对 `table` 元素的效果与 `position: relative` 相同。
+
+解析：[参考](https://developer.mozilla.org/en/docs/Web/CSS/position)
+
+</details>
+
+<b><details><summary>94.你使用过哪些现有的 CSS 框架？你是如何改进它们的？</summary></b>
+
+答案：
+
+- **Bootstrap**： 更新周期缓慢。Bootstrap 4 已经处于 alpha 版本将近两年了。添加了在页面中广泛使用的微调按钮组件。
+- **Semantic UI**：源代码结构使得自定义主题很难理解。非常规主题系统的使用体验很差。外部库的路径需要硬编码（hard code）配置。变量重新赋值没有 Bootstrap 设计得好。
+- **Bulma**： 需要很多非语义的类和标记，显得很多余。不向后兼容，以至于升级版本后，会破坏应用的正常运行。
+
+</details>
+
+<b><details><summary>95.你了解 CSS Flex 和 Grid 吗？</summary></b>
+
+答案：Flex 主要用于一维布局，而 Grid 则用于二维布局。
+
+解析：
+
+### Flex
+
+flex 容器中存在两条轴， 横轴和纵轴， 容器中的每个单元称为 flex item。
+
+在容器上可以设置 6 个属性：
+
+- flex-direction
+- flex-wrap
+- flex-flow
+- justify-content
+- align-items
+- align-content
+
+注意：当设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
+
+#### Flex 项目属性
+
+有六种属性可运用在 item 项目上:
+
+1. order
+2. flex-basis
+3. flex-grow
+4. flex-shrink
+5. flex
+6. align-self
+
+### Grid
+
+CSS 网格布局用于将页面分割成数个主要区域，或者用来定义组件内部元素间大小、位置和图层之间的关系。
+
+像表格一样，网格布局让我们能够按行或列来对齐元素。 但是，使用 CSS 网格可能还是比 CSS 表格更容易布局。 例如，网格容器的子元素可以自己定位，以便它们像 CSS 定位的元素一样，真正的有重叠和层次。
+
+</details>
+
+<b><details><summary>96.响应式设计与自适应设计有何不同？</summary></b>
+
+答案：
+
+响应式设计和自适应设计都以提高不同设备间的用户体验为目标，根据视窗大小、分辨率、使用环境和控制方式等参数进行优化调整。
+
+响应式设计的适应性原则：网站应该凭借一份代码，在各种设备上都有良好的显示和使用效果。响应式网站通过使用媒体查询，自适应栅格和响应式图片，基于多种因素进行变化，创造出优良的用户体验。就像一个球通过膨胀和收缩，来适应不同大小的篮圈。
+
+自适应设计更像是渐进式增强的现代解释。与响应式设计单一地去适配不同，自适应设计通过检测设备和其他特征，从早已定义好的一系列视窗大小和其他特性中，选出最恰当的功能和布局。与使用一个球去穿过各种的篮筐不同，自适应设计允许使用多个球，然后根据不同的篮筐大小，去选择最合适的一个。
+
+解析：
+[参考 1](https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design)、
+[参考 2](http://mediumwell.com/responsive-adaptive-mobile/)、
+[参考 3](https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/)
+
+</details>
+
+<b><details><summary>97.你有没有使用过视网膜分辨率的图形？当中使用什么技术？</summary></b>
+
+答案：我倾向于使用更高分辨率的图形（显示尺寸的两倍）来处理视网膜显示。更好的方法是使用媒体查询，像`@media only screen and (min-device-pixel-ratio: 2) { ... }`，然后改变`background-image`。
+
+对于图标类的图形，我会尽可能使用 svg 和图标字体，因为它们在任何分辨率下，都能被渲染得十分清晰。
+
+还有一种方法是，在检查了`window.devicePixelRatio`的值后，利用 JavaScript 将`<img>`的`src`属性修改，用更高分辨率的版本进行替换。
+
+解析：[参考](https://www.sitepoint.com/css-techniques-for-retina-displays/)
+
+</details>
+
+<b><details><summary>98.什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。</summary></b>
+
+答案：`translate()`是`transform`的一个值。改变`transform`或`opacity`不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。`transform`使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此`translate()`更高效，可以缩短平滑动画的绘制时间。
+
+当使用`translate()`时，元素仍然占据其原始空间（有点像`position：relative`），这与改变绝对定位不同。
+
+解析：[参考](https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)、
+[参考](https://neal.codes/blog/front-end-interview-css-questions)、
+[参考](https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/)、
+[参考](http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/)
+
+</details>
+
+<b><details><summary>99.一边固定宽度一边宽度自适应</summary></b>
+
+答案：可以使用 flex 布局 复制下面的 HTML 和 CSS 代码 用浏览器打开可以看到效果
+
+```
+<div class="wrap">
+  <div class="div1"></div>
+  <div class="div2"></div>
+</div>
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.div1 {
+  min-width: 200px;
+}
+.div2 {
+  width: 100%;
+  background: #e6e6e6;
+}
+html,
+body,
+div {
+  height: 100%;
+  margin: 0;
+}
+```
+
+</details>
+
+<b><details><summary>100.display:none、visibile:hidden、opacity:0 的区别</summary></b>
+
+答案：
+
+|                  | 是否隐藏 | 是否在文档中占用空间 | 是否会触发事件 |
+| ---------------- | -------- | -------------------- | -------------- |
+| display: none    | 是       | 否                   | 否             |
+| visibile: hidden | 是       | 是                   | 否             |
+| opacity: 0       | 是       | 是                   | 是             |
+
+</details>
+
+<b><details><summary>101.文本超出部分显示省略号</summary></b>
+
+答案：
+
+#### 单行
+
+```css
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+```
+
+#### 多行
+
+```css
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3; // 最多显示几行
+overflow: hidden;
+```
+
+</details>
+
+<b><details><summary>102.利用伪元素画三角</summary></b>
+
+答案：
+
+```css
+.info-tab {
+  position: relative;
+}
+.info-tab::after {
+  content: "";
+  border: 4px solid transparent;
+  border-top-color: #2c8ac2;
+  position: absolute;
+  top: 0;
+}
+```
+
+</details>
+
+<b><details><summary>103.过渡与动画的区别是什么</summary></b>
+
+答案：
+
+- transition<br>
+  可以在一定的时间内实现元素的状态过渡为最终状态，用于模拟以一种过渡动画效果，但是功能有限，只能用于制作简单的动画效果而动画属性
+- animation<br>
+  可以制作类似 Flash 动画，通过关键帧控制动画的每一步，控制更为精确，从而可以制作更为复杂的动画。
+
+</details>
+
+<b><details><summary>104.去除 inline-block 元素间间距的方法</summary></b>
+
+答案：
+
+- 移除空格
+- 使用 margin 负值
+- 使用 font-size:0
+- letter-spacing
+- word-spacing
+
+解析：更详细的介绍请看[去除 inline-block 元素间间距的 N 种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
+
+</details>
+
+<b><details><summary>105.为什么要初始化 CSS 样式</summary></b>
+
+答案：
+
+- 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对 CSS 初始化往往会出现浏览器之间的页面显示差异。
+- 去掉标签的默认样式如：margin,padding，其他浏览器默认解析字体大小，字体设置。
 
 </details>
 
