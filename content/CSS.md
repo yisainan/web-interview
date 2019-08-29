@@ -1236,29 +1236,29 @@ Css Sprites（雪碧图或 css 精灵），是网页图片处理的一种方式�
 ## base64：
 
 介绍：
-base64是网络上最常见的用于传输8Bit字节代码的编码方式之一，要求把每三个8Bit的字节转换为四个6Bit的字节，Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一。
+base64 是网络上最常见的用于传输 8Bit 字节代码的编码方式之一，要求把每三个 8Bit 的字节转换为四个 6Bit 的字节，Base64 是网络上最常见的用于传输 8Bit 字节代码的编码方式之一。
 
-通俗点讲：将资源原本二进制形式转成以64个字符基本单位，所组成的一串字符串。
-比如一张图片转成base64编码后就像这样，图片直接以base64形式嵌入文件中（很长没截完）：
+通俗点讲：将资源原本二进制形式转成以 64 个字符基本单位，所组成的一串字符串。
+比如一张图片转成 base64 编码后就像这样，图片直接以 base64 形式嵌入文件中（很长没截完）：
 
 ![css_007](../images/css_007.jpg)
 
-生成base64编码：
-图片生成base64可以用一些工具，如在线工具，但在项目中这样一个图片这样生成是挺繁琐。
-特别说下，webpack中的url-loader可以完成这个工作，可以对限制大小的图片进行base64的转换，非常方便。
+生成 base64 编码：
+图片生成 base64 可以用一些工具，如在线工具，但在项目中这样一个图片这样生成是挺繁琐。
+特别说下，webpack 中的 url-loader 可以完成这个工作，可以对限制大小的图片进行 base64 的转换，非常方便。
 
 优点：
-base64的图片会随着html或者css一起下载到浏览器,减少了请求.
+base64 的图片会随着 html 或者 css 一起下载到浏览器,减少了请求.
 可避免跨域问题
 
 缺点：
-老东西（低版本）的IE浏览器不兼容。
+老东西（低版本）的 IE 浏览器不兼容。
 体积会比原来的图片大一点。
-css中过多使用base64图片会使得css过大，不利于css的加载。
+css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载。
 
 适用场景：
-应用于小的图片几k的，太大的图片会转换后的大小太大，得不偿失。
-用于一些css sprites不利处理的小图片，如一些可以通过background-repeat平铺来做成背景的图片
+应用于小的图片几 k 的，太大的图片会转换后的大小太大，得不偿失。
+用于一些 css sprites 不利处理的小图片，如一些可以通过 background-repeat 平铺来做成背景的图片
 
 解析：[参考](https://www.cnblogs.com/wangqi2019/p/10498627.html)
 
@@ -1268,9 +1268,13 @@ css中过多使用base64图片会使得css过大，不利于css的加载。
 
 答案：
 
+1、用图片代替
+
+2、web fonts 在线字库，如 Google Webfonts，[Typekit](http://www.chinaz.com/free/2012/0815/269267.shtml) 等等；
+
 </details>
 
-<b><details><summary>78.用css分别实现某个div元素上下居中和左右居中</summary></b>
+<b><details><summary>78.用 css 分别实现某个 div 元素上下居中和左右居中</summary></b>
 
 答案：
 
@@ -1290,12 +1294,13 @@ css中过多使用base64图片会使得css过大，不利于css的加载。
   clear: both;
 }
 .clearfix {
-  *zoom: 1;
+   zoom:1;
 }
 ```
 
 after 伪元素通过 content 在元素的后面生成了内容为一个点的块级素，再利用 clear:both 清除浮动。
-　　那么问题继续还有，知道 css 计数器（序列数字字符自动递增）吗？如何通过 css content 属性实现 css 计数器？
+那么问题继续还有，知道 css 计数器（序列数字字符自动递增）吗？如何通过 css content 属性实现 css 计数器？
+
 答案：css 计数器是通过设置 counter-reset 、counter-increment 两个属性 、及 counter()/counters()一个方法配合 after / before 伪类实现。
 
 </details>

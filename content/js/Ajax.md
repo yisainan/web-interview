@@ -63,18 +63,19 @@
 
 <b><details><summary>3.如何解决跨域问题?</summary></b>
 
-答案：JSONP、CORS、服务端代理
+答案：
+
+1. jsonp ，允许 script 加载第三方资源
+2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin *）
+3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
+4. iframe 嵌套通讯，postmessage
 
 解析：
 
 理解跨域的概念：协议、域名、端口都相同才同域，否则都是跨域
 
-扩展：`window.name`、flash URLLoader、Access Control、document.domain（两个 iframe 之间）、location.hash（两个 iframe 之间）
-
-CORS:
-
-服务端添加 header("Access-Control-Allow-Origin", "_");其中“_”号表示允许任何域向我们的服务端提交请求
-
+[参考](https://zhuanlan.zhihu.com/p/41479807)
+[跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 </details>
 
 <b><details><summary>4.页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
@@ -143,7 +144,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 答案：
 
-1.  通过异步模式，提升了用户体验
+1.  通过异步模式，提升了用户体验。来自服务器的新内容可以动态更改，无需重新加载整个页面。
 
 2.  优化了浏览器和服务器之间的传输，减少不必要的数据往返，减少了带宽占用
 
@@ -432,9 +433,16 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>28.Ajax和Fetch区别</summary></b>
 
 答案：
+
+* ajax是使用XMLHttpRequest对象发起的，但是用起来很麻烦，所以ES6新规范就有了fetch，fetch发一个请求不用像ajax那样写一大堆代码。
+* 使用fetch无法取消一个请求，这是因为fetch基于Promise，而Promise无法做到这一点。
+* 在默认情况下，fetch不会接受或者发送cookies
+* fetch没有办法原生监测请求的进度，而XMLHttpRequest可以
+* fetch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
+* fetch由于是ES6规范，兼容性上比不上XMLHttpRequest
 
 </details>
 

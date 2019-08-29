@@ -341,7 +341,7 @@ document.addEventListener("visibilitychange", function() {
 
 </details>
 
-<b><details><summary>22. 一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</summary></b>
+<b><details><summary>22. 页面大量图片，如何优化加载，优化用户体验</summary></b>
 
 答案：
 
@@ -354,6 +354,8 @@ document.addEventListener("visibilitychange", function() {
 如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
 
 如果图片展示区域小于图片的真实大小，则因在服务器端根据业务需要先行进行图片压缩，图片压缩后大小与展示一致。
+
+解析：[参考](https://www.jianshu.com/p/5d82bba9e1a1)
 
 </details>
 

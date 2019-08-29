@@ -126,7 +126,18 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 <b><details><summary>5.== 和 === 的不同</summary></b>
 
-答案：==表示等同，===表示恒等。==只比较内容，而===既比较内容也比较数据类型。
+答案：`==`是抽象相等运算符，而`===`是严格相等运算符。`==`运算符是在进行必要的类型转换后，再比较。`===`运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回`false`。使用`==`时，可能发生一些特别的事情，例如：
+
+```js
+1 == "1"; // true
+1 == [1]; // true
+1 == true; // true
+0 == ""; // true
+0 == "0"; // true
+0 == false; // true
+```
+
+如果你对`==`和`===`的概念不是特别了解，建议大多数情况下使用`===`
 
 </details>
 
@@ -170,6 +181,30 @@ console.log(str_1); //6 6//输出左右侧均无空格
 2、为什么要用事件委托
 
 - 1.提高性能
+
+```
+<ul>
+  <li>苹果</li>
+  <li>香蕉</li>
+  <li>凤梨</li>
+</ul>
+
+// good
+document.querySelector('ul').onclick = (event) => {
+  let target = event.target
+  if (target.nodeName === 'LI') {
+    console.log(target.innerHTML)
+  }
+}
+
+// bad
+document.querySelectorAll('li').forEach((e) => {
+  e.onclick = function() {
+    console.log(this.innerHTML)
+  }
+})
+```
+
 - 2.新添加的元素还会有之前的事件。
 
 3、事件冒泡与事件委托的对比
@@ -569,6 +604,19 @@ function outer() {
 }
 outer()(); // jack
 ```
+
+```js
+function sayHi(name) {
+  return () => {
+    console.log(`Hi! ${name}`);
+  };
+}
+const test = sayHi("xiaoming");
+test(); // Hi! xiaoming
+```
+
+虽然 sayHi 函数已经执行完毕，但是其活动对象也不会被销毁，因为 test 函数仍然引用着 sayHi 函数中的变量 name，这就是闭包。<br>
+但也因为闭包引用着另一个函数的变量，导致另一个函数已经不使用了也无法销毁，所以闭包使用过多，会占用较多的内存，这也是一个副作用。
 
 解析：
 
@@ -2095,12 +2143,44 @@ if (a instanceof Person) {
 
 <b><details><summary>45.new 操作符具体干了什么呢?</summary></b>
 
-答案：new 共经过了 4 几个阶段
+答案：
+
+样本一
+
+new 共经过了 4 几个阶段
 
 - 1、创建一个空对象
 - 2、设置原型链
 - 3、让 Func 中的 this 指向 obj，并执行 Func 的函数体
 - 4、判断 Func 的返回值类型：
+
+样本二
+
+```
+function Test(){}
+const test = new Test()
+```
+
+1. 创建一个新对象：
+
+```
+const obj = {}
+```
+
+2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象
+
+```
+obj.constructor = Test
+obj.__proto__ = Test.prototype
+```
+
+3. 使用新对象调用函数，函数中的 this 被指向新实例对象
+
+```
+Test.call(obj)
+```
+
+4. 将初始化完毕的新对象地址，保存到等号左边的变量中
 
 </details>
 
@@ -4294,7 +4374,7 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 </details>
 
-<b><details><summary>142.我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡，你来说下会执行几次事件，然后会先执行冒泡还是捕获</summary></b>
+<b><details><summary>142.我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，你来说下会执行几次事件，然后会先执行冒泡还是捕获</summary></b>
 
 答案：
 
@@ -4312,67 +4392,475 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 </details>
 
-<b><details><summary>145.前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?</summary></b>
+<b><details><summary>145.前端 templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?</summary></b>
 
 答案：
 
-* Web 模板引擎是为了使用户界面与业务数据（内容）分离而产生的，
-* Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。
-* Underscore封装了常用的JavaScript对象操作方法，用于提高开发效率。
-* Handlebars 是 JavaScript 一个语义模板库，通过对view和data的分离来快速构建Web模板。
+- Web 模板引擎是为了使用户界面与业务数据（内容）分离而产生的，
+- Mustache 是一个 logic-less （轻逻辑）模板解析引擎，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。
+- Underscore 封装了常用的 JavaScript 对象操作方法，用于提高开发效率。
+- Handlebars 是 JavaScript 一个语义模板库，通过对 view 和 data 的分离来快速构建 Web 模板。
 
 </details>
 
-<b><details><summary>146.知道什么是webkit么? 知道怎么用浏览器的各种工具来调试和debug代码么?</summary></b>
+<b><details><summary>146.知道什么是 webkit 么? 知道怎么用浏览器的各种工具来调试和 debug 代码么?</summary></b>
 
-答案：Webkit是浏览器引擎，包括html渲染和js解析功能，手机浏览器的主流内核，与之相对应的引擎有Gecko（Mozilla Firefox 等使用）和Trident（也称MSHTML，IE 使用）。 
-对于浏览器的调试工具要熟练使用，主要是页面结构分析，后台请求信息查看，js调试工具使用，熟练使用这些工具可以快速提高解决问题的效率
-
-</details>
-
-<b><details><summary>147.如何测试前端代码? 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?</summary></b>
-
-答案：了解BDD行为驱动开发与TDD测试驱动开发已经单元测试相关概念
+答案：Webkit 是浏览器引擎，包括 html 渲染和 js 解析功能，手机浏览器的主流内核，与之相对应的引擎有 Gecko（Mozilla Firefox 等使用）和 Trident（也称 MSHTML，IE 使用）。
+对于浏览器的调试工具要熟练使用，主要是页面结构分析，后台请求信息查看，js 调试工具使用，熟练使用这些工具可以快速提高解决问题的效率
 
 </details>
 
-<b><details><summary>148.JavaScript的循环语句有哪些？</summary></b>
+<b><details><summary>147.如何测试前端代码? 知道 BDD, TDD, Unit Test 么? 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?</summary></b>
 
-答案：while  for  do while  forEach
+答案：了解 BDD 行为驱动开发与 TDD 测试驱动开发已经单元测试相关概念
+
+</details>
+
+<b><details><summary>148.JavaScript 的循环语句有哪些？</summary></b>
+
+答案：while for do while forEach
 
 </details>
 
 <b><details><summary>149.作用域-编译期执行期以及全局局部作用域问题</summary></b>
 
-答案：js执行主要的两个阶段：预解析和执行期
+答案：js 执行主要的两个阶段：预解析和执行期
 
 </details>
 
-<b><details><summary>150.如何添加html元素的事件，有几种方法？请列举</summary></b>
+<b><details><summary>150.如何添加 html 元素的事件，有几种方法？请列举</summary></b>
 
 答案：直接在标签里添加；在元素上添加、使用事件注册函数添加
 
 </details>
 
-<b><details><summary>151.列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个</summary></b>
+<b><details><summary>151.列举浏览器对象模型 BOM 里常用的至少 4 个对象，并列举 window 对象的常用方法至少 5 个</summary></b>
 
 答案：
 
 对象：Window document location screen history navigator
 
-方法：Alert() confirm() prompt() open() close() 
+方法：Alert() confirm() prompt() open() close()
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>152.事件绑定的方式</summary></b>
 
 答案：
+
+- 嵌入 dom
+
+```html
+<button onclick="func()">按钮</button>
+```
+
+- 直接绑定
+
+```js
+btn.onclick = function() {};
+```
+
+- 事件监听
+
+```js
+btn.addEventListener("click", function() {});
+```
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>153.事件循环</summary></b>
+
+答案：事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
+
+</details>
+
+<b><details><summary>154.事件模型</summary></b>
 
 答案：
+
+- DOM0<br>
+  直接绑定
+
+```
+<input onclick="sayHi()"/>
+
+btn.onclick = function() {}
+btn.onclick = null
+```
+
+- DOM2<br>
+  DOM2 级事件可以冒泡和捕获
+  通过 addEventListener 绑定
+  通过 removeEventListener 解绑
+
+```
+// 绑定
+btn.addEventListener('click', sayHi)
+// 解绑
+btn.removeEventListener('click', sayHi)
+```
+
+- DOM3<br>
+  DOM3 具有更多事件类型
+  DOM3 级事件在 DOM2 级事件的基础上添加了更多的事件类型，全部类型如下：
+
+```
+UI事件，当用户与页面上的元素交互时触发，如：load、scroll
+焦点事件，当元素获得或失去焦点时触发，如：blur、focus
+鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
+滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel
+文本事件，当在文档中输入文本时触发，如：textInput
+键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
+合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
+变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
+```
+
+解析：[参考](https://www.jianshu.com/p/3acdf5f71d5b)
+
+</details>
+
+<b><details><summary>155.如何自定义事件</summary></b>
+
+答案：
+
+1. 原生提供了 3 个方法实现自定义事件
+2. createEvent，设置事件类型，是 html 事件还是 鼠标事件
+3. initEvent 初始化事件，事件名称，是否允许冒泡，是否阻止自定义事件
+4. dispatchEvent 触发事件
+
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
+
+</details>
+
+<b><details><summary>156.target 和 currentTarget 区别</summary></b>
+
+答案：
+
+- event.target<br>
+  返回触发事件的元素
+- event.currentTarget<br>
+  返回绑定事件的元素
+
+</details>
+
+<b><details><summary>157.prototype 和**proto**的关系是什么</summary></b>
+
+答案：
+
+所有的对象都拥有**proto**属性，它指向对象构造函数的 prototype 属性
+
+```
+let obj = {}
+obj.__proto__ === Object.prototype // true
+
+function Test(){}
+test.__proto__ == Test.prototype // true
+```
+
+所有的函数都同时拥有**proto**和 protytpe 属性
+函数的**proto**指向自己的函数实现 函数的 protytpe 是一个对象 所以函数的 prototype 也有**proto**属性 指向 Object.prototype
+
+```
+function func() {}
+func.prototype.__proto__ === Object.prototype // true
+```
+
+Object.prototype.**proto**指向 null
+
+```
+Object.prototype.__proto__ // null
+```
+
+</details>
+
+<b><details><summary>158.原型继承</summary></b>
+
+答案：所有的 JS 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
+
+</details>
+
+<b><details><summary>160.使用 let、var 和 const 创建变量有什么区别</summary></b>
+
+答案：
+
+用 var 声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。let 和 const 是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
+
+```js
+function foo() {
+  // 所有变量在函数中都可访问
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
+
+  console.log(bar); // bar
+  console.log(baz); // baz
+  console.log(qux); // qux
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+```js
+if (true) {
+  var bar = "bar";
+  let baz = "baz";
+  const qux = "qux";
+}
+
+// 用 var 声明的变量在函数作用域上都可访问
+console.log(bar); // bar
+// let 和 const 定义的变量在它们被定义的语句块之外不可访问
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+var 会使变量提升，这意味着变量可以在声明之前使用。let 和 const 不会使变量提升，提前使用会报错。
+
+```js
+console.log(foo); // undefined
+
+var foo = "foo";
+
+console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+
+let baz = "baz";
+
+console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+
+const bar = "bar";
+```
+
+用 var 重复声明不会报错，但 let 和 const 会。
+
+```js
+var foo = "foo";
+var foo = "bar";
+console.log(foo); // "bar"
+
+let baz = "baz";
+let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+```
+
+let 和 const 的区别在于：let 允许多次赋值，而 const 只允许一次。
+
+```js
+// 这样不会报错。
+let foo = "foo";
+foo = "bar";
+
+// 这样会报错。
+const baz = "baz";
+baz = "qux";
+```
+
+解析：[参考](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
+
+</details>
+
+<b><details><summary>161.对象浅拷贝和深拷贝有什么区别</summary></b>
+
+答案：在 `JS` 中，除了基本数据类型，还存在对象、数组这种引用类型。
+基本数据类型，拷贝是直接拷贝变量的值，而引用类型拷贝的其实是变量的地址。
+
+```
+let o1 = {a: 1}
+let o2 = o1
+```
+
+在这种情况下，如果改变 `o1` 或 `o2` 其中一个值的话，另一个也会变，因为它们都指向同一个地址。
+
+```
+o2.a = 3
+console.log(o1.a) // 3
+```
+
+而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有重新创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。
+
+</details>
+
+<b><details><summary>162.数组去重</summary></b>
+
+答案：
+ES5
+
+```js
+function unique(arry) {
+  const temp = [];
+  arry.forEach(e => {
+    if (temp.indexOf(e) == -1) {
+      temp.push(e);
+    }
+  });
+
+  return temp;
+}
+```
+
+ES6
+
+```js
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+```
+
+</details>
+
+<b><details><summary>163.内置函数(原生函数)</summary></b>
+
+答案：
+
+- String
+- Number
+- Boolean
+- Object
+- Function
+- Array
+- Date
+- RegExp
+- Error
+- Symbol
+
+</details>
+
+<b><details><summary>167.自动分号</summary></b>
+
+答案：有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。<br>
+因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的 ; 。<br>
+请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
+如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分
+号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会
+这样做。
+
+</details>
+
+<b><details><summary>168.浮点数精度</summary></b>
+
+答案：[参考](https://www.css88.com/archives/7340)
+
+</details>
+
+<b><details><summary>169.自执行函数?用于什么场景？好处?</summary></b>
+
+答案：
+
+自执行函数:1、声明一个匿名函数 2、马上调用这个匿名函数。<br>
+作用：创建一个独立的作用域。<br>
+
+好处：防止变量弥散到全局，以免各种 js 库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理<br>
+
+场景：一般用于框架、插件等场景
+
+</details>
+
+<b><details><summary>170.多个页面之间如何进行通信</summary></b>
+
+答案：有如下几个方式：
+
+- cookie
+- web worker
+- localeStorage 和 sessionStorage
+
+</details>
+
+<b><details><summary>171.css 动画和 js 动画的差异</summary></b>
+
+答案：
+
+1. 代码复杂度，js 动画代码相对复杂一些
+2. 动画运行时，对动画的控制程度上，js 能够让动画，暂停，取消，终止，css 动画不能添加事件
+3. 动画性能看，js 动画多了一个 js 解析的过程，性能不如 css 动画好
+
+解析：[参考](https://zhuanlan.zhihu.com/p/41479807)
+
+</details>
+
+<b><details><summary>172.如何实现文件断点续传</summary></b>
+
+答案：断点续传最核心的内容就是把文件“切片”然后再一片一片的传给服务器，但是这看似简单的上传过程却有着无数的坑。
+
+首先是文件的识别，一个文件被分成了若干份之后如何告诉服务器你切了多少块，以及最终服务器应该如何把你上传上去的文件进行合并，这都是要考虑的。
+
+因此在文件开始上传之前，我们和服务器要有一个“握手”的过程，告诉服务器文件信息，然后和服务器约定切片的大小，当和服务器达成共识之后就可以开始后续的文件传输了。
+
+前台要把每一块的文件传给后台，成功之后前端和后端都要标识一下，以便后续的断点。
+
+当文件传输中断之后用户再次选择文件就可以通过标识来判断文件是否已经上传了一部分，如果是的话，那么我们可以接着上次的进度继续传文件，以达到续传的功能。
+有了 HTML5 的 File api 之后切割文件比想想的要简单的多的多。
+
+只要用 slice 方法就可以了
+
+```
+var packet = file.slice(start, end);
+```
+
+参数 start 是开始切片的位置，end 是切片结束的位置 单位都是字节。通过控制 start 和 end 就可以是实现文件的分块
+
+如
+
+```
+file.slice(0,1000);
+file.slice(1000,2000);
+file.slice(2000,3000);
+// ......
+```
+
+在把文件切成片之后，接下来要做的事情就是把这些碎片传到服务器上。
+如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
+
+解析：[参考](https://www.cnblogs.com/zhwl/p/3580776.html)
+
+</details>
+
+<b><details><summary>173.bind、call、apply 的区别</summary></b>
+
+答案：
+
+call 和 apply 其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
+call 和 apply 都是在调用时生效，改变调用者的 this 指向。<br>
+
+```
+let name = 'Jack'
+const obj = {name: 'Tom'}
+function sayHi() {console.log('Hi! ' + this.name)}
+
+sayHi() // Hi! Jack
+sayHi.call(obj) // Hi! Tom
+
+```
+
+bind 也是改变 this 指向，不过不是在调用时生效，而是返回一个新函数。
+
+```
+const newFunc = sayHi.bind(obj)
+newFunc() // Hi! Tom
+```
+
+</details>
+
+<b><details><summary>174.如何做到修改url参数页面不刷新</summary></b>
+
+答案：
+
+HTML5引入了 `history.pushState()` 和 `history.replaceState()` 方法，它们分别可以添加和修改历史记录条目。
+```js
+let stateObj = {
+    foo: "bar",
+};
+
+history.pushState(stateObj, "page 2", "bar.html");
+```
+假设当前页面为 `foo.html`，执行上述代码后会变为 `bar.html`，点击浏览器后退，会变为 `foo.html`，但浏览器并不会刷新。
+`pushState()` 需要三个参数: 一个状态对象, 一个标题 (目前被忽略), 和 (可选的) 一个 URL. 让我们来解释下这三个参数详细内容：
+
+* 状态对象 — 状态对象 `state` 是一个 JavaScript 对象，通过 `pushState ()` 创建新的历史记录条目。无论什么时候用户导航到新的状态，`popstate` 事件就会被触发，且该事件的 `state` 属性包含该历史记录条目状态对象的副本。
+状态对象可以是能被序列化的任何东西。原因在于 Firefox 将状态对象保存在用户的磁盘上，以便在用户重启浏览器时使用，我们规定了状态对象在序列化表示后有640k的大小限制。如果你给 `pushState()` 方法传了一个序列化后大于 640k 的状态对象，该方法会抛出异常。如果你需要更大的空间，建议使用 `sessionStorage` 以及 `localStorage`.
+
+* 标题 — Firefox 目前忽略这个参数，但未来可能会用到。传递一个空字符串在这里是安全的，而在将来这是不安全的。二选一的话，你可以为跳转的 `state` 传递一个短标题。
+
+* URL — 该参数定义了新的历史URL记录。注意，调用 `pushState()` 后浏览器并不会立即加载这个 URL，但可能会在稍后某些情况下加载这个 URL，比如在用户重新打开浏览器时。新URL不必须为绝对路径。如果新URL是相对路径，那么它将被作为相对于当前 URL 处理。新 URL 必须与当前URL同源，否则 `pushState()` 会抛出一个异常。该参数是可选的，缺省为当前 URL。
 
 </details>
 

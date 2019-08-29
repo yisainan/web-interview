@@ -1258,6 +1258,32 @@ function deepCopy(obj) {
 }
 ```
 
+```js
+let o1 = {
+  a: {
+    b: 1
+  }
+};
+let o2 = JSON.parse(JSON.stringify(o1));
+```
+
+另一种方法
+
+```js
+function deepCopy(s) {
+  const d = {};
+  for (let k in s) {
+    if (typeof s[k] == "object") {
+      d[k] = deepCopy(s[k]);
+    } else {
+      d[k] = s[k];
+    }
+  }
+
+  return d;
+}
+```
+
 </details>
 
 <b><details><summary>43.看下面代码，给出输出结果(考察闭包及++运算符)</summary></b>
@@ -2722,7 +2748,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 <b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-答案：^(?=._\d)(?=._[a-z])(?=.\*[A-Z])[a-zA-Z\d]{6,20}\$
+答案：^(?=.\_\d)(?=.\_[a-z])(?=.\\*[A-Z])[a-zA-Z\d]{6,20}\$
 
 </details>
 
@@ -2786,7 +2812,7 @@ if (isIE) {
 
 ```js
 // 编写一个快速方法将html的sup提取转换为一个数组，如：
-let str = "气量(10<sup>8</sup>m<sup>3</sup>)"
+let str = "气量(10<sup>8</sup>m<sup>3</sup>)";
 // 输出结果
 // ['气量(10',8,'m',3,')']
 ```
@@ -2795,14 +2821,14 @@ let str = "气量(10<sup>8</sup>m<sup>3</sup>)"
 
 ```js
 // 方法1
-str.split(/\<\/?sup\>/)
+str.split(/\<\/?sup\>/);
 // 方法2
-str.split(/<[^>]+>/)
+str.split(/<[^>]+>/);
 ```
 
 </details>
 
-<b><details><summary>133.求num的值</summary></b>
+<b><details><summary>133.求 num 的值</summary></b>
 
 答案：
 
@@ -2841,6 +2867,141 @@ function f2() {
 }
 console.log(num); // 456
 ```
+
+</details>
+
+<b><details><summary>134.有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行 3 次，再次执行无效，如何实现</summary></b>
+
+这个题目是考察闭包的使用
+
+答案：
+
+```js
+function sayHi() {
+  console.log("hi");
+}
+
+function threeTimes(fn) {
+  let times = 0;
+  return () => {
+    if (times++ < 3) {
+      fn();
+    }
+  };
+}
+
+const newFn = threeTimes(sayHi);
+newFn();
+newFn();
+newFn();
+newFn();
+newFn(); // 后面两次执行都无任何反应
+```
+
+通过闭包变量 `times` 来控制函数的执行
+
+</details>
+
+<b><details><summary>135.实现 add 函数,让 add(a)(b)和 add(a,b)两种调用结果相同</summary></b>
+
+答案：
+
+```js
+function add(a, b) {
+  if (b === undefined) {
+    return function(x) {
+      return a + x;
+    };
+  }
+
+  return a + b;
+}
+```
+
+</details>
+
+<b><details><summary>136.格式化金钱，每千分位加逗号</summary></b>
+
+答案：
+
+```js
+function format(str) {
+  let s = "";
+  let count = 0;
+  for (let i = str.length - 1; i >= 0; i--) {
+    s = str[i] + s;
+    count++;
+    if (count % 3 == 0 && i != 0) {
+      s = "," + s;
+    }
+  }
+  return s;
+}
+```
+
+```js
+function format(str) {
+  return str.replace(/(\d)(?=(?:\d{3})+$)/g, "$1,");
+}
+```
+
+</details>
+
+<b><details><summary>137.反转数组</summary></b>
+
+### 要求
+
+**input**: I am a student <br>
+**output**: student a am I <br>
+输入是数组 输出也是数组<br>
+不允许用 `split` `splice` `reverse`<br>
+
+答案：
+
+#### 解法一
+
+```js
+function reverseArry(arry) {
+  const str = arry.join(" ");
+  const result = [];
+  let word = "";
+  for (let i = 0, len = str.length; i < len; i++) {
+    if (str[i] != " ") {
+      word += str[i];
+    } else {
+      result.unshift(word);
+      word = "";
+    }
+  }
+
+  result.unshift(word);
+  return result;
+}
+
+console.log(reverseArry(["I", "am", "a", "student"]));
+// ["student", "a", "am", "I"]
+```
+
+#### 解法二
+
+```js
+function reverseArry(arry) {
+  const result = [];
+  const distance = arry.length - 1;
+  for (let i = distance; i >= 0; i--) {
+    result[distance - i] = arry[i];
+  }
+
+  return result;
+}
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
 </details>
 
 <b><details><summary></summary></b>

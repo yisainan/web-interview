@@ -8,7 +8,7 @@
 
 - [写给前端面试者](https://github.com/amfe/article/issues/5)
 
-🙏 仓库将持续更新，如有内容错误或改进意见，欢迎 issue 或 pr。
+🙏 仓库将持续更新,欢迎 Star，如有内容错误或改进意见，欢迎 issue 或 pr。
 
 </details>
 
@@ -121,6 +121,7 @@
 - Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
 - 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
 - CSDN-[刘志祥](https://blog.csdn.net/salmonellavaccine/article/details/47443007)
+- Github-[woai3c](https://github.com/woai3c/Front-end-basic-knowledge)
 
 </details>
 
