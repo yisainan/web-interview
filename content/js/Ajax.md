@@ -66,7 +66,7 @@
 答案：
 
 1. jsonp ，允许 script 加载第三方资源
-2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin *）
+2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin \*）
 3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
 4. iframe 嵌套通讯，postmessage
 
@@ -76,6 +76,7 @@
 
 [参考](https://zhuanlan.zhihu.com/p/41479807)
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+
 </details>
 
 <b><details><summary>4.页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
@@ -427,22 +428,39 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>27.restful 的 method 解释？</summary></b>
+<b><details><summary>27.RESTful</summary></b>
 
-答案：
+答案：REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
+
+- GET<br>
+  get 方法在 Rest 中主要用于获取资源，能够发送参数，不过有限制，且参数都会以?开头的形 式附加在 URL 尾部。
+  规范的 get 方法处理器应该是幂等的，也就是说对一个资源不论发送多少次 get 请求都不会更改数据或造成破坏。
+- POST<br>
+  post 方法在 Rest 请求中主要用于添加资源，参数信息存放在请求报文的消息体中相对安全，且可发送较大信息
+- PUT<br>
+  put 方法在 Rest 中主要用于更新资源，因为大多数浏览器不支持 put 和 delete，会自动将 put 和 delete 请求转化为 get 和 post. 因此为了使用 put 和 delete 方法,
+  需要以 post 发送请求，在表单中使用隐藏域发送真正的请求。
+  put 方法的参数是同 post 一样是存放在消息中的，同样具有安全性，可发送较大信息。
+  put 方法是幂等的，对同一 URL 资源做出的同一数据的任意次 put 请求其对数据的改变都是一致的。
+- DELETE<br>
+  Delete 在 Rest 请求中主要用于删除资源，因为大多数浏览器不支持 put 和 delete，会自动将 put 和 delete 请求转化为 get 和 post。
+  因此为了使用 put 和 delete 方法,需要以 post 发送请求，在表单中使用隐藏域发送真正的请求。
+  Delete 方法的参数同 post 一样存放在消息体中,具有安全性，可发送较大信息 Delete 方法是幂等的，不论对同一个资源进行多少次 delete 请求都不会破坏数据
+
+解析：[参考](https://blog.csdn.net/jnshu_it/article/details/80203696)
 
 </details>
 
-<b><details><summary>28.Ajax和Fetch区别</summary></b>
+<b><details><summary>28.Ajax 和 Fetch 区别</summary></b>
 
 答案：
 
-* ajax是使用XMLHttpRequest对象发起的，但是用起来很麻烦，所以ES6新规范就有了fetch，fetch发一个请求不用像ajax那样写一大堆代码。
-* 使用fetch无法取消一个请求，这是因为fetch基于Promise，而Promise无法做到这一点。
-* 在默认情况下，fetch不会接受或者发送cookies
-* fetch没有办法原生监测请求的进度，而XMLHttpRequest可以
-* fetch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
-* fetch由于是ES6规范，兼容性上比不上XMLHttpRequest
+- ajax 是使用 XMLHttpRequest 对象发起的，但是用起来很麻烦，所以 ES6 新规范就有了 fetch，fetch 发一个请求不用像 ajax 那样写一大堆代码。
+- 使用 fetch 无法取消一个请求，这是因为 fetch 基于 Promise，而 Promise 无法做到这一点。
+- 在默认情况下，fetch 不会接受或者发送 cookies
+- fetch 没有办法原生监测请求的进度，而 XMLHttpRequest 可以
+- fetch 只对网络请求报错，对 400，500 都当做成功的请求，需要封装去处理
+- fetch 由于是 ES6 规范，兼容性上比不上 XMLHttpRequest
 
 </details>
 

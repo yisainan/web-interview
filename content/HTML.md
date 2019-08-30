@@ -30,17 +30,27 @@
 
 </details>
 
-<b><details><summary>3.iframe 有那些缺点？</summary></b>
+<b><details><summary>3.iframe 框架有那些优缺点？</summary></b>
 
 答案：
 
-- iframe 会阻塞主页面的 Onload 事件；
+#### 优点：
 
-- 搜索引擎的检索程序无法解读这种页面，不利于 SEO;
+- iframe 能够原封不动的把嵌入的网页展现出来。
+- 如果有多个网页引用 iframe，那么你只需要修改 iframe 的内容，就可以实现调用的每一个页面内容的更改，方便快捷。
+- 网页如果为了统一风格，头部和版本都是一样的，就可以写成一个页面，用 iframe 来嵌套，可以增加代码的可重用。
+- 如果遇到加载缓慢的第三方内容如图标和广告，这些问题可以由 iframe 来解决。
 
-- iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
+#### 缺点：
 
-使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript。动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
+- 搜索引擎的爬虫程序无法解读这种页面
+- 框架结构中出现各种滚动条
+- 使用框架结构时，保证设置正确的导航链接。
+- iframe 页面会增加服务器的 http 请求
+
+* iframe 会阻塞主页面的 Onload 事件；
+* 搜索引擎的检索程序无法解读这种页面，不利于 SEO;
+* iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
 
 </details>
 
@@ -74,7 +84,9 @@
 
 <b><details><summary>5.HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
-答案：给不想要提示的 form 或某个 input 设置为 autocomplete=off。
+答案：将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
+
+解析：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion)
 
 </details>
 
@@ -130,11 +142,32 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 2.告诉浏览器按照何种规范解析页（如果你的页面没有 DOCTYPE 的声明，那么 compatMode 默认就是 BackCompat,浏览器按照自己的方式解析渲染页面）
 
+解析：
+
+doctype 是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。
+
+<!DOCTYPE>声明是用来指示web浏览器关于页面使用哪个HTML版本进行编写的指令。
+
+<!DOCTYPE>声明必须是HTML文档的第一行，位于html标签之前。
+
+浏览器本身分为两种模式，一种是标准模式，一种是怪异模式，浏览器通过 doctype 来区分这两种模式，doctype 在 html 中的作用就是触发浏览器的标准模式，如果 html 中省略了 doctype，浏览器就会进入到 Quirks 模式的怪异状态，在这种模式下，有些样式会和标准模式存在差异，而 html 标准和 dom 标准值规定了标准模式下的行为，没有对怪异模式做出规定，因此不同浏览器在怪异模式下的处理也是不同的，所以一定要在 html 开头使用 doctype。
+
 </details>
 
 <b><details><summary>9. 简述一下 src 与 href 的区别。</summary></b>
 
-答案：src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
+答案：src 用于引用资源，替换当前元素；href 用于在当前文档和引用资源之间确立联系。
+
+解析：
+
+- href <br>
+  href 标识超文本引用，用在 link 和 a 等元素上，href 是引用和页面关联，是在当前元素和引用资源之间建立联系<br>
+  若在文档中添加 href ，浏览器会识别该文档为 CSS 文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式加载 CSS，而不是使用 @import 方式。
+- src <br>
+  src 表示引用资源，替换当前元素，用在 img，script，iframe 上，src 是页面内容不可缺少的一部分。<br>
+  当浏览器解析到 src ，会暂停其他资源的下载和处理（图片不会暂停其他资源下载和处理），直到将该资源加载、编译、执行完毕，图片和框架等也如此，类似于将所指向资源应用到当前内容。这也是为什么建议把 js 脚本放在底部而不是头部的原因。
+
+[参考](https://blog.csdn.net/lhjuejiang/article/details/80795081)
 
 </details>
 
@@ -685,6 +718,22 @@ SVG
 
 viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更宽的虚拟窗口中渲染页面，这个虚拟窗口就是 viewport; 目的是正常展示没有做移动端适配的网页，让他们完整的展示给用户；
 
+解析：Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示将设备浏览器宽度虚拟成一个特定的值（或计算得出），这样利于移动 web 站点跨设备显示效果基本一致。移动版的 Safari 浏览器最新引进了 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也基本支持。
+
+在移动端浏览器当中，存在着两种视口，一种是可见视口（也就是我们说的设备大小），另一种是视窗视口（网页的宽度是多少）。
+举个例子：如果我们的屏幕是 320 像素 \* 480 像素的大小（iPhone4），假设在浏览器中，320 像素的屏幕宽度能够展示 980 像素宽度的内容。那么 320 像素的宽度就是可见视口的宽度，而能够显示的 980 像素的宽度就是视窗视口的宽度。
+
+为了显示更多的内容，大多数的浏览器会把自己的视窗视口扩大，简易的理解，就是让原本 320 像素的屏幕宽度能够容下 980 像素甚至更宽的内容（将网页等比例缩小）。
+
+### Viewport 属性值
+
+- width 设置 layout viewport 的宽度，为一个正整数，或字符串"width-device"
+- initial-scale 设置页面的初始缩放值，为一个数字，可以带小数
+- minimum-scale 允许用户的最小缩放值，为一个数字，可以带小数
+- maximum-scale 允许用户的最大缩放值，为一个数字，可以带小数
+- height 设置 layout viewport 的高度，这个属性对我们并不重要，很少使用
+- user-scalable 是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes 代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
+
 </details>
 
 <b><details><summary>35.渲染优化</summary></b>
@@ -751,10 +800,12 @@ viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更
 <b><details><summary>38.新的 HTML5 文档类型和字符集是？</summary></b>
 
 答案：
+
 ```
 HTML5文档类型：<!doctype html>
 HTML5使用的编码<meta charset=”UTF-8”>
 ```
+
 </details>
 
 <b><details><summary>39.HTML5 Canvas 元素有什么用？</summary></b>
@@ -769,19 +820,86 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 </details>
 
-<b><details><summary>41.iframe的作用</summary></b>
+<b><details><summary>41.iframe 的作用</summary></b>
 
-答案：iframe是用来在网页中插入第三方页面，早期的页面使用iframe主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
+答案：iframe 是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
 
 优点
+
 1. 便于修改，模拟分离，像一些信息管理系统会用到。
 2. 但现在基本不推荐使用。除非特殊需要，一般不推荐使用。
 
 缺点
-1. iframe的创建比一般的DOM元素慢了1-2个数量级
-2. iframe标签会阻塞页面的的加载，如果页面的onload事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好，在Safari和Chrome中可以通过js动态设置iframe的src属性来避免阻塞。
-3. iframe对于SEO不友好，替换方案一般就是动态语言的Incude机制和ajax动态填充内容等。
 
+1. iframe 的创建比一般的 DOM 元素慢了 1-2 个数量级
+2. iframe 标签会阻塞页面的的加载，如果页面的 onload 事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好，在 Safari 和 Chrome 中可以通过 js 动态设置 iframe 的 src 属性来避免阻塞。
+3. iframe 对于 SEO 不友好，替换方案一般就是动态语言的 Incude 机制和 ajax 动态填充内容等。
+
+</details>
+
+<b><details><summary>42.为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？</summary></b>
+
+答案：
+
+**把`<link>`放在`<head>`中**
+
+把`<link>`标签放在`<head></head>`之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
+
+**把`<script>`标签恰好放在`</body>`之前**
+
+脚本在下载和执行期间会阻止 HTML 解析。把`<script>`标签放在底部，保证 HTML 首先完成解析，将页面尽早呈现给用户。
+
+例外情况是当你的脚本里包含`document.write()`时。但是现在，`document.write()`不推荐使用。同时，将`<script>`标签放在底部，意味着浏览器不能开始下载脚本，直到整个文档（document）被解析。也许，对此比较好的做法是，`<script>`使用`defer`属性，放在`<head>`中。
+
+</details>
+
+<b><details><summary>43.什么是渐进式渲染（progressive rendering）？</summary></b>
+
+答案：渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
+
+在以前互联网带宽较小的时期，这种技术更为普遍。如今，移动终端的盛行，而移动网络往往不稳定，渐进式渲染在现代前端开发中仍然有用武之地。
+
+一些举例：
+
+- 图片懒加载——页面上的图片不会一次性全部加载。当用户滚动页面到图片部分时，JavaScript 将加载并显示图像。
+- 确定显示内容的优先级（分层次渲染）——为了尽快将页面呈现给用户，页面只包含基本的最少量的 CSS、脚本和内容，然后可以使用延迟加载脚本或监听`DOMContentLoaded`/`load`事件加载其他资源和内容。
+- 异步加载 HTML 片段——当页面通过后台渲染时，把 HTML 拆分，通过异步请求，分块发送给浏览器。
+
+解析：更多相关细节可以在[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)找到。
+
+</details>
+
+<b><details><summary>44.DOM 和 BOM 有什么区别</summary></b>
+
+答案：
+
+- DOM
+
+Document Object Model，文档对象模型
+
+DOM 是为了操作文档出现的 API，document 是其的一个对象
+
+DOM 和文档有关，这里的文档指的是网页，也就是 html 文档。DOM 和浏览器无关，他关注的是网页本身的内容。
+
+- BOM
+
+Browser Object Model，浏览器对象模型
+
+BOM 是为了操作浏览器出现的 API，window 是其的一个对象
+
+window 对象既为 javascript 访问浏览器提供 API，同时在 ECMAScript 中充当 Global 对象
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
 
 </details>
 

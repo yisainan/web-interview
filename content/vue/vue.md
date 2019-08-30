@@ -985,7 +985,9 @@ reverse()
 
 <b><details><summary>34. 什么是 vue 的计算属性？</summary></b>
 
-答案：
+答案：先来看一下计算属性的定义：
+当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。
+计算属性和vue中的其它数据一样，都是响应式的，只不过它必须依赖某一个数据实现，并且只有它依赖的数据的值改变了，它才会更新。
 
 </details>
 
@@ -1230,10 +1232,9 @@ const Singer = (resolve) => {
 
 答案：
 
-解析：
+vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转换成 js 模块。
 
-.vue 文件的一个加载器。（深入理解见https://www.jb51.net/article/115480.htm）
-用途：js 可以写 es6、style 样式可以 scss 或 less、template 可以加 jade 等
+用途：js 可以写 es6、style 样式可以 scss 或 less；template 可以加 jade 等。
 
 </details>
 
@@ -1261,9 +1262,25 @@ const Singer = (resolve) => {
 
 </details>
 
-<b><details><summary></summary></b> 
+<b><details><summary>70.vue怎么实现页面的权限控制</summary></b> 
 
-答案：
+答案：利用 vue-router 的 beforeEach 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
+
+</details>
+
+<b><details><summary>71.$route和$router的区别</summary></b> 
+
+答案：$route 是路由信息对象，包括path，params，hash，query，fullPath，matched，name 等路由信息参数。
+
+而 $router 是路由实例对象，包括了路由的跳转方法，钩子函数等
+
+</details>
+
+<b><details><summary>72.watch的作用是什么</summary></b> 
+
+答案：watch 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
+
+借助 watch 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
 
 </details>
 

@@ -70,9 +70,13 @@ hash history
 
 </details>
 
-<b><details><summary>11.vue路由实现原理?</summary></b> 
+<b><details><summary>11.vue路由实现原理?或 vue-router原理?</summary></b> 
 
 答案：
+
+说简单点，vue-router的原理就是通过对URL地址变化的监听，继而对不同的组件进行渲染。
+每当URL地址改变时，就对相应的组件进行渲染。原理是很简单，实现方式可能有点复杂，主要有hash模式和history模式。
+如果想了解得详细点，建议百度或者阅读源码。
 
 </details>
 

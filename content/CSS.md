@@ -1765,6 +1765,39 @@ overflow: hidden;
 
 </details>
 
+<b><details><summary>106.行内元素和块级元素有哪些</summary></b>
+
+答案：
+
+### 行内元素
+一个行内元素只占据它对应标签的边框所包含的空间<br>
+一般情况下，行内元素只能包含数据和其他行内元素
+```
+b, big, i, small, tt
+abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var
+a, bdo, br, img, map, object, q, script, span, sub, sup
+button, input, label, select, textarea
+```
+### 块级元素
+占据一整行，高度、行高、内边距和外边距都可以改变，可以容纳块级标签和其他行内标签<br>
+```
+header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：
