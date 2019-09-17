@@ -823,11 +823,7 @@ import("lodash").then(_ => {
 
 </details>
 
-<b><details><summary>13.ECMAScript6 怎么写 class 么，为什么会出现 class 这种东西?</summary></b>
-
-</details>
-
-<b><details><summary>14.ECMAScript6 怎么写class么，为什么会出现class这种东西?</summary></b>
+<b><details><summary>13.ECMAScript6 怎么写class么，为什么会出现class这种东西?</summary></b>
 
 答案：
 
@@ -845,13 +841,13 @@ class Point {
 
 </details>
 
-<b><details><summary>15.谈一谈你对ECMAScript6的了解？</summary></b>
+<b><details><summary>14.谈一谈你对ECMAScript6的了解？</summary></b>
 
 答案：ES6新的语法糖，类，模块化等新特性
 
 </details>
 
-<b><details><summary>16.箭头函数和普通函数有什么区别</summary></b>
+<b><details><summary>15.箭头函数和普通函数有什么区别</summary></b>
 
 答案：
 
