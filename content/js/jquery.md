@@ -468,8 +468,77 @@ JQuery 是一个开源的产品，任何人都可以自由地使用并提出修�
 
 </details>
 
+<b><details><summary>24.Jquery如何获取子元素</summary></b>
+
+答案：
+
+Jquery获取子元素的方法有2种，分别是children()方法和find()方法。下面我们分别来使用这两种方法，看看它们有何差异。
+
+解析：
+
+1、children()方法：获取该元素下的直接子集元素
+
+2、find()方法：获取该元素下的所有子集元素
+
+3、children()方法获取最外层ul下面直接子集元素li：$("#ul").children("li")
+
+需要注意的是，如果li元素下还有li元素，children方法将不会被获取。我们可以用length来测试获取的个数“$("#ul").children("li").length”，最后输出结果为3
+
+4、find()方法获取ul下所有元素li：$("#ul").find("li")
+
+需要注意的是，find方法会无限循环查找ul标签节点下的li，一直找到没有为止，用length来测试获取个数“$("#ul").find("li").length”，最后输出结果为9
+
+5、children和find的区别：children只会查找直接子集，而find会跨越层级查找，一直找到没有为止。
+
+示例：
+
+```html
+ <ul id="ul">
+      <li>
+        list1
+        <ul>
+          <li>
+            list1-1
+          </li>
+          <li>
+            list1-2
+          </li>
+        </ul>
+      </li>
+      <li>
+        list2
+        <ul>
+          <li>
+            list2-1
+          </li>
+          <li>
+            list2-2
+          </li>
+        </ul>
+      </li>
+      <li>
+        list3
+        <ul>
+          <li>
+            list3-1
+          </li>
+          <li>
+            list3-2
+          </li>
+        </ul>
+      </li>
+    </ul>
+```
+```js
+console.log($("#ul").find("li").length); // 9
+console.log($("#ul").children("li").length); // 3
+```
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：
 
 </details>
+````

@@ -570,6 +570,12 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 答案：
 
+css3 的 transform 属性，设置值为 scale(x,y) 定义 2D 缩放转换
+
+示例：
+
+-webkit-transform: scale(0.50);
+
 </details>
 
 <b><details><summary>39. 让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
@@ -1025,23 +1031,49 @@ PNG：
 
 答案：
 
+- 行内元素设置成浮动之后变得更加像是 inline-block
+- 行内块级元素，设置成这个属性的元素会同时拥有行内和块级的特性，最明显的不同是它的默认宽度不是 100%，行内元素默认 100%宽度占据一行
+- 这时候给行内元素设置 padding-top 和 padding-bottom 或者 width、height 都是有效果的
+
 </details>
 
 <b><details><summary>59.在网页中的应该使用奇数还是偶数的字体？为什么呢？</summary></b>
 
-答案：
+答案：应该使用偶数字体
+
+1.比例关系
+
+相对来说偶数字号比较容易和页面中其他部分的字号构成一个比例关系。如我使用 14px 的字体作为正文字号，那么其他部分的字体（如标题）就可以使用 14×1.5 =21px 的字体，或者在一些地方使用到了 14×0.5=7px 的 padding 或者 margin，如果你是在用 sass 或者 less 编写 css，这时候用处就凸显出来了。
+
+2.UI 设计师的缘故
+
+大多数设计师用的软件如 ps 提供的字号是偶数，自然到了   前端那边也是用的是偶数。
+
+3.浏览器缘故
+
+其一是低版本的浏览器 ie6 会把奇数字体强制转化为偶数，即 13px 渲染为 14px。
+
+其二是为了平分字体。偶数宽的汉字，如 12px 的汉子，去掉 1 像素的字体间距，填充了的字体像素宽度其实就是 11px，这样的汉字中竖线左右是平分的，如“中”子，左右就是 5px 了。
+
+4.系统差别
+
+Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14、16 px 这三个大小的点阵，而 13、15、17 px 时用的是小一号的点阵（即每个字占的空间大了 1 px，但点阵没变），于是略显稀疏。
+
+而在 Linux 和其他手持设备上，奇数偶数的渲染效果其实相差不大。
+
+解析：[参考](https://blog.csdn.net/jian_xi/article/details/79346477)
 
 </details>
 
 <b><details><summary>60.CSS 合并方法</summary></b>
 
-答案：
+答案：@import url(css 文件地址)
 
 </details>
 
 <b><details><summary>61.列出你所知道可以改变页面布局的属性</summary></b>
 
-答案：
+答案：width、height、float、position、等
 
 </details>
 
@@ -1049,17 +1081,126 @@ PNG：
 
 答案：
 
+1. 内联首屏关键 CSS（Critical CSS）
+
+内联 CSS 能够使浏览器开始页面渲染的时间提前，只将渲染首屏内容所需的关键 CSS 内联到 HTML 中
+
+2. 异步加载 CSS
+
+3. 文件压缩
+
+4. 去除无用 CSS
+
+解析：[参考](https://www.cnblogs.com/heroljy/p/9412704.html)
+
 </details>
 
 <b><details><summary>63.CSS3 动画（简单动画的实现，如旋转等）</summary></b>
 
 答案：
 
+让一个 div 元素旋转 360 度示例
+
+1.div 的样式结构:
+
+```css
+div {
+  margin: 50px auto;
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+```
+
+2.设置旋转属性的类名:
+
+```css
+div.rotate {
+              /* 旋转360度 */
+            transform: rotate(360deg);
+              /* all表示所有属性,1s表示在一秒的时间完成动画 */
+            transition: all 1s;
+}
+```
+
+```
+transition 有四个属性:
+
+property: 规定应用过渡的 CSS 属性的名称。
+
+duration: 定义过渡效果花费的时间。默认是 0,单位是 s。
+
+timing-function: 规定过渡效果的时间曲线。默认是 "ease"。匀速'linear',加速'ease-in',减速'ease-out',先快后慢'ease-in-out'。
+
+delay: 规定过渡效果何时开始。默认是 0。单位 s。
+
+可以连写: transition: property duration timing-function delay; 3.给 div 元素设置鼠标移入时旋转,也就是给它加上.rotate 类名.鼠标移出时移除类名
+```
+
+```js
+$(function() {
+  $("div")
+    .mouseenter(function() {
+      $(this).addClass("rotate");
+    })
+    .mouseleave(function() {
+      $(this).removeClass("rotate");
+    });
+});
+```
+
+解析：[参考](https://blog.csdn.net/qq_42209630/article/details/80338578)
+
 </details>
 
 <b><details><summary>64.base64 的原理及优缺点</summary></b>
 
 答案：
+
+1.什么是Base64
+
+Base64是一种基于64个可打印字符来表示二进制数据的编码方式，是从二进制数据到字符的过程。
+原则上，计算机中所有内容都是二进制形式存储的，所以所有内容（包括文本、影音、图片等）都可以用base64来表示。
+
+2.适用场景
+```
+1.Base64一般用于在HTTP协议下传输二进制数据，由于HTTP协议是文本协议，所以在HTTP写一下传输二进制数据需要将二进制数据转化为字符数据，
+网络传输只能传输可打印字符，
+在ASCII码中规定，0-31、128这33个字符属于控制字符，
+32~127这95个字符属于可打印字符
+那么其它字符怎么传输呢，Base64就是其中一种方式，
+2.将图片等资源文件以Base64编码形式直接放于代码中，使用的时候反Base64后转换成Image对象使用。
+3.偶尔需要用这条纯文本通道传一张图片之类的情况发生的时候，就会用到Base64，比如多功能Internet 邮件扩充服务（MIME）就是用Base64对邮件的附件进行编码的。
+```
+3.Base64编码原理
+
+Base64编码之所以称为Base64，是因为其使用64个字符来对任意数据进行编码，同理有Base32、Base16编码。标准Base64编码使用的64个字符为：
+
+![css_008](../images/css_008.png)
+
+有点特殊的是最后两个字符，因对最后两个字符的选择不同，Base64编码又有很多变种，比如用于编码URL的Base64 URL编码。
+
+Base64编码本质上是一种将二进制数据转成文本数据的方案。对于非二进制数据，是先将其转换成二进制形式，然后每连续6比特（2的6次方=64）计算其十进制值，根据该值在上面的索引表中找到对应的字符，最终得到一个文本字符串。
+
+假设我们要对 Hello! 进行Base64编码，按照ASCII表，其转换过程如下图所示：
+
+![css_009](../images/css_009.png)
+
+可知 Hello! 的Base64编码结果为 SGVsbG8h，每3个原始字符经Base64编码成4个字符。那么，当原始字符串长度不能被3整除时，怎么办呢？
+
+以 Hello!! 为例，其转换过程为：
+
+![css_010](../images/css_010.png)
+
+Hello!! Base64编码的结果为 SGVsbG8hIQAA。可见，不能被3整除时会采用来来补0的方式来完成编码。
+需要注意的是：标准Base64编码通常用 = 字符来替换最后的 A，即编码结果为 SGVsbG8hIQ==。因为 = 字符并不在Base64编码索引表中，其意义在于结束符号，在Base64解码时遇到 = 时即可知道一个Base64编码字符串结束。
+
+4.优缺点
+
+优点:可以将二进制数据转化为可打印字符，方便传输数据，对数据进行简单的加密，肉眼安全。
+缺点：内容编码后体积变大，编码和解码需要额外工作量。
+
+解析：[参考1](https://segmentfault.com/a/1190000012654771)、[参考2](https://blog.csdn.net/fightingitpanda/article/details/83305100)
 
 </details>
 
@@ -1770,16 +1911,21 @@ overflow: hidden;
 答案：
 
 ### 行内元素
+
 一个行内元素只占据它对应标签的边框所包含的空间<br>
 一般情况下，行内元素只能包含数据和其他行内元素
+
 ```
 b, big, i, small, tt
 abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var
 a, bdo, br, img, map, object, q, script, span, sub, sup
 button, input, label, select, textarea
 ```
+
 ### 块级元素
+
 占据一整行，高度、行高、内边距和外边距都可以改变，可以容纳块级标签和其他行内标签<br>
+
 ```
 header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 ```
