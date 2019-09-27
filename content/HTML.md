@@ -50,7 +50,7 @@
 
 </details>
 
-<b><details><summary>4.HTML 与 XHTML —— 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary></b>
+<b><details><summary>4.HTML 与 XHTML 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary></b>
 
 答案：
 

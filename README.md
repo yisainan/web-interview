@@ -127,8 +127,9 @@
 
 <b><details><summary>📜 License</summary></b>
 
-本仓库遵循 [MIT 协议](LICENSE)，转载请注明出处。
+本仓库遵循 MIT协议，转载请注明出处。
 
+[![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
 </details>
 
 <br/>
@@ -146,7 +147,8 @@
 
 1. 获取web前端及其他IT技术的优质资源(含简历模板)
 2. 加入微信群学习交流
+3. 验证口令：前端面试
 
-同学加油！将来的你一定会感谢现在拼命努力的自己！
+加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
 ![二维码](./images/qrcode_001.jpg)
