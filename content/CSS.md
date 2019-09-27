@@ -8,6 +8,8 @@
 <div style="height:1px;overflow:hidden;background:red"></div>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/22)
+
 </details>
 
 <b><details><summary>2.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
@@ -19,6 +21,8 @@
 （2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；
 
 （3）区 别： IE 的 content 部分把 border 和 padding 计算了进去;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/23)
 
 </details>
 
@@ -35,6 +39,8 @@ Display:display 设为 none 任何对该元素直接打用户交互操作都不�
 Position:不会影响布局，能让元素保持可以操作;
 
 Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如果要在你的 clip-path 中使用外部的 SVG 文件，浏览器支持度还要低;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/24)
 
 </details>
 
@@ -62,8 +68,8 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 伪元素：在页面上不存在的元素，但是可以通过 css 添加上去
 
 种类：
-                  :after(在。。。之后)
-                  :before(在。。。之前)
+      :after(在。。。之后)
+      :before(在。。。之前)
 
 注意：每个元素都有自己的伪元素
 
@@ -82,6 +88,8 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/25)
+
 </details>
 
 <b><details><summary>5.页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
@@ -95,6 +103,8 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 3. @import 只有在 ie5 以上才可以被识别，而 link 是 html 标签，不存在浏览器兼容性问题
 
 4. Link 引入样式的权重大于@import 的引用（@import 是将引用的样式导入到当前的页面中）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/26)
 
 </details>
 
@@ -119,6 +129,8 @@ CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分�
 - 使用`:before`和`after`展示提示中的三角箭头。鼓励关注点分离，因为三角被视为样式的一部分，而不是真正的 DOM。如果不使用额外的 HTML 元素，只用 CSS 样式绘制三角形是不太可能的。
 
 [参考](https://css-tricks.com/almanac/selectors/a/after-and-before/)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/27)
 
 </details>
 
@@ -177,6 +189,8 @@ CSS3新增伪类举例：
 
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/28)
+
 </details>
 
 <b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
@@ -196,6 +210,8 @@ CSS3新增伪类举例：
 
 答案：`<input> 、<img> 、<button> 、<texterea> 、<label>。`
 
+[参与互动](https://github.com/yisainan/web-interview/issues/29)
+
 </details>
 
 <b><details><summary>9. 什么是外边距重叠？重叠的结果是什么？</summary></b>
@@ -214,6 +230,8 @@ CSS3新增伪类举例：
 
 3. 两个外边距一正一负时，折叠结果是两者的相加的和。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/30)
+
 </details>
 
 <b><details><summary>10. rgba()和 opacity 的透明效果有什么不同？</summary></b>
@@ -223,6 +241,8 @@ CSS3新增伪类举例：
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
 而 rgba()只作用于元素的颜色或其背景色。（设置 rgba 透明的元素的子元素不会继承透明效果！）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/31)
 
 </details>
 
@@ -238,6 +258,8 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 答案:可以用于消除 inline-block 元素间的换行符空格间隙问题。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/32)
+
 </details>
 
 <b><details><summary>12. px 和 em 的区别。</summary></b>
@@ -245,6 +267,8 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 答案：px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/33)
 
 </details>
 
@@ -323,6 +347,8 @@ body {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/34)
+
 </details>
 
 <b><details><summary>14.BFC </summary></b>
@@ -347,6 +373,8 @@ body {
   - 计算 bfc 的高度时，浮动元素也参与计算
   - bfc 就是页面上的一个独立容器，容器里面的子元素不会影响外面元素。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/35)
+
 </details>
 
 <b><details><summary>15.用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
@@ -366,6 +394,8 @@ span {
 
 ![css_001](../images/css_001.jpg)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/36)
+
 </details>
 
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
@@ -384,6 +414,8 @@ span {
 
 完全兼容 CSS 代码，可以方便地应用到老项目中。LESS 只是在 CSS 语法上做了扩展，所以老的 CSS 代码也可以与 LESS 代码一同编译。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/37)
+
 </details>
 
 <b><details><summary>17. display:none 与 visibility:hidden 的区别是什么？</summary></b>
@@ -395,6 +427,8 @@ display :  隐藏对应的元素但不挤占该元素原来的空间。
 visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 即是，使用 CSS display:none 属性后，HTML 元素（对象）的宽度、高度等各种属性值都将“丢失”;而使用 visibility:hidden 属性后，HTML 元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/38)
 
 </details>
 
@@ -421,6 +455,8 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 [其他解决方案参考](https://www.jianshu.com/p/31f8907637a6)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/39)
+
 </details>
 
 <b><details><summary>19. 哪些 css 属性可以继承？</summary></b>
@@ -430,6 +466,22 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 可继承： font-size font-family color, ul li dl dd dt;
 
 不可继承 ：border padding margin width height ;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/40)
+
+</details>
+
+<b><details><summary>20.几种常见的 CSS 布局</summary></b>
+
+答案：
+
+- 单列布局
+- 两列自适应布局
+- 圣飞布局和双飞翼布局
+- 伪等高布局
+- 粘连布局
+
+[参与互动](https://github.com/yisainan/web-interview/issues/41)
 
 </details>
 
@@ -1206,37 +1258,23 @@ Hello!! Base64 编码的结果为 SGVsbG8hIQAA。可见，不能被 3 整除时�
 
 </details>
 
-<b><details><summary>65.几种常见的 CSS 布局</summary></b>
-
-答案：
-
-- 单列布局
-- 两列自适应布局
-- 圣飞布局和双飞翼布局
-- 伪等高布局
-- 粘连布局
-
-</details>
-
 <b><details><summary>66.stylus/sass/less 区别</summary></b>
 
 答案：
 
 1. 后缀
 
-默认 Sass 使用 .sass 扩展名，而 Less 使用 .less 扩展名，Stylus默认使用 .styl 的文件扩展名
+默认 Sass 使用 .sass 扩展名，而 Less 使用 .less 扩展名，Stylus 默认使用 .styl 的文件扩展名
 
 2. 语法
 
+3) 变量
 
-3. 变量
-
-* sass变量必须是以$开头的，然后变量和值之间使用冒号（：）隔开，和css属性是一样的
-* Less css中变量都是用@开头的，其余与sass都是一样的
-* stylus对变量是没有任何设定的，可以是以$开头，或者任何的字符，而且与变量之间可以用冒号，空格隔开，但是在stylus中不能用@开头
+- sass 变量必须是以\$开头的，然后变量和值之间使用冒号（：）隔开，和 css 属性是一样的
+- Less css 中变量都是用@开头的，其余与 sass 都是一样的
+- stylus 对变量是没有任何设定的，可以是以\$开头，或者任何的字符，而且与变量之间可以用冒号，空格隔开，但是在 stylus 中不能用@开头
 
 解析：[参考](https://blog.csdn.net/pedrojuliet/article/details/72887490)
-
 
 </details>
 
