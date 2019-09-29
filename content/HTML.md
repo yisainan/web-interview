@@ -408,45 +408,29 @@ document.addEventListener("visibilitychange", function() {
 
 优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行 google）
 
-</details>
-
-<b><details><summary>22. 页面大量图片，如何优化加载，优化用户体验</summary></b>
-
-答案：
-
-图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。
-
-如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。
-
-如果图片为 css 图片，可以使用 CSSsprite，SVGsprite，Iconfont、Base64 等技术。
-
-如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
-
-如果图片展示区域小于图片的真实大小，则因在服务器端根据业务需要先行进行图片压缩，图片压缩后大小与展示一致。
-
-解析：[参考](https://www.jianshu.com/p/5d82bba9e1a1)
+[参与互动](https://github.com/yisainan/web-interview/issues/42)
 
 </details>
 
-<b><details><summary>23. html 常见兼容性问题？</summary></b>
+<b><details><summary>22. html 常见兼容性问题？</summary></b>
 
 答案：
 
-1.双边距 BUG float 引起的   使用 display
+1.双边距 BUG float 引起的，解决办法: 使用 display解决
 
-2.3 像素问题 使用 float 引起的 使用 dislpay:inline -3px
+2.3 像素问题 使用 float 引起的，解决办法: 使用 dislpay:inline -3px
 
-3.超链接 hover 点击后失效   使用正确的书写顺序 link visited hover active
+3.超链接 hover 点击后失效，解决办法: 使用正确的书写顺序 link visited hover active
 
-4.Ie z-index 问题 给父级添加 position:relative
+4.Ie z-index 问题，解决办法: 给父级添加 position:relative
 
-5.Png 透明 使用 js 代码 改
+5.Png 透明 ，解决办法: 使用 js 代码
 
-6.Min-height 最小高度 ！Important 解决’
+6.Min-height 最小高度 ，解决办法: ！Important 解决
 
-7.select 在 ie6 下遮盖 使用 iframe 嵌套
+7.select 在 ie6 下遮盖，解决办法: 使用 iframe 嵌套
 
-8.为什么没有办法定义 1px 左右的宽度容器（IE6 默认的行高造成的，使用 over:hidden,zoom:0.08 line-height:1px）
+8.为什么没有办法定义 1px 左右的宽度容器，解决办法: （IE6 默认的行高造成的，使用 over:hidden,zoom:0.08 line-height:1px）
 
 9.IE5-8 不支持 opacity，解决办法：
 
@@ -460,28 +444,19 @@ document.addEventListener("visibilitychange", function() {
 
 10.IE6 不支持 PNG 透明背景，解决办法: IE6 下使用 gif 图片
 
+[参与互动](https://github.com/yisainan/web-interview/issues/43)
+
 </details>
 
-<b><details><summary>24. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
+<b><details><summary>23. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
 答案：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
-</details>
-
-<b><details><summary>25. webSocket 如何兼容低版本浏览器？</summary></b>
-
-答案：对于低端不支持 websocket 的浏览器，一般有几个解决方案
-
-1. 使用轮询或长连接的方式实现伪 websocket 的通信
-
-2. 使用 flash 或其他方法实现一个 websocket 客户端 ：
-
-[参考](https://segmentfault.com/q/1010000005000671/a-1020000005003936)
-[参考](https://blog.csdn.net/u011925826/article/details/17532465)
+[参与互动](https://github.com/yisainan/web-interview/issues/44)
 
 </details>
 
-<b><details><summary>26. 如何在页面上实现一个圆形的可点击区域？</summary></b>
+<b><details><summary>24. 如何在页面上实现一个圆形的可点击区域？</summary></b>
 
 答案：css3、js、map 加 area
 
@@ -544,9 +519,11 @@ bindClickOnCircleArea(box, function() {
 
 [参考](https://zhuanlan.zhihu.com/p/48168812)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/45)
+
 </details>
 
-<b><details><summary>27.前端需要注意哪些 SEO</summary></b>
+<b><details><summary>25.前端需要注意哪些 SEO</summary></b>
 
 答案：
 
@@ -566,9 +543,11 @@ bindClickOnCircleArea(box, function() {
 
 解析：[参考](https://www.cnblogs.com/passkey/p/10081589.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/46)
+
 </details>
 
-<b><details><summary>28.html5 有哪些新特性、移除了那些元素？</summary></b>
+<b><details><summary>26.html5 有哪些新特性、移除了那些元素？</summary></b>
 
 答案：
 
@@ -613,9 +592,11 @@ bindClickOnCircleArea(box, function() {
 <![endif]-->
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/47)
+
 </details>
 
-<b><details><summary>29.HTML5 的离线储存怎么使用，工作原理能不能解释一下？</summary></b>
+<b><details><summary>27.HTML5 的离线储存怎么使用，工作原理能不能解释一下？</summary></b>
 
 答案：
 
@@ -664,16 +645,20 @@ FALLBACK:
 
 [参考](https://www.cnblogs.com/zhangym118/archive/2016/09/22/5897056.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/48)
+
 </details>
 
-<b><details><summary>30.浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢</summary></b>
+<b><details><summary>28.浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢</summary></b>
 
 答案：在线的情况下，浏览器发现 html 头部有 manifest 属性，它会请求 manifest 文件，如果是第一次访问 app，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过 app 并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的 manifest 文件与旧的 manifest 文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
 离线的情况下，浏览器就直接使用离线存储的资源。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/49)
+
 </details>
 
-<b><details><summary>31.HTML 全局属性(global attribute)有哪些</summary></b>
+<b><details><summary>29.HTML 全局属性(global attribute)有哪些</summary></b>
 
 答案：
 
@@ -696,9 +681,11 @@ FALLBACK:
 
 解析：[参考](https://funteas.com/topic/5906a8bc8783c1370b809c2a)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/50)
+
 </details>
 
-<b><details><summary>32.Canvas 和 SVG 有什么区别？</summary></b>
+<b><details><summary>30.Canvas 和 SVG 有什么区别？</summary></b>
 
 答案：Canvas 和 SVG 都允许您在浏览器中创建图形，但是它们在根本上是不同的。
 
@@ -738,23 +725,31 @@ SVG
 
 解析：[参考](http://www.w3school.com.cn/html5/html_5_canvas_vs_svg.asp)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/51)
+
 </details>
 
-<b><details><summary>33.HTML5 为什么只需要写 `<!DOCTYPE HTML>`？</summary></b>
+<b><details><summary>31.HTML5 为什么只需要写 `<!DOCTYPE HTML>`？</summary></b>
 
 答案：HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。而 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为。其中，SGML 是标准通用标记语言,简单的说，就是比 HTML,XML 更老的标准，这两者都是由 SGML 发展而来的。BUT，HTML5 不是的。
 
 `<!DOCTYPE>`声明位于位于 HTML 文档中的第一行，处于 `<html>` 标签之前。作用：告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE 不存在或格式不正确会导致文档以怪异模式呈现。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/52)
+
 </details>
 
-<b><details><summary>34.meta viewport 原理是什么？</summary></b>
+<b><details><summary>32.meta viewport 原理是什么？</summary></b>
 
-答案：meta viewport 标签的作用是让当前 viewport 的宽度等于设备的宽度，同时不允许用户进行手动缩放
+答案：
 
-viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更宽的虚拟窗口中渲染页面，这个虚拟窗口就是 viewport; 目的是正常展示没有做移动端适配的网页，让他们完整的展示给用户；
+meta viewport 标签的作用是让当前 viewport 的宽度等于设备的宽度，同时不允许用户进行手动缩放
 
-解析：Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示将设备浏览器宽度虚拟成一个特定的值（或计算得出），这样利于移动 web 站点跨设备显示效果基本一致。移动版的 Safari 浏览器最新引进了 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也基本支持。
+viewport的原理：移动端浏览器通常都会在一个比移动端屏幕更宽的虚拟窗口中渲染页面，这个虚拟窗口就是 viewport; 目的是正常展示没有做移动端适配的网页，让他们完整的展示给用户；
+
+解析：
+
+Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示将设备浏览器宽度虚拟成一个特定的值（或计算得出），这样利于移动 web 站点跨设备显示效果基本一致。移动版的 Safari 浏览器最新引进了 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也基本支持。
 
 在移动端浏览器当中，存在着两种视口，一种是可见视口（也就是我们说的设备大小），另一种是视窗视口（网页的宽度是多少）。
 举个例子：如果我们的屏幕是 320 像素 \* 480 像素的大小（iPhone4），假设在浏览器中，320 像素的屏幕宽度能够展示 980 像素宽度的内容。那么 320 像素的宽度就是可见视口的宽度，而能够显示的 980 像素的宽度就是视窗视口的宽度。
@@ -770,52 +765,11 @@ viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更
 - height 设置 layout viewport 的高度，这个属性对我们并不重要，很少使用
 - user-scalable 是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes 代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
-</details>
-
-<b><details><summary>35.渲染优化</summary></b>
-
-答案：
-
-```
-1.禁止使用 iframe（阻塞父文档 onload 事件）；
-*iframe 会阻塞主页面的 Onload 事件；
-*搜索引擎的检索程序无法解读这种页面，不利于 SEO;
-\*iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
-
-使用 iframe 之前需要考虑这两个缺点。如果需要使用 iframe，最好是通过 javascript
-动态给 iframe 添加 src 属性值，这样可以绕开以上两个问题。
-
-2.禁止使用 gif 图片实现 loading 效果（降低 CPU 消耗，提升渲染性能）；
-3、使用 CSS3 代码代替 JS 动画（尽可能避免重绘重排以及回流）css3 平面动画开启 translateZ(0)，打开浏览器 3d 加速，在一定程度可缓解卡顿。不宜多用；
-
-4、对于一些小图标，可以使用 base64 位编码，以减少网络请求。但不建议大图使用，比较耗费 CPU；
-小图标优势在于： 1.减少 HTTP 请求； 2.避免文件跨域； 3.修改及时生效；
-
-5、页面头部的`<style></style>` 会阻塞页面；（因为 Renderer 进程中 JS 线程和渲染线程是互斥的）；
-6、页面头部`<script</script>` 会阻塞页面；（因为 Renderer 进程中 JS 线程和渲染线程是互斥的）；
-7、页面中空的 href 和 src 会阻塞页面其他资源的加载 (阻塞下载进程)；
-
-8、网页 Gzip，CDN 托管，data 缓存 ，图片服务器；
-9、前端模板 JS+数据，减少由于 HTML 标签导致的带宽浪费，前端用变量保存 AJAX 请求结果，每次操作本地变量，不用请求，减少请求次数
-10、用 innerHTML 代替 DOM 操作，减少 DOM 操作次数，优化 javascript 性能。
-11、当需要设置的样式很多时设置 className 而不是直接操作 style。
-12、少用全局变量、缓存 DOM 节点查找的结果。减少 IO 读取操作。
-13、避免使用 CSS Expression（css 表达式)又称 Dynamic properties(动态属性)。
-14、图片预加载，将样式表放在顶部，将脚本放在底部 加上时间戳。
-
-15、 避免在页面的主体布局中使用 table，table 要等其中的内容完全下载之后才会显示出来，显示比 div+css 布局慢。
-对普通的网站有一个统一的思路，就是尽量向前端优化、减少数据库操作、减少磁盘 IO。
-向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，
-能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，
-本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。
-减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如 join 查询），
-减少磁盘 IO 指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的。
-16、通过改变 src 的情况下\*\*.MP3（不同于 mp3）在移动端有可能不能播放。
-```
+[参与互动](https://github.com/yisainan/web-interview/issues/53)
 
 </details>
 
-<b><details><summary>36.对 web 标准、可用性、可访问性的理解</summary></b>
+<b><details><summary>33.对 web 标准、可用性、可访问性的理解</summary></b>
 
 答案：
 
@@ -825,15 +779,19 @@ viewportde 原理：移动端浏览器通常都会在一个比移动端屏幕更
 
 可维护性（Maintainability）：一般包含两个层次，一是当系统出现问题时，快速定位并解决问题的成本，成本低则可维护性好。二是代码是否容易被人理解，是否容易修改和增强功能。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/54)
+
 </details>
 
-<b><details><summary>37.HTML5 引入什么新的表单属性？</summary></b>
+<b><details><summary>34.HTML5 引入什么新的表单属性？</summary></b>
 
 答案：Datalist datetime output keygen date month week time number range emailurl
 
+[参与互动](https://github.com/yisainan/web-interview/issues/55)
+
 </details>
 
-<b><details><summary>38.新的 HTML5 文档类型和字符集是？</summary></b>
+<b><details><summary>35.新的 HTML5 文档类型和字符集是？</summary></b>
 
 答案：
 
@@ -842,21 +800,27 @@ HTML5文档类型：<!doctype html>
 HTML5使用的编码<meta charset=”UTF-8”>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/56)
+
 </details>
 
-<b><details><summary>39.HTML5 Canvas 元素有什么用？</summary></b>
+<b><details><summary>36.HTML5 Canvas 元素有什么用？</summary></b>
 
 答案：Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/57)
+
 </details>
 
-<b><details><summary>40.HTML5 存储类型有什么区别？</summary></b>
+<b><details><summary>37.HTML5 存储类型有什么区别？</summary></b>
 
 答案：Media API、Text Track API、Application Cache API、User Interaction、Data Transfer API、Command API、Constraint Validation API、History API
 
+[参与互动](https://github.com/yisainan/web-interview/issues/58)
+
 </details>
 
-<b><details><summary>41.iframe 的作用</summary></b>
+<b><details><summary>38.iframe 的作用</summary></b>
 
 答案：iframe 是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
 
@@ -871,9 +835,11 @@ HTML5使用的编码<meta charset=”UTF-8”>
 2. iframe 标签会阻塞页面的的加载，如果页面的 onload 事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好，在 Safari 和 Chrome 中可以通过 js 动态设置 iframe 的 src 属性来避免阻塞。
 3. iframe 对于 SEO 不友好，替换方案一般就是动态语言的 Incude 机制和 ajax 动态填充内容等。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/59)
+
 </details>
 
-<b><details><summary>42.为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？</summary></b>
+<b><details><summary>39.为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？</summary></b>
 
 答案：
 
@@ -887,9 +853,11 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 例外情况是当你的脚本里包含`document.write()`时。但是现在，`document.write()`不推荐使用。同时，将`<script>`标签放在底部，意味着浏览器不能开始下载脚本，直到整个文档（document）被解析。也许，对此比较好的做法是，`<script>`使用`defer`属性，放在`<head>`中。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/60)
+
 </details>
 
-<b><details><summary>43.什么是渐进式渲染（progressive rendering）？</summary></b>
+<b><details><summary>40.什么是渐进式渲染（progressive rendering）？</summary></b>
 
 答案：渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
 
@@ -903,9 +871,11 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 解析：更多相关细节可以在[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)找到。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/61)
+
 </details>
 
-<b><details><summary>44.DOM 和 BOM 有什么区别</summary></b>
+<b><details><summary>41.DOM 和 BOM 有什么区别</summary></b>
 
 答案：
 

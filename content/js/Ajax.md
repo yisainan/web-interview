@@ -39,6 +39,8 @@
 
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/62)
+
 </details>
 
 <b><details><summary>2.同步和异步的区别?</summary></b>
@@ -49,15 +51,17 @@
 
 同步：阻塞的
 
--张三叫李四去吃饭，李四一直忙得不停，张三一直等着，直到李四忙完两个人一块去吃饭
+- 张三叫李四去吃饭，李四一直忙得不停，张三一直等着，直到李四忙完两个人一块去吃饭
 
-=浏览器向服务器请求数据，服务器比较忙，浏览器一直等着（页面白屏），直到服务器返回数据，浏览器才能显示页面
+- 浏览器向服务器请求数据，服务器比较忙，浏览器一直等着（页面白屏），直到服务器返回数据，浏览器才能显示页面
 
 异步：非阻塞的
 
--张三叫李四去吃饭，李四在忙，张三说了一声然后自己就去吃饭了，李四忙完后自己去吃
+- 张三叫李四去吃饭，李四在忙，张三说了一声然后自己就去吃饭了，李四忙完后自己去吃
 
-=浏览器向服务器请求数据，服务器比较忙，浏览器可以自如的干原来的事情（显示页面），服务器返回数据的时候通知浏览器一声，浏览器把返回的数据再渲染到页面，局部更新
+- 浏览器向服务器请求数据，服务器比较忙，浏览器可以自如的干原来的事情（显示页面），服务器返回数据的时候通知浏览器一声，浏览器把返回的数据再渲染到页面，局部更新
+
+[参与互动](https://github.com/yisainan/web-interview/issues/63)
 
 </details>
 
@@ -77,11 +81,15 @@
 [参考](https://zhuanlan.zhihu.com/p/41479807)
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/64)
+
 </details>
 
 <b><details><summary>4.页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
 
 答案：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
+
+[参与互动](https://github.com/yisainan/web-interview/issues/65)
 
 </details>
 
@@ -101,9 +109,11 @@
 
 6. 使用 JavaScript 和 DOM 实现局部刷新
 
+[参与互动](https://github.com/yisainan/web-interview/issues/66)
+
 </details>
 
-<b><details><summary>6.阐述一下异步加载 JS。</summary></b>
+<b><details><summary>6.阐述一下异步加载 JS</summary></b>
 
 答案：
 
@@ -115,11 +125,15 @@
 
 4. 创建并插入 iframe，让它异步执行 js
 
+[参与互动](https://github.com/yisainan/web-interview/issues/67)
+
 </details>
 
 <b><details><summary>7.请解释一下 JavaScript 的同源策略</summary></b>
 
 答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/68)
 
 </details>
 
@@ -139,9 +153,11 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 3. 发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
 
+[参与互动](https://github.com/yisainan/web-interview/issues/69)
+
 </details>
 
-<b><details><summary>9.ajax 是的优点</summary></b>
+<b><details><summary>9.ajax 的优点</summary></b>
 
 答案：
 
@@ -151,11 +167,18 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 3.  Ajax 在客户端运行，承担了一部分本来由服务器承担的工作，减少了大用户量下的服务器负载。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/70)
+
 </details>
 
-<b><details><summary>10. Ajax 的最大的特点是什么。</summary></b>
+<b><details><summary>10. Ajax 的最大的特点是什么？</summary></b>
 
-答案：Ajax 可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；按需获取数据，节约带宽资源；
+答案：
+
+* Ajax 可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；
+* 按需获取数据，节约带宽资源；
+
+[参与互动](https://github.com/yisainan/web-interview/issues/71)
 
 </details>
 
@@ -171,6 +194,8 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 4.破坏了程序的异常机制。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/72)
+
 </details>
 
 <b><details><summary>12.ajax 请求的时候 get 和 post 方式的区别</summary></b>
@@ -180,6 +205,8 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 get 一般用来进行查询操作，url 地址有长度限制，请求的参数都暴露在 url 地址当中，如果传递中文参数，需要自己进行编码操作，安全性较低。
 
 post 请求方式主要用来提交数据，没有数据长度的限制，提交的数据内容存在于 http 请求体中，数据不会暴漏在 url 地址中。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/73)
 
 </details>
 
@@ -201,6 +228,8 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
   - 2.在登录模块中需要用到 session 来判断当前用户的登录状态,这时候由于是跨域的原因,前后台的取到的 session 是不一样的,那么就不能就行 session 来判断.
   - 3.由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的,还是另有高招?)，后来考虑到上面的一系列问题,采用的是后台进行设置允许跨域请求(但还是存在缺陷的,实质上还是跨域,如上面说的 session 问题).Header set Access-Control-Allow-Origin \*为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如 Access-Control-Allow-Origin: http://blog.csdn.net
 
+[参与互动](https://github.com/yisainan/web-interview/issues/74)
+
 </details>
 
 <b><details><summary>14.什么是 Ajax 和 JSON，它们的优缺点。</summary></b>
@@ -216,6 +245,8 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 - JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
   - 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/75)
 
 </details>
 
@@ -237,6 +268,8 @@ JSON (JavaScript Object Notation)
 
 1. 没有 XML 格式这么推广的深入人心和使用广泛, 没有 XML 那么通用性
 2. JSON 格式目前在 Web Service 中推广还属于初级阶段 PS: 据说 Google 的 Ajax 是使用 JSON+模板 做的
+
+[参与互动](https://github.com/yisainan/web-interview/issues/76)
 
 </details>
 
@@ -260,6 +293,8 @@ JSON (JavaScript Object Notation)
 
 8.解析 css 样式.浏览器渲染，js 交互绑定多个域名，数量不限；
 
+[参与互动](https://github.com/yisainan/web-interview/issues/77)
+
 </details>
 
 <b><details><summary>17.XML 和 JSON 的区别？</summary></b>
@@ -282,11 +317,15 @@ JSON 对数据的描述性比 XML 较差。
 
 JSON 的速度要远远快于 XML。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/78)
+
 </details>
 
 <b><details><summary>18.ajax 请求时，如何解析 json 数据</summary></b>
 
 答案：使用 eval() 或者 JSON.parse() 鉴于安全性考虑，推荐使用 JSON.parse()更靠谱，对数据的安全性更好。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/79)
 
 </details>
 
@@ -304,6 +343,8 @@ JSON 的速度要远远快于 XML。
 
 5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/80)
+
 </details>
 
 <b><details><summary>20.eval 是做什么的？</summary></b>
@@ -311,6 +352,8 @@ JSON 的速度要远远快于 XML。
 答案：它的功能是把对应的字符串解析成 JS 代码并运行；
 
 解析：应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/81)
 
 </details>
 
@@ -321,6 +364,8 @@ JSON 的速度要远远快于 XML。
 1.对于依赖的模块，AMD 是提前执行，CMD 是延迟执行
 
 2.CMD 推崇依赖就近，AMD 推崇依赖前置
+
+[参与互动](https://github.com/yisainan/web-interview/issues/82)
 
 </details>
 
@@ -356,6 +401,8 @@ JSON 的速度要远远快于 XML。
 
 503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/83)
+
 </details>
 
 <b><details><summary>23.栈和队列的区别?</summary></b>
@@ -378,17 +425,23 @@ JSON 的速度要远远快于 XML。
 
 栈（数据结构）：一种先进后出的数据结构。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/84)
+
 </details>
 
 <b><details><summary>24.ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
 答案：后台做缓存，读取缓存里面的数据、CDN
 
+[参与互动](https://github.com/yisainan/web-interview/issues/85)
+
 </details>
 
 <b><details><summary>25.Ajax 实现的原理</summary></b>
 
 答案：浏览器提供的 XMLHttpRequest 对象
+
+[参与互动](https://github.com/yisainan/web-interview/issues/86)
 
 </details>
 
@@ -426,6 +479,8 @@ JSON 的速度要远远快于 XML。
 
 [参考](https://blog.csdn.net/u011565547/article/details/78979030)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/87)
+
 </details>
 
 <b><details><summary>27.RESTful</summary></b>
@@ -449,6 +504,8 @@ JSON 的速度要远远快于 XML。
 
 解析：[参考](https://blog.csdn.net/jnshu_it/article/details/80203696)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/88)
+
 </details>
 
 <b><details><summary>28.Ajax 和 Fetch 区别</summary></b>
@@ -462,34 +519,6 @@ JSON 的速度要远远快于 XML。
 - fetch 只对网络请求报错，对 400，500 都当做成功的请求，需要封装去处理
 - fetch 由于是 ES6 规范，兼容性上比不上 XMLHttpRequest
 
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>

@@ -2,7 +2,7 @@
 
 <b><details><summary>💡 介绍</summary></b>
 
-1、本仓库是面向web前端开发者准备面试使用；知识在于积累，切勿刷题作面霸！
+1、本仓库是面向 web 前端开发者准备面试使用；知识在于积累，切勿刷题作面霸！
 
 2、建议阅读
 
@@ -115,21 +115,27 @@
 
 按照本仓库收集时间排序，如有侵权请联系删除
 
-- CSDN-[手掌日月摘星辰](https://blog.csdn.net/qq_34543438/article/category/6943844)
-- 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
-- Github-[ravencrown](https://github.com/ravencrown/web-interview)
-- Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
-- 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
-- CSDN-[刘志祥](https://blog.csdn.net/salmonellavaccine/article/details/47443007)
-- Github-[woai3c](https://github.com/woai3c/Front-end-basic-knowledge)
+- 已更新
+
+  - CSDN-[手掌日月摘星辰](https://blog.csdn.net/qq_34543438/article/category/6943844)
+  - 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
+  - Github-[ravencrown](https://github.com/ravencrown/web-interview)
+  - Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
+  - 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
+  - CSDN-[刘志祥](https://blog.csdn.net/salmonellavaccine/article/details/47443007)
+  - Github-[woai3c](https://github.com/woai3c/Front-end-basic-knowledge)
+
+- 待更新
+  - 百度文库-[的释放 1](https://wenku.baidu.com/view/40f7095df242336c1fb95e08)
 
 </details>
 
 <b><details><summary>📜 License</summary></b>
 
-本仓库遵循 MIT协议，转载请注明出处。
+本仓库遵循 MIT 协议，转载请注明出处。
 
 [![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
+
 </details>
 
 <br/>
@@ -141,11 +147,25 @@
 
 <br/> -->
 
+# 参与互动
+
+新增**参与互动**功能，陆续更新中...
+
+* 已更新
+    * HTML
+    * CSS
+    * Ajax
+
+* 无答案（因个人精力有限，部分面试题暂无答案，欢迎小伙伴在issues给出答案）
+    * CSS（76-100题）
+
+<br/>
+
 # 学习交流
 
 关注微信公众号「**前端面试秘籍**」
 
-1. 获取web前端及其他IT技术的优质资源(含简历模板)
+1. 获取 web 前端及其他 IT 技术的优质资源(含简历模板)
 2. 加入微信群学习交流
 3. 验证口令：前端面试
 
