@@ -780,7 +780,7 @@ console.log(Object.getOwnPropertyNames(child));
 
 答案：
 
-# 不跨域通信
+### 不跨域通信
 
 主页面
 
@@ -873,8 +873,7 @@ window.addEventListener("message", function(event) {
 });
 ```
 
-解析：
-[参考](https://blog.csdn.net/weixin_41229588/article/details/93719894)
+解析：[参考](https://blog.csdn.net/weixin_41229588/article/details/93719894)
 
 </details>
 
@@ -882,8 +881,7 @@ window.addEventListener("message", function(event) {
 
 答案：jsBridge
 
-解析：
-[参考](https://segmentfault.com/a/1190000010356403)
+解析：[参考](https://segmentfault.com/a/1190000010356403)
 
 </details>
 
@@ -991,7 +989,8 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 - Array.isArray()
   - 优点：当检测 Array 实例时，Array.isArray 优于 instanceof ，因为 Array.isArray 可以检测出 iframes
   - 缺点：只能判别数组
-    解析：
+
+解析：
 
 ### Object.prototype.toString.call()
 
@@ -1103,8 +1102,6 @@ if (!Array.isArray) {
 - 面向对象和面向过程的异同
   - 面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。
   - 面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
-
-</details>
 
 </details>
 
@@ -2000,19 +1997,17 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 </details>
 
-</details>
-
 <b><details><summary>36.重排与重绘的区别，什么情况下会触发？</summary></b>
 
 答案：
 
 1. 简述重排的概念
 
-浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM 树和渲染树），DOM 树表示页面结构，渲染树表示 DOM 节点如何显示。重排是 DOM 元素的几何属性变化，DOM 树的结构变化，渲染树需要重新计算。
+   浏览器下载完页面中的所有组件（HTML、JavaScript、CSS、图片）之后会解析生成两个内部数据结构（DOM 树和渲染树），DOM 树表示页面结构，渲染树表示 DOM 节点如何显示。重排是 DOM 元素的几何属性变化，DOM 树的结构变化，渲染树需要重新计算。
 
 2. 简述重绘的概念
 
-重绘是一个元素外观的改变所触发的浏览器行为，例如改变 visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。由于浏览器的流布局，对渲染树的计算通常只需要遍历一次就可以完成。但 table 及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用 table 布局页面的原因之一。
+   重绘是一个元素外观的改变所触发的浏览器行为，例如改变 visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。由于浏览器的流布局，对渲染树的计算通常只需要遍历一次就可以完成。但 table 及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用 table 布局页面的原因之一。
 
 3. 简述重绘和重排的关系
    重绘不会引起重排，但重排一定会引起重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。
@@ -2055,10 +2050,10 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
   - 1.2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
   - 1.3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
 - 2.缺点
-  _ 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
-  _ 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
-  _ 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
-  _ 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
+  - 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
+  - 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
+  - 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
+  - 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
 
 </details>
 
@@ -2080,8 +2075,6 @@ function addEvent(ele, eventName, fun) {
   }
 }
 ```
-
-</details>
 
 </details>
 
@@ -2115,9 +2108,9 @@ console.log(maxInNumbers); // 458
 
 答案：
 
-join()：用于把数组中的所有元素通过指定的分隔符进行分隔放入一个字符串。
+join()：用于把数组中的所有元素通过指定的分隔符进行分隔放入一个字符串
 
-split()：用于把一个字符串通过指定的分隔符进行分隔成数组.
+split()：用于把一个字符串通过指定的分隔符进行分隔成数组
 
 </details>
 
@@ -2254,8 +2247,7 @@ console.log(
 );
 ```
 
-原文：https://blog.csdn.net/soraru/article/details/82255616
-https://www.cnblogs.com/huoxiao/p/10239284.html
+[参考 1](https://blog.csdn.net/soraru/article/details/82255616)、[参考 2](https://www.cnblogs.com/huoxiao/p/10239284.html)
 
 </details>
 
@@ -2366,35 +2358,33 @@ $("#cbFinish").on("tap", function(event) {
 
 答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
 
-[参考](https://www.cnblogs.com/kevin9103/p/5053517.html)
+解析：[参考](https://www.cnblogs.com/kevin9103/p/5053517.html)
 
 </details>
 
-<b><details><summary>54.什么是“前端路由"?什么时候适合使用“前端路由"? “前端路由"有哪些优点和缺点?</summary></b>
+<b><details><summary>54.bind、call、apply 的区别</summary></b>
 
 答案：
 
-1. 什么是前端路由？
+call 和 apply 其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
+call 和 apply 都是在调用时生效，改变调用者的 this 指向。<br>
 
-   路由是根据不同的 url 地址展示不同的内容或页面
+```
+let name = 'Jack'
+const obj = {name: 'Tom'}
+function sayHi() {console.log('Hi! ' + this.name)}
 
-   前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，之前是通过服务端根据 url 的不同返回不同的页面实现的。
+sayHi() // Hi! Jack
+sayHi.call(obj) // Hi! Tom
 
-2. 什么时候使用前端路由？
+```
 
-   在单页面应用，大部分页面结构不变，只改变部分内容的使用
+bind 也是改变 this 指向，不过不是在调用时生效，而是返回一个新函数。
 
-3. 前端路由有什么优点和缺点？
-
-   优点
-
-   用户体验好，不需要每次都从服务器全部获取，快速展现给用户
-
-   缺点
-
-   使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存
-
-   单页面无法记住之前滚动的位置，无法在前进，后退的时候记住滚动的位置
+```
+const newFunc = sayHi.bind(obj)
+newFunc() // Hi! Tom
+```
 
 </details>
 
@@ -2402,16 +2392,12 @@ $("#cbFinish").on("tap", function(event) {
 
 答案：
 
-    *  1 一般情况下构造函数的首字母需要大写，因为我们在看到一个函数首字母
-    *  大写的情况，就认定这是一个构造函数，需要跟new关键字进行搭配使用，创建一个新的
-    *  实例（对象）
-    *  2 构造函数在被调用的时候需要跟new关键字搭配使用。
-    *  3 在构造函数内部通过this+属性名的形式为实例添加一些属性和方法。
-    *  4 构造函数一般不需要返回值，如果有返回值
-    *  4.1 如果返回值是一个基本数据类型，那么调用构造函数，返回值仍旧是那么创建出来的
-    *  对象。
-    *  4.2 如果返回值是一个复杂数据类型，那么调用构造函数的时候，返回值就是这个return之后的
-    *  那个复杂数据类型。
+1. 一般情况下构造函数的首字母需要大写，因为我们在看到一个函数首字母大写的情况，就认定这是一个构造函数，需要跟new关键字进行搭配使用，创建一个新的实例（对象）
+2. 构造函数在被调用的时候需要跟new关键字搭配使用。
+3. 在构造函数内部通过this+属性名的形式为实例添加一些属性和方法。
+4. 构造函数一般不需要返回值，如果有返回值
+    * 4.1 如果返回值是一个基本数据类型，那么调用构造函数，返回值仍旧是那么创建出来的对象。
+    * 4.2 如果返回值是一个复杂数据类型，那么调用构造函数的时候，返回值就是这个return之后的那个复杂数据类型。
 
 </details>
 
@@ -2421,18 +2407,40 @@ $("#cbFinish").on("tap", function(event) {
 
 </details>
 
-<b><details><summary>57.调试工具的使用</summary></b>
+<b><details><summary>57.如何实现文件断点续传</summary></b>
 
-答案：
+答案：断点续传最核心的内容就是把文件“切片”然后再一片一片的传给服务器，但是这看似简单的上传过程却有着无数的坑。
 
-调试模式中的按钮作用
-F8 跳出断点调试模式
-F10、F11 代码的逐行调试
+首先是文件的识别，一个文件被分成了若干份之后如何告诉服务器你切了多少块，以及最终服务器应该如何把你上传上去的文件进行合并，这都是要考虑的。
 
-进入断点调试模式的 方法
+因此在文件开始上传之前，我们和服务器要有一个“握手”的过程，告诉服务器文件信息，然后和服务器约定切片的大小，当和服务器达成共识之后就可以开始后续的文件传输了。
 
-1. 在浏览器当中打断点
-2. 直接在代码中加 debugger
+前台要把每一块的文件传给后台，成功之后前端和后端都要标识一下，以便后续的断点。
+
+当文件传输中断之后用户再次选择文件就可以通过标识来判断文件是否已经上传了一部分，如果是的话，那么我们可以接着上次的进度继续传文件，以达到续传的功能。
+有了 HTML5 的 File api 之后切割文件比想想的要简单的多的多。
+
+只要用 slice 方法就可以了
+
+```
+var packet = file.slice(start, end);
+```
+
+参数 start 是开始切片的位置，end 是切片结束的位置 单位都是字节。通过控制 start 和 end 就可以是实现文件的分块
+
+如
+
+```
+file.slice(0,1000);
+file.slice(1000,2000);
+file.slice(2000,3000);
+// ......
+```
+
+在把文件切成片之后，接下来要做的事情就是把这些碎片传到服务器上。
+如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
+
+解析：[参考](https://www.cnblogs.com/zhwl/p/3580776.html)
 
 </details>
 
@@ -2702,128 +2710,72 @@ f2();
 
 </details>
 
-<b><details><summary>63.如何对网站文件和资源优化</summary></b>
+<b><details><summary>63.浮点数精度</summary></b>
 
-答案：文件合并及压缩、使用 CDN 托管、使用缓存
-
-</details>
-
-<b><details><summary>64.标准模式与怪异模式的区别</summary></b>
-
-答案：浏览器解析 CSS 的两种模式：标准模式(strict mode)和怪异模式(quirks mode)
-
-标准模式：浏览器按 W3C 标准解析执行代码；
-
-怪异模式：使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以称之为怪异模式。
-
-浏览器解析时使用标准模式还是怪异模式，与网页中的 DTD 声明直接相关，DTD 声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相关的方式加载网页并显示，忽略 DTD 声明，将使网页进入怪异模式（quirks mode）。
-
-区别是：
-
-1、盒模型：
-
-在怪异模式下，盒模型为 IE 模型
-
-![html_001.jpg](../../images/html_001.jpg)
-
-而在 W3C 标准的盒模型中为：
-
-![html_002.jpg](../../images/html_002.jpg)
-
-2、图片元素的垂直对齐方式
-
-对于 inline 元素和 table-cell 元素，标准模式下 vertical-align 属性默认取值是 baseline；在怪异模式下，table 单元格中的图片的 vertical-align 属性默认取值是 bottom。因此在图片底部会有及像素的空间。
-
-3、`<table>`元素中的字体
-CSS 中，对于 font 的属性都是可以继承的。怪异模式下，对于 table 元素，字体的某些元素将不会从 body 等其他封装元素继承中的得到，特别是 font-size 属性。
-
-4、内联元素的尺寸
-
-- 标准模式下，non-replaced inline 元素无法自定义大写；
-- 怪异模式下，定义这些元素的 width、height 属性可以影响这些元素显示的尺寸。
-
-5、元素的百分比高度
-
-- CSS 中对于元素的百分比高度规定：百分比为元素包含块的高度，不可为负值；如果包含块的高度没有显示给出，该值等同于 auto，所以百分比的高度必须是在元素有高度声明的情况下使用。
-- 当一个元素使用百分比高度是，标准模式下，高度取决于内容变化，怪异模式下，百分比高度被准确应用
-
-6、元素溢出的处理
-
-标准模式下，overflow 取值默认为 visible；在怪异模式在，该溢出会被当做扩展 box 来对待，即元素的大小由内容决定，溢出不会裁剪，元素框自动调整，包含溢出内容。
+答案：[参考](https://www.css88.com/archives/7340)
 
 </details>
 
-<b><details><summary>65.img 上 title 与 alt</summary></b>
-
-答案：title 指图片的信息、alt 指图片不显示时显示的文字
-
-</details>
-
-<b><details><summary>66.css reset 与 css sprites</summary></b>
+<b><details><summary>64.自执行函数?用于什么场景？好处?</summary></b>
 
 答案：
 
-css reset ：重置浏览器默认属性
+自执行函数:
+1、声明一个匿名函数 
+2、马上调用这个匿名函数。<br>
+作用：创建一个独立的作用域。<br>
 
-css sprites ：由多个小图片组成的大图，减少服务器对图片的请求数
+好处：防止变量弥散到全局，以免各种 js 库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理<br>
+
+场景：一般用于框架、插件等场景
 
 </details>
 
-<b><details><summary>67.IE6 遇到什么 bug？解决办法是？</summary></b>
+<b><details><summary>65.多个页面之间如何进行通信</summary></b>
+
+答案：有如下几个方式：
+
+- cookie
+- web worker
+- localeStorage 和 sessionStorage
+
+</details>
+
+<b><details><summary>66.css 动画和 js 动画的差异</summary></b>
 
 答案：
 
-一、IE6 双倍边距 bug
+1. 代码复杂度，js 动画代码相对复杂一些
+2. 动画运行时，对动画的控制程度上，js 能够让动画，暂停，取消，终止，css 动画不能添加事件
+3. 动画性能看，js 动画多了一个 js 解析的过程，性能不如 css 动画好
 
-当页面上的元素使用 float 浮动时，不管是向左还是向右浮动;只要该元素带有 margin 像素都会使该值乘以 2，例如“margin-left:10px” 在 IE6 中，该值就会被解析为 20px。想要解决这个 BUG 就需要在该元素中加入 display:inline 或 display:block 明确其元素类型即可解决双倍边距的 BUG
+解析：[参考](https://zhuanlan.zhihu.com/p/41479807)
 
-二、IE6 中 3 像素问题及解决办法
+</details>
 
-当元素使用 float 浮动后，元素与相邻的元素之间会产生 3px 的间隙。诡异的是如果右侧的容器没设置高度时 3px 的间隙在相邻容器的内部，当设定高度后又跑到容器的相反侧了。要解决这类 BUG 的话，需要使布局在同一行的元素都加上 float 浮动。
+<b><details><summary>67.如何做到修改 url 参数页面不刷新</summary></b>
 
-三、IE6 中奇数宽高的 BUG
+答案：
 
-IE6 中奇数的高宽显示大小与偶数高宽显示大小存在一定的不同。其中要问题是出在奇数高宽上。要解决此类问题，只需要尽量将外部定位的 div 高宽写成偶数即可。
+HTML5 引入了 `history.pushState()` 和 `history.replaceState()` 方法，它们分别可以添加和修改历史记录条目。
 
-四、IE6 中图片链接的下方有间隙
+```js
+let stateObj = {
+  foo: "bar"
+};
 
-IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图片的时候，即可看到这样的间隙。要解决此类问题，需要将 img 标签定义为 display:block 或定义 vertical-align 对应的属性。也可以为 img 对应的样式写入 font-size:0
+history.pushState(stateObj, "page 2", "bar.html");
+```
 
-五、IE6 下空元素的高度 BUG
+假设当前页面为 `foo.html`，执行上述代码后会变为 `bar.html`，点击浏览器后退，会变为 `foo.html`，但浏览器并不会刷新。
+`pushState()` 需要三个参数: 一个状态对象, 一个标题 (目前被忽略), 和 (可选的) 一个 URL. 让我们来解释下这三个参数详细内容：
 
-如果一个元素中没有任何内容，当在样式中为这个元素设置了 0-19px 之间的高度时。此元素的高度始终为 19px。
+- 状态对象 — 状态对象 `state` 是一个 JavaScript 对象，通过 `pushState ()` 创建新的历史记录条目。无论什么时候用户导航到新的状态，`popstate` 事件就会被触发，且该事件的 `state` 属性包含该历史记录条目状态对象的副本。
+  状态对象可以是能被序列化的任何东西。原因在于 Firefox 将状态对象保存在用户的磁盘上，以便在用户重启浏览器时使用，我们规定了状态对象在序列化表示后有 640k 的大小限制。如果你给 `pushState()` 方法传了一个序列化后大于 640k 的状态对象，该方法会抛出异常。如果你需要更大的空间，建议使用 `sessionStorage` 以及 `localStorage`.
 
-解决的方法有四种:
+- 标题 — Firefox 目前忽略这个参数，但未来可能会用到。传递一个空字符串在这里是安全的，而在将来这是不安全的。二选一的话，你可以为跳转的 `state` 传递一个短标题。
 
-1.在元素的 css 中加入：overflow:hidden
-
-2.在元素中插入 html 注释：
-
-3.在元素中插入 html 的空白符：
-
-4.在元素的 css 中加入：font-size:0
-
-六、重复文字的 BUG
-
-在某些比较复杂的排版中，有时候浮动元素的最后一些字符会出现在 clear 清除元素的下面。
-
-解决方法如下：
-
-1.确保元素都带有 display:inline
-
-2.在最后一个元素上使用“margin-right:-3px
-
-3.为浮动元素的最后一个条目加上条件注释，xxx
-
-4.在容器的最后元素使用一个空白的 div，为这个 div 指定不超过容器的宽度。
-
-七、IE6 中 z-index 失效
-
-具体 BUG 为，元素的父级元素设置的 z-index 为 1，那么其子级元素再设置 z-index 时会失效，其层级会继承父级元素的设置，造成某些层级调整上的 BUG。
-
-写在最后：实际上 IE6 中，很多 BUG 的解决方法都可以使用 display:inline、font-size:0、float 解决。因此我们在书写代码时要记住，一旦使用了 float 浮动，就为元素增加一个 display:inline 样式，可以有效的避免浮动造成的样式错乱问题。使用空 DIV 时，为了避免其高度影响布局美观，也可以为其加上 font-size:0 这样就很容易避免一些兼容上的问题。
-
-解析：[参考](https://www.cnblogs.com/rightzhao/p/3474162.html)
+- URL — 该参数定义了新的历史 URL 记录。注意，调用 `pushState()` 后浏览器并不会立即加载这个 URL，但可能会在稍后某些情况下加载这个 URL，比如在用户重新打开浏览器时。新 URL 不必须为绝对路径。如果新 URL 是相对路径，那么它将被作为相对于当前 URL 处理。新 URL 必须与当前 URL 同源，否则 `pushState()` 会抛出一个异常。该参数是可选的，缺省为当前 URL。
 
 </details>
 
@@ -3175,20 +3127,14 @@ var f = (function fn() {
 
 答案：
 
-```
-本地对象
+1. 本地对象
 ECMA-262 把本地对象（native object）定义为“独立于宿主环境的 ECMAScript 实现提供的对象"。简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。它们包括：Object、Function、Array、String、Boolean、Number、Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
-```
 
-```
-内置对象
+2. 内置对象
 JS中内置了17个对象，常用的是Array对象、Date对象、正则表达式对象、string对象、Global对象
-```
 
-```
-宿主对象
+3. 宿主对象
 由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。
-```
 
 </details>
 
@@ -3246,7 +3192,7 @@ if (foo) {
 }
 ```
 
-答案：常用于函数参数的空判断
+常用于函数参数的空判断
 
 </details>
 
@@ -3885,6 +3831,22 @@ function dedupe(array) {
 dedupe([1, 1, 2, 3]); // [1, 2, 3]
 ```
 
+
+方法 3（ES5）
+
+```js
+function unique(arry) {
+  const temp = [];
+  arry.forEach(e => {
+    if (temp.indexOf(e) == -1) {
+      temp.push(e);
+    }
+  });
+
+  return temp;
+}
+```
+
 </details>
 
 <b><details><summary>86.去除字符串里面的重复字符</summary></b>
@@ -3894,8 +3856,7 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 最简单的方式
 
 ```js
-[...new Set("ababbc")].join("");
-// "abc"
+[...new Set("ababbc")].join(""); // "abc"
 ```
 
 </details>
@@ -4043,6 +4004,9 @@ var newObj = object(oldObject);
 
 答案：
 
+1. 它的功能是把对应的字符串解析成 JS 代码并运行
+2. 应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）
+
 </details>
 
 <b><details><summary>101.js 延迟加载的方式有哪些？</summary></b>
@@ -4111,7 +4075,7 @@ var newObj = object(oldObject);
 
 <b><details><summary>111.在 js 中哪些会被隐式转换为 false</summary></b>
 
-答案：
+答案：Undefined、null、关键字 false、NaN、零、空字符串
 
 </details>
 
@@ -4120,7 +4084,7 @@ var newObj = object(oldObject);
 答案：
 
 对象：Window，document，location，screen，history，navigator。
-方法：Alert（），confirm（），prompt（），open（），close（）。
+方法：Alert()，confirm()，prompt()，open()，close()。
 
 </details>
 
@@ -4138,7 +4102,7 @@ var newObj = object(oldObject);
 
 <b><details><summary>114.外部 JS 文件出现中文字符，会出现什么问题，怎么解决？</summary></b>
 
-答案：会出现乱码，加 charset=”GB2312”;
+答案：会出现乱码，加 charset="GB2312";
 
 </details>
 
@@ -4148,9 +4112,12 @@ var newObj = object(oldObject);
 
 </details>
 
-<b><details><summary>116.在 JS 中有哪些会被隐式转换为 false</summary></b>
+<b><details><summary>116.自动分号</summary></b>
 
-答案：Undefined、null、关键字 false、NaN、零、空字符串
+答案：有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。<br>
+因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的。<br>
+请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
+如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会这样做。
 
 </details>
 
@@ -4198,12 +4165,41 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 
 </details>
 
-<b><details><summary>121.eval 是做什么的？</summary></b>
+<b><details><summary>121.内置函数(原生函数)</summary></b>
 
 答案：
 
-1. 它的功能是把对应的字符串解析成 JS 代码并运行
-2. 应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）
+- String
+- Number
+- Boolean
+- Object
+- Function
+- Array
+- Date
+- RegExp
+- Error
+- Symbol
+
+</details>
+
+<b><details><summary>122.对象浅拷贝和深拷贝有什么区别</summary></b>
+
+答案：在 `JS` 中，除了基本数据类型，还存在对象、数组这种引用类型。
+基本数据类型，拷贝是直接拷贝变量的值，而引用类型拷贝的其实是变量的地址。
+
+```
+let o1 = {a: 1}
+let o2 = o1
+```
+
+在这种情况下，如果改变 `o1` 或 `o2` 其中一个值的话，另一个也会变，因为它们都指向同一个地址。
+
+```
+o2.a = 3
+console.log(o1.a) // 3
+```
+
+而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有重新创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。
 
 </details>
 
@@ -4260,8 +4256,10 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 
 <b><details><summary>126.documen.write 和 innerHTML 的区别?</summary></b>
 
-答案：document.write 是重写整个 document, 写入内容是字符串的 html
-innerHTML 是 HTMLElement 的属性，是一个元素的内部 html 内容
+答案：
+
+1. document.write 是重写整个 document, 写入内容是字符串的 html
+2. innerHTML 是 HTMLElement 的属性，是一个元素的内部 html 内容
 
 </details>
 
@@ -4271,15 +4269,21 @@ innerHTML 是 HTMLElement 的属性，是一个元素的内部 html 内容
 
 </details>
 
-<b><details><summary>128.requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）</summary></b>
+<b><details><summary>128.requireJS 的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何缓存的？）</summary></b>
 
 答案：核心是 js 的加载模块，通过正则匹配模块以及模块的依赖关系，保证文件加载的先后顺序，根据文件的路径对加载过的文件做了缓存
 
 </details>
 
-<b><details><summary>130.Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
+<b><details><summary>129.Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
 
 答案：HasOwnProperty
+
+</details>
+
+<b><details><summary>130.原型继承</summary></b>
+
+答案：所有的 JS 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
 </details>
 
@@ -4573,12 +4577,6 @@ Object.prototype.__proto__ // null
 
 </details>
 
-<b><details><summary>158.原型继承</summary></b>
-
-答案：所有的 JS 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
-
-</details>
-
 <b><details><summary>160.使用 let、var 和 const 创建变量有什么区别</summary></b>
 
 答案：
@@ -4656,211 +4654,6 @@ baz = "qux";
 ```
 
 解析：[参考](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
-
-</details>
-
-<b><details><summary>161.对象浅拷贝和深拷贝有什么区别</summary></b>
-
-答案：在 `JS` 中，除了基本数据类型，还存在对象、数组这种引用类型。
-基本数据类型，拷贝是直接拷贝变量的值，而引用类型拷贝的其实是变量的地址。
-
-```
-let o1 = {a: 1}
-let o2 = o1
-```
-
-在这种情况下，如果改变 `o1` 或 `o2` 其中一个值的话，另一个也会变，因为它们都指向同一个地址。
-
-```
-o2.a = 3
-console.log(o1.a) // 3
-```
-
-而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有重新创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。
-
-</details>
-
-<b><details><summary>162.数组去重</summary></b>
-
-答案：
-ES5
-
-```js
-function unique(arry) {
-  const temp = [];
-  arry.forEach(e => {
-    if (temp.indexOf(e) == -1) {
-      temp.push(e);
-    }
-  });
-
-  return temp;
-}
-```
-
-ES6
-
-```js
-function unique(arr) {
-  return Array.from(new Set(arr));
-}
-```
-
-</details>
-
-<b><details><summary>163.内置函数(原生函数)</summary></b>
-
-答案：
-
-- String
-- Number
-- Boolean
-- Object
-- Function
-- Array
-- Date
-- RegExp
-- Error
-- Symbol
-
-</details>
-
-<b><details><summary>167.自动分号</summary></b>
-
-答案：有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。<br>
-因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的 ; 。<br>
-请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
-如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分
-号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会
-这样做。
-
-</details>
-
-<b><details><summary>168.浮点数精度</summary></b>
-
-答案：[参考](https://www.css88.com/archives/7340)
-
-</details>
-
-<b><details><summary>169.自执行函数?用于什么场景？好处?</summary></b>
-
-答案：
-
-自执行函数:1、声明一个匿名函数 2、马上调用这个匿名函数。<br>
-作用：创建一个独立的作用域。<br>
-
-好处：防止变量弥散到全局，以免各种 js 库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理<br>
-
-场景：一般用于框架、插件等场景
-
-</details>
-
-<b><details><summary>170.多个页面之间如何进行通信</summary></b>
-
-答案：有如下几个方式：
-
-- cookie
-- web worker
-- localeStorage 和 sessionStorage
-
-</details>
-
-<b><details><summary>171.css 动画和 js 动画的差异</summary></b>
-
-答案：
-
-1. 代码复杂度，js 动画代码相对复杂一些
-2. 动画运行时，对动画的控制程度上，js 能够让动画，暂停，取消，终止，css 动画不能添加事件
-3. 动画性能看，js 动画多了一个 js 解析的过程，性能不如 css 动画好
-
-解析：[参考](https://zhuanlan.zhihu.com/p/41479807)
-
-</details>
-
-<b><details><summary>172.如何实现文件断点续传</summary></b>
-
-答案：断点续传最核心的内容就是把文件“切片”然后再一片一片的传给服务器，但是这看似简单的上传过程却有着无数的坑。
-
-首先是文件的识别，一个文件被分成了若干份之后如何告诉服务器你切了多少块，以及最终服务器应该如何把你上传上去的文件进行合并，这都是要考虑的。
-
-因此在文件开始上传之前，我们和服务器要有一个“握手”的过程，告诉服务器文件信息，然后和服务器约定切片的大小，当和服务器达成共识之后就可以开始后续的文件传输了。
-
-前台要把每一块的文件传给后台，成功之后前端和后端都要标识一下，以便后续的断点。
-
-当文件传输中断之后用户再次选择文件就可以通过标识来判断文件是否已经上传了一部分，如果是的话，那么我们可以接着上次的进度继续传文件，以达到续传的功能。
-有了 HTML5 的 File api 之后切割文件比想想的要简单的多的多。
-
-只要用 slice 方法就可以了
-
-```
-var packet = file.slice(start, end);
-```
-
-参数 start 是开始切片的位置，end 是切片结束的位置 单位都是字节。通过控制 start 和 end 就可以是实现文件的分块
-
-如
-
-```
-file.slice(0,1000);
-file.slice(1000,2000);
-file.slice(2000,3000);
-// ......
-```
-
-在把文件切成片之后，接下来要做的事情就是把这些碎片传到服务器上。
-如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
-
-解析：[参考](https://www.cnblogs.com/zhwl/p/3580776.html)
-
-</details>
-
-<b><details><summary>173.bind、call、apply 的区别</summary></b>
-
-答案：
-
-call 和 apply 其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
-call 和 apply 都是在调用时生效，改变调用者的 this 指向。<br>
-
-```
-let name = 'Jack'
-const obj = {name: 'Tom'}
-function sayHi() {console.log('Hi! ' + this.name)}
-
-sayHi() // Hi! Jack
-sayHi.call(obj) // Hi! Tom
-
-```
-
-bind 也是改变 this 指向，不过不是在调用时生效，而是返回一个新函数。
-
-```
-const newFunc = sayHi.bind(obj)
-newFunc() // Hi! Tom
-```
-
-</details>
-
-<b><details><summary>174.如何做到修改url参数页面不刷新</summary></b>
-
-答案：
-
-HTML5引入了 `history.pushState()` 和 `history.replaceState()` 方法，它们分别可以添加和修改历史记录条目。
-```js
-let stateObj = {
-    foo: "bar",
-};
-
-history.pushState(stateObj, "page 2", "bar.html");
-```
-假设当前页面为 `foo.html`，执行上述代码后会变为 `bar.html`，点击浏览器后退，会变为 `foo.html`，但浏览器并不会刷新。
-`pushState()` 需要三个参数: 一个状态对象, 一个标题 (目前被忽略), 和 (可选的) 一个 URL. 让我们来解释下这三个参数详细内容：
-
-* 状态对象 — 状态对象 `state` 是一个 JavaScript 对象，通过 `pushState ()` 创建新的历史记录条目。无论什么时候用户导航到新的状态，`popstate` 事件就会被触发，且该事件的 `state` 属性包含该历史记录条目状态对象的副本。
-状态对象可以是能被序列化的任何东西。原因在于 Firefox 将状态对象保存在用户的磁盘上，以便在用户重启浏览器时使用，我们规定了状态对象在序列化表示后有640k的大小限制。如果你给 `pushState()` 方法传了一个序列化后大于 640k 的状态对象，该方法会抛出异常。如果你需要更大的空间，建议使用 `sessionStorage` 以及 `localStorage`.
-
-* 标题 — Firefox 目前忽略这个参数，但未来可能会用到。传递一个空字符串在这里是安全的，而在将来这是不安全的。二选一的话，你可以为跳转的 `state` 传递一个短标题。
-
-* URL — 该参数定义了新的历史URL记录。注意，调用 `pushState()` 后浏览器并不会立即加载这个 URL，但可能会在稍后某些情况下加载这个 URL，比如在用户重新打开浏览器时。新URL不必须为绝对路径。如果新URL是相对路径，那么它将被作为相对于当前 URL 处理。新 URL 必须与当前URL同源，否则 `pushState()` 会抛出一个异常。该参数是可选的，缺省为当前 URL。
 
 </details>
 

@@ -2157,3 +2157,117 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 [参与互动](https://github.com/yisainan/web-interview/issues/169)
 
 </details>
+
+
+<b><details><summary>101.标准模式与怪异模式的区别</summary></b>
+
+答案：浏览器解析 CSS 的两种模式：标准模式(strict mode)和怪异模式(quirks mode)
+
+标准模式：浏览器按 W3C 标准解析执行代码；
+
+怪异模式：使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以称之为怪异模式。
+
+浏览器解析时使用标准模式还是怪异模式，与网页中的 DTD 声明直接相关，DTD 声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相关的方式加载网页并显示，忽略 DTD 声明，将使网页进入怪异模式（quirks mode）。
+
+区别是：
+
+1、盒模型：
+
+在怪异模式下，盒模型为 IE 模型
+
+![html_001.jpg](../../images/html_001.jpg)
+
+而在 W3C 标准的盒模型中为：
+
+![html_002.jpg](../../images/html_002.jpg)
+
+2、图片元素的垂直对齐方式
+
+对于 inline 元素和 table-cell 元素，标准模式下 vertical-align 属性默认取值是 baseline；在怪异模式下，table 单元格中的图片的 vertical-align 属性默认取值是 bottom。因此在图片底部会有及像素的空间。
+
+3、`<table>`元素中的字体
+CSS 中，对于 font 的属性都是可以继承的。怪异模式下，对于 table 元素，字体的某些元素将不会从 body 等其他封装元素继承中的得到，特别是 font-size 属性。
+
+4、内联元素的尺寸
+
+- 标准模式下，non-replaced inline 元素无法自定义大写；
+- 怪异模式下，定义这些元素的 width、height 属性可以影响这些元素显示的尺寸。
+
+5、元素的百分比高度
+
+- CSS 中对于元素的百分比高度规定：百分比为元素包含块的高度，不可为负值；如果包含块的高度没有显示给出，该值等同于 auto，所以百分比的高度必须是在元素有高度声明的情况下使用。
+- 当一个元素使用百分比高度是，标准模式下，高度取决于内容变化，怪异模式下，百分比高度被准确应用
+
+6、元素溢出的处理
+
+标准模式下，overflow 取值默认为 visible；在怪异模式在，该溢出会被当做扩展 box 来对待，即元素的大小由内容决定，溢出不会裁剪，元素框自动调整，包含溢出内容。
+
+</details>
+
+<b><details><summary>66.css reset 与 css sprites</summary></b>
+
+答案：
+
+css reset ：重置浏览器默认属性
+
+css sprites ：由多个小图片组成的大图，减少服务器对图片的请求数
+
+</details>
+
+<b><details><summary>67.IE6 遇到什么 bug？解决办法是？</summary></b>
+
+答案：
+
+一、IE6 双倍边距 bug
+
+当页面上的元素使用 float 浮动时，不管是向左还是向右浮动;只要该元素带有 margin 像素都会使该值乘以 2，例如“margin-left:10px” 在 IE6 中，该值就会被解析为 20px。想要解决这个 BUG 就需要在该元素中加入 display:inline 或 display:block 明确其元素类型即可解决双倍边距的 BUG
+
+二、IE6 中 3 像素问题及解决办法
+
+当元素使用 float 浮动后，元素与相邻的元素之间会产生 3px 的间隙。诡异的是如果右侧的容器没设置高度时 3px 的间隙在相邻容器的内部，当设定高度后又跑到容器的相反侧了。要解决这类 BUG 的话，需要使布局在同一行的元素都加上 float 浮动。
+
+三、IE6 中奇数宽高的 BUG
+
+IE6 中奇数的高宽显示大小与偶数高宽显示大小存在一定的不同。其中要问题是出在奇数高宽上。要解决此类问题，只需要尽量将外部定位的 div 高宽写成偶数即可。
+
+四、IE6 中图片链接的下方有间隙
+
+IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图片的时候，即可看到这样的间隙。要解决此类问题，需要将 img 标签定义为 display:block 或定义 vertical-align 对应的属性。也可以为 img 对应的样式写入 font-size:0
+
+五、IE6 下空元素的高度 BUG
+
+如果一个元素中没有任何内容，当在样式中为这个元素设置了 0-19px 之间的高度时。此元素的高度始终为 19px。
+
+解决的方法有四种:
+
+1.在元素的 css 中加入：overflow:hidden
+
+2.在元素中插入 html 注释：
+
+3.在元素中插入 html 的空白符：
+
+4.在元素的 css 中加入：font-size:0
+
+六、重复文字的 BUG
+
+在某些比较复杂的排版中，有时候浮动元素的最后一些字符会出现在 clear 清除元素的下面。
+
+解决方法如下：
+
+1.确保元素都带有 display:inline
+
+2.在最后一个元素上使用“margin-right:-3px
+
+3.为浮动元素的最后一个条目加上条件注释，xxx
+
+4.在容器的最后元素使用一个空白的 div，为这个 div 指定不超过容器的宽度。
+
+七、IE6 中 z-index 失效
+
+具体 BUG 为，元素的父级元素设置的 z-index 为 1，那么其子级元素再设置 z-index 时会失效，其层级会继承父级元素的设置，造成某些层级调整上的 BUG。
+
+写在最后：实际上 IE6 中，很多 BUG 的解决方法都可以使用 display:inline、font-size:0、float 解决。因此我们在书写代码时要记住，一旦使用了 float 浮动，就为元素增加一个 display:inline 样式，可以有效的避免浮动造成的样式错乱问题。使用空 DIV 时，为了避免其高度影响布局美观，也可以为其加上 font-size:0 这样就很容易避免一些兼容上的问题。
+
+解析：[参考](https://www.cnblogs.com/rightzhao/p/3474162.html)
+
+</details>

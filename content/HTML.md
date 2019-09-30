@@ -897,6 +897,12 @@ window 对象既为 javascript 访问浏览器提供 API，同时在 ECMAScript 
 
 </details>
 
+<b><details><summary>42.img 上 title 与 alt</summary></b>
+
+答案：title 指图片的信息、alt 指图片不显示时显示的文字
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：
