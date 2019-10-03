@@ -172,3 +172,5 @@
 加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
 ![二维码](./images/qrcode_001.jpg)
+
+# hello, i'm a french people, baguette !
