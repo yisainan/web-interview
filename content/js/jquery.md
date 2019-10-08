@@ -64,7 +64,7 @@
 
 </details>
 
-<b><details><summary>11.你觉得 jQuery 或 zepto 源码有哪些写的好的地方</summary></b>
+<b><details><summary>11.你觉得 zepto 源码有哪些写的好的地方</summary></b>
 
 答案：
 
@@ -389,7 +389,9 @@ document.addEventListener(
 
 </details>
 
-<b><details><summary>21.一个 div，有几种方式得到这个 div 的 jQuery 对象？`<div class='aabbcc' id='nodesView'></div>`想直接获取这个 div 的 dom 对象，如何获取？dom 对象如何转化为 jQuery 对象？</summary></b>
+<b><details><summary>21.一个 div，有几种方式得到这个 div 的 jQuery 对象？</summary></b>
+
+`<div class='aabbcc' id='nodesView'></div>`想直接获取这个 div 的 dom 对象，如何获取？dom 对象如何转化为 jQuery 对象？
 
 答案：
 
@@ -535,10 +537,3 @@ console.log($("#ul").children("li").length); // 3
 ```
 
 </details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-````

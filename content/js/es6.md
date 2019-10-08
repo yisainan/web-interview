@@ -16,6 +16,8 @@
 
 3、默认部署了 Iterator 的数据有 Array、Map、Set、String、TypedArray、arguments、NodeList 对象，ES6 中有的是 Set、Map、
 
+[参与互动](https://github.com/yisainan/web-interview/issues/332)
+
 </details>
 
 <b><details><summary>2. ES6 中类的定义</summary></b>
@@ -137,6 +139,8 @@ let v_parent = new Parent();
 console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/333)
+
 </details>
 
 <b><details><summary>3.谈谈你对 ES6 的理解</summary></b>
@@ -157,6 +161,8 @@ console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 
 解析：[参考](https://www.cnblogs.com/heweijain/p/7073553.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/334)
+
 </details>
 
 <b><details><summary>4.说说你对 promise 的了解</summary></b>
@@ -172,6 +178,8 @@ Promise 对象有以下两个特点:
 2. 一旦状态改变，就不会再变，任何时候都可以得到这个结果。
 
 解析：[参考](https://www.cnblogs.com/heweijain/p/7073553.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/335)
 
 </details>
 
@@ -546,6 +554,8 @@ console.log(s);//s === Boolean.prototype.toString
 
 [参考](https://blog.csdn.net/qq_17175013/article/details/81490923)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/336)
+
 </details>
 
 <b><details><summary>6.Array.from() 与 Array.reduce()</summary></b>
@@ -711,6 +721,8 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 
 [参考](https://www.cnblogs.com/xuejiangjun/p/8523313.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/337)
+
 </details>
 
 <b><details><summary>7.var let 在 for 循环中的区别</summary></b>
@@ -718,6 +730,8 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 答案：
 
 解析：[参考](https://blog.csdn.net/zoelinjf/article/details/79618688)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/338)
 
 </details>
 
@@ -731,6 +745,8 @@ console.log([...set]); // [1,2,3,4]
 console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/339)
+
 </details>
 
 <b><details><summary>9.Class 的讲解</summary></b>
@@ -742,9 +758,13 @@ console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 
 解析：[参考](https://www.cnblogs.com/fengxiongZz/p/8191503.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/340)
+
 </details>
 
 <b><details><summary>10.模板字符串</summary></b>
+
+答案：
 
 - 就是这种形式${varible},在以往的时候我们在连接字符串和变量的时候需要使用这种方式'string' + varible + 'string'但是有了模版语言后我们可以使用string${varible}string 这种进行连接。基本用途有如下：
 
@@ -773,6 +793,8 @@ const template = `hello
 world`;
 console.log(template); //hello 空行 world
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/341)
 
 </details>
 
@@ -807,6 +829,8 @@ foo.call({ id: 42 });
 
 解析：[参考](https://www.jianshu.com/p/bc28e4f67ef9)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/342)
+
 </details>
 
 <b><details><summary>12.ES6 如何动态加载 import</summary></b>
@@ -820,6 +844,8 @@ import("lodash").then(_ => {
 ```
 
 解析：[参考](https://webpack.js.org/api/module-methods/#import)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/343)
 
 </details>
 
@@ -839,11 +865,15 @@ class Point {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/344)
+
 </details>
 
 <b><details><summary>14.谈一谈你对ECMAScript6的了解？</summary></b>
 
 答案：ES6新的语法糖，类，模块化等新特性
+
+[参与互动](https://github.com/yisainan/web-interview/issues/345)
 
 </details>
 
@@ -857,22 +887,6 @@ class Point {
 * 不可以使用`yield`命令，因此箭头函数不能用作 `Generator` 函数。
 * 箭头函数没有原型对象`prototype`
 
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/346)
 
 </details>
