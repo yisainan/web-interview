@@ -10,8 +10,6 @@
 
 [参与互动](https://github.com/yisainan/web-interview/issues/22)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>2.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
@@ -25,8 +23,6 @@
 （3）区 别： IE 的 content 部分把 border 和 padding 计算了进去;
 
 [参与互动](https://github.com/yisainan/web-interview/issues/23)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -45,8 +41,6 @@ Position:不会影响布局，能让元素保持可以操作;
 Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如果要在你的 clip-path 中使用外部的 SVG 文件，浏览器支持度还要低;
 
 [参与互动](https://github.com/yisainan/web-interview/issues/24)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -96,8 +90,6 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 [参与互动](https://github.com/yisainan/web-interview/issues/25)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>5.页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
@@ -113,8 +105,6 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 4. Link 引入样式的权重大于@import 的引用（@import 是将引用的样式导入到当前的页面中）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/26)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -141,8 +131,6 @@ CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分�
 [参考](https://css-tricks.com/almanac/selectors/a/after-and-before/)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/27)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -203,8 +191,6 @@ CSS3新增伪类举例：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/28)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
@@ -226,8 +212,6 @@ CSS3新增伪类举例：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/29)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>9. 什么是外边距重叠？重叠的结果是什么？</summary></b>
@@ -248,8 +232,6 @@ CSS3新增伪类举例：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/30)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>10. rgba()和 opacity 的透明效果有什么不同？</summary></b>
@@ -261,8 +243,6 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 而 rgba()只作用于元素的颜色或其背景色。（设置 rgba 透明的元素的子元素不会继承透明效果！）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/31)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -280,8 +260,6 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 [参与互动](https://github.com/yisainan/web-interview/issues/32)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>12. px 和 em 的区别。</summary></b>
@@ -291,8 +269,6 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0.75em, 10px=0.625em。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/33)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -373,8 +349,6 @@ body {
 
 [参与互动](https://github.com/yisainan/web-interview/issues/34)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>14.BFC </summary></b>
@@ -401,8 +375,6 @@ body {
 
 [参与互动](https://github.com/yisainan/web-interview/issues/35)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>15.用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
@@ -424,8 +396,6 @@ span {
 
 [参与互动](https://github.com/yisainan/web-interview/issues/36)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
@@ -446,8 +416,6 @@ span {
 
 [参与互动](https://github.com/yisainan/web-interview/issues/37)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>17. display:none 与 visibility:hidden 的区别是什么？</summary></b>
@@ -461,8 +429,6 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 即是，使用 CSS display:none 属性后，HTML 元素（对象）的宽度、高度等各种属性值都将“丢失”;而使用 visibility:hidden 属性后，HTML 元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/38)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -491,8 +457,6 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/39)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
-
 </details>
 
 <b><details><summary>19. 哪些 css 属性可以继承？</summary></b>
@@ -504,8 +468,6 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 不可继承 ：border padding margin width height ;
 
 [参与互动](https://github.com/yisainan/web-interview/issues/40)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -520,8 +482,6 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 - 粘连布局
 
 [参与互动](https://github.com/yisainan/web-interview/issues/41)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/89)
 
 </details>
 
@@ -2157,7 +2117,6 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 [参与互动](https://github.com/yisainan/web-interview/issues/169)
 
 </details>
-
 
 <b><details><summary>101.标准模式与怪异模式的区别</summary></b>
 
