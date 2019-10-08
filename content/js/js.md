@@ -14,6 +14,8 @@
 在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/170)
+
 </details>
 
 <b><details><summary>2. JavaScript 中如何检测一个变量是一个 String 类型？</summary></b>
@@ -39,6 +41,8 @@ typeof '123' === "string" // true
 
 Object.prototype.toString.call('123') === '[object String]' // true
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/171)
 
 </details>
 
@@ -106,6 +110,8 @@ var str_1 = $.trim(str);
 console.log(str_1); //6 6//输出左右侧均无空格
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/172)
+
 </details>
 
 <b><details><summary>4.js 是一门怎样的语言，它有什么特点</summary></b>
@@ -121,6 +127,8 @@ console.log(str_1); //6 6//输出左右侧均无空格
 4.动态性。JavaScript 是一种采用事件驱动的脚本语言,它不需要经过 Web 服务器就可以对用户的输入做出响应。
 
 5.跨平台性。JavaScript 脚本语言不依赖于操作系统,仅需要浏览器的支持。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/173)
 
 </details>
 
@@ -138,6 +146,8 @@ console.log(str_1); //6 6//输出左右侧均无空格
 ```
 
 如果你对`==`和`===`的概念不是特别了解，建议大多数情况下使用`===`
+
+[参与互动](https://github.com/yisainan/web-interview/issues/174)
 
 </details>
 
@@ -163,6 +173,8 @@ console.log(str_1); //6 6//输出左右侧均无空格
 - getElementsByTagName() //通过标签名称
 - getElementsByName() //通过元素的 Name 属性的值
 - getElementById() //通过元素 Id，唯一性
+
+[参与互动](https://github.com/yisainan/web-interview/issues/175)
 
 </details>
 
@@ -247,6 +259,8 @@ document.querySelectorAll('li').forEach((e) => {
 
 [参考](https://github.com/qiilee/js/tree/master/JS/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/176)
+
 </details>
 
 <b><details><summary>8.require 与 import 的区别</summary></b>
@@ -274,6 +288,8 @@ import {default as alias, a as a_a, b, c} from './a'; ======>用在开头
 第三、require 特点：社区方案，提供了服务器/浏览器的模块加载方案。非语言层面的标准。只能在运行时确定模块的依赖关系及输入/输出的变量，无法进行静态优化。
 
 import 特点：语言规格层面支持模块功能。支持编译时静态分析，便于 JS 引入宏和类型检验。动态绑定。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/177)
 
 </details>
 
@@ -422,6 +438,8 @@ var person1 = new Person('Nike', 20, 'teacher');
 解析：
 [参考](https://zhidao.baidu.com/question/1180348878138910499.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/178)
+
 </details>
 
 <b><details><summary>10.JavaScript 继承的方式和优缺点</summary></b>
@@ -465,8 +483,9 @@ var person1 = new Person('Nike', 20, 'teacher');
   - 3.因此，还能够正常使用 instanceof 和 isPrototypeOf。
   - 开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式
 
-解析：
-[参考](https://www.jianshu.com/p/09ad43c7fe8f)
+解析：[参考](https://www.jianshu.com/p/09ad43c7fe8f)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/179)
 
 </details>
 
@@ -477,6 +496,8 @@ var person1 = new Person('Nike', 20, 'teacher');
 解析：
 
 ![js_001](../../images/js_001.png)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/180)
 
 </details>
 
@@ -549,11 +570,15 @@ for (var i = 0; i < arr.length; i++) {
 2、改成 return [1,2,3]，得到的返回值是 9toString
 说明：执行 valueof 后都来执行 toString
 
+[参与互动](https://github.com/yisainan/web-interview/issues/181)
+
 </details>
 
 <b><details><summary>13.javascript 的 typeof 返回哪些数据类型</summary></b>
 
 答案：7 种分别为 string、boolean、number、Object、Function、undefined、symbol(ES6)、
+
+[参与互动](https://github.com/yisainan/web-interview/issues/182)
 
 </details>
 
@@ -561,11 +586,15 @@ for (var i = 0; i < arr.length; i++) {
 
 答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/183)
+
 </details>
 
 <b><details><summary>15.列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
 答案：强制（parseInt,parseFloat,Number）、隐式（+ -）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/184)
 
 </details>
 
@@ -622,6 +651,8 @@ test(); // Hi! xiaoming
 
 由于在 ECMA2015 中，只有函数才能分割作用域，函数内部可以访问当前作用域的变量，但是外部无法访问函数内部的变量，所以闭包可以理解成“定义在一个函数内部的函数，外部可以通过内部返回的函数访问内部函数的变量“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/185)
+
 </details>
 
 <b><details><summary>17.如何判断 NaN</summary></b>
@@ -629,6 +660,8 @@ test(); // Hi! xiaoming
 答案：isNaN()方法
 
 解析：isNaN(NaN) // true
+
+[参与互动](https://github.com/yisainan/web-interview/issues/186)
 
 </details>
 
@@ -645,6 +678,8 @@ obj.__proto__ = ClassA.prototype;
 ClassA.call(obj); //{}.构造函数();
 // 4. 如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接直接返回该对象。
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/187)
 
 </details>
 
@@ -684,11 +719,15 @@ for (let prop of Object.keys(s1)) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/188)
+
 </details>
 
 <b><details><summary>20. 如何判断 JS 变量的一个类型（至少三种方式）</summary></b>
 
 答案：typeof、instanceof、 constructor、 prototype
+
+[参与互动](https://github.com/yisainan/web-interview/issues/189)
 
 </details>
 
@@ -773,6 +812,8 @@ console.log(Object.getOwnPropertyNames(child));
 // ["b","c"]
 // 会将自身所有的属性的key输出
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/190)
 
 </details>
 
@@ -875,6 +916,8 @@ window.addEventListener("message", function(event) {
 
 解析：[参考](https://blog.csdn.net/weixin_41229588/article/details/93719894)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/191)
+
 </details>
 
 <b><details><summary>23.H5 与 Native 如何交互</summary></b>
@@ -882,6 +925,8 @@ window.addEventListener("message", function(event) {
 答案：jsBridge
 
 解析：[参考](https://segmentfault.com/a/1190000010356403)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/192)
 
 </details>
 
@@ -894,6 +939,8 @@ window.addEventListener("message", function(event) {
 第二种方法：使用 ECMAScript 5 新增的 Array.isArray()方法。
 
 第三种方法：使用使用 Object.prototype 上的原生 toString()方法判断。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/193)
 
 </details>
 
@@ -973,6 +1020,8 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 有了 async 属性，浏览器会立即下载相应的脚本 a.js 和 b.js，在下载的过程中页面的处理不会停止，a.js 和 b.js 哪个先下载完成哪个就立即执行，执行过程中页面处理会停止，但是其他脚本的下载不会停止。标记为 async 的脚本并不保证按照制定它们的先后顺序执行。异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之后执行。
 
 [参考](https://blog.csdn.net/weixin_42561383/article/details/86564715)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/194)
 
 </details>
 
@@ -1091,6 +1140,8 @@ if (!Array.isArray) {
 
 [参考](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/23)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/195)
+
 </details>
 
 <b><details><summary>27.什么是面向对象？</summary></b>
@@ -1103,6 +1154,8 @@ if (!Array.isArray) {
   - 面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。
   - 面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/196)
+
 </details>
 
 <b><details><summary>28.你对松散类型的理解</summary></b>
@@ -1112,6 +1165,8 @@ if (!Array.isArray) {
 JavaScript 中的变量为松散类型，所谓松散类型就是指当一个变量被申明出来就可以保存任意类型的值，就是不像 SQL 一样申明某个键值为 int 就只能保存整型数值，申明 varchar 只能保存字符串。一个变量所保存值的类型也可以改变，这在 JavaScript 中是完全有效的，只是不推荐。相比较于将变量理解为“盒子“，《JavaScript 编程精解》中提到应该将变量理解为“触手”，它不保存值，而是抓取值。这一点在当变量保存引用类型值时更加明显。
 
 JavaScript 中变量可能包含两种不同的数据类型的值：基本类型和引用类型。基本类型是指简单的数据段，而引用类型指那些可能包含多个值的对象。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/197)
 
 </details>
 
@@ -1515,6 +1570,8 @@ for (var i = 0; i < 5; i++) {
 
 [参考](https://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/198)
+
 </details>
 
 <b><details><summary>30.移动端 click 事件、touch 事件、tap 事件的区别</summary></b>
@@ -1598,6 +1655,8 @@ tap(ele, function() {
 
 这样，过了 300ms，那么 click 事件就不会触发在下面的 a 标签上了。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/199)
+
 </details>
 
 <b><details><summary>31.JS 单线程还是多线程，如何显示异步操作</summary></b>
@@ -1616,7 +1675,7 @@ tap(ele, function() {
 
 ![js_003](../../images/js_003.png)
 
-</details>
+[参与互动](https://github.com/yisainan/web-interview/issues/200)
 
 </details>
 
@@ -1684,6 +1743,8 @@ var ret = arr.filter(function(value) {
 console.log(ret); //[5,4]
 console.log(arr); //[2,5,3,4]
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/201)
 
 </details>
 
@@ -1803,6 +1864,8 @@ var、let、const 的区别
 </script>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/202)
+
 </details>
 
 <b><details><summary>34. null/undefined 的区别</summary></b>
@@ -1812,6 +1875,8 @@ var、let、const 的区别
 null： Null 类型，代表“空值"，代表一个空对象指针，使用 typeof 运算得到 “object"，所以你可以认为它是一个特殊的对象值。
 
 undefined： Undefined 类型，当一个声明了一个变量未初始化时，得到的就是 undefined。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/203)
 
 </details>
 
@@ -1995,6 +2060,8 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 [参考](https://blog.csdn.net/michael8512/article/details/77888000)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/204)
+
 </details>
 
 <b><details><summary>36.重排与重绘的区别，什么情况下会触发？</summary></b>
@@ -2029,6 +2096,8 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 - 由于 display 属性为 none 的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发两次重排。
 - 在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的 html 片段，再一次性添加到文档中去，而不是循环添加每一行。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/205)
+
 </details>
 
 <b><details><summary>37.发布订阅设计模式</summary></b>
@@ -2036,6 +2105,8 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 答案：发布/订阅模式(Publish Subscribe Pattern)属于设计模式中的行为(Behavioral Patterns)
 
 解析：[参考](https://www.jianshu.com/p/c391c77a8771)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/206)
 
 </details>
 
@@ -2054,6 +2125,8 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
   - 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
   - 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
   - 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
+
+[参与互动](https://github.com/yisainan/web-interview/issues/207)
 
 </details>
 
@@ -2076,6 +2149,8 @@ function addEvent(ele, eventName, fun) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/208)
+
 </details>
 
 <b><details><summary>40.typescript 遇到过什么坑</summary></b>
@@ -2087,6 +2162,8 @@ main.ts 报错（ Cannot find module './App.vue'.）
 原因： typescript 不能识别.vue 文件
 
 解决办法： 引入 vue 的 typescript declare 库
+
+[参与互动](https://github.com/yisainan/web-interview/issues/209)
 
 </details>
 
@@ -2102,6 +2179,8 @@ var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
 console.log(maxInNumbers); // 458
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/210)
+
 </details>
 
 <b><details><summary>42.split() join()的区别</summary></b>
@@ -2112,11 +2191,15 @@ join()：用于把数组中的所有元素通过指定的分隔符进行分隔�
 
 split()：用于把一个字符串通过指定的分隔符进行分隔成数组
 
+[参与互动](https://github.com/yisainan/web-interview/issues/211)
+
 </details>
 
 <b><details><summary>43.JavaScript 的数据类型</summary></b>
 
 答案：JS 数据类型共有六种，分别是 String、Number、Boolean、Null、Undefined 和 Object 等， 另外，ES6 新增了 Symbol 类型。其中，Object 是引用类型，其他的都是基本类型(Primitive Type)。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/212)
 
 </details>
 
@@ -2131,6 +2214,8 @@ if (a instanceof Person) {
   alert("yes");
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/213)
 
 </details>
 
@@ -2175,6 +2260,8 @@ Test.call(obj)
 
 4. 将初始化完毕的新对象地址，保存到等号左边的变量中
 
+[参与互动](https://github.com/yisainan/web-interview/issues/214)
+
 </details>
 
 <b><details><summary>46.call() 和 apply() 的含义和区别？</summary></b>
@@ -2195,6 +2282,8 @@ call 与 apply 的不同点：两者传入的列表形式不一样
 
 - call 可以传入多个参数；
 - apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入
+
+[参与互动](https://github.com/yisainan/web-interview/issues/215)
 
 </details>
 
@@ -2248,6 +2337,8 @@ console.log(
 ```
 
 [参考 1](https://blog.csdn.net/soraru/article/details/82255616)、[参考 2](https://www.cnblogs.com/huoxiao/p/10239284.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/216)
 
 </details>
 
@@ -2317,11 +2408,15 @@ $("#cbFinish").on("tap", function(event) {
 
 [参考](https://www.cnblogs.com/axl234/p/5554281.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/217)
+
 </details>
 
 <b><details><summary>49.如何判断当前脚本运行在浏览器还是 node 环境中？</summary></b>
 
 答案：通过判断 Global 对象是否为 window，如果不为 window，当前脚本没有运行在浏览器中
+
+[参与互动](https://github.com/yisainan/web-interview/issues/218)
 
 </details>
 
@@ -2330,6 +2425,8 @@ $("#cbFinish").on("tap", function(event) {
 答案：苹果推荐是 44pt x 44pt
 
 解析：[参考](https://developer.apple.com/ios/human-interface-guidelines/visual-design/layout/)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/219)
 
 </details>
 
@@ -2340,6 +2437,8 @@ $("#cbFinish").on("tap", function(event) {
 1. 300 毫秒
 2. 因为浏览器捕获第一次单击后，会先等待一段时间，如果在这段时间区间里用户未进行下一次点击，则浏览器会做单击事件的处理。如果这段时间里用户进行了第二次单击操作，则浏览器会做双击事件处理。
 3. 推荐 fastclick.js
+
+[参与互动](https://github.com/yisainan/web-interview/issues/220)
 
 </details>
 
@@ -2352,6 +2451,8 @@ $("#cbFinish").on("tap", function(event) {
 - 同一个变量申明只进行一次，并且因此其他申明都会被忽略
 - 函数声明的优先级优于变量申明，且函数声明会连带定义一起被提升
 
+[参与互动](https://github.com/yisainan/web-interview/issues/221)
+
 </details>
 
 <b><details><summary>53.Node.js 的适用场景？</summary></b>
@@ -2359,6 +2460,8 @@ $("#cbFinish").on("tap", function(event) {
 答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
 
 解析：[参考](https://www.cnblogs.com/kevin9103/p/5053517.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/222)
 
 </details>
 
@@ -2386,6 +2489,8 @@ const newFunc = sayHi.bind(obj)
 newFunc() // Hi! Tom
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/223)
+
 </details>
 
 <b><details><summary>55.使用构造函数的注意点</summary></b>
@@ -2399,11 +2504,15 @@ newFunc() // Hi! Tom
     * 4.1 如果返回值是一个基本数据类型，那么调用构造函数，返回值仍旧是那么创建出来的对象。
     * 4.2 如果返回值是一个复杂数据类型，那么调用构造函数的时候，返回值就是这个return之后的那个复杂数据类型。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/224)
+
 </details>
 
 <b><details><summary>56.如何获取浏览器版本信息</summary></b>
 
 答案：window.navigator.userAgent
+
+[参与互动](https://github.com/yisainan/web-interview/issues/225)
 
 </details>
 
@@ -2441,6 +2550,8 @@ file.slice(2000,3000);
 如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
 
 解析：[参考](https://www.cnblogs.com/zhwl/p/3580776.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/226)
 
 </details>
 
@@ -2611,6 +2722,8 @@ let arr = [1, 2, 3, 4, 5];
      console.log(arr3) //[1, 2, 'haha', 4, 5] 替换一个元素
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/227)
+
 </details>
 
 <b><details><summary>59.字符串常用操作</summary></b>
@@ -2634,6 +2747,8 @@ let arr = [1, 2, 3, 4, 5];
 - toUpperCase()：将字符串转换为大写
 - valueOf()：返回原始字符串值
 
+[参与互动](https://github.com/yisainan/web-interview/issues/228)
+
 </details>
 
 <b><details><summary>60.作用域的概念及作用</summary></b>
@@ -2643,6 +2758,8 @@ let arr = [1, 2, 3, 4, 5];
 - 作用域 ： 起作用的一块区域
 - 作用域的概念： 对变量起保护作用的一块区域
 - 作用： 作用域外部无法获取到作用域内部声明的变量，作用域内部能够获取到作用域外界声明的变量。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/229)
 
 </details>
 
@@ -2659,6 +2776,8 @@ let arr = [1, 2, 3, 4, 5];
 
 3 动态作用域
 作用域只跟在何处被调用有关系，跟在何处被创建没有关系
+
+[参与互动](https://github.com/yisainan/web-interview/issues/230)
 
 </details>
 
@@ -2708,11 +2827,15 @@ f2();
 //如果js是动态作用域，那么f1执行的时候就会输出f1被调用时外部环境中的num  456
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/231)
+
 </details>
 
 <b><details><summary>63.浮点数精度</summary></b>
 
 答案：[参考](https://www.css88.com/archives/7340)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/232)
 
 </details>
 
@@ -2729,6 +2852,8 @@ f2();
 
 场景：一般用于框架、插件等场景
 
+[参与互动](https://github.com/yisainan/web-interview/issues/233)
+
 </details>
 
 <b><details><summary>65.多个页面之间如何进行通信</summary></b>
@@ -2738,6 +2863,8 @@ f2();
 - cookie
 - web worker
 - localeStorage 和 sessionStorage
+
+[参与互动](https://github.com/yisainan/web-interview/issues/234)
 
 </details>
 
@@ -2750,6 +2877,8 @@ f2();
 3. 动画性能看，js 动画多了一个 js 解析的过程，性能不如 css 动画好
 
 解析：[参考](https://zhuanlan.zhihu.com/p/41479807)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/235)
 
 </details>
 
@@ -2777,6 +2906,8 @@ history.pushState(stateObj, "page 2", "bar.html");
 
 - URL — 该参数定义了新的历史 URL 记录。注意，调用 `pushState()` 后浏览器并不会立即加载这个 URL，但可能会在稍后某些情况下加载这个 URL，比如在用户重新打开浏览器时。新 URL 不必须为绝对路径。如果新 URL 是相对路径，那么它将被作为相对于当前 URL 处理。新 URL 必须与当前 URL 同源，否则 `pushState()` 会抛出一个异常。该参数是可选的，缺省为当前 URL。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/236)
+
 </details>
 
 <b><details><summary>68.数组方法 pop() push() unshift() shift()</summary></b>
@@ -2788,6 +2919,8 @@ history.pushState(stateObj, "page 2", "bar.html");
 - arr.unshift() 从前面添加元素, 返回值是添加完后的数组的长度
 - arr.shift() 从前面删除元素，只能删除一个 返回值是删除的元素
 
+[参与互动](https://github.com/yisainan/web-interview/issues/237)
+
 </details>
 
 <b><details><summary>69.事件绑定与普通事件有什么区别</summary></b>
@@ -2796,6 +2929,8 @@ history.pushState(stateObj, "page 2", "bar.html");
 
 - 用普通事件添加相同事件，下面会覆盖上面的，而事件绑定不会
 - 普通事件是针对非 dom 元素，事件绑定是针对 dom 元素的事件
+
+[参与互动](https://github.com/yisainan/web-interview/issues/238)
 
 </details>
 
@@ -2842,6 +2977,8 @@ DOM 使用：
 
 bCapture 参数用于设置事件绑定的阶段，true 为捕获阶段，false 为冒泡阶段。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/239)
+
 </details>
 
 <b><details><summary>71. IE 和标准下有哪些兼容性的写法</summary></b>
@@ -2853,6 +2990,8 @@ var ev = ev || window.event;
 document.documentElement.clientWidth || document.body.clientWidth;
 var target = ev.srcElement || ev.target;
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/240)
 
 </details>
 
@@ -3060,6 +3199,8 @@ console.log(fn); // undefined
 
 [对应面试题](../编程题/变量提升.md)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/241)
+
 </details>
 
 <b><details><summary>73.如何阻止冒泡与默认行为</summary></b>
@@ -3097,6 +3238,8 @@ function stopDefault(e) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/242)
+
 </details>
 
 <b><details><summary>74.js 中 this 闭包 作用域</summary></b>
@@ -3121,6 +3264,8 @@ var f = (function fn() {
 ==>undefined 有疑问
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/243)
+
 </details>
 
 <b><details><summary>75.javascript 的本地对象，内置对象和宿主对象</summary></b>
@@ -3135,6 +3280,8 @@ JS中内置了17个对象，常用的是Array对象、Date对象、正则表达�
 
 3. 宿主对象
 由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/244)
 
 </details>
 
@@ -3161,6 +3308,8 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 
 同源策略带来的麻烦：ajax 在不同域名下的请求无法实现，需要进行跨域操作
 
+[参与互动](https://github.com/yisainan/web-interview/issues/245)
+
 </details>
 
 <b><details><summary>77.事件冒泡与事件捕获</summary></b>
@@ -3170,6 +3319,8 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 事件冒泡：由最具体的元素（目标元素）向外传播到最不具体的元素
 
 事件捕获：由最不确定的元素到目标元素
+
+[参与互动](https://github.com/yisainan/web-interview/issues/246)
 
 </details>
 
@@ -3194,6 +3345,8 @@ if (foo) {
 
 常用于函数参数的空判断
 
+[参与互动](https://github.com/yisainan/web-interview/issues/247)
+
 </details>
 
 <b><details><summary>79.复杂数据类型如何转变为字符串</summary></b>
@@ -3204,6 +3357,8 @@ if (foo) {
 - 如果调用 valueOf 方法之后的返回值仍旧是一个复杂数据类型，就会调用该对象的 toString 方法
 - 如果 toString 方法调用之后的返回值是一个基本数据类型，就返回这个值，
 - 如果 toString 方法调用之后的返回值是一个复杂数据类型，就报一个错误。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/248)
 
 </details>
 
@@ -3686,6 +3841,8 @@ button.addEventListener("click", () => {
 });
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/249)
+
 </details>
 
 <b><details><summary>81.call 与 apply 区别</summary></b>
@@ -3699,6 +3856,8 @@ call 和 apply 的作用，完全一样，唯一的区别就是在参数上面�
 call 接收的参数不固定，第一个参数是函数体内 this 的指向，第二个参数以下是依次传入的参数。
 
 apply 接收两个参数，第一个参数也是函数体内 this 的指向。第二个参数是一个集合对象（数组或者类数组）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/250)
 
 </details>
 
@@ -3727,6 +3886,8 @@ console.log(reg.test(foo)); //true
 使用 new RegExp()的原因之一在于，某些场景中无法事先确定模式，而只能在运行时以字符串方式创建。
 
 [参考](https://www.cnblogs.com/coco1s/p/4008955.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/251)
 
 </details>
 
@@ -3759,6 +3920,8 @@ var c = function(x, y) {
 };
 c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.callee.length,arguments.callee)}
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/252)
 
 </details>
 
@@ -3808,6 +3971,8 @@ c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.ca
 
 点评：兼容所有浏览器。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/253)
+
 </details>
 
 <b><details><summary>85.去除数组重复成员的方法</summary></b>
@@ -3847,6 +4012,8 @@ function unique(arry) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/254)
+
 </details>
 
 <b><details><summary>86.去除字符串里面的重复字符</summary></b>
@@ -3859,6 +4026,8 @@ function unique(arry) {
 [...new Set("ababbc")].join(""); // "abc"
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/255)
+
 </details>
 
 <b><details><summary>87.求数组的最大值</summary></b>
@@ -3870,6 +4039,8 @@ var a = [1, 2, 3, 5];
 alert(Math.max.apply(null, a)); //最大值
 alert(Math.min.apply(null, a)); //最小值
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/256)
 
 </details>
 
@@ -3906,6 +4077,8 @@ for (var i = 100; i > 0; i--) {
 document.body.appendChild(df);
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/257)
+
 </details>
 
 <b><details><summary>89.原型的作用 以及什么是原型</summary></b>
@@ -3914,11 +4087,15 @@ document.body.appendChild(df);
 
 什么是原型:实例在被创建的那一刻，构造函数的 prototype 属性的值。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/258)
+
 </details>
 
 <b><details><summary>90.javascript 里面的继承怎么实现，如何避免原型链上面的对象共享</summary></b>
 
 答案：用构造函数和原型链的混合模式去实现继承，避免对象共享可以参考经典的 extend()函数，很多前端框架都有封装的，就是用一个空函数当做中间变量
+
+[参与互动](https://github.com/yisainan/web-interview/issues/259)
 
 </details>
 
@@ -3926,11 +4103,15 @@ document.body.appendChild(df);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/260)
+
 </details>
 
 <b><details><summary>92.说说你对作用域链的理解</summary></b>
 
 答案：作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到 window 对象即被终止，作用域链向下访问变量是不被允许的。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/261)
 
 </details>
 
@@ -3962,11 +4143,15 @@ function object(old) {
 var newObj = object(oldObject);
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/262)
+
 </details>
 
 <b><details><summary>94.请解释什么是事件代理</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/263)
 
 </details>
 
@@ -3974,11 +4159,15 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/264)
+
 </details>
 
 <b><details><summary>96.谈谈你对 AMD、CMD 的理解</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/265)
 
 </details>
 
@@ -3986,17 +4175,23 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/266)
+
 </details>
 
 <b><details><summary>98.说几条写 JavaScript 的基本规范？</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/267)
+
 </details>
 
 <b><details><summary>99.JavaScript 有几种类型的值？你能画一下他们的内存图吗？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/268)
 
 </details>
 
@@ -4007,11 +4202,15 @@ var newObj = object(oldObject);
 1. 它的功能是把对应的字符串解析成 JS 代码并运行
 2. 应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）
 
+[参与互动](https://github.com/yisainan/web-interview/issues/269)
+
 </details>
 
 <b><details><summary>101.js 延迟加载的方式有哪些？</summary></b>
 
 答案：defer 和 async、动态创建 DOM 方式（用得最多）、按需异步载入 js
+
+[参与互动](https://github.com/yisainan/web-interview/issues/270)
 
 </details>
 
@@ -4019,11 +4218,15 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/271)
+
 </details>
 
 <b><details><summary>103.什么是面向对象编程及面向过程编程，它们的异同和优缺点</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/272)
 
 </details>
 
@@ -4031,11 +4234,15 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/273)
+
 </details>
 
 <b><details><summary>105.对原生 Javascript 了解程度</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/274)
 
 </details>
 
@@ -4043,11 +4250,15 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/275)
+
 </details>
 
 <b><details><summary>107.快速的让一个数组乱序</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/276)
 
 </details>
 
@@ -4055,11 +4266,15 @@ var newObj = object(oldObject);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/277)
+
 </details>
 
 <b><details><summary>109.UIWebView 和 JavaScript 之间是怎么交互的?</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/278)
 
 </details>
 
@@ -4071,11 +4286,15 @@ var newObj = object(oldObject);
 2.  事件处理机制：IE 是事件冒泡、火狐是 事件捕获；
 3.  ev.stopPropagation();
 
+[参与互动](https://github.com/yisainan/web-interview/issues/279)
+
 </details>
 
 <b><details><summary>111.在 js 中哪些会被隐式转换为 false</summary></b>
 
 答案：Undefined、null、关键字 false、NaN、零、空字符串
+
+[参与互动](https://github.com/yisainan/web-interview/issues/280)
 
 </details>
 
@@ -4085,6 +4304,8 @@ var newObj = object(oldObject);
 
 对象：Window，document，location，screen，history，navigator。
 方法：Alert()，confirm()，prompt()，open()，close()。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/281)
 
 </details>
 
@@ -4098,17 +4319,23 @@ var newObj = object(oldObject);
 3、动态调用方法
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/282)
+
 </details>
 
 <b><details><summary>114.外部 JS 文件出现中文字符，会出现什么问题，怎么解决？</summary></b>
 
 答案：会出现乱码，加 charset="GB2312";
 
+[参与互动](https://github.com/yisainan/web-interview/issues/283)
+
 </details>
 
 <b><details><summary>115.定时器 setInterval 有一个有名函数 fn1，setInterval（fn1,500）与 setInterval（fn1(),500）有什么区别？</summary></b>
 
 答案：第一个是重复执行每 500 毫秒执行一次，后面一个只执行一次。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/284)
 
 </details>
 
@@ -4119,6 +4346,8 @@ var newObj = object(oldObject);
 请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
 如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会这样做。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/285)
+
 </details>
 
 <b><details><summary>117.你用过 require.js 吗？它有什么特性？</summary></b>
@@ -4127,6 +4356,8 @@ var newObj = object(oldObject);
 
 （1）实现 js 文件的异步加载，避免网页失去响应；
 （2）管理模块之间的依赖性，便于代码的编写和维护。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/286)
 
 </details>
 
@@ -4141,6 +4372,8 @@ window.event?window.event.returnValue=false:e.preventDefault();
 window.event?window.event.cancelBubble=true:e.stopPropagation();
 原生 JavaScript 中，return false;只阻止默认行为，不阻止冒泡，jQuery 中的 return false;既阻止默认行为，又阻止冒泡
 
+[参与互动](https://github.com/yisainan/web-interview/issues/287)
+
 </details>
 
 <b><details><summary>119.分别阐述 split(),slice(),splice(),join()？</summary></b>
@@ -4152,6 +4385,8 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 - slice() 方法可从已有的数组中返回选定的元素。该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()
 - splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。返回的是含有被删除的元素的数组。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/288)
+
 </details>
 
 <b><details><summary>120.事件、IE 与火狐的事件机制有什么区别？ 如何阻止冒泡？</summary></b>
@@ -4162,6 +4397,8 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 2. 事件处理机制：IE 是事件冒泡、firefox 同时支持两种事件模型，也就是：捕获型事件和冒泡型事件
 3. ev.stopPropagation();
    注意旧 ie 的方法：ev.cancelBubble = true;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/289)
 
 </details>
 
@@ -4179,6 +4416,8 @@ window.event?window.event.cancelBubble=true:e.stopPropagation();
 - RegExp
 - Error
 - Symbol
+
+[参与互动](https://github.com/yisainan/web-interview/issues/290)
 
 </details>
 
@@ -4201,11 +4440,15 @@ console.log(o1.a) // 3
 
 而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有重新创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/291)
+
 </details>
 
 <b><details><summary>123.JS 怎么实现一个类。怎么实例化这个类</summary></b>
 
 答案：严格来讲 js 中并没有类的概念，不过 js 中的函数可以作为构造函数来使用，通过 new 来实例化，其实函数本身也是一个对象。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/292)
 
 </details>
 
@@ -4224,6 +4467,8 @@ console.log(o1.a) // 3
 - 在同一条件子的多（ >2 ）条件分支时，使用 switch 优于 if
 - 使用三目运算符替代条件分支
 - 需要不断执行的时候，优先考虑使用 setInterval
+
+[参与互动](https://github.com/yisainan/web-interview/issues/293)
 
 </details>
 
@@ -4252,6 +4497,8 @@ console.log(o1.a) // 3
 - Object.toString( ) 定义一个对象的字符串表示
 - Object.valueOf( ) 指定对象的原始值
 
+[参与互动](https://github.com/yisainan/web-interview/issues/294)
+
 </details>
 
 <b><details><summary>126.documen.write 和 innerHTML 的区别?</summary></b>
@@ -4261,11 +4508,15 @@ console.log(o1.a) // 3
 1. document.write 是重写整个 document, 写入内容是字符串的 html
 2. innerHTML 是 HTMLElement 的属性，是一个元素的内部 html 内容
 
+[参与互动](https://github.com/yisainan/web-interview/issues/295)
+
 </details>
 
 <b><details><summary>127.让你自己设计实现一个 requireJS，你会怎么做？</summary></b>
 
 答案：核心是实现 js 的加载模块，维护 js 的依赖关系，控制好文件加载的先后顺序
+
+[参与互动](https://github.com/yisainan/web-interview/issues/296)
 
 </details>
 
@@ -4273,11 +4524,15 @@ console.log(o1.a) // 3
 
 答案：核心是 js 的加载模块，通过正则匹配模块以及模块的依赖关系，保证文件加载的先后顺序，根据文件的路径对加载过的文件做了缓存
 
+[参与互动](https://github.com/yisainan/web-interview/issues/297)
+
 </details>
 
 <b><details><summary>129.Javascript 中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</summary></b>
 
 答案：HasOwnProperty
+
+[参与互动](https://github.com/yisainan/web-interview/issues/298)
 
 </details>
 
@@ -4285,17 +4540,23 @@ console.log(o1.a) // 3
 
 答案：所有的 JS 对象都有一个 prototype 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/299)
+
 </details>
 
 <b><details><summary>131.用原生 JavaScript 的实现过什么功能吗？</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/300)
+
 </details>
 
 <b><details><summary>132.javascript 代码中的"use strict";是什么意思 ? 使用它区别是什么？</summary></b>
 
 答案：意思是使用严格模式，使用严格模式，一些不规范的语法将不再支持
+
+[参与互动](https://github.com/yisainan/web-interview/issues/301)
 
 </details>
 
@@ -4316,6 +4577,8 @@ var sum2 = function(num1,num2){
 var sum3 = new Function("num1","num2","return num1+num2");
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/302)
+
 </details>
 
 <b><details><summary>134.window.location.search() 返回的是什么？</summary></b>
@@ -4323,17 +4586,23 @@ var sum3 = new Function("num1","num2","return num1+num2");
 答案：查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用 javascript 来获得相信应的参数值
 返回值：?ver=1.0&id=timlq 也就是问号后面的！
 
+[参与互动](https://github.com/yisainan/web-interview/issues/303)
+
 </details>
 
 <b><details><summary>135.window.location.hash  返回的是什么？</summary></b>
 
 答案：锚点 ，  返回值：#love ；
 
+[参与互动](https://github.com/yisainan/web-interview/issues/304)
+
 </details>
 
 <b><details><summary>136.window.location.reload() 作用？</summary></b>
 
 答案：刷新当前页面
+
+[参与互动](https://github.com/yisainan/web-interview/issues/305)
 
 </details>
 
@@ -4342,6 +4611,8 @@ var sum3 = new Function("num1","num2","return num1+num2");
 答案：
 IE6 下这个问题是因为默认的行高造成的，解决的方法也有很多，例如：
 overflow:hidden | zoom:0.08 | line-height:1px
+
+[参与互动](https://github.com/yisainan/web-interview/issues/306)
 
 </details>
 
@@ -4358,11 +4629,15 @@ overflow:hidden | zoom:0.08 | line-height:1px
  6、history对象，浏览器访问历史信息；
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/307)
+
 </details>
 
 <b><details><summary>139.简述 readonly 与 disabled 的区别</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/308)
 
 </details>
 
@@ -4370,11 +4645,15 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/309)
+
 </details>
 
 <b><details><summary>141.什么是三元表达式？“三元”表示什么意思？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/310)
 
 </details>
 
@@ -4382,17 +4661,23 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/311)
+
 </details>
 
 <b><details><summary>144.简述一下 Handlebars 的基本用法？</summary></b>
 
 答案：没有用过的话说出它是干什么的即可
 
+[参与互动](https://github.com/yisainan/web-interview/issues/312)
+
 </details>
 
 <b><details><summary>143.简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/313)
 
 </details>
 
@@ -4405,6 +4690,8 @@ overflow:hidden | zoom:0.08 | line-height:1px
 - Underscore 封装了常用的 JavaScript 对象操作方法，用于提高开发效率。
 - Handlebars 是 JavaScript 一个语义模板库，通过对 view 和 data 的分离来快速构建 Web 模板。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/314)
+
 </details>
 
 <b><details><summary>146.知道什么是 webkit 么? 知道怎么用浏览器的各种工具来调试和 debug 代码么?</summary></b>
@@ -4412,11 +4699,15 @@ overflow:hidden | zoom:0.08 | line-height:1px
 答案：Webkit 是浏览器引擎，包括 html 渲染和 js 解析功能，手机浏览器的主流内核，与之相对应的引擎有 Gecko（Mozilla Firefox 等使用）和 Trident（也称 MSHTML，IE 使用）。
 对于浏览器的调试工具要熟练使用，主要是页面结构分析，后台请求信息查看，js 调试工具使用，熟练使用这些工具可以快速提高解决问题的效率
 
+[参与互动](https://github.com/yisainan/web-interview/issues/315)
+
 </details>
 
 <b><details><summary>147.如何测试前端代码? 知道 BDD, TDD, Unit Test 么? 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?</summary></b>
 
 答案：了解 BDD 行为驱动开发与 TDD 测试驱动开发已经单元测试相关概念
+
+[参与互动](https://github.com/yisainan/web-interview/issues/316)
 
 </details>
 
@@ -4424,17 +4715,23 @@ overflow:hidden | zoom:0.08 | line-height:1px
 
 答案：while for do while forEach
 
+[参与互动](https://github.com/yisainan/web-interview/issues/317)
+
 </details>
 
 <b><details><summary>149.作用域-编译期执行期以及全局局部作用域问题</summary></b>
 
 答案：js 执行主要的两个阶段：预解析和执行期
 
+[参与互动](https://github.com/yisainan/web-interview/issues/318)
+
 </details>
 
 <b><details><summary>150.如何添加 html 元素的事件，有几种方法？请列举</summary></b>
 
 答案：直接在标签里添加；在元素上添加、使用事件注册函数添加
+
+[参与互动](https://github.com/yisainan/web-interview/issues/319)
 
 </details>
 
@@ -4445,6 +4742,8 @@ overflow:hidden | zoom:0.08 | line-height:1px
 对象：Window document location screen history navigator
 
 方法：Alert() confirm() prompt() open() close()
+
+[参与互动](https://github.com/yisainan/web-interview/issues/320)
 
 </details>
 
@@ -4470,11 +4769,15 @@ btn.onclick = function() {};
 btn.addEventListener("click", function() {});
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/321)
+
 </details>
 
 <b><details><summary>153.事件循环</summary></b>
 
 答案：事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/322)
 
 </details>
 
@@ -4521,6 +4824,8 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 
 解析：[参考](https://www.jianshu.com/p/3acdf5f71d5b)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/323)
+
 </details>
 
 <b><details><summary>155.如何自定义事件</summary></b>
@@ -4534,6 +4839,8 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/324)
+
 </details>
 
 <b><details><summary>156.target 和 currentTarget 区别</summary></b>
@@ -4544,6 +4851,8 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
   返回触发事件的元素
 - event.currentTarget<br>
   返回绑定事件的元素
+
+[参与互动](https://github.com/yisainan/web-interview/issues/325)
 
 </details>
 
@@ -4574,6 +4883,8 @@ Object.prototype.**proto**指向 null
 ```
 Object.prototype.__proto__ // null
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/326)
 
 </details>
 
@@ -4654,17 +4965,5 @@ baz = "qux";
 ```
 
 解析：[参考](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
 
 </details>
