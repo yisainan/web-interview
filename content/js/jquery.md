@@ -4,6 +4,8 @@
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/347)
+
 </details>
 
 <b><details><summary>2.谈一下 Jquery 中的 bind(),live(),delegate(),on()的区别？</summary></b>
@@ -14,11 +16,15 @@
 - live： 方法将一个事件处理程序附加到与当前选择器匹配的所有元素（包含现有的或将来添加的）的指定事件上并返回 jQuery 对象。
 - delegate： 方法基于一组特定的根元素将处理程序附加到匹配选择器的所有元素（现有的或将来的）的一个或多个事件上。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/348)
+
 </details>
 
 <b><details><summary>3.jQuery 的队列是如何实现的？队列可以用在哪些地方？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/349)
 
 </details>
 
@@ -26,11 +32,15 @@
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/350)
+
 </details>
 
 <b><details><summary>5.jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/351)
 
 </details>
 
@@ -38,11 +48,15 @@
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/352)
+
 </details>
 
 <b><details><summary>7.jQuery.fn 的 init 方法返回的 this 指的是什么对象？为什么要返回 this？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/353)
 
 </details>
 
@@ -50,11 +64,15 @@
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/354)
+
 </details>
 
 <b><details><summary>9.jQuery 的 slideUp 动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/355)
 
 </details>
 
@@ -62,11 +80,15 @@
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/356)
+
 </details>
 
 <b><details><summary>11.你觉得 zepto 源码有哪些写的好的地方</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/357)
 
 </details>
 
@@ -177,10 +199,14 @@ $.fn.extend({
 $().b()
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/358)
+
 </details>
 <b><details><summary>13.是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/359)
 
 </details>
 
@@ -188,11 +214,15 @@ $().b()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/360)
+
 </details>
 
 <b><details><summary>15.jQuery 一个对象可以同时绑定多个事件，这是如何实现的？</summary></b>
 
 答案：jQuery 可以给一个对象同时绑定多个事件，低层实现方式是使用 addEventListner 或 attachEvent 兼容不同的浏览器实现事件的绑定，这样可以给同一个对象注册多个事件。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/361)
 
 </details>
 
@@ -200,11 +230,15 @@ $().b()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/362)
+
 </details>
 
 <b><details><summary>17.jQuery UI 如何自定义组件？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/363)
 
 </details>
 
@@ -370,11 +404,15 @@ document.addEventListener(
 
 解析：[参考](https://blog.csdn.net/kongjiea/article/details/42522305#)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/364)
+
 </details>
 
 <b><details><summary>19.jQuery 对象的特点</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/365)
 
 </details>
 
@@ -387,6 +425,8 @@ document.addEventListener(
    将它用 script 标签引入页面（该库支持 AMD，于是你也可以按照 AMD 规范，用诸如 require.js 的模块加载器引入），并且在 dom ready 时初始化在 body 上，
 2. 根据分析，如果不引入其它类库，也不想自己按照上述 fastclcik 的思路再开发一套东西，需要 1.一个优先于下面的“divClickUnder”捕获的事件；2.并且通过这个事件阻止掉默认行为（下面的“divClickUnder”对 click 事件的捕获，在 ios 的 safari，click 的捕获被认为和滚屏、点击输入框弹起键盘等一样，是一种浏览器默认行为，即可以被 event.preventDefault()阻止的行为）。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/366)
+
 </details>
 
 <b><details><summary>21.一个 div，有几种方式得到这个 div 的 jQuery 对象？</summary></b>
@@ -395,11 +435,15 @@ document.addEventListener(
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/367)
+
 </details>
 
 <b><details><summary>22.jQuery 框架中\$.ajax()的常用参数有哪些？写一个 post 请求并带有发送数据和返回数据的样例</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/368)
 
 </details>
 
@@ -468,13 +512,15 @@ JQuery 的文档非常丰富，现阶段多位英文文档，中文文档相对�
 
 JQuery 是一个开源的产品，任何人都可以自由地使用并提出修改意见。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/369)
+
 </details>
 
-<b><details><summary>24.Jquery如何获取子元素</summary></b>
+<b><details><summary>24.Jquery 如何获取子元素</summary></b>
 
 答案：
 
-Jquery获取子元素的方法有2种，分别是children()方法和find()方法。下面我们分别来使用这两种方法，看看它们有何差异。
+Jquery 获取子元素的方法有 2 种，分别是 children()方法和 find()方法。下面我们分别来使用这两种方法，看看它们有何差异。
 
 解析：
 
@@ -482,58 +528,61 @@ Jquery获取子元素的方法有2种，分别是children()方法和find()方法
 
 2、find()方法：获取该元素下的所有子集元素
 
-3、children()方法获取最外层ul下面直接子集元素li：$("#ul").children("li")
+3、children()方法获取最外层 ul 下面直接子集元素 li：\$("#ul").children("li")
 
-需要注意的是，如果li元素下还有li元素，children方法将不会被获取。我们可以用length来测试获取的个数“$("#ul").children("li").length”，最后输出结果为3
+需要注意的是，如果 li 元素下还有 li 元素，children 方法将不会被获取。我们可以用 length 来测试获取的个数“\$("#ul").children("li").length”，最后输出结果为 3
 
-4、find()方法获取ul下所有元素li：$("#ul").find("li")
+4、find()方法获取 ul 下所有元素 li：\$("#ul").find("li")
 
-需要注意的是，find方法会无限循环查找ul标签节点下的li，一直找到没有为止，用length来测试获取个数“$("#ul").find("li").length”，最后输出结果为9
+需要注意的是，find 方法会无限循环查找 ul 标签节点下的 li，一直找到没有为止，用 length 来测试获取个数“\$("#ul").find("li").length”，最后输出结果为 9
 
-5、children和find的区别：children只会查找直接子集，而find会跨越层级查找，一直找到没有为止。
+5、children 和 find 的区别：children 只会查找直接子集，而 find 会跨越层级查找，一直找到没有为止。
 
 示例：
 
 ```html
- <ul id="ul">
+<ul id="ul">
+  <li>
+    list1
+    <ul>
       <li>
-        list1
-        <ul>
-          <li>
-            list1-1
-          </li>
-          <li>
-            list1-2
-          </li>
-        </ul>
+        list1-1
       </li>
       <li>
-        list2
-        <ul>
-          <li>
-            list2-1
-          </li>
-          <li>
-            list2-2
-          </li>
-        </ul>
-      </li>
-      <li>
-        list3
-        <ul>
-          <li>
-            list3-1
-          </li>
-          <li>
-            list3-2
-          </li>
-        </ul>
+        list1-2
       </li>
     </ul>
+  </li>
+  <li>
+    list2
+    <ul>
+      <li>
+        list2-1
+      </li>
+      <li>
+        list2-2
+      </li>
+    </ul>
+  </li>
+  <li>
+    list3
+    <ul>
+      <li>
+        list3-1
+      </li>
+      <li>
+        list3-2
+      </li>
+    </ul>
+  </li>
+</ul>
 ```
+
 ```js
 console.log($("#ul").find("li").length); // 9
 console.log($("#ul").children("li").length); // 3
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/370)
 
 </details>
