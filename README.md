@@ -8,7 +8,7 @@
 
 - [写给前端面试者](https://github.com/amfe/article/issues/5)
 
-🙏 仓库将持续更新，欢迎 <b>Star</b>，如有内容错误或改进意见，欢迎 issue 或 pr。
+🙏 仓库将持续更新，欢迎 <b>Star</b>，如有内容错误或改进意见，欢迎 [issue](https://github.com/yisainan/web-interview/issues/new?assignees=&labels=Bug&template=---------.md&title=%5Bbug%5D+) 或 pr。
 
 </details>
 
@@ -147,20 +147,16 @@
 
 新增**参与互动**功能，以"面试题"为中心，方便大家讨论！
 
-* 已更新
-    * HTML
-    * CSS
-    * Ajax
-    * js
+- 已更新（HTML/CSS/Ajax/js/vue）
 
-* 无答案（因个人精力有限，部分面试题暂无答案，欢迎小伙伴在issues给出答案）
-    * CSS（76-100题）
+- 无答案（因个人精力有限，部分面试题暂无答案，欢迎小伙伴在 issues 给出答案）
+  - CSS（76-100 题）
 
 <br/>
 
 # 学习交流
 
-关注微信公众号「**前端面试秘籍**」
+关注微信公众号「**前端面试秘籍**」，可以
 
 1. 获取 web 前端及其他 IT 技术的优质资源(含简历模板)
 2. 加入微信群学习交流
