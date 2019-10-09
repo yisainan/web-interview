@@ -1339,7 +1339,7 @@ const Singer = (resolve) => {
 
 <b><details><summary>63.如何让 CSS 只在当前组件中起作用</summary></b>
 
-答案：将当前组件的<style>修改为<style scoped>
+答案：将当前组件的`<style>`修改为`<style scoped>`
 
 [参与互动](https://github.com/yisainan/web-interview/issues/454)
 
@@ -1386,5 +1386,619 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/459)
+
+</details>
+
+<b><details><summary>69.vuex 工作原理详解 </summary></b>
+
+答案：
+
+vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vue 自身的响应式设计，依赖监听、依赖收集都属于 vue 对对象 Property set get 方法的代理劫持。最后一句话结束 vuex 工作原理，vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件；
+
+解析：vuex的原理其实非常简单，它为什么能实现所有的组件共享同一份数据？
+因为vuex生成了一个store实例，并且把这个实例挂在了所有的组件上，所有的组件引用的都是同一个store实例。
+store实例上有数据，有方法，方法改变的都是store实例上的数据。由于其他组件引用的是同样的实例，所以一个组件改变了store上的数据， 导致另一个组件上的数据也会改变，就像是一个对象的引用。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/460)
+
+</details>
+
+<b><details><summary>70.vuex 是什么？怎么使用？哪种功能场景使用它？</summary></b>
+
+答案：
+
+vue 框架中状态管理。在 main.js 引入 store，注入。新建一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车
+
+main.js:
+
+```
+import store from './store'
+
+
+new Vue({
+el:'#app',
+store
+})
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/461)
+
+</details>
+
+<b><details><summary>71.vuex 有哪几种属性？</summary></b>
+
+答案：
+
+有五种，分别是 State、 Getter、Mutation 、Action、 Module
+
+```
+vuex的State特性
+A、Vuex就是一个仓库，仓库里面放了很多对象。其中state就是数据源存放地，对应于一般Vue对象里面的data
+B、state里面存放的数据是响应式的，Vue组件从store中读取数据，若是store中的数据发生改变，依赖这个数据的组件也会发生更新
+C、它通过mapState把全局的 state 和 getters 映射到当前组件的 computed 计算属性中
+
+· vuex的Getter特性
+A、getters 可以对State进行计算操作，它就是Store的计算属性
+B、 虽然在组件内也可以做计算属性，但是getters 可以在多组件之间复用
+C、 如果一个状态只在一个组件内使用，是可以不用getters
+
+·  vuex的Mutation特性
+Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态；Action 可以包含任意异步操作。
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/462)
+
+</details>
+
+<b><details><summary>72.不用 Vuex 会带来什么问题？</summary></b>
+
+答案：
+
+可维护性会下降，想修改数据要维护三个地方；
+
+可读性会下降，因为一个组件里的数据，根本就看不出来是从哪来的；
+
+增加耦合，大量的上传派发，会让耦合性大大增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/463)
+
+</details>
+
+<b><details><summary>73.vue-router 如何响应 路由参数 的变化？</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/464)
+
+</details>
+
+<b><details><summary>74.完整的 vue-router 导航解析流程</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/465)
+
+</details>
+
+<b><details><summary>75.vue-router 有哪几种导航钩子（ 导航守卫 ）？</summary></b>
+
+答案：三种
+
+第一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。
+第二种：组件内的钩子；
+第三种：单独路由独享组件
+
+[参与互动](https://github.com/yisainan/web-interview/issues/466)
+
+</details>
+
+<b><details><summary>76.vue-router 的几种实例方法以及参数传递</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/467)
+
+</details>
+
+<b><details><summary>77.怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？ </summary></b>
+
+答案：在 router 目录下的 index.js 文件中，对 path 属性加上/:id。 使用 router 对象的 params.id
+
+[参与互动](https://github.com/yisainan/web-interview/issues/468)
+
+</details>
+
+<b><details><summary>78.vue-router 如何定义嵌套路由？</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/469)
+
+</details>
+
+<b><details><summary>79.`<router-link></router-link>`组件及其属性</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/470)
+
+</details>
+
+<b><details><summary>80.vue-router 实现路由懒加载（ 动态加载路由 ）</summary></b>
+
+答案：[参考](https://segmentfault.com/a/1190000011519350)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/471)
+
+</details>
+
+<b><details><summary>81.vue-router 路由的两种模式</summary></b>
+
+答案：hash history
+
+[参与互动](https://github.com/yisainan/web-interview/issues/472)
+
+</details>
+
+<b><details><summary>82.history 路由模式与后台的配合</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/473)
+
+</details>
+
+<b><details><summary>83.vue路由实现原理?或 vue-router原理?</summary></b> 
+
+答案：
+
+说简单点，vue-router的原理就是通过对URL地址变化的监听，继而对不同的组件进行渲染。
+每当URL地址改变时，就对相应的组件进行渲染。原理是很简单，实现方式可能有点复杂，主要有hash模式和history模式。
+如果想了解得详细点，建议百度或者阅读源码。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/474)
+
+</details>
+
+<b><details><summary>84.什么是 MVVM？</summary></b>
+
+答案：1.拆分说明（M，V，VM 都是干啥的） 2.之间联系（Model 和 ViewModel 的双向数据绑定）
+
+解析：
+
+MVVM 是 Model-View-ViewModel 的缩写。MVVM 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象（桥梁）。
+
+在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。
+
+ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/475)
+
+</details>
+
+<b><details><summary>85.MVC、MVP 与 MVVM 模式</summary></b>
+
+答案：
+
+一、MVC
+
+通信方式如下
+
+![架构_001](../../images/架构_001.png)
+
+1. 视图（View）：用户界面。 传送指令到 Controller
+
+2. 控制器（Controller）：业务逻辑 完成业务逻辑后，要求 Model 改变状态
+
+3. 模型（Model）：数据保存 将新的数据发送到 View，用户得到反馈
+
+二、MVP
+
+通信方式如下
+
+![架构_002](../../images/架构_002.png)
+
+1. 各部分之间的通信，都是双向的。
+
+2. View 与 Model 不发生联系，都通过 Presenter 传递。
+
+3. View 非常薄，不部署任何业务逻辑，称为"被动视图"（Passive View），即没有任何主动性，而 Presenter 非常厚，所有逻辑都部署在那里。
+
+五、MVVM
+
+MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。通信方式如下
+
+![架构_003](../../images/架构_003.png)
+
+唯一的区别是，它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/476)
+
+</details>
+
+<b><details><summary>86.常见的实现 MVVM 几种方式</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/477)
+
+</details>
+
+<b><details><summary>87.解释下 Object.defineProperty()方法</summary></b>
+
+答案：这是 js 中一个非常重要的方法，ES6 中某些方法的实现依赖于它，VUE 通过它实现双向绑定，此方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象
+
+解析：
+
+## 语法
+
+Object.defineProperty(object, attribute, descriptor)
+
+- 这三个参数都是必输项
+- 第一个参数为 目标对象
+- 第二个参数为 需要定义的属性或者方法
+- 第三个参数为 目标属性所拥有的特性
+
+## descriptor
+
+前两个参数都很明确，重点是第三个参数 descriptor， 它有以下取值
+
+- value: 属性的值
+- writable: 属性的值是否可被重写（默认为 false）
+- configurable: 总开关，是否可配置，若为 false, 则其他都为 false（默认为 false）
+- enumerable: 属性是否可被枚举（默认为 false）
+- get: 获取该属性的值时调用
+- set: 重写该属性的值时调用
+
+一个例子
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 123
+});
+console.log(a.b); //123
+a.b = 456;
+console.log(a.b); //123
+a.c = 110;
+for (item in a) {
+  console.log(item, a[item]); //c 110
+}
+```
+
+因为 writable 和 enumerable 默认值为 false, 所以对 a.b 赋值无效，也无法遍历它
+
+## configurable
+
+总开关，是否可配置，设置为 false 后，就不能再设置了，否则报错， 例子
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  configurable: false
+});
+Object.defineProperty(a, "b", {
+  configurable: true
+});
+//error: Uncaught TypeError: Cannot redefine property: b
+```
+
+## writable
+
+是否可重写
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 123,
+  writable: false
+});
+console.log(a.b); // 打印 123
+a.b = 25; // 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）
+console.log(a.b); // 打印 123， 赋值不起作用。
+```
+
+## enumerable
+
+属性特性 enumerable 定义了对象的属性是否可以在 for...in 循环和 Object.keys() 中被枚举
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 3445,
+  enumerable: true
+});
+console.log(Object.keys(a)); // 打印["b"]
+```
+
+enumerable 改为 false
+
+```js
+var a = {};
+Object.defineProperty(a, "b", {
+  value: 3445,
+  enumerable: false //注意咯这里改了
+});
+console.log(Object.keys(a)); // 打印[]
+```
+
+## set 和 get
+
+如果设置了 set 或 get, 就不能设置 writable 和 value 中的任何一个，否则报错
+
+```js
+var a = {};
+Object.defineProperty(a, "abc", {
+  value: 123,
+  get: function() {
+    return value;
+  }
+});
+//Uncaught TypeError: Invalid property descriptor. Cannot both specify accessors and a value or writable attribute, #<Object> at Function.defineProperty
+```
+
+对目标对象的目标属性 赋值和取值 时， 分别触发 set 和 get 方法
+
+```js
+var a = {};
+var b = 1;
+Object.defineProperty(a, "b", {
+  set: function(newValue) {
+    b = 99;
+    console.log("你要赋值给我,我的新值是" + newValue);
+  },
+  get: function() {
+    console.log("你取我的值");
+    return 2; //注意这里，我硬编码返回2
+  }
+});
+a.b = 1; //打印 你要赋值给我,我的新值是1
+console.log(b); //打印 99
+console.log(a.b); //打印 你取我的值
+//打印 2    注意这里，和我的硬编码相同的
+```
+
+上面的代码中，给 a.b 赋值，b 的值也跟着改变了。原因是给 a.b 赋值，自动调用了 set 方法，在 set 方法中改变了 b 的值。vue 双向绑定的原理就是这个。
+
+扩展：[参考](https://www.cnblogs.com/zhaowj/p/9576450.html)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/478)
+
+</details>
+
+<b><details><summary>88.实现一个自己的 MVVM（原理剖析）</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/479)
+
+</details>
+
+<b><details><summary>89.递归组件的使用</summary></b>
+
+答案：组件是可以在自己的模板中调用自身的，不过他们只能通过name选项来做这件事
+
+解析：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/480)
+
+</details>
+
+<b><details><summary>90.Obj.keys()与 Obj.defineProperty</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/481)
+
+</details>
+
+<b><details><summary>91.发布-订阅模式</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/482)
+
+</details>
+
+<b><details><summary>92.实现 MVVM 的思路分析</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/483)
+
+</details>
+
+<b><details><summary>93.mvvm 和 mvc 区别？它和其它框架（jquery）的区别是什么？哪些场景适合？</summary></b>
+
+答案：
+
+mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。
+
+区别：vue 数据驱动，通过数据来显示视图层而不是节点操作。
+
+场景：数据操作比较多的场景，更加便捷
+
+[参与互动](https://github.com/yisainan/web-interview/issues/484)
+
+</details>
+
+<b><details><summary>94. 构建的 vue-cli 工程都到了哪些技术，它们的作用分别是什么？</summary></b>
+
+答案：
+
+1、vue.js：vue-cli 工程的核心，主要特点是 双向数据绑定 和 组件系统。
+
+2、vue-router：vue 官方推荐使用的路由框架。
+
+3、vuex：专为 Vue.js 应用项目开发的状态管理器，主要用于维护 vue 组件间共用的一些 变量 和 方法。
+
+4、axios（ 或者 fetch 、ajax ）：用于发起 GET 、或 POST 等 http 请求，基于 Promise 设计。
+
+5、vux 等：一个专为 vue 设计的移动端 UI 组件库。
+
+6、创建一个 emit.js 文件，用于 vue 事件机制的管理。
+
+7、webpack：模块加载和 vue-cli 工程打包器。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/485)
+
+</details>
+
+<b><details><summary>95. vue-cli 工程常用的 npm 命令有哪些？</summary></b>
+
+答案：npm install、npm run dev、npm run build --report 等
+
+解析：
+
+下载 node_modules 资源包的命令：npm install
+
+启动 vue-cli 开发环境的 npm 命令：npm run dev
+
+vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
+
+用于查看 vue-cli 生产环境部署资源文件大小的 npm 命令：npm run build --report，此命令必答
+
+命令效果：
+![vue_001](../images/vue_001.jpg)
+
+在浏览器上自动弹出一个 展示 vue-cli 工程打包后 app.js、manifest.js、vendor.js 文件里面所包含代码的页面。可以具此优化 vue-cli 生产环境部署的静态资源，提升 页面 的加载速度。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/486)
+
+</details>
+
+<b><details><summary>96. 请说出 vue-cli 工程中每个文件夹和文件的用处</summary></b>
+
+答案：
+
+```
+vue-cli目录解析：
+
+build 文件夹：用于存放 webpack 相关配置和脚本。开发中仅 偶尔使用 到此文件夹下 webpack.base.conf.js 用于配置 less、sass等css预编译库，或者配置一下 UI 库。
+config 文件夹：主要存放配置文件，用于区分开发环境、线上环境的不同。 常用到此文件夹下 config.js 配置开发环境的 端口号、是否开启热加载 或者 设置生产环境的静态资源相对路径、是否开启gzip压缩、npm run build 命令打包生成静态资源的名称和路径等。
+dist 文件夹：默认 npm run build 命令打包生成的静态资源文件，用于生产部署。
+node_modules：存放npm命令下载的开发环境和生产环境的依赖包。
+src: 存放项目源码及需要引用的资源文件。
+src下assets：存放项目中需要用到的资源文件，css、js、images等。
+src下componets：存放vue开发中一些公共组件：header.vue、footer.vue等。
+src下emit：自己配置的vue集中式事件管理机制。
+src下router：vue-router vue路由的配置文件。
+src下service：自己配置的vue请求后台接口方法。
+src下page：存在vue页面组件的文件夹。
+src下util：存放vue开发过程中一些公共的.js方法。
+src下vuex：存放 vuex 为vue专门开发的状态管理器。
+src下app.vue：使用标签<route-view></router-view>渲染整个工程的.vue组件。
+src下main.js：vue-cli工程的入口文件。
+index.html：设置项目的一些meta头信息和提供<div id="app"></div>用于挂载 vue 节点。
+package.json：用于 node_modules资源部 和 启动、打包项目的 npm 命令管理。
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/487)
+
+</details>
+
+<b><details><summary>97. config 文件夹 下 index.js 的对于工程 开发环境 和 生产环境 的配置</summary></b>
+
+答案：
+
+```
+build 对象下 对于 生产环境 的配置：
+
+index：配置打包后入口.html文件的名称以及文件夹名称
+assetsRoot：配置打包后生成的文件名称和路径
+assetsPublicPath：配置 打包后 .html 引用静态资源的路径，一般要设置成 "./"
+productionGzip：是否开发 gzip 压缩，以提升加载速度
+
+dev 对象下 对于 开发环境 的配置：
+
+port：设置端口号
+autoOpenBrowser：启动工程时，自动打开浏览器
+proxyTable：vue设置的代理，用以解决 跨域 问题
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/488)
+
+</details>
+
+<b><details><summary>98. 请你详细介绍一些 package.json 里面的配置</summary></b>
+
+答案：
+
+```
+scripts：npm run xxx 命令调用node执行的 .js 文件
+dependencies：生产环境依赖包的名称和版本号，即这些 依赖包 都会打包进 生产环境的JS文件里面
+devDependencies：开发环境依赖包的名称和版本号，即这些 依赖包 只用于 代码开发 的时候，不会打包进 生产环境js文件 里面。
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/489)
+
+</details>
+
+<b><details><summary>99. vue-cli 中常用到的加载器</summary></b>
+
+答案：
+
+1.安装 sass:
+
+2.安装 axios:
+
+3.安装 mock:
+
+4.安装 lib-flexible: --实现移动端自适应
+
+5.安装 sass-resourses-loader
+
+[参与互动](https://github.com/yisainan/web-interview/issues/490)
+
+</details>
+
+<b><details><summary>100.vue.cli 中怎样使用自定义的组件？有遇到过哪些问题吗？</summary></b>
+
+答案：
+
+第一步：在 components 目录新建你的组件文件（如：indexPage.vue），script 一定要 export default {}
+
+第二步：在需要用的页面（组件）中导入：import indexPage from '@/components/indexPage.vue'
+
+第三步：注入到 vue 的子组件的 components 属性上面,components:{indexPage}
+
+第四步：在 template 视图 view 中使用
+
+遇到的问题：
+例如有 indexPage 命名，使用的时候则 index-page
+
+[参与互动](https://github.com/yisainan/web-interview/issues/491)
+
+</details>
+
+<b><details><summary>101. vue-cli 提供的几种脚手架模板</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/492)
+
+</details>
+
+<b><details><summary>102. vue-cli 开发环境使用全局常量</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/493)
+
+</details>
+
+<b><details><summary>103. vue-cli 生产环境使用全局常量</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/494)
+
+</details>
+
+<b><details><summary>104. vue-cli 中自定义指令的使用</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/495)
 
 </details>

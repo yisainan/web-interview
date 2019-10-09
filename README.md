@@ -37,11 +37,7 @@
 
 <b><details><summary>🐰 Vue</summary></b>
 
-- [vue-cli](./content/vue/vue-cli.md)
-- [vue.js](./content/vue/vue.md)
-- [vue-router](./content/vue/vue-router.md)
-- [vuex](./content/vue/vuex.md)
-- [MVVM 设计模式](./content/vue/MVVM.md)
+- [详情](./content/vue/vue.md)
 
 </details>
 
@@ -149,7 +145,7 @@
 
 # 参与互动
 
-新增**参与互动**功能，陆续更新中...
+新增**参与互动**功能，以"面试题"为中心，方便大家讨论！
 
 * 已更新
     * HTML
