@@ -24,15 +24,19 @@ Vue 应用加载性能优化措施
 
 服务端渲染 / 预渲染
 
-组件懒加载
-
 减少 http 请求，合理设置 HTTP 缓存
+
 使用浏览器缓存
+
 启用压缩
+
 CSS Sprites
+
 LazyLoad Images
-CSS 放在页面最上部，javascript 放在页面最下面
+
 尽量避免使用 eval 和 Function
+
+[参与互动](https://github.com/yisainan/web-interview/issues/392)
 
 </details>
 
@@ -58,6 +62,8 @@ CSS 放在页面最上部，javascript 放在页面最下面
 
 （8） destroyed 实例销毁后调用
 
+[参与互动](https://github.com/yisainan/web-interview/issues/393)
+
 </details>
 
 <b><details><summary>3. Vue 的双向数据绑定的原理</summary></b>
@@ -68,6 +74,8 @@ VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这
 
 Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
+[参与互动](https://github.com/yisainan/web-interview/issues/394)
+
 </details>
 
 <b><details><summary>4. 为什么要替换 Object.defineProperty？</summary></b>
@@ -77,6 +85,8 @@ Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 在 Vue 中，Object.defineProperty 无法监控到数组下标的变化，导致直接通过数组的下标给数组设置值，不能实时响应。
 
 Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/395)
 
 </details>
 
@@ -90,6 +100,8 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 使用 Proxy 的核心优点是可以交由它来处理一些非核心逻辑（如：读取或设置对象的某些属性前记录日志；设置对象的某些属性值前，需要验证；某些属性的访问控制等）。 从而可以让对象只需关注于核心逻辑，达到关注点分离，降低对象复杂度等目的。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/396)
+
 </details>
 
 
@@ -98,6 +110,8 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 答案：
 
 当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/397)
 
 </details>
 
@@ -112,11 +126,15 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 (3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/398)
+
 </details>
 
 <b><details><summary>8.vue slot是做什么的?</summary></b> 
 
-答案：
+答案：可以插入的槽口，比如插座的插孔。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/399)
 
 </details>
 
@@ -149,11 +167,15 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 场景 1-3 从最初的只因多看你一眼而用了前端 js 库，一直到最后的大型项目解决方案。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/400)
+
 </details>
 
 <b><details><summary>10. vue.js 的两个核心是什么？</summary></b>
 
 答案：数据驱动和组件化思想
+
+[参与互动](https://github.com/yisainan/web-interview/issues/401)
 
 </details>
 
@@ -165,15 +187,17 @@ v-show 指令是通过修改元素的 display 的 CSS 属性让其显示或者�
 
 v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
+[参与互动](https://github.com/yisainan/web-interview/issues/402)
+
 </details>
 
 <b><details><summary>12. vue 常用的修饰符</summary></b>
 
 答案：
 
-解析：
+解析：[参考](https://blog.csdn.net/qq_42238554/article/details/86592295)
 
-[参考](https://blog.csdn.net/qq_42238554/article/details/86592295)
+[参与互动](https://github.com/yisainan/web-interview/issues/403)
 
 </details>
 
@@ -193,6 +217,8 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 />
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/404)
+
 </details>
 
 <b><details><summary>14. vue 中 key 值的作用</summary></b>
@@ -202,6 +228,8 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 需要使用 key 来给每个节点做一个唯一标识，Diff 算法就可以正确的识别此节点，找到正确的位置区插入新的节点
 所以一句话，key 的作用主要是为了高效的更新虚拟 DOM
 
+[参与互动](https://github.com/yisainan/web-interview/issues/405)
+
 </details>
 
 <b><details><summary>15. vue-cli 工程升级 vue 版本</summary></b>
@@ -209,6 +237,8 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 答案：
 
 在项目目录里运行 npm upgrade vue vue-template-compiler，不出意外的话，可以正常运行和 build。如果有任何问题，删除 node_modules 文件夹然后重新运行 npm i 即可。（简单的说就是升级 vue 和 vue-template-compiler 两个插件）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/406)
 
 </details>
 
@@ -347,6 +377,8 @@ var app = new Vue({
 
 代码丢进 Firefox 中运行，event 果然就变成了 undefined 了。额，这个我也不知道说什么了。。。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/407)
+
 </details>
 
 <b><details><summary>17.\$nextTick 的使用</summary></b>
@@ -481,6 +513,8 @@ Vue.nextTick(callback) 使用原理：
 原因是，Vue 是异步执行 dom 更新的，一旦观察到数据变化，Vue 就会开启一个队列，然后把在同一个事件循环 (event loop) 当中观察到数据变化的 watcher 推送进这个队列。如果这个 watcher 被触发多次，只会被推送到队列一次。这种缓冲行为可以有效的去掉重复数据造成的不必要的计算和 DOm 操作。而在下一个事件循环时，Vue 会清空队列，并进行必要的 DOM 更新。
 当你设置 vm.someData = 'new value'，DOM 并不会马上更新，而是在异步队列被清除，也就是下一个事件循环开始时执行更新时才会进行必要的 DOM 更新。如果此时你想要根据更新的 DOM 状态去做某些事情，就会出现问题。。为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/408)
+
 </details>
 
 <b><details><summary>18. Vue 组件中 data 为什么必须是函数</summary></b>
@@ -517,11 +551,15 @@ component1.data.message = "Peace";
 console.log(component2.data.message); // Love
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/409)
+
 </details>
 
 <b><details><summary>19. v-for 与 v-if 的优先级</summary></b>
 
 答案：v-for 比 v-if 优先
+
+[参与互动](https://github.com/yisainan/web-interview/issues/410)
 
 </details>
 
@@ -675,6 +713,8 @@ console.log(component2.data.message); // Love
 </script>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/411)
+
 </details>
 
 <b><details><summary>21. vue 中父组件调用子组件的方法</summary></b>
@@ -730,6 +770,8 @@ console.log(component2.data.message); // Love
   };
 </script>
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/412)
 
 </details>
 
@@ -829,11 +871,15 @@ export default [
 </router-view>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/413)
+
 </details>
 
 <b><details><summary>23. vue 中如何编写可复用的组件？</summary></b>
 
 答案：总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/414)
 
 </details>
 
@@ -848,6 +894,8 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 ![vue_004](../images/vue_004.jpg)
 ![vue_005](../images/vue_005.jpg)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/415)
+
 </details>
 
 <b><details><summary>25. vue 生命周期钩子函数有哪些？</summary></b>
@@ -856,14 +904,17 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 ![vue_005](../images/vue_005.jpg)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/416)
+
 </details>
 
 <b><details><summary>26. vue 如何监听键盘事件中的按键？</summary></b>
 
 答案：
 
-解析：
-[参考](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
+解析：[参考](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
+
+[参与互动](https://github.com/yisainan/web-interview/issues/417)
 
 </details>
 
@@ -945,11 +996,15 @@ sort()
 reverse()
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/418)
+
 </details>
 
 <b><details><summary>28. vue 中对象更改检测的注意事项</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/419)
 
 </details>
 
@@ -957,11 +1012,15 @@ reverse()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/420)
+
 </details>
 
 <b><details><summary>30. v-for 产生的列表，实现 active 的切换</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/421)
 
 </details>
 
@@ -969,17 +1028,23 @@ reverse()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/422)
+
 </details>
 
 <b><details><summary>32. 十个常用的自定义过滤器</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/423)
+
 </details>
 
 <b><details><summary>33. vue 等单页面应用及其优缺点</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/424)
 
 </details>
 
@@ -989,35 +1054,51 @@ reverse()
 当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。
 计算属性和vue中的其它数据一样，都是响应式的，只不过它必须依赖某一个数据实现，并且只有它依赖的数据的值改变了，它才会更新。
 
-</details>
-
-<b><details><summary>35. vue-cli 提供的几种脚手架模板</summary></b>
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/425)
 
 </details>
 
-<b><details><summary>36. vue 父组件如何向子组件中传递数据？</summary></b>
+<b><details><summary>35. vue 父组件如何向子组件中传递数据？</summary></b>
 
-答案：
+答案：props传参
 
-</details>
-
-<b><details><summary>37. vue-cli 开发环境使用全局常量</summary></b>
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/426)
 
 </details>
 
-<b><details><summary>38. vue-cli 生产环境使用全局常量</summary></b>
+<b><details><summary>36. vue 弹窗后如何禁止滚动条滚动？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/427)
 
 </details>
 
-<b><details><summary>39. vue 弹窗后如何禁止滚动条滚动？</summary></b>
+<b><details><summary>37.vue怎么实现页面的权限控制</summary></b> 
 
-答案：
+答案：利用 vue-router 的 beforeEach 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/428)
+
+</details>
+
+<b><details><summary>38.$route和$router的区别</summary></b> 
+
+答案：$route 是路由信息对象，包括path，params，hash，query，fullPath，matched，name 等路由信息参数。
+
+而 $router 是路由实例对象，包括了路由的跳转方法，钩子函数等
+
+[参与互动](https://github.com/yisainan/web-interview/issues/429)
+
+</details>
+
+<b><details><summary>39.watch的作用是什么</summary></b> 
+
+答案：watch 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
+
+借助 watch 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/430)
 
 </details>
 
@@ -1025,11 +1106,15 @@ reverse()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/431)
+
 </details>
 
-<b><details><summary>41. vue-cli 中自定义指令的使用</summary></b>
+<b><details><summary>41.vue的双向绑定的原理，和angular的对比</summary></b> 
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/432)
 
 </details>
 
@@ -1037,13 +1122,15 @@ reverse()
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/433)
+
 </details>
 
 <b><details><summary>43. vue 打包命令是什么？</summary></b>
 
-答案：
+答案：npm run build
 
-npm run build
+[参与互动](https://github.com/yisainan/web-interview/issues/434)
 
 </details>
 
@@ -1051,11 +1138,15 @@ npm run build
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/435)
+
 </details>
 
 <b><details><summary>45. 如何配置 vue 打包生成文件的路径？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/436)
 
 </details>
 
@@ -1063,21 +1154,25 @@ npm run build
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/437)
+
 </details>
 
 <b><details><summary>47. vue 开发命令 npm run dev 输入后的执行过程</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/438)
+
 </details>
 
 <b><details><summary>48. 什么是 Virtual DOM？</summary></b>
 
-答案：
+答案：可以看作是一个使用 javascript 模拟了 DOM 结构的树形结构
 
-可以看作是一个使用 javascript 模拟了 DOM 结构的树形结构
+解析：[参考](https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
 
-[参考](https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
+[参与互动](https://github.com/yisainan/web-interview/issues/439)
 
 </details>
 
@@ -1087,19 +1182,23 @@ npm run build
 
 Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/440)
+
 </details>
 
 <b><details><summary>50. Vue.js 全局运行机制</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/441)
+
 </details>
 
 <b><details><summary>51. 如何编译 template 模板？</summary></b>
 
-答案：
+答案：[参考](http://www.itcast.cn/news/20190110/15320198690.shtml)
 
-[参考](http://www.itcast.cn/news/20190110/15320198690.shtml)
+[参与互动](https://github.com/yisainan/web-interview/issues/442)
 
 </details>
 
@@ -1107,11 +1206,15 @@ Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/443)
+
 </details>
 
 <b><details><summary>53. 批量异步更新策略及 nextTick 原理？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/444)
 
 </details>
 
@@ -1133,11 +1236,15 @@ proxyTable: {
   }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/445)
+
 </details>
 
 <b><details><summary>55. vue 中如何实现 tab 切换功能？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/446)
 
 </details>
 
@@ -1145,11 +1252,15 @@ proxyTable: {
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/447)
+
 </details>
 
 <b><details><summary>57. vue 中实现切换页面时为左滑出效果</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/448)
 
 </details>
 
@@ -1157,11 +1268,15 @@ proxyTable: {
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/449)
+
 </details>
 
 <b><details><summary>59. vue 的渲染机制</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/450)
 
 </details>
 
@@ -1171,6 +1286,8 @@ proxyTable: {
 
 v-for 遍历的数组，当数组内容使用的是 arr[0].xx =xx 更改数据，vue 无法监测到
 vm.arr.length = newLength 也是无法检测的到的
+
+[参与互动](https://github.com/yisainan/web-interview/issues/451)
 
 </details>
 
@@ -1185,6 +1302,8 @@ vm.arr.length = newLength 也是无法检测的到的
 独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。
 
 可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/452)
 
 </details>
 
@@ -1214,17 +1333,23 @@ const Singer = (resolve) => {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/453)
+
 </details>
 
 <b><details><summary>63.如何让 CSS 只在当前组件中起作用</summary></b>
 
 答案：将当前组件的<style>修改为<style scoped>
 
+[参与互动](https://github.com/yisainan/web-interview/issues/454)
+
 </details>
 
 <b><details><summary>64.指令 v-el 的作用是什么?</summary></b>
 
 答案：提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
+
+[参与互动](https://github.com/yisainan/web-interview/issues/455)
 
 </details>
 
@@ -1236,11 +1361,15 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 用途：js 可以写 es6、style 样式可以 scss 或 less；template 可以加 jade 等。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/456)
+
 </details>
 
 <b><details><summary>66.vue和angular的优缺点以及适用场合?</summary></b> 
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/457)
 
 </details>
 
@@ -1248,50 +1377,14 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/458)
+
 </details>
 
 <b><details><summary>68.vue遇到的坑，如何解决的？</summary></b> 
 
 答案：
 
-</details>
-
-<b><details><summary>69.vue的双向绑定的原理，和angular的对比</summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary>70.vue怎么实现页面的权限控制</summary></b> 
-
-答案：利用 vue-router 的 beforeEach 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
-
-</details>
-
-<b><details><summary>71.$route和$router的区别</summary></b> 
-
-答案：$route 是路由信息对象，包括path，params，hash，query，fullPath，matched，name 等路由信息参数。
-
-而 $router 是路由实例对象，包括了路由的跳转方法，钩子函数等
-
-</details>
-
-<b><details><summary>72.watch的作用是什么</summary></b> 
-
-答案：watch 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
-
-借助 watch 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
-
-</details>
-
-<b><details><summary></summary></b> 
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b> 
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/459)
 
 </details>

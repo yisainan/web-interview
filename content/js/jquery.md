@@ -202,6 +202,7 @@ $().b()
 [参与互动](https://github.com/yisainan/web-interview/issues/358)
 
 </details>
+
 <b><details><summary>13.是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
 
 答案：

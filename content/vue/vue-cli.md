@@ -135,3 +135,27 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 例如有 indexPage 命名，使用的时候则 index-page
 
 </details>
+
+<b><details><summary>8. vue-cli 提供的几种脚手架模板</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>9. vue-cli 开发环境使用全局常量</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>10. vue-cli 生产环境使用全局常量</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>11. vue-cli 中自定义指令的使用</summary></b>
+
+答案：
+
+</details>
