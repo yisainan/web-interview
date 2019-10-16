@@ -109,21 +109,7 @@
 
 <b><details><summary>👬 贡献者</summary></b>
 
-按照本仓库收集时间排序，如有侵权请联系删除
-
-- 已更新
-
-  - CSDN-[手掌日月摘星辰](https://blog.csdn.net/qq_34543438/article/category/6943844)
-  - 简书-[Hebborn_hb](https://www.jianshu.com/p/bc764e15d2a8)
-  - Github-[ravencrown](https://github.com/ravencrown/web-interview)
-  - Github-[yygmind](https://github.com/Advanced-Frontend/Daily-Interview-Question)
-  - 简书-[E 刘大仁](https://www.jianshu.com/p/5285bdc834c6)
-  - CSDN-[刘志祥](https://blog.csdn.net/salmonellavaccine/article/details/47443007)
-  - Github-[woai3c](https://github.com/woai3c/Front-end-basic-knowledge)
-
-- 待更新
-  - 百度文库-[的释放 1](https://wenku.baidu.com/view/40f7095df242336c1fb95e08)
-  - CSDN-APP 面试题模块
+[按照本仓库收集时间排序，如有侵权请联系删除](https://github.com/yisainan/web-interview/projects/3#column-6811772)
 
 </details>
 
@@ -148,10 +134,7 @@
 
 新增**参与互动**功能，以"面试题"为中心，方便大家讨论！
 
-- 已更新（HTML/CSS/Ajax/js/vue）
-
-- 无答案（因个人精力有限，部分面试题暂无答案，欢迎小伙伴在 issues 给出答案）
-  - CSS（76-100 题）
+- 因个人精力有限，部分面试题暂无答案，欢迎小伙伴在 issues [给出答案](https://github.com/yisainan/web-interview/projects/3#column-6811844)
 
 <br/>
 
