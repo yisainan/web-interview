@@ -9,6 +9,8 @@
 
 原理就是，Angular 在 scope 模型上设置了一个监听队列，用来监听数据变化并更新 view 。每次绑定一个东西到 view 上时 AngularJS 就会往 $watch 队列里插入一条 $watch ，用来检测它监视的 model 里是否有变化的东西。当浏览器接收到可以被 angular context 处理的事件时， $digest 循环就会触发，遍历所有的 $watch ，最后更新 dom。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/525)
+
 </details>
 
 <b><details><summary>2.AngularJS 的数据双向绑定是怎么实现的？</summary></b>
@@ -25,17 +27,23 @@
 
 \$digest 函数就是脏数据监测
 
+[参与互动](https://github.com/yisainan/web-interview/issues/526)
+
 </details>
 
 <b><details><summary>3.在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
 
 答案：AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
 
+[参与互动](https://github.com/yisainan/web-interview/issues/527)
+
 </details>
 
 <b><details><summary>4.ng-show/ng-hide 与 ng-if 的区别？</summary></b>
 
 答案：我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
+
+[参与互动](https://github.com/yisainan/web-interview/issues/528)
 
 </details>
 
@@ -53,6 +61,8 @@ step2:angular 回继续解析，找到{{}}表达式，并解析成变量。
 
 step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controller 函数。 这个时候在这个 controller 函数变成一个\$scope 对象实例。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/529)
+
 </details>
 
 <b><details><summary>6.列出至少三种实现不同模块之间通信方式？</summary></b>
@@ -65,6 +75,8 @@ step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controll
 - controller 之间直接使用$parent, $\$childHead 等
 - directive 指定属性进行数据绑定
 
+[参与互动](https://github.com/yisainan/web-interview/issues/530)
+
 </details>
 
 <b><details><summary>7. 表达式 {{yourModel}} 是如何工作的？</summary></b>
@@ -72,6 +84,8 @@ step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controll
 答案：
 
 它依赖于 $interpolation服务，在初始化页面html后，它会找到这些表达式，并且进行标记，于是每遇见一个 {{}} ，则会设置一个 $watch 。而 $interpolation 会返回一个带有上下文参数的函数，最后该函数执行，则算是表达式 $parse 到那个作用域上。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/531)
 
 </details>
 
@@ -81,11 +95,15 @@ step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controll
 
 我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/532)
+
 </details>
 
 <b><details><summary>9.ng-repeat 迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</summary></b>
 
 答案：会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/533)
 
 </details>
 
@@ -121,21 +139,27 @@ Controller：这并不是 MVVM 模式的核心元素，但它负责 ViewModel �
 
 mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的界面与 viewmode 是松耦合，界面数据从 viewmodel 中获取。所以 angularjs 更倾向于 mvvm
 
+[参与互动](https://github.com/yisainan/web-interview/issues/534)
+
 </details>
 
 <b><details><summary>11.angularjs 中\$scope，controller，directive，sevice 在 mvvm 中充当什么角色</summary></b>
 
 答案：如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
 
+[参与互动](https://github.com/yisainan/web-interview/issues/535)
+
 </details>
 
-<b><details><summary>13.在 angular 项目中你如何控制静态资源的合理加载</summary></b>
+<b><details><summary>12.在 angular 项目中你如何控制静态资源的合理加载</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/536)
+
 </details>
 
-<b><details><summary>14.在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
+<b><details><summary>13.在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
 
 答案：
 
@@ -149,9 +173,11 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 测试驱动开发，英文全称 Test-Driven Development，简称 TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/537)
+
 </details>
 
-<b><details><summary>16.controller 之间怎么通讯</summary></b>
+<b><details><summary>14.controller 之间怎么通讯</summary></b>
 
 答案：
 
@@ -175,9 +201,11 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 另外就是通过本地存储、全局变量或者现代浏览器的 postMessage 来传递参数了，除非特殊情况，请避免这类方式。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/538)
+
 </details>
 
-<b><details><summary>17.自定义指令的几个参数</summary></b>
+<b><details><summary>15.自定义指令的几个参数</summary></b>
 
 答案：
 
@@ -197,9 +225,11 @@ compile 和 link 的区别：
 
 编译的时候，compile 转换 dom，碰到绑定监听器的地方就先存着，有几个存几个，到最后汇总成一个 link 函数，一并执行，提升了性能。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/539)
+
 </details>
 
-<b><details><summary>19.angular 和 jquery 的区别</summary></b>
+<b><details><summary>16.angular 和 jquery 的区别</summary></b>
 
 答案：
 
@@ -207,9 +237,11 @@ angular 是基于数据驱动，所以 angular 适合做数据操作比较繁琐
 
 jquery 是基于 dom 驱动，jquery 适合做 dom 操作多的项目
 
+[参与互动](https://github.com/yisainan/web-interview/issues/540)
+
 </details>
 
-<b><details><summary>20.对 angular 中的 form 表单了解多少</summary></b>
+<b><details><summary>17.对 angular 中的 form 表单了解多少</summary></b>
 
 答案：
 
@@ -257,9 +289,11 @@ ng-minlength 最小长度
 
 例子：传送门https://github.com/18500047564/clutter
 
+[参与互动](https://github.com/yisainan/web-interview/issues/541)
+
 </details>
 
-<b><details><summary>24.fliter 是什么你了解的有多少？实现一个自定义 fliter</summary></b>
+<b><details><summary>18.fliter 是什么你了解的有多少？实现一个自定义 fliter</summary></b>
 
 答案：
 
@@ -297,21 +331,24 @@ filter 有两种使用方法，
 
 自定义一个去重数组的
 
-app.filter('unique', function(){
-return function(arr){
-var n = [];
-var obj = {};
+```js
+app.filter("unique", function() {
+  return function(arr) {
+    var n = [];
+    var obj = {};
 
-        for(var i = 0;i<arr.length;i++){
-           if(!obj[arr[i]]){
-            n.push(arr[i])
-            obj[arr[i]] = 1;
-           }
-        }
-
-       return n;
+    for (var i = 0; i < arr.length; i++) {
+      if (!obj[arr[i]]) {
+        n.push(arr[i]);
+        obj[arr[i]] = 1;
+      }
     }
 
-})
+    return n;
+  };
+});
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/542)
 
 </details>
