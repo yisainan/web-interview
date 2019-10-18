@@ -6,9 +6,11 @@ A. var obj = (); B. var obj = []; C. var obj = {}; D. var obj = //;
 
 答案：AD
 
+[参与互动](https://github.com/yisainan/web-interview/issues/543)
+
 </details>
 
-<b><details><summary>2.以下哪些是 javascript 的全局函数：</summary></b>
+<b><details><summary>2.以下哪些是 javascript 的全局函数</summary></b>
 
 ```
 A. escape	函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。
@@ -21,9 +23,11 @@ E. alert
 
 答案：ABC
 
+[参与互动](https://github.com/yisainan/web-interview/issues/544)
+
 </details>
 
-<b><details><summary>3.关于 IE 的 window 对象表述正确的有：</summary></b>
+<b><details><summary>3.关于 IE 的 window 对象表述正确的有</summary></b>
 
 ```
 A. window.opener属性本身就是指向window对象
@@ -33,6 +37,8 @@ D. 定义了全局变量g；可以用window.g的方式来存取该变量
 ```
 
 答案：ACD
+
+[参与互动](https://github.com/yisainan/web-interview/issues/545)
 
 </details>
 
@@ -55,6 +61,8 @@ onload事件触发时，页面上所有的DOM，样式表，脚本，图片，fl
 
 C正确，故选D
 
+[参与互动](https://github.com/yisainan/web-interview/issues/546)
+
 </details>
 
 <b><details><summary>5.关于 link 和@import 的区别正确的是</summary></b>
@@ -67,6 +75,8 @@ D: link方式的样式的权重高于@import的权重
 ```
 
 答案：A
+
+[参与互动](https://github.com/yisainan/web-interview/issues/547)
 
 </details>
 
@@ -81,22 +91,6 @@ D：MediaQuery属性是进行视频格式检测的属性是做响应式的
 
 答案：A
 
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/548)
 
 </details>
