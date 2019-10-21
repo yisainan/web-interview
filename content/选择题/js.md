@@ -74,7 +74,7 @@ C：import只在IE5以上才能识别 而link是XHTML标签，无兼容问题
 D: link方式的样式的权重高于@import的权重
 ```
 
-答案：A
+答案：ABCD
 
 [参与互动](https://github.com/yisainan/web-interview/issues/547)
 
