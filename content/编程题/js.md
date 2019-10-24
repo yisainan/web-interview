@@ -65,13 +65,13 @@ console.log(getQueryString("categoryId"));
 
 <b><details><summary>2.js 实现一个打点计时器</summary></b>
 
-答案：
-
 问题描述：
 
 1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅 1
 2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作
 3、第一个数需要立即输出
+
+答案：
 
 ```js
 // 实现法一（setTimeout()方法）：
@@ -337,7 +337,7 @@ console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
 
 </details>
 
-<b><details><summary>6. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。 如</summary></b>
+<b><details><summary>6. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。</summary></b>
 
 答案：
 
@@ -364,17 +364,15 @@ serialize({ a: /foo/ });
 
 <b><details><summary>8. 设计一道 JavaScript 的 range 算法如下：</summary></b>
 
-答案：
-
 range(1, 10, 3) 返回 [1, 4, 7, 10];
 range('A', 'F', 2) 返回 ['A', 'C', 'E']
-// 请使用 JavaScript 语言实现该功能（可以使用 ES6）
+请使用 JavaScript 语言实现该功能（可以使用 ES6）
+
+答案：
 
 </details>
 
 <b><details><summary>9. 头条的视频网站上支持了弹幕，假设一个视频有很多弹幕，弹幕的数据是一个数组，格式定义如下：</summary></b>
-
-答案：
 
 ```
 
@@ -391,6 +389,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 (其中 time 表示时间，content表示弹幕内容)，那么如何快速定位到某个时间点的弹幕，请编码实现（不使用数组的 sort 方法）
 
 ```
+
+答案：
 
 </details>
 

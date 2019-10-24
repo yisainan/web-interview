@@ -132,9 +132,9 @@
 
 # 参与互动
 
-新增**参与互动**功能，以"面试题"为中心，方便大家讨论！
+新增**参与互动**功能，以"面试题"为中心，大家一起思考讨论，维护好我们的题库，面试时才能更好的回馈自己！
 
-- 因个人精力有限，部分面试题暂无答案，欢迎小伙伴在 issues [给出答案](https://github.com/yisainan/web-interview/projects/3#column-6811844)
+因个人精力有限，部分面试题暂无答案，欢迎小伙伴们在 issues [给出答案](https://github.com/yisainan/web-interview/projects/3#column-6811844)
 
 <br/>
 
