@@ -1,9 +1,8 @@
 # 目录
 <p align="left">
-  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
-  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
-  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
-  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=skill" alt="skill"></a>
+  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
+  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
+  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
   <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
 </p>
 
