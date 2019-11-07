@@ -1044,6 +1044,16 @@ reverse()
 
 答案：
 
+优点：
+1、用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染。
+2、前后端职责业分离（前端负责view，后端负责model），架构清晰
+3、减轻服务器的压力
+
+缺点：
+1、SEO（搜索引擎优化）难度高
+2、初次加载页面更耗时
+3、前进、后退、地址栏等，需要程序进行管理，所以会大大提高页面的复杂性和逻辑的难度
+
 [参与互动](https://github.com/yisainan/web-interview/issues/424)
 
 </details>
@@ -1186,7 +1196,7 @@ reverse()
 
 答案：
 
-Object.defineProperty，Vue.js 就是基于它实现「响应式系统」的。
+vue响应式的原理，首先对象传入vue实例作为data对象时，首先被vue遍历所有属性，调用Object.defineProperty设置为getter和setter，每个组件都有一个watcher对象，在组件渲染的过程中，把相关的数据都注册成依赖，当数据发生setter变化时，会通知watcehr，从而更新相关联的组件
 
 [参与互动](https://github.com/yisainan/web-interview/issues/440)
 

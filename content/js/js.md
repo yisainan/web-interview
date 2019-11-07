@@ -4258,6 +4258,9 @@ var newObj = object(oldObject);
 
 答案：
 
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+console.log(arr.sort(() => 0.5 - Math.random()))
+
 [参与互动](https://github.com/yisainan/web-interview/issues/276)
 
 </details>

@@ -396,8 +396,6 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 
 <b><details><summary>10. 请写出以下代码的执行结果</summary></b>
 
-答案：
-
 ```
 (function() {
     fn();
@@ -411,11 +409,11 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 })()
 ```
 
+答案：
+
 </details>
 
 <b><details><summary>11. 请说明以下各种情况的执行结果，并注明产生对应结果的理由</summary></b>
-
-答案：
 
 ```
 function doSomething() {
@@ -427,11 +425,11 @@ b) element.onclick = function() doSomething(){}, 点击 element 元素后
 c) 直接执行 doSomething()
 ```
 
+答案：
+
 </details>
 
 <b><details><summary>12. 请写出以下代码的执行结果</summary></b>
-
-答案：
 
 ```
 var obj = {};
@@ -447,13 +445,16 @@ obj.m1();
 obj.m2();
 ```
 
+答案：
+
 </details>
 
 <b><details><summary>13. 请写出类 Son 继承类 Father</summary></b>
 
-答案：
 function Father() {}
 function Son() {}
+
+答案：
 
 </details>
 
