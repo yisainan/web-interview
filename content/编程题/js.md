@@ -466,8 +466,6 @@ function Son() {}
 
 <b><details><summary>15. 尝试实现注释部分的 JavaScript 代码， 可在其他任何地方添加更多代码。</summary></b>
 
-答案：
-
 ```
 var Obj = function(msg) {
     this.msg = msg;
@@ -480,17 +478,19 @@ var Obj = function(msg) {
 }
 ```
 
+答案：
+
 </details>
 
 <b><details><summary>16. 请编写一个 JavaScript 函数 parseQuerySting, 它的用途是把 URL 参数解析为一个对象，如</summary></b>
-
-答案：
 
 ```
 var url = "http://www.58.com/index.aspx?key0=0&key1=1&key2=2..."
 var obj = parseQuerySting(url);
 alert(obj.key0) // 输出 0
 ```
+
+答案：
 
 </details>
 
@@ -507,8 +507,6 @@ alert(obj.key0) // 输出 0
 </details>
 
 <b><details><summary>19. 以下代码输出多少</summary></b>
-
-答案：
 
 ```js
 var name = "world";
