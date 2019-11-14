@@ -536,9 +536,95 @@ var name = "world";
 
 </details>
 
-<b><details><summary>10. 数组拍平</summary></b>
+<b><details><summary>20. js 数组拍平(数组扁平化)的六种方式</summary></b>
 
 答案：
+
+1.数组拍平也称数组扁平化，就是将数组里面的数组打开，最后合并为一个数组
+
+2.实现
+
+```js
+var arr = [1, 2, [3, 4, 5, [6, 7, 8], 9], 10, [11, 12]];
+```
+
+a：递归实现
+
+```js
+function fn(arr) {
+  let arr1 = [];
+  arr.forEach(val => {
+    if (val instanceof Array) {
+      arr1 = arr1.concat(fn(val));
+    } else {
+      arr1.push(val);
+    }
+  });
+  return arr1;
+}
+```
+
+b：reduce 实现
+
+```js
+function fn(arr) {
+  return arr.reduce((prev, cur) => {
+    return prev.concat(Array.isArray(cur) ? fn(cur) : cur);
+  }, []);
+}
+```
+
+c:flat
+
+参数为层数(默认一层)
+
+```js
+arr.flat(Infinity);
+```
+
+d：扩展运算符
+
+```js
+function fn(arr) {
+  let arr1 = [];
+  let bStop = true;
+  arr.forEach(val => {
+    if (Array.isArray(val)) {
+      arr1.push(...val);
+      bStop = false;
+    } else {
+      arr1.push(val);
+    }
+  });
+  if (bStop) {
+    return arr1;
+  }
+  return fn(arr1);
+}
+```
+
+e：toString
+
+```js
+let arr1 = arr
+  .toString()
+  .split(",")
+  .map(val => {
+    return parseInt(val);
+  });
+console.log(arr1);
+```
+
+f：apply
+
+```js
+function flatten(arr) {
+  while (arr.some(item => Array.isArray(item))) {
+    arr = [].concat.apply([], arr);
+  }
+  return arr;
+}
+```
 
 </details>
 
@@ -580,15 +666,15 @@ function fun(n, o) {
     }
   };
 }
-//    var a = fun(0);
-//    a.fun(1)
-//    a.fun(2)
-//    a.fun(3)
+// var a = fun(0);
+// a.fun(1);
+// a.fun(2);
+// a.fun(3);
 
 // 打印
 // undefined 0 0 0
 
-//    var b = fun(0).fun(1).fun(2).fun(3)
+// var b = fun(0).fun(1).fun(2).fun(3)
 // 打印 undefined 0 1 2
 
 var c = fun(0).fun(1);
@@ -664,13 +750,17 @@ dom.style.color = "#000"; // 'black'
 
 </details>
 
-<b><details><summary>27.判断相等</summary></b>
+<b><details><summary>27.JavaScript 中的相等性判断</summary></b>
 
 答案：
 
+```js
 2 == true
 [] == false
 [] == ![]
+```
+
+解析：[参考](https://www.cnblogs.com/youyoui/p/8385542.html)
 
 </details>
 
@@ -719,7 +809,7 @@ for (var i = 1; i <= 3; i++) {
 
 答案：
 
-立即执行函数
+1. 立即执行函数
 
 ```js
 for (var i = 1; i <= 3; i++) {
@@ -732,7 +822,7 @@ for (var i = 1; i <= 3; i++) {
 }
 ```
 
-闭包
+2. 闭包
 
 ```js
 for (var i = 1; i <= 3; i++) {
@@ -1034,7 +1124,8 @@ var obj = new A(1, 2);
 <b><details><summary>37.实现一个 call 或 apply</summary></b>
 
 答案：
-call
+
+1. call
 
 ```js
 Function.prototype.call2 = function(context) {
@@ -1053,7 +1144,7 @@ Function.prototype.call2 = function(context) {
 };
 ```
 
-apply
+2. apply
 
 ```js
 Function.prototype.apply2 = function(context, arr) {
@@ -2747,7 +2838,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 <b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-答案：^(?=.\_\d)(?=.\_[a-z])(?=.\\*[A-Z])[a-zA-Z\d]{6,20}\$
+答案：^(?=.\\\_\d)(?=.\\\_[a-z])(?=.\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
 
 </details>
 
