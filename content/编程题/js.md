@@ -1613,9 +1613,21 @@ markyun.Event = {
 
 </details>
 
-<b><details><summary>55.JSON 的了解</summary></b>
+<b><details><summary>55.在 Javascript 中什么是伪数组？如何将伪数组转化为标准数组？</summary></b>
 
-答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小
+答案：
+
+伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName,document.childNodes 之类的,它们都返回 NodeList 对象都属于伪数组。可以使用 Array.prototype.slice.call(fakeArray)将数组转化为真正的 Array 对象。
+
+假设我们要给每个 log 方法添加一个”(app)”前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
+
+```js
+function log() {
+  var args = Array.prototype.slice.call(arguments); //为了使用unshift数组方法，将argument转化为真正的数组
+  args.unshift("(app)");
+  console.log.apply(console, args);
+}
+```
 
 </details>
 
@@ -1788,15 +1800,15 @@ alert(num.N());
 答案：
 
 ```js
-	function f1(){
-    var tmp = 1;
-    this.x = 3;
-    console.log(tmp);    //A
-    console.log(this.x)；     //B
+function f1() {
+  var tmp = 1;
+  this.x = 3;
+  console.log(tmp); //A
+  console.log(this.x); //B
 }
-var obj = new f1(); //1
-console.log(obj.x)     //2
-console.log(f1());        //3
+var obj = new f1(); //1
+console.log(obj.x); //2
+console.log(f1()); //3
 ```
 
 解析：   
@@ -1817,7 +1829,7 @@ console.log(o1.name);
 
 解析：
 
-如果不看答案，你回答真确了的话，那么说明你对 javascript 的数据类型了解的还是比较清楚了。js 中有两种数据类型，分别是：基本数据类型和引用数据类型（object Array）。对于保存基本类型值的变量，变量是按值访问的，因为我们操作的是变量实际保存的值。对于保存引用类型值的变量，变量是按引用访问的，我们操作的是变量值所引用（指向）的对象。答案就清楚了：  //CSSer;
+如果不看答案，你回答真确了的话，那么说明你对 javascript 的数据类型了解的还是比较清楚了。js 中有两种数据类型，分别是：基本数据类型和引用数据类型（object Array）。对于保存基本类型值的变量，变量是按值访问的，因为我们操作的是变量实际保存的值。对于保存引用类型值的变量，变量是按引用访问的，我们操作的是变量值所引用（指向）的对象。答案就清楚了：  CSSer;
 
 </details>
 
@@ -1838,7 +1850,7 @@ console.log(CSSer.siteUrl); //
 
 解析：
 
-如果 CSSer 参数是按引用传递的，那么结果应该是"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。    
+如果 CSSer 参数是按引用传递的，那么结果应该是`"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。    `
     （补充：内部环境可以通过作用域链访问所有的外部环境中的变量对象，但外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数名，反之向下则不能。）
 
 </details>
@@ -2004,9 +2016,11 @@ new (function(s) {
 
 </details>
 
-<b><details><summary>73.结果是</summary></b>
+<b><details><summary>73.输出结果</summary></b>
 
-答案： var bool = !!2; alert(bool)；//true;
+答案：
+
+var bool = !!2; alert(bool); //true;
 双向非操作可以把字符串和数字转换为布尔值
 
 </details>
@@ -2065,7 +2079,7 @@ checkStr("leipeng");
 ```
 1、标签之中直接添加 onclick="fun()";
 2、JS 添加 Eobj.onclick = method;
-3、现代事件  IE： obj.attachEvent('onclick', method)；
+3、现代事件  IE： obj.attachEvent('onclick', method);
             FF: obj.addEventListener('click', method, false);
 ```
 
@@ -2115,7 +2129,7 @@ Object.prototype.outerHTML = function() {
 
 </details>
 
-<b><details><summary>79.JS 中的简单继承 call 方法！</summary></b>
+<b><details><summary>79.JS 中的简单继承 call 方法</summary></b>
 
 答案：
 
@@ -2214,9 +2228,11 @@ d();
 
 <b><details><summary>85.需要将变量 e 的值修改为“a+b+c+d”,请写出对应的代码</summary></b>
 
+var e=”abcd”;
+
 答案：
 
-var e=”abcd”;
+e.split('').join('+')
 
 </details>
 
@@ -2260,14 +2276,14 @@ setTimeout(function(){
 	t=false;
 	},1000);
 while(t){}
-console.log(‘end’);
+console.log('end');
 ```
 
 答案：
 
 </details>
 
-<b><details><summary>90.specify(‘hello,world’)//=>’h,e,l,l,o,w,o,r,l,d’实现 specify 函数</summary></b>
+<b><details><summary>90.specify('hello,world')//=>'h,e,l,l,o,w,o,r,l,d'实现 specify 函数</summary></b>
 
 答案：
 
@@ -2339,7 +2355,7 @@ for (var i = 0; i < 3; i++) {
 ```js
 	function Dog() {
       this.wow = function() {
-               alert(’Wow’);
+               alert('Wow');
       }
       this.yelp = function() {
               this.wow();
@@ -2838,7 +2854,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 <b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-答案：^(?=.\\\_\d)(?=.\\\_[a-z])(?=.\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
+答案：^(?=.\\\\\_\d)(?=.\\\\\_[a-z])(?=.\\\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
 
 </details>
 
@@ -3272,24 +3288,6 @@ console.log(func());
 
 </details>
 
-<b><details><summary>146.在 Javascript 中什么是伪数组？如何将伪数组转化为标准数组？</summary></b>
-
-答案：
-
-伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName,document.childNodes 之类的,它们都返回 NodeList 对象都属于伪数组。可以使用 Array.prototype.slice.call(fakeArray)将数组转化为真正的 Array 对象。
-
-假设我们要给每个 log 方法添加一个”(app)”前缀，比如’hello world!’ ->’(app)hello world!’。方法如下：
-
-```js
-function log() {
-  var args = Array.prototype.slice.call(arguments); //为了使用unshift数组方法，将argument转化为真正的数组
-  args.unshift("(app)");
-  console.log.apply(console, args);
-}
-```
-
-</details>
-
 <b><details><summary>147.定义一个 log 方法，让它可以代理 console.log 的方法。</summary></b>
 
 答案：
@@ -3319,7 +3317,7 @@ function log() {
 
 </details>
 
-<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world”) // -> ‘h e l l o  w o r l d’</summary></b>
+<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world”) // -> 'h e l l o  w o r l d'</summary></b>
 
 答案：
 
@@ -3629,23 +3627,5 @@ function foo() {
   var name = "hello";
 }
 ```
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
 
 </details>
