@@ -764,7 +764,7 @@ dom.style.color = "#000"; // 'black'
 
 </details>
 
-<b><details><summary>28.已知有字符串 foo=“get-element-by-id”,写一个 function 将其转化为驼峰表示法“getElementById”</summary></b>
+<b><details><summary>28.已知有字符串 foo=“get-element-by-id",写一个 function 将其转化为驼峰表示法“getElementById"</summary></b>
 
 答案：
 
@@ -1619,7 +1619,7 @@ markyun.Event = {
 
 伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName,document.childNodes 之类的,它们都返回 NodeList 对象都属于伪数组。可以使用 Array.prototype.slice.call(fakeArray)将数组转化为真正的 Array 对象。
 
-假设我们要给每个 log 方法添加一个”(app)”前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
+假设我们要给每个 log 方法添加一个"(app)"前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
 
 ```js
 function log() {
@@ -1850,7 +1850,7 @@ console.log(CSSer.siteUrl); //
 
 解析：
 
-如果 CSSer 参数是按引用传递的，那么结果应该是`"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。    `
+如果 CSSer 参数是按引用传递的，那么结果应该是`"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。`
     （补充：内部环境可以通过作用域链访问所有的外部环境中的变量对象，但外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数名，反之向下则不能。）
 
 </details>
@@ -2207,7 +2207,7 @@ alert(a.value);
 
 </details>
 
-<b><details><summary>83.已知数组 var stringArray = ["This”, "is”, "Baidu”, "Campus”]，Alert 出”This is Baidu Campus”。</summary></b>
+<b><details><summary>83.已知数组 var stringArray = ["This", "is", "Baidu", "Campus"]，Alert 出"This is Baidu Campus"。</summary></b>
 
 答案：alert(stringArray.join(""))
 
@@ -2226,9 +2226,9 @@ d();
 
 </details>
 
-<b><details><summary>85.需要将变量 e 的值修改为“a+b+c+d”,请写出对应的代码</summary></b>
+<b><details><summary>85.需要将变量 e 的值修改为“a+b+c+d",请写出对应的代码</summary></b>
 
-var e=”abcd”;
+var e="abcd";
 
 答案：
 
@@ -2261,7 +2261,7 @@ e.split('').join('+')
 
 </details>
 
-<b><details><summary>88.使用 js 实现这样的效果：在文本域里输入文字时，当按下 enter 键时不换行，而是替换成“{{enter}}”,(只需要考虑在行尾按下 enter 键的情况).</summary></b>
+<b><details><summary>88.使用 js 实现这样的效果：在文本域里输入文字时，当按下 enter 键时不换行，而是替换成“{{enter}}",(只需要考虑在行尾按下 enter 键的情况).</summary></b>
 
 答案：
 
@@ -2270,13 +2270,13 @@ e.split('').join('+')
 <b><details><summary>89.以下代码中 end 字符串什么时候输出</summary></b>
 
 ```js
-var t=true;
-setTimeout(function(){
-	console.log(123);
-	t=false;
-	},1000);
-while(t){}
-console.log('end');
+var t = true;
+setTimeout(function() {
+  console.log(123);
+  t = false;
+}, 1000);
+while (t) {}
+console.log("end");
 ```
 
 答案：
@@ -2301,9 +2301,41 @@ console.log('end');
 
 </details>
 
-<b><details><summary>93.判断一个字符吕串出现次数最多的字符，统计这个次数并输出</summary></b>
+<b><details><summary>93.请写出三种以上的 Firefox 有但 IE 没有的属性和函数</summary></b>
 
 答案：
+
+1、在 IE 下可通过`document.frames["id"];`得到该 IFRAME 对象，
+
+而在火狐下则是通过`document.getElementById("content_panel_if").contentWindow;`
+
+2、IE 的写法： `_tbody=_table.childNodes[0]`
+在 FF 中，firefox 会在子节点中包含空白则第一个子节点为空白""， 而 ie 不会返回空白
+可以通过`if("" != node.nodeName)`过滤掉空白子对象
+
+3、模拟点击事件
+
+```js
+if (document.all) {
+  //ie下
+  document.getElementById("a3").click();
+} else {
+  //非IE
+  var evt = document.createEvent("MouseEvents");
+  evt.initEvent("click", true, true);
+  document.getElementById("a3").dispatchEvent(evt);
+}
+```
+
+4、事件注册
+
+```js
+if (isIE) {
+  window.attachEvent("onload", init);
+} else {
+  window.addEventListener("load", init, false);
+}
+```
 
 </details>
 
@@ -2311,12 +2343,49 @@ console.log('end');
 
 答案：
 
+（1）、在 html 元素事件属性中使用，如：
+
+```html
+<input type="button" οnclick="showInfo(this);" value="点击一下" />
+```
+
+（2）、构造函数
+
+```js
+function Animal(name, color) {
+  this.name = name;
+  this.color = color;
+}
+```
+
+（3）、input 点击，获取值
+
+```js
+<input type="button" id="text" value="点击一下" />
+<script type="text/javascript">
+    var btn = document.getElementById("text");
+    btn.onclick = function() {
+        alert(this.value);    //此处的this是按钮元素
+    }
+</script>
+```
+
+(4)、apply()/call()求数组最值
+
+```js
+var numbers = [5, 458, 120, -215];
+var maxInNumbers = Math.max.apply(this, numbers);
+console.log(maxInNumbers); // 458
+var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
+console.log(maxInNumbers); // 458
+```
+
 </details>
 
 <b><details><summary>95.下面这个 ul，如何点击每一列的时候 alert 其 index?（闭包）</summary></b>
 
 ```html
-<ul id="”test”">
+<ul id="test">
   <li>这是第一条</li>
   <li>这是第二条</li>
   <li>这是第三条</li>
@@ -2327,7 +2396,7 @@ console.log('end');
 
 ```js
 // 方法一：
-var lis = document.getElementById("2223").getElementsByTagName("li");
+var lis = document.getElementById("test").getElementsByTagName("li");
 for (var i = 0; i < 3; i++) {
   lis[i].index = i;
   lis[i].onclick = function() {
@@ -2335,7 +2404,7 @@ for (var i = 0; i < 3; i++) {
   };
 }
 //方法二：
-var lis = document.getElementById("2223").getElementsByTagName("li");
+var lis = document.getElementById("test").getElementsByTagName("li");
 for (var i = 0; i < 3; i++) {
   lis[i].index = i;
   lis[i].onclick = (function(a) {
@@ -2353,13 +2422,13 @@ for (var i = 0; i < 3; i++) {
 答案：
 
 ```js
-	function Dog() {
-      this.wow = function() {
-               alert('Wow');
-      }
-      this.yelp = function() {
-              this.wow();
-      }
+function Dog() {
+  this.wow = function() {
+    alert("Wow");
+  };
+  this.yelp = function() {
+    this.wow();
+  };
 }
 ```
 
@@ -2384,12 +2453,12 @@ madDog.yelp();
 
 </details>
 
-<b><details><summary>97.实现一个函数 clone，可以对 JavaScript 中的 5 种主要的数据类型（包括 Number、String、Object、Array、Boolean）进行值复制</summary></b>
+<b><details><summary>97.实现一个函数 clone，可以对 JavaScript 中的 5 种主要的数据类型（包括 Numer、String、Object、Array、Boolean）进行值复制</summary></b>
 
 答案：
 
-- 考察点 1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚
-- 考察点 2：是否知道如何判断一个变量是什么类型的
+- 察点 1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区别是否清楚
+- 察点 2：是否知道如何判断一个变量是什么类型的
 - 考察点 3：递归算法的设计
 
 ```js
@@ -2439,11 +2508,11 @@ function clone(Obj) {
 ```js
 var iArray = [];
 funtion getRandom(istart, iend){
-var iChoice = istart - iend +1;
-return Math.floor(Math.random() * iChoice + istart;
+  var iChoice = istart - iend +1;
+  return Math.floor(Math.random() * iChoice + istart;
 }
 for(var i=0; i<10; i++){
-iArray.push(getRandom(10,100));
+  iArray.push(getRandom(10,100));
 }
 iArray.sort();
 ```
@@ -2484,13 +2553,11 @@ function DateDemo() {
 }
 ```
 
-答案：今天日期是：7/17/2010
+答案：今天日期是：7/17/2019
 
 </details>
 
 <b><details><summary>101.下列 JavaScript 代码执行后，依次 alert 的结果是</summary></b>
-
-答案：
 
 ```js
 var obj = { proto: { a: 1, b: 2 } };
@@ -2506,11 +2573,11 @@ alert(f.a);
 alert(obj.proto.a);
 ```
 
+答案：
+
 </details>
 
 <b><details><summary>102.下列 JavaScript 代码执行后，运行的结果是</summary></b>
-
-答案：
 
 ```html
 <button id="btn">点击我</button>
@@ -2526,6 +2593,8 @@ var handler = {
 };
 btn.addEventListener("click", handler.exec.false);
 ```
+
+答案：
 
 </details>
 
@@ -2735,9 +2804,9 @@ number
 
 ```html
 <!-- 左边容器无论宽度如何变动，右边容器都能自适应填满父容器剩余的宽度。 -->
-<div class="”warp”">
-  <div class="”left”"></div>
-  <div class="”right”"></div>
+<div class=""warp"">
+  <div class=""left""></div>
+  <div class=""right""></div>
 </div>
 ```
 
@@ -2846,7 +2915,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 </details>
 
-<b><details><summary>126.请写出一张图片的 HTML 代码，已知道图片地址为“images/abc.jpg”,宽 100px，高 50px</summary></b>
+<b><details><summary>126.请写出一张图片的 HTML 代码，已知道图片地址为“images/abc.jpg",宽 100px，高 50px</summary></b>
 
 答案：
 
@@ -2854,7 +2923,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 <b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-答案：^(?=.\\\\\_\d)(?=.\\\\\_[a-z])(?=.\\\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
+答案：^(?=.\\\\\\\_\d)(?=.\\\\\\\_[a-z])(?=.\\\\\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
 
 </details>
 
@@ -2864,7 +2933,7 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 
 </details>
 
-<b><details><summary>129.删除与某个字符相邻且相同的字符，比如 fdaffdaaklfjklja 字符串处理之后成为“fdafdaklfjklja”</summary></b>
+<b><details><summary>129.删除与某个字符相邻且相同的字符，比如 fdaffdaaklfjklja 字符串处理之后成为“fdafdaklfjklja"</summary></b>
 
 答案：
 
@@ -2873,44 +2942,6 @@ B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
 <b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个 form 表单，并在里面添加一个 input 对象并给它任意赋值后义 post 方式提交到：http://127.0.0.1/save.php</summary></b>
 
 答案：
-
-</details>
-
-<b><details><summary>131.请写出三种以上的 Firefox 有但 InternetExplorer 没有的属性和函数</summary></b>
-
-答案：
-
-1、在 IE 下可通过`document.frames["id"];`得到该 IFRAME 对象，
-
-而在火狐下则是通过`document.getElementById("content_panel_if").contentWindow;`
-
-2、IE 的写法： `_tbody=_table.childNodes[0]`
-在 FF 中，firefox 会在子节点中包含空白则第一个子节点为空白""， 而 ie 不会返回空白
-可以通过`if("" != node.nodeName)`过滤掉空白子对象
-
-3、模拟点击事件
-
-```js
-if (document.all) {
-  //ie下
-  document.getElementById("a3").click();
-} else {
-  //非IE
-  var evt = document.createEvent("MouseEvents");
-  evt.initEvent("click", true, true);
-  document.getElementById("a3").dispatchEvent(evt);
-}
-```
-
-4、事件注册
-
-```js
-if (isIE) {
-  window.attachEvent("onload", init);
-} else {
-  window.addEventListener("load", init, false);
-}
-```
 
 </details>
 
@@ -3317,7 +3348,7 @@ function log() {
 
 </details>
 
-<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world”) // -> 'h e l l o  w o r l d'</summary></b>
+<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world") // -> 'h e l l o  w o r l d'</summary></b>
 
 答案：
 
