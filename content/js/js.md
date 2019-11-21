@@ -4976,3 +4976,9 @@ baz = "qux";
 答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小
 
 </details>
+
+<b><details><summary>162.事件代理怎么实现？</summary></b>
+
+答案：在元素的父节点注册事件，通过事件冒泡，在父节点捕获事件
+
+</details>

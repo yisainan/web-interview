@@ -172,6 +172,20 @@ img {
 
 </details>
 
+<b><details><summary>7.有下面这样一段 HTML 结构，使用 css 实现这样的效果：</summary></b>
+
+```html
+<!-- 左边容器无论宽度如何变动，右边容器都能自适应填满父容器剩余的宽度。 -->
+<div class="warp">
+  <div class="left"></div>
+  <div class="right"></div>
+</div>
+```
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

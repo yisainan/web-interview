@@ -61,6 +61,8 @@ function getQueryString(name) {
 console.log(getQueryString("categoryId"));
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/549)
+
 </details>
 
 <b><details><summary>2.js 实现一个打点计时器</summary></b>
@@ -117,6 +119,8 @@ setTimeout()方法用于在指定的毫秒数后调用函数或计算表达式�
 setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
 语法：setInterval(code ,millisec[,"lang"])
 setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/550)
 
 </details>
 
@@ -276,6 +280,8 @@ console.log(result);
 五.归并排序
 六.快速排序
 
+[参与互动](https://github.com/yisainan/web-interview/issues/551)
+
 </details>
 
 <b><details><summary>4. 正则表达式，验证手机号码，验证规则：11 位数字，以 1 位开头</summary></b>
@@ -312,6 +318,8 @@ checkphonenumber(number) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/552)
+
 </details>
 
 <b><details><summary>5. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
@@ -335,6 +343,8 @@ Array.prototype.distinct = function() {
 console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/553)
+
 </details>
 
 <b><details><summary>6. 为字符串扩展一个 rewrite 函数，接收一个正则 pattern 和一个字符串 result,如果该字符串符合 pattern， 则以 result 对结果进行转义输出。</summary></b>
@@ -346,6 +356,8 @@ console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
 "u1234".rewrite(/^\/u(\d+)/, "/user/$1");
 "/i".rewrite(/^\o/, "/ooo");
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/554)
 
 </details>
 
@@ -360,6 +372,8 @@ serialize({ a: 0 / 0 });
 serialize({ a: /foo/ });
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/555)
+
 </details>
 
 <b><details><summary>8. 设计一道 JavaScript 的 range 算法如下：</summary></b>
@@ -369,6 +383,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 请使用 JavaScript 语言实现该功能（可以使用 ES6）
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/556)
 
 </details>
 
@@ -392,6 +408,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/557)
+
 </details>
 
 <b><details><summary>10. 请写出以下代码的执行结果</summary></b>
@@ -411,6 +429,8 @@ range('A', 'F', 2) 返回 ['A', 'C', 'E']
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/558)
+
 </details>
 
 <b><details><summary>11. 请说明以下各种情况的执行结果，并注明产生对应结果的理由</summary></b>
@@ -426,6 +446,8 @@ c) 直接执行 doSomething()
 ```
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/559)
 
 </details>
 
@@ -447,6 +469,8 @@ obj.m2();
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/560)
+
 </details>
 
 <b><details><summary>13. 请写出类 Son 继承类 Father</summary></b>
@@ -456,11 +480,15 @@ function Son() {}
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/561)
+
 </details>
 
 <b><details><summary>14. 请用 JS 写出一个遍历 DOM 节点树的方法</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/562)
 
 </details>
 
@@ -480,6 +508,8 @@ var Obj = function(msg) {
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/565)
+
 </details>
 
 <b><details><summary>16. 请编写一个 JavaScript 函数 parseQuerySting, 它的用途是把 URL 参数解析为一个对象，如</summary></b>
@@ -492,17 +522,23 @@ alert(obj.key0) // 输出 0
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/566)
+
 </details>
 
 <b><details><summary>17. 请给 Array 本地对象添加一个原型方法，它用于删除数组条目中重复的条目（可能有多个重复），返回值是一个包含被删除的重复条目的新数组</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/567)
+
 </details>
 
 <b><details><summary>18. 我们把一个数字倒着读和原数字相同的数字称之为对称数，例如（1, 121, 88, 8998）,不考虑性能，请找出 1 - 10000 之间的对称数，要求用 JS 实现</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/568)
 
 </details>
 
@@ -533,6 +569,8 @@ var name = "world";
 
 ==> Hello,world
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/569)
 
 </details>
 
@@ -626,6 +664,8 @@ function flatten(arr) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/570)
+
 </details>
 
 <b><details><summary>21.如何解决数组塌陷问题</summary></b>
@@ -650,6 +690,8 @@ for (var i = arr.length; i >= 0; i--) {
 }
 console.log(arr);
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/571)
 
 </details>
 
@@ -684,6 +726,8 @@ c.fun(3);
 // undefined 0 1 1
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/572)
+
 </details>
 
 <b><details><summary>23.编写一个数组去重的方法</summary></b>
@@ -709,6 +753,8 @@ var newArr2 = deRepeat(arr);
 alert(newArr2); //输出1,2,3,4,5,6,9,25
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/573)
+
 </details>
 
 <b><details><summary>24.已知 id 的 input 输入框，希望获取这个输入框的输入值，怎么做？（不使用第三方框架）</summary></b>
@@ -718,6 +764,8 @@ alert(newArr2); //输出1,2,3,4,5,6,9,25
 ```js
 document.getElementById("id").value;
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/574)
 
 </details>
 
@@ -736,6 +784,8 @@ for (var i = 0; i < len; i++) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/575)
+
 </details>
 
 <b><details><summary>26.设置一个已知 id 的 div 的 html 内容为 xxxx，字体颜色设置为黑色（不使用第三方框架）</summary></b>
@@ -747,6 +797,8 @@ var dom = document.getElementById("id");
 dom.innerHTML = "xxxx";
 dom.style.color = "#000"; // 'black'
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/576)
 
 </details>
 
@@ -762,9 +814,11 @@ dom.style.color = "#000"; // 'black'
 
 解析：[参考](https://www.cnblogs.com/youyoui/p/8385542.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/577)
+
 </details>
 
-<b><details><summary>28.已知有字符串 foo=“get-element-by-id",写一个 function 将其转化为驼峰表示法“getElementById"</summary></b>
+<b><details><summary>28.已知有字符串 foo="get-element-by-id",写一个 function 将其转化为驼峰表示法"getElementById"</summary></b>
 
 答案：
 
@@ -781,6 +835,8 @@ function combo(msg) {
 }
 console.log(combo(string));
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/578)
 
 </details>
 
@@ -838,17 +894,23 @@ for (var i = 1; i <= 3; i++) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/579)
+
 </details>
 
 <b><details><summary>30. JS 字符串使用堆栈处理 "(a,b,(c,d),f,g)"</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/580)
+
 </details>
 
 <b><details><summary>31. 二维数组操作</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/581)
 
 </details>
 
@@ -861,6 +923,8 @@ var a = [1, 2, 3, 5];
 alert(Math.max.apply(null, a)); //最大值
 alert(Math.min.apply(null, a)); //最小值
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/582)
 
 </details>
 
@@ -877,6 +941,8 @@ if (!String.prototype.trim) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/583)
+
 </details>
 
 <b><details><summary>34.运算符面试题</summary></b>
@@ -892,6 +958,8 @@ a++;
 e = ++a + ++b + c++ + a++;
 console.log(e); // 77
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/584)
 
 </details>
 
@@ -1094,6 +1162,8 @@ var sub = new SubClass();
 console.log(sub.sayWhat());
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/585)
+
 </details>
 
 <b><details><summary>36.实现一个 new 操作符</summary></b>
@@ -1118,6 +1188,8 @@ var obj = New(A, 1, 2);
 // equals to
 var obj = new A(1, 2);
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/586)
 
 </details>
 
@@ -1167,6 +1239,8 @@ Function.prototype.apply2 = function(context, arr) {
 };
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/587)
+
 </details>
 
 <b><details><summary>38.实现一个 Function.bind</summary></b>
@@ -1194,6 +1268,8 @@ Function.prototype.bind2 = function(context) {
   return fbound;
 };
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/588)
 
 </details>
 
@@ -1230,6 +1306,8 @@ var parent = new Parent("汪某");
 parent.sayName(); // parent name: 汪某
 var child = new Child("son", "汪某");
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/589)
 
 </details>
 
@@ -1291,6 +1369,8 @@ p.then(function(x) {
 });
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/590)
+
 </details>
 
 <b><details><summary>41.手写防抖(Debouncing)和节流(Throttling)</summary></b>
@@ -1324,6 +1404,8 @@ function throttle(fn, wait) {
   };
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/591)
 
 </details>
 
@@ -1374,6 +1456,8 @@ function deepCopy(s) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/592)
+
 </details>
 
 <b><details><summary>43.看下面代码，给出输出结果(考察闭包及++运算符)</summary></b>
@@ -1420,6 +1504,8 @@ console.log(b());
 // 1
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/593)
+
 </details>
 
 <b><details><summary>44. 看下面代码，给出输出结果(考察时间戳)</summary></b>
@@ -1441,17 +1527,23 @@ setTimeout(function() {
 }, 1500); // 2500左右
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/594)
+
 </details>
 
 <b><details><summary>45.编写一个元素拖拽的插件</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/595)
+
 </details>
 
 <b><details><summary>46.什么是代理和通知，写一下他们基本的实现方法</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/596)
 
 </details>
 
@@ -1482,6 +1574,8 @@ console.log(i);
 
 解析：[参考](https://www.cnblogs.com/adouwt/p/6481479.html)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/597)
+
 </details>
 
 <b><details><summary>48.告诉我答案是多少</summary></b>
@@ -1494,6 +1588,8 @@ console.log(i);
 ```
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/598)
 
 </details>
 
@@ -1581,11 +1677,15 @@ markyun.Event = {
 };
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/599)
+
 </details>
 
 <b><details><summary>50.谈一下 JS 中的递归函数，并且用递归简单实现阶乘</summary></b>
 
 答案：递归即是程序在执行过程中不断调用自身的编程技巧，当然也必须要有一个明确的结束条件，不然就会陷入死循环。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/600)
 
 </details>
 
@@ -1593,11 +1693,15 @@ markyun.Event = {
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/601)
+
 </details>
 
 <b><details><summary>52.完成 foo()函数的内容，要求能够弹出对话框提示当前选中的是第几个单选框</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/602)
 
 </details>
 
@@ -1605,11 +1709,15 @@ markyun.Event = {
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/630)
+
 </details>
 
 <b><details><summary>54.截取字符串 abcdefg 中的 efg</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/631)
 
 </details>
 
@@ -1628,6 +1736,8 @@ function log() {
   console.log.apply(console, args);
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/632)
 
 </details>
 
@@ -1656,6 +1766,8 @@ for (var i in json) {
 alert("出现次数最多的是:" + iIndex + "出现" + iMax + "次");
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/633)
+
 </details>
 
 <b><details><summary>57.写一个获取非行间样式的函数</summary></b>
@@ -1676,6 +1788,8 @@ function getStyle(obj, attr, value) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/634)
+
 </details>
 
 <b><details><summary>58.字符串反转，如将 '12345678' 变成 '87654321'</summary></b>
@@ -1690,6 +1804,8 @@ str = str
   .reverse()
   .join("");
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/635)
 
 </details>
 
@@ -1709,6 +1825,8 @@ for (var i = 1; i <= re(str).length; i++) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/636)
+
 </details>
 
 <b><details><summary>60.生成 5 个不同的随机数</summary></b>
@@ -1727,6 +1845,8 @@ for (var i = 0; i < 5; i++) {
   }
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/637)
 
 </details>
 
@@ -1774,6 +1894,8 @@ Array.prototype.unique = function() {
 })([1, 1, 22, 3, 4, 55, 66]);
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/638)
+
 </details>
 
 <b><details><summary>62.阶乘函数</summary></b>
@@ -1792,6 +1914,8 @@ Number.prototype.N = function() {
 var num = 5;
 alert(num.N());
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/639)
 
 </details>
 
@@ -1814,6 +1938,8 @@ console.log(f1()); //3
 解析：   
      这道题让我重新认识了对象和函数，首先看代码（1），这里实例话化了 f1 这个类。相当于执行了 f1 函数。所以这个时候 A 会输出 1， 而 B 这个时候的 this 代表的是 实例化的当前对象 obj B 输出 3.。 代码（2）毋庸置疑会输出 3， 重点 代码（3）首先这里将不再是一个类，它只是一个函数。那么 A 输出 1， B 呢？这里的 this 代表的其实就是 window 对象，那么 this.x 就是一个全局变量 相当于在外部 的一个全局变量。所以 B 输出 3。最后代码由于 f 没有返回值那么一个函数如果没返回值的话，将会返回 underfined ，所以答案就是 ： 1， 3， 3， 1， 3， underfined 。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/640)
+
 </details>
 
 <b><details><summary>64.下面输出多少？</summary></b>
@@ -1830,6 +1956,8 @@ console.log(o1.name);
 解析：
 
 如果不看答案，你回答真确了的话，那么说明你对 javascript 的数据类型了解的还是比较清楚了。js 中有两种数据类型，分别是：基本数据类型和引用数据类型（object Array）。对于保存基本类型值的变量，变量是按值访问的，因为我们操作的是变量实际保存的值。对于保存引用类型值的变量，变量是按引用访问的，我们操作的是变量值所引用（指向）的对象。答案就清楚了：  CSSer;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/641)
 
 </details>
 
@@ -1852,6 +1980,8 @@ console.log(CSSer.siteUrl); //
 
 如果 CSSer 参数是按引用传递的，那么结果应该是`"http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。事实是这样的：在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放内存。`
     （补充：内部环境可以通过作用域链访问所有的外部环境中的变量对象，但外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数名，反之向下则不能。）
+
+[参与互动](https://github.com/yisainan/web-interview/issues/642)
 
 </details>
 
@@ -1896,6 +2026,8 @@ alert(a);
 
 记住： 异步处理，一切 OK 声明提前
 
+[参与互动](https://github.com/yisainan/web-interview/issues/643)
+
 </details>
 
 <b><details><summary>67.JS 的继承性？</summary></b>
@@ -1914,6 +2046,8 @@ sayColor.call(window); //red
 sayColor.call(o); //blue
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/644)
+
 </details>
 
 <b><details><summary>68.精度问题: JS 精度不能精确到 0.1 所以  。。。。同时存在于值和差值中</summary></b>
@@ -1930,6 +2064,8 @@ alert(n - m == 0.1); //false
 alert(i - j == 0.1); //true
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/645)
+
 </details>
 
 <b><details><summary>69.加减运算</summary></b>
@@ -1942,6 +2078,8 @@ alert("5" + "3"); //53 string
 alert("5" - 3); //2 number
 alert("5" - "3"); //2 number
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/646)
 
 </details>
 
@@ -1976,6 +2114,8 @@ obj.a(); //2
 foo.a(); //1
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/647)
+
 </details>
 
 <b><details><summary>71.输出结果</summary></b>
@@ -1994,6 +2134,8 @@ function test() {
 test(); // 0, 5, 0
 new test(); // 0, undefined, 0 //由于类它自身没有属性a， 所以是undefined
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/648)
 
 </details>
 
@@ -2014,6 +2156,8 @@ new (function(s) {
 })("hello world!");
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/649)
+
 </details>
 
 <b><details><summary>73.输出结果</summary></b>
@@ -2022,6 +2166,8 @@ new (function(s) {
 
 var bool = !!2; alert(bool); //true;
 双向非操作可以把字符串和数字转换为布尔值
+
+[参与互动](https://github.com/yisainan/web-interview/issues/650)
 
 </details>
 
@@ -2038,6 +2184,8 @@ var obj = {
 };
 obj.showName();
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/651)
 
 </details>
 
@@ -2057,6 +2205,8 @@ alert(reg.test(name3));
 alert(reg.test(name4));
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/652)
+
 </details>
 
 <b><details><summary>76.检测变量类型</summary></b>
@@ -2070,6 +2220,8 @@ function checkStr(str) {
 checkStr("leipeng");
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/653)
+
 </details>
 
 <b><details><summary>77.如何在 HTML 中添加事件，几种方法？</summary></b>
@@ -2082,6 +2234,8 @@ checkStr("leipeng");
 3、现代事件  IE： obj.attachEvent('onclick', method);
             FF: obj.addEventListener('click', method, false);
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/654)
 
 </details>
 
@@ -2127,6 +2281,8 @@ Object.prototype.outerHTML = function() {
 </html>
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/655)
+
 </details>
 
 <b><details><summary>79.JS 中的简单继承 call 方法</summary></b>
@@ -2154,6 +2310,8 @@ per.info();
 chi.info();
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/656)
+
 </details>
 
 <b><details><summary>80.解析 URL 成一个对象？</summary></b>
@@ -2177,6 +2335,8 @@ var url = "?name=12&age=23";
 console.log(url.urlQueryString().age);
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/657)
+
 </details>
 
 <b><details><summary>81.看下列代码输出什么？</summary></b>
@@ -2189,6 +2349,8 @@ console.log(foo);
 console.log(typeof foo);
 // 执行完后foo的值为111，foo的类型为Number。
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/658)
 
 </details>
 
@@ -2205,11 +2367,15 @@ alert(a.value);
 // 执行完后输出结果为2
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/659)
+
 </details>
 
 <b><details><summary>83.已知数组 var stringArray = ["This", "is", "Baidu", "Campus"]，Alert 出"This is Baidu Campus"。</summary></b>
 
 答案：alert(stringArray.join(""))
+
+[参与互动](https://github.com/yisainan/web-interview/issues/660)
 
 </details>
 
@@ -2224,15 +2390,19 @@ function d() {
 d();
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/661)
+
 </details>
 
-<b><details><summary>85.需要将变量 e 的值修改为“a+b+c+d",请写出对应的代码</summary></b>
+<b><details><summary>85.需要将变量 e 的值修改为"a+b+c+d",请写出对应的代码</summary></b>
 
 var e="abcd";
 
 答案：
 
 e.split('').join('+')
+
+[参与互动](https://github.com/yisainan/web-interview/issues/662)
 
 </details>
 
@@ -2253,17 +2423,23 @@ e.split('').join('+')
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/663)
+
 </details>
 
 <b><details><summary>87.怎样实现两栏等高？</summary></b>
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/664)
+
 </details>
 
-<b><details><summary>88.使用 js 实现这样的效果：在文本域里输入文字时，当按下 enter 键时不换行，而是替换成“{{enter}}",(只需要考虑在行尾按下 enter 键的情况).</summary></b>
+<b><details><summary>88.使用 js 实现这样的效果：在文本域里输入文字时，当按下 enter 键时不换行，而是替换成"{{enter}}",(只需要考虑在行尾按下 enter 键的情况).</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/665)
 
 </details>
 
@@ -2281,11 +2457,15 @@ console.log("end");
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/666)
+
 </details>
 
 <b><details><summary>90.specify('hello,world')//=>'h,e,l,l,o,w,o,r,l,d'实现 specify 函数</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/667)
 
 </details>
 
@@ -2293,11 +2473,15 @@ console.log("end");
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/668)
+
 </details>
 
 <b><details><summary>92.请用原生 js 实现 jquery 的 get\post 功能，以及跨域情况下</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/669)
 
 </details>
 
@@ -2336,6 +2520,8 @@ if (isIE) {
   window.addEventListener("load", init, false);
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/670)
 
 </details>
 
@@ -2380,6 +2566,8 @@ var maxInNumbers = Math.max.call(this, 5, 458, 120, -215);
 console.log(maxInNumbers); // 458
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/671)
+
 </details>
 
 <b><details><summary>95.下面这个 ul，如何点击每一列的时候 alert 其 index?（闭包）</summary></b>
@@ -2414,6 +2602,8 @@ for (var i = 0; i < 3; i++) {
   })(i);
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/672)
 
 </details>
 
@@ -2450,6 +2640,8 @@ dog.yelp();
 var madDog = new MadDog();
 madDog.yelp();
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/673)
 
 </details>
 
@@ -2499,6 +2691,8 @@ function clone(Obj) {
 }
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/674)
+
 </details>
 
 <b><details><summary>98.用 js 实现随机选取 10–100 之间的 10 个数字，存入一个数组，并排序。</summary></b>
@@ -2516,6 +2710,8 @@ for(var i=0; i<10; i++){
 }
 iArray.sort();
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/675)
 
 </details>
 
@@ -2537,6 +2733,8 @@ day = day < 10 ? "0" + day : day;
 alert(year + "-" + month + "-" + day);
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/676)
+
 </details>
 
 <b><details><summary>100.写出函数 DateDemo 的返回结果，系统时间假定为今天</summary></b>
@@ -2554,6 +2752,8 @@ function DateDemo() {
 ```
 
 答案：今天日期是：7/17/2019
+
+[参与互动](https://github.com/yisainan/web-interview/issues/677)
 
 </details>
 
@@ -2575,6 +2775,8 @@ alert(obj.proto.a);
 
 答案：
 
+[参与互动](https://github.com/yisainan/web-interview/issues/678)
+
 </details>
 
 <b><details><summary>102.下列 JavaScript 代码执行后，运行的结果是</summary></b>
@@ -2595,6 +2797,8 @@ btn.addEventListener("click", handler.exec.false);
 ```
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/679)
 
 </details>
 
@@ -2722,6 +2926,8 @@ if (b == b) {
 
 答案：Infinity24
 
+[参与互动](https://github.com/yisainan/web-interview/issues/680)
+
 </details>
 
 <b><details><summary>104.下列 JavaScript 代码执行后，iNum 的值是</summary></b>
@@ -2738,6 +2944,8 @@ console.log(iNum);
 ```
 
 答案：8
+
+[参与互动](https://github.com/yisainan/web-interview/issues/681)
 
 </details>
 
@@ -2762,11 +2970,15 @@ undefined
 number
 ```
 
+[参与互动](https://github.com/yisainan/web-interview/issues/682)
+
 </details>
 
 <b><details><summary>106.不用任何插件，如何实现一个 tab 栏切换？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/683)
 
 </details>
 
@@ -2774,11 +2986,56 @@ number
 
 答案：
 
+```
+数组的map方法：
+
+概述
+map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
+
+语法
+array.map(callback[, thisArg])
+
+参数
+callback
+
+原数组中的元素经过该方法后返回一个新的元素。
+
+currentValue
+
+callback 的第一个参数，数组中当前被传递的元素。
+
+index
+
+callback 的第二个参数，数组中当前被传递的元素的索引。
+
+array
+
+callback 的第三个参数，调用 map 方法的数组。
+
+thisArg
+
+执行 callback 函数时 this 指向的对象。
+```
+
+实现：
+
+```js
+Array.prototype.map2 = function(callback) {
+  for (var i = 0; i < this.length; i++) {
+    this[i] = callback(this[i]);
+  }
+};
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/684)
+
 </details>
 
 <b><details><summary>108.有 1 到 10w 这个 10w 个数，去除 2 个并打乱次序，如何找出那两个数？</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/685)
 
 </details>
 
@@ -2786,11 +3043,29 @@ number
 
 答案：
 
+```js
+Object.keys——IE9+
+```
+
+或者使用 for…in 并过滤出继承的属性
+
+```js
+for (o in obj) {
+  if (obj.hasOwnproperty(o)) {
+    //把o这个属性放入到一个数组中
+  }
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/686)
+
 </details>
 
 <b><details><summary>110.约瑟夫环—已知 n 个人（以编号 1，2，3…分别表示）围坐在一张圆桌周围。从编号为 k 的人开始报数，数到 m 的那个人出列；他的下一个人又从 1 开始报数，数到 m 的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</summary></b>
 
 答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/687)
 
 </details>
 
@@ -2798,675 +3073,11 @@ number
 
 答案：
 
-</details>
-
-<b><details><summary>112.有下面这样一段 HTML 结构，使用 css 实现这样的效果：</summary></b>
-
-```html
-<!-- 左边容器无论宽度如何变动，右边容器都能自适应填满父容器剩余的宽度。 -->
-<div class=""warp"">
-  <div class=""left""></div>
-  <div class=""right""></div>
-</div>
-```
-
-答案：
+[参与互动](https://github.com/yisainan/web-interview/issues/688)
 
 </details>
 
-<b><details><summary>113.console.log( 8 | 1 ); 输出值是多少？</summary></b>
-
-答案：9
-
-</details>
-
-<b><details><summary>114.只允许使用 + - _ / 和 Math._ ，求一个函数 y = f(x, a, b);当 x > 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用|,?:,数组。</summary></b>
-
-答案：
-
-```js
-function f(x, a, b) {
-  var temp = Math.ceil(Math.min(Math.max(x - 100, 0), 1));
-  return a * temp + b * (1 - temp);
-}
-console.log(f(-10, 1, 2));
-```
-
-</details>
-
-<b><details><summary>115.JavaScript alert(0.4\*0.2);结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
-
-答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用 try catch return 写了一个函数，
-当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
-
-</details>
-
-<b><details><summary>116.如何显示/隐藏一个 dom 元素？请用原生的 JavaScript 方法实现</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>117.闭包：下面这个 ul，如何点击每一列的时候 alert 其 index？</summary></b>
-
-```html
-<ul id="test">
-  <li>这是第一条</li>
-  <li>这是第二条</li>
-  <li>这是第三条</li>
-</ul>
-```
-
-答案：
-
-</details>
-
-<b><details><summary>118.如现在有一个效果，有显示用户头像、用户昵称、用户其他信息；当用户鼠标移到头像上时，会弹出用户的所有信息；如果是你，你会如何实现这个功能，请用代码实现？</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>119.call 与 apply 有什么作用？又有什么什么区别？用 callee 属性实现函数递归？</summary></b>
-
-答案：apply 的参数是数组,call 的参数是单个的值，除此之外，两者没有差别，重点理解 this 的改变，callee 已经不推荐使用
-
-</details>
-
-<b><details><summary>120.用正则表达式，写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串？</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>121.写一个函数可以计算 sum(5,0,-5);输出 0; sum(1,2,3,4);输出 10;</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>122.事件代理怎么实现？</summary></b>
-
-答案：
-
-解析：在元素的父节点注册事件，通过事件冒泡，在父节点捕获事件
-
-</details>
-
-<b><details><summary>123.对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
-
-答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。?如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
-
-</details>
-
-<b><details><summary>124.《正则》写出正确的正则表达式匹配固话号，区号 3-4 位，第一位为 0，中横线，7-8 位数字，中横线，3-4 位分机号格式的固话号</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>125.《算法》 一下 A,B 可任选一题作答，两题全答加分</summary></b>
-
-A:农场买了一只羊，第一年是小羊，第二年底生一只，第三年不生，第四年底再生一只，第五年死掉。
-
-B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
-
-答案：
-
-</details>
-
-<b><details><summary>126.请写出一张图片的 HTML 代码，已知道图片地址为“images/abc.jpg",宽 100px，高 50px</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
-
-答案：^(?=.\\\\\\\_\d)(?=.\\\\\\\_[a-z])(?=.\\\\\\\\*[A-Z])[a-zA-Z\d]{6,20}\$
-
-</details>
-
-<b><details><summary>128.统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 5 个 1</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>129.删除与某个字符相邻且相同的字符，比如 fdaffdaaklfjklja 字符串处理之后成为“fdafdaklfjklja"</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个 form 表单，并在里面添加一个 input 对象并给它任意赋值后义 post 方式提交到：http://127.0.0.1/save.php</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>132.编写一个快速方法将 html 的 sup 提取转换为一个数组</summary></b>
-
-```js
-// 编写一个快速方法将html的sup提取转换为一个数组，如：
-let str = "气量(10<sup>8</sup>m<sup>3</sup>)";
-// 输出结果
-// ['气量(10',8,'m',3,')']
-```
-
-答案：
-
-```js
-// 方法1
-str.split(/\<\/?sup\>/);
-// 方法2
-str.split(/<[^>]+>/);
-```
-
-</details>
-
-<b><details><summary>133.求 num 的值</summary></b>
-
-答案：
-
-```js
-//   面试题1
-var num = 123;
-function f1() {
-  console.log(num); // 123
-}
-function f2() {
-  var num = 456;
-  f1();
-}
-f2();
-
-//面试题1 变式
-var num = 123;
-function f1(num) {
-  console.log(num); // 456
-}
-function f2() {
-  var num = 456;
-  f1(num);
-}
-f2();
-
-//面试题1  变式
-var num = 123;
-function f1() {
-  console.log(num); // 456
-}
-f2();
-function f2() {
-  num = 456; //这里是全局变量
-  f1();
-}
-console.log(num); // 456
-```
-
-</details>
-
-<b><details><summary>134.有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行 3 次，再次执行无效，如何实现</summary></b>
-
-这个题目是考察闭包的使用
-
-答案：
-
-```js
-function sayHi() {
-  console.log("hi");
-}
-
-function threeTimes(fn) {
-  let times = 0;
-  return () => {
-    if (times++ < 3) {
-      fn();
-    }
-  };
-}
-
-const newFn = threeTimes(sayHi);
-newFn();
-newFn();
-newFn();
-newFn();
-newFn(); // 后面两次执行都无任何反应
-```
-
-通过闭包变量 `times` 来控制函数的执行
-
-</details>
-
-<b><details><summary>135.实现 add 函数,让 add(a)(b)和 add(a,b)两种调用结果相同</summary></b>
-
-答案：
-
-```js
-function add(a, b) {
-  if (b === undefined) {
-    return function(x) {
-      return a + x;
-    };
-  }
-
-  return a + b;
-}
-```
-
-</details>
-
-<b><details><summary>136.格式化金钱，每千分位加逗号</summary></b>
-
-答案：
-
-```js
-function format(str) {
-  let s = "";
-  let count = 0;
-  for (let i = str.length - 1; i >= 0; i--) {
-    s = str[i] + s;
-    count++;
-    if (count % 3 == 0 && i != 0) {
-      s = "," + s;
-    }
-  }
-  return s;
-}
-```
-
-```js
-function format(str) {
-  return str.replace(/(\d)(?=(?:\d{3})+$)/g, "$1,");
-}
-```
-
-</details>
-
-<b><details><summary>137.反转数组</summary></b>
-
-### 要求
-
-**input**: I am a student <br>
-**output**: student a am I <br>
-输入是数组 输出也是数组<br>
-不允许用 `split` `splice` `reverse`<br>
-
-答案：
-
-#### 解法一
-
-```js
-function reverseArry(arry) {
-  const str = arry.join(" ");
-  const result = [];
-  let word = "";
-  for (let i = 0, len = str.length; i < len; i++) {
-    if (str[i] != " ") {
-      word += str[i];
-    } else {
-      result.unshift(word);
-      word = "";
-    }
-  }
-
-  result.unshift(word);
-  return result;
-}
-
-console.log(reverseArry(["I", "am", "a", "student"]));
-// ["student", "a", "am", "I"]
-```
-
-#### 解法二
-
-```js
-function reverseArry(arry) {
-  const result = [];
-  const distance = arry.length - 1;
-  for (let i = distance; i >= 0; i--) {
-    result[distance - i] = arry[i];
-  }
-
-  return result;
-}
-```
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>142.说出以下函数的作用是？空白区域应该填写什么？</summary></b>
-
-答案：
-
-```js
-//define
-(function(window) {
-  function fn(str) {
-    this.str = str;
-  }
-  fn.prototype.format = function() {
-    var arg = ______;
-    return this.str.replace(_____, function(a, b) {
-      return arg[b] || "";
-    });
-  };
-  window.fn = fn;
-})(window);
-//use
-(function() {
-  var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>');
-  console.log(t.format("http://www.alibaba.com", "Alibaba", "Welcome"));
-})();
-```
-
-答案：访函数的作用是使用 format 函数将函数的参数替换掉{0}这样的内容，返回一个格式化后的结果：
-第一个空是：arguments
-第二个空是：/\{(\d+)\}/ig
-
-</details>
-
-<b><details><summary>143.（设计题）想实现一个对页面某个节点的拖曳？如何做？（使用原生 JS）</summary></b>
-
-答案：
-
-回答出概念即可，下面是几个要点
-
-1. 给需要拖拽的节点绑定 mousedown, mousemove, mouseup 事件
-2. mousedown 事件触发后，开始拖拽
-3. mousemove 时，需要通过 event.clientX 和 clientY 获取拖拽位置，并实时更新位置
-4. mouseup 时，拖拽结束
-5. 需要注意浏览器边界的情况
-
-</details>
-
-<b><details><summary>144.原生 JS 的 window.onload 与 Jquery 的\$(document).ready(function(){})有什么不同？如何用原生 JS 实现 Jq 的 ready 方法？</summary></b>
-
-答案：
-
-window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
-\$(document).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。
-
-```js
-/*
- * 传递函数给whenReady()
- * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
- */
-var whenReady = (function() {
-  //这个函数返回whenReady()函数
-  var funcs = []; //当获得事件时，要运行的函数
-  var ready = false; //当触发事件处理程序时,切换为true //当文档就绪时,调用事件处理程序
-  function handler(e) {
-    if (ready) return; //确保事件处理程序只完整运行一次 //如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好
-    if (e.type === "onreadystatechange" && document.readyState !== "complete") {
-      return;
-    } //运行所有注册函数 //注意每次都要计算funcs.length //以防这些函数的调用可能会导致注册更多的函数
-    for (var i = 0; i < funcs.length; i++) {
-      funcs[i].call(document);
-    } //事件处理函数完整执行,切换ready状态, 并移除所有函数
-    ready = true;
-    funcs = null;
-  } //为接收到的任何事件注册处理程序
-  if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", handler, false);
-    document.addEventListener("readystatechange", handler, false); //IE9+
-    window.addEventListener("load", handler, false);
-  } else if (document.attachEvent) {
-    document.attachEvent("onreadystatechange", handler);
-    window.attachEvent("onload", handler);
-  } //返回whenReady()函数
-  return function whenReady(fn) {
-    if (ready) {
-      fn.call(document);
-    } else {
-      funcs.push(fn);
-    }
-  };
-})();
-```
-
-如果上述代码十分难懂，下面这个简化版：
-
-```js
-function ready(fn) {
-  if (document.addEventListener) {
-    //标准浏览器
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-        //注销事件, 避免反复触发
-        document.removeEventListener(
-          "DOMContentLoaded",
-          arguments.callee,
-          false
-        );
-        fn(); //执行函数
-      },
-      false
-    );
-  } else if (document.attachEvent) {
-    //IE
-    document.attachEvent("onreadystatechange", function() {
-      if (document.readyState == "complete") {
-        document.detachEvent("onreadystatechange", arguments.callee);
-        fn(); //函数执行
-      }
-    });
-  }
-}
-```
-
-</details>
-
-<b><details><summary>145.对作用域上下文和 this 的理解，看下列代码：</summary></b>
-
-```js
-var User = {
-  count: 1,
-  getCount: function() {
-    return this.count;
-  }
-};
-console.log(User.getCount()); // what?
-var func = User.getCount;
-console.log(func()); // what?
-```
-
-问两处 console 输出什么？为什么？
-
-答案：1 和 undefined。func 是在 winodw 的上下文中被执行的，所以会访问不到 count 属性。
-
-解析：
-
-继续追问，那么如何确保 Uesr 总是能访问到 func 的上下文，即正确返回 1。正确的方法是使用 Function.prototype.bind。兼容各个浏览器完整代码如下：
-
-```js
-Function.prototype.bind =
-  Function.prototype.bind ||
-  function(context) {
-    var self = this;
-    return function() {
-      return self.apply(context, arguments);
-    };
-  };
-var func = User.getCount.bind(User);
-console.log(func());
-```
-
-</details>
-
-<b><details><summary>147.定义一个 log 方法，让它可以代理 console.log 的方法。</summary></b>
-
-答案：
-
-可行的方法一：
-
-```js
-function log(msg) {
-  console.log(msg);
-}
-log("hello world!"); // hello world!
-```
-
-如果要传入多个参数呢？显然上面的方法不能满足要求，所以更好的方法是：
-
-```js
-function log() {
-  console.log.apply(console, arguments);
-}
-```
-
-到此，追问 apply 和 call 方法的异同。
-
-对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
-
-但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。  如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
-
-</details>
-
-<b><details><summary>148.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回，例如：addSpace(“hello world") // -> 'h e l l o  w o r l d'</summary></b>
-
-答案：
-
-```js
-String.prototype.spacify = function() {
-  return this.split("").join(" ");
-};
-```
-
-接着上述问题答案提问，1）直接在对象的原型上添加方法是否安全？尤其是在 Object 对象上。(这个我没能答出？希望知道的说一下。)　 2）函数声明与函数表达式的区别？
-答案：在 js 中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。
-
-</details>
-
-<b><details><summary>149.请评价以下代码并给出改进意见</summary></b>
-
-答案：
-
-```js
-if (window.addEventListener) {
-  var addListener = function(el, type, listener, useCapture) {
-    el.addEventListener(type, listener, useCapture);
-  };
-} else if (document.all) {
-  addListener = function(el, type, listener) {
-    el.attachEvent("on" + type, function() {
-      listener.apply(el);
-    });
-  };
-}
-```
-
-*　不应该在 if 和 else 语句中声明 addListener 函数，应该先声明；
-*　不需要使用 window.addEventListener 或 document.all 来进行检测浏览器，应该使用能力检测； \*　由于 attachEvent 在 IE 中有 this 指向问题，所以调用它时需要处理一下
-
-改进如下：
-
-```js
-function addEvent(elem, type, handler) {
-  if (elem.addEventListener) {
-    elem.addEventListener(type, handler, false);
-  } else if (elem.attachEvent) {
-    elem["temp" + type + handler] = handler;
-    elem[type + handler] = function() {
-      elem["temp" + type + handler].apply(elem);
-    };
-    elem.attachEvent("on" + type, elem[type + handler]);
-  } else {
-    elem["on" + type] = handler;
-  }
-}
-```
-
-</details>
-
-<b><details><summary>150.编写一个 JavaScript 函数，输入指定类型的选择器(仅需支持 id，class，tagName 三种简单 CSS 选择器，无需兼容组合选择器)可以返回匹配的 DOM 节点，需考虑浏览器兼容性和性能。</summary></b>
-
-答案：
-
-```js
-/*** @param selector {String} 传入的CSS选择器。* @return {Array}*/
-var query = function(selector) {
-  var reg = /^(#)?(\.)?(\w+)$/gim;
-  var regResult = reg.exec(selector);
-  var result = [];
-  //如果是id选择器
-  if (regResult[1]) {
-    if (regResult[3]) {
-      if (typeof document.querySelector === "function") {
-        result.push(document.querySelector(regResult[3]));
-      } else {
-        result.push(document.getElementById(regResult[3]));
-      }
-    }
-  } //如果是class选择器
-  else if (regResult[2]) {
-    if (regResult[3]) {
-      if (typeof document.getElementsByClassName === "function") {
-        var doms = document.getElementsByClassName(regResult[3]);
-        if (doms) {
-          result = converToArray(doms);
-        }
-      } //如果不支持getElementsByClassName函数
-      else {
-        var allDoms = document.getElementsByTagName("*");
-        for (var i = 0, len = allDoms.length; i < len; i++) {
-          if (allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
-            result.push(allDoms[i]);
-          }
-        }
-      }
-    }
-  } //如果是标签选择器
-  else if (regResult[3]) {
-    var doms = document.getElementsByTagName(regResult[3].toLowerCase());
-    if (doms) {
-      result = converToArray(doms);
-    }
-  }
-  return result;
-};
-function converToArray(nodes) {
-  var array = null;
-  try {
-    array = Array.prototype.slice.call(nodes, 0); //针对非IE浏览器
-  } catch (ex) {
-    array = new Array();
-    for (var i = 0, len = nodes.length; i < len; i++) {
-      array.push(nodes[i]);
-    }
-  }
-  return array;
-}
-```
-
-</details>
-
-<b><details><summary>151.下列控制台都输出什么</summary></b>
+<b><details><summary>112.下列控制台都输出什么</summary></b>
 
 答案：
 
@@ -3658,5 +3269,680 @@ function foo() {
   var name = "hello";
 }
 ```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/689)
+
+</details>
+
+<b><details><summary>113.console.log( 8 | 1 ); 输出值是多少？</summary></b>
+
+答案：9
+
+[参与互动](https://github.com/yisainan/web-interview/issues/690)
+
+</details>
+
+<b><details><summary>114.只允许使用 + - _ / 和 Math._ ，求一个函数 y = f(x, a, b);当 x > 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用|,?:,数组。</summary></b>
+
+答案：
+
+```js
+function f(x, a, b) {
+  var temp = Math.ceil(Math.min(Math.max(x - 100, 0), 1));
+  return a * temp + b * (1 - temp);
+}
+console.log(f(-10, 1, 2));
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/691)
+
+</details>
+
+<b><details><summary>115.JavaScript alert(0.4\*0.2);结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
+
+答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用 try catch return 写了一个函数，
+当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/692)
+
+</details>
+
+<b><details><summary>116.如何显示/隐藏一个 dom 元素？请用原生的 JavaScript 方法实现</summary></b>
+
+答案：
+
+dom.style.display="none";
+dom.style.display="block";
+
+[参与互动](https://github.com/yisainan/web-interview/issues/693)
+
+</details>
+
+<b><details><summary>117.编写一个 JavaScript 函数，输入指定类型的选择器(仅需支持 id，class，tagName 三种简单 CSS 选择器，无需兼容组合选择器)可以返回匹配的 DOM 节点，需考虑浏览器兼容性和性能。</summary></b>
+
+答案：
+
+```js
+/*** @param selector {String} 传入的CSS选择器。* @return {Array}*/
+var query = function(selector) {
+  var reg = /^(#)?(\.)?(\w+)$/gim;
+  var regResult = reg.exec(selector);
+  var result = [];
+  //如果是id选择器
+  if (regResult[1]) {
+    if (regResult[3]) {
+      if (typeof document.querySelector === "function") {
+        result.push(document.querySelector(regResult[3]));
+      } else {
+        result.push(document.getElementById(regResult[3]));
+      }
+    }
+  } //如果是class选择器
+  else if (regResult[2]) {
+    if (regResult[3]) {
+      if (typeof document.getElementsByClassName === "function") {
+        var doms = document.getElementsByClassName(regResult[3]);
+        if (doms) {
+          result = converToArray(doms);
+        }
+      } //如果不支持getElementsByClassName函数
+      else {
+        var allDoms = document.getElementsByTagName("*");
+        for (var i = 0, len = allDoms.length; i < len; i++) {
+          if (allDoms[i].className.search(new RegExp(regResult[2])) > -1) {
+            result.push(allDoms[i]);
+          }
+        }
+      }
+    }
+  } //如果是标签选择器
+  else if (regResult[3]) {
+    var doms = document.getElementsByTagName(regResult[3].toLowerCase());
+    if (doms) {
+      result = converToArray(doms);
+    }
+  }
+  return result;
+};
+function converToArray(nodes) {
+  var array = null;
+  try {
+    array = Array.prototype.slice.call(nodes, 0); //针对非IE浏览器
+  } catch (ex) {
+    array = new Array();
+    for (var i = 0, len = nodes.length; i < len; i++) {
+      array.push(nodes[i]);
+    }
+  }
+  return array;
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/694)
+
+</details>
+
+<b><details><summary>118.如现在有一个效果，有显示用户头像、用户昵称、用户其他信息；当用户鼠标移到头像上时，会弹出用户的所有信息；如果是你，你会如何实现这个功能，请用代码实现？</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/695)
+
+</details>
+
+<b><details><summary>119.call 与 apply 有什么作用？又有什么什么区别？用 callee 属性实现函数递归？</summary></b>
+
+答案：apply 的参数是数组,call 的参数是单个的值，除此之外，两者没有差别，重点理解 this 的改变，callee 已经不推荐使用
+
+[参与互动](https://github.com/yisainan/web-interview/issues/696)
+
+</details>
+
+<b><details><summary>120.用正则表达式，写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串？</summary></b>
+
+答案：var reg=/^[a-ZA-Z][\da-za-z_]{5,29}/;
+
+[参与互动](https://github.com/yisainan/web-interview/issues/697)
+
+</details>
+
+<b><details><summary>121.写一个函数可以计算 sum(5,0,-5);输出 0; sum(1,2,3,4);输出 10;</summary></b>
+
+答案：
+
+```js
+function calc() {
+  var result = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    var obj = arguments[i];
+    result += obj;
+  }
+  return result;
+}
+alert(calc(1, 2, 3, 4));
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/698)
+
+</details>
+
+<b><details><summary>122.请评价以下代码并给出改进意见</summary></b>
+
+答案：
+
+```js
+if (window.addEventListener) {
+  var addListener = function(el, type, listener, useCapture) {
+    el.addEventListener(type, listener, useCapture);
+  };
+} else if (document.all) {
+  addListener = function(el, type, listener) {
+    el.attachEvent("on" + type, function() {
+      listener.apply(el);
+    });
+  };
+}
+```
+
+*　不应该在 if 和 else 语句中声明 addListener 函数，应该先声明；
+*　不需要使用 window.addEventListener 或 document.all 来进行检测浏览器，应该使用能力检测； \*　由于 attachEvent 在 IE 中有 this 指向问题，所以调用它时需要处理一下
+
+改进如下：
+
+```js
+function addEvent(elem, type, handler) {
+  if (elem.addEventListener) {
+    elem.addEventListener(type, handler, false);
+  } else if (elem.attachEvent) {
+    elem["temp" + type + handler] = handler;
+    elem[type + handler] = function() {
+      elem["temp" + type + handler].apply(elem);
+    };
+    elem.attachEvent("on" + type, elem[type + handler]);
+  } else {
+    elem["on" + type] = handler;
+  }
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/699)
+
+</details>
+
+<b><details><summary>123.对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
+
+答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。?如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/700)
+
+</details>
+
+<b><details><summary>124.《正则》写出正确的正则表达式匹配固话号，区号 3-4 位，第一位为 0，中横线，7-8 位数字，中横线，3-4 位分机号格式的固话号</summary></b>
+
+答案：/0[0-9]{2,3}-\d{7,8}/
+
+[参与互动](https://github.com/yisainan/web-interview/issues/701)
+
+</details>
+
+<b><details><summary>125.《算法》 一下 A,B 可任选一题作答，两题全答加分</summary></b>
+
+A:农场买了一只羊，第一年是小羊，第二年底生一只，第三年不生，第四年底再生一只，第五年死掉。
+
+B:写出代码对下列数组去重并从大到小排列{5,2,3,6,8,6,5,4,7,1,9}
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/702)
+
+</details>
+
+<b><details><summary>126.给 String 对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间加个空格返回，例如：addSpace("hello world") // -> 'h e l l o  w o r l d'</summary></b>
+
+答案：
+
+```js
+String.prototype.spacify = function() {
+  return this.split("").join(" ");
+};
+```
+
+接着上述问题答案提问，1）直接在对象的原型上添加方法是否安全？尤其是在 Object 对象上。(这个我没能答出？希望知道的说一下。)　 2）函数声明与函数表达式的区别？
+
+答案：在 js 中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/703)
+
+</details>
+
+<b><details><summary>127.请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
+
+答案：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$
+
+[参与互动](https://github.com/yisainan/web-interview/issues/704)
+
+</details>
+
+<b><details><summary>128.统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 5 个 1</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/705)
+
+</details>
+
+<b><details><summary>129.删除与某个字符相邻且相同的字符，比如 fdaffdaaklfjklja 字符串处理之后成为"fdafdaklfjklja"</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/706)
+
+</details>
+
+<b><details><summary>130.请写出一个程序，在页面加载完成后动态创建一个 form 表单，并在里面添加一个 input 对象并给它任意赋值后义 post 方式提交到：http://127.0.0.1/save.php</summary></b>
+
+答案：
+
+[参与互动](https://github.com/yisainan/web-interview/issues/707)
+
+</details>
+
+<b><details><summary>131.定义一个 log 方法，让它可以代理 console.log 的方法。</summary></b>
+
+答案：
+
+可行的方法一：
+
+```js
+function log(msg) {
+  console.log(msg);
+}
+log("hello world!"); // hello world!
+```
+
+如果要传入多个参数呢？显然上面的方法不能满足要求，所以更好的方法是：
+
+```js
+function log() {
+  console.log.apply(console, arguments);
+}
+```
+
+到此，追问 apply 和 call 方法的异同。
+
+对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+
+但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。  如 func.call(func1,var1,var2,var3)对应的 apply 写法为：func.apply(func1,[var1,var2,var3]) 。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/708)
+
+</details>
+
+<b><details><summary>132.编写一个快速方法将 html 的 sup 提取转换为一个数组</summary></b>
+
+```js
+// 编写一个快速方法将html的sup提取转换为一个数组，如：
+let str = "气量(10<sup>8</sup>m<sup>3</sup>)";
+// 输出结果
+// ['气量(10',8,'m',3,')']
+```
+
+答案：
+
+```js
+// 方法1
+str.split(/\<\/?sup\>/);
+// 方法2
+str.split(/<[^>]+>/);
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/709)
+
+</details>
+
+<b><details><summary>133.求 num 的值</summary></b>
+
+答案：
+
+```js
+// 面试题1
+var num = 123;
+function f1() {
+  console.log(num); // 123
+}
+function f2() {
+  var num = 456;
+  f1();
+}
+f2();
+
+// 面试题1 变式
+var num = 123;
+function f1(num) {
+  console.log(num); // 456
+}
+function f2() {
+  var num = 456;
+  f1(num);
+}
+f2();
+
+// 面试题1 变式
+var num = 123;
+function f1() {
+  console.log(num); // 456
+}
+f2();
+function f2() {
+  num = 456; //这里是全局变量
+  f1();
+}
+console.log(num); // 456
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/710)
+
+</details>
+
+<b><details><summary>134.有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行 3 次，再次执行无效，如何实现</summary></b>
+
+这个题目是考察闭包的使用
+
+答案：
+
+```js
+function sayHi() {
+  console.log("hi");
+}
+
+function threeTimes(fn) {
+  let times = 0;
+  return () => {
+    if (times++ < 3) {
+      fn();
+    }
+  };
+}
+
+const newFn = threeTimes(sayHi);
+newFn();
+newFn();
+newFn();
+newFn();
+newFn(); // 后面两次执行都无任何反应
+```
+
+通过闭包变量 `times` 来控制函数的执行
+
+[参与互动](https://github.com/yisainan/web-interview/issues/711)
+
+</details>
+
+<b><details><summary>135.实现 add 函数,让 add(a)(b)和 add(a,b)两种调用结果相同</summary></b>
+
+答案：
+
+```js
+function add(a, b) {
+  if (b === undefined) {
+    return function(x) {
+      return a + x;
+    };
+  }
+  return a + b;
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/712)
+
+</details>
+
+<b><details><summary>136.格式化金钱，每千分位加逗号</summary></b>
+
+答案：
+
+```js
+function format(str) {
+  let s = "";
+  let count = 0;
+  for (let i = str.length - 1; i >= 0; i--) {
+    s = str[i] + s;
+    count++;
+    if (count % 3 == 0 && i != 0) {
+      s = "," + s;
+    }
+  }
+  return s;
+}
+```
+
+```js
+function format(str) {
+  return str.replace(/(\d)(?=(?:\d{3})+$)/g, "$1,");
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/713)
+
+</details>
+
+<b><details><summary>137.反转数组</summary></b>
+
+### 要求
+
+**input**: I am a student <br>
+**output**: student a am I <br>
+输入是数组 输出也是数组<br>
+不允许用 `split` `splice` `reverse`<br>
+
+答案：
+
+#### 解法一
+
+```js
+function reverseArry(arry) {
+  const str = arry.join(" ");
+  const result = [];
+  let word = "";
+  for (let i = 0, len = str.length; i < len; i++) {
+    if (str[i] != " ") {
+      word += str[i];
+    } else {
+      result.unshift(word);
+      word = "";
+    }
+  }
+
+  result.unshift(word);
+  return result;
+}
+
+console.log(reverseArry(["I", "am", "a", "student"]));
+// ["student", "a", "am", "I"]
+```
+
+#### 解法二
+
+```js
+function reverseArry(arry) {
+  const result = [];
+  const distance = arry.length - 1;
+  for (let i = distance; i >= 0; i--) {
+    result[distance - i] = arry[i];
+  }
+
+  return result;
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/714)
+
+</details>
+
+<b><details><summary>138.说出以下函数的作用是？空白区域应该填写什么？</summary></b>
+
+答案：
+
+```js
+//define
+(function(window) {
+  function fn(str) {
+    this.str = str;
+  }
+  fn.prototype.format = function() {
+    var arg = ______;
+    return this.str.replace(_____, function(a, b) {
+      return arg[b] || "";
+    });
+  };
+  window.fn = fn;
+})(window);
+//use
+(function() {
+  var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>');
+  console.log(t.format("http://www.alibaba.com", "Alibaba", "Welcome"));
+})();
+```
+
+答案：访函数的作用是使用 format 函数将函数的参数替换掉{0}这样的内容，返回一个格式化后的结果：
+第一个空是：arguments
+第二个空是：/\{(\d+)\}/ig
+
+[参与互动](https://github.com/yisainan/web-interview/issues/715)
+
+</details>
+
+<b><details><summary>139.（设计题）想实现一个对页面某个节点的拖曳？如何做？（使用原生 JS）</summary></b>
+
+答案：
+
+回答出概念即可，下面是几个要点
+
+1. 给需要拖拽的节点绑定 mousedown, mousemove, mouseup 事件
+2. mousedown 事件触发后，开始拖拽
+3. mousemove 时，需要通过 event.clientX 和 clientY 获取拖拽位置，并实时更新位置
+4. mouseup 时，拖拽结束
+5. 需要注意浏览器边界的情况
+
+[参与互动](https://github.com/yisainan/web-interview/issues/716)
+
+</details>
+
+<b><details><summary>140.原生 JS 的 window.onload 与 Jquery 的\$(document).ready(function(){})有什么不同？如何用原生 JS 实现 Jq 的 ready 方法？</summary></b>
+
+答案：
+
+window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
+\$(document).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。
+
+```js
+/*
+ * 传递函数给whenReady()
+ * 当文档解析完毕且为操作准备就绪时，函数作为document的方法调用
+ */
+var whenReady = (function() {
+  //这个函数返回whenReady()函数
+  var funcs = []; //当获得事件时，要运行的函数
+  var ready = false; //当触发事件处理程序时,切换为true //当文档就绪时,调用事件处理程序
+  function handler(e) {
+    if (ready) return; //确保事件处理程序只完整运行一次 //如果发生onreadystatechange事件，但其状态不是complete的话,那么文档尚未准备好
+    if (e.type === "onreadystatechange" && document.readyState !== "complete") {
+      return;
+    } //运行所有注册函数 //注意每次都要计算funcs.length //以防这些函数的调用可能会导致注册更多的函数
+    for (var i = 0; i < funcs.length; i++) {
+      funcs[i].call(document);
+    } //事件处理函数完整执行,切换ready状态, 并移除所有函数
+    ready = true;
+    funcs = null;
+  } //为接收到的任何事件注册处理程序
+  if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", handler, false);
+    document.addEventListener("readystatechange", handler, false); //IE9+
+    window.addEventListener("load", handler, false);
+  } else if (document.attachEvent) {
+    document.attachEvent("onreadystatechange", handler);
+    window.attachEvent("onload", handler);
+  } //返回whenReady()函数
+  return function whenReady(fn) {
+    if (ready) {
+      fn.call(document);
+    } else {
+      funcs.push(fn);
+    }
+  };
+})();
+```
+
+如果上述代码十分难懂，下面这个简化版：
+
+```js
+function ready(fn) {
+  if (document.addEventListener) {
+    //标准浏览器
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+        //注销事件, 避免反复触发
+        document.removeEventListener(
+          "DOMContentLoaded",
+          arguments.callee,
+          false
+        );
+        fn(); //执行函数
+      },
+      false
+    );
+  } else if (document.attachEvent) {
+    //IE
+    document.attachEvent("onreadystatechange", function() {
+      if (document.readyState == "complete") {
+        document.detachEvent("onreadystatechange", arguments.callee);
+        fn(); //函数执行
+      }
+    });
+  }
+}
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/717)
+
+</details>
+
+<b><details><summary>141.对作用域上下文和 this 的理解，看下列代码：</summary></b>
+
+```js
+var User = {
+  count: 1,
+  getCount: function() {
+    return this.count;
+  }
+};
+console.log(User.getCount()); // what?
+var func = User.getCount;
+console.log(func()); // what?
+```
+
+问两处 console 输出什么？为什么？
+
+答案：1 和 undefined。func 是在 winodw 的上下文中被执行的，所以会访问不到 count 属性。
+
+解析：
+
+继续追问，那么如何确保 Uesr 总是能访问到 func 的上下文，即正确返回 1。正确的方法是使用 Function.prototype.bind。兼容各个浏览器完整代码如下：
+
+```js
+Function.prototype.bind =
+  Function.prototype.bind ||
+  function(context) {
+    var self = this;
+    return function() {
+      return self.apply(context, arguments);
+    };
+  };
+var func = User.getCount.bind(User);
+console.log(func());
+```
+
+[参与互动](https://github.com/yisainan/web-interview/issues/718)
 
 </details>
