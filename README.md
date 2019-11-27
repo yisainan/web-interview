@@ -146,7 +146,9 @@
 
 # 我来出题
 
-毕竟一个人的能力有限，大家都参与进来，才能使项目更加完善。[出题步骤](https://github.com/yisainan/web-interview/issues/813)。
+毕竟一个人的能力有限，大家都参与进来，才能使项目更加完善。详见：[出题步骤](https://github.com/yisainan/web-interview/issues/813)
+
+<br/>
 
 # 学习交流
 
