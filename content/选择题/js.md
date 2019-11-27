@@ -557,3 +557,26 @@ D background
 [参与互动](https://github.com/yisainan/web-interview/issues/629)
 
 </details>
+
+<b><details><summary>34.请问http状态码200是什么意思( )</summary></b>
+
+```
+A 请求成功
+B 请求失败
+C 无权限访问
+D 请求的网页不存在
+```
+
+答案: A
+
+解析: 
+
+| 状态码 | 类别                             | 描述                   |
+| ------ | -------------------------------- | ---------------------- |
+| 1xx    | Informational（信息状态码）      | 接受请求正在处理       |
+| 2xx    | Success（成功状态码）            | 请求正常处理完毕       |
+| 3xx    | Redirection（重定向状态码）      | 需要附加操作已完成请求 |
+| 4xx    | Client Error（客户端错误状态码） | 服务器无法处理请求     |
+| 5xx    | Server Error（服务器错误状态码） | 服务器处理请求出错     |
+
+</details>
