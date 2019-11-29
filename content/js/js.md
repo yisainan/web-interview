@@ -491,7 +491,7 @@ var person1 = new Person('Nike', 20, 'teacher');
 
 <b><details><summary>11.什么是原型链？ </summary></b>
 
-答案：通过一个对象的**proto**可以找到它的原型对象，原型对象也是一个对象，就可以通过原型对象的**proto**，最后找到了我们的 Object.prototype,从实例的原型对象开始一直到 Object.prototype 就是我们的原型链
+答案：通过一个对象的__proto__可以找到它的原型对象，原型对象也是一个对象，就可以通过原型对象的__proto__，最后找到了我们的 Object.prototype,从实例的原型对象开始一直到 Object.prototype 就是我们的原型链
 
 解析：
 
@@ -672,7 +672,7 @@ test(); // Hi! xiaoming
 ```js
 // 1. 创建空对象；
 var obj = {};
-// 2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象；
+// 2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象；
 obj.__proto__ = ClassA.prototype;
 // 3. 使用新对象调用函数，函数中的 this 被指向新实例对象：
 ClassA.call(obj); //{}.构造函数();
@@ -2245,7 +2245,7 @@ const test = new Test()
 const obj = {}
 ```
 
-2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的**proto**属性指向构造函数的 prototype 对象
+2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象
 
 ```
 obj.constructor = Test
@@ -4265,7 +4265,7 @@ console.log(arr.sort(() => 0.5 - Math.random()))
 
 </details>
 
-<b><details><summary>108.prototype 和**proto**的关系是什么？</summary></b>
+<b><details><summary>108.prototype 和__proto__的关系是什么？</summary></b>
 
 答案：
 
@@ -4549,7 +4549,7 @@ console.log(o1.a) // 3
 
 <b><details><summary>131.用原生 JavaScript 的实现过什么功能吗？</summary></b>
 
-答案：
+答案：轮播图、手风琴、放大镜、3D动画效果等，切记，所答的一定要知道实现原理！，不知道还不如不说！
 
 [参与互动](https://github.com/yisainan/web-interview/issues/300)
 
@@ -4859,11 +4859,11 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 
 </details>
 
-<b><details><summary>157.prototype 和**proto**的关系是什么</summary></b>
+<b><details><summary>157.prototype 和__proto__的关系是什么</summary></b>
 
 答案：
 
-所有的对象都拥有**proto**属性，它指向对象构造函数的 prototype 属性
+所有的对象都拥有__proto__属性，它指向对象构造函数的 prototype 属性
 
 ```
 let obj = {}
@@ -4873,15 +4873,15 @@ function Test(){}
 test.__proto__ == Test.prototype // true
 ```
 
-所有的函数都同时拥有**proto**和 protytpe 属性
-函数的**proto**指向自己的函数实现 函数的 protytpe 是一个对象 所以函数的 prototype 也有**proto**属性 指向 Object.prototype
+所有的函数都同时拥有__proto__和 protytpe 属性
+函数的__proto__指向自己的函数实现 函数的 protytpe 是一个对象 所以函数的 prototype 也有__proto__属性 指向 Object.prototype
 
 ```
 function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
 
-Object.prototype.**proto**指向 null
+Object.prototype.__proto__指向 null
 
 ```
 Object.prototype.__proto__ // null
@@ -4980,5 +4980,16 @@ baz = "qux";
 <b><details><summary>162.事件代理怎么实现？</summary></b>
 
 答案：在元素的父节点注册事件，通过事件冒泡，在父节点捕获事件
+
+</details>
+
+<b><details><summary>163.什么是属性搜索原则？</summary></b>
+
+答案：
+
+1. 首先会去查找对象本身上面有没有这个属性，有的话，就返回这个属性
+2. 如果对象本身上面没有这个属性，就到它的原型上面去查找，如果有，就返回
+3. 就到原型的原型上面去查找有没有这个属性，如果查找到最后一只没有找到，就返回一个undefined
+
 
 </details>
