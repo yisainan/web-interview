@@ -4891,6 +4891,22 @@ Object.prototype.__proto__ // null
 
 </details>
 
+<b><details><summary>158.什么是原型属性？</summary></b>
+
+答案：从构造函数的prototype属性出发找到原型，这时候就把原型称之为构造函数的原型属性
+
+[参与互动](https://github.com/yisainan/web-interview/issues/880)
+
+</details>
+
+<b><details><summary>159.什么是原型对象？</summary></b>
+
+答案：从实例的__proto__出发，找到原型，这时候就把原型称之为实例的原型对象。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/881)
+
+</details>
+
 <b><details><summary>160.使用 let、var 和 const 创建变量有什么区别</summary></b>
 
 答案：
@@ -4969,17 +4985,23 @@ baz = "qux";
 
 解析：[参考](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
 
+[参与互动](https://github.com/yisainan/web-interview/issues/882)
+
 </details>
 
 <b><details><summary>161.JSON 的了解</summary></b>
 
-答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小
+答案：JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于 JavaScript 的一个子集。数据格式简单, 易于读写, 占用带宽小。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/883)
 
 </details>
 
 <b><details><summary>162.事件代理怎么实现？</summary></b>
 
 答案：在元素的父节点注册事件，通过事件冒泡，在父节点捕获事件
+
+[参与互动](https://github.com/yisainan/web-interview/issues/884)
 
 </details>
 
@@ -4991,5 +5013,6 @@ baz = "qux";
 2. 如果对象本身上面没有这个属性，就到它的原型上面去查找，如果有，就返回
 3. 就到原型的原型上面去查找有没有这个属性，如果查找到最后一只没有找到，就返回一个undefined
 
+[参与互动](https://github.com/yisainan/web-interview/issues/885)
 
 </details>
