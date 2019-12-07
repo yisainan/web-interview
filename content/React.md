@@ -384,3 +384,15 @@ React.cloneElement(element, [props], [...children]);
 [参与互动](https://github.com/yisainan/web-interview/issues/524)
 
 </details>
+
+<b><details><summary>30.React实现一个防抖的模糊查询输入框</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>31.React 和 Vue 的 diff 时间复杂度从 O(n^3) 优化到 O(n) ，那么 O(n^3) 和 O(n) 是如何计算出来的？</summary></b>
+
+答案：
+
+</details>

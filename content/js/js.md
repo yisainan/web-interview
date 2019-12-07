@@ -5016,3 +5016,127 @@ baz = "qux";
 [参与互动](https://github.com/yisainan/web-interview/issues/885)
 
 </details>
+
+<b><details><summary>164.如何避免重绘或者重排？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>165.说下函数式编程的理解</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>166.forEach，map和filter的区别（哔哩哔哩）</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>167.delete 数组的 item，数组的 length 是否会 -1</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>168.给出 ['1', '3', '10'].map(parseInt) 执行结果</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>169.执行上下文</summary></b>
+
+答案：
+
+执行上下文可以简单理解为一个对象:
+
+
+它包含三个部分:
+
+* 变量对象(VO)
+* 作用域链(词法作用域)
+* this指向
+
+它的类型:
+
+* 全局执行上下文
+* 函数执行上下文
+* eval执行上下文
+
+代码执行过程:
+
+* 创建 全局上下文 (global EC)
+* 全局执行上下文 (caller) 逐行 自上而下 执行。遇到函数时，函数执行上下文 (callee) 被push到执行栈顶层
+* 函数执行上下文被激活，成为 active EC, 开始执行函数中的代码，caller 被挂起
+* 函数执行完后，callee 被pop移除出执行栈，控制权交还全局上下文 (caller)，继续执行
+
+</details>
+
+<b><details><summary>168.给出 ['1', '3', '10'].map(parseInt) 执行结果</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>169.轮播图实现原理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>170.如何设计一个轮播图组件</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>171.Promise.all并发限制</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>172.为什么for循环嵌套顺序会影响性能？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>173.为什么普通 for 循环的性能远远高于 forEach 的性能，请解释其中的原因</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>174.input 搜索如何防抖，如何处理中文输入</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>175.介绍下 Promise.all 使用、原理实现及错误处理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>176.var、let 和 const 区别的实现原理是什么</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>177.介绍下 Promise.all 使用、原理实现及错误处理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>178.在输入框中如何判断输入的是一个正确的网址</summary></b>
+
+答案：
+
+</details>

@@ -78,7 +78,7 @@ Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
 </details>
 
-<b><details><summary>4. 为什么要替换 Object.defineProperty？</summary></b>
+<b><details><summary>4. 为什么要替换 Object.defineProperty？（Proxy 相比于 defineProperty 的优势）</summary></b>
 
 答案：
 
@@ -2016,5 +2016,47 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/495)
+
+</details>
+
+<b><details><summary>105. vue 是如何对数组方法进行变异的？例如 push、pop、splice 等方法</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>106. vue 组件之间的传值通信</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>107. vue 是如何对数组方法进行变异的？例如 push、pop、splice 等方法</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>108. 谈一谈 nextTick 的原理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>109. Vue 中的 computed 是如何实现的</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>110. vue 如何优化首页的加载速度？vue 首页白屏是什么问题引起的？如何解决呢？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>111.Vue 的父组件和子组件生命周期钩子执行顺序是什么</summary></b>
+
+答案：
 
 </details>

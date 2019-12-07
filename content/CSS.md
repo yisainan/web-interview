@@ -2230,3 +2230,15 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 解析：[参考](https://www.cnblogs.com/rightzhao/p/3474162.html)
 
 </details>
+
+<b><details><summary>68.DOM Tree是如何构建的？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
