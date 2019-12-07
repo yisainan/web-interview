@@ -2283,6 +2283,8 @@ call 与 apply 的不同点：两者传入的列表形式不一样
 - call 可以传入多个参数；
 - apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入
 
+想一想哪个性能更好一些呢？
+
 [参与互动](https://github.com/yisainan/web-interview/issues/215)
 
 </details>
@@ -5136,6 +5138,18 @@ baz = "qux";
 </details>
 
 <b><details><summary>178.在输入框中如何判断输入的是一个正确的网址</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>179.设计并实现 Promise.race()</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>180.箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？</summary></b>
 
 答案：
 

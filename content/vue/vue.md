@@ -2060,3 +2060,9 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 答案：
 
 </details>
+
+<b><details><summary>112.在 Vue 中，子组件为何不可以修改父组件传递的 Prop，如果修改了，Vue 是如何监控到属性的修改并给出警告的。</summary></b>
+
+答案：
+
+</details>

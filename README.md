@@ -14,7 +14,7 @@
 
 - [写给前端面试者](https://github.com/amfe/article/issues/5)
 
-🙏 仓库将持续更新，欢迎 <b>Star</b>，如有内容错误或改进意见，欢迎 [issue](https://github.com/yisainan/web-interview/issues/new?assignees=&labels=Bug&template=---------.md&title=%5Bbug%5D+) 或 pr。
+🙏 建议自己先有个思考的过程，有了自己的答案或者疑问再看解析进行对比；仓库将持续更新，欢迎 <b>Star</b>，如有内容错误或改进意见，欢迎 [issue](https://github.com/yisainan/web-interview/issues/new?assignees=&labels=Bug&template=---------.md&title=%5Bbug%5D+) 或 pr。
 
 </details>
 

@@ -4102,3 +4102,75 @@ console.log(func());
 答案：
 
 </details>
+
+<b><details><summary>168.给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。请找出这两个有序数组的中位数。要求算法的时间复杂度为 O(log(m n))。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>169.某公司 1 到 12 月份的销售额存在一个对象里面，如下：{1:222, 2:123, 5:888}，请把数据处理为如下结构：[222, 123, null, null, 888, null, null, null, null, null, null, null]。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>170.模拟实现一个 Promise.finally</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>171.ES6 代码转成 ES5 代码的实现思路是什么</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>172.随机生成一个长度为 10 的整数类型的数组，例如 [2, 10, 3, 4, 5, 11, 10, 11, 20]，将其排列成一个新数组，要求新数组形式如下，例如 [[2, 3, 4, 5], [10, 11], [20]]。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>173.如何把一个字符串的大小写取反（大写变小写小写变大写），例如 AbC 变成 aBc 。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>174.实现一个字符串匹配算法，从长度为 n 的字符串 S 中，查找是否存在字符串 T，T 的长度是 m，若存在返回所在位置。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>175.setTimeout、Promise、Async/Await 的区别</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>176.请把俩个数组 [A1, A2, B1, B2, C1, C2, D1, D2] 和 [A, B, C, D]，合并为 [A1, A2, A, B1, B2, B, C1, C2, C, D1, D2, D]。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>177.实现一个 sleep 函数，比如 sleep(1000) 意味着等待1000毫秒，可从 Promise、Generator、Async/Await 等角度实现</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>178.使用 sort() 对数组 [3, 15, 8, 29, 102, 22] 进行排序，输出结果</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>179.</summary></b>
+
+答案：
+
+</details>
