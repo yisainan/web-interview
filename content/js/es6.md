@@ -927,6 +927,36 @@ class Point {
 
 </details>
 
+<b><details><summary>22.promise如何实现then处理（宝宝树）</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

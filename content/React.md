@@ -421,7 +421,7 @@ React.cloneElement(element, [props], [...children]);
 
 </details>
 
-<b><details><summary>36.</summary></b>
+<b><details><summary>36.RN的原理，为什么可以同时在安卓和IOS端运行（寺库）</summary></b>
 
 答案：
 

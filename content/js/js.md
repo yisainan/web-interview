@@ -5023,11 +5023,36 @@ baz = "qux";
 
 答案：
 
+1. 分离读写操作
+```
+var curLeft=div.offsetLeft;
+var curTop=div.offsetTop;
+div.style.left=curLeft+1+'px';
+div.style.top=curTop+1+'px';
+```
+2. 样式集中改变 
+```
+可以添加一个类，样式都在类中改变
+```
+3. 可以使用absolute脱离文档流。
+
+4. 使用 display:none ，不使用 visibility，也不要改变 它的 z-index
+
+5. 能用css3实现的就用css3实现。
+
 </details>
 
 <b><details><summary>165.说下函数式编程的理解</summary></b>
 
 答案：
+
+1.什么是函数式编程？
+
+函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是λ演算（lambda calculus），而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）。
+
+2.优势特点
+
+代码简洁、开发快速、命令式实现、函数式实现、易于理解，抽象度高、没有副作用，变量无状态
 
 </details>
 

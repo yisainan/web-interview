@@ -2231,19 +2231,13 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 
 </details>
 
-<b><details><summary>68.DOM Tree是如何构建的？</summary></b>
+<b><details><summary>68.实现模糊搜索结果的关键词高亮显示</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>69.实现模糊搜索结果的关键词高亮显示</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>70.介绍css3中position:sticky（网易）</summary></b>
+<b><details><summary>69.介绍css3中position:sticky（网易）</summary></b>
 
 答案：
 

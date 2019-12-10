@@ -907,16 +907,28 @@ window 对象既为 javascript 访问浏览器提供 API，同时在 ECMAScript 
 
 答案：
 
+1. css的方案
+2. onresize
+3. 监听鼠标动作，鼠标释放后重新定宽
+
 </details>
 
 <b><details><summary>44.DOM Tree是如何构建的？</summary></b>
 
 答案：
 
+1. HTML 解释器
+
+HTML 解释器的工作就是将网络或者本地磁盘获取的 HTML 网页和资源从字节流解释成 DOM 树结构。
+
+2. JavaScript 的执行
+
+在 HTML 解释器的工作过程中，可能会有 JavaScript 代码需要执行，它发生在将字符串解释成词语之后、创建各种节点的时候。这也是为什么全局执行的 JavaScript 代码不能访问 DOM 的原因——因为 DOM 树还没有被创建完呢。
+
 </details>
 
 <b><details><summary>45.100*100的 canvas 占多少内存？</summary></b>
 
-答案：
+答案：[参考](https://www.jianshu.com/p/27dd0e802809)
 
 </details>
