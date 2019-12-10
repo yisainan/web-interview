@@ -5154,3 +5154,68 @@ baz = "qux";
 答案：
 
 </details>
+
+<b><details><summary>181.script 引入方式</summary></b>
+
+答案：
+
+* html 静态`<script>`引入
+* js 动态插入`<script>`
+* `<script defer>`: 延迟加载，元素解析完成后执行
+* `<script async>`: 异步加载，但执行时会阻塞元素渲染
+
+</details>
+
+<b><details><summary>182.JS 异步解决方案的发展历程以及优缺点。</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>183.数组中的forEach和map的区别</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>184.for in和for of的区别</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>185.typeof 与 instanceof 区别</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>186.数组降维</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>187.怎样理解setTimeout 执行误差</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>

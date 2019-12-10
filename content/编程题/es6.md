@@ -613,6 +613,18 @@ Mon Aug 12 2019 09:39:07 GMT+0800 (中国标准时间) 5
 
 </details>
 
+<b><details><summary>12.简单实现async/await中的async函数</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>13.简单实现项目代码按需加载，例如import { Button } from antd，打包的时候只打包button</summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

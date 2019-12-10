@@ -890,3 +890,45 @@ class Point {
 [参与互动](https://github.com/yisainan/web-interview/issues/346)
 
 </details>
+
+<b><details><summary>16.Promise 构造函数是同步执行还是异步执行，那么 then 方法呢？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>17.ES5/ES6 的继承除了写法以外还有什么区别？</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>18.对Promise的理解</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>19.generator 原理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>20.说说箭头函数的特点</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>21.请介绍Promise，异常捕获（网易）</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
