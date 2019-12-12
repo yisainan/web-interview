@@ -11,7 +11,7 @@
 问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
 
 2.$(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
-在原生的jS中不包括ready()这个方法，只有load方法就是onload事件
+在原生的js中不包括ready()这个方法，只有load方法也就是onload事件
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/170)
@@ -5060,17 +5060,37 @@ div.style.top=curTop+1+'px';
 
 答案：
 
+* filter函数，顾名思义，它是一个用来过滤的函数。他可以通过指定的过滤条件，删选出数组中符合条件的元素，并返回。
+
+* map函数，这个函数与filter函数不同之处在于，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。而map则会返回传入函数return的值。
+
+* forEach函数，可以实现对数组的遍历，和map函数与filter函数不同的是它没有返回值。
+
 </details>
 
 <b><details><summary>167.delete 数组的 item，数组的 length 是否会 -1</summary></b>
 
-答案：
+答案：不会
+
+解析：
+
+### delete Array[index]
+
+```js
+const arr = ['a', 'b', 'c', 'd', 'e'];
+let result = delete arr[1];
+console.log(result); // true;
+console.log(arr); // ['a', undefined, 'c', 'd', 'e']
+console.log(arr.length); // 5
+console.log(arr[1]); // undefined
+```
+使用delete删除元素，返回true和false,true表示删除成功，false表示删除失败。使用delete删除数组元素并不会改变原数组的长度，只是把被删除元素的值变为undefined。
 
 </details>
 
 <b><details><summary>168.给出 ['1', '3', '10'].map(parseInt) 执行结果</summary></b>
 
-答案：
+答案：[1, NaN, 2]
 
 </details>
 
@@ -5102,85 +5122,178 @@ div.style.top=curTop+1+'px';
 
 </details>
 
-<b><details><summary>168.给出 ['1', '3', '10'].map(parseInt) 执行结果</summary></b>
 
-答案：
+<b><details><summary>170.怎样理解setTimeout 执行误差</summary></b>
 
-</details>
+答案：定时器是属于 宏任务(macrotask) 。如果当前 执行栈 所花费的时间大于 定时器 时间，那么定时器的回调在 宏任务(macrotask) 里，来不及去调用，所有这个时间会有误差。
 
-<b><details><summary>169.轮播图实现原理</summary></b>
-
-答案：
+解析：[参考](https://juejin.im/post/5cfc9d266fb9a07edb3939ea?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
 
 </details>
 
-<b><details><summary>170.如何设计一个轮播图组件</summary></b>
+<b><details><summary>171.数组降维</summary></b>
 
 答案：
 
-</details>
+1.数组字符串化
+```js
+let arr = [[222, 333, 444], [55, 66, 77], {a: 1} ]
+	arr += '';
+	arr = arr.split(',');
+	
+console.log(arr); // ["222", "333", "444", "55", "66", "77", "[object Object]"]
+```
+这也是比较简单的一种方式，从以上例子中也能看到问题，所有的元素会转换为字符串，且元素为对象类型会被转换为 "[object Object]" ，对于同一种类型数字或字符串还是可以的。
 
-<b><details><summary>171.Promise.all并发限制</summary></b>
+2.利用apply和concat转换
+```js
+function reduceDimension(arr) {
+    return Array.prototype.concat.apply([], arr);
+}
 
-答案：
+console.log(reduceDimension([[123], 4, [7, 8],[9, [111]]]));// [123, 4, 7, 8, 9, Array(1)]
+```
+
+3.递归
+```js
+function reduceDimension(arr){
+    let ret = [];
+    let toArr = function(arr){
+        arr.forEach(function(item){
+            item instanceof Array ? toArr(item) : ret.push(item);
+        });
+    }
+    toArr(arr);
+    return ret;
+}
+```
+
+4.Array​.prototype​.flat()
+```js
+var arr1 = [1, 2, [3, 4]];
+arr1.flat(); 
+// [1, 2, 3, 4]
+ 
+var arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat();
+// [1, 2, 3, 4, [5, 6]]
+ 
+var arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2);
+// [1, 2, 3, 4, 5, 6]
+ 
+//使用 Infinity 作为深度，展开任意深度的嵌套数组
+arr3.flat(Infinity); 
+// [1, 2, 3, 4, 5, 6]
+```
+
+5.使用 reduce、concat 和递归无限反嵌套多层嵌套的数组
+```js
+var arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
+ 
+function flattenDeep(arr1) {
+   return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+}
+flattenDeep(arr1);
+// [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
+```
+
+解析：[參考](https://blog.csdn.net/xufeiayang/article/details/90111775)
 
 </details>
 
 <b><details><summary>172.为什么for循环嵌套顺序会影响性能？</summary></b>
 
-答案：
+答案：把循环次数大的放在内层，执行时间会比较短
+
+```js
+var t1 = new Date().getTime()
+for (let i = 0; i < 100; i++) {
+  for (let j = 0; j < 1000; j++) {
+    for (let k = 0; k < 10000; k++) {
+    }
+  }
+}
+var t2 = new Date().getTime()
+console.log('first time', t2 - t1)
+```
+|   变量   |   实例化(次数)   |   初始化(次数)   |   比较(次数)   |   自增(次数)   |
+| -------- | --------------- | --------------- | ------------- | ------------- |
+|    i     |        1        | 1            | 10               |    10    |
+|    j     |       10        | 10           | 10 * 100         |   10 * 100   |
+|    k     | 	  10 * 100     | 10 * 100     | 10 * 100 * 1000	 |  10 * 100 * 1000   |
+```js
+for (let i = 0; i < 10000; i++) {
+  for (let j = 0; j < 1000; j++) {
+    for (let k = 0; k < 100; k++) {
+
+    }
+  }
+}
+var t3 = new Date().getTime()
+console.log('two time', t3 - t2)  
+```
+|   变量   |   实例化(次数)   |   初始化(次数)   |   比较(次数)   |   自增(次数)   |
+| -------- | --------------- | --------------- | ------------- | ------------- |
+|    i     |        1        | 1            | 1000               |    1000    |
+|    j     |       1000        | 1000           | 1000 * 100       |   1000 * 100   |
+|    k     | 	  1000 * 100     | 1000 * 100     | 1000 * 100 * 10		 |  1000 * 100 * 10	   |
+
+解析：[參考](https://blog.csdn.net/weixin_42182143/article/details/98682537)
 
 </details>
 
-<b><details><summary>173.为什么普通 for 循环的性能远远高于 forEach 的性能，请解释其中的原因</summary></b>
+<b><details><summary>173.轮播图实现原理</summary></b>
 
 答案：
+```
+1.图片移动实现原理：
+利用浮动将所有所有照片依次排成一行，给这一长串图片添加一个父级的遮罩，每次只显示一张图，其余的都隐藏起来。对图片添加绝对定位，通过控制left属性，实现照片的移动。
+
+2.图片移动动画原理：
+从a位置移动到b位置，需要先计算两点之间的差值，通过差值和时间间隔，计算出每次移动的步长，通过添加定时器，每次移动相同的步长，实现动画效果。
+
+3.图片定位停止原理：
+每一张照片都有相同的宽度，每张照片都有一个绝对的定位数值，通过检测定每次移动后，照片当前位置和需要到达位置之间的距离是否小于步长，如果小于，说明已经移动到位，可以将定时器清除，来停止动画。
+
+4图片切换原理：
+在全局设置一个变量，记录当前图片的位置，每次切换或跳转时，只需要将数值修改，并调用图片页数转像素位置函数，再调用像素运动函数即可。
+
+5.自动轮播原理：
+设置定时器，一定时间间隔后，将照片标记加1，然后开始切换。
+
+6.左右点击切换原理：
+修改当前位置标记，开始切换。这里需要注意与自动轮播之间的冲突。当点击事件触发之后，停止自动轮播计时器，开始切换。当动画结束后再次添加自动轮播计时器。
+
+7.无缝衔接原理：
+需要无缝衔接，难度在于最后一页向后翻到第一页，和第一页向前翻到最后一页。由于图片的基本移动原理。要想实现无缝衔接，两张图片就必须紧贴在一起。所以在第一张的前面需要添加最后一张，最后一张的后面需要添加第一张。
+
+7.预防鬼畜原理：
+始终保证轮播图的运动动画只有一个，从底层杜绝鬼畜。需要在每次动画开始之前，尝试停止动画定时器，然后开始为新的动画添加定时器。
+
+8.预防暴力点击原理：
+如果用户快速点击触发事件，会在短时间内多次调用切换函数，虽然动画函数可以保证，不会发生鬼畜，但在照片从最后一张到第一张的切换过程，不会按照正常的轮播，而是实现了跳转。所以需要通过添加口令的方式来，限制用户的点击。当用户点击完成后，口令销毁，动画结束后恢复口令。
+
+9.小圆点的位置显示原理：
+每次触发动画时，通过全局变量标记，获取当前页数，操作清除所有小圆点，然后指定一页添加样式。
+
+10.点击触发跳转的原理：
+类似于左右点击触发，只是这是将全局页面标记，直接修改，后执行动画。需要避免与自动轮播定时器的冲突。
+```
+解析：[参考](https://blog.csdn.net/konghouy/article/details/81407492)
 
 </details>
 
-<b><details><summary>174.input 搜索如何防抖，如何处理中文输入</summary></b>
+<b><details><summary>174.如何设计一个轮播图组件</summary></b>
 
 答案：
 
-</details>
-
-<b><details><summary>175.介绍下 Promise.all 使用、原理实现及错误处理</summary></b>
-
-答案：
+1. 轮播图功能实现
+2. 抽出需要传入的变量，如：背景图，文案描述等
 
 </details>
 
-<b><details><summary>176.var、let 和 const 区别的实现原理是什么</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>177.介绍下 Promise.all 使用、原理实现及错误处理</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>178.在输入框中如何判断输入的是一个正确的网址</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>179.设计并实现 Promise.race()</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>180.箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>181.script 引入方式</summary></b>
+<b><details><summary>175.script 引入方式</summary></b>
 
 答案：
 
@@ -5191,37 +5304,19 @@ div.style.top=curTop+1+'px';
 
 </details>
 
-<b><details><summary>182.JS 异步解决方案的发展历程以及优缺点。</summary></b>
+<b><details><summary>176.数组中的forEach和map的区别</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>183.数组中的forEach和map的区别</summary></b>
+<b><details><summary>177.for in和for of的区别</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>184.for in和for of的区别</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>185.typeof 与 instanceof 区别</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>186.数组降维</summary></b>
-
-答案：
-
-</details>
-
-<b><details><summary>187.怎样理解setTimeout 执行误差</summary></b>
+<b><details><summary>178.typeof 与 instanceof 区别</summary></b>
 
 答案：
 

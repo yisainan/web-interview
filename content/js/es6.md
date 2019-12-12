@@ -933,6 +933,24 @@ class Point {
 
 </details>
 
+<b><details><summary>23.Promise.all并发限制</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>24.介绍下 Promise.all 使用、原理实现及错误处理</summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>25.设计并实现 Promise.race()</summary></b>
+
+答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

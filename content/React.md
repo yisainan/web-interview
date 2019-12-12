@@ -68,7 +68,7 @@ render () {
 
 <b><details><summary>6.React 很多个 setState 为什么是执行完再 render</summary></b>
 
-答案：
+答案：react为了提高整体的渲染性能，会将一次渲染周期中的state进行合并，在这个渲染周期中你对所有setState的所有调用都会被合并起来之后，再一次性的渲染，这样可以避免频繁的调用setState导致频繁的操作dom，提高渲染性能。具体的实现方面，可以简单的理解为react中存在一个状态变量isBatchingUpdates，当处于渲染周期开始时，这个变量会被设置成true，渲染周期结束时，会被设置成false，react会根据这个状态变量，当出在渲染周期中时，仅仅只是将当前的改变缓存起来，等到渲染周期结束时，再一次性的全部render。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/501)
 
@@ -387,7 +387,7 @@ React.cloneElement(element, [props], [...children]);
 
 <b><details><summary>30.React实现一个防抖的模糊查询输入框</summary></b>
 
-答案：
+答案：[參考](https://blog.csdn.net/cc18868876837/article/details/96303296)
 
 </details>
 
