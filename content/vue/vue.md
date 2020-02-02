@@ -130,7 +130,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 </details>
 
-<b><details><summary>8.vue slot是做什么的?</summary></b> 
+<b><details><summary>8.vue slot是做什么的?</summary></b>
 
 答案：可以插入的槽口，比如插座的插孔。
 
@@ -1084,7 +1084,7 @@ reverse()
 
 </details>
 
-<b><details><summary>37.vue怎么实现页面的权限控制</summary></b> 
+<b><details><summary>37.vue怎么实现页面的权限控制</summary></b>
 
 答案：利用 vue-router 的 beforeEach 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
 
@@ -1092,7 +1092,7 @@ reverse()
 
 </details>
 
-<b><details><summary>38.$route和$router的区别</summary></b> 
+<b><details><summary>38.$route和$router的区别</summary></b>
 
 答案：$route 是路由信息对象，包括path，params，hash，query，fullPath，matched，name 等路由信息参数。
 
@@ -1102,7 +1102,7 @@ reverse()
 
 </details>
 
-<b><details><summary>39.watch的作用是什么</summary></b> 
+<b><details><summary>39.watch的作用是什么</summary></b>
 
 答案：watch 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
 
@@ -1126,7 +1126,7 @@ reverse()
 
 </details>
 
-<b><details><summary>41.vue的双向绑定的原理，和angular的对比</summary></b> 
+<b><details><summary>41.vue的双向绑定的原理，和angular的对比</summary></b>
 
 答案：
 
@@ -1381,7 +1381,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 </details>
 
-<b><details><summary>66.vue和angular的优缺点以及适用场合?</summary></b> 
+<b><details><summary>66.vue和angular的优缺点以及适用场合?</summary></b>
 
 答案：
 
@@ -1389,7 +1389,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 </details>
 
-<b><details><summary>67.你们vue项目是打包了一个js文件，一个css文件，还是有多个文件？</summary></b> 
+<b><details><summary>67.你们vue项目是打包了一个js文件，一个css文件，还是有多个文件？</summary></b>
 
 答案：
 
@@ -1397,7 +1397,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 </details>
 
-<b><details><summary>68.vue遇到的坑，如何解决的？</summary></b> 
+<b><details><summary>68.vue遇到的坑，如何解决的？</summary></b>
 
 答案：
 
@@ -1564,7 +1564,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 </details>
 
-<b><details><summary>83.vue路由实现原理?或 vue-router原理?</summary></b> 
+<b><details><summary>83.vue路由实现原理?或 vue-router原理?</summary></b>
 
 答案：
 
@@ -2076,22 +2076,64 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
-1)	props
-2)	vue自定义事件
-3)	消息订阅与发布
-4)	vuex
-5)	slot
+```
+方式1: props
+1)	通过一般属性实现父向子通信
+2)	通过函数属性实现子向父通信
+3)	缺点: 隔代组件和兄弟组件间通信比较麻烦
+
+方式2: vue自定义事件
+1)	vue内置实现, 可以代替函数类型的props
+  a.	绑定监听: <MyComp @eventName="callback"
+  b.	触发(分发)事件: this.$emit("eventName", data)
+2)	缺点: 只适合于子向父通信
+
+方式3: 消息订阅与发布
+1)	需要引入消息订阅与发布的实现库, 如: pubsub-js
+  a.	订阅消息: PubSub.subscribe('msg', (msg, data)=>{})
+  b.	发布消息: PubSub.publish(‘msg’, data)
+2)	优点: 此方式可用于任意关系组件间通信
+
+方式4: vuex
+1)	是什么: vuex是vue官方提供的集中式管理vue多组件共享状态数据的vue插件
+2)	优点: 对组件间关系没有限制, 且相比于pubsub库管理更集中, 更方便
+
+方式5: slot
+1)	是什么: 专门用来实现父向子传递带数据的标签
+  a.	子组件
+  b.	父组件
+2)	注意: 通信的标签模板是在父组件中解析好后再传递给子组件的
+```
+
+</details>
+
+<b><details><summary>114.说说Vue的MVVM实现原理</summary></b>
+
+答案：
+
+#### 理解
+```
+1)	Vue作为MVVM模式的实现库的2种技术
+a.	模板解析
+b.	数据绑定
+
+2)	模板解析: 实现初始化显示
+a.	解析大括号表达式
+b.	解析指令
+
+3)	数据绑定: 实现更新显示
+a.	通过数据劫持实现
+```
+#### 原理结构图
+
+![vue_006](../../images/vue_006.png)
 
 </details>
 
 <b><details><summary>114.</summary></b>
-  
+
 </details>
 
 <b><details><summary>114.</summary></b>
-  
-</details>
 
-<b><details><summary>114.</summary></b>
-  
 </details>
