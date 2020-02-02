@@ -2846,7 +2846,7 @@ f2();
 答案：
 
 自执行函数:
-1、声明一个匿名函数 
+1、声明一个匿名函数
 2、马上调用这个匿名函数。<br>
 作用：创建一个独立的作用域。<br>
 
@@ -5030,7 +5030,7 @@ var curTop=div.offsetTop;
 div.style.left=curLeft+1+'px';
 div.style.top=curTop+1+'px';
 ```
-2. 样式集中改变 
+2. 样式集中改变
 ```
 可以添加一个类，样式都在类中改变
 ```
@@ -5140,7 +5140,7 @@ console.log(arr[1]); // undefined
 let arr = [[222, 333, 444], [55, 66, 77], {a: 1} ]
 	arr += '';
 	arr = arr.split(',');
-	
+
 console.log(arr); // ["222", "333", "444", "55", "66", "77", "[object Object]"]
 ```
 这也是比较简单的一种方式，从以上例子中也能看到问题，所有的元素会转换为字符串，且元素为对象类型会被转换为 "[object Object]" ，对于同一种类型数字或字符串还是可以的。
@@ -5171,26 +5171,26 @@ function reduceDimension(arr){
 4.Array​.prototype​.flat()
 ```js
 var arr1 = [1, 2, [3, 4]];
-arr1.flat(); 
+arr1.flat();
 // [1, 2, 3, 4]
- 
+
 var arr2 = [1, 2, [3, 4, [5, 6]]];
 arr2.flat();
 // [1, 2, 3, 4, [5, 6]]
- 
+
 var arr3 = [1, 2, [3, 4, [5, 6]]];
 arr3.flat(2);
 // [1, 2, 3, 4, 5, 6]
- 
+
 //使用 Infinity 作为深度，展开任意深度的嵌套数组
-arr3.flat(Infinity); 
+arr3.flat(Infinity);
 // [1, 2, 3, 4, 5, 6]
 ```
 
 5.使用 reduce、concat 和递归无限反嵌套多层嵌套的数组
 ```js
 var arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
- 
+
 function flattenDeep(arr1) {
    return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
 }
@@ -5231,7 +5231,7 @@ for (let i = 0; i < 10000; i++) {
   }
 }
 var t3 = new Date().getTime()
-console.log('two time', t3 - t2)  
+console.log('two time', t3 - t2)
 ```
 |   变量   |   实例化(次数)   |   初始化(次数)   |   比较(次数)   |   自增(次数)   |
 | -------- | --------------- | --------------- | ------------- | ------------- |
@@ -5322,10 +5322,42 @@ console.log('two time', t3 - t2)
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>179.微任务和宏任务</summary></b>
 
 答案：
+```js
+/*
+* 宏任务
+*   分类： setTimeout setInterval requrestAnimationFrame
+*   1. 宏任务所处的队列就是宏任务队列
+*   2. 第一个宏任务队列中只有一个任务： 执行主线程的js代码
+*   3. 宏任务队列可以有多个
+*   4. 当宏任务队列的中的任务全部执行完以后会查看是否有微任务队列如果有先执行微任务队列中的所有任务，如果没有就查看是否有宏任务队列
+*
+* 微任务
+*   分类： new Promise().then(回调) process.nextTick
+*   1. 微任务所处的队列就是微任务队列
+*   2. 只有一个微任务队列
+*   3. 在上一个宏任务队列执行完毕后如果有微任务队列就会执行微任务队列中的所有任务
+* */
 
+console.log('----------------- start -----------------');
+
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0)
+
+new Promise((resolve, reject) =>{
+  for (var i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  resolve();  // 修改promise实例对象的状态为成功的状态
+}).then(() => {
+  console.log('promise实例成功回调执行');
+})
+
+console.log('----------------- end -----------------');
+```
 </details>
 
 <b><details><summary></summary></b>
