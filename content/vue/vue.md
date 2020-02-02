@@ -2025,9 +2025,14 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 </details>
 
-<b><details><summary>106. vue 组件之间的传值通信</summary></b>
+<b><details><summary>106. vue 组件之间的通信种类</summary></b>
 
 答案：
+
+1)	父组件向子组件通信
+2)	子组件向父组件通信
+3)	隔代组件间通信
+4)	兄弟组件间通信
 
 </details>
 
@@ -2065,4 +2070,28 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
+</details>
+
+<b><details><summary>113.实现通信方式</summary></b>
+
+答案：
+
+1)	props
+2)	vue自定义事件
+3)	消息订阅与发布
+4)	vuex
+5)	slot
+
+</details>
+
+<b><details><summary>114.</summary></b>
+  
+</details>
+
+<b><details><summary>114.</summary></b>
+  
+</details>
+
+<b><details><summary>114.</summary></b>
+  
 </details>
