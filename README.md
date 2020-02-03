@@ -163,5 +163,5 @@
 
 # 其他（与本项目无关）
 
-1、[各平台付费知识获取](https://github.com/Daily-Github/VIP-knowledge)
+1、[各平台付费知识获取](https://github.com/small-sweet/VIP-knowledge)
 <!-- 2、[WEB前端资源项目整合](./content/资源/前端.md) -->
