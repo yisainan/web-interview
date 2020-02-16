@@ -2058,11 +2058,79 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
+### vue 如何优化首页的加载速度？
+
+* 路由懒加载
+* ui框架按需加载
+* gzip压缩
+
+### vue 首页白屏是什么问题引起的？
+
+* 第一种，打包后文件引用路径不对，导致找不到文件报错白屏
+
+解决办法：修改一下config下面的index.js中bulid模块导出的路径。因为index.html里边的内容都是通过script标签引入的，而你的路径不对，打开肯定是空白的。先看一下默认的路径。
+
+* 第二种，由于把路由模式mode设置影响
+
+解决方法：路由里边router/index.js路由配置里边默认模式是hash，如果你改成了history模式的话，打开也会是一片空白。所以改为hash或者直接把模式配置删除，让它默认的就行 。如果非要使用history模式的话，需要你在服务端加一个覆盖所有的情况的候选资源：如果URL匹配不到任何静态资源，则应该返回一个index.html，这个页面就是你app依赖页面。
+
+所以只要删除mode或者把mode改成hash就OK了。
+
+* 第三种，项目中使用了es6的语法，一些浏览器不支持es6，造成编译错误不能解析而造成白屏
+
+解决方法：
+
+安装 npm install --save-dev babel-preset-es2015
+
+安装 npm install --save-dev babel-preset-stage-3
+
+在项目根目录创建一个.babelrc文件 里面内容 最基本配置是：
+
+```js
+{
+    // 此项指明，转码的规则
+    "presets": [
+        // env项是借助插件babel-preset-env，下面这个配置说的是babel对es6,es7,es8进行转码，并且设置amd,commonjs这样的模块化文件，不进行转码
+        ["env", {
+            "modules": false
+        }],
+        // 下面这个是不同阶段出现的es语法，包含不同的转码插件
+        "stage-2"
+    ],
+    // 下面这个选项是引用插件来处理代码的转换，transform-runtime用来处理全局函数和优化babel编译
+    "plugins": ["transform-runtime"],
+    // 下面指的是在生成的文件中，不产生注释
+    "comments": false,
+    // 下面这段是在特定的环境中所执行的转码规则，当环境变量是下面的test就会覆盖上面的设置
+    "env": {
+        // test 是提前设置的环境变量，如果没有设置BABEL_ENV则使用NODE_ENV，如果都没有设置默认就是development
+        "test": {
+            "presets": ["env", "stage-2"],
+            // instanbul是一个用来测试转码后代码的工具
+            "plugins": ["istanbul"]
+        }
+    }
+}
+```
+
 </details>
 
 <b><details><summary>111.Vue 的父组件和子组件生命周期钩子执行顺序是什么</summary></b>
 
 答案：
+
+* 加载渲染过程
+    * 父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
+
+* 子组件更新过程
+
+    * 父beforeUpdate->子beforeUpdate->子updated->父updated
+
+* 父组件更新过程
+    * 父beforeUpdate->父updated
+
+* 销毁过程
+    * 父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
 
 </details>
 

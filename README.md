@@ -161,7 +161,7 @@
 
 ![二维码](./images/qrcode_001.jpg)
 
-# 其他（与本项目无关）
+# 我的推荐（与本项目无关）
 
-1、[各平台付费知识获取](https://github.com/small-sweet/VIP-knowledge)
+1、[各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
 <!-- 2、[WEB前端资源项目整合](./content/资源/前端.md) -->
