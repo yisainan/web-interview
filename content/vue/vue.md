@@ -44,7 +44,7 @@ LazyLoad Images
 
 答案：
 
-![vue_002](../images/vue_002.jpg)
+![vue_002](../../images/vue_002.jpg)
 
 （1） beforeCreate 初始化实例后 数据观测和事件配置之前调用
 
@@ -432,7 +432,7 @@ var app = new Vue({
 既没有传入实参，也没有接收的形参，这个 event 对象的来源，要么是上级作用链，要么。。。是全局作用域。。。全局的，不禁想到了 window.event
 。再次上 MDN 确认了一下，果然，window.event，ie 和 chrome 都在 window 对象上有这样一个属性：
 
-![vue_003](../images/vue_003.jpg)
+![vue_003](../../images/vue_003.jpg)
 
 代码丢进 Firefox 中运行，event 果然就变成了 undefined 了。额，这个我也不知道说什么了。。。
 
@@ -950,8 +950,8 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 解析：
 
-![vue_004](../images/vue_004.jpg)
-![vue_005](../images/vue_005.jpg)
+![vue_004](../../images/vue_004.jpg)
+![vue_005](../../images/vue_005.jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/415)
 
@@ -961,7 +961,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 答案：
 
-![vue_005](../images/vue_005.jpg)
+![vue_005](../../images/vue_005.jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/416)
 
@@ -1934,7 +1934,7 @@ vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
 用于查看 vue-cli 生产环境部署资源文件大小的 npm 命令：npm run build --report，此命令必答
 
 命令效果：
-![vue_001](../images/vue_001.jpg)
+![vue_001](../../images/vue_001.jpg)
 
 在浏览器上自动弹出一个 展示 vue-cli 工程打包后 app.js、manifest.js、vendor.js 文件里面所包含代码的页面。可以具此优化 vue-cli 生产环境部署的静态资源，提升 页面 的加载速度。
 
