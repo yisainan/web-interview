@@ -557,3 +557,20 @@ D background
 [参与互动](https://github.com/yisainan/web-interview/issues/629)
 
 </details>
+
+<b><details><summary>34.</summary></b>
+
+```
+A background-image
+B backgroundImage
+C image
+D background
+```
+
+答案: B
+
+解析: 省略中间的-，后面的单词，首字母大写
+
+[参与互动](https://github.com/yisainan/web-interview/issues/629)
+
+</details>

@@ -95,7 +95,7 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
 
 - 初始化阶段：
   - getDefaultProps:获取实例的默认属性
-  - getInitialState:获取每个实例的初始化状态
+  - getInitialState:获取实例的初始化状态
   - componentWillMount：组件即将被装载、渲染到页面上
   - render:组件在这里生成虚拟的 DOM 节点
   - componentDidMount:组件真正在被装载之后
