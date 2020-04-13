@@ -448,9 +448,20 @@ React.cloneElement(element, [props], [...children]);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>38.受控组件与非受控组件</summary></b>
 
 答案：
+
+* 受控: 表单元素状态由使用者维护
+* 非受控: 表单元素状态DOM 自身维护
+
+1. 受控组件
+
+在HTML中，标签<input>、<textarea>、<select>的值的改变通常是根据用户输入进行更新。在React中，可变状态通常保存在组件的状态属性中，并且只能使用 setState() 更新，而呈现表单的React组件也控制着在后续用户输入时该表单中发生的情况，以这种由React控制的输入表单元素而改变其值的方式，称为：“受控组件”。
+
+2. 不受控组件
+
+表单数据由DOM本身处理。即不受setState()的控制，与传统的HTML表单输入相似，input输入值即显示最新值（使用 ref 从DOM获取表单值）
 
 </details>
 
