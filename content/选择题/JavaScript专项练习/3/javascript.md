@@ -254,15 +254,81 @@ D: person.pet = { name: "Mara"}
 <b><details><summary>9.(单选题)输出什么？</summary></b>
 
 ```js
+// module.js
+export default () => 'Hello world'
+export const name s 'Lydia'
+// index.js
+import * as data from './module'
+console.log(data)
+```
+
+```
+A：{ default: function default(), name: "Lydia"}  
+B: { default: function default() }
+C: { default: "Hello world", name: "Lydia"}
+D: Global object of module.js 
+```
+
+答案：A
+
+解析：
+
+使用import * as name语法，我们将module.js文件中所有export导入到index, js文件中，并且创建了一个名为data的新对象。在module.js文件中，有两个导出：默认导出和命名导出，默认导出是一个返回字符串'Hello world'的函数，命名导出是一个名为name的变量，其值为字符串
+'Lydia'。
+
+data对象具有默认导出的default属性，其他属性具有指定exports的名称及其对应的值
+
+</details>
+
+<b><details><summary>10.(单选题）我们怎样才能在indexjs中调用sum.js中的sum ?</summary></b>
+
+```js
+// sum.js
+export default function sum(x) { 
+  return x + x;
+}
+
+// index.js
+import * as sum from './sum';
 
 ```
 
 ```
-A：person.name = "Evan Bacon" 
-B: delete person.address
-C: person.address.street = "101 Main St" 
-D: person.pet = { name: "Mara"}
+A：sum(4)
+B: sum.sum(4)
+C: sum.default(4)
+D: 默认导出不用*来导入，只能具名导出 
 ```
 
+答案：C
+
+解析：
+
+使用符号*，我们引入文件中的所有值，包括默认和具分章 
+名。如果我们有以下文件：
+
+```js
+// info.js
+export const name = 'Lydia';
+export const age = 21;
+export default 'I love JavaScript';
+
+// index.js
+import * as info from './info'; 
+console.log(info);
+```
+将会输出以下内容：
+```js
+{
+  default: 'I love JavaScript',
+  name: 'Lydia',
+  age: 21
+}
+```
+以sum为例，相当于以下形式引入值sum :
+```js
+{ default: function sum(x) { return x + x }}
+```
+我们可以通过调用sum.default来调用该函数
 
 </details>
