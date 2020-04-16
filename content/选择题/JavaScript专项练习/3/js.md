@@ -29,7 +29,7 @@ D: NaN and 63
 请注意, diameter 是普通函数,而 perimeter 是箭头函数。对于箭头函数,this 关键字指向是它所在上下文(定义时的位置)的环境,与普通函数不同!这意味着当我们调用 perimeter 时,它不是指向 shape 对象,而是指其定义时的环境
 ( window)。没有值 radius 属性,返回 undefined。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/543)
+[参与互动](https://github.com/yisainan/web-interview/issues/1032)
 
 </details>
 
@@ -73,7 +73,7 @@ D: ["coding", "running", "dancing","baking"]
 
 pushing dancing 和 baking 之后，person.hobbies 的值为['coding','dancing’，'baking']
 
-[参与互动](https://github.com/yisainan/web-interview/issues/543)
+[参与互动](https://github.com/yisainan/web-interview/issues/1033)
 
 </details>
 
@@ -110,6 +110,8 @@ D: 0 1 2 3 and {0:'a',1:'b',2:'c',3:'d'}
 
 其中键则是可枚举属性，因此 0,1,2,3 被记录。通过 for-of 循环，我们可以迭代可迭代对象（包括 Array，Map，Set，String，arguments 等）。当我们迭代数组时，在每次迭代中，不同属性的值将被分配给变量 item，因此'a' 'b' 'c' 'd'被打印
 
+[参与互动](https://github.com/yisainan/web-interview/issues/1034)
+
 </details>
 
 <b><details><summary>4.(单选题)下面代码的输出是什么 </summary></b>
@@ -134,6 +136,8 @@ D: undefined undefined undefined
 解析：
 
 myFunc 期望接收一个包含 x，y 和 z 属性的对象作为它的参数，因为我们仅仅传递三个单独的数字值（1,2,3）不是一个含有 x，y 和 z 属性的对象({x:1,y:2,z:3}),x,y 和 z 有着各自的默认值 undefined
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1035)
 
 </details>
 
@@ -169,6 +173,8 @@ D: TypeError
 使用点表示法，JavaScript 会尝试使用该确切名称在对象 上查找属性。在此示例中，JavaScript 尝试在 colorconfig 对象上找到名为 colors 的属性。没有名为"colors"的属性，因此返回"undefined"。然后，我们尝试使用[1]访问第一个元 素 的 值 。 我 们 无 法 对 未 定 义 的 值执 行 此 操 作 ， 因此会抛出 Cannot read property '1' of undefined。JavaScript 解释（或取消装箱）语句。当我们使用方括号表示法时，它会看到第一个左方括号[并一直进行下去， 直到找到右方括号]。只有这样，它才会评估该语句。
 如果我们使用了 colorConfig [colors [1]],它将返回 colorConfig 对象上 red 属性的值。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/1036)
+
 </details>
 
 <b><details><summary>6.(单选题)输出什么 </summary></b>
@@ -194,6 +200,8 @@ D: ReferenceError
 我们将 info 对象上的 favoriteFood 属性的值设置为"E"。字符串是原始数据类型。在 javaScript 中，原始数据类型通过值起作用。在这种情况下.我们将 info 对象上的 favoriteFood 属性
 
 性的值设置为等于 food 数组中的第一个元素的值，"A"。字符串是原始数据类型， 并且通过值进行交互，我们更改 info 对象上 favoriteFood 属性的值。food 数组没有改变，因为 favoriteFood 的值只是该数组中第一个元素的值的复制，并且与该元素上的元素没有相同的内存引用 food[0]。当我们记录 food 时，它仍然是原始数组['A','B','C','D']
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1037)
 
 </details>
 
@@ -222,6 +230,8 @@ D: ReferenceError
 通过 const 关键字声明的变量在被初始化之前不可被引用：这被称之为暂时性死区。在函数 getlnfo 中，变量 randomValue 声明在 getlnfo 的作用域的词法环境中。
 在想要对 typeof randomValue 进行 log 之前，变量 randomValue 仍未被初始化：错误 ReferenceError 被抛出! JS 引擎并不会根据作用域链网上寻找该变量，因为我们已经在 getlnfo 函数中声明了randomValue 变量。
 
+[参与互动](https://github.com/yisainan/web-interview/issues/1038)
+
 </details>
 
 <b><details><summary>8.(单选题)以下哪—项会对对象 person有副作用？</summary></b>
@@ -248,6 +258,8 @@ D: person.pet = { name: "Mara"}
 解析：
 
 便用方法Object.freeze对一个对象进行冻结。不能对属性进行添加，修改，删除。然而，它仅对对象进行浅冻结，意味着只有对象中的直接属性被冻结。如果属性是另一个object,像案例中的address, address中的属性没有被冻结，仍然可以被修改。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1039)
 
 </details>
 
@@ -277,6 +289,8 @@ D: Global object of module.js
 'Lydia'。
 
 data对象具有默认导出的default属性，其他属性具有指定exports的名称及其对应的值
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1040)
 
 </details>
 
@@ -330,5 +344,7 @@ console.log(info);
 { default: function sum(x) { return x + x }}
 ```
 我们可以通过调用sum.default来调用该函数
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1041)
 
 </details>

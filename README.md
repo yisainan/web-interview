@@ -1,4 +1,5 @@
 # 目录
+
 <p align="left">
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
@@ -62,6 +63,11 @@
 <b><details><summary>🐎 选择题</summary></b>
 
 - [详情](./content/选择题/js.md)
+
+- JavaScript专项练习
+  - [练习1](./content/选择题/JavaScript专项练习/1/js.md)
+  - [练习2](./content/选择题/JavaScript专项练习/2/js.md)
+  - [练习3](./content/选择题/JavaScript专项练习/3/js.md)
 
 </details>
 
