@@ -2187,7 +2187,7 @@ CSS 中，对于 font 的属性都是可以继承的。怪异模式下，对于 
 
 </details>
 
-<b><details><summary>66.css reset 与 css sprites</summary></b>
+<b><details><summary>102.css reset 与 css sprites</summary></b>
 
 答案：
 
@@ -2197,7 +2197,7 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 </details>
 
-<b><details><summary>67.IE6 遇到什么 bug？解决办法是？</summary></b>
+<b><details><summary>103.IE6 遇到什么 bug？解决办法是？</summary></b>
 
 答案：
 
@@ -2255,13 +2255,13 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 
 </details>
 
-<b><details><summary>68.实现模糊搜索结果的关键词高亮显示</summary></b>
+<b><details><summary>104.实现模糊搜索结果的关键词高亮显示</summary></b>
 
 答案：
 
 </details>
 
-<b><details><summary>69.介绍css3中position:sticky（网易）</summary></b>
+<b><details><summary>105.介绍css3中position:sticky（网易）</summary></b>
 
 答案：
 

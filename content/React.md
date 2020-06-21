@@ -10,12 +10,12 @@
 
 <b><details><summary>2.React 项目用过什么脚手架（本题是开放性题目）</summary></b>
 
-答案：creat-react-app Yeoman 等
+答案：creat-react-app Yeoman umi.js 等
 
 [参与互动](https://github.com/yisainan/web-interview/issues/497)
 
 </details>
-    
+
 <b><details><summary>3.什么时候在功能组件( Class Component )上使用类组件( Functional Component )？</summary></b>
 
 答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
