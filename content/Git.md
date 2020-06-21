@@ -15,7 +15,10 @@ git pull --rebase = git fetch + git rebase
 
 <b><details><summary>2.什么时候使用“git rebase”代替“git merge”？</summary></b>
 
-答案：
+答案：你自己开发分支一直在做，然后你想把主线的修改合到你的分支上，做一次集成，这种情况就用rebase比较好，把你的提交都放在主线修改的头上
+
+1. rebase会把你当前分支的commit放到公共分支的最后，所以叫做变基。就如同你从公共分支又重新拉出来这个分支一样。
+2. merge会把公共分支和你当前的commit合并在一起，形成一个新的commit提交。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/998)
 
@@ -25,6 +28,10 @@ git pull --rebase = git fetch + git rebase
 
 答案：
 
+* 分支（branch） 是代码的一个独立版本。
+
+* 拉取请求（pull request） 是当有人用仓库，建立了自己的分支，做了些修改并合并到该分支（把自己修改应用到别人的代码仓库）。
+
 [参与互动](https://github.com/yisainan/web-interview/issues/999)
 
 </details>
@@ -33,6 +40,12 @@ git pull --rebase = git fetch + git rebase
 
 答案：
 
+* 复刻（fork） 是对存储仓库（repository）进行的远程的、服务器端的拷贝，从源头上就有所区别。复刻实际上不是 Git 的范畴。它更像是个政治/社会概念。
+
+* 克隆（clone） 不是复刻，克隆是个对某个远程仓库的本地拷贝。克隆时，实际上是拷贝整个源存储仓库，包括所有历史记录和分支。
+
+* 分支（branch） 是一种机制，用于处理单一存储仓库中的变更，并最终目的是用于与其他部分代码合并。
+
 [参与互动](https://github.com/yisainan/web-interview/issues/1000)
 
 </details>
@@ -40,6 +53,13 @@ git pull --rebase = git fetch + git rebase
 <b><details><summary>5.使用过 git cherry-pick，有什么作用？</summary></b>
 
 答案：
+
+命令 git cherry-pick 通常用于把特定提交从存储仓库的一个分支引入到其他分支中。常见的用途是从维护的分支到开发分支进行向前或回滚提交。
+这与其他操作（例如：合并（merge）、变基（rebase））形成鲜明对比，后者通常是把许多提交应用到其他分支中。
+
+```
+git cherry-pick <commit-hash>
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1001)
 
@@ -232,6 +252,78 @@ Git commit
 Git pull
 
 Git push
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1011)
+
+</details>
+
+<b><details><summary>16.如何从 git 中删除文件，而不将其从文件系统中删除？</summary></b>
+
+答案：
+
+如果你在 git add 过程中误操作，你最终会添加不想提交的文件。但是，git rm 则会把你的文件从你暂存区（索引）和文件系统（工作树）中删除，这可能不是你想要的。
+
+换成 git reset 操作：
+
+```
+git reset filename          # or
+echo filename >> .gitingore # add it to .gitignore to avoid re-adding it
+```
+
+上面意思是，`git reset <paths>` 是 `git add <paths>` 的逆操作
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1011)
+
+</details>
+
+<b><details><summary>17.什么时候应使用 “git stash”？</summary></b>
+
+答案：
+
+git stash 命令把你未提交的修改（已暂存（staged）和未暂存的（unstaged））保存以供后续使用，以后就可以从工作副本中进行还原。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1011)
+
+</details>
+
+<b><details><summary>18.你能解释下 Gitflow 工作流程吗？</summary></b>
+
+答案：
+
+Gitflow 工作流程使用两个并行的、长期运行的分支来记录项目的历史记录，分别是 master 和 develop 分支。
+
+* Master，随时准备发布线上版本的分支，其所有内容都是经过全面测试和核准的（生产就绪）。
+Hotfix，维护（maintenance）或修复（hotfix）分支是用于给快速给生产版本修复打补丁的。修复（hotfix）分支很像发布（release）分支和功能（feature）分支，除非它们是基于 master 而不是 develop 分支。
+
+* Develop，是合并所有功能（feature）分支，并执行所有测试的分支。只有当所有内容都经过彻底检查和修复后，才能合并到 master 分支。
+Feature，每个功能都应留在自己的分支中开发，可以推送到 develop 分支作为功能（feature）分支的父分支。
+
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1011)
+
+</details>
+
+<b><details><summary>19.Git 中 HEAD、工作树和索引之间的区别？</summary></b>
+
+答案：
+
+* 该工作树/工作目录/工作空间是你看到和编辑的（源）文件的目录树。
+* 该索引/中转区（staging area）是个在 /.git/index，单一的、庞大的二进制文件，该文件列出了当前分支中所有文件的 SHA1 检验和、时间戳和文件名，它不是个带有文件副本的目录。
+* HEAD是当前检出分支的最后一次提交的引用/指针。
+
+[参与互动](https://github.com/yisainan/web-interview/issues/1011)
+
+</details>
+
+<b><details><summary>20.解释 Forking 工作流程的优点？</summary></b>
+
+答案：
+
+* Forking 工作流程 与其他流行的 Git 工作流程有着根本的区别。它不是用单个服务端仓库充当“中央”代码库，而是为每个开发者提供自己的服务端仓库。Forking 工作流程最常用于公共开源项目中。
+
+* Forking 工作流程的主要优点是可以汇集提交贡献，又无需每个开发者提交到一个中央仓库中，从而实现干净的项目历史记录。开发者可以推送（push）代码到自己的服务端仓库，而只有项目维护人员才能直接推送（push）代码到官方仓库中。
+
+* 当开发者准备发布本地提交时，他们的提交会推送到自己的公共仓库中，而不是官方仓库。然后他们向主仓库提交请求拉取（pull request），这会告知项目维护人员有可以集成的更新。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1011)
 

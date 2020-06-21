@@ -4321,7 +4321,17 @@ console.log(func());
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>201.题目如下：可使用任意前端框架，实现一个页面</summary></b>
+
+```
+页面上至少包含两个element
+一个input输入框，一个output[用什么容器，标签都可以]
+input要求输入一个数，表示图形面积
+output要求输出一个六芒星[必须自己用css+html画出来，不能使用第三方]，六芒星面积是input的数值。
+当input发生改变时，输出图形使用css3新特性进行过渡。
+【请注意考虑边界条件和异常输入】
+加分项：input可以处理汉字表示的数字如：十一 十二
+```
 
 答案：
 
