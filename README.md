@@ -42,21 +42,22 @@
 
 </details>
 
-<b><details><summary>🐰 Vue</summary></b>
+<b><details><summary>🐰 Vue + React</summary></b>
 
-- [详情](./content/vue/vue.md)
-
-</details>
-
-<b><details><summary>🐉 React</summary></b>
-
-- [详情](./content/React.md)
+- [Vue](./content/vue/vue.md)
+- [React](./content/React.md)
 
 </details>
 
-<b><details><summary>🐍 Angular</summary></b>
+<b><details><summary>🐉 Angular</summary></b>
 
 - [详情](./content/Angular.md)
+
+</details>
+
+<b><details><summary>🐍 微信小程序</summary></b>
+
+- [详情](./content/微信小程序.md)
 
 </details>
 

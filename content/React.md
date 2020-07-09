@@ -16,7 +16,7 @@
 
 </details>
 
-<b><details><summary>3.什么时候在功能组件( Class Component )上使用类组件( Functional Component )？</summary></b>
+<b><details><summary>3.什么时候在功能组件( Functional Component )上使用类组件( Class Component )？</summary></b>
 
 答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
 
