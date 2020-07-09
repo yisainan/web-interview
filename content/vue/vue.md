@@ -4,37 +4,27 @@
 
 答案：
 
-Vue 应用运行时性能优化措施
+1、Vue 应用运行时性能优化措施
 
-引入生产环境的 Vue 文件
+（1）引入生产环境的 Vue 文件
 
-使用单文件组件预编译模板
+（2）使用单文件组件预编译模板
 
-提取组件的 CSS 到单独到文件
+（3）提取组件的 CSS 到单独到文件
 
-利用 Object.freeze()提升性能
+（4）利用Object.freeze()提升性能
 
-扁平化 Store 数据结构
+（5）扁平化 Store 数据结构
 
-合理使用持久化 Store 数据
+（6）合理使用持久化 Store 数据
 
-组件懒加载
+（7）组件懒加载
 
-Vue 应用加载性能优化措施
+2、Vue 应用加载性能优化措施
 
-服务端渲染 / 预渲染
+（1）服务端渲染 / 预渲染
 
-减少 http 请求，合理设置 HTTP 缓存
-
-使用浏览器缓存
-
-启用压缩
-
-CSS Sprites
-
-LazyLoad Images
-
-尽量避免使用 eval 和 Function
+（2）组件懒加载
 
 [参与互动](https://github.com/yisainan/web-interview/issues/392)
 
