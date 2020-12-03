@@ -1408,10 +1408,21 @@ function debounce(fn, wait) {
     }, wait);
   };
 }
+
+// （参考博客https://segmentfault.com/a/1190000018428170）
+function debounce(fn,delay){
+    let timer = null //借助闭包
+    return function() {
+        if(timer){
+            clearTimeout(timer) 
+        }
+        timer = setTimeout(fn,delay) // 简化写法
+    }
+}
 ```
 
 ```js
-// 节流函数
+// 节流函数 通过时间戳差值是否大于指定间隔时间来做判定
 function throttle(fn, wait) {
   let prev = new Date();
   return function() {
@@ -1422,6 +1433,23 @@ function throttle(fn, wait) {
       prev = new Date();
     }
   };
+}
+
+// 通过setTimeout的返回的标记当做判断条件实现（参考博客https://segmentfault.com/a/1190000018428170）
+function throttle(fn,delay){
+    let valid = true
+    return function() {
+       if(!valid){
+           //休息时间 暂不接客
+           return false 
+       }
+       // 工作时间，执行函数并且在间隔期内把状态位设为无效
+        valid = false
+        setTimeout(() => {
+            fn()
+            valid = true;
+        }, delay)
+    }
 }
 ```
 
