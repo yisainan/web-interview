@@ -5839,11 +5839,120 @@ function bindEvent(){
 
 </details>
 
-<b><details><summary>190. </summary></b>
+<b><details><summary>190. IE与标准浏览器对事件处理的区别？</summary></b>
+
+答案：
+
+``` 
+1.监听
+标准
+element.addEventListener('click',observer, useCapture);
+element.removeEventListener('click',observer, useCapture);
+IE
+element.attachEvent('onclick',observer);
+element.detachEvent('onclick',observer);
+2.阻止冒泡
+标准
+event.stopPropagation();
+IE
+event.cancelBubble = true;
+3.阻止默认
+标准
+event.preventDefault();
+IE
+event.returnValue = false;
+4.event
+标准
+event
+IE8以下
+window.event
+5.触发当前事件的源对象
+event.target  //Firefox,Chrome
+event.srcElement   //IE,Chrome
+```
+
+</details>
+
+<b><details><summary>191. delete用法</summary></b>
+
+答案：
+
+``` 
+用于对象属性的删除
+var obj = {
+    name: 'Lily'
+};
+delete obj.name;
+obj.name   //undefined
+不能删除变量、原型中的变量、函数
+```
+
+</details>
+
+<b><details>192. 如何删除一个cookie<summary></summary></b>
+
+答案：
+
+``` 
+1.将时间设为当前时间往前一点。
+
+var date = newDate();
+
+date.setDate(date.getDate() - 1);//真正的删除
+
+setDate()方法用于设置一个月的某一天。
+
+2.expires的设置
+
+document.cookie= 'user='+ encodeURIComponent('name')  + ';expires = ' + newDate(0)
+```
+
+</details>
+
+<b><details><summary>193. 用正则把yya yyb yyc变成yya5 yyb6 yyc7？</summary></b>
+
+答案：
 
 ``` js
-
+j = 5;
+str.replace(/\w+/g, function(m) {
+    return m + j++;
+});
+// function的第一参数代表匹配正则的字符串，第二个代表第一个子表达式匹配的字符串，第三个代表第二个子表达式匹配的字符串。
 ```
+
+</details>
+
+<b><details><summary>194. 怎么判断两个json对象的内容相等？ </summary></b>
+
+答案：
+
+``` js
+obj = {
+    a: 1,
+    b: 2
+}
+obj2 = {
+    a: 1,
+    b: 2
+}
+obj3 = {
+    a: 1,
+    b: 2
+}
+JSON.stringify(obj) == JSON.stringify(obj2); //true
+JSON.stringify(obj) == JSON.stringify(obj3); //false
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
 
 答案：
 

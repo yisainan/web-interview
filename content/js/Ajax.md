@@ -1,6 +1,6 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.Ajax 是什么?如何创建一个 Ajax？</summary></b>
+<b><details><summary>1. Ajax 是什么? 如何创建一个 Ajax？</summary></b>
 
 答案：Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
 
@@ -8,7 +8,7 @@
 
 解析：
 
-```
+``` 
 
     1：我要创建一个XMLHttpRequest 对象。
     var xhr=new XMLHttpRequest() 创建对象
@@ -43,7 +43,7 @@
 
 </details>
 
-<b><details><summary>2.同步和异步的区别?</summary></b>
+<b><details><summary>2. 同步和异步的区别?</summary></b>
 
 答案：同步：阻塞的；异步：非阻塞的。
 
@@ -51,21 +51,21 @@
 
 同步：阻塞的
 
-- 张三叫李四去吃饭，李四一直忙得不停，张三一直等着，直到李四忙完两个人一块去吃饭
+* 张三叫李四去吃饭，李四一直忙得不停，张三一直等着，直到李四忙完两个人一块去吃饭
 
-- 浏览器向服务器请求数据，服务器比较忙，浏览器一直等着（页面白屏），直到服务器返回数据，浏览器才能显示页面
+* 浏览器向服务器请求数据，服务器比较忙，浏览器一直等着（页面白屏），直到服务器返回数据，浏览器才能显示页面
 
 异步：非阻塞的
 
-- 张三叫李四去吃饭，李四在忙，张三说了一声然后自己就去吃饭了，李四忙完后自己去吃
+* 张三叫李四去吃饭，李四在忙，张三说了一声然后自己就去吃饭了，李四忙完后自己去吃
 
-- 浏览器向服务器请求数据，服务器比较忙，浏览器可以自如的干原来的事情（显示页面），服务器返回数据的时候通知浏览器一声，浏览器把返回的数据再渲染到页面，局部更新
+* 浏览器向服务器请求数据，服务器比较忙，浏览器可以自如的干原来的事情（显示页面），服务器返回数据的时候通知浏览器一声，浏览器把返回的数据再渲染到页面，局部更新
 
 [参与互动](https://github.com/yisainan/web-interview/issues/63)
 
 </details>
 
-<b><details><summary>3.如何解决跨域问题?</summary></b>
+<b><details><summary>3. 如何解决跨域问题?</summary></b>
 
 答案：
 
@@ -85,7 +85,7 @@
 
 </details>
 
-<b><details><summary>4.页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
+<b><details><summary>4. 页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
 
 答案：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
 
@@ -93,7 +93,7 @@
 
 </details>
 
-<b><details><summary>5.创建 ajax 过程</summary></b>
+<b><details><summary>5. 创建 ajax 过程</summary></b>
 
 答案：
 
@@ -113,7 +113,7 @@
 
 </details>
 
-<b><details><summary>6.阐述一下异步加载 JS</summary></b>
+<b><details><summary>6. 阐述一下异步加载 JS</summary></b>
 
 答案：
 
@@ -129,15 +129,15 @@
 
 </details>
 
-<b><details><summary>7.请解释一下 JavaScript 的同源策略</summary></b>
+<b><details><summary>7. 请解释一下 JavaScript 的同源策略</summary></b>
 
-答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
+答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2. 0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/68)
 
 </details>
 
-<b><details><summary>8.GET 和 POST 的区别，何时使用 POST？</summary></b>
+<b><details><summary>8. GET 和 POST 的区别，何时使用 POST？</summary></b>
 
 答案：
 
@@ -157,7 +157,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 </details>
 
-<b><details><summary>9.ajax 的优点</summary></b>
+<b><details><summary>9. ajax 的优点</summary></b>
 
 答案：
 
@@ -182,23 +182,23 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 </details>
 
-<b><details><summary>11.ajax 的缺点</summary></b>
+<b><details><summary>11. ajax 的缺点</summary></b>
 
 答案：
 
-1.ajax 不支持浏览器 back 按钮。
+1. ajax 不支持浏览器 back 按钮。
 
-2.安全问题 AJAX 暴露了与服务器交互的细节。
+2. 安全问题 AJAX 暴露了与服务器交互的细节。
 
-3.对搜索引擎的支持比较弱。
+3. 对搜索引擎的支持比较弱。
 
-4.破坏了程序的异常机制。
+4. 破坏了程序的异常机制。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/72)
 
 </details>
 
-<b><details><summary>12.ajax 请求的时候 get 和 post 方式的区别</summary></b>
+<b><details><summary>12. ajax 请求的时候 get 和 post 方式的区别</summary></b>
 
 答案：
 
@@ -210,47 +210,47 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 </details>
 
-<b><details><summary>13.解释 jsonp 的原理，以及为什么不是真正的 ajax, 以及优缺点</summary></b>
+<b><details><summary>13. 解释 jsonp 的原理，以及为什么不是真正的 ajax, 以及优缺点</summary></b>
 
 答案：
 
-1.jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
+1. jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
 
-2.优缺点
+2. 优缺点
 
-- jsonp 优点:
+* jsonp 优点:
 
-  - 完美解决在测试或者开发中获取不同域下的数据,用户传递一个 callback 参数给服务端，然后服务端返回数据时会将这个 callback 参数作为函数名来包裹住 JSON 数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。简单来说数据的格式没有发生很大变化
+  + 完美解决在测试或者开发中获取不同域下的数据, 用户传递一个 callback 参数给服务端，然后服务端返回数据时会将这个 callback 参数作为函数名来包裹住 JSON 数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。简单来说数据的格式没有发生很大变化
 
-- jsonp 缺点:
+* jsonp 缺点:
 
-  - 1.jsonp 只支持 get 请求而不支持 post 请求,也即是说如果想传给后台一个 json 格式的数据,此时问题就来了,浏览器会报一个 http 状态码 415 错误,告诉你请求格式不正确,这让我很蛋疼(在登录注册中需要给后台传一大串数据),如果都用参数的形式拼接在 url 后面的话不太现实,后台取值也会显得繁琐,
-  - 2.在登录模块中需要用到 session 来判断当前用户的登录状态,这时候由于是跨域的原因,前后台的取到的 session 是不一样的,那么就不能就行 session 来判断.
-  - 3.由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的,还是另有高招?)，后来考虑到上面的一系列问题,采用的是后台进行设置允许跨域请求(但还是存在缺陷的,实质上还是跨域,如上面说的 session 问题).Header set Access-Control-Allow-Origin \*为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如 Access-Control-Allow-Origin: http://blog.csdn.net
+  + 1. jsonp 只支持 get 请求而不支持 post 请求, 也即是说如果想传给后台一个 json 格式的数据, 此时问题就来了, 浏览器会报一个 http 状态码 415 错误, 告诉你请求格式不正确, 这让我很蛋疼(在登录注册中需要给后台传一大串数据), 如果都用参数的形式拼接在 url 后面的话不太现实, 后台取值也会显得繁琐, 
+  + 2. 在登录模块中需要用到 session 来判断当前用户的登录状态, 这时候由于是跨域的原因, 前后台的取到的 session 是不一样的, 那么就不能就行 session 来判断. 
+  + 3. 由于 jsonp 存在安全性问题(不知 qq 空间的跨域是怎么解决的, 还是另有高招?)，后来考虑到上面的一系列问题, 采用的是后台进行设置允许跨域请求(但还是存在缺陷的, 实质上还是跨域, 如上面说的 session 问题). Header set Access-Control-Allow-Origin \*为了防止 XSS 攻击我们的服务器， 我们可以限制域，比如 Access-Control-Allow-Origin: http://blog.csdn.net
 
 [参与互动](https://github.com/yisainan/web-interview/issues/74)
 
 </details>
 
-<b><details><summary>14.什么是 Ajax 和 JSON，它们的优缺点。</summary></b>
+<b><details><summary>14. 什么是 Ajax 和 JSON，它们的优缺点。</summary></b>
 
 答案：
 
-- Ajax 是全称是 asynchronous JavaScript andXML，即异步 JavaScript 和 xml，用于在 Web 页面中实现异步数据交互，实现页面局部刷新。
+* Ajax 是全称是 asynchronous JavaScript andXML，即异步 JavaScript 和 xml，用于在 Web 页面中实现异步数据交互，实现页面局部刷新。
 
-  - 优点：可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量，避免用户不断刷新或者跳转页面，提高用户体验
+  + 优点：可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量，避免用户不断刷新或者跳转页面，提高用户体验
 
-  - 缺点：对搜索引擎不友好；要实现 ajax 下的前后退功能成本较大；可能造成请求数的增加跨域问题限制；
+  + 缺点：对搜索引擎不友好；要实现 ajax 下的前后退功能成本较大；可能造成请求数的增加跨域问题限制；
 
-- JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
+* JSON 是一种轻量级的数据交换格式，ECMA 的一个子集
 
-  - 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
+  + 优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/75)
 
 </details>
 
-<b><details><summary>15.什么是 json，优缺点</summary></b>
+<b><details><summary>15. 什么是 json，优缺点</summary></b>
 
 答案：
 
@@ -273,47 +273,47 @@ JSON (JavaScript Object Notation)
 
 </details>
 
-<b><details><summary>16.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</summary></b>
+<b><details><summary>16. 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</summary></b>
 
 答案：
 
-1.浏览器地址栏输入 url
+1. 浏览器地址栏输入 url
 
-2.浏览器会先查看浏览器缓存--系统缓存--路由缓存，如有存在缓存，就直接显示。如果没有，接着第三步
+2. 浏览器会先查看浏览器缓存--系统缓存--路由缓存，如有存在缓存，就直接显示。如果没有，接着第三步
 
-3.域名解析（DNS）获取相应的 ip
+3. 域名解析（DNS）获取相应的 ip
 
-4.浏览器向服务器发起 tcp 连接，与浏览器建立 tcp 三次握手
+4. 浏览器向服务器发起 tcp 连接，与浏览器建立 tcp 三次握手
 
-5.握手成功，浏览器向服务器发送 http 请求，请求数据包
+5. 握手成功，浏览器向服务器发送 http 请求，请求数据包
 
-6.服务器请求数据，将数据返回到浏览器
+6. 服务器请求数据，将数据返回到浏览器
 
-7.浏览器接收响应，读取页面内容，解析 html 源码，生成 DOm 树
+7. 浏览器接收响应，读取页面内容，解析 html 源码，生成 DOm 树
 
-8.解析 css 样式.浏览器渲染，js 交互绑定多个域名，数量不限；
+8. 解析 css 样式. 浏览器渲染，js 交互绑定多个域名，数量不限；
 
 [参与互动](https://github.com/yisainan/web-interview/issues/77)
 
 </details>
 
-<b><details><summary>17.XML 和 JSON 的区别？</summary></b>
+<b><details><summary>17. XML 和 JSON 的区别？</summary></b>
 
 答案：
 
-(1).数据体积方面。
+(1). 数据体积方面。
 
 JSON 相对于 XML 来讲，数据的体积小，传递的速度更快些。
 
-(2).数据交互方面。
+(2). 数据交互方面。
 
 JSON 与 JavaScript 的交互更加方便，更容易解析处理，更好的数据交互。
 
-(3).数据描述方面。
+(3). 数据描述方面。
 
 JSON 对数据的描述性比 XML 较差。
 
-(4).传输速度方面。
+(4). 传输速度方面。
 
 JSON 的速度要远远快于 XML。
 
@@ -321,33 +321,33 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>18.ajax 请求时，如何解析 json 数据</summary></b>
+<b><details><summary>18. ajax 请求时，如何解析 json 数据</summary></b>
 
-答案：使用 eval() 或者 JSON.parse() 鉴于安全性考虑，推荐使用 JSON.parse()更靠谱，对数据的安全性更好。
+答案：使用 eval() 或者 JSON. parse() 鉴于安全性考虑，推荐使用 JSON. parse()更靠谱，对数据的安全性更好。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/79)
 
 </details>
 
-<b><details><summary>19.异步加载和延迟加载</summary></b>
+<b><details><summary>19. 异步加载和延迟加载</summary></b>
 
 答案：
 
-1.异步加载的方案： 动态插入 script 标签
+1. 异步加载的方案： 动态插入 script 标签
 
-2.通过 ajax 去获取 js 代码，然后通过 eval 执行
+2. 通过 ajax 去获取 js 代码，然后通过 eval 执行
 
-3.script 标签上添加 defer 或者 async 属性
+3. script 标签上添加 defer 或者 async 属性
 
-4.创建并插入 iframe，让它异步执行 js
+4. 创建并插入 iframe，让它异步执行 js
 
-5.延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
+5. 延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/80)
 
 </details>
 
-<b><details><summary>20.eval 是做什么的？</summary></b>
+<b><details><summary>20. eval 是做什么的？</summary></b>
 
 答案：它的功能是把对应的字符串解析成 JS 代码并运行；
 
@@ -357,47 +357,47 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>21.AMD 和 CMD 规范的区别</summary></b>
+<b><details><summary>21. AMD 和 CMD 规范的区别</summary></b>
 
 答案：
 
-1.对于依赖的模块，AMD 是提前执行，CMD 是延迟执行
+1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行
 
-2.CMD 推崇依赖就近，AMD 推崇依赖前置
+2. CMD 推崇依赖就近，AMD 推崇依赖前置
 
 [参与互动](https://github.com/yisainan/web-interview/issues/82)
 
 </details>
 
-<b><details><summary>22.HTTP 状态码</summary></b>
+<b><details><summary>22. HTTP 状态码</summary></b>
 
 答案：
 
-100 ?Continue ?继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息
+100 ? Continue ? 继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息
 
-200 ?OK ? 正常返回信息
+200 ? OK ? 正常返回信息
 
-201 ?Created ?请求成功并且服务器创建了新的资源
+201 ? Created ? 请求成功并且服务器创建了新的资源
 
-202 ?Accepted ?服务器已接受请求，但尚未处理
+202 ? Accepted ? 服务器已接受请求，但尚未处理
 
-301 ?Moved Permanently ?请求的网页已永久移动到新位置。
+301 ? Moved Permanently ? 请求的网页已永久移动到新位置。
 
-302 Found ?临时性重定向。
+302 Found ? 临时性重定向。
 
-303 See Other ?临时性重定向，且总是使用 GET 请求新的 URI。
+303 See Other ? 临时性重定向，且总是使用 GET 请求新的 URI。
 
-304 ?Not Modified ?自从上次请求后，请求的网页未修改过。
+304 ? Not Modified ? 自从上次请求后，请求的网页未修改过。
 
-400 Bad Request ?服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
+400 Bad Request ? 服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
 
-401 Unauthorized ?请求未授权。
+401 Unauthorized ? 请求未授权。
 
-403 Forbidden ?禁止访问。
+403 Forbidden ? 禁止访问。
 
-404 Not Found ?找不到如何与 URI 相匹配的资源。
+404 Not Found ? 找不到如何与 URI 相匹配的资源。
 
-500 Internal Server Error ?最常见的服务器端错误。
+500 Internal Server Error ? 最常见的服务器端错误。
 
 503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
 
@@ -405,13 +405,13 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>23.栈和队列的区别?</summary></b>
+<b><details><summary>23. 栈和队列的区别?</summary></b>
 
 答案：
 
-- 栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
-- 队列先进先出，栈先进后出。
-- 栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除
+* 栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
+* 队列先进先出，栈先进后出。
+* 栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除
 
 拓展：
 
@@ -429,7 +429,7 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>24.ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
+<b><details><summary>24. ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
 答案：后台做缓存，读取缓存里面的数据、CDN
 
@@ -437,7 +437,7 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>25.Ajax 实现的原理</summary></b>
+<b><details><summary>25. Ajax 实现的原理</summary></b>
 
 答案：浏览器提供的 XMLHttpRequest 对象
 
@@ -445,15 +445,15 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>26.ajax 如何实现，readyState 的五种状态的含义？</summary></b>
+<b><details><summary>26. ajax 如何实现，readyState 的五种状态的含义？</summary></b>
 
 答案：
 
-- 0 － （未初始化）还没有调用 send()方法
-- 1 － （载入）已调用 send()方法，正在发送请求
-- 2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
-- 3 － （交互）正在解析响应内容
-- 4 － （完成）响应内容解析完成，可以在客户端调用了
+* 0 － （未初始化）还没有调用 send()方法
+* 1 － （载入）已调用 send()方法，正在发送请求
+* 2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
+* 3 － （交互）正在解析响应内容
+* 4 － （完成）响应内容解析完成，可以在客户端调用了
 
 解析：
 
@@ -463,7 +463,7 @@ JSON 的速度要远远快于 XML。
 
 (1)载入
 
-此阶段对 XMLHttpRequest 对象进行初始化，即调用 open()方法，根据参数(method,url,true)完成对象状态的设置。并调用 send()方法开始向服务端发送请求。值为 1 表示正在向服务端发送请求。
+此阶段对 XMLHttpRequest 对象进行初始化，即调用 open()方法，根据参数(method, url, true)完成对象状态的设置。并调用 send()方法开始向服务端发送请求。值为 1 表示正在向服务端发送请求。
 
 (2)载入完成
 
@@ -483,24 +483,31 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>27.RESTful</summary></b>
+<b><details><summary>27. RESTful</summary></b>
 
 答案：REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
 
-- GET<br>
-  get 方法在 Rest 中主要用于获取资源，能够发送参数，不过有限制，且参数都会以?开头的形 式附加在 URL 尾部。
+* GET<br>
+
+  get 方法在 Rest 中主要用于获取资源，能够发送参数，不过有限制，且参数都会以? 开头的形 式附加在 URL 尾部。
   规范的 get 方法处理器应该是幂等的，也就是说对一个资源不论发送多少次 get 请求都不会更改数据或造成破坏。
-- POST<br>
+
+* POST<br>
+
   post 方法在 Rest 请求中主要用于添加资源，参数信息存放在请求报文的消息体中相对安全，且可发送较大信息
-- PUT<br>
-  put 方法在 Rest 中主要用于更新资源，因为大多数浏览器不支持 put 和 delete，会自动将 put 和 delete 请求转化为 get 和 post. 因此为了使用 put 和 delete 方法,
+
+* PUT<br>
+
+  put 方法在 Rest 中主要用于更新资源，因为大多数浏览器不支持 put 和 delete，会自动将 put 和 delete 请求转化为 get 和 post. 因此为了使用 put 和 delete 方法, 
   需要以 post 发送请求，在表单中使用隐藏域发送真正的请求。
   put 方法的参数是同 post 一样是存放在消息中的，同样具有安全性，可发送较大信息。
   put 方法是幂等的，对同一 URL 资源做出的同一数据的任意次 put 请求其对数据的改变都是一致的。
-- DELETE<br>
+
+* DELETE<br>
+
   Delete 在 Rest 请求中主要用于删除资源，因为大多数浏览器不支持 put 和 delete，会自动将 put 和 delete 请求转化为 get 和 post。
-  因此为了使用 put 和 delete 方法,需要以 post 发送请求，在表单中使用隐藏域发送真正的请求。
-  Delete 方法的参数同 post 一样存放在消息体中,具有安全性，可发送较大信息 Delete 方法是幂等的，不论对同一个资源进行多少次 delete 请求都不会破坏数据
+  因此为了使用 put 和 delete 方法, 需要以 post 发送请求，在表单中使用隐藏域发送真正的请求。
+  Delete 方法的参数同 post 一样存放在消息体中, 具有安全性，可发送较大信息 Delete 方法是幂等的，不论对同一个资源进行多少次 delete 请求都不会破坏数据
 
 解析：[参考](https://blog.csdn.net/jnshu_it/article/details/80203696)
 
@@ -508,17 +515,35 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>28.Ajax 和 Fetch 区别</summary></b>
+<b><details><summary>28. Ajax 和 Fetch 区别</summary></b>
 
 答案：
 
-- ajax 是使用 XMLHttpRequest 对象发起的，但是用起来很麻烦，所以 ES6 新规范就有了 fetch，fetch 发一个请求不用像 ajax 那样写一大堆代码。
-- 使用 fetch 无法取消一个请求，这是因为 fetch 基于 Promise，而 Promise 无法做到这一点。
-- 在默认情况下，fetch 不会接受或者发送 cookies
-- fetch 没有办法原生监测请求的进度，而 XMLHttpRequest 可以
-- fetch 只对网络请求报错，对 400，500 都当做成功的请求，需要封装去处理
-- fetch 由于是 ES6 规范，兼容性上比不上 XMLHttpRequest
+* ajax 是使用 XMLHttpRequest 对象发起的，但是用起来很麻烦，所以 ES6 新规范就有了 fetch，fetch 发一个请求不用像 ajax 那样写一大堆代码。
+* 使用 fetch 无法取消一个请求，这是因为 fetch 基于 Promise，而 Promise 无法做到这一点。
+* 在默认情况下，fetch 不会接受或者发送 cookies
+* fetch 没有办法原生监测请求的进度，而 XMLHttpRequest 可以
+* fetch 只对网络请求报错，对 400，500 都当做成功的请求，需要封装去处理
+* fetch 由于是 ES6 规范，兼容性上比不上 XMLHttpRequest
 
 [参与互动](https://github.com/yisainan/web-interview/issues/89)
+
+</details>
+
+<b><details><summary>29. ajax是同步还是异步？</summary></b>
+
+答案：可以同步也可以异步，jquery默认为异步，也推荐异步执行。可通过async: true修改。
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
 
 </details>

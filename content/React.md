@@ -465,9 +465,24 @@ React.cloneElement(element, [props], [...children]);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>39.reactjs主要方法</summary></b>
 
 答案：
+
+```
+render()
+getInitialState() //组件挂载之前调用一次
+getDefaultProps() //在组件类创建的时候调用一次
+propTypes() //对象允许验证传入到组件的props
+生命周期方法
+componentWillMount() //服务器端和客户端都只调用一次，在初始化渲染执行之前立刻调用
+componentDidMount() //在初始化渲染执行之后立刻调用一次，仅客户端有效（服务器端不会调用）
+componentWillReceiveProps(object nextProps) //在组件接收到新的 props 的时候调用
+shouldComponentUpdate(object nextProps,object nextState) //在接收到新的props或者state，将要渲染之前调用。返回true或者false
+componentWillUpdate(object nextProps,object nextState) //在接收到新的props或者state之前立刻调用。
+componentDidUpdate(object prevProps,object prevState) //在组件的更新已经同步到DOM中之后立刻被调用
+componentWillUnmount() //在组件从DOM中移除的时候立刻被调用
+```
 
 </details>
 

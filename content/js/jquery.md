@@ -587,3 +587,149 @@ console.log($("#ul").children("li").length); // 3
 [参与互动](https://github.com/yisainan/web-interview/issues/370)
 
 </details>
+
+<b><details><summary>25.jQuery 库中的 $() 是什么？</summary></b>
+
+答案：$() 函数是 jQuery() 函数的别称。$() 函数用于将任何对象包裹成 jQuery 对象，接着你就被允许调用定义在 jQuery 对象上的多个不同方法。你可以将一个选择器字符串传入 $() 函数，它会返回一个包含所有匹配的 DOM 元素数组的 jQuery 对象。
+
+</details>
+
+<b><details><summary>26.如何找到所有 HTML select 标签的选中项？</summary></b>
+
+答案：$('[name=selectname] :selected')
+
+</details>
+
+<b><details><summary>27. $(this) 和 this 关键字在 jQuery 中有何不同？</summary></b>
+
+答案：
+
+```
+$(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。
+
+而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法，直到它被 $() 函数包裹，例如 $(this)。
+```
+
+</details>
+
+<b><details><summary>28. jquery怎么移除标签onclick属性？</summary></b>
+
+答案：
+
+```
+获得a标签的onclick属性: $("a").attr("onclick")
+删除onclick属性：$("a").removeAttr("onclick");
+设置onclick属性：$("a").attr("onclick","test();");
+```
+
+</details>
+
+<b><details><summary>29.jquery中addClass,removeClass,toggleClass的使用。</summary></b>
+
+答案：
+
+```
+$(selector).addClass(class)：为每个匹配的元素添加指定的类名
+$(selector).removeClass(class)：从所有匹配的元素中删除全部或者指定的类，删除class中某个值；
+$(selector).toggleClass(class)：如果存在（不存在）就删除（添加）一个类
+$(selector).removeAttr(class);删除class这个属性；
+```
+
+</details>
+
+<b><details><summary>30.JQuery有几种选择器?</summary></b>
+
+答案：
+
+```
+(1)、基本选择器：#id，class,element,*;
+(2)、层次选择器：parent > child，prev + next ，prev ~ siblings
+(3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt
+(4)、内容过滤器选择器： :contains ，:empty ，:has ，:parent
+(5)、可见性过滤器选择器：:hidden ，:visible
+(6)、属性过滤器选择器：[attribute] ，[attribute=value] ，[attribute!=value] ，[attribute^=value] ，[attribute$=value] ，[attribute*=value]
+(7)、子元素过滤器选择器：:nth-child ，:first-child ，:last-child ，:only-child
+(8)、表单选择器： :input ，:text ，:password ，:radio ，:checkbox ，:submit 等；
+(9)、表单过滤器选择器：:enabled ，:disabled ，:checked ，:selected
+```
+
+</details>
+
+<b><details><summary>31.jQuery中的Delegate()函数有什么作用？</summary></b>
+
+答案：
+
+```
+delegate()会在以下两个情况下使用到：
+ 1、如果你有一个父元素，需要给其下的子元素添加事件，这时你可以使用delegate()了，代码如下：
+$("ul").delegate("li", "click", function(){ $(this).hide(); });
+ 2、当元素在当前页面中不可用时，可以使用delegate()
+```
+
+</details>
+
+<b><details><summary>32. 如何用jQuery禁用浏览器的前进后退按钮？</summary></b>
+
+答案：
+
+```js
+<script type="text/javascript" language="javascript">
+　　$(document).ready(function() {
+　　　　window.history.forward(1);
+  　　　　//OR window.history.forward(-1);
+　　});
+</script>
+```
+
+</details>
+
+<b><details><summary>33. jquery中$.get()提交和$.post()提交有区别吗？</summary></b>
+
+答案：
+
+```
+相同点：都是异步请求的方式来获取服务端的数据；
+异同点：
+1、请求方式不同：$.get() 方法使用GET方法来进行异步请求的。$.post() 方法使用POST方法来进行异步请求的。
+2、参数传递方式不同：get请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给Web服务器的，这种传递是对用户不可见的。
+3、数据传输大小不同：get方式传输的数据大小不能超过2KB 而POST要大的多
+4、安全问题： GET 方式请求的数据会被浏览器缓存起来，因此有安全问题。
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>

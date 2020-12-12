@@ -4661,8 +4661,8 @@ var salary = "1000$";
 <b><details><summary>208. 什么是 instanceof 操作符？下面代码输出什么？</summary></b>
 
 ``` js
-function foo(){ 
-  return foo; 
+function foo() {
+    return foo;
 }
 
 console.log(new foo() instanceof foo);
@@ -4672,8 +4672,8 @@ instanceof操作符用来判断是否当前对象是特定类的对象。
 
 答案：返回 false
 
-```js
-function Animal(){
+``` js
+function Animal() {
     //或者不写return语句
     return this;
 }
@@ -4687,21 +4687,97 @@ dog instanceof Animal // Output : true
 
 ``` js
 var counterArray = {
-    A : 3,
-    B : 4
+    A: 3,
+    B: 4
 };
 counterArray["C"] = 1;
 ```
 
 答案：其实答案很简单，直接计算key的数量就可以了。
 
-```js
+``` js
 Object.keys(counterArray).length // Output 3
 ```
 
 </details>
 
-<b><details><summary>210. 下面代码输出什么？</summary></b>
+<b><details><summary>210. 针对json数组，根据某一个值排序 </summary></b>
+
+答案：
+
+``` js
+var arrJson = [{
+        flight: "ERWIO",
+        price: 350
+    },
+    {
+        flight: "WW250",
+        price: 120
+    },
+    {
+        flight: "QQ350",
+        price: 100
+    },
+    {
+        flight: "SDJIN",
+        price: 300
+    },
+    {
+        flight: "MH370",
+        price: 120
+    }
+];
+
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key];
+        var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
+arrJson = sortByKey(arrJson, 'price');
+```
+
+</details>
+
+<b><details><summary>211. 下面代码输出什么？</summary></b>
+
+``` js
+var a = {};
+b = {
+    key: 'b'
+};
+c = {
+    key: 'c'
+};
+a[b] = 123;
+a[c] = 456;
+console.log(a[b]);
+```
+
+答案：456
+
+首先a声明为一个对象，b和c也是对象，执行a[b] = 123时，b会转成字符串(调用toString()方法)来当作a对象的键，b.toString() === '[object Object]'，所以a对象此时是这样的  a = {'[object Object]':123}，同理可知，c也是一个对象，所以a[c] = 456执行，其实也是a['[object Object]'] = 456，把原本的123覆盖了，故输出a[b]也就是输出a['[object Object]']，输出456。
+
+</details>
+
+<b><details><summary>212. 下面代码输出什么？</summary></b>
+
+``` js
+(function(x){
+    return (function(y){
+        console.log(x);
+    })(2)
+})(1);
+```
+
+答案：1
+
+很简单，一个自执行函数返回了一个自执行函数，所以二者都会顺利执行，外层函数1当作x传入，内层函数2当作2传入，内层函数可以访问外层函数的变量，打印的x就是1 。
+
+</details>
+
+<b><details><summary>213. 下面代码输出什么？</summary></b>
 
 ``` js
 
