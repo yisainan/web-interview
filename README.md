@@ -159,16 +159,16 @@
 
 # 学习交流
 
-关注微信公众号「**前端面试秘籍**」，可以
+关注微信公众号「**[前端面试秘籍](https://open.weixin.qq.com/qr/code?username=web-interview)**」，可以
 
 1. 获取更多 web 前端及其他 IT 技术的优质资源(含简历模板)
 2. 加入微信群学习交流
 
 加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
-![二维码](./images/qrcode_001.jpg)
+<!-- ![二维码](./images/qrcode_001.jpg)
 
-<!-- # 我的推荐（与本项目无关）
+# 我的推荐（与本项目无关）
 
 1、[各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
 2、[WEB前端资源项目整合](./content/资源/前端.md) -->
