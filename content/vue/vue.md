@@ -52,6 +52,19 @@
 
 （8） destroyed 实例销毁后调用
 
+Vue2 与Vue3的生命周期对比
+
+|   变量   |   实例化(次数)   |
+| -------- | --------------- |
+| beforeCreate(组件创建之前)	    |   setup(组件创建之前)       |
+| created(组件创建完成)	    |       setup(组件创建完成)        |
+| beforeMount(组件挂载之前)	    |   onBeforeMount(组件挂载之前)        |
+| mounted(组件挂载完成)	    |       onMounted(组件挂载完成)        |
+| beforeUpdate(数据更新，虚拟DOM打补丁之前)	    |   onBeforeUpdate(数据更新，虚拟DOM打补丁之前)     |
+| updated(数据更新，虚拟DOM渲染完成)    |  onUpdated(数据更新，虚拟DOM渲染完成)        |
+| beforeDestroy(组件销毁之前)	    |  onBeforeUnmount(组件销毁之前)     |
+| destroyed(组件销毁之后)	    | 	 onUnmounted(组件销毁之后)     |
+
 [参与互动](https://github.com/yisainan/web-interview/issues/393)
 
 </details>

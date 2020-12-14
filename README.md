@@ -1,4 +1,11 @@
-# 目录
+# web-interview
+
+<!-- 
+// 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
+-->
+
+🚀 欢迎`Star`，后续会不断更新。  
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣0️⃣`/`1️⃣2️⃣`/`1️⃣4️⃣
 
 <p align="left">
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
@@ -6,6 +13,8 @@
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
   <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
 </p>
+
+## 目录
 
 <b><details><summary>💡 介绍</summary></b>
 
@@ -144,7 +153,7 @@
 
 <br/> -->
 
-# 参与互动
+## 参与互动
 
 每道题目的下面，新增了**参与互动**功能，以"面试题"为中心，大家利用碎片时间一起思考讨论，维护好我们的题库，面试时才能更好的回馈自己！
 
@@ -152,13 +161,13 @@
 
 <br/>
 
-# 我来出题
+## 我来出题
 
 大家都参与进来，才能使项目更加完善。详见：[出题步骤](https://github.com/yisainan/web-interview/issues/813)
 
 <br/>
 
-# 学习交流
+## 学习交流
 
 关注微信公众号「**[前端面试秘籍](https://open.weixin.qq.com/qr/code?username=web-interview)**」，可以
 
@@ -169,7 +178,7 @@
 
 <!-- ![二维码](./images/qrcode_001.jpg)
 
-# 我的推荐（与本项目无关）
+## 我的推荐（与本项目无关）
 
 1、[各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
 2、[WEB前端资源项目整合](./content/资源/前端.md) -->
