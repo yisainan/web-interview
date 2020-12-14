@@ -4716,7 +4716,9 @@ overflow:hidden | zoom:0. 08 | line-height:1px
 
 <b><details><summary>141. 什么是三元表达式？“三元”表示什么意思？</summary></b>
 
-答案：
+答案：三元如名字表示的三元运算符需要三个操作数。
+
+语法是 条件 ? 结果1 : 结果2;. 这里你把条件写在问号(?)的前面后面跟着用冒号(:)分隔的结果1和结果2。满足条件时结果1否则结果2。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/310)
 
@@ -4724,7 +4726,9 @@ overflow:hidden | zoom:0. 08 | line-height:1px
 
 <b><details><summary>142. 我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，你来说下会执行几次事件，然后会先执行冒泡还是捕获</summary></b>
 
-答案：
+答案：所有事件的顺序是：其他元素捕获阶段事件 -> 本元素代码顺序事件 -> 其他元素冒泡阶段事件 。
+
+[参考](https://blog.csdn.net/qiqingjin/article/details/51387217)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/311)
 
@@ -5943,6 +5947,18 @@ obj3 = {
 JSON.stringify(obj) == JSON.stringify(obj2); //true
 JSON.stringify(obj) == JSON.stringify(obj3); //false
 ```
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
 
 </details>
 

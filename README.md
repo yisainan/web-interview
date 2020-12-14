@@ -1,18 +1,18 @@
 # web-interview
 
-<!-- 
-// 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
--->
-
-🚀 欢迎`Star`，后续会不断更新。  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣0️⃣`/`1️⃣2️⃣`/`1️⃣4️⃣
-
 <p align="left">
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
   <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
   <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
 </p>
+
+<!-- 
+// 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
+-->
+
+🚀 欢迎`Star`，后续会不断更新。  
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣0️⃣`/`1️⃣2️⃣`/`1️⃣4️⃣
 
 ## 目录
 
