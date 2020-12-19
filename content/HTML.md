@@ -932,3 +932,29 @@ HTML 解释器的工作就是将网络或者本地磁盘获取的 HTML 网页和
 答案：[参考](https://www.jianshu.com/p/27dd0e802809)
 
 </details>
+
+<b><details><summary>46.`<noscript>`标签的作用</summary></b>
+
+答案：noscript 元素用来定义在脚本未被执行时的替代内容（文本）。
+
+此标签可被用于可识别 `<script>` 标签但无法支持其中的脚本的浏览器。
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+答案：
+
+</details>

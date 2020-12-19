@@ -1122,7 +1122,7 @@ delay: 规定过渡效果何时开始。默认是 0。单位 s。
 可以连写: transition: property duration timing-function delay;
 ```
 
-3\. 给 div 元素设置鼠标移入时旋转,也就是给它加上\.rotate 类名\.鼠标移出时移除类名
+3\. 给 div 元素设置鼠标移入时旋转, 也就是给它加上\. rotate 类名\. 鼠标移出时移除类名
 
 ``` js
 $(function() {
@@ -2166,7 +2166,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>99. float 和 display:inline-block 的区别是什么？</summary></b>
 
-答案：
+答案：对元素设置display：inline-block ，元素不会脱离文本流，而float就会使得元素脱离文本流，且还有父元素高度坍塌的效果。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/168)
 
@@ -2174,7 +2174,48 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>100. rem 布局字体太大怎么处理?</summary></b>
 
-答案：
+答案：getComputedStyle方法能够获取到计算后的样式、大小。
+
+最后优化完的代码如下。
+
+``` js
+(function(doc, win) {
+
+    var isAndroid = win.navigator.appVersion.match(/android/gi);
+    var isIPhone = win.navigator.appVersion.match(/iphone/gi);
+
+    var scale = 1.0;
+    var ratio = 1;
+    if (isIPhone) {
+        if (window.devicePixelRatio == 2) {
+            scale *= 0.5;
+            ratio *= 2;
+        }
+        if (window.devicePixelRatio == 3) {
+            scale *= (1 / 3);
+            ratio *= 3;
+        }
+    }
+    var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale + ',' + ' minimum-scale=' + scale + ', width=device-width,' + ' user-scalable=no" />';
+    document.write(text);
+
+    var docEl = doc.documentElement
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    var recalc = function() {
+        var clientWidth = docEl.clientWidth
+        if (!clientWidth) return
+        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+
+        // 解决部分rem特别大的问题
+        var docElFontSize = docEl.style.fontSize.replace(/px/gi, '')
+        var computedFontSize = win.getComputedStyle(docEl)['font-size'].replace(/px/gi, '')
+        docElFontSize != computedFontSize && (docEl.style.fontSize = docElFontSize * docElFontSize / computedFontSize + 'px')
+    }
+    if (!doc.addEventListener) return
+    recalc()
+    win.addEventListener(resizeEvt, recalc, false)
+})(document, window);
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/169)
 
@@ -2293,7 +2334,7 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 
 </details>
 
-<b><details><summary>104. 实现模糊搜索结果的关键词高亮显示</summary></b>
+<b><details><summary>104. </summary></b>
 
 答案：
 
@@ -2301,7 +2342,7 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 
 <b><details><summary>105. 介绍css3中position:sticky（网易）</summary></b>
 
-答案：
+答案：position:sticky是一个新的css3属性，它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。
 
 </details>
 

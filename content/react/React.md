@@ -10,7 +10,44 @@
 
 <b><details><summary>2.React 项目用过什么脚手架（本题是开放性题目）</summary></b>
 
-答案：creat-react-app Yeoman umi.js 等
+答案：create-react-app 是最常用 的脚手架，一定要说出来！
+
+* Create React App：如果你是在学习 React 或创建一个新的单页应用
+
+Create React App是FaceBook的React团队官方出的一个构建React单页面应用的脚手架工具。它本身集成了Webpack，并配置了一系列内置的loader和默认的npm的脚本，可以很轻松的实现零配置就可以快速开发React的应用。
+
+* Next.js：如果你是在用 Node.js 构建服务端渲染的网站
+
+Next.js 为您提供生产环境所需的所有功能以及最佳的开发体验：包括静态及服务器端融合渲染、 支持 TypeScript、智能化打包、 路由预取等功能 无需任何配置。
+
+* Gatsby：如果你是在构建面向内容的静态网站
+
+Gatsby.js 是基于 React 构建的、速度非常快的、现代化网站生成器。超越静态网站:用 Gatsby 可以构建博客、电子商务网站、成熟的应用程序等。
+
+* nwb：用于React应用程序、库和其他web npm模块的工具包
+
+* razzle：创建没有配置的服务器呈现的通用JavaScript应用程序
+
+Razzle是类似于next.js的简单服务端框架,用于在服务端渲染 React 应用程序。
+
+* Neutrino：创建和构建零初始配置的现代JavaScript应用程序
+
+* Yeoman：
+
+Yeoman提供generator系统，一个generator是一个插件，在我们在一个完整的项目上使用‘yo’命令时，会运行该generator。通过这些官方的Generators，推出了Yeoman工作流，工作流是一个健壮、有自己特色的客户端堆栈，包含能快速构建漂亮的网络应用的工具和框架。Yeoman提供了负责开始项目开发的一切，没有任何让人头痛的手动配置。
+
+采用模块化结构，Yeoman利用从几个开源社区网站学习到的成功和教训，以确保栈开发人员越来越智能的进行开发。基于良好的文档基础以及深思熟虑的项目构建过程，Yeoman提供测试和其他更多技术 ，因此开发人员可以更专注于解决方案而不用去担心其他小事。
+
+Yeoman主要提供了三个工具：脚手架（yo），构建工具（grunt），包管理器（bower）。这三个工具是分别独立开发的，但是需要配合使用，来实现我们更高效的工作流模式。
+
+* umi.js：
+
+umi，中文可发音为乌米，是一个可插拔的企业级 react 应用框架。你可以将它简单的理解为一个专注性能的类 next.js 前端框架，并通过约定、自动生成和解析代码等方式来辅助开发，减少我们开发者的代码量。
+
+* react-cli脚手架
+
+* Rekit脚手架
+
 
 [参与互动](https://github.com/yisainan/web-interview/issues/497)
 
