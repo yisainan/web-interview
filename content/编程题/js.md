@@ -3619,7 +3619,7 @@ String.prototype.spacify = function() {
 
 </details>
 
-<b><details><summary>128. 统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 5 个 1</summary></b>
+<b><details><summary>128. 统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 13 个 1</summary></b>
 
 答案：
 

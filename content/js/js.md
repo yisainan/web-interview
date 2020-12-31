@@ -514,21 +514,21 @@ var person1 = new Person('Nike', 20, 'teacher');
 解析：
 
 ``` js
-1;
+// 1;
 var obj = {
     valueOf: function() {
         return 1;
     }
 };
 console.log(obj + ""); //'1'
-2;
+// 2;
 var obj = {
     valueOf: function() {
         return [1, 2];
     }
 };
 console.log(obj + ""); //'[object Object]';
-3;
+// 3;
 var obj = {
     valueOf: function() {
         return [1, 2];
@@ -538,7 +538,7 @@ var obj = {
     }
 };
 console.log(obj + ""); //'1';
-4;
+// 4;
 var obj = {
     valueOf: function() {
         return [1, 2];
@@ -579,13 +579,89 @@ for (var i = 0; i < arr.length; i++) {
 
 答案：7 种分别为 string、boolean、number、Object、Function、undefined、symbol(ES6)、
 
+示例：
+
+1、number
+
+``` js
+typeof(10);
+typeof(NaN); // NaN在JavaScript中代表的是特殊非数字值,它本身是一个数字类型。
+typeof(Infinity)
+```
+
+2、boolean
+
+``` js
+typeof(true);
+typeof(false);
+```
+
+3、string
+
+``` js
+typeof("abc");
+```
+
+4、undefined
+
+``` js
+typeof(undefined);
+typeof(a); // 不存在的变量
+```
+
+5、object
+
+``` js
+// 对象，数组，null返回object
+typeof(null);
+typeof(window);
+```
+
+6、function
+
+``` js
+typeof(Array);
+typeof(Date);
+```
+
+7、symbol
+
+``` js
+typeof Symbol() // ES6提供的新的类型
+```
+
 [参与互动](https://github.com/yisainan/web-interview/issues/182)
 
 </details>
 
-<b><details><summary>14. 在 css/js 代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次 js 请求一般情况下有哪些地方会有缓存处理？</summary></b>
+<b><details><summary>14. 一次js请求一般情况下有哪些地方会有缓存处理？</summary></b>
 
-答案：dns 缓存，cdn 缓存，浏览器缓存，服务器缓存。
+答案：DNS缓存，CDN缓存，浏览器缓存，服务器缓存。
+
+解析：
+
+#### 1、DNS缓存
+
+DNS缓存指DNS返回了正确的IP之后，系统就会将这个结果临时储存起来。并且它会为缓存设定一个失效时间 (例如N小时)，在这N小时之内，当你再次访问这个网站时，系统就会直接从你电脑本地的DNS缓存中把结果交还给你，而不必再去询问DNS服务器，变相“加速”了网址的解析。当然，在超过N小时之后，系统会自动再次去询问DNS服务器获得新的结果。
+所以，当你修改了 DNS 服务器，并且不希望电脑继续使用之前的DNS缓存时，就需要手动去清除本地的缓存了。
+
+本地DNS迟迟不生效或者本地dns异常等问题，都会导致访问某些网站出现无法访问的情况，这个时候我们就需要手动清除本地dns缓存，而不是等待！
+
+#### 2、CDN缓存
+
+和Http类似，客户端请求数据时，先从本地缓存查找，如果被请求数据没有过期，拿过来用，如果过期，就向CDN边缘节点发起请求。CDN便会检测被请求的数据是否过期，如果没有过期，就返回数据给客户端，如果过期，CDN再向源站发送请求获取新数据。和买家买货，卖家没货，卖家再进货一个道理^^。
+
+CDN边缘节点缓存机制，一般都遵守http标准协议，通过http响应头中的Cache-Control和max-age的字段来设置CDN边缘节点的数据缓存时间。
+
+#### 3、浏览器缓存
+
+浏览器缓存（Browser Caching）是为了节约网络的资源加速浏览，浏览器在用户磁盘上对最近请求过的文档进行存储，当访问者再次请求这个页面时，浏览器就可以从本地磁盘显示文档，这样就可以加速页面的阅览。
+
+浏览器缓存主要有两类：缓存协商：Last-modified ，Etag 和彻底缓存：cache-control，Expires。浏览器都有对应清除缓存的方法。
+
+#### 4、服务器缓存
+
+服务器缓存有助于优化性能和节省宽带，它将需要频繁访问的Web页面和对象保存在离用户更近的系统中，当再次访问这些对象的时候加快了速度。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/183)
 
@@ -593,7 +669,11 @@ for (var i = 0; i < arr.length; i++) {
 
 <b><details><summary>15. 列举 3 种强制类型转换和 2 种隐式类型转换</summary></b>
 
-答案：强制（parseInt, parseFloat, Number）、隐式（+ -）
+答案：
+
+强制: parseInt(), parseFloat(), Number(), Boolean(), String()
+
+隐式: +, -, ==, ===
 
 [参与互动](https://github.com/yisainan/web-interview/issues/184)
 
@@ -693,11 +773,11 @@ ClassA.call(obj); //{}.构造函数();
 
 * 1. 一般用于遍历对象的可枚举属性。以及对象从构造函数原型中继承的属性。对于每个不同的属性，语句都会被执行。
 * 2. 不建议使用 for in 遍历数组，因为输出的顺序是不固定的。
-* 3. 如果迭代的对象的变量值是 null 或者 undefined, for in 不执行循环体，建议在使用 for in 循环之前，先检查该对象的值是不是 null 或者 undefined
+* 3. 如果迭代的对象的变量值是 null 或者 undefined, for in 不执行循环体，建议在使用 for in 循环之前，先检查该对象的值是不是 null 或者 undefined。
 
 2、for of
 
-* 1. for…of 语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句
+* 1. for…of 语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句。
 
 解析：
 
@@ -729,6 +809,77 @@ for (let prop of Object.keys(s1)) {
 
 答案：typeof、instanceof、 constructor、 prototype
 
+解析：
+
+1、typeof
+
+typeof 返回一个表示数据类型的字符串，返回结果包括：number、boolean、string、object、undefined、function等6种数据类型。如果是判断一个基本的类型用typeof就是可以的。
+
+``` js
+typeof ''; // string 有效
+typeof 1; // number 有效
+typeof true; //boolean 有效
+typeof undefined; //undefined 有效
+typeof null; //object 无效
+typeof []; //object 无效
+typeof new Function(); // function 有效
+typeof new Date(); //object 无效
+typeof new RegExp(); //object 无效
+```
+
+2、instanceof
+
+instanceof 是用来判断 A 是否为 B 的实例对，表达式为：A instanceof B，如果A是B的实例，则返回true, 否则返回false。 在这里需要特别注意的是：instanceof检测的是原型，
+
+``` js
+[] instanceof Array; //true
+{}
+instanceof Object; //true
+new Date() instanceof Date; //true
+```
+
+3、constractor
+
+每一个对象实例都可以通过 constrcutor 对象来访问它的构造函数 。JS 中内置了一些构造函数：Object、Array、Function、Date、RegExp、String等。我们可以通过数据的 constrcutor 是否与其构造函数相等来判断数据的类型。
+
+``` js
+var arr = [];
+var obj = {};
+var date = new Date();
+var num = 110;
+var str = 'Hello';
+var getName = function() {};
+var sym = Symbol();
+var set = new Set();
+var map = new Map();
+
+arr.constructor === Array; // true
+obj.constructor === Object; // true
+date.constructor === Date; // true
+str.constructor === String; // true
+getName.constructor === Function; // true
+sym.constructor === Symbol; // true
+set.constructor === Set; // true
+map.constructor === Map // true
+```
+
+4、Object. prototype. toString
+
+toString是Object原型对象上的一个方法，该方法默认返回其调用者的具体类型，更严格的讲，是 toString运行时this指向的对象类型, 返回的类型格式为[object, xxx], xxx是具体的数据类型，其中包括：String, Number, Boolean, Undefined, Null, Function, Date, Array, RegExp, Error, HTMLDocument, ... 基本上所有对象的类型都可以通过这个方法获取到。
+
+``` js
+Object.prototype.toString.call(''); // [object String]
+Object.prototype.toString.call(1); // [object Number]
+Object.prototype.toString.call(true); // [object Boolean]
+Object.prototype.toString.call(undefined); // [object Undefined]
+Object.prototype.toString.call(null); // [object Null]
+Object.prototype.toString.call(new Function()); // [object Function]
+Object.prototype.toString.call(new Date()); // [object Date]
+Object.prototype.toString.call([]); // [object Array]
+Object.prototype.toString.call(new RegExp()); // [object RegExp]
+Object.prototype.toString.call(new Error()); // [object Error]
+```
+
 [参与互动](https://github.com/yisainan/web-interview/issues/189)
 
 </details>
@@ -739,7 +890,7 @@ for (let prop of Object.keys(s1)) {
 
 * for in 会遍历自身及原型链上的可枚举属性
 * Object. keys 会将对象自身的可枚举属性的 key 输出
-* 会将自身所有的属性的 key 输出
+* Object. getOwnPropertyNames会将自身所有的属性的 key 输出
 
 解析：
 
@@ -4718,7 +4869,7 @@ overflow:hidden | zoom:0. 08 | line-height:1px
 
 答案：三元如名字表示的三元运算符需要三个操作数。
 
-语法是 条件 ? 结果1 : 结果2;. 这里你把条件写在问号(?)的前面后面跟着用冒号(:)分隔的结果1和结果2。满足条件时结果1否则结果2。
+语法是 条件 ? 结果1 : 结果2; . 这里你把条件写在问号(?)的前面后面跟着用冒号(:)分隔的结果1和结果2。满足条件时结果1否则结果2。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/310)
 
