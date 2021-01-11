@@ -226,31 +226,31 @@ document.querySelectorAll('li').forEach((e) => {
 
 4、事件委托怎么取索引？
 
+``` html
+    <ul id="ul">
+        <li> aaaaaaaa </li>
+        <li> 事件委托了 点击当前， 如何获取 这个点击的下标 </li>
+        <li> cccccccc </li>
+    </ul>
+```
+
 ``` js
-    < ul id = "ul" >
-        <
-        li > aaaaaaaa < /li> <
-    li > 事件委托了 点击当前， 如何获取 这个点击的下标 < /li> <
-    li > cccccccc < /li> < /
-    ul > <
-        script >
-        window.onload = function() {
-            var oUl = document.getElementById("ul");
-            var aLi = oUl.getElementsByTagName("li");
-            oUl.onclick = function(ev) {
-                var ev = ev || window.event;
-                var target = ev.target || ev.srcElement;
-                if (target.nodeName.toLowerCase() == "li") {
-                    var that = target;
-                    var index;
-                    for (var i = 0; i < aLi.length; i++)
-                        if (aLi[i] === target) index = i;
-                    if (index >= 0) alert('我的下标是第' + index + '个');
-                    target.style.background = "red";
-                }
+    window.onload = function() {
+        var oUl = document.getElementById("ul");
+        var aLi = oUl.getElementsByTagName("li");
+        oUl.onclick = function(ev) {
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if (target.nodeName.toLowerCase() == "li") {
+                var that = target;
+                var index;
+                for (var i = 0; i < aLi.length; i++)
+                    if (aLi[i] === target) index = i;
+                if (index >= 0) alert('我的下标是第' + index + '个');
+                target.style.background = "red";
             }
-        } <
-        /script>
+        }
+    }
 ```
 
 拓展：
@@ -673,7 +673,60 @@ CDN边缘节点缓存机制，一般都遵守http标准协议，通过http响应
 
 强制: parseInt(), parseFloat(), Number(), Boolean(), String()
 
-隐式: +, -, ==, ===
+隐式: +, -
+
+解析：
+
+``` js
+// 1.parseInt() 把值转换成整数
+parseInt("1234blue"); // 1234
+parseInt("0xA"); // 10
+parseInt("22.5"); // 22
+parseInt("blue"); // NaN
+// parseInt()方法还有基模式，可以把二进制、八进制、十六进制或其他任何进制的字符串转换成整数。基是由parseInt()方法的第二个参数指定的，示例如下：
+parseInt("AF", 16); // 175
+parseInt("10", 2); // 2
+parseInt("10", 8); // 8
+parseInt("10", 10); // 10
+// 如果十进制数包含前导0，那么最好采用基数10，这样才不会意外地得到八进制的值。例如：
+parseInt("010"); // 8
+parseInt("010", 8); // 8
+parseInt("010", 10); // 10
+
+// 2.parseFloat() 把值转换成浮点数,没有基模式
+parseFloat("1234blue"); // 1234.0
+parseFloat("0xA"); // NaN
+parseFloat("22.5"); // 22.5
+parseFloat("22.34.5"); // 22.34
+parseFloat("0908"); // 908
+parseFloat("blue"); // NaN
+
+// 3.Number() 把给定的值转换成数字（可以是整数或浮点数）,Number()的强制类型转换与parseInt()和parseFloat()方法的处理方式相似，只是它转换的是整个值，而不是部分值。示例如下：
+Number(false) // 0
+Number(true) // 1
+Number(undefined) // NaN
+Number(null) // 0
+Number("5.5") // 5.5
+Number("56") // 56
+Number("5.6.7") // NaN
+Number(new Object()) // NaN
+Number(100) // 100
+
+// 4.Boolean() 把给定的值转换成Boolean型
+Boolean(""); // false 
+Boolean("hi"); // true
+Boolean(100); // true
+Boolean(null); // false
+Boolean(0); // false
+Boolean(new Object()); // true
+
+// 5.String() 把给定的值转换成字符串
+String(123) // "123"
+
+// 6. + -
+console.log(0 + '1') // "01"
+console.log(2 - '1') // 1
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/184)
 
@@ -765,7 +818,7 @@ ClassA.call(obj); //{}.构造函数();
 
 </details>
 
-<b><details><summary>19. for in 和 for of</summary></b>
+<b><details><summary>19. for in 和 for of的区别</summary></b>
 
 答案：
 
@@ -833,8 +886,7 @@ instanceof 是用来判断 A 是否为 B 的实例对，表达式为：A instanc
 
 ``` js
 [] instanceof Array; //true
-{}
-instanceof Object; //true
+{} instanceof Object; //true
 new Date() instanceof Date; //true
 ```
 
@@ -889,8 +941,8 @@ Object.prototype.toString.call(new Error()); // [object Error]
 答案：
 
 * for in 会遍历自身及原型链上的可枚举属性
-* Object. keys 会将对象自身的可枚举属性的 key 输出
-* Object. getOwnPropertyNames会将自身所有的属性的 key 输出
+* Object.keys 会将对象自身的可枚举属性的 key 输出
+* Object.getOwnPropertyNames会将自身所有的属性的 key 输出
 
 解析：
 

@@ -62,54 +62,41 @@ React中有两种组件：函数组件（Functional Components) 和类组件（C
 
 来看一个函数组件的例子：
 
-``` js
+``` 
 function Welcome = (props) => {
-    const sayHi = () => {
-        alert( `Hi ${props.name}` );
-    }
-
-    return ( <
-        div >
-        <
-        h1 > Hello, {
-            props.name
-        } < /h1> <
-        button onClick = {
-            sayHi
-        } > Say Hi < /button> <
-        /div>
-    )
+  const sayHi = () => {
+    alert( `Hi ${props.name}` );
+  }
+  return (
+    <div>
+      <h1>Hello, {props.name}</h1>
+      <button onClick ={sayHi}>Say Hi</button>
+    </div>
+  )
 }
 ```
 
 把上面的函数组件改写成类组件：
 
-``` js
+``` 
 import React from 'react'
 
 class Welcome extends React.Component {
-    constructor(props) {
-        super(props);
-        this.sayHi = this.sayHi.bind(this);
-    }
-
-    sayHi() {
-        alert( `Hi ${this.props.name}` );
-    }
-
-    render() {
-        return ( <
-            div >
-            <
-            h1 > Hello, {
-                this.props.name
-            } < /h1> <
-            button onClick = {
-                this.sayHi
-            } > Say Hi < /button> <
-            /div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    this.sayHi = this.sayHi.bind(this);
+  }
+  sayHi() {
+    alert( `Hi ${this.props.name}` );
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello, {this.props.name}</h1>
+        <button onClick ={this.sayHi}>Say Hi</button>
+      </div>
+    )
+  }
 }
 ```
 
@@ -137,23 +124,15 @@ class Welcome extends React.Component {
 
 答案：Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
 
-``` js
-render() {
-    return ( <
-        ul > {
-            this.state.todoItems.map(({
-                item,
-                key
-            }) => {
-                return <li key = {
-                    key
-                } > {
-                    item
-                } < /li>
-            })
-        } <
-        /ul>
-    )
+``` 
+render () {
+  return (
+    <ul>
+      {this.state.todoItems.map(({item, key}) => {
+        return <li key={key}>{item}</li>
+      })}
+    </ul>
+  )
 }
 ```
 
@@ -211,22 +190,28 @@ render() {
 
 答案：
 
-1.初始化阶段：
+1. 初始化阶段：
+
 getDefaultProps: 获取实例的默认属性
 getInitialState: 获取实例的初始化状态
 componentWillMount：组件即将被装载、渲染到页面上
 render: 组件在这里生成虚拟的 DOM 节点
 componentDidMount: 组件真正在被装载之后
-2.运行中阶段：
+
+2. 运行中阶段：
+
 componentWillReceiveProps: 组件将要接收到属性的时候调用
 shouldComponentUpdate: 组件接受到新属性或者新状态的时候（可以返回 false，接收数据后不更新，阻止 render 调用，后面的函数不会被继续执行了）
 componentWillUpdate: 组件即将更新不能修改属性和状态
 render: 组件重新描绘
 componentDidUpdate: 组件已经更新
-3.销毁阶段：
+
+3. 销毁阶段：
+
 componentWillUnmount: 组件即将销毁
 
 解析：有三大阶段，每阶段的细分 5-5-1
+
 
 [参与互动](https://github.com/yisainan/web-interview/issues/503)
 
@@ -260,49 +245,37 @@ shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法�
 
 Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。我们可以为元素添加 ref 属性然后在回调函数中接受该元素在 DOM 树中的句柄，该值会作为回调函数的第一个参数返回：
 
-``` js
+``` jsx
 class CustomForm extends Component {
-    handleSubmit = () => {
-        console.log("Input Value: ", this.input.value);
-    };
-    render() {
-        return ( <
-            form onSubmit = {
-                this.handleSubmit
-            } >
-            <
-            input type = "text"
-            ref = {
-                input => (this.input = input)
-            }
-            /> <
-            button type = "submit" > Submit < /button> <
-            /form>
-        );
-    }
+  handleSubmit = () => {
+    console.log("Input Value: ", this.input.value)
+  }
+  render () {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type='text'
+          ref={(input) => this.input = input} />
+        <button type='submit'>Submit</button>
+      </form>
+    )
+  }
 }
 ```
 
 上述代码中的 input 域包含了一个 ref 属性，该属性声明的回调函数会接收 input 对应的 DOM 元素，我们将其绑定到 this 指针以便在其他的类函数中使用。另外值得一提的是，refs 并不是类组件的专属，函数式组件同样能够利用闭包暂存其值：
 
-``` js
-function CustomForm({
-    handleSubmit
-}) {
-    let inputElement;
-    return ( <
-        form onSubmit = {
-            () => handleSubmit(inputElement.value)
-        } >
-        <
-        input type = "text"
-        ref = {
-            input => (inputElement = input)
-        }
-        /> <
-        button type = "submit" > Submit < /button> <
-        /form>
-    );
+``` 
+function CustomForm ({handleSubmit}) {
+  let inputElement
+  return (
+    <form onSubmit={() => handleSubmit(inputElement.value)}>
+      <input
+        type='text'
+        ref={(input) => inputElement = input} />
+      <button type='submit'>Submit</button>
+    </form>
+  )
 }
 ```
 
@@ -505,13 +478,13 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 React. createElement(): JSX 语法就是用 React. createElement()来构建 React 元素的。它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组件。第二个参数为传入的属性。第三个以及之后的参数，皆作为组件的子组件。
 
-``` js
+``` 
 React.createElement(type, [props], [...children]);
 ```
 
 React. cloneElement()与 React. createElement()相似，不同的是它传入的第一个参数是一个 React 元素，而不是标签名或组件。新添加的属性会并入原有的属性，传入到返回的新元素中，而旧的子元素将被替换。将保留原始元素的键和引用。
 
-``` js
+``` 
 React.cloneElement(element, [props], [...children]);
 ```
 
