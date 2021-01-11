@@ -1168,25 +1168,25 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 
 ## 只有一个脚本的情况
 
-```
+``` 
 <script src = "a.js" />
 ```
 
 没有 defer 或 async 属性，浏览器会立即下载并执行相应的脚本，并且在下载和执行时页面的处理会停止。
 
-```
+``` 
 <script defer src = "a.js" />
 ```
 
 有了 defer 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，等到文档解析完成脚本才会执行。
 
-```
+``` 
 <script async src = "a.js" />
 ```
 
 有了 async 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，下载完成后立即执行，执行过程中页面处理会停止。
 
-```
+``` 
 <script defer async src = "a.js" />
 ```
 
@@ -1202,14 +1202,14 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 
 这里只列举两个脚本的情况：
 
-```
+``` 
 <script src = "a.js"> </script>
 <script src = "b.js"> </script>
 ```
 
 没有 defer 或 async 属性，浏览器会立即下载并执行脚本 a. js，在 a. js 脚本执行完成后才会下载并执行脚本 b. js，在脚本下载和执行时页面的处理会停止。
 
-```
+``` 
 <script defer src = "a.js"> </script>
 <script defer src = "b.js"> </script>
 ```
@@ -1217,7 +1217,7 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 有了 defer 属性，浏览器会立即下载相应的脚本 a. js 和 b. js，在下载的过程中页面的处理不会停止，等到文档解析完成才会执行这两个脚本。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件执行。
 在现实当中，延迟脚本并不一定会按照顺序执行，也不一定会在 DOMContentLoaded 事件触发前执行，因此最好只包含一个延迟脚本。
 
-```
+``` 
 <script async src = "a.js"> </script>
 <script async src = "b.js"> </script>
 ```
@@ -1440,18 +1440,15 @@ JavaScript 中变量可能包含两种不同的数据类型的值：基本类型
 
 (严格地说，只要前面不是产生实际运行结果的语句，"use strict"可以不在第一行，比如直接跟在一个空的分号后面。)
 
-``` js
-< script >
-    "use strict";
-console.log("这是严格模式。"); <
-/script>
+``` 
+　　<script>
+　　　　"use strict";
+　　　　console.log("这是严格模式。");
+　　</script>
 
-<
-script >
-    console.log("这是正常模式。");
-kly, it 's almost 2 years ago now. I can admit it now - I run it on my school'
-s network that has about 50 computers. <
-    /script>
+　　<script>
+　　　　console.log("这是正常模式。");kly, it's almost 2 years ago now. I can admit it now - I run it on my school's network that has about 50 computers.
+　　</script>
 ```
 
 上面的代码表示，一个网页中依次有两段 Javascript 代码。前一个 script 标签是严格模式，后一个不是。
