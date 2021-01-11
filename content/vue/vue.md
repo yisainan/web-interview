@@ -34,7 +34,7 @@
 
 答案：
 
-![vue_002](../../images/vue_002.jpg)
+![vue_002](. . /. . /images/vue_002. jpg)
 
 （1） beforeCreate 初始化实例后 数据观测和事件配置之前调用
 
@@ -126,7 +126,7 @@ let p = new Proxy(target, handler);
 * handler 是一个对象，其声明了代理target 的一些操作，其属性是当执行一个操作时定义代理的行为的函数。
 * p 是代理后的对象。当外界每次对 p 进行操作时，就会执行 handler 对象上的一些方法。Proxy共有13种劫持操作，handler代理的一些常用的方法有如下几个：
 
-```
+``` 
 get： 读取
 set： 修改
 has： 判断对象是否有该属性
@@ -346,38 +346,36 @@ $("body").bind("click", function(event) {
 
 这里直接就获取到了 event 对象，那么问题来了，vue 中呢？
 
-``` js
-< div id = "app" >
-    <
-    button v - on: click = "click" > click me < /button> < /
-div >
-    ...
-    var app = new Vue({
-        el: '#app',
-        methods: {
-            click(event) {
-                console.log(typeof event); // object
-            }
+``` 
+<div id="app">
+    <button v-on:click="click">click me</button>
+</div>
+...
+var app = new Vue({
+    el: '#app',
+    methods: {
+        click(event) {
+            console.log(typeof event);    // object
         }
-    });
+    }
+});
 ```
 
 这里的实现方式看起来和 jquery 是一致的啊，但是实际上，vue 比 jquery 要要复杂得多，jquery 官方也明确的说，v-on 不简单是 addEventListener 的语法糖。在 jquery 中，我们传入到 bind 方法中的回调，只能是一个函数表类型的变量或者一个匿名函数，传递的时候，还不能执行它（在后面加上一堆圆括号），否则就变成了取这一个函数的返回值作为事件回调。而我们知道，vue 的 v-on 指令接受的值可以是函数执行的形式，比如 v-on:click="click(233)" 。这里我们可以传递任何需要传递的参数，甚至可以不传递参数：
 
-``` js
-< div id = "app" >
-    <
-    button v - on: click = "click()" > click me < /button> < /
-div >
-    ...
-    var app = new Vue({
-        el: '#app',
-        methods: {
-            click(event) {
-                console.log(typeof event); // undefined
-            }
+``` 
+<div id="app">
+    <button v-on:click="click()">click me</button>
+</div>
+...
+var app = new Vue({
+    el: '#app',
+    methods: {
+        click(event) {
+            console.log(typeof event);    // undefined
         }
-    });
+    }
+});
 ```
 
 咦？我的 event 对象呢？怎么不见了？打印看看 arguments. length 也是 0，说明这时候确实没有实参被传入进来。T_T，那我们如果既需要传递参数，又需要用到 event 对象，这个该怎么办呢？
@@ -386,20 +384,19 @@ div >
 
 翻看 vue 文档，不难发现，其实我们可以通过将一个特殊变量 \$event 传入到回调中解决这个问题：
 
-``` js
-< div id = "app" >
-    <
-    button v - on: click = "click($event, 233)" > click me < /button> < /
-div >
-    ...
-    var app = new Vue({
-        el: '#app',
-        methods: {
-            click(event, val) {
-                console.log(typeof event); // object
-            }
+``` 
+<div id="app">
+    <button v-on:click="click($event, 233)">click me</button>
+</div>
+...
+var app = new Vue({
+    el: '#app',
+    methods: {
+        click(event, val) {
+            console.log(typeof event);    // object
         }
-    });
+    }
+});
 ```
 
 好吧，这样看起来就正常了。
@@ -413,27 +410,26 @@ div >
 前面都算是铺垫吧，现在真正的乌龙来了。
 翻看小伙伴儿的代码，偶然看到了类似下面的代码：
 
-``` js
-< div id = "app" >
-    <
-    button v - on: click = "click(233)" > click me < /button> < /
-div >
-    ...
-    var app = new Vue({
-        el: '#app',
-        methods: {
-            click(val) {
-                console.log(typeof event); // object
-            }
+``` 
+<div id="app">
+    <button v-on:click="click(233)">click me</button>
+</div>
+...
+var app = new Vue({
+    el: '#app',
+    methods: {
+        click(val) {
+            console.log(typeof event);    // object
         }
-    });
+    }
+});
 ```
 
 看到这一段代码，我的内心是崩溃的，丢进 chrome 里面一跑，尼玛还真可以，打印 arguments. length，也是正常的 1。尼玛！这是什么鬼？毁三观啊？
 既没有传入实参，也没有接收的形参，这个 event 对象的来源，要么是上级作用链，要么。。。是全局作用域。。。全局的，不禁想到了 window. event
 。再次上 MDN 确认了一下，果然，window. event，ie 和 chrome 都在 window 对象上有这样一个属性：
 
-![vue_003](../../images/vue_003.jpg)
+![vue_003](. . /. . /images/vue_003. jpg)
 
 代码丢进 Firefox 中运行，event 果然就变成了 undefined 了。额，这个我也不知道说什么了。。。
 
@@ -453,43 +449,32 @@ div >
 
 理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数，
 
-``` js
-<
-template >
-    <
-    div class = "hello" >
-    <
-    div >
-    <
-    button id = "firstBtn"
-@click = "testClick()"
-ref = "aa" > {
-    {
-        testMsg
-    }
-} < /button> < /
-div > <
-    /div> < /
-template >
+```
+<template>
+  <div class="hello">
+    <div>
+      <button id="firstBtn" @click="testClick()" ref="aa">{{testMsg}}</button>
+    </div>
+  </div>
+</template>
 
-    <
-    script >
-    export default {
-        name: 'HelloWorld',
-        data() {
-            return {
-                testMsg: "原始值",
-            }
-        },
-        methods: {
-            testClick: function() {
-                let that = this;
-                that.testMsg = "修改后的值";
-                console.log(that.$refs.aa.innerText); //that.$refs.aa获取指定DOM，输出：原始值
-            }
-        }
-    } <
-    /script>
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      testMsg:"原始值",
+    }
+  },
+  methods:{
+    testClick:function(){
+      let that=this;
+      that.testMsg="修改后的值";
+      console.log(that.$refs.aa.innerText);   //that.$refs.aa获取指定DOM，输出：原始值
+    }
+  }
+}
+</script>
 ```
 
 使用 this. \$nextTick()
@@ -523,45 +508,36 @@ created() {
 
 2、当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue. nextTick()的回调函数中；通俗的理解是：更改数据后当你想立即使用 js 操作新的视图的时候需要使用它
 
-``` js
-<
-template >
-    <
-    div class = "hello" >
-    <
-    h3 id = "h" > {
-        {
-            testMsg
-        }
-    } < /h3> < /
-div > <
-    /template>
+```
+<template>
+  <div class="hello">
+    <h3 id="h">{{testMsg}}</h3>
+  </div>
+</template>
 
-    <
-    script >
-    export default {
-        name: 'HelloWorld',
-        data() {
-            return {
-                testMsg: "原始值",
-            }
-        },
-        methods: {
-            changeTxt: function() {
-                let that = this;
-                that.testMsg = "修改后的文本值"; //vue数据改变，改变dom结构
-                let domTxt = document.getElementById('h').innerText; //后续js对dom的操作
-                console.log(domTxt); //输出可以看到vue数据修改后DOM并没有立即更新，后续的dom都不是最新的
-                if (domTxt === "原始值") {
-                    console.log("文本data被修改后dom内容没立即更新");
-                } else {
-                    console.log("文本data被修改后dom内容被马上更新了");
-                }
-            },
-
-        }
-    } <
-    /script>
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      testMsg:"原始值",
+    }
+  },
+  methods:{
+    changeTxt:function(){
+      let that=this;
+      that.testMsg="修改后的文本值";  //vue数据改变，改变dom结构
+      let domTxt=document.getElementById('h').innerText;  //后续js对dom的操作
+      console.log(domTxt);  //输出可以看到vue数据修改后DOM并没有立即更新，后续的dom都不是最新的
+      if(domTxt==="原始值"){
+        console.log("文本data被修改后dom内容没立即更新");
+      }else {
+        console.log("文本data被修改后dom内容被马上更新了");
+      }
+    },
+  }
+}
+</script>
 ```
 
 正确的用法是：vue 改变 dom 元素结构后使用 vue. \$nextTick()方法来实现 dom 数据更新后延迟执行后续代码
@@ -654,27 +630,25 @@ console.log(component2.data.message); // Love
 
 父组件
 
-``` js
-< template >
-    <
-    div >
-    <
-    child > < /child> < /
-div > <
-    /template> <
-script >
-    import child from '~/components/dam/child';
-export default {
+```
+<template>
+  <div>
+    <child></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
     components: {
-        child
+      child
     },
     methods: {
-        fatherMethod() {
-            console.log('测试');
-        }
+      fatherMethod() {
+        console.log('测试');
+      }
     }
-}; <
-/script>
+  };
+</script>
 ```
 
 子组件
@@ -969,9 +943,9 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 解析：
 
-![vue_004](../../images/vue_004.jpg)
+![vue_004](. . /. . /images/vue_004. jpg)
 
-![vue_005](../../images/vue_005.jpg)
+![vue_005](. . /. . /images/vue_005. jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/415)
 
@@ -981,7 +955,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 答案：
 
-![vue_005](../../images/vue_005.jpg)
+![vue_005](. . /. . /images/vue_005. jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/416)
 
@@ -1678,7 +1652,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 通信方式如下
 
-![架构_001](../../images/架构_001.png)
+![架构_001](. . /. . /images/架构_001. png)
 
 1. 视图（View）：用户界面。 传送指令到 Controller
 
@@ -1690,7 +1664,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 通信方式如下
 
-![架构_002](../../images/架构_002.png)
+![架构_002](. . /. . /images/架构_002. png)
 
 1. 各部分之间的通信，都是双向的。
 
@@ -1702,7 +1676,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。通信方式如下
 
-![架构_003](../../images/架构_003.png)
+![架构_003](. . /. . /images/架构_003. png)
 
 唯一的区别是，它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。
 
@@ -1954,7 +1928,7 @@ vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
 
 命令效果：
 
-![vue_001](../../images/vue_001.jpg)
+![vue_001](. . /. . /images/vue_001. jpg)
 
 在浏览器上自动弹出一个 展示 vue-cli 工程打包后 app. js、manifest. js、vendor. js 文件里面所包含代码的页面。可以具此优化 vue-cli 生产环境部署的静态资源，提升 页面 的加载速度。
 
@@ -2275,7 +2249,7 @@ a.	通过数据劫持实现
 
 #### 原理结构图
 
-![vue_006](../../images/vue_006.png)
+![vue_006](. . /. . /images/vue_006. png)
 
 </details>
 
