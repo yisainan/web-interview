@@ -161,11 +161,11 @@
 
 <br/>
 
-## 我来出题
+<!-- ## 我来出题
 
 大家都参与进来，才能使项目更加完善。详见：[出题步骤](https://github.com/yisainan/web-interview/issues/813)
 
-<br/>
+<br/> -->
 
 ## 学习交流
 
@@ -176,9 +176,29 @@
 
 加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
-<!-- ![二维码](./images/qrcode_001.jpg)
+<!-- ![二维码](./images/qrcode_001.jpg) -->
 
-## 我的推荐（与本项目无关）
+## 我的推荐
 
-1、[各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
-2、[WEB前端资源项目整合](./content/资源/前端.md) -->
+#### 前端
+- [新蜂商城Vue3 版本](https://github.com/newbee-ltd/newbee-mall-vue3-app)
+- [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)
+- [前端技能汇总](https://github.com/JacksonTian/fks)
+- [微信小程序开发资源汇总](https://github.com/justjavac/awesome-wechat-weapp)
+- [Vue相关开源项目库汇总](https://github.com/opendigg/awesome-github-vue)
+- [GitHub最全的前端资源汇总仓库](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource)
+- [React Native指南汇集了各类react-native学习资源、开源App和组件](https://github.com/reactnativecn/react-native-guide)
+
+#### 后端
+- [《Node.js 包教不包会》](https://github.com/alsotang/node-lessons)
+- [Spring Boot 教程、技术栈示例代码，快速简单上手教程](https://github.com/ityouknow/spring-boot-examples)
+- [Python初学者（零基础学习Python、Python入门）书籍、视频、资料、社区推荐](https://github.com/Yixiaohan/codeparkshare)
+- [Go 语言学习资料索引](https://github.com/unknwon/go-study-index)
+
+#### 其他
+- [各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
+- [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
+- [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
+- [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)
+- [收集&推荐优秀的 Apps/硬件/技巧/周边等](https://github.com/hzlzh/Best-App)
+- [更多优秀项目请移步](https://github.com/qiilee?tab=stars)

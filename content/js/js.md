@@ -805,13 +805,28 @@ test(); // Hi! xiaoming
 答案：
 
 ``` js
+function Person(name) {
+    this.name = name;
+}
+var person = new Person("qilei");
+```
+
+new一个对象的四个过程：
+
+``` js
 // 1. 创建空对象；
 var obj = {};
-// 2. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象；
-obj.__proto__ = ClassA.prototype;
-// 3. 使用新对象调用函数，函数中的 this 被指向新实例对象：
-ClassA.call(obj); //{}.构造函数();
-// 4. 如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接直接返回该对象。
+// 2. 设置原型链: 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象；
+obj.constructor = Person;
+obj.__proto__ = Person.prototype;
+// 3. 改变this指向：使用新对象调用函数，函数中的 this 指向新实例对象obj：
+var result = Person.call(obj); //{}.构造函数();
+// 4. 返回值：如果无返回值或者返回一个非对象值，则将新对象返回；如果返回值是一个新对象的话那么直接返回该对象。
+if (typeof(result) == "object") {
+    person = result;
+} else {
+    person = obj;
+}
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/187)
