@@ -190,6 +190,8 @@ render () {
 
 答案：
 
+#### react15生命周期
+
 1. 初始化阶段：
 
 getDefaultProps: 获取实例的默认属性
@@ -210,7 +212,14 @@ componentDidUpdate: 组件已经更新
 
 componentWillUnmount: 组件即将销毁
 
-解析：有三大阶段，每阶段的细分 5-5-1
+#### react16生命周期
+
+React 在v16.3版本中将 componentWillMount, componentWillReceiveProps 以及componentWillUpdate 加上了UNSAFE_前缀，这些钩子将在React 17.0废除
+
+新引入的两个生命周期函数 
+
+* getDerivedStateFromProps: 是一个静态方法, 是一个和组件自身"不相关"的角色. 在这个静态方法中, 除了两个默认的位置参数 nextProps 和 currentState 以外, 你无法访问任何组件上的数据.
+* getSnapshotBeforeUpdate: 获取render之前的dom状态
 
 
 [参与互动](https://github.com/yisainan/web-interview/issues/503)

@@ -358,7 +358,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 答案：如果你的提交信息(commit message)写错了且这次提交(commit)还没有推(push), 你可以通过下面的方法来修改提交信息(commit message):
 
-> git commit --amend --only -m 'xxxxxxx'
+> git commit --amend --only -m 'fix: 新的提交信息'
 
 </details>
 
