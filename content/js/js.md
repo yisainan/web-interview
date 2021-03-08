@@ -6166,6 +6166,64 @@ JSON.stringify(obj) == JSON.stringify(obj3); //false
 
 </details>
 
+<b><details><summary>195.获取一个月有多少天</summary></b>
+
+今天遇到一个需求，已知月份，得到这个月的第一天和最后一天作为查询条件查范围内的数据
+
+new Date(year, month, date, hrs, min, sec)，new Date 可以接受这些参数创建一个时间对象 其中当我们把 date 设置为 0 的时候，可以直接通过 getDate() 获取到最后一天的日期然后得到我们要的最后一天
+
+答案：
+
+``` js
+
+new Date(2019, 12, 0).getDate(); // 31
+new Date(2018, 2, 0).getDate(); // 28
+// 根据这个我们可以得到一个方法
+function getMonthLength(month) {
+  const date = new Date(month);
+  const year = date.getFullYear();
+  // 月份是从 0 开始计算的
+  const _month = date.getMonth() + 1;
+  return new Date(year, _month, 0).getDate();
+}
+
+```
+
+</details>
+
+<b><details><summary>196.关于函数的 length 属性</summary></b>
+
+答案：
+
+```js
+(() => 1).length === 0; // 输出true
+```
+
+解析：
+
+函数是有 length 属性的，函数的 length 属性就是函数参数的个数，函数的参数就是 arguments，而 arguments 也是一个类数组对象所以他是有 length 属性的
+
+</details>
+
+<b><details><summary>197.数组中字符串键值的处理</summary></b>
+
+在 JavaScript 中数组是通过数字进行索引，但是有趣的是他们也是对象，所以也可以包含 字符串 键值和属性，但是这些不会被计算在数组的长度（length）内
+
+如果字符串键值能够被强制类型转换为十进制数字的话，它就会被当做数字索引来处理
+
+答案：
+
+``` js
+const arr = [];
+arr[0] = 1;
+arr['1'] = '嘿嘿';
+arr['cym'] = 'cym';
+console.log(arr); // [1, '嘿嘿', cym: 'cym']
+console.log(arr.length); // 2
+```
+
+</details>
+
 <b><details><summary></summary></b>
 
 答案：

@@ -230,7 +230,9 @@ React 在v16.3版本中将 componentWillMount, componentWillReceiveProps 以及c
 
 答案：
 
-shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法重新描绘 dom。因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。
+1. shouldComponentUpdate询问组件是否需要更新的一个钩子函数，判断数据是否需要重新渲染，返回一个布尔值。默认的返回值是true，需要重新render()。若如果返回值是false则不触发渲染,利用这个生命周期函数可以强制关闭不需要更新的子组件来提升渲染性能。
+2. 这个方法用来判断是否需要调用 render 方法重新描绘 dom。
+3. 因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/504)
 
@@ -240,9 +242,21 @@ shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法�
 
 答案：
 
-虚拟 dom 相当于在 js 和真实 dom 中间加了一个缓存，利用 dom diff 算法避免了没有必要的 dom 操作，从而提高性能。
+虚拟dom(virtual dom) 其实就是一个JavaScript对象，通过这个JavaScript对象来描述真实dom。
 
-用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异把 2 所记录的差异应用到步骤 1 所构建的真正的 DOM 树上，视图就更新了。
+真实dom：以前没有虚拟dom，如果需要比较两个页面的差异，我们需要通过对真实dom进行比对。真实dom节点是非常复杂的，它里面会绑定的事件，它会有属性，背后会有各种方法，会频繁触发重排与重绘，所以两个真实dom比对，非常耗性能。
+
+总损耗 = 真实DOM完全增删改 + （可能较多的节点）重排与重绘
+
+虚拟dom：相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提髙性能。
+
+总损耗 = 虚拟DOM增删改 + （与Diff算法效率有关）真实DOM差异增删改 + （较少的节点）重排与重绘 
+
+具体实现步骤如下： 
+
+1. 用JavaScript对象结构表示DOM树的结构；然后用这个树构建一个真正的DOM树，插到文档当中;
+2. 当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异;
+3. 把步骤2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/505)
 
@@ -252,7 +266,7 @@ shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法�
 
 答案：
 
-Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。我们可以为元素添加 ref 属性然后在回调函数中接受该元素在 DOM 树中的句柄，该值会作为回调函数的第一个参数返回：
+refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。我们可以为元素添加 ref 属性然后在回调函数中接受该元素在 DOM 树中的句柄，该值会作为回调函数的第一个参数返回：
 
 ``` jsx
 class CustomForm extends Component {
@@ -296,9 +310,8 @@ function CustomForm ({handleSubmit}) {
 
 答案：
 
-setState 是修改其中的部分状态，相当于 Object. assign，只是覆盖，不会减少原来的状态
-
-replaceState 是完全替换原来的状态，相当于赋值，将原来的 state 替换为另一个对象，如果新状态属性减少，那么 state 中就没有这个状态了
+1. setState 是修改其中的部分状态，相当于 Object. assign，只是覆盖，不会减少原来的状态；
+2. replaceState 是完全替换原来的状态，相当于赋值，将原来的 state 替换为另一个对象，如果新状态属性减少，那么 state 中就没有这个状态了。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/507)
 
@@ -324,6 +337,8 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 3. Dispatcher 收到 Action，要求 Store 进行相应的更新
 4. Store 更新后，发出一个"change"事件
 5. View 收到"change"事件后，更新页面
+
+[参考](http://www.ruanyifeng.com/blog/2016/01/flux.html)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/509)
 

@@ -12,7 +12,7 @@
 -->
 
 🚀 欢迎`Star`，后续会不断更新。  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣2️⃣`/`0️⃣5️⃣
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣3️⃣`/`0️⃣8️⃣
 
 ## 目录
 
@@ -200,5 +200,4 @@
 - [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
 - [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
 - [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)
-- [收集&推荐优秀的 Apps/硬件/技巧/周边等](https://github.com/hzlzh/Best-App)
-- [更多优秀项目请移步](https://github.com/qiilee?tab=stars)
+- [程序员要有自己的云服务器](https://www.aliyun.com/minisite/goods?userCode=yc6paakd)
