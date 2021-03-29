@@ -214,13 +214,12 @@ componentWillUnmount: 组件即将销毁
 
 #### react16生命周期
 
-React 在v16.3版本中将 componentWillMount, componentWillReceiveProps 以及componentWillUpdate 加上了UNSAFE_前缀，这些钩子将在React 17.0废除
+React 在v16. 3版本中将 componentWillMount, componentWillReceiveProps 以及componentWillUpdate 加上了UNSAFE_前缀，这些钩子将在React 17. 0废除
 
 新引入的两个生命周期函数 
 
-* getDerivedStateFromProps: 是一个静态方法, 是一个和组件自身"不相关"的角色. 在这个静态方法中, 除了两个默认的位置参数 nextProps 和 currentState 以外, 你无法访问任何组件上的数据.
+* getDerivedStateFromProps: 是一个静态方法, 是一个和组件自身"不相关"的角色. 在这个静态方法中, 除了两个默认的位置参数 nextProps 和 currentState 以外, 你无法访问任何组件上的数据. 
 * getSnapshotBeforeUpdate: 获取render之前的dom状态
-
 
 [参与互动](https://github.com/yisainan/web-interview/issues/503)
 
@@ -348,9 +347,207 @@ function CustomForm ({handleSubmit}) {
 
 答案：
 
-* redux 是一个应用数据流框架，主要是解决了组件间状态共享的问题，原理是集中式管理，主要有三个核心方法，action，store，reducer，工作流程是 view 调用 store 的 dispatch 接收 action 传入 store，reducer 进行 state 操作，view 通过 store 提供的 getState 获取最新的数据，flux 也是用来进行数据操作的，有四个组成部分 action，dispatch，view，store，工作流程是 view 发出一个 action，派发器接收 action，让 store 进行数据更新，更新完成以后 store 发出 change，view 接受 change 更新视图。Redux 和 Flux 很像。主要区别在于 Flux 有多个可以改变应用状态的 store，在 Flux 中 dispatcher 被用来传递数据到注册的回调事件，但是在 redux 中只能定义一个可更新状态的 store，redux 把 store 和 Dispatcher 合并, 结构更加简单清晰
-* 新增 state, 对状态的管理更加明确，通过 redux，流程更加规范了，减少手动编码量，提高了编码效率，同时缺点时当数据更新时有时候组件不需要，但是也要重新绘制，有些影响效率。一般情况下，我们在构建多交互，多数据流的复杂项目应用时才会使用它们
+1、为什么要用redux
 
+在React中，数据在组件中是单向流动的，数据从一个方向父组件流向子组件（通过props）, 所以，两个非父子组件之间通信就相对麻烦，redux的出现就是为了解决state里面的数据问题
+
+2、Redux设计理念
+
+Redux是将整个应用状态存储到一个地方上称为store, 里面保存着一个状态树store tree, 组件可以派发(dispatch)行为(action)给store, 而不是直接通知其他组件，组件内部通过订阅store中的状态state来刷新自己的视图。
+
+![redux工作流](. . /images/react_001. png)
+
+3、Redux三大原则
+
+1. 唯一数据源
+
+整个应用的state都被存储到一个状态树里面，并且这个状态树，只存在于唯一的store中
+
+2. 保持只读状态
+
+state是只读的，唯一改变state的方法就是触发action，action是一个用于描述以发生时间的普通对象
+
+3. 数据改变只能通过纯函数来执行
+
+使用纯函数来执行修改，为了描述action如何改变state的，你需要编写reducers
+
+4、Redux概念解析
+
+1. Store
+* store就是保存数据的地方，你可以把它看成一个数据，整个应用只能有一个store
+* Redux提供createStore这个函数，用来生成Store
+
+``` js
+import {
+    createStore
+} from 'redux'
+const store = createStore(fn);
+```
+
+2. State
+
+state就是store里面存储的数据，store里面可以拥有多个state，Redux规定一个state对应一个View, 只要state相同，view就是一样的，反过来也是一样的，可以通过store. getState( )获取
+
+``` js
+import {
+    createStore
+} from 'redux'
+const store = createStore(fn);
+const state=store.getState()
+```
+
+3. Action
+
+state的改变会导致View的变化，但是在redux中不能直接操作state也就是说不能使用this. setState来操作，用户只能接触到View。在Redux中提供了一个对象来告诉Store需要改变state。Action是一个对象其中type属性是必须的，表示Action的名称，其他的可以根据需求自由设置。
+
+``` js
+const action = {
+    type: 'ADD_TODO',
+    payload: 'redux原理'
+}
+```
+
+在上面代码中，Action的名称是ADD_TODO，携带的数据是字符串‘redux原理’，Action描述当前发生的事情，这是改变state的唯一的方式
+
+4. store. dispatch( )
+
+store. dispatch( )是view发出Action的唯一办法
+
+``` js
+store.dispatch({
+    type: 'ADD_TODO',
+    payload: 'redux原理'
+})
+```
+
+store. dispatch接收一个Action作为参数，将它发送给store通知store来改变state。
+
+5. Reducer
+
+Store收到Action以后，必须给出一个新的state，这样view才会发生变化。这种state的计算过程就叫做Reducer。
+Reducer是一个纯函数，他接收Action和当前state作为参数，返回一个新的state
+
+> 注意：Reducer必须是一个纯函数，也就是说函数返回的结果必须由参数state和action决定，而且不产生任何副作用也不能修改state和action对象
+
+``` js
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ADD_TODO:
+            return newstate;
+        default
+        return state
+    }
+}
+```
+
+5、Redux源码
+
+``` js
+let createStore = (reducer) => {
+    let state;
+    //获取状态对象
+    //存放所有的监听函数
+    let listeners = [];
+    let getState = () => state;
+    //提供一个方法供外部调用派发action
+    let dispath = (action) => {
+        //调用管理员reducer得到新的state
+        state = reducer(state, action);
+        //执行所有的监听函数
+        listeners.forEach((l) => l())
+    }
+    //订阅状态变化事件，当状态改变发生之后执行监听函数
+    let subscribe = (listener) => {
+        listeners.push(listener);
+    }
+    dispath();
+    return {
+        getState,
+        dispath,
+        subscribe
+    }
+}
+let combineReducers = (renducers) => {
+    //传入一个renducers管理组，返回的是一个renducer
+    return function(state = {}, action = {}) {
+        let newState = {};
+        for (var attr in renducers) {
+            newState[attr] = renducers[attr](state[attr], action)
+
+        }
+        return newState;
+    }
+}
+export {
+    createStore,
+    combineReducers
+};
+```
+
+6、Redux使用案例
+
+html代码
+
+``` html
+<div id="counter"></div>
+<button id="addBtn">+</button>
+<button id="minusBtn">-</button>
+```
+
+js代码
+
+``` js
+function createStore(reducer) {
+    var state;
+    var listeners = [];
+    var getState = () => state;
+    var dispatch = (action) => {
+        state = reducer(state, action);
+        listeners.forEach(l => l());
+    }
+    var subscribe = (listener) => {
+        listeners.push(listener);
+        return () => {
+            listeners = listeners.filter((l) => l != listener)
+        }
+    }
+    dispatch();
+    return {
+        getState,
+        dispatch,
+        subscribe
+    }
+}
+var reducer = (state = 0, action) => {
+    if (!action) return state;
+    console.log(action);
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            return state;
+    }
+}
+var store = createStore(reducer);
+store.subscribe(function() {
+    document.querySelector('#counter').innerHTML = store.getState();
+});
+
+document.querySelector('#addBtn').addEventListener('click', function() {
+    store.dispatch({
+        type: 'INCREMENT'
+    });
+});
+document.querySelector('#minusBtn').addEventListener('click', function() {
+    store.dispatch({
+        type: 'DECREMENT'
+    });
+});
+```
+
+[参考](https://www.jianshu.com/p/e984206553c2)
 [参与互动](https://github.com/yisainan/web-interview/issues/510)
 
 </details>

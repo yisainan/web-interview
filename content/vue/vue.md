@@ -4,27 +4,41 @@
 
 答案：
 
-1、Vue 应用运行时性能优化措施
+1）编码阶段
 
-（1）引入生产环境的 Vue 文件
+* 尽量减少data中的数据，data中的数据都会增加getter和setter，会收集对应的watcher
+* v-if和v-for不能连用
+* 如果需要使用v-for给每项元素绑定事件时使用事件代理
+* SPA 页面采用keep-alive缓存组件
+* 在更多的情况下，使用v-if替代v-show
+* key保证唯一
+* 使用路由懒加载、异步组件
+* 防抖、节流
+* 第三方模块按需导入
+* 长列表滚动到可视区域动态加载
+* 图片懒加载
 
-（2）使用单文件组件预编译模板
+2）用户体验：
 
-（3）提取组件的 CSS 到单独到文件
+* 骨架屏
+* PWA（渐进式WEB应用）
+* 还可以使用缓存(客户端缓存、服务端缓存)优化、服务端开启gzip压缩等。
 
-（4）利用Object. freeze()提升性能
+3）SEO优化
 
-（5）扁平化 Store 数据结构
+* 预渲染
+* 服务端渲染SSR
 
-（6）合理使用持久化 Store 数据
+4）打包优化
 
-（7）组件懒加载
+* 压缩代码；
+* Tree Shaking/Scope Hoisting；
+* 使用cdn加载第三方模块；
+* 多线程打包happypack；
+* splitChunks抽离公共文件；
+* sourceMap优化；
 
-2、Vue 应用加载性能优化措施
-
-（1）服务端渲染 / 预渲染
-
-（2）组件懒加载
+说明：优化是个大工程，会涉及很多方面
 
 [参与互动](https://github.com/yisainan/web-interview/issues/392)
 
@@ -449,7 +463,7 @@ var app = new Vue({
 
 理解：nextTick()，是将回调函数延迟在下一次 dom 更新数据后调用，简单的理解是：当数据更新了，在 dom 中渲染后，自动执行该函数，
 
-```
+``` 
 <template>
   <div class="hello">
     <div>
@@ -477,7 +491,7 @@ export default {
 </script>
 ```
 
-使用 this. \$nextTick()
+使用 this. $nextTick()
 
 ``` js
 methods: {
@@ -508,7 +522,7 @@ created() {
 
 2、当项目中你想在改变 DOM 元素的数据后基于新的 dom 做点什么，对新 DOM 一系列的 js 操作都需要放进 Vue. nextTick()的回调函数中；通俗的理解是：更改数据后当你想立即使用 js 操作新的视图的时候需要使用它
 
-```
+``` 
 <template>
   <div class="hello">
     <h3 id="h">{{testMsg}}</h3>
@@ -612,6 +626,11 @@ console.log(component2.data.message); // Love
 
 答案：v-for 比 v-if 优先
 
+1、v-for优先于v-if被解析；
+2、如果同时出现，每次渲染都会先执行循环再判断条件，无论如何循环都不可避免，浪费了性能；
+3、要避免出现这种情况，则在外层嵌套template，在这一层进行v-if判断，然后在内部进行v-for循环；
+4、如果条件出现在循环内部，可通过计算属性提前过滤掉那些不需要显示的项；
+
 [参与互动](https://github.com/yisainan/web-interview/issues/410)
 
 </details>
@@ -630,7 +649,7 @@ console.log(component2.data.message); // Love
 
 父组件
 
-```
+``` 
 <template>
   <div>
     <child></child>
@@ -2044,6 +2063,9 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
+1.webpack-simple模板
+2.webpack模板
+
 [参与互动](https://github.com/yisainan/web-interview/issues/492)
 
 </details>
@@ -2098,6 +2120,16 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 <b><details><summary>108. 谈一谈 nextTick 的原理</summary></b>
 
 答案：
+
+* 在下次 DOM 更新循环结束之后执行延迟回调。
+* nextTick主要使用了宏任务和微任务。
+* 根据执行环境分别尝试采用
+
+    Promise
+    MutationObserver
+    setImmediate
+
+如果以上都不行则采用setTimeout定义了一个异步方法，多次调用nextTick会将方法存入队列中，通过这个异步方法清空当前队列。
 
 </details>
 
@@ -2320,10 +2352,260 @@ password:'rapunz3l'
 
 </details>
 
-<b><details><summary>114. </summary></b>
+<b><details><summary>118. Vue. use是干什么的？原理是什么？</summary></b>
+
+答案：vue. use 是用来使用插件的，我们可以在插件中扩展全局组件、指令、原型方法等。
+
+1､检查插件是否注册，若已注册，则直接跳出；
+
+2､处理入参，将第一个参数之后的参数归集，并在首部塞入 this 上下文；
+
+3､执行注册方法，调用定义好的 install 方法，传入处理的参数，若没有 install 方法并且插件本身为 function 则直接进行注册；
+
+1. 插件不能重复的加载
+
+install 方法的第一个参数是vue的构造函数，其他参数是Vue. set中除了第一个参数的其他参数； 代码：args. unshift(this)
+
+2. 调用插件的install 方法 代码：typeof plugin.install === 'function'
+
+3. 插件本身是一个函数，直接让函数执行。 代码：plugin.apply(null, args)
+
+4. 缓存插件。  代码：installedPlugins.push(plugin)
 
 </details>
 
-<b><details><summary>114. </summary></b>
+<b><details><summary>119. new Vue() 发生了什么？</summary></b>
+
+答案：
+
+1）结论：new Vue()是创建Vue实例，它内部执行了根实例的初始化过程。
+
+2）具体包括以下操作：
+
+选项合并
+
+$children，$refs，$slots，$createElement等实例属性的方法初始化
+
+自定义事件处理
+
+数据响应式处理
+
+生命周期钩子调用 （beforecreate created）
+
+可能的挂载
+
+3）总结：new Vue()创建了根实例并准备好数据和方法，未来执行挂载时，此过程还会递归的应用于它的子组件上，最终形成一个有紧密关系的组件实例树。
+
+</details>
+
+<b><details><summary>120. 请说一下响应式数据的理解？</summary></b>
+
+答案：根据数据类型来做不同处理，数组和对象类型当值变化时如何劫持。
+
+1)对象内部通过defineReactive方法，使用Object. defineProperty() 监听数据属性的 get 来进行数据依赖收集，再通过 set 来完成数据更新的派发；
+
+2) 数组则通过重写数组方法来实现的。扩展它的 7 个变更⽅法，通过监听这些方法可以做到依赖收集和派发更新；( push/pop/shift/unshift/splice/reverse/sort )
+
+这里在回答时可以带出一些相关知识点 （比如多层对象是通过递归来实现劫持，顺带提出vue3中是使用 proxy来实现响应式数据）
+
+补充回答：
+
+内部依赖收集是怎么做到的，每个属性都拥有自己的dep属性，存放他所依赖的 watcher，当属性变化后会通知自己对应的 watcher去更新。
+
+响应式流程：
+
+1､defineReactive  把数据定义成响应式的；
+
+2､给属性增加一个 dep，用来收集对应的那些watcher；
+
+3､等数据变化进行更新
+
+dep. depend()  // get 取值：进行依赖收集
+
+dep. notify() // set 设置时：通知视图更新
+
+这里可以引出性能优化相关的内容：
+
+1)对象层级过深，性能就会差。
+
+2)不需要响应数据的内容不要放在data中。
+
+3)object. freeze()  可以冻结数据。
+
+</details>
+
+<b><details><summary>121. Vue如何检测数组变化？</summary></b>
+
+答案：数组考虑性能原因没有用defineProperty对数组的每一项进行拦截，而是选择重写数组 方法以进行重写。当数组调用到这 7 个方法的时候，执行 ob. dep. notify() 进行派发通知 Watcher 更新；
+
+重写数组方法：push/pop/shift/unshift/splice/reverse/sort
+
+补充回答：
+
+在Vue中修改数组的索引和长度是无法监控到的。需要通过以下7种变异方法修改数组才会触发数组对应的wacther进行更新。数组中如果是对象数据类型也会进行递归劫持。
+
+说明：那如果想要改索引更新数据怎么办？
+
+可以通过Vue. set()来进行处理 =》 核心内部用的是 splice 方法。
+
+// 取出原型方法；
+
+const arrayProto = Array. prototype 
+
+// 拷贝原型方法；
+
+export const arrayMethods = Object. create(arrayProto) 
+
+// 重写数组方法；
+
+def(arrayMethods, method, function mutator (... args) { }
+
+ob. dep. notify()  // 调用方法时更新视图；
+
+</details>
+
+<b><details><summary>122. Vue. set 方法是如何实现的？ </summary></b>
+
+答案：为什么$set可以触发更新，我们给对象和数组本身都增加了dep属性，当给对象新增不存在的属性则触发对象依赖的watcher去更新，当修改数组索引时我们调用数组本身的splice方法去更新数组。
+
+补充回答：
+
+官方定义Vue. set(object, key, value) 
+
+1) 如果是数组，调用重写的splice方法 （这样可以更新视图 ）
+
+代码：target. splice(key, 1, val)
+
+2) 如果不是响应式的也不需要将其定义成响应式属性。
+
+3) 如果是对象，将属性定义成响应式的  defineReactive(ob. value, key, val)
+
+通知视图更新  ob. dep. notify()
+
+</details>
+
+<b><details><summary>123. Vue中模板编译原理？</summary></b>
+
+答案：简单说，Vue的编译过程就是将template转化为render函数的过程。会经历以下阶段：
+
+1. 生成AST树
+2. 优化
+3. codegen
+
+* 首先解析模版，生成AST语法树(一种用JavaScript对象的形式来描述整个模板)。 使用大量的正则表达式对模板进行解析，遇到标签、文本的时候都会执行对应的钩子进行相关处理。
+
+* Vue的数据是响应式的，但其实模板中并不是所有的数据都是响应式的。有一些数据首次渲染后就不会再变化，对应的DOM也不会变化。
+
+* 那么优化过程就是深度遍历AST树，按照相关条件对树节点进行标记。这些被标记的节点(静态节点)我们就可以跳过对它们的比对，对运行时的模板起到很大的优化作用。
+
+* 编译的最后一步是将优化后的AST树转换为可执行的代码。
+
+</details>
+
+<b><details><summary>124. Vue3. x响应式数据原理</summary></b>
+
+答案：Vue3. x改用Proxy替代Object. defineProperty。因为Proxy可以直接监听对象和数组的变化，并且有多达13种拦截方法。并且作为新标准将受到浏览器厂商重点持续的性能优化。
+
+</details>
+
+<b><details><summary>125. Vue3. x中Proxy只会代理对象的第一层，那么Vue3又是怎样处理这个问题的呢？</summary></b>
+
+答案：判断当前Reflect. get的返回值是否为Object，如果是则再通过reactive方法做代理， 这样就实现了深度观测。
+
+</details>
+
+<b><details><summary>126. Vue3. x中监测数组的时候可能触发多次get/set，那么如何防止触发多次呢？</summary></b>
+
+答案：我们可以判断key是否为当前被代理对象target自身属性，也可以判断旧值与新值是否相等，只有满足以上两个条件之一时，才有可能执行trigger。
+
+</details>
+
+<b><details><summary>127. vue2. x中如何监测数组变化</summary></b>
+
+答案：
+
+* 使用了函数劫持的方式，重写了数组的方法，Vue将data中的数组进行了原型链重写，指向了自己定义的数组原型方法。
+* 这样当调用数组api时，可以通知依赖更新。
+* 如果数组中包含着引用类型，会对数组中的引用类型再次递归遍历进行监控。这样就实现了监测数组变化。
+
+</details>
+
+<b><details><summary>128. 说一下Computed和Watch</summary></b>
+
+答案：
+
+* Computed本质是一个具备缓存的watcher，依赖的响应式属性变化才会重新计算并且更新视图。 适用于计算比较消耗性能的计算场景。当表达式过于复杂时，在模板中放入过多逻辑会让模板难以维护，可以将复杂的逻辑放入计算属性中处理。
+
+* Watch没有缓存性，更多的是观察的作用，可以监听某些数据执行回调。常用于监听某一个值，当被监听的值发生变化时，执行对应的操作。 打开deep：true选项会深度监听对象中的属性，对对象中的每一项进行监听。 immediate: true 选项表示，初始化时就会先执行一遍该监听对应的操作
+
+</details>
+
+<b><details><summary>129. Vue2.x和Vue3.x渲染器的diff算法分别说一下</summary></b>
+
+答案：简单来说，diff算法有以下过程
+
+* 同级比较，再比较子节点
+* 先判断一方有子节点一方没有子节点的情况(如果新的children没有子节点，将旧的子节点移除)
+* 比较都有子节点的情况(核心diff)
+* 递归比较子节点
+* 正常Diff两个树的时间复杂度是O(n^3) ，但实际情况下我们很少会进行跨层级的移动DOM，所以Vue将Diff进行了优化，从O(n^3) -> O(n)，只有当新旧children都为多个子节点时才需要用核心的Diff算法进行同层级比较。
+
+Vue2的核心Diff算法采用了双端比较的算法，同时从新旧children的两端开始进行比较，借助key值找到可复用的节点，再进行相关操作。相比React的Diff算法，同样情况下可以减少移动节点次数，减少不必要的性能损耗，更加的优雅。
+
+Vue3.x借鉴了 ivi算法和 inferno算法
+
+在创建VNode时就确定其类型，以及在mount/patch的过程中采用位运算来判断一个VNode的类型，在这个基础之上再配合核心的Diff算法，使得性能上较Vue2.x有了提升。(实际的实现可以结合Vue3.x源码看。)
+
+</details>
+
+<b><details><summary>130. SSR了解吗？</summary></b>
+
+答案：
+
+* SSR也就是服务端渲染，也就是将Vue在客户端把标签渲染成HTML的工作放在服务端完成，然后再把html直接返回给客户端。
+
+* SSR有着更好的SEO、并且首屏加载速度更快等优点。
+
+* 不过它也有一些缺点，比如我们的开发条件会受到限制，服务器端渲染只支持beforeCreate和created两个钩子，当我们需要一些外部扩展库时需要特殊处理，服务端渲染应用程序也需要处于Node.js的运行环境。
+
+* 还有就是服务器会有更大的负载需求。
+
+</details>
+
+<b><details><summary>131. 组件中写 name选项有哪些好处及作用？</summary></b>
+
+答案：
+
+1) 可以通过名字找到对应的组件（ 递归组件 ）
+
+2) 可以通过name属性实现缓存功能 (keep-alive)
+
+3) 可以通过name来识别组件（跨级组件通信时非常重要）
+
+```js
+Vue.extend = function () {
+    if(name) {
+        Sub.options.componentd[name] = Sub
+    }
+}
+```
+
+</details>
+
+<b><details><summary>132. </summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>133. </summary></b>
+
+答案：
+
+</details>
+
+<b><details><summary>134. </summary></b>
+
+答案：
 
 </details>
