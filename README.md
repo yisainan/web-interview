@@ -1,10 +1,9 @@
 # web-interview
 
 <p align="left">
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
-  <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
+  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/issues/yisainan/web-interview" alt="issues"></a>
+  <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/github/stars/yisainan/web-interview" alt="stars"></a>
+  <a href="https://github.com/yisainan/web-interview/network/members"><img src="https://img.shields.io/github/forks/yisainan/web-interview" alt="forks"></a>  
 </p>
 
 <!-- 
@@ -12,7 +11,7 @@
 -->
 
 🚀 欢迎`Star`，后续会不断更新。  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣3️⃣`/`0️⃣8️⃣
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣3️⃣`/`3️⃣0️⃣
 
 ## 目录
 
@@ -140,7 +139,7 @@
 
 本仓库遵循 MIT 协议，转载请注明出处。
 
-[![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
+[![MIT](https://img.shields.io/github/license/yisainan/web-interview)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
 
 </details>
 
@@ -177,6 +176,8 @@
 加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
 <!-- ![二维码](./images/qrcode_001.jpg) -->
+
+<br/>
 
 ## 我的推荐
 

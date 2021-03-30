@@ -393,7 +393,7 @@ import {
     createStore
 } from 'redux'
 const store = createStore(fn);
-const state=store.getState()
+const state = store.getState()
 ```
 
 3. Action
@@ -815,9 +815,25 @@ componentWillUnmount() //在组件从DOM中移除的时候立刻被调用
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>40. React. cloneElement()解析</summary></b>
 
 答案：
+
+``` js
+React.cloneElement(
+    element,
+    [props],
+    [...children]
+)
+```
+
+说明： 该方法以 element 作为起点，克隆并返回一个新的 React 元素。所产生的元素将具有原始元素的props ，新的 props 为浅层合并。 新的子元素将取代现有的子元素， key 和 ref 将被保留。
+
+该方法接收三个参数，注意参数的数据类型：
+
+* 第一个参数为必选参数：TYPE（ReactElement），用于克隆的母体React元素。
+* 第二个参数为可选参数：[PROPS（object）]，为克隆后生成的React元素添加新的props或覆盖从母体中克隆而来的部分或全部props。
+* 第三个参数为可选参数：[CHILDREN（ReactElement）]，为新生成的React元素添加新的children，取代从母体中克隆而来的children。
 
 </details>
 
