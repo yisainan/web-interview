@@ -1,11 +1,19 @@
-# 目录
+# web-interview
 
 <p align="left">
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
-  <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
+  <a href="https://github.com/yisainan/web-interview/issues"><img src="https://img.shields.io/github/issues/yisainan/web-interview" alt="issues"></a>
+  <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/github/stars/yisainan/web-interview" alt="stars"></a>
+  <a href="https://github.com/yisainan/web-interview/network/members"><img src="https://img.shields.io/github/forks/yisainan/web-interview" alt="forks"></a>  
 </p>
+
+<!-- 
+// 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
+-->
+
+🚀 欢迎`Star`，后续会不断更新。  
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣6️⃣`/`2️⃣2️⃣
+
+## 目录
 
 <b><details><summary>💡 介绍</summary></b>
 
@@ -45,7 +53,8 @@
 <b><details><summary>🐰 Vue + React</summary></b>
 
 - [Vue](./content/vue/vue.md)
-- [React](./content/React.md)
+- [React](./content/react/React.md)
+- [reactjs-interview-questions](./content/react/reactjs-interview-questions.md)
 
 </details>
 
@@ -130,7 +139,7 @@
 
 本仓库遵循 MIT 协议，转载请注明出处。
 
-[![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
+[![MIT](https://img.shields.io/github/license/yisainan/web-interview)](https://github.com/yisainan/web-interview/blob/master/LICENSE)
 
 </details>
 
@@ -143,7 +152,7 @@
 
 <br/> -->
 
-# 参与互动
+## 参与互动
 
 每道题目的下面，新增了**参与互动**功能，以"面试题"为中心，大家利用碎片时间一起思考讨论，维护好我们的题库，面试时才能更好的回馈自己！
 
@@ -151,24 +160,45 @@
 
 <br/>
 
-# 我来出题
+<!-- ## 我来出题
 
 大家都参与进来，才能使项目更加完善。详见：[出题步骤](https://github.com/yisainan/web-interview/issues/813)
 
-<br/>
+<br/> -->
 
-# 学习交流
+## 学习交流
 
-关注微信公众号「**前端面试秘籍**」，可以
+关注微信公众号「**[前端面试秘籍](https://open.weixin.qq.com/qr/code?username=web-interview)**」，可以
 
 1. 获取更多 web 前端及其他 IT 技术的优质资源(含简历模板)
 2. 加入微信群学习交流
 
 加油~同学！将来的你一定会感谢现在拼命努力的自己！
 
-![二维码](./images/qrcode_001.jpg)
+<!-- ![二维码](./images/qrcode_001.jpg) -->
 
-<!-- # 我的推荐（与本项目无关）
+<br/>
 
-1、[各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
-2、[WEB前端资源项目整合](./content/资源/前端.md) -->
+## 我的推荐
+
+#### 前端
+- [新蜂商城Vue3 版本](https://github.com/newbee-ltd/newbee-mall-vue3-app)
+- [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)
+- [前端技能汇总](https://github.com/JacksonTian/fks)
+- [微信小程序开发资源汇总](https://github.com/justjavac/awesome-wechat-weapp)
+- [Vue相关开源项目库汇总](https://github.com/opendigg/awesome-github-vue)
+- [GitHub最全的前端资源汇总仓库](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource)
+- [React Native指南汇集了各类react-native学习资源、开源App和组件](https://github.com/reactnativecn/react-native-guide)
+
+#### 后端
+- [《Node.js 包教不包会》](https://github.com/alsotang/node-lessons)
+- [Spring Boot 教程、技术栈示例代码，快速简单上手教程](https://github.com/ityouknow/spring-boot-examples)
+- [Python初学者（零基础学习Python、Python入门）书籍、视频、资料、社区推荐](https://github.com/Yixiaohan/codeparkshare)
+- [Go 语言学习资料索引](https://github.com/unknwon/go-study-index)
+
+#### 其他
+- [各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
+- [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
+- [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
+- [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)
+- [程序员要有自己的云服务器](https://www.aliyun.com/minisite/goods?userCode=yc6paakd)

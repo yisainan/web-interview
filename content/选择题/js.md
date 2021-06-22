@@ -1,8 +1,8 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.JavaScript 以下哪条语句会产生运行错误 </summary></b>
+<b><details><summary>1. JavaScript 以下哪条语句会产生运行错误 </summary></b>
 
-A. var obj = (); B. var obj = []; C. var obj = {}; D. var obj = //;
+A. var obj = (); B. var obj = []; C. var obj = {}; D. var obj = //; 
 
 答案：AD
 
@@ -10,7 +10,7 @@ A. var obj = (); B. var obj = []; C. var obj = {}; D. var obj = //;
 
 </details>
 
-<b><details><summary>2.以下哪些是 javascript 的全局函数</summary></b>
+<b><details><summary>2. 以下哪些是 javascript 的全局函数</summary></b>
 
 ```
 A. escape	函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。
@@ -27,7 +27,7 @@ E. alert
 
 </details>
 
-<b><details><summary>3.关于 IE 的 window 对象表述正确的有</summary></b>
+<b><details><summary>3. 关于 IE 的 window 对象表述正确的有</summary></b>
 
 ```
 A. window.opener属性本身就是指向window对象
@@ -42,7 +42,7 @@ D. 定义了全局变量g;可以用window.g的方式来存取该变量
 
 </details>
 
-<b><details><summary>4.描述错误的是</summary></b>
+<b><details><summary>4. 描述错误的是</summary></b>
 
 ```
 A：HTTP状态码302表示暂时性转移
@@ -55,7 +55,7 @@ D:localStorage 存储的数据在电脑重启后丢失
 
 解析：
 
-HTTP 状态码 302 表示被请求的资源暂时转移(Moved temporatily)，然后会给出一个转移后的 URL，而浏览器在处理服务器返回的 302 错误时，原则上会重新建立一个 TCP 连接，然后再取重定向后的 URL 的页面;但是如果页面存在于缓存中，则不重新获取;
+HTTP 状态码 302 表示被请求的资源暂时转移(Moved temporatily)，然后会给出一个转移后的 URL，而浏览器在处理服务器返回的 302 错误时，原则上会重新建立一个 TCP 连接，然后再取重定向后的 URL 的页面; 但是如果页面存在于缓存中，则不重新获取; 
 
 onload 事件触发时，页面上所有的 DOM，样式表，脚本，图片，flash 都已经加载完成了，domContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片，flash。
 
@@ -65,7 +65,7 @@ C 正确，故选 D
 
 </details>
 
-<b><details><summary>5.关于 link 和@import 的区别正确的是</summary></b>
+<b><details><summary>5. 关于 link 和@import 的区别正确的是</summary></b>
 
 ```
 A: link属于XHTML标签，而@import是CSS提供的;
@@ -80,7 +80,7 @@ D: link方式的样式的权重高于@import的权重
 
 </details>
 
-<b><details><summary>6.下面正确的是</summary></b>
+<b><details><summary>6. 下面正确的是</summary></b>
 
 ```
 A: 跨域问题能通过JsonP方案解决
@@ -95,7 +95,7 @@ D：MediaQuery属性是进行视频格式检测的属性是做响应式的
 
 </details>
 
-<b><details><summary>7.一个.php 后缀的文件，可以在什么环境下执行</summary></b>
+<b><details><summary>7. 一个.php 后缀的文件，可以在什么环境下执行</summary></b>
 
 ```
 A mysql 数据库
@@ -123,7 +123,7 @@ D 3306
 
 答案: A
 
-解析:服务器安装好之后，默认端口号是 80
+解析: 服务器安装好之后，默认端口号是 80
 
 [参与互动](https://github.com/yisainan/web-interview/issues/604)
 
@@ -161,7 +161,7 @@ D foo[att]
 
 </details>
 
-<b><details><summary>11.下面说法正确的是</summary></b>
+<b><details><summary>11. 下面说法正确的是</summary></b>
 
 ```
 A setTimeout 函数是同步的
@@ -176,7 +176,7 @@ D setInterval 函数会立即执行
 
 </details>
 
-<b><details><summary>12.下面哪个方法不属于数组操作方法?</summary></b>
+<b><details><summary>12. 下面哪个方法不属于数组操作方法?</summary></b>
 
 ```
 A shift()
@@ -191,7 +191,7 @@ D replace()
 
 </details>
 
-<b><details><summary>13.下面表示鼠标单击事件的是</summary></b>
+<b><details><summary>13. 下面表示鼠标单击事件的是</summary></b>
 
 ```
 A onclick
@@ -206,13 +206,14 @@ D onmousemove
 
 </details>
 
-<b><details><summary>14.以下代码, 当调用函数 func1 时，代码中打两个问号的地方，会弹出什么</summary></b>
+<b><details><summary>14. 以下代码, 当调用函数 func1 时，代码中打两个问号的地方，会弹出什么</summary></b>
 
 ```js
 var v1 = 250;
+
 function func1() {
-  alert(v1); //？？
-  var v1 = 350;
+    alert(v1); //？？
+    var v1 = 350;
 }
 ```
 
@@ -225,13 +226,13 @@ D 以上都不对
 
 答案: C
 
-解析:函数内部的 var v1 声明会提升到当前作用域顶部，但是赋值不会提升，所以 alert 的时候首先弹出当前作用域的 v1，值位 undefined
+解析: 函数内部的 var v1 声明会提升到当前作用域顶部，但是赋值不会提升，所以 alert 的时候首先弹出当前作用域的 v1，值位 undefined
 
 [参与互动](https://github.com/yisainan/web-interview/issues/610)
 
 </details>
 
-<b><details><summary>15.下面哪个不是 js 的数据类型？</summary></b>
+<b><details><summary>15. 下面哪个不是 js 的数据类型？</summary></b>
 
 ```
 A int
@@ -246,7 +247,7 @@ D boolean
 
 </details>
 
-<b><details><summary>16.在 Javascript 中，需要声明一个整数类型的变量 num，以下哪个语句能实现上述要求？</summary></b>
+<b><details><summary>16. 在 Javascript 中，需要声明一个整数类型的变量 num，以下哪个语句能实现上述要求？</summary></b>
 
 ```
 A int num
@@ -263,7 +264,7 @@ D Integer num
 
 </details>
 
-<b><details><summary>17.关于 Javascript 中数组的说法中，不正确的是：</summary></b>
+<b><details><summary>17. 关于 Javascript 中数组的说法中，不正确的是：</summary></b>
 
 ```
 A 数组的长度必须在创建时给定，之后便不能改变
@@ -280,7 +281,7 @@ D 数组可以在声明的同时进行初始化
 
 </details>
 
-<b><details><summary>18.以下关于 Javascript 中事件的描述中，不正确的是：</summary></b>
+<b><details><summary>18. 以下关于 Javascript 中事件的描述中，不正确的是：</summary></b>
 
 ```
 A onclick–鼠标单击事件
@@ -297,7 +298,7 @@ D onsubmit–选择字段时触发的事件
 
 </details>
 
-<b><details><summary>19.表示表单提交事件的是：</summary></b>
+<b><details><summary>19. 表示表单提交事件的是：</summary></b>
 
 ```
 A onmousemove
@@ -327,7 +328,7 @@ D array.push()
 
 </details>
 
-<b><details><summary>21.使用 offsetWidth 获取`<div style="border：1px solid red;width:200px";>`正确的数值为</summary></b>
+<b><details><summary>21. 使用 offsetWidth 获取 `<div style="border：1px solid red; width:200px"; >` 正确的数值为</summary></b>
 
 ```
 A 199
@@ -344,13 +345,13 @@ D 202
 
 </details>
 
-<b><details><summary>22.以下方法 1s 以后弹出 n 的值为( )</summary></b>
+<b><details><summary>22. 以下方法 1s 以后弹出 n 的值为( )</summary></b>
 
 ```js
 var n = 10;
 setInterval(function() {
-  alert(n);
-  var n = 100;
+    alert(n);
+    var n = 100;
 }, 1000);
 ```
 
@@ -370,7 +371,7 @@ D 报错
 
 </details>
 
-<b><details><summary>23.选出有兼容性的方法或者属性( )</summary></b>
+<b><details><summary>23. 选出有兼容性的方法或者属性( )</summary></b>
 
 ```
 A event.cancelBubble
@@ -387,7 +388,7 @@ D nodeType
 
 </details>
 
-<b><details><summary>24.关于函数参数说法正确的是：（ ）</summary></b>
+<b><details><summary>24. 关于函数参数说法正确的是：（ ）</summary></b>
 
 ```
 A 函数必须有参数
@@ -404,7 +405,7 @@ D 函数体中可以使用 parameters 来获取传递的实际参数
 
 </details>
 
-<b><details><summary>25.以下代码 var t = 0 || 5，t 的值是( )</summary></b>
+<b><details><summary>25. 以下代码 var t = 0 || 5，t 的值是( )</summary></b>
 
 ```
 A true
@@ -421,7 +422,7 @@ D 0
 
 </details>
 
-<b><details><summary>26.下面不是用于创建一个新的对象的语句是</summary></b>
+<b><details><summary>26. 下面不是用于创建一个新的对象的语句是</summary></b>
 
 ```
 A var d = new Date();
@@ -436,7 +437,7 @@ D var o = {title: "hello", author: "Tom"};
 
 </details>
 
-<b><details><summary>27.事件委托的好处是( )</summary></b>
+<b><details><summary>27. 事件委托的好处是( )</summary></b>
 
 ```
 A 减少了事件绑定的数量;对后来动态创建的元素依然有效
@@ -451,7 +452,7 @@ D 以上都不对
 
 </details>
 
-<b><details><summary>28.以下( )表达式产生一个 0~7 之间(含 0,7)的随机整数</summary></b>
+<b><details><summary>28. 以下( )表达式产生一个 0~7 之间(含 0, 7)的随机整数</summary></b>
 
 ```
 A Math.floor(Math.random()*6)
@@ -470,7 +471,7 @@ Math.floor(Math.random()(max - min+1) + min)
 
 </details>
 
-<b><details><summary>29.要实现拖拽效果，需要用到以下哪些事件除了</summary></b>
+<b><details><summary>29. 要实现拖拽效果，需要用到以下哪些事件除了</summary></b>
 
 ```
 A onmousedown
@@ -488,7 +489,7 @@ D onmousemove
 
 </details>
 
-<b><details><summary>30.要检测值是否为 NaN，应使用 （ ）函数</summary></b>
+<b><details><summary>30. 要检测值是否为 NaN，应使用 （ ）函数</summary></b>
 
 ```
 A Number( )
@@ -503,7 +504,7 @@ D isNaN( )
 
 </details>
 
-<b><details><summary>31.下面哪个方法可以匹配数组是否含有某个值？</summary></b>
+<b><details><summary>31. 下面哪个方法可以匹配数组是否含有某个值？</summary></b>
 
 ```
 A sort()
@@ -518,7 +519,7 @@ D indexOf()
 
 </details>
 
-<b><details><summary>32.在 JavaScript 中,执行下面的代码后，num 的值是 ( )</summary></b>
+<b><details><summary>32. 在 JavaScript 中, 执行下面的代码后，num 的值是 ( )</summary></b>
 
 ```js
 var num = 0;
@@ -541,7 +542,7 @@ D 13
 
 </details>
 
-<b><details><summary>33.在 HTML 页面中，CSS 样式的属性名为 background-image 对应的 style 对象的属性名是( )</summary></b>
+<b><details><summary>33. 在 HTML 页面中，CSS 样式的属性名为 background-image 对应的 style 对象的属性名是( )</summary></b>
 
 ```
 A background-image

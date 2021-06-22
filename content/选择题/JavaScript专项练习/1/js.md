@@ -21,9 +21,9 @@ D: undefined, undefined
 
 解析：
 
-delete 操作符返回一个布尔值：true 指删除成功，否则返回 false .但是通过 var , const 或 let 关键字声明的变量无法用 delete 操作符来删除。
+delete 操作符返回一个布尔值：true 指删除成功，否则返回 false . 但是通过 var , const 或 let 关键字声明的变量无法用 delete 操作符来删除。
 
-name 变量由 const 关键字声明，所以删除不成功:返回 false 而我们设定 age 等于 21 时，我们实际上添加了一个名为 age 的属性给全局对象。对象中的属性是可以删除的，全局对象也是如此，所以 delete age 返回 true
+name 变量由 const 关键字声明，所以删除不成功: 返回 false 而我们设定 age 等于 21 时，我们实际上添加了一个名为 age 的属性给全局对象。对象中的属性是可以删除的，全局对象也是如此，所以 delete age 返回 true
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1012)
 
@@ -33,10 +33,10 @@ name 变量由 const 关键字声明，所以删除不成功:返回 false 而我
 
 ```js
 const person = {
-    name: 'Lydia Hallie',
-    age: 21
-}
-[...person] // ['Lydia Hallie', 21]
+        name: 'Lydia Hallie',
+        age: 21
+    }
+    [...person] // ['Lydia Hallie', 21]
 ```
 
 ```
@@ -51,7 +51,7 @@ D: *[Symbol.iterator]() { for (let x in this) yield this }
 
 解析：
 
-对象默认是不可迭代的。如果迭代规则被定义，则一个对象是可迭代的（ An iterable is an iterable if the iterator protocol is present)。我们可以通过添加迭代器 symbol [Symbol.iterator]来定义迭代规则，其返回一个 generator 对象，比如说构建一个 generator 函数 _[Symbol.iterator](){}。如果我们想要返回数担['Lydia Halli', 21] :yield_ Object.values(this),这个 geneator 函数一定要 yield 对象 person 的 Object.values
+对象默认是不可迭代的。如果迭代规则被定义，则一个对象是可迭代的（ An iterable is an iterable if the iterator protocol is present)。我们可以通过添加迭代器 symbol [Symbol.iterator]来定义迭代规则，其返回一个 generator 对象，比如说构建一个 generator 函数 _[Symbol.iterator](){}。如果我们想要返回数担['Lydia Halli', 21] :yield_ Object.values(this), 这个 geneator 函数一定要 yield 对象 person 的 Object.values
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1013)
 
@@ -64,10 +64,12 @@ const set = new Set();
 
 set.add(1);
 set.add("Lydia");
-set.add({ name: "Lydia" });
+set.add({
+    name: "Lydia"
+});
 
 for (let item of set) {
-  console.log(item + 2);
+    console.log(item + 2);
 }
 ```
 
@@ -100,8 +102,7 @@ const settings = {
     level: 19,
     health: 90
 }；
-const data = JSON.stringify(settings, ['level', 'health']
-console.log(data);
+const data = JSON.stringify(settings, ['level', 'health'] console.log(data);
 ```
 
 ```
@@ -115,11 +116,11 @@ D: "{"username": "lydiahallie", "level":19, "health":90}"
 
 解析：
 
-JSON.stringify 的第二个参数是替代者（replacer）.替代者(replacer)可以是个函数或数组，用以控制哪些值如何被转换为字符串。
+JSON.stringify 的第二个参数是替代者（replacer）. 替代者(replacer)可以是个函数或数组，用以控制哪些值如何被转换为字符串。
 如果替代者(replacer)是个数组，那么就只有包含在数组中的属性将会被转化为字符串。在本例中，只有名为'level'和'health'的属性被包括进来，'username'则被排除在外。data 就等于 "{"level":19, "health":90}"
 
 而如果替代者(replacer)是个函数，这个函数将被对象的每个属性都调用一遍。函数返回的值会成为这个属性的值，最终体现在转化后的 JSON 字符串中（译者注：Chrome 下，经过实验，如果所有属性均返回同一个值的时候有异
-常，会直接将返回值作为结果输出而不会输出 JSON 字符串），而如果返回值为 undefined ,则该属性会被排除在外。
+常，会直接将返回值作为结果输出而不会输出 JSON 字符串），而如果返回值为 undefined , 则该属性会被排除在外。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1015)
 
@@ -207,8 +208,8 @@ D: Error
 let name = "Lydia";
 
 function getName() {
-  console.log(name);
-  let name = "Sarah";
+    console.log(name);
+    let name = "Sarah";
 }
 getName();
 ```
@@ -234,8 +235,9 @@ D: ReferenceError
 
 ```js
 let name = 'Lydia'
+
 function getName()
-  console.log(name)
+console.log(name)
 }
 getName() // Lydia
 ```
@@ -247,8 +249,8 @@ getName() // Lydia
 <b><details><summary>9.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-function getAge(...args) { 
-  console.log(typeof args);
+function getAge(...args) {
+    console.log(typeof args);
 }
 getAge(21);
 ```
@@ -274,7 +276,7 @@ D: "NaN"
 <b><details><summary>10.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-[1, 2, 3, 4].reduce((x, y) => console.log(x,y))
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y))
 ```
 
 ```
@@ -296,13 +298,13 @@ reducer函数接收4个参数：
 
 reducer 函数的返回值将会分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值。
 
-reducer函数还有一个可选参数initialValue ,该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供initialValue ,则将使用数组中的第一个元素。
-在上述例子,reduce方法接收的第一个参数(Accumulator)是 x,第二个参数(Current Value)是 y。
+reducer函数还有一个可选参数initialValue , 该参数将作为第一次调用回调函数时的第一个参数的值。如果没有提供initialValue , 则将使用数组中的第一个元素。
+在上述例子, reduce方法接收的第一个参数(Accumulator)是 x, 第二个参数(Current Value)是 y。
 在第一次调用时，累加器x为1 , 当 前 值'y'为 2  , 打印出累加器和当前值：1和2。
 
-例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回undefined。在下一次调用时，累加器为undefined ,当前值为'3'，因此undefined和3被打印出。
+例子中我们的回调函数没有返回任何值，只是打印累加器的值和当前值。如果函数没有返回值，则默认返回undefined。在下一次调用时，累加器为undefined , 当前值为'3'，因此undefined和3被打印出。
 
-在第四次调用时，回调函数依然没有返回值。累加器再次为 undefined ,当前值为“4”。undefined 和 4 被打印出
+在第四次调用时，回调函数依然没有返回值。累加器再次为 undefined , 当前值为“4”。undefined 和 4 被打印出
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1021)
 
