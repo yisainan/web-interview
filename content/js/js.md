@@ -4,7 +4,8 @@
 
 答案：
 
-``` 
+```
+
 页面加载完成有两种事件
 
 1.load是当页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数
@@ -24,7 +25,7 @@
 
 解析：
 
-``` js
+```js
 ①
 typeof
 
@@ -64,7 +65,7 @@ Object.prototype.toString.call('123') === '[object String]' // true
 
 示例：
 
-``` js
+```js
 var str = " 6 6 ";
 var str_1 = str.replace(/\s*/g, "");
 console.log(str_1); //66
@@ -90,7 +91,7 @@ trim()方法是用来删除字符串两端的空白字符并返回，trim 方法
 
 示例：
 
-``` js
+```js
 var str = " 6 6 ";
 var str_1 = str.trim();
 console.log(str_1); //6 6//输出左右侧均无空格
@@ -104,7 +105,7 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 示例：
 
-``` js
+```js
 var str = " 6 6 ";
 var str_1 = $.trim(str);
 console.log(str_1); //6 6//输出左右侧均无空格
@@ -136,7 +137,7 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 答案： `==` 是抽象相等运算符，而 `===` 是严格相等运算符。 `==` 运算符是在进行必要的类型转换后，再比较。 `===` 运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回 `false` 。使用 `==` 时，可能发生一些特别的事情，例如：
 
-``` js
+```js
 1 == "1"; // true
 1 == [1]; // true
 1 == true; // true
@@ -145,7 +146,7 @@ console.log(str_1); //6 6//输出左右侧均无空格
 0 == false; // true
 ```
 
-如果你对 `==` 和 `===` 的概念不是特别了解，建议大多数情况下使用 `===` 
+如果你对 `==` 和 `===` 的概念不是特别了解，建议大多数情况下使用 `===`
 
 [参与互动](https://github.com/yisainan/web-interview/issues/174)
 
@@ -194,7 +195,8 @@ console.log(str_1); //6 6//输出左右侧均无空格
 
 * 1. 提高性能
 
-``` 
+```
+
 <ul>
   <li>苹果</li>
   <li>香蕉</li>
@@ -226,7 +228,7 @@ document.querySelectorAll('li').forEach((e) => {
 
 4、事件委托怎么取索引？
 
-``` html
+```html
     <ul id="ul">
         <li> aaaaaaaa </li>
         <li> 事件委托了 点击当前， 如何获取 这个点击的下标 </li>
@@ -234,7 +236,7 @@ document.querySelectorAll('li').forEach((e) => {
     </ul>
 ```
 
-``` js
+```js
     window.onload = function() {
         var oUl = document.getElementById("ul");
         var aLi = oUl.getElementsByTagName("li");
@@ -300,7 +302,7 @@ import 特点：语言规格层面支持模块功能。支持编译时静态分�
 
 第一种：Object 构造函数创建
 
-``` js
+```js
 var Person = new Object();
 Person.name = "Nike";
 Person.age = 29;
@@ -310,7 +312,7 @@ Person.age = 29;
 
 第二种：使用对象字面量表示法
 
-``` js
+```js
 var Person = {}; //相当于 var Person = new Object();
 var Person = {
     name: 'Nike';
@@ -324,7 +326,7 @@ var Person = {
 
 第三种：使用工厂模式创建对象
 
-``` js
+```js
 function createPerson(name, age, job) {
     var o = new Object();
     o.name = name;
@@ -343,7 +345,7 @@ var person2 = createPerson("Arvin", 20, "student");
 
 第四种: 使用构造函数创建对象
 
-``` js
+```js
 function Person(name, age, job) {
     this.name = name;
     this.age = age;
@@ -366,7 +368,7 @@ var person2 = new Person("Arvin", 20, "student");
 
 4\. 终于可以识别的对象的类型。对于检测对象类型，我们应该使用 instanceof 操作符，我们来进行自主检测：
 
-``` js
+```js
 alert(person1 instanceof Object); //ture
 
 alert(person1 instanceof Person); //ture
@@ -384,7 +386,7 @@ alert(person2 instanceof Object); //ture
 
 第五种：原型创建对象模式
 
-``` js
+```js
 function Person() {}
 Person.prototype.name = "Nike";
 Person.prototype.age = 20;
@@ -400,7 +402,7 @@ person1.sayName();
 
 如果是使用原型创建对象模式，请看下面代码：
 
-``` js
+```js
 function Person() {}
 Person.prototype.name = "Nike";
 Person.prototype.age = 20;
@@ -421,7 +423,7 @@ alert(person2.name); //'Nike' --来自原型
 
 第六种：组合使用构造函数模式和原型模式
 
-``` js
+```js
 function Person(name, age, job) {
     this.name = name;
     this.age = age;
@@ -513,7 +515,7 @@ var person1 = new Person('Nike', 20, 'teacher');
 
 解析：
 
-``` js
+```js
 // 1;
 var obj = {
     valueOf: function() {
@@ -552,7 +554,7 @@ console.log(obj + ""); // 报错 Uncaught TypeError: Cannot convert object to pr
 
 拓展：
 
-``` js
+```js
 var arr = [new Object(), new Date(), new RegExp(), new String(), new Number(), new Boolean(), new Function(), new Array(), Math] console.log(arr.length) // 9
 for (var i = 0; i < arr.length; i++) {
     arr[i].valueOf = function() {
@@ -583,7 +585,7 @@ for (var i = 0; i < arr.length; i++) {
 
 1、number
 
-``` js
+```js
 typeof(10);
 typeof(NaN); // NaN在JavaScript中代表的是特殊非数字值,它本身是一个数字类型。
 typeof(Infinity)
@@ -591,27 +593,27 @@ typeof(Infinity)
 
 2、boolean
 
-``` js
+```js
 typeof(true);
 typeof(false);
 ```
 
 3、string
 
-``` js
+```js
 typeof("abc");
 ```
 
 4、undefined
 
-``` js
+```js
 typeof(undefined);
 typeof(a); // 不存在的变量
 ```
 
 5、object
 
-``` js
+```js
 // 对象，数组，null返回object
 typeof(null);
 typeof(window);
@@ -619,14 +621,14 @@ typeof(window);
 
 6、function
 
-``` js
+```js
 typeof(Array);
 typeof(Date);
 ```
 
 7、symbol
 
-``` js
+```js
 typeof Symbol() // ES6提供的新的类型
 ```
 
@@ -677,7 +679,7 @@ CDN边缘节点缓存机制，一般都遵守http标准协议，通过http响应
 
 解析：
 
-``` js
+```js
 // 1.parseInt() 把值转换成整数
 parseInt("1234blue"); // 1234
 parseInt("0xA"); // 10
@@ -757,7 +759,7 @@ console.log(2 - '1') // 1
 
 示例：
 
-``` js
+```js
 function outer() {
     var name = "jack";
 
@@ -769,10 +771,10 @@ function outer() {
 outer()(); // jack
 ```
 
-``` js
+```js
 function sayHi(name) {
     return () => {
-        console.log( `Hi! ${name}` );
+        console.log(`Hi! ${name}`);
     };
 }
 const test = sayHi("xiaoming");
@@ -804,7 +806,7 @@ test(); // Hi! xiaoming
 
 答案：
 
-``` js
+```js
 function Person(name) {
     this.name = name;
 }
@@ -813,7 +815,7 @@ var person = new Person("qilei");
 
 new一个对象的四个过程：
 
-``` js
+```js
 // 1. 创建空对象；
 var obj = {};
 // 2. 设置原型链: 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象；
@@ -849,7 +851,7 @@ if (typeof(result) == "object") {
 
 解析：
 
-``` js
+```js
 var s = {
     a: 1,
     b: 2,
@@ -883,7 +885,7 @@ for (let prop of Object.keys(s1)) {
 
 typeof 返回一个表示数据类型的字符串，返回结果包括：number、boolean、string、object、undefined、function等6种数据类型。如果是判断一个基本的类型用typeof就是可以的。
 
-``` js
+```js
 typeof ''; // string 有效
 typeof 1; // number 有效
 typeof true; //boolean 有效
@@ -899,7 +901,7 @@ typeof new RegExp(); //object 无效
 
 instanceof 是用来判断 A 是否为 B 的实例对，表达式为：A instanceof B，如果A是B的实例，则返回true, 否则返回false。 在这里需要特别注意的是：instanceof检测的是原型，
 
-``` js
+```js
 [] instanceof Array; //true
 {}
 instanceof Object; //true
@@ -910,7 +912,7 @@ new Date() instanceof Date; //true
 
 每一个对象实例都可以通过 constrcutor 对象来访问它的构造函数 。JS 中内置了一些构造函数：Object、Array、Function、Date、RegExp、String等。我们可以通过数据的 constrcutor 是否与其构造函数相等来判断数据的类型。
 
-``` js
+```js
 var arr = [];
 var obj = {};
 var date = new Date();
@@ -935,7 +937,7 @@ map.constructor === Map // true
 
 toString是Object原型对象上的一个方法，该方法默认返回其调用者的具体类型，更严格的讲，是 toString运行时this指向的对象类型, 返回的类型格式为[object, xxx], xxx是具体的数据类型，其中包括：String, Number, Boolean, Undefined, Null, Function, Date, Array, RegExp, Error, HTMLDocument, ... 基本上所有对象的类型都可以通过这个方法获取到。
 
-``` js
+```js
 Object.prototype.toString.call(''); // [object String]
 Object.prototype.toString.call(1); // [object Number]
 Object.prototype.toString.call(true); // [object Boolean]
@@ -964,7 +966,7 @@ Object.prototype.toString.call(new Error()); // [object Error]
 
 ECMAScript 将对象的属性分为两种：数据属性和访问器属性。
 
-``` js
+```js
 var parent = Object.create(Object.prototype, {
     a: {
         value: 123,
@@ -994,7 +996,7 @@ var child = Object.create(parent, {
 
 ### for in
 
-``` js
+```js
 for (var key in child) {
     console.log(key);
 }
@@ -1005,7 +1007,7 @@ for (var key in child) {
 
 如果只想输出自身的可枚举属性，可使用 hasOwnProperty 进行判断(数组与对象都可以，此处用数组做例子)
 
-``` js
+```js
 let arr = [1, 2, 3];
 Array.prototype.xxx = 1231235;
 for (let i in arr) {
@@ -1020,7 +1022,7 @@ for (let i in arr) {
 
 ### Object. keys
 
-``` js
+```js
 console.log(Object.keys(child));
 // ["b"]
 // Object.keys 会将对象自身的可枚举属性的key输出
@@ -1028,7 +1030,7 @@ console.log(Object.keys(child));
 
 ### Object. getOwnPropertyNames
 
-``` js
+```js
 console.log(Object.getOwnPropertyNames(child));
 // ["b","c"]
 // 会将自身所有的属性的key输出
@@ -1046,7 +1048,7 @@ console.log(Object.getOwnPropertyNames(child));
 
 主页面
 
-``` html
+```html
 <!DOCTYPE html>
 <html>
 
@@ -1070,7 +1072,7 @@ console.log(Object.getOwnPropertyNames(child));
 
 子页面 flexible. html
 
-``` html
+```html
 <!DOCTYPE html>
 <html>
 
@@ -1094,25 +1096,25 @@ console.log(Object.getOwnPropertyNames(child));
 
 1、主页面要是想要调取子页面的 showalert 方法
 
-``` js
+```js
 myIframe.window.showalert();
 ```
 
 2、子页面要掉主页面的 fullscreen 方法
 
-``` js
+```js
 window.parent.fullScreens();
 ```
 
 3、js 在 iframe 子页面获取父页面元素:
 
-``` js
+```js
 window.parent.document.getElementById("元素id");
 ```
 
 4、js 在父页面获取 iframe 子页面元素代码如下:
 
-``` js
+```js
 window.frames["iframe_ID"].document.getElementById("元素id");
 ```
 
@@ -1122,13 +1124,13 @@ window.frames["iframe_ID"].document.getElementById("元素id");
 
 子页面
 
-``` js
+```js
 window.parent.postMessage("hello", "http://127.0.0.1:8089");
 ```
 
 父页面接收
 
-``` js
+```js
 window.addEventListener("message", function(event) {
     alert(123);
 });
@@ -1183,25 +1185,29 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 
 ## 只有一个脚本的情况
 
-``` 
+```
+
 <script src = "a.js" />
 ```
 
 没有 defer 或 async 属性，浏览器会立即下载并执行相应的脚本，并且在下载和执行时页面的处理会停止。
 
-``` 
+```
+
 <script defer src = "a.js" />
 ```
 
 有了 defer 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，等到文档解析完成脚本才会执行。
 
-``` 
+```
+
 <script async src = "a.js" />
 ```
 
 有了 async 属性，浏览器会立即下载相应的脚本，在下载的过程中页面的处理不会停止，下载完成后立即执行，执行过程中页面处理会停止。
 
-``` 
+```
+
 <script defer async src = "a.js" />
 ```
 
@@ -1217,14 +1223,16 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 
 这里只列举两个脚本的情况：
 
-``` 
+```
+
 <script src = "a.js"> </script>
 <script src = "b.js"> </script>
 ```
 
 没有 defer 或 async 属性，浏览器会立即下载并执行脚本 a. js，在 a. js 脚本执行完成后才会下载并执行脚本 b. js，在脚本下载和执行时页面的处理会停止。
 
-``` 
+```
+
 <script defer src = "a.js"> </script>
 <script defer src = "b.js"> </script>
 ```
@@ -1232,7 +1240,8 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 有了 defer 属性，浏览器会立即下载相应的脚本 a. js 和 b. js，在下载的过程中页面的处理不会停止，等到文档解析完成才会执行这两个脚本。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件执行。
 在现实当中，延迟脚本并不一定会按照顺序执行，也不一定会在 DOMContentLoaded 事件触发前执行，因此最好只包含一个延迟脚本。
 
-``` 
+```
+
 <script async src = "a.js"> </script>
 <script async src = "b.js"> </script>
 ```
@@ -1265,7 +1274,7 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 
 每一个继承 Object 的对象都有 toString 方法，如果 toString 方法没有重写的话，会返回 [Object type]，其中 type 为对象的类型。但当除了 Object 类型的对象外，其他类型直接使用 toString 方法时，会直接返回都是内容的字符串，所以我们需要使用 call 或者 apply 方法来改变 toString 方法的执行上下文。
 
-``` js
+```js
 const an = ["Hello", "An"];
 an.toString(); // "Hello,An"
 Object.prototype.toString.call(an); // "[object Array]"
@@ -1273,7 +1282,7 @@ Object.prototype.toString.call(an); // "[object Array]"
 
 这种方法对于所有基本的数据类型都能进行判断，即使是 null 和 undefined 。
 
-``` js
+```js
 Object.prototype.toString.call("An"); // "[object String]"
 Object.prototype.toString.call(1); // "[object Number]"
 Object.prototype.toString.call(Symbol(1)); // "[object Symbol]"
@@ -1287,7 +1296,7 @@ Object.prototype.toString.call({
 
 缺点：不能精准判断自定义对象，对于自定义对象只会返回[object Object]
 
-``` js
+```js
 function f(name) {
     this.name = name;
 }
@@ -1303,13 +1312,13 @@ instanceof 的内部机制是通过判断对象的原型链中是不是能找到
 
 使用 instanceof 判断一个对象是否为数组，instanceof 会判断这个对象的原型链上是否会找到对应的 Array 的原型，找到返回 true，否则返回 false。
 
-``` js
+```js
 [] instanceof Array; // true
 ```
 
 但 instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true。
 
-``` js
+```js
 [] instanceof Object; // true
 ```
 
@@ -1317,7 +1326,7 @@ instanceof 的内部机制是通过判断对象的原型链中是不是能找到
 
 缺点：instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true，且不同于其他两种方法的是它不能检测出 iframes。
 
-``` js
+```js
 function f(name) {
     this.name = name;
 }
@@ -1333,7 +1342,7 @@ console.log(f1 instanceof f); //true
 
 当检测 Array 实例时，Array. isArray 优于 instanceof ，因为 Array. isArray 可以检测出 iframes
 
-``` js
+```js
 var iframe = document.createElement("iframe");
 document.body.appendChild(iframe);
 xArray = window.frames[window.frames.length - 1].Array;
@@ -1352,7 +1361,7 @@ arr instanceof Array; // false
 
 Array. isArray()是 ES5 新增的方法，当不存在 Array. isArray() ，可以用 Object. prototype. toString. call() 实现。
 
-``` js
+```js
 if (!Array.isArray) {
     Array.isArray = function(arg) {
         return Object.prototype.toString.call(arg) === "[object Array]";
@@ -1455,7 +1464,8 @@ JavaScript 中变量可能包含两种不同的数据类型的值：基本类型
 
 (严格地说，只要前面不是产生实际运行结果的语句，"use strict"可以不在第一行，比如直接跟在一个空的分号后面。)
 
-``` 
+```
+
 　　<script>
 　　　　"use strict";
 　　　　console.log("这是严格模式。");
@@ -1472,7 +1482,7 @@ JavaScript 中变量可能包含两种不同的数据类型的值：基本类型
 
 将"use strict"放在函数体的第一行，则整个函数以"严格模式"运行。
 
-``` js
+```js
 function strict() {
     "use strict";
     return "这是严格模式。";
@@ -1487,7 +1497,7 @@ function notStrict() {
 
 因为第一种调用方法不利于文件合并，所以更好的做法是，借用第二种方法，将整个脚本文件放在一个立即执行的匿名函数之中。
 
-``` js
+```js
 (function() {
     "use strict"; // some code here
 
@@ -1502,7 +1512,7 @@ function notStrict() {
 
 在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。
 
-``` js
+```js
 "use strict";
 
 v = 1; // 报错，v未声明
@@ -1526,7 +1536,7 @@ Javascript 语言的一个特点，就是允许"动态绑定"，即某些属性�
 
 因为 with 语句无法在编译时就确定，属性到底归属哪个对象。
 
-``` js
+```js
 "use strict";
 
 var v = 1;
@@ -1542,7 +1552,7 @@ with(o) { // 语法错误
 
 正常模式下，eval 语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval 语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于 eval 内部。
 
-``` js
+```js
 "use strict";
 
 var x = 2;
@@ -1556,7 +1566,7 @@ console.info(x); // 2
 
 （1）禁止 this 关键字指向全局对象
 
-``` js
+```js
 function f() {
     return !this;
 } // 返回false，因为"this"指向全局对象，"!this"就是false
@@ -1568,7 +1578,7 @@ function f() {
 
 因此，使用构造函数时，如果忘了加 new，this 不再指向全局对象，而是报错。
 
-``` js
+```js
 function f() {
     "use strict";
 
@@ -1580,7 +1590,7 @@ f(); // 报错，this未定义
 
 （2）禁止在函数内部遍历调用栈
 
-``` js
+```js
 function f1() {
     "use strict";
 
@@ -1596,7 +1606,7 @@ f1();
 
 严格模式下无法删除变量。只有 configurable 设置为 true 的对象属性，才能被删除。
 
-``` js
+```js
 "use strict";
 
 var x;
@@ -1617,7 +1627,7 @@ delete o.x; // 删除成功
 
 正常模式下，对一个对象的只读属性进行赋值，不会报错，只会默默地失败。严格模式下，将报错。
 
-``` js
+```js
 "use strict";
 
 var o = {};
@@ -1632,7 +1642,7 @@ o.v = 2; // 报错
 
 严格模式下，对一个使用 getter 方法读取的属性进行赋值，会报错。
 
-``` js
+```js
 "use strict";
 
 var o = {
@@ -1646,7 +1656,7 @@ o.v = 2; // 报错
 
 严格模式下，对禁止扩展的对象添加新属性，会报错。
 
-``` js
+```js
 "use strict";
 
 var o = {};
@@ -1658,7 +1668,7 @@ o.v = 1; // 报错
 
 严格模式下，删除一个不可删除的属性，会报错。
 
-``` js
+```js
 "use strict";
 
 delete Object.prototype; // 报错
@@ -1672,7 +1682,7 @@ delete Object.prototype; // 报错
 
 正常模式下，如果对象有多个重名属性，最后赋值的那个属性会覆盖前面的值。严格模式下，这属于语法错误。
 
-``` js
+```js
 "use strict";
 
 var o = {
@@ -1685,7 +1695,7 @@ var o = {
 
 正常模式下，如果函数有多个重名的参数，可以用 arguments[i]读取。严格模式下，这属于语法错误。
 
-``` js
+```js
 "use strict";
 
 function f(a, a, b) { // 语法错误
@@ -1699,7 +1709,7 @@ function f(a, a, b) { // 语法错误
 
 正常模式下，整数的第一位如果是 0，表示这是八进制数，比如 0100 等于十进制的 64。严格模式禁止这种表示法，整数第一位为 0，将报错。
 
-``` js
+```js
 "use strict";
 
 var n = 0100; // 语法错误
@@ -1711,7 +1721,7 @@ arguments 是函数的参数对象，严格模式对它的使用做了限制。
 
 （1）不允许对 arguments 赋值
 
-``` js
+```js
 "use strict";
 
 arguments++; // 语法错误
@@ -1729,7 +1739,7 @@ var f = new Function("arguments", "'use strict'; return 17;"); // 语法错误
 
 （2）arguments 不再追踪参数的变化
 
-``` js
+```js
 function f(a) {
     a = 2;
 
@@ -1753,7 +1763,7 @@ f(1); // 严格模式为[2,1]
 
 这意味着，你无法在匿名函数内部调用自身了。
 
-``` js
+```js
 "use strict";
 
 var f = function() {
@@ -1767,7 +1777,7 @@ f(); // 报错
 
 将来 Javascript 的新版本会引入"块级作用域"。为了与新版本接轨，严格模式只允许在全局作用域或函数作用域的顶层声明函数。也就是说，不允许在非函数的代码块内声明函数。
 
-``` js
+```js
 "use strict";
 
 if (true) {
@@ -1785,7 +1795,7 @@ for (var i = 0; i < 5; i++) {
 
 使用这些词作为变量名将会报错。
 
-``` js
+```js
 function package(protected) { // 语法错误
 
     "use strict";
@@ -1813,7 +1823,7 @@ function package(protected) { // 语法错误
 
 3\. tap 事件在移动端，代替 click 作为点击事件，tap 事件被很多框架（如 zepto）封装，来减少这延迟问题， tap 事件不是原生的，所以是封装的，那么具体是如何实现的呢？
 
-``` js
+```js
   < script >
       function tap(ele, callback) {
           // 记录开始时间
@@ -1860,7 +1870,7 @@ function package(protected) { // 语法错误
 
 （1）直接引入 fastclick 库。
 
-``` js
+```js
 window.addEventListener(
     "load",
     function() {
@@ -1874,7 +1884,7 @@ window.addEventListener(
 
 （2）对于上一个 tap 做延迟。
 
-``` js
+```js
 tap(ele, function() {
     setTimeout(function() {
         ele.style.display = "none";
@@ -1914,7 +1924,7 @@ tap(ele, function() {
 
 1\. map
 
-``` js
+```js
 // map
 //作用：对数组进行遍历
 //返回值：新的数组
@@ -1929,7 +1939,7 @@ console.log(arr); //[2,5,3,4]
 
 2\. forEach
 
-``` js
+```js
 // forEach 方法
 // 作用：遍历数组的每一项
 // 返回值：undefined
@@ -1944,7 +1954,7 @@ console.log(arr); //[2,5,3,4]
 
 3\. reduce
 
-``` js
+```js
 // reduce 方法
 // 作用：对数组进行迭代，然后两两进行操作，最后返回一个值
 // 返回值：return出来的结果
@@ -1959,7 +1969,7 @@ console.log(arr); // [1, 2, 3, 4]
 
 4\. filter
 
-``` js
+```js
 // filter 过滤
 // 作用： 筛选一部分元素
 // 返回值： 一个满足筛选条件的新数组
@@ -1992,7 +2002,7 @@ JS 中作用域有：全局作用域、函数作用域。没有块作用域的�
 
 解析：
 
-``` js
+```js
 < script type = "text/javascript" > {
     var a = 1;
     console.log(a); // 1
@@ -2050,7 +2060,7 @@ var、let、const 的区别
 * const 用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，而且不能修改。
 * 同一个变量只能使用一种方式声明，不然会报错
 
-``` js
+```js
 < script type = "text/javascript" >
     // 块作用域
     {
@@ -2115,7 +2125,7 @@ undefined： Undefined 类型，当一个声明了一个变量未初始化时，
 
 1）意外的全局变量引起的内存泄露
 
-``` js
+```js
 function leak() {
     leak = "xxx"; //leak成为一个全局变量，不会被回收
 }
@@ -2123,7 +2133,7 @@ function leak() {
 
 2）闭包引起的内存泄露
 
-``` js
+```js
 function bindEvent() {
     var obj = document.createElement("XXX");
     obj.οnclick = function() {
@@ -2135,7 +2145,7 @@ function bindEvent() {
 闭包可以维持函数内局部变量，使其得不到释放。 上例定义事件回调时，由于是函数内定义函数，并且内部函数--事件回调的引用外暴了，形成了闭包。
 解决之道，将事件处理函数定义在外部，解除闭包, 或者在定义事件处理函数的外部函数中，删除对 dom 的引用。
 
-``` js
+```js
 //将事件处理函数定义在外部
 function onclickHandler() {
     //do something
@@ -2158,7 +2168,7 @@ function bindEvent() {
 
 3）没有清理的 DOM 元素引用
 
-``` js
+```js
 var elements = {
     button: document.getElementById("button"),
     image: document.getElementById("image"),
@@ -2178,7 +2188,7 @@ function removeButton() {
 
 4）被遗忘的定时器或者回调
 
-``` js
+```js
 var someResouce = getData();
 setInterval(function() {
     var node = document.getElementById("Node");
@@ -2198,7 +2208,7 @@ setInterval(function() {
 
 6）IE7/8 引用计数使用循环引用产生的问题
 
-``` js
+```js
 function fn() {
     var a = {};
     var b = {};
@@ -2211,7 +2221,7 @@ fn();
 fn()执行完毕后，两个对象都已经离开环境，在标记清除方式下是没有问题的，但是在引用计数策略下，因为 a 和 b 的引用次数不为 0，所以不会被垃圾回收器回收内存，如果 fn 函数被大量调用，就会造成内存泄漏。在 IE7 与 IE8 上，内存直线上升。
 IE 中有一部分对象并不是原生 js 对象。例如，其内存泄漏 DOM 和 BOM 中的对象就是使用 C++以 COM 对象的形式实现的，而 COM 对象的垃圾回收机制采用的就是引用计数策略。因此，即使 IE 的 js 引擎采用标记清除策略来实现，但 js 访问的 COM 对象依然是基于引用计数策略的。换句话说，只要在 IE 中涉及 COM 对象，就会存在循环引用的问题。
 
-``` js
+```js
 var element = document.getElementById("some_element");
 var myObject = new Object();
 myObject.e = element;
@@ -2222,7 +2232,7 @@ element.o = myObject;
 
 看上面的例子，有人会觉得太弱了，谁会做这样无聊的事情，但是其实我们经常会这样做
 
-``` js
+```js
 window.οnlοad = function outerFunction() {
     var obj = document.getElementById("element"):
         obj.οnclick = function innerFunction() {};
@@ -2233,7 +2243,7 @@ window.οnlοad = function outerFunction() {
 
 最简单的解决方式就是自己手工解除循环引用，比如刚才的函数可以这样
 
-``` js
+```js
 myObject.element = null;
 element.o = null;
 window.οnlοad = function outerFunction() {
@@ -2257,7 +2267,7 @@ JavaScript 垃圾回收的机制很简单：找出不再使用的变量，然后
 
 js 中最常用的垃圾回收方式就是标记清除。当变量进入环境时，例如，在函数中声明一个变量，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用到它们。而当变量离开环境时，则将其标记为“离开环境”。
 
-``` js
+```js
 function test() {
     var a = 10; //被标记，进入环境
     var b = 20; //被标记，进入环境
@@ -2269,7 +2279,7 @@ test(); //执行完毕之后a、b又被标记离开环境，被回收
 
 引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值（function object array）赋给该变量时，则这个值的引用次数就是 1。如果同一个值又被赋给另一个变量，则该值的引用次数加 1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1。当这个值的引用次数变成 0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾回收器下次再运行时，它就会释放那些引用次数为 0 的值所占用的内存。
 
-``` js
+```js
 function test() {
     var a = {}; //a的引用次数为0
     var b = a; //a的引用次数加1，为1
@@ -2367,7 +2377,7 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 答案：
 
-``` js
+```js
 /*
 兼容低版本IE，ele为需要绑定事件的元素，
 eventName为事件名（保持addEventListener语法，去掉on），fun为事件响应函数
@@ -2404,7 +2414,7 @@ main. ts 报错（ Cannot find module '. /App. vue'. ）
 
 答案：比如求数组的最大值 Math. max. apply(this, 数组)
 
-``` js
+```js
 var numbers = [5, 458, 120, -215];
 var maxInNumbers = Math.max.apply(this, numbers); //第一个参数也可以填Math或null
 console.log(maxInNumbers); // 458
@@ -2442,7 +2452,7 @@ split()：用于把一个字符串通过指定的分隔符进行分隔成数组
 
 解析：
 
-``` js
+```js
 if (a instanceof Person) {
     alert("yes");
 }
@@ -2467,27 +2477,31 @@ new 共经过了 4 几个阶段
 
 样本二
 
-``` 
+```
+
 function Test(){}
 const test = new Test()
 ```
 
 1\. 创建一个新对象：
 
-``` 
+```
+
 const obj = {}
 ```
 
 2\. 设置新对象的 constructor 属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的 prototype 对象
 
-``` 
+```
+
 obj.constructor = Test
 obj.__proto__ = Test.prototype
 ```
 
 3\. 使用新对象调用函数，函数中的 this 被指向新实例对象
 
-``` 
+```
+
 Test.call(obj)
 ```
 
@@ -2537,7 +2551,7 @@ call 与 apply 的不同点：两者传入的列表形式不一样
 
 示例：
 
-``` js
+```js
 var arr = [1, 5, 4, 2];
 // sort()方法的比较逻辑为：
 // 第一轮：1和5比，1和4比，1和2比
@@ -2545,7 +2559,7 @@ var arr = [1, 5, 4, 2];
 // 第三轮：4和2比
 ```
 
-``` js
+```js
 // 一.sort排序规则 return大于0则交换数组相邻2个元素的位置
 // 二.arr.sort(function (a,b) {})中
 //         a -->代表每一次执行匿名函时候，找到的数组中的当前项；
@@ -2585,7 +2599,7 @@ console.log(
 
 引入 fastclick. js，因为 fastclick 源码不依赖其他库所以你可以在原生的 js 前直接加上
 
-``` js
+```js
 window.addEventListener(
     "load",
     function() {
@@ -2597,7 +2611,7 @@ window.addEventListener(
 
 或者有 zepto 或者 jqm 的 js 里面加上
 
-``` js
+```js
 $(function() {
     FastClick.attach(document.body);
 });
@@ -2605,14 +2619,14 @@ $(function() {
 
 当然 require 的话就这样：
 
-``` js
+```js
 var FastClick = require("fastclick");
 FastClick.attach(document.body, options);
 ```
 
 方案二：用 touchend 代替 tap 事件并阻止掉 touchend 的默认行为 preventDefault()
 
-``` js
+```js
 $("#cbFinish").on("touchend", function(event) {
     //很多处理比如隐藏什么的
     event.preventDefault();
@@ -2621,7 +2635,7 @@ $("#cbFinish").on("touchend", function(event) {
 
 方案三：延迟一定的时间(300ms+)来处理事件
 
-``` js
+```js
 $("#cbFinish").on("tap", function(event) {
     setTimeout(function() {
         //很多处理比如隐藏什么的
@@ -2707,7 +2721,8 @@ $("#cbFinish").on("tap", function(event) {
 call 和 apply 其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
 call 和 apply 都是在调用时生效，改变调用者的 this 指向。<br>
 
-``` 
+```
+
 let name = 'Jack'
 const obj = {name: 'Tom'}
 function sayHi() {console.log('Hi! ' + this.name)}
@@ -2719,7 +2734,8 @@ sayHi.call(obj) // Hi! Tom
 
 bind 也是改变 this 指向，不过不是在调用时生效，而是返回一个新函数。
 
-``` 
+```
+
 const newFunc = sayHi.bind(obj)
 newFunc() // Hi! Tom
 ```
@@ -2767,7 +2783,8 @@ newFunc() // Hi! Tom
 
 只要用 slice 方法就可以了
 
-``` 
+```
+
 var packet = file.slice(start, end);
 ```
 
@@ -2775,7 +2792,8 @@ var packet = file.slice(start, end);
 
 如
 
-``` 
+```
+
 file.slice(0,1000);
 file.slice(1000,2000);
 file.slice(2000,3000);
@@ -2799,7 +2817,7 @@ file.slice(2000,3000);
 
 此方法是将数组中的每个元素调用一个提供的函数，结果作为一个新的数组返回，并没有改变原来的数组
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 let newArr = arr.map(x => x * 2);
 //arr= [1, 2, 3, 4, 5]   原数组保持不变
@@ -2810,7 +2828,7 @@ let newArr = arr.map(x => x * 2);
 
 此方法是将数组中的每个元素执行传进提供的函数，没有返回值，直接改变原数组，注意和 map 方法区分
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 num.forEach(x => x * 2);
 // arr = [2, 4, 6, 8, 10]  数组改变,注意和map区分
@@ -2820,7 +2838,7 @@ num.forEach(x => x * 2);
 
 此方法是将所有元素进行判断，将满足条件的元素作为一个新的数组返回
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5]
 const isBigEnough => value => value >= 3
 let newArr = arr.filter(isBigEnough)
@@ -2831,7 +2849,7 @@ let newArr = arr.filter(isBigEnough)
 
 此方法是将所有元素进行判断返回一个布尔值，如果所有元素都满足判断条件，则返回 true，否则为 false：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5]
 const isLessThan4 => value => value < 4
 const isLessThan6 => value => value < 6
@@ -2843,7 +2861,7 @@ arr.every(isLessThan6) //true
 
 此方法是将所有元素进行判断返回一个布尔值，如果存在元素都满足判断条件，则返回 true，若所有元素都不满足判断条件，则返回 false：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5]
 const isLessThan4 => value => value < 4
 const isLessThan6 => value => value > 6
@@ -2855,7 +2873,7 @@ arr.some(isLessThan6) //false
 
 此方法是所有元素调用返回函数，返回值为最后结果, 传入的值必须是函数类型：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 const add = (a, b) => a + b;
 let sum = arr.reduce(add);
@@ -2872,7 +2890,7 @@ let sum = arr.reduce(add);
 
 此方法在数组后面删除最后一个元素，并返回数组，此方法改变了数组的长度：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 arr.pop();
 console.log(arr); //[1, 2, 3, 4]
@@ -2883,7 +2901,7 @@ console.log(arr.length); //4
 
 此方法在数组后面删除第一个元素，并返回数组，此方法改变了数组的长度：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 arr.shift();
 console.log(arr); //[2, 3, 4, 5]
@@ -2894,7 +2912,7 @@ console.log(arr.length); //4
 
 此方法是将一个或多个元素添加到数组的开头，并返回新数组的长度：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 arr.unshift(6, 7);
 console.log(arr); //[6, 7, 2, 3, 4, 5]
@@ -2911,7 +2929,7 @@ console.log(arr.length); //7
 
 `
 
-``` js
+```js
 let arr1 = [1, 2, 3]
 arr2 = [4, 5]
 let arr = arr1.concat(arr2)
@@ -2954,7 +2972,7 @@ console.log(str3) // 1##2##3##4##5
 
 万能方法，可以实现增删改：
 
-``` js
+```js
 let arr = [1, 2, 3, 4, 5];
 let arr1 = arr.splice(2, 0 'haha')
 let arr2 = arr.splice(2, 3)
@@ -3029,7 +3047,7 @@ console.log(arr3) //[1, 2, 'haha', 4, 5] 替换一个元素
 
 解析：
 
-``` js
+```js
 // 块作用域
 /*{
         var num =123;
@@ -3132,7 +3150,7 @@ f2();
 
 HTML5 引入了 `history.pushState()` 和 `history.replaceState()` 方法，它们分别可以添加和修改历史记录条目。
 
-``` js
+```js
 let stateObj = {
     foo: "bar"
 };
@@ -3190,7 +3208,7 @@ IE 采用冒泡型事件 Netscape 使用捕获型事件 DOM 使用先捕获后�
 
 复制代码代码如下:
 
-``` html
+```html
 <body>
     <div>
         <button>点击这里</button>
@@ -3208,14 +3226,14 @@ DOM 事件模型： body->div->button->button->div->body (先捕获后冒泡)
 
 IE 使用:
 
-``` js
+```js
 [Object].attachEvent("name_of_event_handler", fnHandler); //绑定函数
 [Object].detachEvent("name_of_event_handler", fnHandler); //移除绑定
 ```
 
 DOM 使用：
 
-``` js
+```js
 [Object].addEventListener("name_of_event", fnHandler, bCapture); //绑定函数
 [Object].removeEventListener("name_of_event", fnHandler, bCapture); //移除绑定
 ```
@@ -3230,7 +3248,7 @@ bCapture 参数用于设置事件绑定的阶段，true 为捕获阶段，false 
 
 答案：
 
-``` js
+```js
 var ev = ev || window.event;
 document.documentElement.clientWidth || document.body.clientWidth;
 var target = ev.srcElement || ev.target;
@@ -3272,7 +3290,7 @@ B、变量提升发生的环境：发生在代码所处的当前作用域。
 
 解析：
 
-``` js
+```js
 // 如果一个变量声明了但是未赋值，那么输出这个变量就会输出 undefined
 var num;
 console.log(num);
@@ -3281,7 +3299,7 @@ console.log(num);
 console.log(num); // 输出一个不存在的变量 Uncaught ReferenceError: num is not defined
 ```
 
-``` js
+```js
 // var 关键字进行的变量提升
 console.log(num);
 var num = 123;
@@ -3298,7 +3316,7 @@ num = 456;
 console.log(num);
 ```
 
-``` js
+```js
 // function 关键字的变量提升
 console.log(fn);
 
@@ -3313,7 +3331,7 @@ function fn() {
 console.log(fn); // 输出fn的函数体
 ```
 
-``` js
+```js
 // 3.1 return 之后的代码依旧会发生变量提升  规则适用于1，2
 function fn() {
     console.log(num);
@@ -3348,7 +3366,7 @@ function fn() {
 fn(); //输出fo的函数体
 ```
 
-``` js
+```js
 //3.2 代码报错之后的代码依旧会进行变量提升，规则适用于1,2
 console.log(num);
 xsasfgdsfqdfsdf; //报一个错
@@ -3363,7 +3381,7 @@ num = 123;
 console.log(num);
 ```
 
-``` js
+```js
 //function 关键字
 console.log(fn);
 sasgfdhwhsdqg;
@@ -3378,7 +3396,7 @@ asdgsdgdfgfdg; // 报一个错误，报错之后的代码不会被执行
 console.log(fn);
 ```
 
-``` js
+```js
 //4 代码不执行，但是会进行变量提升，不过规则不适用于1,2
 //4.1 if判断语句
 console.log(num);
@@ -3413,7 +3431,7 @@ console.log(fn) //undefined
 /*function fn//Uncaught SyntaxError: Unexpected end of input*/
 ```
 
-``` js
+```js
 // try catch
 try {
     console.log(num);
@@ -3463,7 +3481,7 @@ console.log(fn); // undefined
 
 当需要阻止冒泡行为时，可以使用
 
-``` js
+```js
 function stopBubble(e) {
     //如果提供了事件对象，则这是一个非IE浏览器
     if (e && e.stopPropagation)
@@ -3476,7 +3494,7 @@ function stopBubble(e) {
 
 当需要阻止默认行为时，可以使用
 
-``` js
+```js
 //阻止浏览器的默认行为
 function stopDefault(e) {
     //阻止默认浏览器动作(W3C)
@@ -3501,7 +3519,7 @@ this：指向调用上下文
 
 作用域：一个函数可以访问其他函数中的变量（闭包是一个受保护的变量空间）
 
-``` js
+```js
 var f = (function fn() {
         var name = 1;
         return function() {
@@ -3588,7 +3606,7 @@ Cookie、LocalStorage 和 IndexDB 无法获取。
 
 相当于
 
-``` js
+```js
 var foo;
 if (foo) {
     foo = foo;
@@ -3633,7 +3651,7 @@ if (foo) {
 
 全局环境下，this 始终指向全局对象（window），无论是否严格模式；
 
-``` js
+```js
 // 在浏览器中，全局对象为 window 对象：
 console.log(this === window); // true
 
@@ -3649,7 +3667,7 @@ console.log(window.a); // 37
 
 （1）非严格模式下，没有被上一级的对象所调用, this 默认指向全局对象 window。
 
-``` js
+```js
 function f1() {
     return this;
 }
@@ -3658,7 +3676,7 @@ f1() === window; // true
 
 （2）严格模式下，this 指向 undefined。
 
-``` js
+```js
 function f2() {
     "use strict"; // 这里是严格模式
     return this;
@@ -3672,7 +3690,7 @@ f2() === undefined; // true
 
 （2）多层嵌套的对象，内部方法的 this 指向离被调用函数最近的对象（window 也是对象，其内部对象调用方法的 this 指向内部对象， 而非 window）。
 
-``` js
+```js
 //方式1
 var o = {
     prop: 37,
@@ -3706,7 +3724,7 @@ console.log(o.b.g()); // 42
 
 特殊例子
 
-``` js
+```js
 // 例子1
 var o = {
     a: 10,
@@ -3739,7 +3757,7 @@ j();
 
 （1）如果该方法存在于一个对象的原型链上，那么 this 指向的是调用这个方法的对象，就像该方法在对象上一样。
 
-``` js
+```js
 var o = {
     f: function() {
         return this.a + this.b;
@@ -3758,7 +3776,7 @@ console.log(p.f()); // 5
 
 （3）call()和 apply()方法：当函数通过 Function 对象的原型中继承的方法 call() 和 apply() 方法调用时， 其函数内部的 this 值可绑定到 call() & apply() 方法指定的第一个对象上， 如果第一个参数不是对象，JavaScript 内部会尝试将其转换成对象然后指向它。
 
-``` js
+```js
 function add(c, d) {
     return this.a + this.b + c + d;
 }
@@ -3780,7 +3798,7 @@ tt.call("asd"); // 内部转成 String {0: "a", 1: "s", 2: "d", length: 3, [[Pri
 
 （4）bind()方法：由 ES5 引入， 在 Function 的原型链上， Function. prototype. bind。通过 bind 方法绑定后， 函数将被永远绑定在其第一个参数对象上， 而无论其在什么情况下被调用。
 
-``` js
+```js
 function f() {
     return this.a;
 }
@@ -3804,7 +3822,7 @@ console.log(o.f(), o.g()); // 37, azerty
 
 构造器返回的默认值是 this 所指的那个对象，也可以手动返回其他的对象。
 
-``` js
+```js
 function C() {
     this.a = 37;
 }
@@ -3828,7 +3846,7 @@ console.log(o.a); // 38
 
 当 this 碰到 return 时
 
-``` js
+```js
 // 例子1
 function fn() {
     this.user = "追梦子";
@@ -3882,7 +3900,7 @@ console.log(a.user); //追梦子
 
 （2）可以通过 bind()方法改变内部函数 this 指向。
 
-``` js
+```js
 //默认情况下代码
 function Person() {
     this.age = 0;
@@ -3912,7 +3930,7 @@ var p = new Person(); //3秒后返回构造函数新生成的对象 Person{...}
 
 当函数被用作事件处理函数时，它的 this 指向触发事件的元素（针对 addEventListener 事件）。
 
-``` js
+```js
 // 被调用时，将关联的元素变成蓝色
 function bluify(e) {
     //this指向所点击元素
@@ -3937,7 +3955,7 @@ for (var i = 0; i < elements.length; i++) {
 
 （2）当代码被包括在函数内部执行时，其 this 指向等同于 普通函数直接调用的情况，即在非严格模式指向全局对象 window，在严格模式指向 undefined：
 
-``` html
+```html
 <button onclick="console.log(this)">show me</button>
 <button onclick="(function () {console.log(this)})()">show inner this</button>
 <button onclick="(function () {'use strict'; console.log(this)})()">
@@ -3945,7 +3963,8 @@ for (var i = 0; i < elements.length; i++) {
 </button>
 ```
 
-``` 
+```
+
 // 控制台打印
 <button onclick="console.log(this)">show me</button>
 Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
@@ -3958,7 +3977,7 @@ undefined
 
 在全局代码中，箭头函数被设置为全局对象：
 
-``` js
+```js
 var globalObject = this;
 var foo = () => this;
 console.log(foo() === globalObject); // true
@@ -3968,7 +3987,7 @@ console.log(foo() === globalObject); // true
 
 箭头函数没有自己的 this，而是使用箭头函数所在的作用域的 this，即指向箭头函数定义时（而不是运行时）所在的作用域。
 
-``` js
+```js
 //1、箭头函数在函数内部，以非方法的方法使用
 function Person() {
     this.age = 0;
@@ -3993,7 +4012,7 @@ var p = new Person(); //Window{...}
 
 箭头函数没有自己的 this，而是使用箭头函数所在的作用域的 this，即指向箭头函数定义时（而不是运行时）所在的作用域。
 
-``` js
+```js
 //1、箭头函数在函数内部，以非方法的方法使用
 function Person() {
     this.age = 0;
@@ -4021,7 +4040,7 @@ var p = new Person(); //Window{...}
 
 箭头函数作为对象的方法使用，指向全局 window 对象；而普通函数作为对象的方法使用，则指向调用的对象。
 
-``` js
+```js
 var obj = {
     i: 10,
     b: () => console.log(this.i, this),
@@ -4035,7 +4054,7 @@ obj.c(); // 10 Object {...}
 
 4\. 4 箭头函数中，call\(\)、apply\(\)、bind\(\)方法无效
 
-``` js
+```js
 var adder = {
     base: 1,
     //对象的方法内部定义箭头函数，this是箭头函数所在的作用域的this，
@@ -4070,7 +4089,7 @@ console.log(adder.addThruCall(1)); // 仍然输出 2（而不是3，其内部的
 
 箭头函数可以让 this 指向固定化，这种特性很有利于封装回调函数
 
-``` js
+```js
 var handler = {
     id: "123456",
 
@@ -4096,7 +4115,7 @@ var handler = {
 
 （2）需要动态 this 的时候，也不应使用箭头函数。
 
-``` js
+```js
 //例1，this指向定义箭头函数所在的作用域，它位于对象cat内，但cat不能构成一个作用域，所以指向全局window，改成普通函数后this指向cat对象。
 const cat = {
     lives: 9,
@@ -4138,7 +4157,7 @@ apply 接收两个参数，第一个参数也是函数体内 this 的指向。�
 
 解析：下面的示例代码演示了两种可用于创建正则表达式以匹配反斜杠的方法：
 
-``` js
+```js
 //正则表达字面量
 var re = /\\/gm;
 
@@ -4170,7 +4189,7 @@ console.log(reg.test(foo)); //true
 
 （举个栗子哈 caller 给你打电话的人 谁给你打电话了 谁调用了你 很显然是下面 a 函数的执行 只有在打电话的时候你才能知道打电话的人是谁 所以对于函数来说 只有 caller 在函数执行的时候才存在）
 
-``` js
+```js
 var callerTest = function() {
     console.log(callerTest.caller);
 };
@@ -4186,7 +4205,7 @@ callerTest(); //输出null
 
    callee 是 arguments 对象的一个成员 表示对函数对象本身的引用 它有个 length 属性（代表形参的长度）
 
-``` js
+```js
 var c = function(x, y) {
     console.log(arguments.length, arguments.callee.length, arguments.callee);
 };
@@ -4213,7 +4232,7 @@ c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.ca
 
 示例：
 
-``` html
+```html
 <!DOCTYPE html>
 <html>
 
@@ -4256,7 +4275,7 @@ c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.ca
 
 方法 1 扩展运算符和 Set 结构相结合，就可以去除数组的重复成员
 
-``` js
+```js
 // 去除数组的重复成员
 [...new Set([1, 2, 2, 3, 4, 5, 5])];
 // [1, 2, 3, 4, 5]
@@ -4264,7 +4283,7 @@ c(1, 2, 3); //输出3 2 function(x,y) {console.log(arguments.length,arguments.ca
 
 方法 2
 
-``` js
+```js
 function dedupe(array) {
     return Array.from(new Set(array));
 }
@@ -4273,7 +4292,7 @@ dedupe([1, 1, 2, 3]); // [1, 2, 3]
 
 方法 3（ES5）
 
-``` js
+```js
 function unique(arry) {
     const temp = [];
     arry.forEach(e => {
@@ -4296,7 +4315,7 @@ function unique(arry) {
 
 最简单的方式
 
-``` js
+```js
 [...new Set("ababbc")].join(""); // "abc"
 ```
 
@@ -4308,7 +4327,7 @@ function unique(arry) {
 
 答案：Math. max. apply(null, 数组)
 
-``` js
+```js
 var a = [1, 2, 3, 5];
 alert(Math.max.apply(null, a)); //最大值
 alert(Math.min.apply(null, a)); //最小值
@@ -4322,7 +4341,7 @@ alert(Math.min.apply(null, a)); //最小值
 
 答案：
 
-``` js
+```js
 // 1、什么是文档碎片？
 
 document.createDocumentFragment(); // 一个容器，用于暂时存放创建的dom元素
@@ -4334,7 +4353,7 @@ document.createDocumentFragment(); // 一个容器，用于暂时存放创建的
 
 解析：
 
-``` js
+```js
 // 普通方式：（操作了100次dom）
 for (var i = 100; i > 0; i--) {
     var elem = document.createElement("div");
@@ -4404,7 +4423,7 @@ document.body.appendChild(df);
 
 * 当我们需要一个属性的时，Javascript 引擎会先看当前对象中是否有这个属性， 如果没有的话，就会查找他的 Prototype 对象是否有这个属性。
 
-``` js
+```js
 function clone(proto) {
     function Dummy() {}
     Dummy.prototype = proto;
@@ -4593,7 +4612,8 @@ console. log(arr. sort(() => 0. 5 - Math. random()))
 
 答案：
 
-``` 
+```
+
 1、获取Class对象的方式：类名.class、对象.getClass()、Class.forName(“类名”);
 2、通过Class对象自审
 3、动态调用方法
@@ -4707,14 +4727,16 @@ window. event?window. event. cancelBubble=true:e. stopPropagation();
 答案：在 `JS` 中，除了基本数据类型，还存在对象、数组这种引用类型。
 基本数据类型，拷贝是直接拷贝变量的值，而引用类型拷贝的其实是变量的地址。
 
-``` 
+```
+
 let o1 = {a: 1}
 let o2 = o1
 ```
 
 在这种情况下，如果改变 `o1` 或 `o2` 其中一个值的话，另一个也会变，因为它们都指向同一个地址。
 
-``` 
+```
+
 o2.a = 3
 console.log(o1.a) // 3
 ```
@@ -4845,7 +4867,8 @@ console.log(o1.a) // 3
 
 答案：
 
-``` 
+```
+
 第一种（函数声明）：
 function sum1(num1,num2){
    return num1+num2;
@@ -4901,7 +4924,8 @@ overflow:hidden | zoom:0. 08 | line-height:1px
 
 答案：
 
-``` 
+```
+
  1、window对象 ，是JS的最顶层对象，其他的BOM对象都是window对象的属性；
  2、document对象，文档对象；
  3、location对象，浏览器当前URL信息；
@@ -5038,19 +5062,19 @@ overflow:hidden | zoom:0. 08 | line-height:1px
 
 * 嵌入 dom
 
-``` html
+```html
 <button onclick="func()">按钮</button>
 ```
 
 * 直接绑定
 
-``` js
+```js
 btn.onclick = function() {};
 ```
 
 * 事件监听
 
-``` js
+```js
 btn.addEventListener("click", function() {});
 ```
 
@@ -5074,7 +5098,8 @@ btn.addEventListener("click", function() {});
 
   直接绑定
 
-``` 
+```
+
 <input onclick="sayHi()"/>
 
 btn.onclick = function() {}
@@ -5087,7 +5112,8 @@ btn.onclick = null
   通过 addEventListener 绑定
   通过 removeEventListener 解绑
 
-``` 
+```
+
 // 绑定
 btn.addEventListener('click', sayHi)
 // 解绑
@@ -5099,7 +5125,8 @@ btn.removeEventListener('click', sayHi)
   DOM3 具有更多事件类型
   DOM3 级事件在 DOM2 级事件的基础上添加了更多的事件类型，全部类型如下：
 
-``` 
+```
+
 UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 焦点事件，当元素获得或失去焦点时触发，如：blur、focus
 鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
@@ -5153,7 +5180,8 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 
 所有的对象都拥有__proto__属性，它指向对象构造函数的 prototype 属性
 
-``` 
+```
+
 let obj = {}
 obj.__proto__ === Object.prototype // true
 
@@ -5164,14 +5192,16 @@ test.__proto__ == Test.prototype // true
 所有的函数都同时拥有__proto__和 protytpe 属性
 函数的__proto__指向自己的函数实现 函数的 protytpe 是一个对象 所以函数的 prototype 也有__proto__属性 指向 Object. prototype
 
-``` 
+```
+
 function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
 
 Object. prototype. __proto__指向 null
 
-``` 
+```
+
 Object.prototype.__proto__ // null
 ```
 
@@ -5201,7 +5231,7 @@ Object.prototype.__proto__ // null
 
 用 var 声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。let 和 const 是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
 
-``` js
+```js
 function foo() {
     // 所有变量在函数中都可访问
     var bar = "bar";
@@ -5218,7 +5248,7 @@ console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
 
-``` js
+```js
 if (true) {
     var bar = "bar";
     let baz = "baz";
@@ -5234,7 +5264,7 @@ console.log(qux); // ReferenceError: qux is not defined
 
 var 会使变量提升，这意味着变量可以在声明之前使用。let 和 const 不会使变量提升，提前使用会报错。
 
-``` js
+```js
 console.log(foo); // undefined
 
 var foo = "foo";
@@ -5250,7 +5280,7 @@ const bar = "bar";
 
 用 var 重复声明不会报错，但 let 和 const 会。
 
-``` js
+```js
 var foo = "foo";
 var foo = "bar";
 console.log(foo); // "bar"
@@ -5261,7 +5291,7 @@ let baz = "qux"; // Uncaught SyntaxError: Identifier 'baz' has already been decl
 
 let 和 const 的区别在于：let 允许多次赋值，而 const 只允许一次。
 
-``` js
+```js
 // 这样不会报错。
 let foo = "foo";
 foo = "bar";
@@ -5311,7 +5341,8 @@ baz = "qux";
 
 1\. 分离读写操作
 
-``` 
+```
+
 var curLeft=div.offsetLeft;
 var curTop=div.offsetTop;
 div.style.left=curLeft+1+'px';
@@ -5320,7 +5351,8 @@ div.style.top=curTop+1+'px';
 
 2\. 样式集中改变
 
-``` 
+```
+
 可以添加一个类，样式都在类中改变
 ```
 
@@ -5366,7 +5398,7 @@ div.style.top=curTop+1+'px';
 
 ### delete Array[index]
 
-``` js
+```js
 const arr = ['a', 'b', 'c', 'd', 'e'];
 let result = delete arr[1];
 console.log(result); // true;
@@ -5426,7 +5458,7 @@ console.log(arr[1]); // undefined
 
 1\. 数组字符串化
 
-``` js
+```js
 let arr = [
     [222, 333, 444],
     [55, 66, 77], {
@@ -5443,7 +5475,7 @@ console.log(arr); // ["222", "333", "444", "55", "66", "77", "[object Object]"]
 
 2\. 利用apply和concat转换
 
-``` js
+```js
 function reduceDimension(arr) {
     return Array.prototype.concat.apply([], arr);
 }
@@ -5456,7 +5488,7 @@ console.log(reduceDimension([
 
 3\. 递归
 
-``` js
+```js
 function reduceDimension(arr) {
     let ret = [];
     let toArr = function(arr) {
@@ -5471,7 +5503,7 @@ function reduceDimension(arr) {
 
 4\. Array​\. prototype​\. flat\(\)
 
-``` js
+```js
 var arr1 = [1, 2, [3, 4]];
 arr1.flat();
 // [1, 2, 3, 4]
@@ -5491,7 +5523,7 @@ arr3.flat(Infinity);
 
 5\. 使用 reduce、concat 和递归无限反嵌套多层嵌套的数组
 
-``` js
+```js
 var arr1 = [1, 2, 3, [1, 2, 3, 4, [2, 3, 4]]];
 
 function flattenDeep(arr1) {
@@ -5509,7 +5541,7 @@ flattenDeep(arr1);
 
 答案：把循环次数大的放在内层，执行时间会比较短
 
-``` js
+```js
 var t1 = new Date().getTime()
 for (let i = 0; i < 100; i++) {
     for (let j = 0; j < 1000; j++) {
@@ -5526,7 +5558,7 @@ console.log('first time', t2 - t1)
 |    j     |       10        | 10           | 10 * 100         |   10 * 100   |
 |    k     | 	  10 * 100     | 10 * 100     | 10 * 100 * 1000	 |  10 * 100 * 1000   |
 
-``` js
+```js
 for (let i = 0; i < 10000; i++) {
     for (let j = 0; j < 1000; j++) {
         for (let k = 0; k < 100; k++) {
@@ -5552,7 +5584,8 @@ console.log('two time', t3 - t2)
 
 答案：
 
-``` 
+```
+
 1.图片移动实现原理：
 利用浮动将所有所有照片依次排成一行，给这一长串图片添加一个父级的遮罩，每次只显示一张图，其余的都隐藏起来。对图片添加绝对定位，通过控制left属性，实现照片的移动。
 
@@ -5605,7 +5638,8 @@ console.log('two time', t3 - t2)
 答案：
 
 * html 静态 `<script>` 引入
-* js 动态插入 `<script>` 
+* js 动态插入 `<script>`
+
 * `<script defer>` : 延迟加载，元素解析完成后执行
 * `<script async>` : 异步加载，但执行时会阻塞元素渲染
 
@@ -5627,13 +5661,14 @@ console.log('two time', t3 - t2)
 
 map方法
 
-``` 
+```
+
 1.map方法返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。
 2.map方法不会对空数组进行检测，map方法不会改变原始数组。
 3.浏览器支持：chrome、Safari1.5+、opera都支持，IE9+,
 ```
 
-``` js
+```js
 array.map(function(item, index, arr) {}, thisValue)
 
 var arr = [0, 2, 4, 6, 8];
@@ -5652,7 +5687,7 @@ forEach方法
 1\. forEach方法用来调用数组的每个元素，将元素传给回调函数
 2\. forEach对于空数组是不会调用回调函数的。
 
-``` js
+```js
 Array.forEach(function(item, index, arr) {}, this)
 var arr = [0, 2, 4, 6, 8];
 var sum = 0;
@@ -5673,7 +5708,8 @@ console.log(str); //undefined
 
 答案：
 
-``` 
+```
+
 简单总结就是，for in遍历的是数组的索引（即键名），而for of遍历的是数组元素值。
 
 for-in总是得到对象的key或数组、字符串的下标。
@@ -5687,7 +5723,8 @@ for-of总是得到对象的value或数组、字符串的值，另外还可以用
 
 答案：
 
-``` 
+```
+
 1、typeof返回结果是该类型的字符串形式表示【6】（number、string、undefined、boolean、function、object）
 2、instanceof是用来判断 A 是否为 B 的实例，表达式为：A instanceof B，如果 A 是 B 的实例，则返回 true,否则返回 false。 在这里需要特别注意的是：instanceof 检测的是原型。 
 ```
@@ -5698,7 +5735,7 @@ for-of总是得到对象的value或数组、字符串的值，另外还可以用
 
 答案：
 
-``` js
+```js
 /*
  * 宏任务
  *   分类： setTimeout setInterval requrestAnimationFrame
@@ -5746,7 +5783,7 @@ console.log('----------------- end -----------------');
 
 观察下面代码
 
-``` js
+```js
 var Employee = function(name, company, salary) {
     this.name = name || "";
     this.company = company || "";
@@ -5848,7 +5885,7 @@ JQuery isArray 的实现其实就是方法1
 
 答案：
 
-``` js
+```js
 var trees = ["redwood", "bay", "cedar", "oak", "maple"];
 delete trees[3];
 console.log(trees);
@@ -5861,7 +5898,7 @@ console.log(trees);
 
 <b><details><summary>185. 两种函数声明有什么区别？ </summary></b>
 
-``` js
+```js
 var foo = function() {
     // Some code
 };
@@ -5877,7 +5914,7 @@ foo的定义是在运行时。想系统说明这个问题，我们要引入变�
 
 我们可以运行下如下代码看看结果。
 
-``` js
+```js
 console.log(foo)
 console.log(bar)
 
@@ -5892,7 +5929,8 @@ function bar() {
 
 输出为
 
-``` 
+```
+
 undefined
 function bar(){ 
     // Some code
@@ -5905,7 +5943,7 @@ JavaScript在执行时，会将变量提升。
 
 所以上面代码JavaScript 引擎在实际执行时按这个顺序执行。
 
-``` js
+```js
 // foo bar的定义位置被提升
 function bar() {
     // Some code
@@ -5926,7 +5964,8 @@ foo = function() {
 
 答案：
 
-``` 
+```
+
 (1)、porxy代理
 定义和用法：proxy代理用于将请求发送给后台服务器，通过服务器来发送请求，然后将请求的结果传递给前端。
 实现方法：通过nginx代理；
@@ -5966,7 +6005,8 @@ res.writeHead(200, {
 
 答案：
 
-``` 
+```
+
 回收机制方式
 1、定义和用法：垃圾回收机制(GC:Garbage Collection),执行环境负责管理代码执行过程中使用的内存。
 2、原理：垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。但是这个过程不是实时的，因为其开销比较大，所以垃圾回收器会按照固定的时间间隔周期性的执行。
@@ -5996,7 +6036,8 @@ fn1中定义的obj为局部变量，而当调用结束后，出了fn1的环境�
 
 答案：
 
-``` 
+```
+
 1、什么时候触发垃圾回收？
 垃圾回收器周期性运行，如果分配的内存非常多，那么回收工作也会很艰巨，确定垃圾回收时间间隔就变成了一个值得思考的问题。
 IE6的垃圾回收是根据内存分配量运行的，当环境中的变量，对象，字符串达到一定数量时触发垃圾回收。垃圾回收器一直处于工作状态，严重影响浏览器性能。
@@ -6012,7 +6053,8 @@ IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例�
 
 答案：
 
-``` 
+```
+
 1、定义和用法：
 内存泄露是指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。C#和Java等语言采用了自动垃圾回收方法管理内存，几乎不会发生内存泄露。我们知道，浏览器中也是采用自动垃圾回收方法管理内存，但由于浏览器垃圾回收方法有bug，会产生内存泄露。
 2、内存泄露的几种情况:
@@ -6063,7 +6105,8 @@ function bindEvent(){
 
 答案：
 
-``` 
+```
+
 1.监听
 标准
 element.addEventListener('click',observer, useCapture);
@@ -6097,7 +6140,8 @@ event.srcElement   //IE,Chrome
 
 答案：
 
-``` 
+```
+
 用于对象属性的删除
 var obj = {
     name: 'Lily'
@@ -6109,11 +6153,12 @@ obj.name   //undefined
 
 </details>
 
-<b><details>192. 如何删除一个cookie<summary></summary></b>
+<b><details><summary>192. 如何删除一个cookie</summary></b>
 
 答案：
 
-``` 
+```
+
 1.将时间设为当前时间往前一点。
 
 var date = newDate();
@@ -6133,7 +6178,7 @@ document.cookie= 'user='+ encodeURIComponent('name')  + ';expires = ' + newDate(
 
 答案：
 
-``` js
+```js
 j = 5;
 str.replace(/\w+/g, function(m) {
     return m + j++;
@@ -6147,7 +6192,7 @@ str.replace(/\w+/g, function(m) {
 
 答案：
 
-``` js
+```js
 obj = {
     a: 1,
     b: 2
@@ -6166,7 +6211,7 @@ JSON.stringify(obj) == JSON.stringify(obj3); //false
 
 </details>
 
-<b><details><summary>195.获取一个月有多少天</summary></b>
+<b><details><summary>195. 获取一个月有多少天</summary></b>
 
 今天遇到一个需求，已知月份，得到这个月的第一天和最后一天作为查询条件查范围内的数据
 
@@ -6174,24 +6219,22 @@ new Date(year, month, date, hrs, min, sec)，new Date 可以接受这些参数�
 
 答案：
 
-``` js
-
+```js
 new Date(2019, 12, 0).getDate(); // 31
 new Date(2018, 2, 0).getDate(); // 28
 // 根据这个我们可以得到一个方法
 function getMonthLength(month) {
-  const date = new Date(month);
-  const year = date.getFullYear();
-  // 月份是从 0 开始计算的
-  const _month = date.getMonth() + 1;
-  return new Date(year, _month, 0).getDate();
+    const date = new Date(month);
+    const year = date.getFullYear();
+    // 月份是从 0 开始计算的
+    const _month = date.getMonth() + 1;
+    return new Date(year, _month, 0).getDate();
 }
-
 ```
 
 </details>
 
-<b><details><summary>196.关于函数的 length 属性</summary></b>
+<b><details><summary>196. 关于函数的 length 属性</summary></b>
 
 答案：
 
@@ -6205,7 +6248,7 @@ function getMonthLength(month) {
 
 </details>
 
-<b><details><summary>197.数组中字符串键值的处理</summary></b>
+<b><details><summary>197. 数组中字符串键值的处理</summary></b>
 
 在 JavaScript 中数组是通过数字进行索引，但是有趣的是他们也是对象，所以也可以包含 字符串 键值和属性，但是这些不会被计算在数组的长度（length）内
 
@@ -6213,7 +6256,7 @@ function getMonthLength(month) {
 
 答案：
 
-``` js
+```js
 const arr = [];
 arr[0] = 1;
 arr['1'] = '嘿嘿';
