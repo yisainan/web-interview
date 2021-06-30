@@ -312,8 +312,11 @@ D: ReferenceError
 答案：B
 
 解析：
-Object.freeze使得无法添加、 删除或修改对象的属性（ 除非属性的值是另一个对象）。
-当我们创建变量shape并将其设置为等于冻结对象box时
+Object.freeze使得无法添加、删除或修改对象的属性（除非属性的值是另一个对象）。
+当我们创建变量shape并将其设置为等于冻结对象box时 
+shape指向的也是冻结对象。你可以使用Object.isFrozen检查一个对象是否被冻结, 上述情况, Object.isFrozen （ shape ）将返回 true。
+由于shape被冻结，并且x的值不是对象，所以我们不能修改属性X。x仍然等于10 , {x ： 10 , y ： 20}被打印。
+注意，上述例子我们对属性x进行修改, 可能会导致抛出TypeError异常（最常见但不仅限于严格模式下时）。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1021)
 
@@ -322,19 +325,27 @@ Object.freeze使得无法添加、 删除或修改对象的属性（ 除非属�
 <b><details><summary>10.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-
+const spookyltems = ['A', 'B', 'C'];
+({
+    item: spookyItems[3]
+} = {
+    item: 'D'
+});
+console.log(spookyltems);
 ```
 
 ```
-A: 
-B:
-C:
-D:
+A: ['A', 'B', 'C']
+B: ['A', 'B', 'C', 'D']
+C: ['A', 'B', 'C', {item: 'D'}]
+D: ['A', 'B', 'C', "[object Object]"]
 ```
 
-答案：
+答案：B
 
 解析：
+
+通过解构对象们，我们可以从右手边的对象中拆出值，并且将拆出的值分配给左手边对象同名的属性。在这种情况下，我们将值'D'分配给spookyltems[3],相当于我们正在篡改数组spookyltems , 我们给它添加了值'D'。当输出spookyltems时，结果为磅['A', 'B', 'C', 'D']
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1021)
 
