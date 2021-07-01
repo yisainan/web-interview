@@ -58,8 +58,8 @@ console.log(person)
 ```
 
 A: { name: "Lydia",age: 21}
-B: {name: "Lydia",age: 21,city: "Amsterdam"}
-C: {name: "Lydia",age: 21,city: undefined}
+B: { name: "Lydia",age: 21,city: "Amsterdam"}
+C: { name: "Lydia",age: 21,city: undefined}
 D: "Amsterdam"
 ```
 
@@ -345,7 +345,7 @@ D: ['A', 'B', 'C', "[object Object]"]
 
 解析：
 
-通过解构对象们，我们可以从右手边的对象中拆出值，并且将拆出的值分配给左手边对象同名的属性。在这种情况下，我们将值'D'分配给spookyltems[3],相当于我们正在篡改数组spookyltems , 我们给它添加了值'D'。当输出spookyltems时，结果为磅['A', 'B', 'C', 'D']
+通过解构对象们，我们可以从右手边的对象中拆出值，并且将拆出的值分配给左手边对象同名的属性。在这种情况下，我们将值'D'分配给spookyltems[3], 相当于我们正在篡改数组spookyltems , 我们给它添加了值'D'。当输出spookyltems时，结果为磅['A', 'B', 'C', 'D']
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1021)
 
