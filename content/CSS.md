@@ -2102,7 +2102,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>91. font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
 
-答案：
+答案：Italic是使用文字的斜体,Oblique是让没有斜体属性的文字倾斜
 
 [参与互动](https://github.com/yisainan/web-interview/issues/160)
 
@@ -2118,7 +2118,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>93. 如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
 
-答案：
+答案：16.7ms。多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000ms ＝ 16.7ms
 
 [参与互动](https://github.com/yisainan/web-interview/issues/162)
 

@@ -208,7 +208,35 @@ p 设置属性值时，实际上执行的是 handler. set() ：在控制台输�
 
 <b><details><summary>8. vue slot是做什么的?</summary></b>
 
-答案：可以插入的槽口，比如插座的插孔。
+答案：主要是让组件的可扩展性更强，简单点说就是，能够在组件内写其他内容
+
+解析：
+
+### 插槽
+
+在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除且仍在文档中的 attribute。
+
+#### 插槽内容
+
+Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 Web Components 规范草案，将 <slot> 元素作为承载分发内容的出口。
+
+它允许你像这样合成组件：
+
+```html
+<navigation-link url="/profile">
+  Your Profile
+</navigation-link>
+```
+然后你在 <navigation-link> 的模板中可能会写为：
+```js
+<a
+  v-bind:href="url"
+  class="nav-link"
+>
+  <slot></slot>
+</a>
+```
+#### 编译作用域
 
 [参与互动](https://github.com/yisainan/web-interview/issues/399)
 

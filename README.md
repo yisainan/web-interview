@@ -11,7 +11,7 @@
 -->
 
 🚀 欢迎`Star`，github访问有问题的话，请移步[gitee](https://gitee.com/qiilee/web-interview)，后续会不断更新。  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣8️⃣`/`0️⃣1️⃣
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣8️⃣`/`0️⃣6️⃣
    
 
 ## 目录
@@ -200,7 +200,7 @@
 - [Go 语言学习资料索引](https://github.com/unknwon/go-study-index)
 
 #### 其他
-- [各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
+- [各平台付费知识](https://github.com/small-sweet)
 - [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
 - [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
 - [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)
