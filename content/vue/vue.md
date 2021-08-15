@@ -185,7 +185,138 @@ p 设置属性值时，实际上执行的是 handler. set() ：在控制台输�
 
 答案：
 
-当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
+vue2.x 中v-for优先级高于v-if，vue3.x 相反。所以2.x 版本中在一个元素上同时使用 v-if 和 v-for 时，v-for 会优先作用，造成性能浪费；3.x 版本中 v-if 总是优先于 v-for 生效，导致v-if访问不了v-for中的变量。
+
+解析：
+
+一般我们在两种常见的情况下会倾向于这样做：
+
+* 为了过滤一个列表中的项目 (比如 v-for="user in users" v-if="user.isActive")。在这种情形下，请将 users 替换为一个计算属性 (比如 activeUsers)，让其返回过滤后的列表。
+
+* 为了避免渲染本应该被隐藏的列表 (比如 v-for="user in users" v-if="shouldShowUsers")。这种情形下，请将 v-if 移动至容器元素上 (比如 ul、ol)。
+
+当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，所以这个模板：
+
+```html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="user.isActive"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+将会经过如下运算：
+```js
+this.users.map(function (user) {
+  if (user.isActive) {
+    return user.name
+  }
+})
+```
+因此哪怕我们只渲染出一小部分用户的元素，也得在每次重渲染的时候遍历整个列表，不论活跃用户是否发生了变化。
+
+通过将其更换为在如下的一个计算属性上遍历：
+
+```js
+computed: {
+  activeUsers: function () {
+    return this.users.filter(function (user) {
+      return user.isActive
+    })
+  }
+}
+```
+
+```html
+<ul>
+  <li
+    v-for="user in activeUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+我们将会获得如下好处：
+
+* 过滤后的列表只会在 users 数组发生相关变化时才被重新运算，过滤更高效。
+* 使用 v-for="user in activeUsers" 之后，我们在渲染的时候只遍历活跃用户，渲染更高效。
+* 解耦渲染层的逻辑，可维护性 (对逻辑的更改和扩展) 更强。
+
+为了获得同样的好处，我们也可以把：
+
+```html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="shouldShowUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+更新为：
+```html
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+通过将 v-if 移动到容器元素，我们不会再对列表中的每个用户检查 shouldShowUsers。取而代之的是，我们只检查它一次，且不会在 shouldShowUsers 为否的时候运算 v-for。
+
+反例：
+
+```html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="user.isActive"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+
+<ul>
+  <li
+    v-for="user in users"
+    v-if="shouldShowUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
+
+好例子
+
+```html
+<ul>
+  <li
+    v-for="user in activeUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/397)
 
@@ -246,25 +377,39 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 Web Co
 
 答案：
 
-每个框架都不可避免会有自己的一些特点，从而会对使用者有一定的要求，这些要求就是主张，主张有强有弱，它的强势程度会影响在业务开发中的使用方式。
+渐进式代表的含义是：没有多做职责之外的事。
 
-1、使用 vue，你可以在原有大系统的上面，把一两个组件改用它实现，当 jQuery 用；
+vue.js只提供了vue-cli生态中最核心的组件系统和双向数据绑定，像vuex、vue-router都属于围绕vue.js开发的库。
 
-2、也可以整个用它全家桶开发，当 Angular 用；
+解析：
 
-3、还可以用它的视图，搭配你自己设计的整个下层用。你可以在底层数据逻辑的地方用 OO(Object–Oriented )面向对象和设计模式的那套理念。
-也可以函数式，都可以。
+要使用Angular，必须接受以下东西：
+1、必须使用它的模块机制。
+2、必须使用它的依赖注入。
+3、必须使用它的特殊形式定义组件（这一点每个视图框架都有，这是难以避免的）
+所以Angular是带有比较强的排它性的，如果你的应用不是从头开始，而是要不断考虑是否跟其他东西集成，这些主张会带来一些困扰。
 
-它只是个轻量视图而已，只做了自己该做的事，没有做不该做的事，仅此而已。
+要使用React，你必须理解：
+1、函数式编程的理念。
+2、需要知道它的副作用。
+3、什么是纯函数。
+4、如何隔离、避免副作用。
+5、它的侵入性看似没有Angular那么强，主要因为它是属于软性侵入的。
 
-你不必一开始就用 Vue 所有的全家桶，根据场景，官方提供了方便的框架供你使用。
+Vue与React、Angular的不同是，它是渐进的：
+1、可以在原有的大系统的上面，把一两个组件改用它实现，就是当成jQuery来使用。
+2、可以整个用它全家桶开发，当Angular来使用。
+3、可以用它的视图，搭配你自己设计的整个下层使用。
+4、可以在底层数据逻辑的地方用OO(Object–Oriented)面向对象和设计模式的那套理念。
+5、可以函数式，它只是个轻量视图而已，只做了最核心的东西。
 
 场景联想
+
 场景 1：
 维护一个老项目管理后台，日常就是提交各种表单了，这时候你可以把 vue 当成一个 js 库来使用，就用来收集 form 表单，和表单验证。
 
 场景 2：
-得到 boss 认可， 后面整个页面的 dom 用 Vue 来管理，抽组件，列表用 v-for 来循环，用数据驱动 DOM 的变化
+得到 boss 认可，后面整个页面的 dom 用 Vue 来管理，抽组件，列表用 v-for 来循环，用数据驱动 DOM 的变化
 
 场景 3:
 越来越受大家信赖，领导又找你了，让你去做一个移动端 webapp，直接上了 vue 全家桶！
