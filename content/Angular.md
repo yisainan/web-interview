@@ -13,7 +13,7 @@
 
 </details>
 
-<b><details><summary>2.AngularJS 的数据双向绑定是怎么实现的？</summary></b>
+<b><details><summary>2. AngularJS 的数据双向绑定是怎么实现的？</summary></b>
 
 答案：
 
@@ -31,7 +31,7 @@
 
 </details>
 
-<b><details><summary>3.在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
+<b><details><summary>3. 在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
 
 答案：AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
 
@@ -47,7 +47,7 @@
 
 </details>
 
-<b><details><summary>5.解释下什么是$rootScrope以及和$scope 的区别？</summary></b>
+<b><details><summary>5. 解释下什么是$rootScrope以及和$scope 的区别？</summary></b>
 
 答案：通俗的说$rootScrope 页面所有$scope 的父亲。
 
@@ -55,25 +55,25 @@
 
 我们来看下如何产生$rootScope和$scope 吧。
 
-step1:Angular 解析 ng-app 然后在内存中创建\$rootScope。
+step1: Angular 解析 ng-app 然后在内存中创建\$rootScope。
 
 step2:angular 回继续解析，找到{{}}表达式，并解析成变量。
 
-step3:接着会解析带有 ng-controller 的 div 然后指向到某个 controller 函数。 这个时候在这个 controller 函数变成一个\$scope 对象实例。
+step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 controller 函数。 这个时候在这个 controller 函数变成一个\$scope 对象实例。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/529)
 
 </details>
 
-<b><details><summary>6.列出至少三种实现不同模块之间通信方式？</summary></b>
+<b><details><summary>6. 列出至少三种实现不同模块之间通信方式？</summary></b>
 
 答案：
 
-- Service
-- events,指定绑定的事件
-- 使用 \$rootScope
-- controller 之间直接使用$parent, $\$childHead 等
-- directive 指定属性进行数据绑定
+* Service
+* events, 指定绑定的事件
+* 使用 \$rootScope
+* controller 之间直接使用$parent, $\$childHead 等
+* directive 指定属性进行数据绑定
 
 [参与互动](https://github.com/yisainan/web-interview/issues/530)
 
@@ -151,7 +151,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 </details>
 
-<b><details><summary>12.在 angular 项目中你如何控制静态资源的合理加载</summary></b>
+<b><details><summary>12. 在 angular 项目中你如何控制静态资源的合理加载</summary></b>
 
 答案：
 
@@ -159,13 +159,13 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 </details>
 
-<b><details><summary>13.在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
+<b><details><summary>13. 在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
 
 答案：
 
-1.简化代码（这个是所有开发人员都要具备的）
+1. 简化代码（这个是所有开发人员都要具备的）
 
-2.坚决不能操作 dom 节点 这个时候可能会问 为什么不能啊
+2. 坚决不能操作 dom 节点 这个时候可能会问 为什么不能啊
 
 你的回答是：DOM 操作只能出现在指令（directive）中。最不应该出现的位置就是服务（service）中。Angular 倡导以测试驱动开发，在 service 或者 controller 中出现了 DOM 操作，那么也就意味着的测试是无法通过的。当然，这只是一点，重要的是使用 Angular 的其中一个好处是啥，那就是双向数据绑定，这样就能专注于处理业务逻辑，无需关系一堆堆的 DOM 操作。如果在 Angular 的代码中还到处充斥着各种 DOM 操作，那为什么不直接使用 jquery 去开发呢。
 
@@ -205,19 +205,19 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 </details>
 
-<b><details><summary>15.自定义指令的几个参数</summary></b>
+<b><details><summary>15. 自定义指令的几个参数</summary></b>
 
 答案：
 
 说几个常用的如：
 
-restrict:指令在 dom 中的声明形式 E（元素）A（属性）C（类名）M（注释）
+restrict: 指令在 dom 中的声明形式 E（元素）A（属性）C（类名）M（注释）
 
 template：两种形式，一种 HTML 文本；一个可以接受两个参数的函数，tElemetn 和 tAttrs，并返回一个代表模板的字符串。模板字符串必须存在一个根 DOM 元素
 
-templateUrl:两种形式，一种代表外部 HTML 文件路径的字符串；一个可以接受两个参数的函数，参数为 tElement 和 tAttrs，并返回一个外部 HTML 文件路径的字符串
+templateUrl: 两种形式，一种代表外部 HTML 文件路径的字符串；一个可以接受两个参数的函数，参数为 tElement 和 tAttrs，并返回一个外部 HTML 文件路径的字符串
 
-compile (对象或函数)：compile 选项可以返回一个对象或函数。如果设置了 compile 函数,说明我们希望在指令和实时数据被放到 DOM 中之前进行 DOM 操作,在这个函数中进行诸如添加和删除节点等 DOM 操作是安全的。本质上,当我们设置了 link 选项,实际上是创建了一个 postLink() 链接函数,以便 compile() 函数可以定义链接函数。
+compile (对象或函数)：compile 选项可以返回一个对象或函数。如果设置了 compile 函数, 说明我们希望在指令和实时数据被放到 DOM 中之前进行 DOM 操作, 在这个函数中进行诸如添加和删除节点等 DOM 操作是安全的。本质上, 当我们设置了 link 选项, 实际上是创建了一个 postLink() 链接函数, 以便 compile() 函数可以定义链接函数。
 
 然后又是传送门：http://www.cnblogs.com/mliudong/p/4180680.html
 
@@ -241,7 +241,7 @@ jquery 是基于 dom 驱动，jquery 适合做 dom 操作多的项目
 
 </details>
 
-<b><details><summary>17.对 angular 中的 form 表单了解多少</summary></b>
+<b><details><summary>17. 对 angular 中的 form 表单了解多少</summary></b>
 
 答案：
 
@@ -325,27 +325,27 @@ filter 有两种使用方法，
 
 另一种是在 js 里面用：
 
-\$filter('过滤器名称')(需要过滤的对象, 参数 1, 参数 2,...)
+\$filter('过滤器名称')(需要过滤的对象, 参数 1, 参数 2, ...)
 
-\$filter('date')(now, 'yyyy-MM-dd hh:mm:ss’);
+\$filter('date')(now, 'yyyy-MM-dd hh:mm:ss’); 
 
 自定义一个去重数组的
 
 ```js
 app.filter("unique", function() {
-  return function(arr) {
-    var n = [];
-    var obj = {};
+    return function(arr) {
+        var n = [];
+        var obj = {};
 
-    for (var i = 0; i < arr.length; i++) {
-      if (!obj[arr[i]]) {
-        n.push(arr[i]);
-        obj[arr[i]] = 1;
-      }
-    }
+        for (var i = 0; i < arr.length; i++) {
+            if (!obj[arr[i]]) {
+                n.push(arr[i]);
+                obj[arr[i]] = 1;
+            }
+        }
 
-    return n;
-  };
+        return n;
+    };
 });
 ```
 

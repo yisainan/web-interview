@@ -10,8 +10,9 @@
 // 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
 -->
 
-🚀 欢迎`Star`，后续会不断更新。  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣3️⃣`/`3️⃣0️⃣
+🚀 欢迎`Star`，github访问有问题的话，请移步[gitee](https://gitee.com/qiilee/web-interview)，后续会不断更新。  
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣8️⃣`/`0️⃣6️⃣
+   
 
 ## 目录
 
@@ -79,9 +80,11 @@
 - [详情](./content/选择题/js.md)
 
 - JavaScript专项练习
-  - [练习1](./content/选择题/JavaScript专项练习/1/js.md)
-  - [练习2](./content/选择题/JavaScript专项练习/2/js.md)
-  - [练习3](./content/选择题/JavaScript专项练习/3/js.md)
+  - [练习1](./content/选择题/JavaScript专项练习/1.md)
+  - [练习2](./content/选择题/JavaScript专项练习/2.md)
+  - [练习3](./content/选择题/JavaScript专项练习/3.md)
+  - [练习4](./content/选择题/JavaScript专项练习/4.md)
+  - [练习5](./content/选择题/JavaScript专项练习/5.md)
 
 </details>
 
@@ -201,7 +204,7 @@
 - [Go 语言学习资料索引](https://github.com/unknwon/go-study-index)
 
 #### 其他
-- [各平台付费知识](https://github.com/small-sweet/VIP-knowledge)
+- [各平台付费知识](https://github.com/small-sweet)
 - [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
 - [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
 - [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)

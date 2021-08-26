@@ -1,6 +1,6 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.说下 jQuery/Zepto 中的 on 方法有哪些参数，分别代表什么意思？</summary></b>
+<b><details><summary>1. 说下 jQuery/Zepto 中的 on 方法有哪些参数，分别代表什么意思？</summary></b>
 
 答案：
 
@@ -8,13 +8,13 @@
 
 </details>
 
-<b><details><summary>2.谈一下 Jquery 中的 bind(),live(),delegate(),on()的区别？</summary></b>
+<b><details><summary>2. 谈一下 Jquery 中的 bind(), live(), delegate(), on()的区别？</summary></b>
 
 答案：
 
-- bind： 绑定事件，对新添加的事件不起作用，方法用于将一个处理程序附加到每个匹配元素的事件上并返回 jQuery 对象。
-- live： 方法将一个事件处理程序附加到与当前选择器匹配的所有元素（包含现有的或将来添加的）的指定事件上并返回 jQuery 对象。
-- delegate： 方法基于一组特定的根元素将处理程序附加到匹配选择器的所有元素（现有的或将来的）的一个或多个事件上。
+* bind： 绑定事件，对新添加的事件不起作用，方法用于将一个处理程序附加到每个匹配元素的事件上并返回 jQuery 对象。
+* live： 方法将一个事件处理程序附加到与当前选择器匹配的所有元素（包含现有的或将来添加的）的指定事件上并返回 jQuery 对象。
+* delegate： 方法基于一组特定的根元素将处理程序附加到匹配选择器的所有元素（现有的或将来的）的一个或多个事件上。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/348)
 
@@ -76,7 +76,7 @@
 
 </details>
 
-<b><details><summary>10.你觉得 jQuery 源码有哪些写的好的地方</summary></b>
+<b><details><summary>10. 你觉得 jQuery 源码有哪些写的好的地方</summary></b>
 
 答案：
 
@@ -84,7 +84,7 @@
 
 </details>
 
-<b><details><summary>11.你觉得 zepto 源码有哪些写的好的地方</summary></b>
+<b><details><summary>11. 你觉得 zepto 源码有哪些写的好的地方</summary></b>
 
 答案：
 
@@ -100,11 +100,11 @@
 
 ```js
 var jQuery = function(selector, context) {
-  return new jQuery.fn.init(selector, context);
+    return new jQuery.fn.init(selector, context);
 };
 ```
 
-1)jQuery 采用的是构造函数模式进行开发的,jQuery 是一个类
+1)jQuery 采用的是构造函数模式进行开发的, jQuery 是一个类
 
 2)上面说的常用的方法(CSS、属性、筛选、事件、动画、文档处理)都是定义在 jQuery.prototype 上的 ->只有 jQuery 的实例才能使用这些方法
 
@@ -112,7 +112,7 @@ var jQuery = function(selector, context) {
 
 1)我们的选择器其实就是创造 jQuery 类的一个实例 ->获取页面中元素用的 jQuery(); -> \$()
 
-\$()就是 jQuery 的选择器,就是创建 jQuery 这个类的一个实例
+\$()就是 jQuery 的选择器, 就是创建 jQuery 这个类的一个实例
 
 2)执行的时候需要传递两个参数
 
@@ -144,9 +144,9 @@ jQuery.prototype
 4)我们获取的是 jQuery 对象(他是 jQuery 的实例)不是我们的原生 js 对象
 
 jQuery:$("#div1")
-JS:document.getElementById("div1") 原生JS的对象不能直接的使用jQuery的方法,同理,jQuery的对象也不能使用原生js的方法
+JS:document.getElementById("div1") 原生JS的对象不能直接的使用jQuery的方法, 同理, jQuery的对象也不能使用原生js的方法
 $("#div1").className = "box"; no
-document.getElementById("div1").addClass();
+document.getElementById("div1").addClass(); 
 
 5)互相转化
 
@@ -161,7 +161,7 @@ jQuery->Js: $oDiv[o]/ $oDiv.get(0)
 
 ```js
 $(document).ready(function() {
-  //HTML结构加载完成就执行这里的代码
+    //HTML结构加载完成就执行这里的代码
 });
 $(function() {});
 ```
@@ -173,7 +173,7 @@ $("selector").each( function(){})遍历获取的这些元素 jQuery.prototype
 $.each(ary)遍历数组中的每一项 jQuery.each
 ```
 
-我们的 jQuery 不仅仅是一个类(在它的原型上定义了很多的方法,每一个 jQuery 的实例都可以使用这些方法),它还是一个普通的对象,在 jQuery 本身的属性中还增加了一系列的方法:Ajax、each、工具
+我们的 jQuery 不仅仅是一个类(在它的原型上定义了很多的方法, 每一个 jQuery 的实例都可以使用这些方法), 它还是一个普通的对象, 在 jQuery 本身的属性中还增加了一系列的方法: Ajax、each、工具
 
 \$.unique(ary)
 
@@ -203,7 +203,7 @@ $().b()
 
 </details>
 
-<b><details><summary>13.是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
+<b><details><summary>13. 是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
 
 答案：
 
@@ -227,7 +227,7 @@ $().b()
 
 </details>
 
-<b><details><summary>16.针对 jQuery 的优化方法？</summary></b>
+<b><details><summary>16. 针对 jQuery 的优化方法？</summary></b>
 
 答案：
 
@@ -247,7 +247,7 @@ $().b()
 
 答案：
 
-1. Zepto 对象 不能自定义事件
+01. Zepto 对象 不能自定义事件
 
 ```
 例如执行： $({}).bind('cust', function(){});
@@ -256,7 +256,7 @@ $().b()
 例如： $('').bind('cust', function(){});
 ```
 
-2. Zepto 的选择器表达式: [name=value]   中 value 必须用 双引号 "  or 单引号 ' 括起来
+02. Zepto 的选择器表达式: [name=value]   中 value 必须用 双引号 "  or 单引号 ' 括起来
 
 ```
 例如执行：$('[data-userid=123123123]')
@@ -276,7 +276,7 @@ zepto:$this.find('option').not(function() {return !this.selected}).attr('data-v'
 
 ```
 
-3. Zepto 是根据标准浏览器写的，所以对于节点尺寸的方法只提供 width() 和 height()，省去了 innerWidth(), innerHeight(),outerWidth(),outerHeight()
+03. Zepto 是根据标准浏览器写的，所以对于节点尺寸的方法只提供 width() 和 height()，省去了 innerWidth(), innerHeight(),outerWidth(),outerHeight()
 
 ```
 Zepto.js: 由盒模型（ box-sizing ）决定
@@ -287,12 +287,12 @@ jQery: 忽略盒模型，始终返回内容区域的宽/高（不包含 padding 
 ```
 
 ```css
-<div class="caret" > </div > .caret {
-  width: 0;
-  height: 0;
-  border-width: 0 20px 20px;
-  border-color: transparent transparent blue;
-  border-style: none dotted solid;
+<div class="caret"></div>.caret {
+    width: 0;
+    height: 0;
+    border-width: 0 20px 20px;
+    border-color: transparent transparent blue;
+    border-style: none dotted solid;
 }
 ```
 
@@ -312,23 +312,23 @@ Zepto.js: 无法获取宽高；
 jQuery: 可以获取。
 ```
 
-4. Zepto 的 each 方法只能遍历 数组，不能遍历 JSON 对象
-5. Zepto 的 animate 方法参数说明 ：详情点击-> [zepto 中 animate 的用法](https://blog.csdn.net/kongjiea/article/details/38534435)
+04. Zepto 的 each 方法只能遍历 数组，不能遍历 JSON 对象
+05. Zepto 的 animate 方法参数说明 ：详情点击-> [zepto 中 animate 的用法](https://blog.csdn.net/kongjiea/article/details/38534435)
 
-6. zepto 的 jsonp callback 函数名无法自定义
+06. zepto 的 jsonp callback 函数名无法自定义
 
-7. DOM 操作区别
+07. DOM 操作区别
 
 jq 代码：
 
 ```js
 (function($) {
-  $(function() {
-    var $list = $("<ul><li>jQuery 插入</li></ul>", {
-      id: "insert-by-jquery"
+    $(function() {
+        var $list = $("<ul><li>jQuery 插入</li></ul>", {
+            id: "insert-by-jquery"
+        });
+        $list.appendTo($("body"));
     });
-    $list.appendTo($("body"));
-  });
 })(window.jQuery);
 ```
 
@@ -338,33 +338,33 @@ zepto 代码：
 
 ```js
 Zepto(function($) {
-  var $list = $("<ul><li>Zepto 插入</li></ul>", {
-    id: "insert-by-zepto"
-  });
-  $list.appendTo($("body"));
+    var $list = $("<ul><li>Zepto 插入</li></ul>", {
+        id: "insert-by-zepto"
+    });
+    $list.appendTo($("body"));
 });
 ```
 
 Zepto 可以在 ul 上添加 id 。
 
-8. 事件触发区别
+08. 事件触发区别
 
 jq 代码：
 
 ```js
 (function($) {
-  $(function() {
-    $script = $("<script />", {
-      src: "http://cdn.amazeui.org/amazeui/1.0.1/js/amazeui.min.js",
-      id: "ui-jquery"
-    });
+    $(function() {
+        $script = $("<script />", {
+            src: "http://cdn.amazeui.org/amazeui/1.0.1/js/amazeui.min.js",
+            id: "ui-jquery"
+        });
 
-    $script.appendTo($("body"));
+        $script.appendTo($("body"));
 
-    $script.on("load", function() {
-      console.log("jQ script loaded");
+        $script.on("load", function() {
+            console.log("jQ script loaded");
+        });
     });
-  });
 })(window.jQuery);
 ```
 
@@ -374,32 +374,32 @@ zepto 代码：
 
 ```js
 Zepto(function($) {
-  $script = $("<script />", {
-    src: "http://cdn.amazeui.org/amazeui/1.0.1/js/amazeui.js",
-    id: "ui-zepto"
-  });
+    $script = $("<script />", {
+        src: "http://cdn.amazeui.org/amazeui/1.0.1/js/amazeui.js",
+        id: "ui-zepto"
+    });
 
-  $script.appendTo($("body"));
+    $script.appendTo($("body"));
 
-  $script.on("load", function() {
-    console.log("zepto script loaded");
-  });
+    $script.on("load", function() {
+        console.log("zepto script loaded");
+    });
 });
 ```
 
 使用 Zepto 时 load 事件的处理函数 会 执行。
 
-9. zepto 阻止事件冒泡
+09. zepto 阻止事件冒泡
 
 10. zepto 的 slideUP 和 slidedown 事件到底部才能触发
 
 ```js
 document.addEventListener(
-  "touchmove",
-  function(event) {
-    event.preventDefault();
-  },
-  false
+    "touchmove",
+    function(event) {
+        event.preventDefault();
+    },
+    false
 );
 ```
 
@@ -417,22 +417,22 @@ document.addEventListener(
 
 </details>
 
-<b><details><summary>20.Zepto 的点透问题如何解决？</summary></b>
+<b><details><summary>20. Zepto 的点透问题如何解决？</summary></b>
 
 答案：点透主要是由于两个 div 重合，例如：一个 div 调用 show()，一个 div 调用 hide()；这个时候当点击上面的 div 的时候就会影响到下面的那个 div；
 解决办法主要有 2 种：
 
-1. github 上有一个叫做 fastclick 的库，它也能规避移动设备上 click 事件的延迟响应，https://github.com/ftlabs/fastclick
+01. github 上有一个叫做 fastclick 的库，它也能规避移动设备上 click 事件的延迟响应，https://github.com/ftlabs/fastclick
    将它用 script 标签引入页面（该库支持 AMD，于是你也可以按照 AMD 规范，用诸如 require.js 的模块加载器引入），并且在 dom ready 时初始化在 body 上，
-2. 根据分析，如果不引入其它类库，也不想自己按照上述 fastclcik 的思路再开发一套东西，需要 1.一个优先于下面的“divClickUnder”捕获的事件；2.并且通过这个事件阻止掉默认行为（下面的“divClickUnder”对 click 事件的捕获，在 ios 的 safari，click 的捕获被认为和滚屏、点击输入框弹起键盘等一样，是一种浏览器默认行为，即可以被 event.preventDefault()阻止的行为）。
+02. 根据分析，如果不引入其它类库，也不想自己按照上述 fastclcik 的思路再开发一套东西，需要 1.一个优先于下面的“divClickUnder”捕获的事件；2.并且通过这个事件阻止掉默认行为（下面的“divClickUnder”对 click 事件的捕获，在 ios 的 safari，click 的捕获被认为和滚屏、点击输入框弹起键盘等一样，是一种浏览器默认行为，即可以被 event.preventDefault()阻止的行为）。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/366)
 
 </details>
 
-<b><details><summary>21.一个 div，有几种方式得到这个 div 的 jQuery 对象？</summary></b>
+<b><details><summary>21. 一个 div，有几种方式得到这个 div 的 jQuery 对象？</summary></b>
 
-`<div class='aabbcc' id='nodesView'></div>`想直接获取这个 div 的 dom 对象，如何获取？dom 对象如何转化为 jQuery 对象？
+`<div class='aabbcc' id='nodesView'></div>` 想直接获取这个 div 的 dom 对象，如何获取？dom 对象如何转化为 jQuery 对象？
 
 答案：
 
@@ -454,7 +454,7 @@ document.addEventListener(
 
 1、轻量级
 
-JQuery 非常轻巧，采用 Dean Edwards 编写的 Packer 压缩后，大小不到 30KB,如果使用 Min 版并且在服务器端启用 Gzip 压缩后，大小只有 18KB。
+JQuery 非常轻巧，采用 Dean Edwards 编写的 Packer 压缩后，大小不到 30KB, 如果使用 Min 版并且在服务器端启用 Gzip 压缩后，大小只有 18KB。
 
 gzip： 每天一个 linux 命令（32）：gzip 减少文件大小有两个明显的好处，一是可以减少存储空间，二是通过网络传输文件时，可以减少传输的时间。gzip 是在 Linux 系统中经常使用的一个对文件进行压缩和解压缩的命令，既方便又好用。gzip 不仅可以用来压缩大的、较少使用的文件以节省磁盘空间，还可以和 tar 命令一起构成 Linux 操作系统中比较流行的压缩文件格式。据统计，gzip 命令对文本文件有 60%～ 70%的压缩率。
 
@@ -487,13 +487,13 @@ JQuery 只建立一个名为 JQuery 的对象，其所有的函数方法都在�
 
 7、出色的浏览器兼容性
 
-作为一个流行的 JavaScript 库，浏览器的兼容性是必须具备的条件之一。JQuery 能够在 IE6.0+,FF 2+,Safari2.+和 Opera9.0+下正常运行。JQuery 同时修复了一些浏览器之间的的差异，使开发者不必在开展项目前建立浏览器兼容库。
+作为一个流行的 JavaScript 库，浏览器的兼容性是必须具备的条件之一。JQuery 能够在 IE6.0+, FF 2+, Safari2.+和 Opera9.0+下正常运行。JQuery 同时修复了一些浏览器之间的的差异，使开发者不必在开展项目前建立浏览器兼容库。
 
 8、链式操作方式
 
 JQuery 中最有特色的莫过于它的链式操作方式——即对发生在同一个 JQuery 对象上的一组动作，可以直接接连写无需要重复获取对象。这一特点使得 JQuery 的代码无比优雅。
 
-9.隐式迭代
+09. 隐式迭代
 
 当用 JQuery 找到带有“.myClass”类的全部元素，然后隐藏他们时。无需循环遍历每一个返回的元素。相反，JQuery 里的方法都被设计成自动操作的对象集合，而不是单独的对象，这使得大量的循环结构变得不再必要，从而大幅度地减少代码量。
 
@@ -517,7 +517,7 @@ JQuery 是一个开源的产品，任何人都可以自由地使用并提出修�
 
 </details>
 
-<b><details><summary>24.Jquery 如何获取子元素</summary></b>
+<b><details><summary>24. Jquery 如何获取子元素</summary></b>
 
 答案：
 
@@ -543,39 +543,39 @@ Jquery 获取子元素的方法有 2 种，分别是 children()方法和 find()�
 
 ```html
 <ul id="ul">
-  <li>
-    list1
-    <ul>
-      <li>
-        list1-1
-      </li>
-      <li>
-        list1-2
-      </li>
-    </ul>
-  </li>
-  <li>
-    list2
-    <ul>
-      <li>
-        list2-1
-      </li>
-      <li>
-        list2-2
-      </li>
-    </ul>
-  </li>
-  <li>
-    list3
-    <ul>
-      <li>
-        list3-1
-      </li>
-      <li>
-        list3-2
-      </li>
-    </ul>
-  </li>
+    <li>
+        list1
+        <ul>
+            <li>
+                list1-1
+            </li>
+            <li>
+                list1-2
+            </li>
+        </ul>
+    </li>
+    <li>
+        list2
+        <ul>
+            <li>
+                list2-1
+            </li>
+            <li>
+                list2-2
+            </li>
+        </ul>
+    </li>
+    <li>
+        list3
+        <ul>
+            <li>
+                list3-1
+            </li>
+            <li>
+                list3-2
+            </li>
+        </ul>
+    </li>
 </ul>
 ```
 
@@ -594,7 +594,7 @@ console.log($("#ul").children("li").length); // 3
 
 </details>
 
-<b><details><summary>26.如何找到所有 HTML select 标签的选中项？</summary></b>
+<b><details><summary>26. 如何找到所有 HTML select 标签的选中项？</summary></b>
 
 答案：$('[name=selectname] :selected')
 
@@ -624,7 +624,7 @@ $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法�
 
 </details>
 
-<b><details><summary>29.jquery中addClass,removeClass,toggleClass的使用。</summary></b>
+<b><details><summary>29.jquery中addClass, removeClass, toggleClass的使用。</summary></b>
 
 答案：
 
@@ -637,7 +637,7 @@ $(selector).removeAttr(class);删除class这个属性；
 
 </details>
 
-<b><details><summary>30.JQuery有几种选择器?</summary></b>
+<b><details><summary>30. JQuery有几种选择器?</summary></b>
 
 答案：
 
@@ -673,12 +673,13 @@ $("ul").delegate("li", "click", function(){ $(this).hide(); });
 答案：
 
 ```js
-<script type="text/javascript" language="javascript">
-　　$(document).ready(function() {
-　　　　window.history.forward(1);
-  　　　　//OR window.history.forward(-1);
-　　});
-</script>
+< script type = "text/javascript"
+language = "javascript" >
+    $(document).ready(function() {
+        window.history.forward(1);
+        //OR window.history.forward(-1);
+    }); <
+/script>
 ```
 
 </details>

@@ -8,7 +8,7 @@
 
 解析：
 
-``` 
+```
 
     1：我要创建一个XMLHttpRequest 对象。
     var xhr=new XMLHttpRequest() 创建对象

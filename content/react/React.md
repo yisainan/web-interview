@@ -355,7 +355,7 @@ function CustomForm ({handleSubmit}) {
 
 Redux是将整个应用状态存储到一个地方上称为store, 里面保存着一个状态树store tree, 组件可以派发(dispatch)行为(action)给store, 而不是直接通知其他组件，组件内部通过订阅store中的状态state来刷新自己的视图。
 
-![redux工作流](. . /images/react_001. png)
+![redux工作流](../images/react_001.png)
 
 3、Redux三大原则
 

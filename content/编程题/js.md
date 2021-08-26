@@ -564,6 +564,32 @@ alert(obj.key0) // 输出 0
 
 答案：
 
+```js
+function findSymmetryNum(s,o){
+	var arr=[];
+	for(var i=s;i<=o;i++){
+		var str=''+i,sl=str.length,middle=0,flag=true;
+		if(sl%2===0){
+			middle=sl/2;			
+			}else{
+				middle = (sl-1)/2;
+				}
+		
+		for(var m=0;m<middle;m++){ 
+			if(str.substr(0+m,1)!==str.substr(-1-m,1)){
+				flag = false;
+				}
+			}
+		flag&&arr.push(i);
+		
+		}
+	
+	console.log(arr);
+		return arr;
+	}
+	findSymmetryNum(1,10000);
+```
+
 [参与互动](https://github.com/yisainan/web-interview/issues/568)
 
 </details>
@@ -3622,6 +3648,32 @@ String.prototype.spacify = function() {
 <b><details><summary>128. 统计 1 到 400 亿之间的自然数中含有多少个 1？比如 1-21 中，有 1、10、11、21 这四个自然数有 13 个 1</summary></b>
 
 答案：
+
+归纳法
+
+归纳法，对于个位出现的1：(n / 10) * 1 + (n % 10) >= 1 ? 1 : 0;
+对于十位出现的1：(n / 100) * 10 + if (k > 19) 10 else if (k < 10) 0 else k - 10 + 1;
+对于百位出现的1：(n / 1000) * 100 + if (k > 199) 10 else if (k < 100) 0 else k - 100 + 1;
+最终归纳出: (n / (i * 10)) * i + if (k > 2 * i - 1) i else if (k < i) 0 else k - i + 1, 其中k = n % (i * 10);
+
+代码：
+
+```js
+var countDigitOne = function(n) {
+    let count = 0;
+
+    for (let i = 1; i <= n; i *= 10) {
+        let divide = i * 10;
+        let p = Math.floor(n / divide), k = n % divide, rest = 0;
+
+        count += p * i;
+        rest = (k > (2 * i - 1)) ? i : ((k < i) ? 0 : k - i + 1);
+        count += rest;
+    }
+    return count;
+};
+countDigitOne(40000000000)
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/705)
 

@@ -24,7 +24,7 @@
 
 答案：
 
-``` js
+```js
 // 1、类的基本定义
 class Parent {
     constructor(name = "小白") {
@@ -33,7 +33,7 @@ class Parent {
 }
 ```
 
-``` js
+```js
 // 2、生成一个实例
 let g_parent = new Parent();
 console.log(g_parent); //{name: "小白"}
@@ -41,7 +41,7 @@ let v_parent = new Parent("v"); // 'v'就是构造函数name属性 , 覆盖构�
 console.log(v_parent); // {name: "v"}
 ```
 
-``` js
+```js
 // 3、继承
 class Parent {
     //定义一个类
@@ -55,7 +55,7 @@ class Child extends Parent {}
 console.log("继承", new Child()); // 继承 {name: "小白"}
 ```
 
-``` js
+```js
 // 4、继承传递参数
 class Parent {
     //定义一个类
@@ -74,7 +74,7 @@ class Child extends Parent {
 console.log("继承", new Child("hello")); // 带参数覆盖默认值  继承{name: "hello", type: "preson"}
 ```
 
-``` js
+```js
 // 5、ES6重新定义的ES5中的访问器属性
 class Parent {
     //定义一个类
@@ -99,7 +99,7 @@ v.longName = "hello";
 console.log("setter", v.longName); // setter mkhello
 ```
 
-``` js
+```js
 // 6、类的静态方法
 class Parent {
     //定义一个类
@@ -116,7 +116,7 @@ class Parent {
 Parent.tell(); // tell
 ```
 
-``` js
+```js
 // 7、类的静态属性：
 
 class Parent {
@@ -198,7 +198,7 @@ Promise 对象有以下两个特点:
 
 一、 数组的解构赋值
 
-``` js
+```js
 // 对于数组的解构赋值，其实就是获得数组的元素，而我们一般情况下获取数组元素的方法是通过下标获取，例如：
 let arr = [1, 2, 3];
 let a = arr[0];
@@ -212,7 +212,7 @@ console.log(a, b, c); //1,2,3
 
 1. 模式匹配解构赋值
 
-``` js
+```js
 let [foo, [
     [bar], baz
 ]] = [1, [
@@ -223,21 +223,21 @@ console.log(foo, bar, baz); //1,2,3
 
 2. 省略解构赋值
 
-``` js
+```js
 let [, , a, , b] = [1, 2, 3, 4, 5];
 console.log(a, b); //3,5
 ```
 
 3. 含剩余参数的解构赋值
 
-``` js
+```js
 let [a, ...reset] = [1, 2, 3, 4, 5];
 console.log(a, reset); //1,[2,3,4,5]
 ```
 
 其转成 ES5 的原理如下：
 
-``` js
+```js
 var a = 1,
     reset = [2, 3, 4, 5];
 console.log(a, reset); //1,[2,3,4,5]
@@ -245,14 +245,14 @@ console.log(a, reset); //1,[2,3,4,5]
 
 注意：如果剩余参数是对应的值为 undefined，则赋值为[]，因为找不到对应值的时候，是通过 slice 截取的，如下：
 
-``` js
+```js
 let [a, ...reset] = [1];
 console.log(a, reset); //1,[]
 ```
 
 其转成 ES5 的原理如下：
 
-``` js
+```js
 var _ref = [1],
     a = _ref[0],
     reset = _ref.slice(1);
@@ -263,7 +263,7 @@ console.log(a, reset); //1,[]
 
 一条原则：要解构成数组的前提：如果等号右边，不是数组(严格地说，不是可遍历的解构)，则直接报错，例如：
 
-``` js
+```js
 let [foo] = 1; //报错
 let [foo1] = false; //报错
 let [foo2] = NaN; //报错
@@ -274,7 +274,7 @@ let [foo5] = {}; //报错
 
 为什么？转成 ES5 看下原理就一清二楚了：
 
-``` js
+```js
 var _ = 1,
     foo = _[0]; //报错
 var _false = false,
@@ -293,14 +293,14 @@ var _ref2 = {},
 
 先执行 new Set()去重，然后对得到的结果进行解构
 
-``` js
+```js
 let [a, b, c] = new Set([1, 2, 2, 3]);
 console.log(a, b, c); //1,2,3
 ```
 
 6. 迭代器解构
 
-``` js
+```js
 function* fibs() {
     let a = 0;
     let b = 1;
@@ -320,7 +320,7 @@ sixth; // 5
 
 当变量严格等于 undefined 的时候，会读取默认值，所谓的严格等于，就是“===”
 
-``` js
+```js
 -- -- -- -- --
 
 let [a, b = 'default'] = [1];
@@ -356,7 +356,7 @@ console.log(a, x); //1,undefined
 
 1. 解构赋值的举例：
 
-``` js
+```js
 let p1 = {
     name: "zhuangzhuang",
     age: 25
@@ -370,7 +370,7 @@ console.log(name, age); //"zhuangzhuang",25
 
 其转成 es5 的原理则为：
 
-``` js
+```js
 var _p1 = p1,
     name = _p1.name,
     age = _p1.age;
@@ -381,7 +381,7 @@ console.log(name, age); //"zhuangzhuang",25
 
 如果使用别名，则不允许再使用原有的解构出来的属性名，看以下举例则会明白：
 
-``` js
+```js
 let p1 = {
     name: "zhuangzhuang",
     age: 25
@@ -396,7 +396,7 @@ console.log(name, age); //Uncaught ReferenceError: age is not defined
 
 为何打印原有的属性名则会报错？让我们看看转成 es5 后的原理是如何实现的：
 
-``` js
+```js
 var _p1 = p1,
     aliasName = _p1.name,
     aliasAge = _p1.age;
@@ -410,7 +410,7 @@ console.log(name, age); //所以打印name和age会报错——“Uncaught Refer
 
 有些情况下，我们解构出来的值并不存在，所以需要设定一个默认值，例如：
 
-``` js
+```js
 let obj = {
     name: "zhuangzhuang"
 };
@@ -423,7 +423,7 @@ console.log(name, age); //"zhuangzhuang",undefined
 
 我们可以看到当 age 这个属性并不存在于 obj 的时候，解构出来的值为 undefined，那么为了避免这种尴尬的情况，我们常常会设置该属性的默认值，如下：
 
-``` js
+```js
 let obj = {
     name: "zhuangzhuang"
 };
@@ -438,7 +438,7 @@ console.log(name, age); //"zhuangzhuang",18
 
 注意：只有当为 undefined 的时候才会取默认值，null 等均不会取默认值
 
-``` js
+```js
 let obj = {
     name: "zhuangzhuang",
     age: 27,
@@ -459,7 +459,7 @@ console.log(name, age, gender, isFat, hobbies); //"zhuangzhuang"，27，null，f
 
 当我们并不是需要取出所有的值的时候，其实可以省略一些变量，这就是省略赋值，如下
 
-``` js
+```js
 let arr = [1, 2, 3];
 let [, , c] = arr;
 console.log(c); //3
@@ -467,7 +467,7 @@ console.log(c); //3
 
 注意：省略赋值并不存在与对象解构，因为对象解构，明确了需要的属性
 
-``` js
+```js
 let obj = {
     name: "zhuangzhuang",
     age: 27,
@@ -481,7 +481,7 @@ console.log(age); //27
 
 5. 解构赋值的嵌套赋值(易错点，重点，难点)
 
-``` js
+```js
 let obj = {},
     arr = [];
 
@@ -497,7 +497,7 @@ console.log(obj, arr); //{prop:123},[true]
 
 注意当解构出来是 undefined 的时候，如果再给子对象的属性，则会报错，如下
 
-``` js
+```js
 let {
     foo: {
         bar
@@ -518,7 +518,7 @@ let bar = foo.bar; //undefined的bar，可定报错
 
 当我们写解构赋值的时候，很容易犯一个错误——{}的作用是块还是对象混淆，举例如下：
 
-``` js
+```js
 //举例一：
 let {
     a
@@ -544,7 +544,7 @@ let a;
 
 按照之前写的，解构赋值，左边则为解构出来的属性名，当然，在这里，我们也可以不写任何属性名称，也不会又任何的语法错误，即便这样没有任何意义，如下：
 
-``` js
+```js
 ({} = [true, false]);
 ({} = "abc");
 ({} = []);
@@ -559,14 +559,14 @@ let a;
 
 字符串也是可以解构赋值的
 
-``` js
+```js
 const [a, b, c, d, e] = "hello";
 console.log(a, b, c, d, e); //'h','e','l','l','o'
 ```
 
 转成 es5 的原理如下:
 
-``` js
+```js
 var _hello = "hello",
     a = _hello[0],
     b = _hello[1],
@@ -577,7 +577,7 @@ console.log(a, b, c);
 
 注意：字符串有一个属性 length，也可以被解构出来，但是要注意，解构属性一定是对象解构
 
-``` js
+```js
 let {
     length
 } = "hello";
@@ -588,7 +588,7 @@ console.log(length); //5
 
 布尔值和数值的解构，其实就是对其包装对象的解构，取的是包装对象的属性
 
-``` js
+```js
 {
     toString: s
 } = 123;
@@ -622,7 +622,7 @@ Array. reduce()方法对累加器和数组中的每个元素 (从左到右)应�
 
 ### Array. from()
 
-``` js
+```js
 // 那么什么是类数组对象呢？所谓类数组对象，最基本的要求就是具有length属性的对象。
 
 // 1、将类数组对象转换为真正数组：
@@ -688,7 +688,8 @@ console.log(Array.from([12, 45, 47, 56, 213, 4654, 154]));
 
 ### Array. reduce()
 
-``` 
+```
+
 语法：
 
 array.reduce(function(accumulator, currentValue, currentIndex, array), initialValue)；
@@ -704,7 +705,7 @@ array： 调用 reduce 的数组
 initialValue：可选项，累加器的初始值。没有时，累加器第一次的值为currentValue；注意：在对没有设置初始值的空数组调用reduce方法时会报错。
 ```
 
-``` js
+```js
 //无初始值
 [1, 2, 3, 4].reduce(function(accumulator, currentValue, currentIndex, array) {
     return accumulator + currentValue;
@@ -717,7 +718,7 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 | second call | 3                 | 3                 | 2               | [1, 2, 3, 4] | 6            |
 | third call  | 6                 | 4                 | 3               | [1, 2, 3, 4] | 10           |
 
-``` js
+```js
 //有初始值
 [1, 2, 3, 4].reduce(function(accumulator, currentValue, currentIndex, array) {
     return accumulator + currentValue;
@@ -731,7 +732,7 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 | third call  | 13          | 3                 | 2               | [1, 2, 3, 4] | 16           |
 | fourth call | 16          | 4                 | 3               | [1, 2, 3, 4] | 20           |
 
-``` js
+```js
 //1.数组元素求和
 [1, 2, 3, 4].reduce((a, b) => a + b); //10
 
@@ -796,7 +797,7 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 
 答案：- es6 方法, Set 本身是一个构造函数，它类似于数组，但是成员值都是唯一的。
 
-``` js
+```js
 const set = new Set([1, 2, 3, 4, 4]);
 console.log([...set]); // [1,2,3,4]
 console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
@@ -828,18 +829,18 @@ console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 
 1、基本的字符串格式化，将表达式嵌入字符串中进行拼接，用\${}来界定。
 
-``` js
+```js
 //es5
 var name = "lux";
 console.log("hello" + name);
 //es6
 const name = "lux";
-console.log( `hello ${name}` ); //hello lux
+console.log(`hello ${name}`); //hello lux
 ```
 
 2、在 ES5 时我们通过反斜杠(\)来做多行字符串或者字符串一行行拼接，ES6 反引号(``)直接搞定。
 
-``` js
+```js
 //ES5
 var template =
     "hello \
@@ -860,7 +861,7 @@ console.log(template); //hello 空行 world
 
 答案：
 
-``` 
+```
 
 箭头函数有几个使用注意点。
 （1）函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象。
@@ -872,7 +873,7 @@ console.log(template); //hello 空行 world
 
 上面四点中，第一点尤其值得注意。this 对象的指向是可变的，但是在箭头函数中，它是固定的。
 
-``` js
+```js
 function foo() {
     setTimeout(() => {
         console.log("id:", this.id);
@@ -897,7 +898,7 @@ foo.call({
 
 答案：
 
-``` js
+```js
 import("lodash").then(_ => {
     // Do something with lodash (a.k.a '_')...
 });
@@ -913,7 +914,7 @@ import("lodash").then(_ => {
 
 答案：
 
-``` js
+```js
 class Point {
     constructor(x, y) {
         this.x = x;
@@ -945,7 +946,7 @@ class Point {
 * 不可以当作构造函数，也就是说，不可以使用 `new` 命令，否则会抛出一个错误。
 * 不可以使用 `arguments` 对象，该对象在函数体内不存在。如果要用，可以用 `rest` 参数代替。
 * 不可以使用 `yield` 命令，因此箭头函数不能用作 `Generator` 函数。
-* 箭头函数没有原型对象 `prototype` 
+* 箭头函数没有原型对象 `prototype`
 
 [参与互动](https://github.com/yisainan/web-interview/issues/346)
 
@@ -955,7 +956,7 @@ class Point {
 
 答案：
 
-``` js
+```js
 const promise = new Promise((resolve, reject) => {
     console.log(1)
     resolve()
@@ -1027,7 +1028,7 @@ promise构造函数是同步执行的，then方法是异步执行的
 
 答案：
 
-``` js
+```js
 Promise._race = promises => new Promise((resolve, reject) => {
     promises.forEach(promise => {
         promise.then(resolve, reject)
@@ -1037,7 +1038,7 @@ Promise._race = promises => new Promise((resolve, reject) => {
 
 基本和上面的例子差不多，不同点是每个传入值使用Promise. resolve转为Promise对象，兼容非Promise对象
 
-``` js
+```js
 const _race = (p) => {
     return new Promise((resolve, reject) => {
         p.forEach((item) => {
@@ -1053,7 +1054,7 @@ const _race = (p) => {
 
 答案：
 
-``` js
+```js
 Promise.prototype.finally = function(callback) {
     let P = this.constructor;
     return this.then(
@@ -1071,7 +1072,7 @@ Promise.prototype.finally = function(callback) {
 
 答案：
 
-``` js
+```js
 const getJSON = function(url) {
     const promise = new Promise(function(resolve, reject) {
         const handler = function() {
@@ -1108,7 +1109,7 @@ getJSON("/posts.json").then(function(json) {
 
 答案：async 函数的实现原理，就是将 Generator 函数和自动执行器，包装在一个函数里
 
-``` js
+```js
 function spawn(genF) {
     return new Promise(function(resolve, reject) {
         const gen = genF();
@@ -1157,7 +1158,7 @@ function spawn(genF) {
 
 1. setTimeout
 
-``` js
+```js
 console.log('script start') //1. 打印 script start
 
 setTimeout(function() {
@@ -1176,7 +1177,7 @@ console.log('script end') //3. 打印 script start
 
 Promise本身是同步的立即执行函数， 当在executor中执行resolve或者reject的时候, 此时是异步操作， 会先执行then/catch等，当主栈完成后，才会去调用resolve/reject中存放的方法执行，打印p的时候，是打印的返回结果，一个Promise实例。
 
-``` js
+```js
 console.log('script start')
 let promise1 = new Promise(function(resolve) {
     console.log('promise1')
@@ -1208,7 +1209,7 @@ console.log('script end')
 
 3. async/await
 
-``` js
+```js
 async function async1() {
     console.log('async1 start'); //2
 
@@ -1252,7 +1253,7 @@ console.log(func1())
 
 控制台查看打印，很显然，func1的运行结果其实就是一个Promise对象。因此我们也可以使用then来处理后续逻辑。
 
-``` js
+```js
 func1().then(res => {
     console.log(res); // 30
 })

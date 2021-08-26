@@ -4,11 +4,11 @@
 
 ```js
 let a = 3;
-let b = new Number(3) 
+let b = new Number(3)
 let c = 3;
 
-console.log(a == b); 
-console.log(a === b); 
+console.log(a == b);
+console.log(a === b);
 console.log(b === c);
 ```
 
@@ -66,11 +66,11 @@ D: ReferenceError
 <b><details><summary>3.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-String.prototype.giveLydiaPizza = ( ) = > {  
+String.prototype.giveLydiaPizza = () = > {
     return 'Just give Lydia pizza already!';
 };
 
-const name = 'Lydia'; 
+const name = 'Lydia';
 name.giveLydiaPizza();
 ```
 
@@ -100,7 +100,11 @@ String是一个内置的构造函数，我们可以为它添加属性。我刚�
 <b><details><summary>4.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-const { name: myName } = { name:'Lydia'}
+const {
+    name: myName
+} = {
+    name: 'Lydia'
+}
 
 console.log(name)
 ```
@@ -159,16 +163,16 @@ D: undefined
 
 ```js
 var status = '🐰'
-setTimeout(() => { 
+setTimeout(() => {
     const status = '🐎'
-    const data = { 
+    const data = {
         status: '🐍'
         getStatus() {
             return this.status
         }
     }
-    console.log(data.getStatus()) 
-    console.log(data.getStatus.call(this)) 
+    console.log(data.getStatus())
+    console.log(data.getStatus.call(this))
 }, 0)
 ```
 
@@ -183,10 +187,10 @@ D: '🐰' and '🐰'
 
 解析：
 
-this关键字的指向取决于使用它的位置。在函数中,比如 getStatus,this指向的是调用它的对象,上述例子中data对象调用了 getStatus因此this指向的就是data对象,当我们打印this.status时,data对象
-的 status属性被打印,即'🐍'。
+this关键字的指向取决于使用它的位置。在函数中, 比如 getStatus, this指向的是调用它的对象, 上述例子中data对象调用了 getStatus因此this指向的就是data对象, 当我们打印this.status时, data对象
+的 status属性被打印, 即'🐍'。
 
-使用call方法,可以更政this指向的对象。data.getStatus.call(this)是将this的指向由data对象更改为全局对象。在全局对象上,有一个名为 status的变量,其值为'🐰'。因此打印this.status时,会打印'🐰'
+使用call方法, 可以更政this指向的对象。data.getStatus.call(this)是将this的指向由data对象更改为全局对象。在全局对象上, 有一个名为 status的变量, 其值为'🐰'。因此打印this.status时, 会打印'🐰'
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1027)
 
@@ -195,12 +199,12 @@ this关键字的指向取决于使用它的位置。在函数中,比如 getStatu
 <b><details><summary>7.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-const person = { 
+const person = {
     name: 'Lydia',
     age: 21
 }
 
-let city = person.city 
+let city = person.city
 city = 'Amsterdam'
 console.log(person)
 ```
@@ -228,7 +232,7 @@ D: "Amsterdam"
 <b><details><summary>8.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-function sum(numl, num2 = numl) { 
+function sum(numl, num2 = numl) {
     console.log(numl + num2)
 }
 sum(10)
@@ -248,8 +252,9 @@ D: undefined
 您可以将默认参数的值设置为函数的另一个参数，只要另一个参数定义在其之前即可。我们将值10传递给sum函数。如果sum函数只接收1个参数，则意味看没有传递 num2 的 值 . 这 种 情 况 下 的 值 等 于 传 递 的 值 10。num2 的默认值是num1 的值，即10 。 num1  + num2 返回 20。
 
 如果您尝试将默认参数的值设置为后面定义的参数，则可能导致参数的值尚未初始化，从而引发错误。比如：
+
 ```js
-function test(m = n, n = 2) { 
+function test(m = n, n = 2) {
     console.log(m, n)
 }
 test() // Uncaught ReferenceEmor: Cannot access 
@@ -264,17 +269,18 @@ test(3, 4) // 3 4
 <b><details><summary>9.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-function* generatorOne() { 
+function* generatorOne() {
     yield ['a', 'b', 'c'];
 }
-function* generatorTwo() { 
-    yield* ['a', 'b', 'c'];
+
+function* generatorTwo() {
+    yield*['a', 'b', 'c'];
 }
 
-const one = generatorOne() 
+const one = generatorOne()
 const two = generatorTwo()
 
-console.log(one.next().value) 
+console.log(one.next().value)
 console.log(two.next().value)
 ```
 
@@ -289,7 +295,7 @@ D: a and ['a', 'b', 'c']
 
 解析：
 
-通过yield关键字,我们在Generator函数里执行yield表达式.通过yield*关键字，我们可以在一个Generator函数里面执行（yield表达式）另一个Generator 函数，或可遍历的对象(如数组).
+通过yield关键字, 我们在Generator函数里执行yield表达式. 通过yield*关键字，我们可以在一个Generator函数里面执行（yield表达式）另一个Generator 函数，或可遍历的对象(如数组).
 
 在函数generatorOne中，我们通过yield关键字yield 了一个完整的数组['a', 'b', 'c']。函数one通过next方法返回的对象的value属性的值（one.next().value)等价于数组['a', 'b', 'c']
 
@@ -298,7 +304,7 @@ console.log(one.next().value) // ['a', 'b', 'c']
 console.log(one.next().value) // undefined
 ```
 
-在函数generatorTwo中，我们使用yield*关键字。就相当于函数two第一个yield的值,等价于在迭代器中第一个yield的值。数组 ['a', 'b', 'c'] 就是个迭代器.第一个 yield的值就是a ,所以我们第_次调用two.next().value 时，就返回 a。
+在函数generatorTwo中，我们使用yield*关键字。就相当于函数two第一个yield的值, 等价于在迭代器中第一个yield的值。数组 ['a', 'b', 'c'] 就是个迭代器. 第一个 yield的值就是a , 所以我们第_次调用two.next().value 时，就返回 a。
 
 ```js
 console.log(two.next().value) // 'a'
@@ -314,7 +320,7 @@ console.log(two.next().value) // underfined
 <b><details><summary>10.(单选题)下面代码的输出是什么 </summary></b>
 
 ```js
-const set = new Set([1, 1, 2, 3, 4]); 
+const set = new Set([1, 1, 2, 3, 4]);
 console.log(set);
 ```
 
@@ -331,7 +337,7 @@ D: {1, 2, 3, 4}
 
 Set对象是独一无 二 的 值 的 集 合 ： 也 就 是 说 同 一 在 其中仅出现一次。
 
-我 们 传 入 了 数 组 [ 1 ,  1 ,  2 ,  3 ,  4 ] , 他 有 一个重复值以为一个集合里不能有两个重复的值，其中一个就被移除了。所以结果是{1, 2, 3, 4}.
+我 们 传 入 了 数 组 [ 1 , 1 , 2 , 3 , 4 ] , 他 有 一个重复值以为一个集合里不能有两个重复的值，其中一个就被移除了。所以结果是{1, 2, 3, 4}.
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1031)
 

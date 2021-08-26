@@ -4,7 +4,7 @@
 
 答案：
 
-1）编码阶段
+1）编码优化
 
 * 尽量减少data中的数据，data中的数据都会增加getter和setter，会收集对应的watcher
 * v-if和v-for不能连用
@@ -18,7 +18,7 @@
 * 长列表滚动到可视区域动态加载
 * 图片懒加载
 
-2）用户体验：
+2）用户体验优化
 
 * 骨架屏
 * PWA（渐进式WEB应用）
@@ -48,7 +48,7 @@
 
 答案：
 
-![vue_002](. . /. . /images/vue_002. jpg)
+![vue_002](../../images/vue_002.jpg)
 
 （1） beforeCreate 初始化实例后 数据观测和事件配置之前调用
 
@@ -208,7 +208,35 @@ p 设置属性值时，实际上执行的是 handler. set() ：在控制台输�
 
 <b><details><summary>8. vue slot是做什么的?</summary></b>
 
-答案：可以插入的槽口，比如插座的插孔。
+答案：主要是让组件的可扩展性更强，简单点说就是，能够在组件内写其他内容
+
+解析：
+
+### 插槽
+
+在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除且仍在文档中的 attribute。
+
+#### 插槽内容
+
+Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 Web Components 规范草案，将 <slot> 元素作为承载分发内容的出口。
+
+它允许你像这样合成组件：
+
+```html
+<navigation-link url="/profile">
+  Your Profile
+</navigation-link>
+```
+然后你在 <navigation-link> 的模板中可能会写为：
+```js
+<a
+  v-bind:href="url"
+  class="nav-link"
+>
+  <slot></slot>
+</a>
+```
+#### 编译作用域
 
 [参与互动](https://github.com/yisainan/web-interview/issues/399)
 
@@ -443,7 +471,7 @@ var app = new Vue({
 既没有传入实参，也没有接收的形参，这个 event 对象的来源，要么是上级作用链，要么。。。是全局作用域。。。全局的，不禁想到了 window. event
 。再次上 MDN 确认了一下，果然，window. event，ie 和 chrome 都在 window 对象上有这样一个属性：
 
-![vue_003](. . /. . /images/vue_003. jpg)
+![vue_003](../../images/vue_003.jpg)
 
 代码丢进 Firefox 中运行，event 果然就变成了 undefined 了。额，这个我也不知道说什么了。。。
 
@@ -962,9 +990,9 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 解析：
 
-![vue_004](. . /. . /images/vue_004. jpg)
+![vue_004](../../images/vue_004.jpg)
 
-![vue_005](. . /. . /images/vue_005. jpg)
+![vue_005](../../images/vue_005.jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/415)
 
@@ -974,7 +1002,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 答案：
 
-![vue_005](. . /. . /images/vue_005. jpg)
+![vue_005](../../images/vue_005.jpg)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/416)
 
@@ -1671,7 +1699,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 通信方式如下
 
-![架构_001](. . /. . /images/架构_001. png)
+![架构_001](../../images/架构_001.png)
 
 1. 视图（View）：用户界面。 传送指令到 Controller
 
@@ -1683,7 +1711,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 通信方式如下
 
-![架构_002](. . /. . /images/架构_002. png)
+![架构_002](../../images/架构_002.png)
 
 1. 各部分之间的通信，都是双向的。
 
@@ -1695,7 +1723,7 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。通信方式如下
 
-![架构_003](. . /. . /images/架构_003. png)
+![架构_003](../../images/架构_003.png)
 
 唯一的区别是，它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。
 
@@ -1947,7 +1975,7 @@ vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
 
 命令效果：
 
-![vue_001](. . /. . /images/vue_001. jpg)
+![vue_001](../../images/vue_001.jpg)
 
 在浏览器上自动弹出一个 展示 vue-cli 工程打包后 app. js、manifest. js、vendor. js 文件里面所包含代码的页面。可以具此优化 vue-cli 生产环境部署的静态资源，提升 页面 的加载速度。
 
@@ -2281,7 +2309,7 @@ a.	通过数据劫持实现
 
 #### 原理结构图
 
-![vue_006](. . /. . /images/vue_006. png)
+![vue_006](../../images/vue_006.png)
 
 </details>
 

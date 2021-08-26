@@ -57,7 +57,8 @@ git pull --rebase = git fetch + git rebase
 命令 git cherry-pick 通常用于把特定提交从存储仓库的一个分支引入到其他分支中。常见的用途是从维护的分支到开发分支进行向前或回滚提交。
 这与其他操作（例如：合并（merge）、变基（rebase））形成鲜明对比，后者通常是把许多提交应用到其他分支中。
 
-``` 
+```
+
 git cherry-pick <commit-hash>
 ```
 
@@ -119,7 +120,7 @@ git push origin master // 将本地代码推送到库上
 
 point1. js
 
-``` js
+```js
 function test() {
     console.log(a);
     var a = 1;
@@ -129,7 +130,7 @@ function test() {
 人物甲 更新了版本 2
 代码: poin2. js
 
-``` js
+```js
 function test() {
     console.log(a);
     var a = 2;
@@ -139,7 +140,7 @@ function test() {
 人物乙 更新了版本 3
 代码: poin3. js
 
-``` js
+```js
 function test() {
     console.log(a);
     var a = 3;
@@ -266,7 +267,8 @@ Git push
 
 换成 git reset 操作：
 
-``` 
+```
+
 git reset filename          # or
 echo filename >> .gitingore # add it to .gitignore to avoid re-adding it
 ```
@@ -334,6 +336,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 <b><details><summary>21. 我想丢弃本地未提交的变化(uncommitted changes)</summary></b>
 
 答案：
+
 > git reset --hard HEAD^
 
 </details>
