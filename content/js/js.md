@@ -6166,7 +6166,7 @@ JSON.stringify(obj) == JSON.stringify(obj3); //false
 
 </details>
 
-<b><details><summary>195.获取一个月有多少天</summary></b>
+<b><details><summary>195. 获取一个月有多少天</summary></b>
 
 今天遇到一个需求，已知月份，得到这个月的第一天和最后一天作为查询条件查范围内的数据
 
@@ -6175,27 +6175,25 @@ new Date(year, month, date, hrs, min, sec)，new Date 可以接受这些参数�
 答案：
 
 ``` js
-
 new Date(2019, 12, 0).getDate(); // 31
 new Date(2018, 2, 0).getDate(); // 28
 // 根据这个我们可以得到一个方法
 function getMonthLength(month) {
-  const date = new Date(month);
-  const year = date.getFullYear();
-  // 月份是从 0 开始计算的
-  const _month = date.getMonth() + 1;
-  return new Date(year, _month, 0).getDate();
+    const date = new Date(month);
+    const year = date.getFullYear();
+    // 月份是从 0 开始计算的
+    const _month = date.getMonth() + 1;
+    return new Date(year, _month, 0).getDate();
 }
-
 ```
 
 </details>
 
-<b><details><summary>196.关于函数的 length 属性</summary></b>
+<b><details><summary>196. 关于函数的 length 属性</summary></b>
 
 答案：
 
-```js
+``` js
 (() => 1).length === 0; // 输出true
 ```
 
@@ -6205,7 +6203,7 @@ function getMonthLength(month) {
 
 </details>
 
-<b><details><summary>197.数组中字符串键值的处理</summary></b>
+<b><details><summary>197. 数组中字符串键值的处理</summary></b>
 
 在 JavaScript 中数组是通过数字进行索引，但是有趣的是他们也是对象，所以也可以包含 字符串 键值和属性，但是这些不会被计算在数组的长度（length）内
 
@@ -6224,15 +6222,23 @@ console.log(arr.length); // 2
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>198. 什么是链表？</summary></b>
 
-答案：
+答案：链表是一种物理存储单元上非连续、非顺序的存储结构。链表由一系列结点组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>199. 链表的基本特征</summary></b>
 
 答案：
+
+* 每个元素除了存储数据，需要有额外的内存存储一个引用（地址），来指向下一个元素；
+* 每个元素占用的内存空间并不要求是连续的；
+* 往往使用链表的第一个节点（根节点）来代表整个链表；
+* 长度是可变的，随时可以增加和删除元素；
+* 插入和删除元素的效率极高；
+* 由于要存储下一个元素的地址，会增加额外的内存开销；
+* 通过下标查询链表中的某个节点，效率很低，因此链表的下标遍历效率低。
 
 </details>
 

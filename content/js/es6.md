@@ -525,7 +525,7 @@ let {
 } = {
     a: "a"
 };
-console.loh(a); //'a',这个很简单
+console.log(a); //'a',这个很简单
 //很多人觉得，以下这种写法也是可以的：
 let a; {
     a
