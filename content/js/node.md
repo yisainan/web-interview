@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 为什么用 Nodejs, 它有哪些缺点？</summary></b>
 
-答案：
+参考答案：
 
 * 事件驱动，通过闭包很容易实现客户端的生命活期。
 * 不用担心多线程，锁，并行计算的问题
@@ -21,7 +21,7 @@
 
 <b><details><summary>2. NodeJS 的工作原理</summary></b>
 
-答案：事件循环
+参考答案：事件循环
 
 [参与互动](https://github.com/yisainan/web-interview/issues/372)
 
@@ -29,7 +29,7 @@
 
 <b><details><summary>3. Node 的应用场景</summary></b>
 
-答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
+参考答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
 
 * 实时应用：如在线聊天，实时通知推送等等（如 socket.io）
 * 分布式应用：通过高效的并行 I/O 使用已有的数据
@@ -44,7 +44,7 @@
 
 <b><details><summary>4. 如何用 NodeJS 搭建中间层？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/374)
 
@@ -52,7 +52,7 @@
 
 <b><details><summary>5. 什么是 error-first callback ？</summary></b>
 
-答案：error-first callback 用来传递错误和数据。第一个参数永远是一个错误对象（error-object），回调函数必须检查它。余下的参数用不过来传递数据。
+参考答案：error-first callback 用来传递错误和数据。第一个参数永远是一个错误对象（error-object），回调函数必须检查它。余下的参数用不过来传递数据。
 
 解析：
 
@@ -73,7 +73,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>6. 如何避免回调函数嵌套？</summary></b>
 
-答案：使用 Promises 将回调写成单独的函数
+参考答案：使用 Promises 将回调写成单独的函数
 
 [参与互动](https://github.com/yisainan/web-interview/issues/376)
 
@@ -81,7 +81,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>7. Node 程序如何监听 80 端口？</summary></b>
 
-答案：脑筋急转弯！你不应该直接使用 Node 监听 80 端口（在\*nix 系统中），这样做需要 root 权限，对于运行程序来说这不是一个好主意。
+参考答案：脑筋急转弯！你不应该直接使用 Node 监听 80 端口（在\*nix 系统中），这样做需要 root 权限，对于运行程序来说这不是一个好主意。
 
 不过，你可以使 Node 监听 1024 以上的端口，然后在 Node 前面部署 nginx 反向代理。
 
@@ -93,7 +93,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>8. 什么是事件循环（event loop）？</summary></b>
 
-答案：至少从开发者的角度来看，Node.js 是单线程运行的。底层使用 libuv 使用多线程。
+参考答案：至少从开发者的角度来看，Node.js 是单线程运行的。底层使用 libuv 使用多线程。
 每一个 I/O 操作都需要一个回调，一旦操作完成会被事件循环执行
 
 解析：[参考](http://blog.csdn.net/yanghua_kobe/article/details/12145537)
@@ -104,7 +104,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>9. 使用什么工具检查代码风格？</summary></b>
 
-答案：
+参考答案：
 
 * JSLint by Douglas Crockford
 * JSHint
@@ -118,7 +118,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>10. 操作错误和程序错误的区别是什么？</summary></b>
 
-答案：操作错误不是 bug，是系统的问题，例如超时或者硬件故障。
+参考答案：操作错误不是 bug，是系统的问题，例如超时或者硬件故障。
 另一方面，程序错误（programmer errors）是实际的错误。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/380)
@@ -127,7 +127,7 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>11. 为什么 npmshrinkwarp 非常有用？</summary></b>
 
-答案：这个命令在部署 Node.js 应用时是非常有用的——它可以保证所部属的版本就是依赖的版本。
+参考答案：这个命令在部署 Node.js 应用时是非常有用的——它可以保证所部属的版本就是依赖的版本。
 
 解析：[参考](http://www.tuicool.com/articles/EBVNV37)
 
@@ -137,8 +137,8 @@ fs.readFile(filePath, function(err, data) {
 
 <b><details><summary>12. 什么是 stub？说出他的用途？举个使用场景？</summary></b>
 
-答案：Stubs 是模拟模块或组件行为的程序。
-Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stubs 被调用
+参考答案：Stubs 是模拟模块或组件行为的程序。
+Stubs 提供已知的参考答案来调用函数，另外你还可以断言哪个 stubs 被调用
 
 [参与互动](https://github.com/yisainan/web-interview/issues/382)
 
@@ -146,7 +146,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>13. 什么是测试金字塔？在做 HTTP API 的时候要怎么实现？</summary></b>
 
-答案：测试金字塔意思是在写测试时应该编写的底层但愿测试要多于高级的端到端测试。
+参考答案：测试金字塔意思是在写测试时应该编写的底层但愿测试要多于高级的端到端测试。
 对于 HTTP APIs，应该归结为：
 
 * 对你的模型多很多单元测试
@@ -159,7 +159,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>14. 你最熟悉的 Node 框架是什么？为什么？</summary></b>
 
-答案：[参考](http://ourjs.com/detail/15%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84node-js%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6)
+参考答案：[参考](http://ourjs.com/detail/15%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%94%A8%E7%9A%84node-js%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/384)
 
@@ -167,7 +167,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>15. 你最喜欢的 HTTP 框架，并说明原因？</summary></b>
 
-答案：LiteHttp 好多的优点
+参考答案：LiteHttp 好多的优点
 单线程 灵活的架构 轻量级 多文件上传 自动重定向 禁用一种或多种网络
 
 解析：[参考](http://blog.csdn.net/kymjs/article/details/45716797)
@@ -178,7 +178,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>16. 对 Node 的优点和缺点提出了自己的看法</summary></b>
 
-答案：
+参考答案：
 
 * （优点）因为 Node 是基于事件驱动和无阻塞的，所以非常适合处理并发请求，
   因此构建在 Node 上的代理服务器相比其他技术实现（如 Ruby）的服务器表现要好得多。
@@ -194,7 +194,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>17. 需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？</summary></b>
 
-答案：至少给出自己的思路（url-hash, 可以使用已有的一些框架 history.js 等）
+参考答案：至少给出自己的思路（url-hash, 可以使用已有的一些框架 history.js 等）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/387)
 
@@ -202,7 +202,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>18.(如果会用 node)知道 route, middleware, cluster, nodemon, pm2, server-side rendering 么?</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/388)
 
@@ -210,7 +210,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>19. 解释一下 Backbone 的 MVC 实现方式？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/389)
 
@@ -218,7 +218,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>20. 什么是“前端路由”? 什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/390)
 
@@ -226,7 +226,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>21. 对 Node 的优点和缺点提出了自己的看法？</summary></b>
 
-答案：
+参考答案：
 
 优点：
 
@@ -244,7 +244,7 @@ Stubs 提供已知的答案来调用函数，另外你还可以断言哪个 stub
 
 <b><details><summary>22. 使用过的koa2中间件（阿里）</summary></b>
 
-答案：
+参考答案：
 
 ```
 koa-router
@@ -260,7 +260,7 @@ koa-convert
 
 <b><details><summary>23.master挂了的话pm2怎么处理（阿里）</summary></b>
 
-答案：
+参考答案：
 
 ```
 koa-router
@@ -276,30 +276,30 @@ koa-convert
 
 <b><details><summary>24.node文件查找优先级（宝宝树）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

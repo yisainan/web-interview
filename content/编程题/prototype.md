@@ -2,7 +2,7 @@
 
 <b><details><summary>1.原型链面试题</summary></b>
 
-答案：
+参考答案：
 
 ```js
 // 1
@@ -35,7 +35,7 @@ Function.prototype.__proto__ === Object.prototype;
 
 <b><details><summary>2.原型链面试题</summary></b>
 
-答案：
+参考答案：
 
 ```js
 var o = new Object();

@@ -2,7 +2,7 @@
 
 <b><details><summary>1.angular 的数据绑定采用什么机制？详述原理</summary></b>
 
-答案：脏检查机制。
+参考答案：脏检查机制。
 
 解析：
 双向数据绑定是 AngularJS 的核心机制之一。当 view 中有任何数据变化时，会更新到 model ，当 model 中数据有变化时，view 也会同步更新，显然，这需要一个监控。
@@ -15,7 +15,7 @@
 
 <b><details><summary>2. AngularJS 的数据双向绑定是怎么实现的？</summary></b>
 
-答案：
+参考答案：
 
 1、每个双向绑定的元素都有一个 watcher
 
@@ -33,7 +33,7 @@
 
 <b><details><summary>3. 在使用 angularjs 项目开发中 你使用过那些第三方的插件</summary></b>
 
-答案：AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
+参考答案：AngularUi ui-router oclazyload 等等 附上一篇文章仔细去看看 https://segmentfault.com/a/1190000003858219
 
 [参与互动](https://github.com/yisainan/web-interview/issues/527)
 
@@ -41,7 +41,7 @@
 
 <b><details><summary>4.ng-show/ng-hide 与 ng-if 的区别？</summary></b>
 
-答案：我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
+参考答案：我们都知道 ng-show/ng-hide 实际上是通过 display 来进行隐藏和显示的。而 ng-if 实际上控制 dom 节点的增删除来实现的。因此如果我们是根据不同的条件来进行 dom 节点的加载的话，那么 ng-if 的性能好过 ng-show.
 
 [参与互动](https://github.com/yisainan/web-interview/issues/528)
 
@@ -49,7 +49,7 @@
 
 <b><details><summary>5. 解释下什么是$rootScrope以及和$scope 的区别？</summary></b>
 
-答案：通俗的说$rootScrope 页面所有$scope 的父亲。
+参考答案：通俗的说$rootScrope 页面所有$scope 的父亲。
 
 解析：
 
@@ -67,7 +67,7 @@ step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 control
 
 <b><details><summary>6. 列出至少三种实现不同模块之间通信方式？</summary></b>
 
-答案：
+参考答案：
 
 * Service
 * events, 指定绑定的事件
@@ -81,7 +81,7 @@ step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 control
 
 <b><details><summary>7. 表达式 {{yourModel}} 是如何工作的？</summary></b>
 
-答案：
+参考答案：
 
 它依赖于 $interpolation服务，在初始化页面html后，它会找到这些表达式，并且进行标记，于是每遇见一个 {{}} ，则会设置一个 $watch 。而 $interpolation 会返回一个带有上下文参数的函数，最后该函数执行，则算是表达式 $parse 到那个作用域上。
 
@@ -91,7 +91,7 @@ step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 control
 
 <b><details><summary>8.angular 中的\$http</summary></b>
 
-答案：\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
+参考答案：\$http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
 
 我们可以使用内置的$http服务直接同外部进行通信。$http 服务只是简单的封装了浏览器原生的 XMLHttpRequest 对象。
 
@@ -101,7 +101,7 @@ step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 control
 
 <b><details><summary>9.ng-repeat 迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</summary></b>
 
-答案：会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
+参考答案：会提示 Duplicates in a repeater are not allowed. 加 track by \$index 可解决。当然，也可以 trace by 任何一个普通的值，只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/533)
 
@@ -109,7 +109,7 @@ step3: 接着会解析带有 ng-controller 的 div 然后指向到某个 control
 
 <b><details><summary>10.angularjs 是 mvc 还是 mvvm 框架</summary></b>
 
-答案：mvvm
+参考答案：mvvm
 
 解析：
 
@@ -145,7 +145,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>11.angularjs 中\$scope，controller，directive，sevice 在 mvvm 中充当什么角色</summary></b>
 
-答案：如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
+参考答案：如果你不知道，第一题的分析以及很明确，仔细再仔细的看一遍
 
 [参与互动](https://github.com/yisainan/web-interview/issues/535)
 
@@ -153,7 +153,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>12. 在 angular 项目中你如何控制静态资源的合理加载</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/536)
 
@@ -161,7 +161,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>13. 在写 controlloer 逻辑的时候 你需要注意什么？</summary></b>
 
-答案：
+参考答案：
 
 1. 简化代码（这个是所有开发人员都要具备的）
 
@@ -179,7 +179,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>14.controller 之间怎么通讯</summary></b>
 
-答案：
+参考答案：
 
 1、event
 
@@ -207,7 +207,7 @@ mvc 的界面和逻辑关联紧密，数据直接从数据库读取。mvvm 的�
 
 <b><details><summary>15. 自定义指令的几个参数</summary></b>
 
-答案：
+参考答案：
 
 说几个常用的如：
 
@@ -231,7 +231,7 @@ compile 和 link 的区别：
 
 <b><details><summary>16.angular 和 jquery 的区别</summary></b>
 
-答案：
+参考答案：
 
 angular 是基于数据驱动，所以 angular 适合做数据操作比较繁琐的项目（这里可以再提一下单页面应用，如果你不会福利又来了 http://www.zhihu.com/question/20792064）
 
@@ -243,7 +243,7 @@ jquery 是基于 dom 驱动，jquery 适合做 dom 操作多的项目
 
 <b><details><summary>17. 对 angular 中的 form 表单了解多少</summary></b>
 
-答案：
+参考答案：
 
 Angular 对 input 元素的 type 进行了扩展，一共提供了以下 10 种类型：
 
@@ -295,7 +295,7 @@ ng-minlength 最小长度
 
 <b><details><summary>18.fliter 是什么你了解的有多少？实现一个自定义 fliter</summary></b>
 
-答案：
+参考答案：
 
 date（日期）
 

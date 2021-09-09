@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 说下 jQuery/Zepto 中的 on 方法有哪些参数，分别代表什么意思？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/347)
 
@@ -10,7 +10,7 @@
 
 <b><details><summary>2. 谈一下 Jquery 中的 bind(), live(), delegate(), on()的区别？</summary></b>
 
-答案：
+参考答案：
 
 * bind： 绑定事件，对新添加的事件不起作用，方法用于将一个处理程序附加到每个匹配元素的事件上并返回 jQuery 对象。
 * live： 方法将一个事件处理程序附加到与当前选择器匹配的所有元素（包含现有的或将来添加的）的指定事件上并返回 jQuery 对象。
@@ -22,7 +22,7 @@
 
 <b><details><summary>3.jQuery 的队列是如何实现的？队列可以用在哪些地方？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/349)
 
@@ -30,7 +30,7 @@
 
 <b><details><summary>4.jquery.extend 与 jquery.fn.extend 的区别？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/350)
 
@@ -38,7 +38,7 @@
 
 <b><details><summary>5.jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/351)
 
@@ -46,7 +46,7 @@
 
 <b><details><summary>6.jquery 中如何将数组转化为 json 字符串，然后再转化回来？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/352)
 
@@ -54,7 +54,7 @@
 
 <b><details><summary>7.jQuery.fn 的 init 方法返回的 this 指的是什么对象？为什么要返回 this？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/353)
 
@@ -62,7 +62,7 @@
 
 <b><details><summary>8.jQuery 与 jQuery UI、jQuery Mobile 区别？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/354)
 
@@ -70,7 +70,7 @@
 
 <b><details><summary>9.jQuery 的 slideUp 动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/355)
 
@@ -78,7 +78,7 @@
 
 <b><details><summary>10. 你觉得 jQuery 源码有哪些写的好的地方</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/356)
 
@@ -86,7 +86,7 @@
 
 <b><details><summary>11. 你觉得 zepto 源码有哪些写的好的地方</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/357)
 
@@ -94,7 +94,7 @@
 
 <b><details><summary>12.jQuery 的实现原理和核心？</summary></b>
 
-答案：
+参考答案：
 
 1、jQuery 的实现原理
 
@@ -205,7 +205,7 @@ $().b()
 
 <b><details><summary>13. 是否知道自定义事件？ jQuery 里的 fire 函数是什么意思，什么时候用？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/359)
 
@@ -213,7 +213,7 @@ $().b()
 
 <b><details><summary>14.jQuery 通过哪个方法和 Sizzle 选择器结合的？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/360)
 
@@ -221,7 +221,7 @@ $().b()
 
 <b><details><summary>15.jQuery 一个对象可以同时绑定多个事件，这是如何实现的？</summary></b>
 
-答案：jQuery 可以给一个对象同时绑定多个事件，低层实现方式是使用 addEventListner 或 attachEvent 兼容不同的浏览器实现事件的绑定，这样可以给同一个对象注册多个事件。
+参考答案：jQuery 可以给一个对象同时绑定多个事件，低层实现方式是使用 addEventListner 或 attachEvent 兼容不同的浏览器实现事件的绑定，这样可以给同一个对象注册多个事件。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/361)
 
@@ -229,7 +229,7 @@ $().b()
 
 <b><details><summary>16. 针对 jQuery 的优化方法？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/362)
 
@@ -237,7 +237,7 @@ $().b()
 
 <b><details><summary>17.jQuery UI 如何自定义组件？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/363)
 
@@ -245,7 +245,7 @@ $().b()
 
 <b><details><summary>18.jQuery 和 Zepto 的区别？ 各自的使用场景？</summary></b>
 
-答案：
+参考答案：
 
 01. Zepto 对象 不能自定义事件
 
@@ -411,7 +411,7 @@ document.addEventListener(
 
 <b><details><summary>19.jQuery 对象的特点</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/365)
 
@@ -419,7 +419,7 @@ document.addEventListener(
 
 <b><details><summary>20. Zepto 的点透问题如何解决？</summary></b>
 
-答案：点透主要是由于两个 div 重合，例如：一个 div 调用 show()，一个 div 调用 hide()；这个时候当点击上面的 div 的时候就会影响到下面的那个 div；
+参考答案：点透主要是由于两个 div 重合，例如：一个 div 调用 show()，一个 div 调用 hide()；这个时候当点击上面的 div 的时候就会影响到下面的那个 div；
 解决办法主要有 2 种：
 
 01. github 上有一个叫做 fastclick 的库，它也能规避移动设备上 click 事件的延迟响应，https://github.com/ftlabs/fastclick
@@ -434,7 +434,7 @@ document.addEventListener(
 
 `<div class='aabbcc' id='nodesView'></div>` 想直接获取这个 div 的 dom 对象，如何获取？dom 对象如何转化为 jQuery 对象？
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/367)
 
@@ -442,7 +442,7 @@ document.addEventListener(
 
 <b><details><summary>22.jQuery 框架中\$.ajax()的常用参数有哪些？写一个 post 请求并带有发送数据和返回数据的样例</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/368)
 
@@ -450,7 +450,7 @@ document.addEventListener(
 
 <b><details><summary>23.jQuery 的优点</summary></b>
 
-答案：
+参考答案：
 
 1、轻量级
 
@@ -519,7 +519,7 @@ JQuery 是一个开源的产品，任何人都可以自由地使用并提出修�
 
 <b><details><summary>24. Jquery 如何获取子元素</summary></b>
 
-答案：
+参考答案：
 
 Jquery 获取子元素的方法有 2 种，分别是 children()方法和 find()方法。下面我们分别来使用这两种方法，看看它们有何差异。
 
@@ -590,19 +590,19 @@ console.log($("#ul").children("li").length); // 3
 
 <b><details><summary>25.jQuery 库中的 $() 是什么？</summary></b>
 
-答案：$() 函数是 jQuery() 函数的别称。$() 函数用于将任何对象包裹成 jQuery 对象，接着你就被允许调用定义在 jQuery 对象上的多个不同方法。你可以将一个选择器字符串传入 $() 函数，它会返回一个包含所有匹配的 DOM 元素数组的 jQuery 对象。
+参考答案：$() 函数是 jQuery() 函数的别称。$() 函数用于将任何对象包裹成 jQuery 对象，接着你就被允许调用定义在 jQuery 对象上的多个不同方法。你可以将一个选择器字符串传入 $() 函数，它会返回一个包含所有匹配的 DOM 元素数组的 jQuery 对象。
 
 </details>
 
 <b><details><summary>26. 如何找到所有 HTML select 标签的选中项？</summary></b>
 
-答案：$('[name=selectname] :selected')
+参考答案：$('[name=selectname] :selected')
 
 </details>
 
 <b><details><summary>27. $(this) 和 this 关键字在 jQuery 中有何不同？</summary></b>
 
-答案：
+参考答案：
 
 ```
 $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。
@@ -614,7 +614,7 @@ $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法�
 
 <b><details><summary>28. jquery怎么移除标签onclick属性？</summary></b>
 
-答案：
+参考答案：
 
 ```
 获得a标签的onclick属性: $("a").attr("onclick")
@@ -626,7 +626,7 @@ $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法�
 
 <b><details><summary>29.jquery中addClass, removeClass, toggleClass的使用。</summary></b>
 
-答案：
+参考答案：
 
 ```
 $(selector).addClass(class)：为每个匹配的元素添加指定的类名
@@ -639,7 +639,7 @@ $(selector).removeAttr(class);删除class这个属性；
 
 <b><details><summary>30. JQuery有几种选择器?</summary></b>
 
-答案：
+参考答案：
 
 ```
 (1)、基本选择器：#id，class,element,*;
@@ -657,7 +657,7 @@ $(selector).removeAttr(class);删除class这个属性；
 
 <b><details><summary>31.jQuery中的Delegate()函数有什么作用？</summary></b>
 
-答案：
+参考答案：
 
 ```
 delegate()会在以下两个情况下使用到：
@@ -670,7 +670,7 @@ $("ul").delegate("li", "click", function(){ $(this).hide(); });
 
 <b><details><summary>32. 如何用jQuery禁用浏览器的前进后退按钮？</summary></b>
 
-答案：
+参考答案：
 
 ```js
 < script type = "text/javascript"
@@ -686,7 +686,7 @@ language = "javascript" >
 
 <b><details><summary>33. jquery中$.get()提交和$.post()提交有区别吗？</summary></b>
 
-答案：
+参考答案：
 
 ```
 相同点：都是异步请求的方式来获取服务端的数据；
@@ -701,36 +701,36 @@ language = "javascript" >
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

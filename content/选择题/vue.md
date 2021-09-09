@@ -10,7 +10,7 @@ C. beforeMount
 D. mounted
 ```
 
-正确答案》BCD
+正确参考答案》BCD
 
 </details>
 
@@ -24,7 +24,7 @@ C. 组件内 data 发生变化时会通知其对应 watcher，执行异步更新
 D. patching 算法首先进行同层级比较，可能执行的操作是节点的增加、删除和更新
 ```
 
-正确答案》 ABCD
+正确参考答案》 ABCD
 
 </details>
 
@@ -38,7 +38,7 @@ C. 若 data 中某属性多次发生变化，watcher 仅会进入更新队列一
 D. 通过编译过程进行依赖收集
 ```
 
-正确答案》BD
+正确参考答案》BD
 
 </details>
 
@@ -51,7 +51,7 @@ B. 若指定了组件的 template 选项，render 函数不会执行
 C. 使用 vm. n e x t T i c k 可 以 确 保 获 得 D O M 异 步 更 新 的 结 果 D . 若 没 有 e l 选 项 ， v m . nextTick 可以确保获得 DOM 异步更新的结果 D. 若没有 el 选项，vm. nextTick可以确保获得DOM异步更新的结果D. 若没有el选项，vm. mount(dom) 可将 Vue 实例挂载于指定元素上
 ```
 
-正确答案》B
+正确参考答案》B
 
 </details>
 
@@ -65,7 +65,7 @@ C. Vuex 主要用于多视图间状态全局共享与管理
 D. 在 Vuex 中改变状态，可以通过 mutations 和 actions
 ```
 
-正确答案》D
+正确参考答案》D
 
 </details>
 
@@ -79,7 +79,7 @@ C. 若子组件使用 $emit(‘say’) 派发事件，父组件可使用 @say �
 D. 若父组件给子组件传值，子组件可通过 props 接受数据
 ```
 
-正确答案》B
+正确参考答案》B
 
 </details>
 
@@ -93,7 +93,7 @@ C. 可通过 beforeEnter 对单个组件进行路由守卫
 D. vue-router 借助 Vue 实现响应式的路由，因此只能用于 Vue
 ```
 
-正确答案》 C
+正确参考答案》 C
 
 </details>
 
@@ -107,7 +107,7 @@ C. 可使用 this. $children 按顺序查找当前组件的直接子组件
 D. 可使用 $root 查找根组件，并可配合 children 遍历全部组件
 ```
 
-正确答案》C
+正确参考答案》C
 
 </details>
 
@@ -121,7 +121,7 @@ C. v-model 是内置指令，不能用在自定义组件上
 D. 对 input 使用 v-model，实际上是指定其 :value 和 :input
 ```
 
-正确答案》C
+正确参考答案》C
 
 </details>
 
@@ -135,6 +135,6 @@ C. created 表示完成数据观测、属性和方法的运算和初始化事件
 D. 页面首次加载过程中，会依次触发 beforeCreate，created，beforeMount，mounted，beforeUpdate，updated
 ```
 
-正确答案》D
+正确参考答案》D
 
 </details>

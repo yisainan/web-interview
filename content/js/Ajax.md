@@ -2,7 +2,7 @@
 
 <b><details><summary>1. Ajax 是什么? 如何创建一个 Ajax？</summary></b>
 
-答案：Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
+参考答案：Ajax 全称是 asychronous javascript and xml，可以说是已有技术的组合，主要用来实现客户端与服务器端的异步交互，实现页面的局部刷新。
 
 基本步骤 4 步走：（创建对象、建立连接、发送数据、接收数据）
 
@@ -45,7 +45,7 @@
 
 <b><details><summary>2. 同步和异步的区别?</summary></b>
 
-答案：同步：阻塞的；异步：非阻塞的。
+参考答案：同步：阻塞的；异步：非阻塞的。
 
 解析：
 
@@ -67,7 +67,7 @@
 
 <b><details><summary>3. 如何解决跨域问题?</summary></b>
 
-答案：
+参考答案：
 
 1. jsonp ，允许 script 加载第三方资源
 2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin \*）
@@ -87,7 +87,7 @@
 
 <b><details><summary>4. 页面编码和被请求的资源编码如果不一致如何处理？</summary></b>
 
-答案：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
+参考答案：get 请求中的中文需要 encodeURIComponent 编码处理，post 请求不需要进行编码
 
 [参与互动](https://github.com/yisainan/web-interview/issues/65)
 
@@ -95,7 +95,7 @@
 
 <b><details><summary>5. 创建 ajax 过程</summary></b>
 
-答案：
+参考答案：
 
 1. 创建 XMLHttpRequest 对象,也就是创建一个异步调用对象
 
@@ -115,7 +115,7 @@
 
 <b><details><summary>6. 阐述一下异步加载 JS</summary></b>
 
-答案：
+参考答案：
 
 1. 异步加载的方案： 动态插入 script 标签
 
@@ -131,7 +131,7 @@
 
 <b><details><summary>7. 请解释一下 JavaScript 的同源策略</summary></b>
 
-答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2. 0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
+参考答案：同源策略是客户端脚本（尤其是 Javascript）的重要的安全度量标准。它最早出自 Netscape Navigator2. 0，其目的是防止某个文档或脚本从多个不同源装载。所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/68)
 
@@ -139,7 +139,7 @@
 
 <b><details><summary>8. GET 和 POST 的区别，何时使用 POST？</summary></b>
 
-答案：
+参考答案：
 
 GET：一般用于信息获取，使用 URL 传递参数，对所发送信息的数量也有限制，一般在 2000 个字符，有的浏览器是 8000 个字符
 
@@ -159,7 +159,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 <b><details><summary>9. ajax 的优点</summary></b>
 
-答案：
+参考答案：
 
 1.  通过异步模式，提升了用户体验。来自服务器的新内容可以动态更改，无需重新加载整个页面。
 
@@ -173,7 +173,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 <b><details><summary>10. Ajax 的最大的特点是什么？</summary></b>
 
-答案：
+参考答案：
 
 * Ajax 可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；
 * 按需获取数据，节约带宽资源；
@@ -184,7 +184,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 <b><details><summary>11. ajax 的缺点</summary></b>
 
-答案：
+参考答案：
 
 1. ajax 不支持浏览器 back 按钮。
 
@@ -200,7 +200,7 @@ POST：一般用于修改服务器上的资源，对所发送的信息没有限�
 
 <b><details><summary>12. ajax 请求的时候 get 和 post 方式的区别</summary></b>
 
-答案：
+参考答案：
 
 get 一般用来进行查询操作，url 地址有长度限制，请求的参数都暴露在 url 地址当中，如果传递中文参数，需要自己进行编码操作，安全性较低。
 
@@ -212,7 +212,7 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 <b><details><summary>13. 解释 jsonp 的原理，以及为什么不是真正的 ajax, 以及优缺点</summary></b>
 
-答案：
+参考答案：
 
 1. jsonp 是用来解决跨域获取数据的一种解决方案，具体是通过动态创建 script 标签，然后通过标签的 src 属性获取 js 文件中的 js 脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是 ajax 技术
 
@@ -234,7 +234,7 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 <b><details><summary>14. 什么是 Ajax 和 JSON，它们的优缺点。</summary></b>
 
-答案：
+参考答案：
 
 * Ajax 是全称是 asynchronous JavaScript andXML，即异步 JavaScript 和 xml，用于在 Web 页面中实现异步数据交互，实现页面局部刷新。
 
@@ -252,7 +252,7 @@ post 请求方式主要用来提交数据，没有数据长度的限制，提交
 
 <b><details><summary>15. 什么是 json，优缺点</summary></b>
 
-答案：
+参考答案：
 
 JSON (JavaScript Object Notation)
 
@@ -275,7 +275,7 @@ JSON (JavaScript Object Notation)
 
 <b><details><summary>16. 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</summary></b>
 
-答案：
+参考答案：
 
 1. 浏览器地址栏输入 url
 
@@ -299,7 +299,7 @@ JSON (JavaScript Object Notation)
 
 <b><details><summary>17. XML 和 JSON 的区别？</summary></b>
 
-答案：
+参考答案：
 
 (1). 数据体积方面。
 
@@ -323,7 +323,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>18. ajax 请求时，如何解析 json 数据</summary></b>
 
-答案：使用 eval() 或者 JSON. parse() 鉴于安全性考虑，推荐使用 JSON. parse()更靠谱，对数据的安全性更好。
+参考答案：使用 eval() 或者 JSON. parse() 鉴于安全性考虑，推荐使用 JSON. parse()更靠谱，对数据的安全性更好。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/79)
 
@@ -331,7 +331,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>19. 异步加载和延迟加载</summary></b>
 
-答案：
+参考答案：
 
 1. 异步加载的方案： 动态插入 script 标签
 
@@ -349,7 +349,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>20. eval 是做什么的？</summary></b>
 
-答案：它的功能是把对应的字符串解析成 JS 代码并运行；
+参考答案：它的功能是把对应的字符串解析成 JS 代码并运行；
 
 解析：应该避免使用 eval，不安全，非常耗性能（2 次，一次解析成 js 语句，一次执行）。
 
@@ -359,7 +359,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>21. AMD 和 CMD 规范的区别</summary></b>
 
-答案：
+参考答案：
 
 1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行
 
@@ -371,7 +371,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>22. HTTP 状态码</summary></b>
 
-答案：
+参考答案：
 
 100 ? Continue ? 继续，一般在发送 post 请求时，已发送了 http header 之后服务端将返回此信息，表示确认，之后发送具体参数信息
 
@@ -407,7 +407,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>23. 栈和队列的区别?</summary></b>
 
-答案：
+参考答案：
 
 * 栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
 * 队列先进先出，栈先进后出。
@@ -431,7 +431,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>24. ajax 加载的页面，跳转到另外一个页面再跳转回来，内容相同，如何节约读取请求?</summary></b>
 
-答案：后台做缓存，读取缓存里面的数据、CDN
+参考答案：后台做缓存，读取缓存里面的数据、CDN
 
 [参与互动](https://github.com/yisainan/web-interview/issues/85)
 
@@ -439,7 +439,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>25. Ajax 实现的原理</summary></b>
 
-答案：浏览器提供的 XMLHttpRequest 对象
+参考答案：浏览器提供的 XMLHttpRequest 对象
 
 [参与互动](https://github.com/yisainan/web-interview/issues/86)
 
@@ -447,7 +447,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>26. ajax 如何实现，readyState 的五种状态的含义？</summary></b>
 
-答案：
+参考答案：
 
 * 0 － （未初始化）还没有调用 send()方法
 * 1 － （载入）已调用 send()方法，正在发送请求
@@ -485,7 +485,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>27. RESTful</summary></b>
 
-答案：REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
+参考答案：REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
 
 * GET<br>
 
@@ -517,7 +517,7 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>28. Ajax 和 Fetch 区别</summary></b>
 
-答案：
+参考答案：
 
 * ajax 是使用 XMLHttpRequest 对象发起的，但是用起来很麻烦，所以 ES6 新规范就有了 fetch，fetch 发一个请求不用像 ajax 那样写一大堆代码。
 * 使用 fetch 无法取消一个请求，这是因为 fetch 基于 Promise，而 Promise 无法做到这一点。
@@ -532,18 +532,18 @@ JSON 的速度要远远快于 XML。
 
 <b><details><summary>29. ajax是同步还是异步？</summary></b>
 
-答案：可以同步也可以异步，jquery默认为异步，也推荐异步执行。可通过async: true修改。
+参考答案：可以同步也可以异步，jquery默认为异步，也推荐异步执行。可通过async: true修改。
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

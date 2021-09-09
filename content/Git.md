@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 简单对比 git pull 和 git pull --rebase 的使用</summary></b>
 
-答案：
+参考答案：
 
 git pull = git fetch + git merge
 git pull --rebase = git fetch + git rebase
@@ -15,7 +15,7 @@ git pull --rebase = git fetch + git rebase
 
 <b><details><summary>2. 什么时候使用“git rebase”代替“git merge”？</summary></b>
 
-答案：你自己开发分支一直在做，然后你想把主线的修改合到你的分支上，做一次集成，这种情况就用rebase比较好，把你的提交都放在主线修改的头上
+参考答案：你自己开发分支一直在做，然后你想把主线的修改合到你的分支上，做一次集成，这种情况就用rebase比较好，把你的提交都放在主线修改的头上
 
 1. rebase会把你当前分支的commit放到公共分支的最后，所以叫做变基。就如同你从公共分支又重新拉出来这个分支一样。
 2. merge会把公共分支和你当前的commit合并在一起，形成一个新的commit提交。
@@ -26,7 +26,7 @@ git pull --rebase = git fetch + git rebase
 
 <b><details><summary>3. “拉取请求（pull request）”和“分支（branch）”之间有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 * 分支（branch） 是代码的一个独立版本。
 
@@ -38,7 +38,7 @@ git pull --rebase = git fetch + git rebase
 
 <b><details><summary>4. 什么是 Git 复刻（fork）？复刻（fork）、分支（branch）和克隆（clone）之间有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 * 复刻（fork） 是对存储仓库（repository）进行的远程的、服务器端的拷贝，从源头上就有所区别。复刻实际上不是 Git 的范畴。它更像是个政治/社会概念。
 
@@ -52,7 +52,7 @@ git pull --rebase = git fetch + git rebase
 
 <b><details><summary>5. 使用过 git cherry-pick，有什么作用？</summary></b>
 
-答案：
+参考答案：
 
 命令 git cherry-pick 通常用于把特定提交从存储仓库的一个分支引入到其他分支中。常见的用途是从维护的分支到开发分支进行向前或回滚提交。
 这与其他操作（例如：合并（merge）、变基（rebase））形成鲜明对比，后者通常是把许多提交应用到其他分支中。
@@ -68,7 +68,7 @@ git cherry-pick <commit-hash>
 
 <b><details><summary>6. git 跟其他版本控制器有啥区别？</summary></b>
 
-答案：
+参考答案：
 
 Git比svn快，而且更加的流畅。
 
@@ -84,7 +84,7 @@ Git没有被lock不能commit 的情况。
 
 <b><details><summary>7. 我们在本地工程常会修改一些配置文件，这些文件不需要被提交，而我们又不想每次执行 git status 时都让这些文件显示出来，我们该如何操作？</summary></b>
 
-答案：在 Git 工作区的跟目录下创建一个特殊的. gitignore 文件，然后把忽略的文件名编辑进去，Git 就会自动忽略这些文件。
+参考答案：在 Git 工作区的跟目录下创建一个特殊的. gitignore 文件，然后把忽略的文件名编辑进去，Git 就会自动忽略这些文件。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1003)
 
@@ -92,7 +92,7 @@ Git没有被lock不能commit 的情况。
 
 <b><details><summary>8. 如何把本地仓库的内容推向一个空的远程仓库？</summary></b>
 
-答案：
+参考答案：
 
 git init //生成. git 文件
 git remote add origin 远程仓库地址 // 将本地和远程厂库关联起来
@@ -106,7 +106,7 @@ git push origin master // 将本地代码推送到库上
 
 <b><details><summary>9. 提交时发生冲突，你能解释冲突是如何产生的吗？你是如何解决的？</summary></b>
 
-答案：
+参考答案：
 
 #### 1. 冲突是如何产生的
 
@@ -175,7 +175,7 @@ function test() {
 
 <b><details><summary>10. 列举工作中常用的几个 git 命令？</summary></b>
 
-答案：
+参考答案：
 
 git add
 git status
@@ -189,7 +189,7 @@ git push
 
 <b><details><summary>11. git提交代码时候写错commit信息后，如何重新设置commit信息？</summary></b>
 
-答案：可以通过git commit --amend 来对本次commit进行修改。
+参考答案：可以通过git commit --amend 来对本次commit进行修改。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1007)
 
@@ -197,7 +197,7 @@ git push
 
 <b><details><summary>12. 说明新建一个GIT功能分支的步骤，提供每个步骤的指令，并对指令进行说明</summary></b>
 
-答案：
+参考答案：
 
 git branch name     创建名字为name的branch
 
@@ -215,7 +215,7 @@ git push origin main_furture_xxx    执行推送的操作，完成本地分支�
 
 <b><details><summary>13. 说明git合并的两种方法以及区别</summary></b>
 
-答案：
+参考答案：
 
 git代码合并有两种：git Merge 和 git ReBase
 
@@ -229,7 +229,7 @@ Git ReBase：这种合并方法通常被称为“衍合”。他是提交修改�
 
 <b><details><summary>14. 如何查看文件的提交历史和分支的提交历史</summary></b>
 
-答案：
+参考答案：
 
 使用git log查看文件提交历史
 
@@ -247,7 +247,7 @@ git log branch file
 
 ## your-branch-is-ahead-of-origin-master-by-3-commits
 
-答案：
+参考答案：
 
 Git commit
 
@@ -261,7 +261,7 @@ Git push
 
 <b><details><summary>16. 如何从 git 中删除文件，而不将其从文件系统中删除？</summary></b>
 
-答案：
+参考答案：
 
 如果你在 git add 过程中误操作，你最终会添加不想提交的文件。但是，git rm 则会把你的文件从你暂存区（索引）和文件系统（工作树）中删除，这可能不是你想要的。
 
@@ -281,7 +281,7 @@ echo filename >> .gitingore # add it to .gitignore to avoid re-adding it
 
 <b><details><summary>17. 什么时候应使用 “git stash”？</summary></b>
 
-答案：
+参考答案：
 
 git stash 命令把你未提交的修改（已暂存（staged）和未暂存的（unstaged））保存以供后续使用，以后就可以从工作副本中进行还原。
 
@@ -291,7 +291,7 @@ git stash 命令把你未提交的修改（已暂存（staged）和未暂存的�
 
 <b><details><summary>18. 你能解释下 Gitflow 工作流程吗？</summary></b>
 
-答案：
+参考答案：
 
 Gitflow 工作流程使用两个并行的、长期运行的分支来记录项目的历史记录，分别是 master 和 develop 分支。
 
@@ -309,7 +309,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary>19. Git 中 HEAD、工作树和索引之间的区别？</summary></b>
 
-答案：
+参考答案：
 
 * 该工作树/工作目录/工作空间是你看到和编辑的（源）文件的目录树。
 * 该索引/中转区（staging area）是个在 /. git/index，单一的、庞大的二进制文件，该文件列出了当前分支中所有文件的 SHA1 检验和、时间戳和文件名，它不是个带有文件副本的目录。
@@ -321,7 +321,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary>20. 解释 Forking 工作流程的优点？</summary></b>
 
-答案：
+参考答案：
 
 * Forking 工作流程 与其他流行的 Git 工作流程有着根本的区别。它不是用单个服务端仓库充当“中央”代码库，而是为每个开发者提供自己的服务端仓库。Forking 工作流程最常用于公共开源项目中。
 
@@ -335,7 +335,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary>21. 我想丢弃本地未提交的变化(uncommitted changes)</summary></b>
 
-答案：
+参考答案：
 
 > git reset --hard HEAD^
 
@@ -343,7 +343,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary>22. 我意外的做了一次硬重置(hard reset)，我想找回我的内容</summary></b>
 
-答案：
+参考答案：
 
 如果你意外的做了 git reset --hard, 你通常能找回你的提交(commit), 因为Git对每件事都会有日志，且都会保存几天。
 
@@ -359,7 +359,7 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary>23. 我的提交信息(commit message)写错了</summary></b>
 
-答案：如果你的提交信息(commit message)写错了且这次提交(commit)还没有推(push), 你可以通过下面的方法来修改提交信息(commit message):
+参考答案：如果你的提交信息(commit message)写错了且这次提交(commit)还没有推(push), 你可以通过下面的方法来修改提交信息(commit message):
 
 > git commit --amend --only -m 'fix: 新的提交信息'
 
@@ -367,6 +367,6 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

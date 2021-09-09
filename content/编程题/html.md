@@ -2,7 +2,7 @@
 
 <b><details><summary>1.请写出一张图片的 HTML 代码，已知道图片地址为"images/abc.jpg",宽 100px，高 50px</summary></b>
 
-答案：
+参考答案：
 
 ```html
 <img src="images/abc.jpg"  alt="" width="100" height="50"/>
@@ -12,7 +12,7 @@
 
 <b><details><summary>2.canvas绘制五角星</summary></b>
 
-答案：
+参考答案：
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

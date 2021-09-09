@@ -2,7 +2,7 @@
 
 <b><details><summary>1. ES6 都有什么 Iterator 遍历器</summary></b>
 
-答案：Set、Map
+参考答案：Set、Map
 
 解析：
 
@@ -22,7 +22,7 @@
 
 <b><details><summary>2. ES6 中类的定义</summary></b>
 
-答案：
+参考答案：
 
 ```js
 // 1、类的基本定义
@@ -145,7 +145,7 @@ console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 
 <b><details><summary>3. 谈谈你对 ES6 的理解</summary></b>
 
-答案：es6 是一个新的标准，它包含了许多新的语言特性和库，是 JS 最实质性的一次升级。
+参考答案：es6 是一个新的标准，它包含了许多新的语言特性和库，是 JS 最实质性的一次升级。
 比如'箭头函数'、'字符串模板'、'generators(生成器)'、'async/await'、'解构赋值'、'class'等等，还有就是引入 module 模块的概念。
 
 箭头函数可以让 this 指向固定化，这种特性很有利于封装回调函数
@@ -167,7 +167,7 @@ console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 
 <b><details><summary>4. 说说你对 promise 的了解</summary></b>
 
-答案：Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件监听——更合理和更强大。
+参考答案：Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件监听——更合理和更强大。
 
 所谓 Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。
 
@@ -185,7 +185,7 @@ Promise 对象有以下两个特点:
 
 <b><details><summary>5. 解构赋值及其原理</summary></b>
 
-答案：
+参考答案：
 
 解构赋值：其实就是分解出一个对象的解构，分成两个步骤：
 
@@ -613,7 +613,7 @@ console.log(s); //s === Boolean.prototype.toString
 
 <b><details><summary>6. Array. from() 与 Array. reduce()</summary></b>
 
-答案：
+参考答案：
 
 Array. from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组
 Array. reduce()方法对累加器和数组中的每个元素 (从左到右)应用一个函数，将其减少为单个值。
@@ -637,7 +637,7 @@ let arrayLike = {
 let arr = Array.from(arrayLike);
 console.log(arr); // ['tom','65','男',['jane','john','Mary']]
 
-// 那么，如果将上面代码中length属性去掉呢？实践证明，答案会是一个长度为0的空数组。
+// 那么，如果将上面代码中length属性去掉呢？实践证明，参考答案会是一个长度为0的空数组。
 
 // 这里将代码再改一下，就是具有length属性，但是对象的属性名不再是数字类型的，而是其他字符串型的，代码如下：
 
@@ -785,7 +785,7 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 
 <b><details><summary>7. var let 在 for 循环中的区别</summary></b>
 
-答案：
+参考答案：
 
 解析：[参考](https://blog.csdn.net/zoelinjf/article/details/79618688)
 
@@ -795,7 +795,7 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 
 <b><details><summary>8. Set 数据结构</summary></b>
 
-答案：- es6 方法, Set 本身是一个构造函数，它类似于数组，但是成员值都是唯一的。
+参考答案：- es6 方法, Set 本身是一个构造函数，它类似于数组，但是成员值都是唯一的。
 
 ```js
 const set = new Set([1, 2, 3, 4, 4]);
@@ -809,7 +809,7 @@ console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 
 <b><details><summary>9. Class 的讲解</summary></b>
 
-答案：
+参考答案：
 
 * class 语法相对原型、构造函数、继承更接近传统语法，它的写法能够让对象原型的写法更加清晰、面向对象编程的语法更加通俗
 
@@ -823,7 +823,7 @@ console.log(Array.from(new Set([2, 3, 3, 5, 6]))); //[2,3,5,6]
 
 <b><details><summary>10. 模板字符串</summary></b>
 
-答案：
+参考答案：
 
 * 就是这种形式${varible}, 在以往的时候我们在连接字符串和变量的时候需要使用这种方式'string' + varible + 'string'但是有了模版语言后我们可以使用string${varible}string 这种进行连接。基本用途有如下：
 
@@ -859,7 +859,7 @@ console.log(template); //hello 空行 world
 
 <b><details><summary>11. 箭头函数需要注意的地方</summary></b>
 
-答案：
+参考答案：
 
 ```
 
@@ -896,7 +896,7 @@ foo.call({
 
 <b><details><summary>12. ES6 如何动态加载 import</summary></b>
 
-答案：
+参考答案：
 
 ```js
 import("lodash").then(_ => {
@@ -912,7 +912,7 @@ import("lodash").then(_ => {
 
 <b><details><summary>13. ECMAScript6 怎么写class么，为什么会出现class这种东西?</summary></b>
 
-答案：
+参考答案：
 
 ```js
 class Point {
@@ -932,7 +932,7 @@ class Point {
 
 <b><details><summary>14. 谈一谈你对ECMAScript6的了解？</summary></b>
 
-答案：ES6新的语法糖，类，模块化等新特性
+参考答案：ES6新的语法糖，类，模块化等新特性
 
 [参与互动](https://github.com/yisainan/web-interview/issues/345)
 
@@ -940,7 +940,7 @@ class Point {
 
 <b><details><summary>15. 箭头函数和普通函数有什么区别</summary></b>
 
-答案：
+参考答案：
 
 * 函数体内的 `this` 对象，就是定义时所在的对象，而不是使用时所在的对象，用 `call`  `apply`  `bind` 也不能改变 `this` 指向
 * 不可以当作构造函数，也就是说，不可以使用 `new` 命令，否则会抛出一个错误。
@@ -954,7 +954,7 @@ class Point {
 
 <b><details><summary>16. Promise 构造函数是同步执行还是异步执行，那么 then 方法呢？</summary></b>
 
-答案：
+参考答案：
 
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -978,55 +978,55 @@ promise构造函数是同步执行的，then方法是异步执行的
 
 <b><details><summary>17. ES5/ES6 的继承除了写法以外还有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>18. 对Promise的理解</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>19. generator 原理</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>20. 说说箭头函数的特点</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>21. 请介绍Promise，异常捕获（网易）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>22. promise如何实现then处理（宝宝树）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>23. Promise. all并发限制</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>24. 介绍下 Promise. all 使用、原理实现及错误处理</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>25. 设计并实现 Promise. race()</summary></b>
 
-答案：
+参考答案：
 
 ```js
 Promise._race = promises => new Promise((resolve, reject) => {
@@ -1052,7 +1052,7 @@ const _race = (p) => {
 
 <b><details><summary>26. 模拟实现一个 Promise. finally</summary></b>
 
-答案：
+参考答案：
 
 ```js
 Promise.prototype.finally = function(callback) {
@@ -1070,7 +1070,7 @@ Promise.prototype.finally = function(callback) {
 
 <b><details><summary>27. 用Promise对象实现的 Ajax</summary></b>
 
-答案：
+参考答案：
 
 ```js
 const getJSON = function(url) {
@@ -1107,7 +1107,7 @@ getJSON("/posts.json").then(function(json) {
 
 <b><details><summary>28. 简单实现async/await中的async函数</summary></b>
 
-答案：async 函数的实现原理，就是将 Generator 函数和自动执行器，包装在一个函数里
+参考答案：async 函数的实现原理，就是将 Generator 函数和自动执行器，包装在一个函数里
 
 ```js
 function spawn(genF) {
@@ -1154,7 +1154,7 @@ function spawn(genF) {
  * promise. then里的回调函数会放到相应宏任务的微任务队列里，等宏任务里面的同步代码执行完再执行；
  * async函数表示函数里面可能会有异步方法，await后面跟一个表达式，async方法执行时，遇到await会立即执行表达式，然后把表达式后面的代码放到微任务队列里，让出执行栈让同步代码先执行。
 
-答案：
+参考答案：
 
 1. setTimeout
 
@@ -1265,24 +1265,24 @@ await的含义为等待，也就是 async 函数需要等待await后的函数执
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

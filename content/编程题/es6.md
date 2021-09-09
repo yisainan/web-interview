@@ -2,7 +2,7 @@
 
 <b><details><summary>1.箭头函数问题</summary></b>
 
-答案：
+参考答案：
 
 第 1 题
 
@@ -67,7 +67,7 @@ function foo() {
 
 <b><details><summary>2.把以下代码使用两种方法，依次输出 0-9</summary></b>
 
-答案：
+参考答案：
 
 ```js
 var funcs = [];
@@ -136,7 +136,7 @@ funcs.forEach(function(func) {
 
 <b><details><summary>4.手写一个 promise</summary></b>
 
-答案：
+参考答案：
 
 ```js
 var promise = new Promise((resolve, reject) => {
@@ -184,7 +184,7 @@ function success(data) {
 }
 ```
 
-答案：使用 Promise/async/await 解决
+参考答案：使用 Promise/async/await 解决
 
 解析：
 
@@ -230,7 +230,7 @@ new Promise(function executor(resolve) {
 console.log(5);
 ```
 
-答案：打印顺序 2 3 5 4 1
+参考答案：打印顺序 2 3 5 4 1
 
 解析：
 
@@ -248,7 +248,7 @@ console.log(5);
 
 <b><details><summary>7.jQuery 的 ajax 返回的是 promise 对象吗？</summary></b>
 
-答案：
+参考答案：
 
 jquery 的 ajax 返回的是 deferred 对象，通过 promise 的 resolve()方法将其转换为 promise 对象。
 
@@ -258,7 +258,7 @@ var jsPromise = Promise.resolve(\$.ajax('/whatever.json'));
 
 <b><details><summary>8.promise 只有 2 个状态，成功和失败，怎么让一个函数无论成功还是失败都能被调用？</summary></b>
 
-答案：
+参考答案：
 
 ```
 使用promise.all()
@@ -279,7 +279,7 @@ p的状态由p1、p2、p3决定，分为两种情况。
 
 <b><details><summary>9.Promise 编程题</summary></b>
 
-答案：
+参考答案：
 
 第 1 题
 
@@ -562,7 +562,7 @@ for (var i = 0; i < 5; i++) {
 console.log(new Date, i);
 ```
 
-答案：
+参考答案：
 ```
 Mon Aug 12 2019 09:37:36 GMT+0800 (中国标准时间) 5
 Mon Aug 12 2019 09:33:55 GMT+0800 (中国标准时间) 0
@@ -598,7 +598,7 @@ const sleep = timeountMS =>
 })();
 ```
 
-答案：每隔1s打印
+参考答案：每隔1s打印
 ```
 Mon Aug 12 2019 09:39:02 GMT+0800 (中国标准时间) 0
 Mon Aug 12 2019 09:39:03 GMT+0800 (中国标准时间) 1
@@ -615,18 +615,18 @@ Mon Aug 12 2019 09:39:07 GMT+0800 (中国标准时间) 5
 
 <b><details><summary>12.简单实现async/await中的async函数</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>13.简单实现项目代码按需加载，例如import { Button } from antd，打包的时候只打包button</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

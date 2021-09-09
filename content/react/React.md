@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 当你调用 setState 的时候，发生了什么事？</summary></b>
 
-答案：将传递给 setState 的对象合并到组件的当前状态，这将启动一个和解的过程，构建一个新的 react 元素树，与上一个元素树进行对比（ diff ），从而进行最小化的重渲染。
+参考答案：将传递给 setState 的对象合并到组件的当前状态，这将启动一个和解的过程，构建一个新的 react 元素树，与上一个元素树进行对比（ diff ），从而进行最小化的重渲染。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/496)
 
@@ -10,7 +10,7 @@
 
 <b><details><summary>2. React 项目用过什么脚手架（本题是开放性题目）</summary></b>
 
-答案：create-react-app 是最常用 的脚手架，一定要说出来！
+参考答案：create-react-app 是最常用 的脚手架，一定要说出来！
 
 * Create React App：如果你是在学习 React 或创建一个新的单页应用
 
@@ -54,7 +54,7 @@ umi，中文可发音为乌米，是一个可插拔的企业级 react 应用框�
 
 <b><details><summary>3. 功能组件( Functional Component )与类组件( Class Component )如何选择？</summary></b>
 
-答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
+参考答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
 
 解析：
 
@@ -122,7 +122,7 @@ class Welcome extends React.Component {
 
 <b><details><summary>4. React 中 keys 的作用是什么？</summary></b>
 
-答案：Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
+参考答案：Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识。
 
 ``` 
 render () {
@@ -144,7 +144,7 @@ render () {
 
 <b><details><summary>5. React 优势</summary></b>
 
-答案：
+参考答案：
 
 1、React 速度很快：它并不直接对 DOM 进行操作，引入了一个叫做虚拟 DOM 的概念，安插在 javascript 逻辑和实际的 DOM 之间，性能好。
 
@@ -164,7 +164,7 @@ render () {
 
 <b><details><summary>6. React 很多个 setState 为什么是执行完再 render</summary></b>
 
-答案：react为了提高整体的渲染性能，会将一次渲染周期中的state进行合并，在这个渲染周期中对所有setState的所有调用都会被合并起来之后，再一次性的渲染，这样可以避免频繁的调用setState导致频繁的操作dom，提高渲染性能。
+参考答案：react为了提高整体的渲染性能，会将一次渲染周期中的state进行合并，在这个渲染周期中对所有setState的所有调用都会被合并起来之后，再一次性的渲染，这样可以避免频繁的调用setState导致频繁的操作dom，提高渲染性能。
 
 具体的实现方面，可以简单的理解为react中存在一个状态变量isBatchingUpdates，当处于渲染周期开始时，这个变量会被设置成true，渲染周期结束时，会被设置成false，react会根据这个状态变量，当出在渲染周期中时，仅仅只是将当前的改变缓存起来，等到渲染周期结束时，再一次性的全部render。
 
@@ -174,7 +174,7 @@ render () {
 
 <b><details><summary>7. react diff 原理（常考，大厂必考）</summary></b>
 
-答案：
+参考答案：
 
 1. 把树形结构按照层级分解，只比较同级元素。
 2. 给列表结构的每个单元添加唯一的 key 属性，方便比较。
@@ -188,7 +188,7 @@ render () {
 
 <b><details><summary>8. react 生命周期函数</summary></b>
 
-答案：
+参考答案：
 
 #### react15生命周期
 
@@ -227,7 +227,7 @@ React 在v16. 3版本中将 componentWillMount, componentWillReceiveProps 以及
 
 <b><details><summary>9. shouldComponentUpdate 是做什么的？（react 性能优化是哪个周期函数？）</summary></b>
 
-答案：
+参考答案：
 
 1. shouldComponentUpdate询问组件是否需要更新的一个钩子函数，判断数据是否需要重新渲染，返回一个布尔值。默认的返回值是true，需要重新render()。若如果返回值是false则不触发渲染,利用这个生命周期函数可以强制关闭不需要更新的子组件来提升渲染性能。
 2. 这个方法用来判断是否需要调用 render 方法重新描绘 dom。
@@ -239,7 +239,7 @@ React 在v16. 3版本中将 componentWillMount, componentWillReceiveProps 以及
 
 <b><details><summary>10. 为什么虚拟 dom 会提高性能?(必考)</summary></b>
 
-答案：
+参考答案：
 
 虚拟dom(virtual dom) 其实就是一个JavaScript对象，通过这个JavaScript对象来描述真实dom。
 
@@ -263,7 +263,7 @@ React 在v16. 3版本中将 componentWillMount, componentWillReceiveProps 以及
 
 <b><details><summary>11. React 中 refs 的作用是什么？</summary></b>
 
-答案：
+参考答案：
 
 refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。我们可以为元素添加 ref 属性然后在回调函数中接受该元素在 DOM 树中的句柄，该值会作为回调函数的第一个参数返回：
 
@@ -307,7 +307,7 @@ function CustomForm ({handleSubmit}) {
 
 <b><details><summary>12. setState 和 replaceState 的区别</summary></b>
 
-答案：
+参考答案：
 
 1. setState 是修改其中的部分状态，相当于 Object. assign，只是覆盖，不会减少原来的状态；
 2. replaceState 是完全替换原来的状态，相当于赋值，将原来的 state 替换为另一个对象，如果新状态属性减少，那么 state 中就没有这个状态了。
@@ -318,7 +318,7 @@ function CustomForm ({handleSubmit}) {
 
 <b><details><summary>13. redux 有什么缺点</summary></b>
 
-答案：
+参考答案：
 
 * 一个组件所需要的数据，必须由父组件传过来，而不能像 flux 中直接从 store 取。
 * 当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新 render，可能会有效率影响，或者需要写复杂的 shouldComponentUpdate 进行判断。
@@ -329,7 +329,7 @@ function CustomForm ({handleSubmit}) {
 
 <b><details><summary>14. 简述 flux 思想</summary></b>
 
-答案：Flux 的最大特点，就是数据的"单向流动"。
+参考答案：Flux 的最大特点，就是数据的"单向流动"。
 
 1. 用户访问 View
 2. View 发出用户的 Action
@@ -345,7 +345,7 @@ function CustomForm ({handleSubmit}) {
 
 <b><details><summary>15. 了解 redux 么，说一下 redux 吧</summary></b>
 
-答案：
+参考答案：
 
 1、为什么要用redux
 
@@ -554,7 +554,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>16. React 中有三种构建组件的方式</summary></b>
 
-答案：React. createClass()、ES6 class 和无状态函数。
+参考答案：React. createClass()、ES6 class 和无状态函数。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/511)
 
@@ -562,7 +562,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>17. react 组件的划分业务组件技术组件？</summary></b>
 
-答案：
+参考答案：
 
 * 根据组件的职责通常把组件分为 UI 组件和容器组件。
 * UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑。
@@ -574,7 +574,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>18. 描述事件在 React 中的处理方式</summary></b>
 
-答案：
+参考答案：
 
 为了解决跨浏览器兼容性问题，您的 React 中的事件处理程序将传递 SyntheticEvent 的实例，它是 React 的浏览器本机事件的跨浏览器包装器。
 
@@ -586,7 +586,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>19. 应该在 React 组件的何处发起 Ajax 请求</summary></b>
 
-答案：
+参考答案：
 
 在 React 组件中，应该在 componentDidMount 中发起网络请求。这个方法会在组件第一次“挂载”(被添加到 DOM)时执行，在组件的生命周期中仅会执行一次。更重要的是，你不能保证在组件挂载之前 Ajax 请求已经完成，如果是这样，也就意味着你将尝试在一个未挂载的组件上调用 setState，这将不起作用。在 componentDidMount 中发起网络请求将保证这有一个组件可以更新了。
 
@@ -596,7 +596,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>20. (在构造函数中)调用 super(props) 的目的是什么</summary></b>
 
-答案：
+参考答案：
 
 在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this. props。
 
@@ -606,7 +606,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>21. 除了在构造函数中绑定 this，还有其它方式吗</summary></b>
 
-答案：
+参考答案：
 
 你可以使用属性初始值设定项(property initializers)来正确绑定回调，create-react-app 也是默认支持的。在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。
 
@@ -616,7 +616,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>22. 为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</summary></b>
 
-答案：
+参考答案：
 
 因为 this. props 和 this. state 的更新可能是异步的，不能依赖它们的值去计算下一个 state。
 
@@ -626,7 +626,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>23. 何为高阶组件(higher order component)</summary></b>
 
-答案：
+参考答案：
 
 高阶组件是一个以组件为参数并返回一个新组件的函数。HOC 运行你重用代码、逻辑和引导抽象。最常见的可能是 Redux 的 connect 函数。除了简单分享工具库和简单的组合，HOC 最好的方式是共享 React 组件之间的行为。如果你发现你在不同的地方写了大量代码来做同一件事时，就应该考虑将代码重构为可重用的 HOC。
 
@@ -636,7 +636,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>24. 何为受控组件(controlled component)</summary></b>
 
-答案：
+参考答案：
 
 在 HTML 中，类似 `<input>` , `<textarea>` 和 `<select>` 这样的表单元素会维护自身的状态，并基于用户的输入来更新。当用户提交表单时，前面提到的元素的值将随表单一起被发送。但在 React 中会有些不同，包含表单元素的组件将会在 state 中追踪输入的值，并且每次调用回调函数时，如 onChange 会更新 state，重新渲染组件。一个输入表单元素，它的值通过 React 的这种方式来控制，这样的元素就被称为"受控元素"。
 
@@ -646,7 +646,7 @@ document.querySelector('#minusBtn').addEventListener('click', function() {
 
 <b><details><summary>25. 在 React 当中 Element 和 Component 有何区别？</summary></b>
 
-答案：
+参考答案：
 
 React Element 是描述屏幕上所见内容的数据结构，是对于 UI 的对象表述。典型的 React Element 就是利用 JSX 构建的声明式代码片然后被转化为 createElement 的调用组合。
 
@@ -658,7 +658,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 <b><details><summary>26. (组件的)状态(state)和属性(props)之间有何区别</summary></b>
 
-答案：
+参考答案：
 
 * State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。
 * Props(properties 的简写)则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，props 是不可变的(immutable)。组件不能改变自身的 props，但是可以把其子组件的 props 放在一起(统一管理)。Props 也不仅仅是数据--回调函数也可以通过 props 传递。
@@ -669,7 +669,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 <b><details><summary>27. 展示组件(Presentational component)和容器组件(Container component)之间有何区别？</summary></b>
 
-答案：
+参考答案：
 
 * 展示组件关心组件看起来是什么。展示专门通过 props 接受数据和回调，并且几乎不会有自身的状态，但当展示组件拥有自身的状态时，通常也只关心 UI 状态而不是数据的状态。
 * 容器组件则更关心组件是如何运作的。容器组件会为展示组件或者其它容器组件提供数据和行为(behavior)，它们会调用 Flux actions，并将其作为回调提供给展示组件。容器组件经常是有状态的，因为它们是(其它组件的)数据源。
@@ -680,7 +680,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 <b><details><summary>28. 类组件(Class component)和 函数式组件(Functional component)之间有何区别？</summary></b>
 
-答案：
+参考答案：
 
 1. 函数式组件比类组件操作简单，只是简单的调取和返回 JSX；而类组件可以使用生命周期函数来操作业务
 
@@ -695,7 +695,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 
 <b><details><summary>29. createElement 和 cloneElement 有什么区别？</summary></b>
 
-答案：传入的第一个参数不同
+参考答案：传入的第一个参数不同
 
 React. createElement(): JSX 语法就是用 React. createElement()来构建 React 元素的。它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组件。第二个参数为传入的属性。第三个以及之后的参数，皆作为组件的子组件。
 
@@ -715,49 +715,49 @@ React.cloneElement(element, [props], [...children]);
 
 <b><details><summary>30. React实现一个防抖的模糊查询输入框</summary></b>
 
-答案：[參考](https://blog.csdn.net/cc18868876837/article/details/96303296)
+参考答案：[參考](https://blog.csdn.net/cc18868876837/article/details/96303296)
 
 </details>
 
 <b><details><summary>31. React 和 Vue 的 diff 时间复杂度从 O(n^3) 优化到 O(n) ，那么 O(n^3) 和 O(n) 是如何计算出来的？</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>32. React 中 setState 什么时候是同步的，什么时候是异步的？</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>33. react-router里的 `<Link>` 标签和 `<a>` 标签有什么区别（滴滴）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>34. react-router怎么实现路由切换（滴滴）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>35. React组件事件代理的原理（网易）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>36. RN的原理，为什么可以同时在安卓和IOS端运行（寺库）</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>37. 比较一下React与Vue</summary></b>
 
-答案：
+参考答案：
 
 ``` 
 相同点
@@ -779,7 +779,7 @@ React.cloneElement(element, [props], [...children]);
 
 <b><details><summary>38. 受控组件与非受控组件</summary></b>
 
-答案：
+参考答案：
 
 * 受控: 表单元素状态由使用者维护
 * 非受控: 表单元素状态DOM 自身维护
@@ -796,7 +796,7 @@ React.cloneElement(element, [props], [...children]);
 
 <b><details><summary>39. reactjs主要方法</summary></b>
 
-答案：
+参考答案：
 
 ``` 
 render()
@@ -817,7 +817,7 @@ componentWillUnmount() //在组件从DOM中移除的时候立刻被调用
 
 <b><details><summary>40. React. cloneElement()解析</summary></b>
 
-答案：
+参考答案：
 
 ``` js
 React.cloneElement(
@@ -839,12 +839,12 @@ React.cloneElement(
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

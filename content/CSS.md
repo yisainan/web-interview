@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 实现不使用 border 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。</summary></b>
 
-答案：
+参考答案：
 
 ``` html
 <div style="height:1px;overflow:hidden;background:red"></div>
@@ -14,7 +14,7 @@
 
 <b><details><summary>2. 介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？</summary></b>
 
-答案：
+参考答案：
 
 （1）有两种， IE 盒子模型、W3C 盒子模型；
 
@@ -28,7 +28,7 @@
 
 <b><details><summary>3. CSS 隐藏元素的几种方法（至少说出三种）</summary></b>
 
-答案：
+参考答案：
 
 Opacity: 元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互; 
 
@@ -46,7 +46,7 @@ Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如�
 
 <b><details><summary>4. CSS 清除浮动的几种方法（至少两种）</summary></b>
 
-答案：
+参考答案：
 
 ``` 
 清除浮动： 核心：clear:both;
@@ -94,7 +94,7 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 <b><details><summary>5. 页面导入样式时，使用 link 和@import 有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 1\. Link 属于 html 标签，而@import 是 CSS 中提供的
 
@@ -110,7 +110,7 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 
 <b><details><summary>6. 伪元素和伪类的区别？</summary></b>
 
-答案：
+参考答案：
 
 1、伪元素使用 2 个冒号，常见的有：::before，::after，::first-line，::first-letter，::selection、::placeholder 等；
 
@@ -136,7 +136,7 @@ CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分�
 
 <b><details><summary>7. CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有那些？</summary></b>
 
-答案：
+参考答案：
 
 ``` 
         1.id选择器（ # myid）
@@ -195,7 +195,7 @@ CSS3新增伪类举例：
 
 <b><details><summary>8. 行内元素和块级元素的具体区别是什么？行内元素的 padding 和 margin 可设置吗？</summary></b>
 
-答案：
+参考答案：
 
 * 块级元素(block)特性：
 
@@ -208,7 +208,7 @@ CSS3新增伪类举例：
 
 那么问题来了，浏览器还有默认的天生 inline-block 元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？
 
-答案： `<input> 、<img> 、<button> 、<texterea> 、<label>。` 
+参考答案： `<input> 、<img> 、<button> 、<texterea> 、<label>。` 
 
 [参与互动](https://github.com/yisainan/web-interview/issues/29)
 
@@ -216,7 +216,7 @@ CSS3新增伪类举例：
 
 <b><details><summary>9. 什么是外边距重叠？重叠的结果是什么？</summary></b>
 
-答案：
+参考答案：
 
 外边距重叠就是 margin-collapse。
 
@@ -236,7 +236,7 @@ CSS3新增伪类举例：
 
 <b><details><summary>10. rgba()和 opacity 的透明效果有什么不同？</summary></b>
 
-答案：
+参考答案：
 
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
@@ -248,7 +248,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>11. css 中可以让文字在垂直和水平方向上重叠的两个属性是什么？</summary></b>
 
-答案：
+参考答案：
 
 垂直方向：line-height
 
@@ -256,7 +256,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 那么问题来了，关于 letter-spacing 的妙用知道有哪些么？
 
-答案: 可以用于消除 inline-block 元素间的换行符空格间隙问题。
+参考答案: 可以用于消除 inline-block 元素间的换行符空格间隙问题。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/32)
 
@@ -264,7 +264,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>12. px 和 em 的区别。</summary></b>
 
-答案：px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
+参考答案：px 和 em 都是长度单位，区别是，px 的值是固定的，指定是多少就是多少，计算比较容易。em 得值不是固定的，并且 em 会继承父级元素的字体大小。
 
 浏览器的默认字体高都是 16px。所以未经调整的浏览器都符合: 1em=16px。那么 12px=0. 75em, 10px=0. 625em。
 
@@ -274,7 +274,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 <b><details><summary>13. 如何垂直居中一个元素？</summary></b>
 
-答案：
+参考答案：
 
 方法一：绝对定位居中（原始版之已知元素的高宽）
 
@@ -365,7 +365,7 @@ body {
 
 <b><details><summary>14. BFC </summary></b>
 
-答案：
+参考答案：
 
 * 什么是 BFC
 
@@ -391,7 +391,7 @@ body {
 
 <b><details><summary>15. 用纯 CSS 创建一个三角形的原理是什么？ </summary></b>
 
-答案：
+参考答案：
 
 ``` css
 span {
@@ -412,7 +412,7 @@ span {
 
 <b><details><summary>16. Sass、LESS 是什么？大家为什么要使用他们？</summary></b>
 
-答案：他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
+参考答案：他们是 CSS 预处理器。他是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。
 
 例如 Less 是一种动态样式语言. 将 CSS 赋予了动态语言的特性，如变量，继承，运算， 函数. LESS 既可以在客户端上运行 (支持 IE 6+, Webkit, Firefox)，也可一在服务端运行 (借助 Node. js)。
 
@@ -432,7 +432,7 @@ span {
 
 <b><details><summary>17. display:none 与 visibility:hidden 的区别是什么？</summary></b>
 
-答案：
+参考答案：
 
 display :  隐藏对应的元素但不挤占该元素原来的空间。
 
@@ -446,7 +446,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>18. 移动端 1px 问题的解决办法</summary></b>
 
-答案：推荐解决方法：媒体查询 + transfrom
+参考答案：推荐解决方法：媒体查询 + transfrom
 
 ``` 
 /* 2倍屏 */
@@ -473,7 +473,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>19. 哪些 css 属性可以继承？</summary></b>
 
-答案：
+参考答案：
 
 可继承： font-size font-family color, ul li dl dd dt; 
 
@@ -485,7 +485,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>20. 几种常见的 CSS 布局</summary></b>
 
-答案：
+参考答案：
 
 * 单列布局
 * 两列自适应布局
@@ -499,7 +499,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>21. li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</summary></b>
 
-答案：浏览器的默认行为是把 inline 元素间的空白字符（空格换行 tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
+参考答案：浏览器的默认行为是把 inline 元素间的空白字符（空格换行 tab）渲染成一个空格，也就是我们上面的代码<li>换行后会产生换行字符，而它会变成一个空格，当然空格就占用一个字符的宽度。
 
 解决方案：
 
@@ -548,7 +548,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>22. 设置元素浮动后，该元素的 display 值是多少？</summary></b>
 
-答案：
+参考答案：
 
 自动变成 display:block
 
@@ -558,7 +558,7 @@ visibility:  隐藏对应的元素并且挤占该元素原来的空间。
 
 <b><details><summary>23. 怎么让 Chrome 支持小于 12px 的文字？</summary></b>
 
-答案：
+参考答案：
 
 css3 的 transform 属性，设置值为 scale(x, y) 定义 2D 缩放转换
 
@@ -572,7 +572,7 @@ css3 的 transform 属性，设置值为 scale(x, y) 定义 2D 缩放转换
 
 <b><details><summary>24. display:inline-block 什么时候会显示间隙？</summary></b>
 
-答案：间隙产生的原因是因为，换行或空格会占据一定的位置
+参考答案：间隙产生的原因是因为，换行或空格会占据一定的位置
 
 推荐解决方法：
 
@@ -585,7 +585,7 @@ font-size:0; letter-spaceing:-4px;
 
 <b><details><summary>25.png、jpg、gif 这些图片格式解释一下，分别什么时候用？，webp 呢</summary></b>
 
-答案：
+参考答案：
 
 gif 图形交换格式，索引颜色格式，颜色少的情况下，产生的文件极小，支持背景透明，动画，图形渐进，无损压缩（适合线条，图标等），缺点只有 256 种颜色
 
@@ -601,7 +601,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>26. style 标签写在 body 后与 body 前有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 从上向下加载，加载顺序不同
 
@@ -611,7 +611,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>27. 超链接访问过后 hover 样式就不出现的问题是什么？如何解决？</summary></b>
 
-答案：被点击访问过的超链接样式不在具有 hover 和 active 了, 解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link, visited, hover, active）
+参考答案：被点击访问过的超链接样式不在具有 hover 和 active 了, 解决方法是改变 CSS 属性的排列顺序: L-V-H-A（link, visited, hover, active）
 
 [参与互动](https://github.com/yisainan/web-interview/issues/96)
 
@@ -619,7 +619,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>28. 什么是 Css Hack？ie6, 7, 8 的 hack 分别是什么？</summary></b>
 
-答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
+参考答案：针对不同的浏览器写不同的 CSS code 的过程，就是 CSS hack。
 
 示例如下：
 
@@ -659,7 +659,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>29. 重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？</summary></b>
 
-答案：
+参考答案：
 
 * **重置（Resetting）**： 重置意味着除去所有的浏览器默认样式。对于页面所有的元素，像 `margin` 、 `padding` 、 `font-size` 这些样式全部置成一样。你将必须重新定义各种元素的样式。
 * **标准化（Normalizing）**： 标准化没有去掉所有的默认样式，而是保留了有用的一部分，同时还纠正了一些常见错误。
@@ -674,7 +674,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>30. css sprite 是什么, 有什么优缺点</summary></b>
 
-答案：概念：将多个小图片拼接到一个图片中。通过 background-position 和元素尺寸调节需要显示的背景图案。
+参考答案：概念：将多个小图片拼接到一个图片中。通过 background-position 和元素尺寸调节需要显示的背景图案。
 
 优点：
 
@@ -693,7 +693,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>31. 什么是 FOUC? 如何避免</summary></b>
 
-答案：
+参考答案：
 
 1\. 什么是 Fouc\(文档样式短暂失效\)？
 
@@ -715,7 +715,7 @@ webp 谷歌开发的旨在加快图片加载速度的图片格式，图片压缩
 
 <b><details><summary>32. css3 有哪些新特性</summary></b>
 
-答案：
+参考答案：
 
 1\. 选择器
 
@@ -909,7 +909,7 @@ div {
 
 <b><details><summary>33. display 有哪些值？说明他们的作用</summary></b>
 
-答案：
+参考答案：
 
 display： none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | run-in | box | inline-box | flexbox | inline-flexbox | flex | inline-flex
 
@@ -950,7 +950,7 @@ inline-flex： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒�
 
 <b><details><summary>34. display:inline-block 什么时候不会显示间隙？(携程)</summary></b>
 
-答案：inline-block 布局的元素在编辑器里写在同一行
+参考答案：inline-block 布局的元素在编辑器里写在同一行
 
 [参与互动](https://github.com/yisainan/web-interview/issues/103)
 
@@ -958,7 +958,7 @@ inline-flex： 将对象作为内联块级弹性伸缩盒显示。（伸缩盒�
 
 <b><details><summary>35. PNG, GIF, JPG 的区别及如何选</summary></b>
 
-答案：
+参考答案：
 
 GIF：
 
@@ -1004,7 +1004,7 @@ PNG：
 
 <b><details><summary>36. 行内元素 float:left 后是否变为块级元素？</summary></b>
 
-答案：
+参考答案：
 
 * 行内元素设置成浮动之后变得更加像是 inline-block
 * 行内块级元素，设置成这个属性的元素会同时拥有行内和块级的特性，最明显的不同是它的默认宽度不是 100%，行内元素默认 100%宽度占据一行
@@ -1016,7 +1016,7 @@ PNG：
 
 <b><details><summary>37. 在网页中的应该使用奇数还是偶数的字体？为什么呢？</summary></b>
 
-答案：应该使用偶数字体
+参考答案：应该使用偶数字体
 
 1\. 比例关系
 
@@ -1046,7 +1046,7 @@ Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14
 
 <b><details><summary>38. CSS 合并方法</summary></b>
 
-答案：@import url(css 文件地址)
+参考答案：@import url(css 文件地址)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/107)
 
@@ -1054,7 +1054,7 @@ Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14
 
 <b><details><summary>39. 列出你所知道可以改变页面布局的属性</summary></b>
 
-答案：width、height、float、position、等
+参考答案：width、height、float、position、等
 
 [参与互动](https://github.com/yisainan/web-interview/issues/108)
 
@@ -1062,7 +1062,7 @@ Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14
 
 <b><details><summary>40. CSS 在性能优化方面的实践</summary></b>
 
-答案：
+参考答案：
 
 1\. 内联首屏关键 CSS（Critical CSS）
 
@@ -1082,7 +1082,7 @@ Windows 自带的点阵宋体（中易宋体）从 Vista 开始只提供 12、14
 
 <b><details><summary>41. CSS3 动画（简单动画的实现，如旋转等）</summary></b>
 
-答案：
+参考答案：
 
 让一个 div 元素旋转 360 度示例
 
@@ -1144,7 +1144,7 @@ $(function() {
 
 <b><details><summary>42. base64 的原理及优缺点</summary></b>
 
-答案：
+参考答案：
 
 1\. 什么是 Base64
 
@@ -1199,7 +1199,7 @@ Hello!! Base64 编码的结果为 SGVsbG8hIQAA。可见，不能被 3 整除时�
 
 <b><details><summary>43. stylus/sass/less 区别</summary></b>
 
-答案：
+参考答案：
 
 1\. 后缀
 
@@ -1221,7 +1221,7 @@ Hello!! Base64 编码的结果为 SGVsbG8hIQAA。可见，不能被 3 整除时�
 
 <b><details><summary>44. position 的值， relative 和 absolute 分别是相对于谁进行定位的？</summary></b>
 
-答案：
+参考答案：
 
 * absolute : 生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
 * fixed （老 IE 不支持）生成绝对定位的元素，通常相对于浏览器窗口或 frame 进行定位。
@@ -1235,7 +1235,7 @@ Hello!! Base64 编码的结果为 SGVsbG8hIQAA。可见，不能被 3 整除时�
 
 <b><details><summary>45. 对偏移、卷曲、可视的理解</summary></b>
 
-答案：
+参考答案：
 
 ``` 
 偏移
@@ -1330,7 +1330,7 @@ demo.style.height可以设置行内样式，offsetHeight是只读属性
 
 <b><details><summary>46. 精灵图和 base64 如何选择？</summary></b>
 
-答案：
+参考答案：
 
 ## Css Sprites：
 
@@ -1383,7 +1383,7 @@ css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载�
 
 <b><details><summary>47. 如果设计中使用了非标准的字体，你该如何去实现？</summary></b>
 
-答案：使用 `@font-face` 并为不同的 `font-weight` 定义 `font-family` 。
+参考答案：使用 `@font-face` 并为不同的 `font-weight` 定义 `font-family` 。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/116)
 
@@ -1391,7 +1391,7 @@ css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载�
 
 <b><details><summary>48. 知道 css 有个 content 属性吗？有什么作用？有什么应用？</summary></b>
 
-答案：知道。css 的 content 属性专门应用在 before/after 伪元素上，用来插入生成内容。最常见的应用是利用伪类清除浮动。
+参考答案：知道。css 的 content 属性专门应用在 before/after 伪元素上，用来插入生成内容。最常见的应用是利用伪类清除浮动。
 
 ``` css
 //一种常见利用伪类清除浮动的代码
@@ -1411,7 +1411,7 @@ css 中过多使用 base64 图片会使得 css 过大，不利于 css 的加载�
 after 伪元素通过 content 在元素的后面生成了内容为一个点的块级素，再利用 clear:both 清除浮动。
 那么问题继续还有，知道 css 计数器（序列数字字符自动递增）吗？如何通过 css content 属性实现 css 计数器？
 
-答案：css 计数器是通过设置 counter-reset 、counter-increment 两个属性 、及 counter()/counters()一个方法配合 after / before 伪类实现。
+参考答案：css 计数器是通过设置 counter-reset 、counter-increment 两个属性 、及 counter()/counters()一个方法配合 after / before 伪类实现。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/117)
 
@@ -1419,7 +1419,7 @@ after 伪元素通过 content 在元素的后面生成了内容为一个点的�
 
 <b><details><summary>49. CSS 选择器的优先级是如何计算的？</summary></b>
 
-答案：浏览器通过优先级规则，判断元素展示哪些样式。优先级通过 4 个维度指标确定，我们假定以 `a、b、c、d` 命名，分别代表以下含义：
+参考答案：浏览器通过优先级规则，判断元素展示哪些样式。优先级通过 4 个维度指标确定，我们假定以 `a、b、c、d` 命名，分别代表以下含义：
 
 1\. `a` 表示是否使用内联样式（inline style）。如果使用， `a` 为 1，否则为 0。
 2\. `b` 表示 ID 选择器的数量。
@@ -1440,7 +1440,7 @@ after 伪元素通过 content 在元素的后面生成了内容为一个点的�
 
 <b><details><summary>50. 请阐述 `Float` 定位的工作原理。</summary></b>
 
-答案：
+参考答案：
 
 浮动（float）是 CSS 定位属性。浮动元素从网页的正常流动中移出，但是保持了部分的流动性，会影响其他元素的定位（比如文字会围绕着浮动元素）。这一点与绝对定位不同，绝对定位的元素完全从文档流中脱离。
 
@@ -1468,7 +1468,7 @@ CSS 的 `clear` 属性通过使用 `left` 、 `right` 、 `both` ，让该元素
 
 <b><details><summary>51. 请阐述 `z-index` 属性，并说明如何形成层叠上下文（stacking context）</summary></b>
 
-答案：
+参考答案：
 
 CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 只能影响 `position` 值不是 `static` 的元素。
 
@@ -1486,7 +1486,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>52. 如何解决不同浏览器的样式兼容性问题？</summary></b>
 
-答案：
+参考答案：
 
 * 在确定问题原因和有问题的浏览器后，使用单独的样式表，仅供出现问题的浏览器加载。这种方法需要使用服务器端渲染。
 * 使用已经处理好此类问题的库，比如 Bootstrap。
@@ -1499,7 +1499,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>53. 如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？</summary></b>
 
-答案：
+参考答案：
 
 * 优雅的降级：为现代浏览器构建应用，同时确保它在旧版浏览器中正常运行。
 * Progressive enhancement - The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it. 
@@ -1514,7 +1514,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>54. 有什么不同的方式可以隐藏内容（使其仅适用于屏幕阅读器）？</summary></b>
 
-答案：
+参考答案：
 
 这些方法与可访问性（a11y）有关。
 
@@ -1535,7 +1535,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>55. 除了 `screen` ，你还能说出一个 @media 属性的例子吗？</summary></b>
 
-答案：
+参考答案：
 
 * all
 
@@ -1561,7 +1561,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>56. 编写高效的 CSS 应该注意什么？</summary></b>
 
-答案：
+参考答案：
 
 首先，浏览器从最右边的选择器，即关键选择器（key selector），向左依次匹配。根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。避免使用标签和通用选择器作为关键选择器，因为它们会匹配大量的元素，浏览器必须要进行大量的工作，去判断这些元素的父元素们是否匹配。
 
@@ -1578,7 +1578,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>57. 使用 CSS 预处理的优缺点分别是什么？</summary></b>
 
-答案：
+参考答案：
 
 优点：
 
@@ -1600,7 +1600,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>58. 对于你使用过的 CSS 预处理，说说喜欢和不喜欢的地方？</summary></b>
 
-答案：
+参考答案：
 
 喜欢：
 
@@ -1618,7 +1618,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>59. 解释浏览器如何确定哪些元素与 CSS 选择器匹配。</summary></b>
 
-答案：
+参考答案：
 
 浏览器从最右边的选择器（关键选择器）根据关键选择器，浏览器从 DOM 中筛选出元素，然后向上遍历被选元素的父元素，判断是否匹配。选择器匹配语句链越短，浏览器的匹配速度越快。
 
@@ -1632,7 +1632,7 @@ CSS 中的 `z-index` 属性控制重叠元素的垂直叠加顺序。 `z-index` 
 
 <b><details><summary>60. 说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。</summary></b>
 
-答案：
+参考答案：
 
 CSS 盒模型描述了以文档树中的元素而生成的矩形框，并根据排版模式进行布局。每个盒子都有一个内容区域（例如文本，图像等）以及周围可选的 `padding` 、 `border` 和 `margin` 区域。
 
@@ -1659,7 +1659,7 @@ CSS 盒模型负责计算：
 
 <b><details><summary>61. `* { box-sizing: border-box; }` 会产生怎样的效果？</summary></b>
 
-答案：
+参考答案：
 
 * 元素默认应用了 `box-sizing: content-box` ，元素的宽高只会决定内容（content）的大小。
 * `box-sizing: border-box` 改变计算元素 `width` 和 `height` 的方式， `border` 和 `padding` 的大小也将计算在内。
@@ -1672,7 +1672,7 @@ CSS 盒模型负责计算：
 
 <b><details><summary>62. `relative` 、 `fixed` 、 `absolute` 和 `static` 四种定位有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 经过定位的元素，其 `position` 属性值必然是 `relative` 、 `absolute` 、 `fixed` 或 `static` 。
 
@@ -1690,7 +1690,7 @@ CSS 盒模型负责计算：
 
 <b><details><summary>63. 你使用过哪些现有的 CSS 框架？你是如何改进它们的？</summary></b>
 
-答案：
+参考答案：
 
 * **Bootstrap**： 更新周期缓慢。Bootstrap 4 已经处于 alpha 版本将近两年了。添加了在页面中广泛使用的微调按钮组件。
 * **Semantic UI**：源代码结构使得自定义主题很难理解。非常规主题系统的使用体验很差。外部库的路径需要硬编码（hard code）配置。变量重新赋值没有 Bootstrap 设计得好。
@@ -1702,7 +1702,7 @@ CSS 盒模型负责计算：
 
 <b><details><summary>64. 你了解 CSS Flex 和 Grid 吗？</summary></b>
 
-答案：Flex 主要用于一维布局，而 Grid 则用于二维布局。
+参考答案：Flex 主要用于一维布局，而 Grid 则用于二维布局。
 
 解析：
 
@@ -1744,7 +1744,7 @@ CSS 网格布局用于将页面分割成数个主要区域，或者用来定义�
 
 <b><details><summary>65. 响应式设计与自适应设计有何不同？</summary></b>
 
-答案：
+参考答案：
 
 响应式设计和自适应设计都以提高不同设备间的用户体验为目标，根据视窗大小、分辨率、使用环境和控制方式等参数进行优化调整。
 
@@ -1760,7 +1760,7 @@ CSS 网格布局用于将页面分割成数个主要区域，或者用来定义�
 
 <b><details><summary>66. 你有没有使用过视网膜分辨率的图形？当中使用什么技术？</summary></b>
 
-答案：我倾向于使用更高分辨率的图形（显示尺寸的两倍）来处理视网膜显示。更好的方法是使用媒体查询，像 `@media only screen and (min-device-pixel-ratio: 2) { ... }` ，然后改变 `background-image` 。
+参考答案：我倾向于使用更高分辨率的图形（显示尺寸的两倍）来处理视网膜显示。更好的方法是使用媒体查询，像 `@media only screen and (min-device-pixel-ratio: 2) { ... }` ，然后改变 `background-image` 。
 
 对于图标类的图形，我会尽可能使用 svg 和图标字体，因为它们在任何分辨率下，都能被渲染得十分清晰。
 
@@ -1774,7 +1774,7 @@ CSS 网格布局用于将页面分割成数个主要区域，或者用来定义�
 
 <b><details><summary>67. 什么情况下，用 `translate()` 而不用绝对定位？什么时候，情况相反。</summary></b>
 
-答案： `translate()` 是 `transform` 的一个值。改变 `transform` 或 `opacity` 不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。 `transform` 使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此 `translate()` 更高效，可以缩短平滑动画的绘制时间。
+参考答案： `translate()` 是 `transform` 的一个值。改变 `transform` 或 `opacity` 不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。 `transform` 使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此 `translate()` 更高效，可以缩短平滑动画的绘制时间。
 
 当使用 `translate()` 时，元素仍然占据其原始空间（有点像 `position：relative` ），这与改变绝对定位不同。
 
@@ -1786,7 +1786,7 @@ CSS 网格布局用于将页面分割成数个主要区域，或者用来定义�
 
 <b><details><summary>68. 一边固定宽度一边宽度自适应</summary></b>
 
-答案：可以使用 flex 布局 复制下面的 HTML 和 CSS 代码 用浏览器打开可以看到效果
+参考答案：可以使用 flex 布局 复制下面的 HTML 和 CSS 代码 用浏览器打开可以看到效果
 
 ``` html
 <div class="wrap">
@@ -1824,7 +1824,7 @@ div {
 
 <b><details><summary>69. display:none、visibile:hidden、opacity:0 的区别</summary></b>
 
-答案：
+参考答案：
 
 |                  | 是否隐藏 | 是否在文档中占用空间 | 是否会触发事件 |
 | ---------------- | -------- | -------------------- | -------------- |
@@ -1838,7 +1838,7 @@ div {
 
 <b><details><summary>70. 文本超出部分显示省略号</summary></b>
 
-答案：
+参考答案：
 
 #### 单行
 
@@ -1863,7 +1863,7 @@ overflow: hidden;
 
 <b><details><summary>71. 利用伪元素画三角</summary></b>
 
-答案：
+参考答案：
 
 ``` css
 .info-tab {
@@ -1885,7 +1885,7 @@ overflow: hidden;
 
 <b><details><summary>72. 过渡与动画的区别是什么</summary></b>
 
-答案：
+参考答案：
 
 * transition
 
@@ -1901,7 +1901,7 @@ overflow: hidden;
 
 <b><details><summary>73. 去除 inline-block 元素间间距的方法</summary></b>
 
-答案：
+参考答案：
 
 * 移除空格
 * 使用 margin 负值
@@ -1917,7 +1917,7 @@ overflow: hidden;
 
 <b><details><summary>74. 为什么要初始化 CSS 样式</summary></b>
 
-答案：
+参考答案：
 
 * 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对 CSS 初始化往往会出现浏览器之间的页面显示差异。
 * 去掉标签的默认样式如：margin, padding，其他浏览器默认解析字体大小，字体设置。
@@ -1928,7 +1928,7 @@ overflow: hidden;
 
 <b><details><summary>75. 行内元素和块级元素有哪些</summary></b>
 
-答案：
+参考答案：
 
 ### 行内元素
 
@@ -1956,7 +1956,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>76. 设备像素比</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/145)
 
@@ -1964,7 +1964,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>77. ::bofore 和 :after 中双冒号和单冒号有什么区别？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/146)
 
@@ -1972,7 +1972,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>78. 说下 CSS3 中一些样式的兼容，分别指兼容哪些浏览器</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/147)
 
@@ -1980,7 +1980,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>79. 有哪些手段可以优化 CSS, 提高性能</summary></b>
 
-答案：
+参考答案：
 
 1, 首推的是合并css文件，如果页面加载10个css文件，每个文件1k，那么也要比只加载一个100k的css文件慢。
 
@@ -2012,7 +2012,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>80. 怎么样实现边框 0. 5 个像素？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/149)
 
@@ -2020,7 +2020,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>81. transform translate transition 的区别</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/150)
 
@@ -2028,7 +2028,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>82. 请解释一下 CSS3 的 Flexbox（弹性盒布局模型）, 以及适用场景？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/151)
 
@@ -2036,7 +2036,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>83. 用纯 CSS 创建一个三角形的原理是什么？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/152)
 
@@ -2044,7 +2044,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>84. 一个满屏 品 字布局 如何设计?</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/153)
 
@@ -2052,7 +2052,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>85. 全屏滚动的原理是什么？用到了 CSS 的那些属性？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/154)
 
@@ -2060,7 +2060,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>86. 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/155)
 
@@ -2068,7 +2068,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>87. 如何修改 chrome 记住密码后自动填充表单的黄色背景？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/156)
 
@@ -2076,7 +2076,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>88. 用 css 分别实现某个 div 元素上下居中和左右居中</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/157)
 
@@ -2084,7 +2084,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>89. 你对 line-height 是如何理解的？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/158)
 
@@ -2092,7 +2092,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>90. 让页面里的字体变清晰，变细用 CSS 怎么做？</summary></b>
 
-答案：
+参考答案：
 
 -webkit-font-smoothing: antialiased; 
 
@@ -2102,7 +2102,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>91. font-style 属性可以让它赋值为“oblique” oblique 是什么意思？</summary></b>
 
-答案：Italic是使用文字的斜体,Oblique是让没有斜体属性的文字倾斜
+参考答案：Italic是使用文字的斜体,Oblique是让没有斜体属性的文字倾斜
 
 [参与互动](https://github.com/yisainan/web-interview/issues/160)
 
@@ -2110,7 +2110,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>92 . position:fixed; 在 android 下无效怎么处理？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/161)
 
@@ -2118,7 +2118,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>93. 如果需要手动写动画，你认为最小时间间隔是多久，为什么？</summary></b>
 
-答案：16.7ms。多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000ms ＝ 16.7ms
+参考答案：16.7ms。多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000ms ＝ 16.7ms
 
 [参与互动](https://github.com/yisainan/web-interview/issues/162)
 
@@ -2126,7 +2126,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>94. overflow: scroll 时不能平滑滚动的问题怎么处理？</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/163)
 
@@ -2134,7 +2134,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>95. 有一个高度自适应的 div，里面有两个 div，一个高度 100px，希望另一个填满剩下的高度。</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/164)
 
@@ -2142,7 +2142,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>96. postcss 的作用</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/165)
 
@@ -2150,7 +2150,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>97. 自定义字体的使用场景</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/166)
 
@@ -2158,7 +2158,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>98. 如何美化 CheckBox</summary></b>
 
-答案：
+参考答案：
 
 [参与互动](https://github.com/yisainan/web-interview/issues/167)
 
@@ -2166,7 +2166,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>99. float 和 display:inline-block 的区别是什么？</summary></b>
 
-答案：对元素设置display：inline-block ，元素不会脱离文本流，而float就会使得元素脱离文本流，且还有父元素高度坍塌的效果。
+参考答案：对元素设置display：inline-block ，元素不会脱离文本流，而float就会使得元素脱离文本流，且还有父元素高度坍塌的效果。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/168)
 
@@ -2174,7 +2174,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>100. rem 布局字体太大怎么处理?</summary></b>
 
-答案：getComputedStyle方法能够获取到计算后的样式、大小。
+参考答案：getComputedStyle方法能够获取到计算后的样式、大小。
 
 最后优化完的代码如下。
 
@@ -2223,7 +2223,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 <b><details><summary>101. 标准模式与怪异模式的区别</summary></b>
 
-答案：浏览器解析 CSS 的两种模式：标准模式(strict mode)和怪异模式(quirks mode)
+参考答案：浏览器解析 CSS 的两种模式：标准模式(strict mode)和怪异模式(quirks mode)
 
 标准模式：浏览器按 W3C 标准解析执行代码；
 
@@ -2268,7 +2268,7 @@ CSS 中，对于 font 的属性都是可以继承的。怪异模式下，对于 
 
 <b><details><summary>102. css reset 与 css sprites</summary></b>
 
-答案：
+参考答案：
 
 css reset ：重置浏览器默认属性
 
@@ -2278,7 +2278,7 @@ css sprites ：由多个小图片组成的大图，减少服务器对图片的�
 
 <b><details><summary>103. IE6 遇到什么 bug？解决办法是？</summary></b>
 
-答案：
+参考答案：
 
 一、IE6 双倍边距 bug
 
@@ -2336,19 +2336,19 @@ IE6 中图片的下方会存在一定的间隙，尤其在图片垂直挨着图�
 
 <b><details><summary>104. </summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>105. 介绍css3中position:sticky（网易）</summary></b>
 
-答案：position:sticky是一个新的css3属性，它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。
+参考答案：position:sticky是一个新的css3属性，它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。
 
 </details>
 
 <b><details><summary>106. 使用css实现一个持续的动画效果</summary></b>
 
-答案：
+参考答案：
 
 ``` css
 animation:mymove 5s infinite;
@@ -2368,12 +2368,12 @@ animation:mymove 5s infinite;
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

@@ -2,13 +2,13 @@
 
 <b><details><summary>1.用 H5+CSS3 解决下导航栏最后一项掉下来的问题</summary></b>
 
-答案：box-sizing: border-box;
+参考答案：box-sizing: border-box;
 
 </details>
 
 <b><details><summary>2.请用 CSS 实现：一个矩形内容，有投影，有圆角，hover 状态慢慢变透明</summary></b>
 
-答案：
+参考答案：
 
 ```html
 <div class="test"></div>
@@ -32,7 +32,7 @@
 
 <b><details><summary>3.描述下 CSS3 里实现元素动画的方法</summary></b>
 
-答案：
+参考答案：
 
 1. 创建动画：@keyframes 规则
 
@@ -95,13 +95,13 @@ animation：动画名 时长；
 
 <b><details><summary>4.你怎么来实现页面设计图，你认为前端应该如何高质量完成工作? 一个满屏 品 字布局 如何设计?</summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary>5.如何用css实现瀑布流布局</summary></b>
 
-答案：
+参考答案：
 利用column-count和break-inside这两个CSS3属性即可，复制如下代码即可察看效果
 ```
 <!DOCTYPE html>
@@ -154,7 +154,7 @@ animation：动画名 时长；
 
 <b><details><summary>6.已知父级盒子的宽高，子级img宽高未知，想让img铺满父级盒子且图片不能变形</summary></b>
 
-答案：需要用到`css`的`object-fit`属性
+参考答案：需要用到`css`的`object-fit`属性
 
 ```css
 div {
@@ -182,12 +182,12 @@ img {
 </div>
 ```
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>

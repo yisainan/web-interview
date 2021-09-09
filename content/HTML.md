@@ -2,7 +2,7 @@
 
 <b><details><summary>1. 简述一下你对 HTML 语义化的理解？</summary></b>
 
-答案：
+参考答案：
 
 ①**用正确的标签做正确的事情。**
 
@@ -18,7 +18,7 @@
 
 <b><details><summary>2. Label 的作用是什么？是怎么用的？</summary></b>
 
-答案：label 标签来定义表单控制间的关系, **当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上**。
+参考答案：label 标签来定义表单控制间的关系, **当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上**。
 
 解析：两种用法：**一种是 id 绑定，一种是嵌套**
 
@@ -36,7 +36,7 @@
 
 <b><details><summary>3.iframe 框架有那些优缺点？</summary></b>
 
-答案：
+参考答案：
 
 #### 优点：
 
@@ -58,7 +58,7 @@
 
 <b><details><summary>4. HTML 与 XHTML 二者有什么区别，你觉得应该使用哪一个并说出理由。</summary></b>
 
-答案：
+参考答案：
 
 ```
 
@@ -88,7 +88,7 @@
 
 <b><details><summary>5. HTML5 的 form 如何关闭自动完成功能？</summary></b>
 
-答案：将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
+参考答案：将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
 
 解析：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion)
 
@@ -98,7 +98,7 @@
 
 <b><details><summary>6.title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别？</summary></b>
 
-答案：
+参考答案：
 
 ```
 
@@ -134,7 +134,7 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 <b><details><summary>7. 请描述下 SEO 中的 TDK？</summary></b>
 
-答案：在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，title 标题标签，description 描述标签，keywords 关键词标签
+参考答案：在 SEO 中，所谓的 TDK 其实就是 title、description、keywords 这三个标签，title 标题标签，description 描述标签，keywords 关键词标签
 
 [参与互动](https://github.com/yisainan/web-interview/issues/8)
 
@@ -142,7 +142,7 @@ B.strong这个标签意思是加强字符的语气，表示该文本比较重要
 
 <b><details><summary>8. 每个 HTML 文件头里都有个很重要的东西，Doctype，知道这是干什么的么？</summary></b>
 
-答案： `<! DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
+参考答案： `<! DOCTYPE>` 声明位于文档中的最前面的位置，处于 `<html>` 标签之前。
 
 01. 告知浏览器文档使用哪种 HTML 或 XHTML 规范。
 
@@ -164,7 +164,7 @@ doctype 是一种标准通用标记语言的文档类型声明，目的是告诉
 
 <b><details><summary>9. 简述一下 src 与 href 的区别。</summary></b>
 
-答案：src 用于引用资源，替换当前元素；href 用于在当前文档和引用资源之间确立联系。
+参考答案：src 用于引用资源，替换当前元素；href 用于在当前文档和引用资源之间确立联系。
 
 解析：
 
@@ -183,7 +183,7 @@ doctype 是一种标准通用标记语言的文档类型声明，目的是告诉
 
 <b><details><summary>10. 严格模式与混杂模式</summary></b>
 
-答案：
+参考答案：
 
 严格模式：以浏览器支持的最高标准运行
 
@@ -195,7 +195,7 @@ doctype 是一种标准通用标记语言的文档类型声明，目的是告诉
 
 <b><details><summary>11. 对于 WEB 标准以及 W3C 的理解与认识问题</summary></b>
 
-答案：
+参考答案：
 
 <b>web 标准</b>简单来说可以分为<b>结构、表现和行为</b>。其中结构主要是有 HTML 标签组成。或许通俗点说，在页面 body 里面我们写入的标签都是为了页面的结构。表现即指 css 样式表，通过 css 可以是页面的结构标签更具美感。行为是指页面和用户具有一定的交互，同时页面结构或者表现发生变化，主要是有 js 组成。
 
@@ -225,7 +225,7 @@ W3C 对 web 标准提出了规范化的要求，也就是在实际编程中的�
 
 <b><details><summary>12. 列举 IE 与其他浏览器不一样的特性？</summary></b>
 
-答案：
+参考答案：
 
 a. IE 的排版引擎是 Trident （又称为 MSHTML）
 
@@ -243,7 +243,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>13. 前端页面有哪三层构成，分别是什么？作用是什么？</summary></b>
 
-答案：分成：结构层、表示层、行为层。
+参考答案：分成：结构层、表示层、行为层。
 
 01. 结构层（structural layer）
 
@@ -263,7 +263,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>14. 网页验证码是干嘛的，是为了解决什么安全问题？</summary></b>
 
-答案：
+参考答案：
 
 * 区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水
 * 有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试
@@ -274,7 +274,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>15. 为什么用多个域名存储网站资源更有效？</summary></b>
 
-答案：
+参考答案：
 
 1、CDN 缓存更方便
 
@@ -292,7 +292,7 @@ e. CSS 方面，也有自己独有的处理方式，例如设置透明，低版�
 
 <b><details><summary>16. 页面可见性（Page Visibility）API 可以有哪些用途？</summary></b>
 
-答案：
+参考答案：
 
 页面可见性： 就是对于用户来说，页面是显示还是隐藏, 所谓显示的页面，就是我们正在看的页面；隐藏的页面，就是我们没有看的页面。 因为，我们一次可以打开好多标签页面来回切换着，始终只有一个页面在我们眼前，其他页面就是隐藏的，还有一种就是.........，(把浏览器最小化，所有的页面就都不可见了)。
 
@@ -320,7 +320,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>17. Quirks(怪癖）模式是什么？它和 Standards（标准）模式有什么区别</summary></b>
 
-答案：
+参考答案：
 
 1 以 ie6 为例，如果写了 DTD，就意味着这个页面将采用对 CSS 支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是 Quirks 模式（怪癖模式，诡异模式，怪异模式）。
 
@@ -358,7 +358,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>18. div+css 的布局较 table 布局有什么优点？</summary></b>
 
-答案：分离 方便改版 快清晰简洁 seo
+参考答案：分离 方便改版 快清晰简洁 seo
 
 01. 改版的时候更方便 只要改 css 文件。
 
@@ -374,7 +374,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>19. 你能描述一下渐进增强和优雅降级之间的不同吗?</summary></b>
 
-答案：
+参考答案：
 
 渐进增强  progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
@@ -392,7 +392,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>20. 请谈一下你对网页标准和标准制定机构重要性的理解。</summary></b>
 
-答案：降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
+参考答案：降低开发难度及开发成本，减少各种 BUG、安全问题， 提高网站易用性
 
 [参与互动](https://github.com/yisainan/web-interview/issues/21)
 
@@ -400,7 +400,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>21. 知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</summary></b>
 
-答案：微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
+参考答案：微格式（Microformats）是一种让机器可读的语义化 XHTML 词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。
 
 优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。（应用范例：豆瓣，有兴趣自行 google）
 
@@ -410,7 +410,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>22. html 常见兼容性问题？</summary></b>
 
-答案：
+参考答案：
 
 01. 双边距 BUG float 引起的，解决办法: 使用 display解决
 
@@ -445,7 +445,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>23. 对 WEB 标准以及 W3C 的理解与认识</summary></b>
 
-答案：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
+参考答案：标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链 css 和 js 脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/44)
 
@@ -453,7 +453,7 @@ document.addEventListener("visibilitychange", function() {
 
 <b><details><summary>24. 如何在页面上实现一个圆形的可点击区域？</summary></b>
 
-答案：css3、js、map 加 area
+参考答案：css3、js、map 加 area
 
 一.border-radius (css3)
 
@@ -515,7 +515,7 @@ bindClickOnCircleArea(box, function() {
 
 <b><details><summary>25. 前端需要注意哪些 SEO</summary></b>
 
-答案：
+参考答案：
 
 01. 合理的 title、description、keywords：搜索对着三项的权重逐个减小，title 值强调重点即可，重要关键词出现不要超过 2 次，而且要靠前，不同页面 title 要有所不同；description 把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面 description 有所不同；keywords 列举出重要关键词即可
 
@@ -539,7 +539,7 @@ bindClickOnCircleArea(box, function() {
 
 <b><details><summary>26.html5 有哪些新特性、移除了那些元素？</summary></b>
 
-答案：
+参考答案：
 
 新特性：
 
@@ -588,7 +588,7 @@ bindClickOnCircleArea(box, function() {
 
 <b><details><summary>27. HTML5 的离线储存怎么使用，工作原理能不能解释一下？</summary></b>
 
-答案：
+参考答案：
 
 在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
 
@@ -642,7 +642,7 @@ FALLBACK:
 
 <b><details><summary>28. 浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢</summary></b>
 
-答案：在线的情况下，浏览器发现 html 头部有 manifest 属性，它会请求 manifest 文件，如果是第一次访问 app，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过 app 并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的 manifest 文件与旧的 manifest 文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+参考答案：在线的情况下，浏览器发现 html 头部有 manifest 属性，它会请求 manifest 文件，如果是第一次访问 app，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过 app 并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的 manifest 文件与旧的 manifest 文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
 离线的情况下，浏览器就直接使用离线存储的资源。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/49)
@@ -651,7 +651,7 @@ FALLBACK:
 
 <b><details><summary>29. HTML 全局属性(global attribute)有哪些</summary></b>
 
-答案：
+参考答案：
 
 * accesskey: 设置快捷键，提供快速访问元素如<a href="#" accesskey=“a”>aaa</a>在 windows 下的 firefox 中按 alt + shift + a 可激活元素
 * class: 为元素设置类标识，多个类名用空格分开，CSS 和 javascript 可通过 class 属性获取元素
@@ -678,7 +678,7 @@ FALLBACK:
 
 <b><details><summary>30. Canvas 和 SVG 有什么区别？</summary></b>
 
-答案：Canvas 和 SVG 都允许您在浏览器中创建图形，但是它们在根本上是不同的。
+参考答案：Canvas 和 SVG 都允许您在浏览器中创建图形，但是它们在根本上是不同的。
 
 ## Canvas
 
@@ -722,7 +722,7 @@ SVG
 
 <b><details><summary>31. HTML5 为什么只需要写 `<! DOCTYPE HTML>` ？</summary></b>
 
-答案：HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。而 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为。其中，SGML 是标准通用标记语言, 简单的说，就是比 HTML, XML 更老的标准，这两者都是由 SGML 发展而来的。BUT，HTML5 不是的。
+参考答案：HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。而 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为。其中，SGML 是标准通用标记语言, 简单的说，就是比 HTML, XML 更老的标准，这两者都是由 SGML 发展而来的。BUT，HTML5 不是的。
 
 `<! DOCTYPE>` 声明位于位于 HTML 文档中的第一行，处于 `<html>` 标签之前。作用：告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE 不存在或格式不正确会导致文档以怪异模式呈现。
 
@@ -732,7 +732,7 @@ SVG
 
 <b><details><summary>32.meta viewport 原理是什么？</summary></b>
 
-答案：
+参考答案：
 
 meta viewport 标签的作用是让当前 viewport 的宽度等于设备的宽度，同时不允许用户进行手动缩放
 
@@ -762,7 +762,7 @@ Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示
 
 <b><details><summary>33. 对 web 标准、可用性、可访问性的理解</summary></b>
 
-答案：
+参考答案：
 
 可用性（Usability）：产品是否容易上手，用户能否完成任务，效率如何，以及这过程中用户的主观感受可好，是从用户的角度来看产品的质量。可用性好意味着产品质量高，是企业的核心竞争力。
 
@@ -776,7 +776,7 @@ Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示
 
 <b><details><summary>34. HTML5 引入什么新的表单属性？</summary></b>
 
-答案：Datalist datetime output keygen date month week time number range emailurl
+参考答案：Datalist datetime output keygen date month week time number range emailurl
 
 [参与互动](https://github.com/yisainan/web-interview/issues/55)
 
@@ -784,7 +784,7 @@ Viewport ：字面意思为视图窗口，在移动 web 开发中使用。表示
 
 <b><details><summary>35. 新的 HTML5 文档类型和字符集是？</summary></b>
 
-答案：
+参考答案：
 
 ```
 HTML5文档类型：<!doctype html>
@@ -797,7 +797,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>36. HTML5 Canvas 元素有什么用？</summary></b>
 
-答案：Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作。
+参考答案：Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/57)
 
@@ -805,7 +805,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>37. HTML5 存储类型有什么区别？</summary></b>
 
-答案：Media API、Text Track API、Application Cache API、User Interaction、Data Transfer API、Command API、Constraint Validation API、History API
+参考答案：Media API、Text Track API、Application Cache API、User Interaction、Data Transfer API、Command API、Constraint Validation API、History API
 
 [参与互动](https://github.com/yisainan/web-interview/issues/58)
 
@@ -813,7 +813,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>38.iframe 的作用</summary></b>
 
-答案：iframe 是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
+参考答案：iframe 是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样在切换页面的时候避免重复下载。
 
 优点
 
@@ -832,7 +832,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>39. 为什么最好把 CSS 的 `<link>` 标签放在 `<head></head>` 之间？为什么最好把 JS 的 `<script>` 标签恰好放在 `</body>` 之前，有例外情况吗？</summary></b>
 
-答案：
+参考答案：
 
 **把 `<link>` 放在 `<head>` 中**
 
@@ -850,7 +850,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>40. 什么是渐进式渲染（progressive rendering）？</summary></b>
 
-答案：渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
+参考答案：渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
 
 在以前互联网带宽较小的时期，这种技术更为普遍。如今，移动终端的盛行，而移动网络往往不稳定，渐进式渲染在现代前端开发中仍然有用武之地。
 
@@ -868,7 +868,7 @@ HTML5使用的编码<meta charset=”UTF-8”>
 
 <b><details><summary>41. DOM 和 BOM 有什么区别</summary></b>
 
-答案：
+参考答案：
 
 * DOM
 
@@ -890,13 +890,13 @@ window 对象既为 javascript 访问浏览器提供 API，同时在 ECMAScript 
 
 <b><details><summary>42.img 上 title 与 alt</summary></b>
 
-答案：title 指图片的信息、alt 指图片不显示时显示的文字
+参考答案：title 指图片的信息、alt 指图片不显示时显示的文字
 
 </details>
 
 <b><details><summary>43. 一个iframe，内嵌了一个A页面，iframe的宽高不停变化，如何让A页面的宽高实时自适应这个iframe的宽高大小。请说出至少3种方法，越难越好</summary></b>
 
-答案：
+参考答案：
 
 01. css的方案
 02. onresize
@@ -906,7 +906,7 @@ window 对象既为 javascript 访问浏览器提供 API，同时在 ECMAScript 
 
 <b><details><summary>44. DOM Tree是如何构建的？</summary></b>
 
-答案：
+参考答案：
 
 01. HTML 解释器
 
@@ -920,32 +920,59 @@ HTML 解释器的工作就是将网络或者本地磁盘获取的 HTML 网页和
 
 <b><details><summary>45.100*100的 canvas 占多少内存？</summary></b>
 
-答案：[参考](https://www.jianshu.com/p/27dd0e802809)
+参考答案：[参考](https://www.jianshu.com/p/27dd0e802809)
 
 </details>
 
 <b><details><summary>46. `<noscript>` 标签的作用</summary></b>
 
-答案：noscript 元素用来定义在脚本未被执行时的替代内容（文本）。
+参考答案：noscript 元素用来定义在脚本未被执行时的替代内容（文本）。
 
 此标签可被用于可识别 `<script>` 标签但无法支持其中的脚本的浏览器。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>47.SGML 、 HTML 、XML 和 XHTML 的区别？</summary></b>
 
-答案：
+参考答案：
+
+SGML 是标准通用标记语言，是一种定义电子文档结构和描述其内容的国际标准语言，是所有电子文档标记语言的起源。
+
+HTML 是超文本标记语言，主要是用于规定怎么显示网页。
+
+XML 是可扩展标记语言是未来网页语言的发展方向，XML 和 HTML 的最大区别就在于 XML 的标签是可以自己创建的，数量无限多，
+而 HTML 的标签都是固定的而且数量有限。
+
+XHTML 也是现在基本上所有网页都在用的标记语言，他其实和 HTML 没什么本质的区别，标签都一样，用法也都一样，就是比 HTML 
+更严格，比如标签必须都用小写，标签都必须有闭合标签等。
+
+</details>
+
+<b><details><summary>48.DTD 介绍</summary></b>
+
+参考答案：
+
+DTD（ Document Type Definition 文档类型定义）是一组机器可读的规则，它们定义 XML 或 HTML 的特定版本中所有允许元
+素及它们的属性和层次关系的定义。在解析网页时，浏览器将使用这些规则检查页面的有效性并且采取相应的措施。
+
+DTD 是对 HTML 文档的声明，还会影响浏览器的渲染模式（工作模式）。
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
 
 </details>
 
 <b><details><summary></summary></b>
 
-答案：
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
 
 </details>

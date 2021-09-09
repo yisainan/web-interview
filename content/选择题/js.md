@@ -4,7 +4,7 @@
 
 A. var obj = (); B. var obj = []; C. var obj = {}; D. var obj = //; 
 
-答案：AD
+参考答案：AD
 
 [参与互动](https://github.com/yisainan/web-interview/issues/543)
 
@@ -21,7 +21,7 @@ D. setTimeout
 E. alert
 ```
 
-答案：ABC
+参考答案：ABC
 
 [参与互动](https://github.com/yisainan/web-interview/issues/544)
 
@@ -36,7 +36,7 @@ C. window.location="a.html"和window.location.href="a.html"的作用都是把当
 D. 定义了全局变量g;可以用window.g的方式来存取该变量
 ```
 
-答案：ACD
+参考答案：ACD
 
 [参与互动](https://github.com/yisainan/web-interview/issues/545)
 
@@ -51,7 +51,7 @@ C: IE678不支持事件捕获
 D:localStorage 存储的数据在电脑重启后丢失
 ```
 
-答案：D
+参考答案：D
 
 解析：
 
@@ -74,7 +74,7 @@ C：import只在IE5以上才能识别 而link是XHTML标签，无兼容问题
 D: link方式的样式的权重高于@import的权重
 ```
 
-答案：ABCD
+参考答案：ABCD
 
 [参与互动](https://github.com/yisainan/web-interview/issues/547)
 
@@ -89,7 +89,7 @@ C：只有在IE中可通过iframe嵌套跨域
 D：MediaQuery属性是进行视频格式检测的属性是做响应式的
 ```
 
-答案：A
+参考答案：A
 
 [参与互动](https://github.com/yisainan/web-interview/issues/548)
 
@@ -104,7 +104,7 @@ C apache 服务器
 D Windows 系统
 ```
 
-答案: C
+参考答案: C
 
 解析:php 运行环境 apache
 
@@ -121,7 +121,7 @@ C 8080
 D 3306
 ```
 
-答案: A
+参考答案: A
 
 解析: 服务器安装好之后，默认端口号是 80
 
@@ -138,7 +138,7 @@ C 服务器代理
 D promise
 ```
 
-答案: B
+参考答案: B
 
 解析:jsonp 是使用标签的 src 属性链接资源接口，在 url 中传递回调函数，实现跨域请求
 
@@ -155,7 +155,7 @@ C foo{"att"}
 D foo[att]
 ```
 
-答案: B
+参考答案: B
 
 [参与互动](https://github.com/yisainan/web-interview/issues/606)
 
@@ -170,7 +170,7 @@ C setTimeout(function( ) { } ,100) 会立即同步执行
 D setInterval 函数会立即执行
 ```
 
-答案: B
+参考答案: B
 
 [参与互动](https://github.com/yisainan/web-interview/issues/607)
 
@@ -185,7 +185,7 @@ C push()
 D replace()
 ```
 
-答案: D
+参考答案: D
 
 [参与互动](https://github.com/yisainan/web-interview/issues/608)
 
@@ -200,7 +200,7 @@ C onmouseout
 D onmousemove
 ```
 
-答案: A
+参考答案: A
 
 [参与互动](https://github.com/yisainan/web-interview/issues/609)
 
@@ -224,7 +224,7 @@ C undefined
 D 以上都不对
 ```
 
-答案: C
+参考答案: C
 
 解析: 函数内部的 var v1 声明会提升到当前作用域顶部，但是赋值不会提升，所以 alert 的时候首先弹出当前作用域的 v1，值位 undefined
 
@@ -241,7 +241,7 @@ C string
 D boolean
 ```
 
-答案: A
+参考答案: A
 
 [参与互动](https://github.com/yisainan/web-interview/issues/611)
 
@@ -256,7 +256,7 @@ C var num
 D Integer num
 ```
 
-答案: C
+参考答案: C
 
 解析: var 关键字声明变量
 
@@ -273,7 +273,7 @@ C 数组内元素的类型可以不同
 D 数组可以在声明的同时进行初始化
 ```
 
-答案: A
+参考答案: A
 
 解析: js 数组长度是可以变化的
 
@@ -290,7 +290,7 @@ C onmouseover–鼠标指针移动到事件源对象上时触发的事件
 D onsubmit–选择字段时触发的事件
 ```
 
-答案: D
+参考答案: D
 
 解析: change 需要选择的字段发生变化时才触发的事件
 
@@ -307,7 +307,7 @@ C onclick
 D onsubmit
 ```
 
-答案: D
+参考答案: D
 
 [参与互动](https://github.com/yisainan/web-interview/issues/615)
 
@@ -322,7 +322,7 @@ C array.filter()
 D array.push()
 ```
 
-答案: A
+参考答案: A
 
 [参与互动](https://github.com/yisainan/web-interview/issues/616)
 
@@ -337,7 +337,7 @@ C 198
 D 202
 ```
 
-答案: D
+参考答案: D
 
 解析: offsetWidth 获取的时候包括了边框 并且不带 px 单位
 
@@ -362,7 +362,7 @@ C undefined
 D 报错
 ```
 
-答案: C
+参考答案: C
 
 解析:
 计时函数中，定义的变量 n 有声明提升，被提升到函数作用域顶部，即在 alert()之前，只提升声明，变量赋值位置不变，所以为 undefined
@@ -380,7 +380,7 @@ C getElementsByTagName
 D nodeType
 ```
 
-答案: A
+参考答案: A
 
 解析: event.cancelBubble 是 IE 老版本取消事件冒泡的方式
 
@@ -397,7 +397,7 @@ C 函数必须有返回值
 D 函数体中可以使用 parameters 来获取传递的实际参数
 ```
 
-答案: B
+参考答案: B
 
 解析: 可使用 arguments 在函数体中获取函数调用时的参数列表，在函数调用时，实参个数和形参个数可以不一致。
 
@@ -414,7 +414,7 @@ C 5
 D 0
 ```
 
-答案: C
+参考答案: C
 
 解析: 逻辑或的应用 0 位 false
 
@@ -431,7 +431,7 @@ C var o = new Object();
 D var o = {title: "hello", author: "Tom"};
 ```
 
-答案: B
+参考答案: B
 
 [参与互动](https://github.com/yisainan/web-interview/issues/622)
 
@@ -446,7 +446,7 @@ C 降低了程序执行效率
 D 以上都不对
 ```
 
-答案: A
+参考答案: A
 
 [参与互动](https://github.com/yisainan/web-interview/issues/623)
 
@@ -461,7 +461,7 @@ C Math. floor(Math.random()\*8)
 D Math.ceil(Math.random()8)
 ```
 
-答案: C
+参考答案: C
 
 解析:
 生成 min ~ max （包含 max）的随机数公式：
@@ -480,7 +480,7 @@ C onmouseover
 D onmousemove
 ```
 
-答案: C
+参考答案: C
 
 解析:
 鼠标按下（onmousedown），鼠标移动（onmousemove），鼠标抬起（onmouseup）
@@ -498,7 +498,7 @@ C IsNaN( )
 D isNaN( )
 ```
 
-答案: D
+参考答案: D
 
 [参与互动](https://github.com/yisainan/web-interview/issues/626)
 
@@ -513,7 +513,7 @@ C join()
 D indexOf()
 ```
 
-答案: D
+参考答案: D
 
 [参与互动](https://github.com/yisainan/web-interview/issues/627)
 
@@ -533,7 +533,7 @@ C 2
 D 13
 ```
 
-答案: C
+参考答案: C
 
 解析:
 这个代码跟变量 t 没有关系，表达式中完成了两次 num 的自增，所以，结果是 2
@@ -551,7 +551,7 @@ C image
 D background
 ```
 
-答案: B
+参考答案: B
 
 解析: 省略中间的-，后面的单词，首字母大写
 

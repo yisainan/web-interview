@@ -6077,7 +6077,7 @@
 
      名为 useEffect 的 effect hook 可用于使用 axios 从 API 中获取数据，并使用 useState 钩子提供的更新函数设置组件本地状态中的数据。让我们举一个例子，它从 API 中获取 react 文章列表。
 
-     ```jsx
+     ```jsx 
      import React, { useState, useEffect } from 'react';
      import axios from 'axios';
      
