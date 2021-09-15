@@ -272,19 +272,19 @@ document.querySelectorAll('li').forEach((e) => {
 
 第一、两者的加载方式不同，require 是在运行时加载，而 import 是在编译时加载
 
-require('. /a')(); // a 模块是一个函数，立即执行 a 模块函数
+require('./a')(); // a 模块是一个函数，立即执行 a 模块函数
 
-var data = require('. /a'). data; // a 模块导出的是一个对象
+var data = require('./a'). data; // a 模块导出的是一个对象
 
-var a = require('. /a')[0]; // a 模块导出的是一个数组 ======> 哪都行
+var a = require('./a')[0]; // a 模块导出的是一个数组 ======> 哪都行
 
 import \$ from 'jquery'; 
 
 import \* as _ from '_'; 
 
-import {a, b, c} from '. /a'; 
+import {a, b, c} from './a'; 
 
-import {default as alias, a as a_a, b, c} from '. /a'; ======>用在开头
+import {default as alias, a as a_a, b, c} from './a'; ======>用在开头
 
 第二、规范不同，require 是 CommonJS/AMD 规范，import 是 ESMAScript6+规范
 
@@ -1229,7 +1229,7 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 <script src = "b.js"> </script>
 ```
 
-没有 defer 或 async 属性，浏览器会立即下载并执行脚本 a. js，在 a. js 脚本执行完成后才会下载并执行脚本 b. js，在脚本下载和执行时页面的处理会停止。
+没有 defer 或 async 属性，浏览器会立即下载并执行脚本 a. js，在 a.js 脚本执行完成后才会下载并执行脚本 b. js，在脚本下载和执行时页面的处理会停止。
 
 ```
 
@@ -1237,7 +1237,7 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 <script defer src = "b.js"> </script>
 ```
 
-有了 defer 属性，浏览器会立即下载相应的脚本 a. js 和 b. js，在下载的过程中页面的处理不会停止，等到文档解析完成才会执行这两个脚本。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件执行。
+有了 defer 属性，浏览器会立即下载相应的脚本 a.js 和 b. js，在下载的过程中页面的处理不会停止，等到文档解析完成才会执行这两个脚本。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件执行。
 在现实当中，延迟脚本并不一定会按照顺序执行，也不一定会在 DOMContentLoaded 事件触发前执行，因此最好只包含一个延迟脚本。
 
 ```
@@ -1246,7 +1246,7 @@ script 标签存在两个属性，defer 和 async，这两个属性只对外部�
 <script async src = "b.js"> </script>
 ```
 
-有了 async 属性，浏览器会立即下载相应的脚本 a. js 和 b. js，在下载的过程中页面的处理不会停止，a. js 和 b. js 哪个先下载完成哪个就立即执行，执行过程中页面处理会停止，但是其他脚本的下载不会停止。标记为 async 的脚本并不保证按照制定它们的先后顺序执行。异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之后执行。
+有了 async 属性，浏览器会立即下载相应的脚本 a.js 和 b. js，在下载的过程中页面的处理不会停止，a.js 和 b.js 哪个先下载完成哪个就立即执行，执行过程中页面处理会停止，但是其他脚本的下载不会停止。标记为 async 的脚本并不保证按照制定它们的先后顺序执行。异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之后执行。
 
 [参考](https://blog.csdn.net/weixin_42561383/article/details/86564715)
 
@@ -1817,7 +1817,7 @@ function package(protected) { // 语法错误
 
 参考答案：
 
-1\. click 事件在移动端会有 200-300ms ms 的延迟，主要原因是苹果手机在设计时，考虑到用户在浏览网页时需要放大，所以，在用户点击的 200-300ms 之后，才触发 click，如果 200-300ms 之内还有 click，就会进行放大缩小。
+1\. click 事件在移动端会有 200-300ms 的延迟，主要原因是苹果手机在设计时，考虑到用户在浏览网页时需要放大，所以，在用户点击的 200-300ms 之后，才触发 click，如果 200-300ms 之内还有 click，就会进行放大缩小。
 
 2\. touch 事件是针对触屏手机上的触摸事件。现今大多数触屏手机 webkit 内核提供了 touch 事件的监听，让开发者可以获取用户触摸屏幕时的一些信息。其中包括：touchstart, touchmove, touchend, touchcancel 这四个事件，touchstart touchmove touchend 事件可以类比于 mousedown mouseover mouseup 的触发
 
@@ -1908,9 +1908,9 @@ tap(ele, function() {
 
 1、主线程 执行 js 中所有的代码。
 
-2、主线程 在执行过程中发现了需要异步的任务任务后扔给浏览器（浏览器创建多个线程执行），并在  callback queque  中创建对应的回调函数（回调函数是一个对象，包含该函数是否执行完毕等）。
+2、主线程 在执行过程中发现了需要异步的任务任务后扔给浏览器（浏览器创建多个线程执行），并在  callback queue  中创建对应的回调函数（回调函数是一个对象，包含该函数是否执行完毕等）。
 
-3、主线程 已经执行完毕所有同步代码。开始监听  callback queque 一旦 浏览器 中某个线程任务完成将会改变回调函数的状态。主线程查看到某个函数的状态为已完成，就会执行该函数。
+3、主线程 已经执行完毕所有同步代码。开始监听  callback queue 一旦 浏览器 中某个线程任务完成将会改变回调函数的状态。主线程查看到某个函数的状态为已完成，就会执行该函数。
 
 ![js_003](../../images/js_003.png)
 
@@ -2345,9 +2345,29 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 <b><details><summary>37. 发布订阅设计模式</summary></b>
 
-参考答案：发布/订阅模式(Publish Subscribe Pattern)属于设计模式中的行为(Behavioral Patterns)
+参考答案：
 
-解析：[参考](https://www.jianshu.com/p/c391c77a8771)
+发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JavaScript开发中，我们一般用事件模型来替代传统的发布—订阅模式。
+
+解析：
+
+#### 发布订阅模式的构成
+
+最常见的发布订阅模式就是咱们DOM事件，仔细回想一下我们要给一个按钮，绑定一个事件，当我点击按钮的时候我要让他的颜色变了，并且页面弹出一个弹出框
+
+我们分析一下这个流程：首先，我们得知道给哪个按钮的时候绑定事件，然后我们得知道触发事件以后需要干什么？
+
+那么在这其中谁是发布者？
+
+是DOM中的按钮，因为是在它身上绑定了事件，当我们点击按钮的时候它便向订阅者发布了这个消息
+
+那么谁是订阅者？
+
+是click事件，当点击按钮时，dom发布了一条消息，而事件订阅了它，所以当它被点击的时候，订阅者会接收到消息
+
+#### 简单例子
+
+上大学的时候甲要打游戏，下午的课不准备去了，然后甲跟乙说，如果下午老师问我去哪了，你就发信息告诉我。然后果然不出所料，下午老师来了，并且问了甲去哪了？然后乙发信息给甲，甲收到信息后干什么乙不知道，乙只是负责如果老师问了就发短信给甲。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/206)
 
@@ -2360,14 +2380,14 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 ### jsonp 优缺点
 
 * 1. 优点
-  + 1. 1 它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制，JSONP 可以跨越同源策略；
-  + 1. 2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
-  + 1. 3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
+  + 1.1 它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制，JSONP 可以跨越同源策略；
+  + 1.2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持
+  + 1.3 在请求完毕后可以通过调用 callback 的方式回传结果。将回调方法的权限给了调用方。这个就相当于将 controller 层和 view 层终于*分 开了。我提供的 jsonp 服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续 view 操作都由调用者来自己定义就好了。如果*有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同 一个 jsonp 服务。
 * 2. 缺点
-  + 2. 1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
-  + 2. 2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
-  + 2. 3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
-  + 2. 4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
+  + 2.1 它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求
+  + 2.2 它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。
+  + 2.3 jsonp 在调用失败的时候不会返回各种 HTTP 状态码。
+  + 2.4 缺点是安全性。万一假如提供 jsonp 的服务存在页面注入漏洞，即它返回的 javascript 的内容被人控制的。那么结果是什么？所有调用这个 jsonp 的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用 jsonp 的时候必须要保证使用的 jsonp 服务必须是安全可信的
 
 [参与互动](https://github.com/yisainan/web-interview/issues/207)
 
@@ -2400,9 +2420,9 @@ function addEvent(ele, eventName, fun) {
 
 参考答案：
 
-main. ts 报错（ Cannot find module '. /App. vue'. ）
+main.ts 报错（ Cannot find module './App.vue'. ）
 
-原因： typescript 不能识别. vue 文件
+原因： typescript 不能识别.vue 文件
 
 解决办法： 引入 vue 的 typescript declare 库
 
@@ -2685,7 +2705,7 @@ $("#cbFinish").on("tap", function(event) {
 
 1\. 300 毫秒
 2\. 因为浏览器捕获第一次单击后，会先等待一段时间，如果在这段时间区间里用户未进行下一次点击，则浏览器会做单击事件的处理。如果这段时间里用户进行了第二次单击操作，则浏览器会做双击事件处理。
-3\. 推荐 fastclick\. js
+3\. 推荐 fastclick\.js
 
 [参与互动](https://github.com/yisainan/web-interview/issues/220)
 
@@ -2704,7 +2724,7 @@ $("#cbFinish").on("tap", function(event) {
 
 </details>
 
-<b><details><summary>53. Node. js 的适用场景？</summary></b>
+<b><details><summary>53. Node.js 的适用场景？</summary></b>
 
 参考答案：比如：RESTFUL API、实时聊天、客户端逻辑强大的单页 APP，具体的例子比如说：本地化的在线音乐应用，本地化的在线搜索应用，本地化的在线 APP 等。
 
@@ -4650,7 +4670,7 @@ console. log(arr. sort(() => 0. 5 - Math. random()))
 
 </details>
 
-<b><details><summary>117. 你用过 require. js 吗？它有什么特性？</summary></b>
+<b><details><summary>117. 你用过 require.js吗？它有什么特性？</summary></b>
 
 参考答案：
 
@@ -5552,11 +5572,11 @@ var t2 = new Date().getTime()
 console.log('first time', t2 - t1)
 ```
 
-|   变量   |   实例化(次数)   |   初始化(次数)   |   比较(次数)   |   自增(次数)   |
-| -------- | --------------- | --------------- | ------------- | ------------- |
-|    i     |        1        | 1            | 10               |    10    |
-|    j     |       10        | 10           | 10 * 100         |   10 * 100   |
-|    k     | 	  10 * 100     | 10 * 100     | 10 * 100 * 1000	 |  10 * 100 * 1000   |
+| 变量 | 实例化(次数) | 初始化(次数) | 比较(次数)      | 自增(次数)      |
+| ---- | ------------ | ------------ | --------------- | --------------- |
+| i    | 1            | 1            | 10              | 10              |
+| j    | 10           | 10           | 10 * 100        | 10 * 100        |
+| k    | 10 * 100     | 10 * 100     | 10 * 100 * 1000 | 10 * 100 * 1000 |
 
 ```js
 for (let i = 0; i < 10000; i++) {
@@ -5570,11 +5590,11 @@ var t3 = new Date().getTime()
 console.log('two time', t3 - t2)
 ```
 
-|   变量   |   实例化(次数)   |   初始化(次数)   |   比较(次数)   |   自增(次数)   |
-| -------- | --------------- | --------------- | ------------- | ------------- |
-|    i     |        1        | 1            | 1000               |    1000    |
-|    j     |       1000        | 1000           | 1000 * 100       |   1000 * 100   |
-|    k     | 	  1000 * 100     | 1000 * 100     | 1000 * 100 * 10		 |  1000 * 100 * 10	   |
+| 变量 | 实例化(次数) | 初始化(次数) | 比较(次数)      | 自增(次数)      |
+| ---- | ------------ | ------------ | --------------- | --------------- |
+| i    | 1            | 1            | 1000            | 1000            |
+| j    | 1000         | 1000         | 1000 * 100      | 1000 * 100      |
+| k    | 1000 * 100   | 1000 * 100   | 1000 * 100 * 10 | 1000 * 100 * 10 |
 
 解析：[參考](https://blog.csdn.net/weixin_42182143/article/details/98682537)
 
@@ -6219,7 +6239,7 @@ new Date(year, month, date, hrs, min, sec)，new Date 可以接受这些参数�
 
 参考答案：
 
-``` js
+```js
 new Date(2019, 12, 0).getDate(); // 31
 new Date(2018, 2, 0).getDate(); // 28
 // 根据这个我们可以得到一个方法
@@ -6238,7 +6258,7 @@ function getMonthLength(month) {
 
 参考答案：
 
-``` js
+```js
 (() => 1).length === 0; // 输出true
 ```
 
@@ -6293,39 +6313,40 @@ console.log(arr.length); // 2
 
 ```js
 function findMostWord(article) {
-  // 合法性判断
-  if (!article) return;
+    // 合法性判断
+    if (!article) return;
 
-  // 参数处理
-  article = article.trim().toLowerCase();
+    // 参数处理
+    article = article.trim().toLowerCase();
 
-  let wordList = article.match(/[a-z]+/g),
-    visited = [],
-    maxNum = 0,
-    maxWord = "";
+    let wordList = article.match(/[a-z]+/g),
+        visited = [],
+        maxNum = 0,
+        maxWord = "";
 
-  article = " " + wordList.join("  ") + " ";
+    article = " " + wordList.join("  ") + " ";
 
-  // 遍历判断单词出现次数
-  wordList.forEach(function(item) {
-    if (visited.indexOf(item) < 0) {
+    // 遍历判断单词出现次数
+    wordList.forEach(function(item) {
+        if (visited.indexOf(item) < 0) {
 
-      // 加入 visited 
-      visited.push(item);
+            // 加入 visited 
+            visited.push(item);
 
-      let word = new RegExp(" " + item + " ", "g"),
-        num = article.match(word).length;
+            let word = new RegExp(" " + item + " ", "g"),
+                num = article.match(word).length;
 
-      if (num > maxNum) {
-        maxNum = num;
-        maxWord = item;
-      }
-    }
-  });
+            if (num > maxNum) {
+                maxNum = num;
+                maxWord = item;
+            }
+        }
+    });
 
-  return maxWord + "  " + maxNum;
+    return maxWord + "  " + maxNum;
 }
 ```
+
 </details>
 
 <b><details><summary>201. 介绍 js 的基本数据类型。</summary></b>
@@ -6346,8 +6367,8 @@ BigInt 是一种数字类型的数据，它可以表示任意精度格式的整�
 
 涉及知识点：
 
-- 栈：原始数据类型（Undefined、Null、Boolean、Number、String）
-- 堆：引用数据类型（对象、数组和函数）
+* 栈：原始数据类型（Undefined、Null、Boolean、Number、String）
+* 堆：引用数据类型（对象、数组和函数）
 
 ```
 两种类型的区别是：存储位置不同。
@@ -6613,9 +6634,9 @@ JavaScript 对象是通过引用来传递的，我们创建的每个新对象实
 
 参考答案：
 
-- p.\_\_proto\_\_
-- p.constructor.prototype
-- Object.getPrototypeOf(p)
+* p.\_\_proto\_\_
+* p.constructor.prototype
+* Object.getPrototypeOf(p)
 
 </details>
 
@@ -6623,11 +6644,11 @@ JavaScript 对象是通过引用来传递的，我们创建的每个新对象实
 
 参考答案：
 
-- 以 0X、0x 开头的表示为十六进制。
+* 以 0X、0x 开头的表示为十六进制。
 
-- 以 0、0O、0o 开头的表示为八进制。
+* 以 0、0O、0o 开头的表示为八进制。
 
-- 以 0B、0b 开头的表示为二进制格式。
+* 以 0B、0b 开头的表示为二进制格式。
 
 </details>
 
@@ -6907,22 +6928,22 @@ Symbol 值不能够被强制类型转换为数字（显式和隐式都会产生�
 
 </details>
 
-<b><details><summary>230. 如何将浮点数点左边的数每三位添加一个逗号，如 12000000.11 转化为『12,000,000.11』?</summary></b>
+<b><details><summary>230. 如何将浮点数点左边的数每三位添加一个逗号，如 12000000.11 转化为『12, 000, 000.11』?</summary></b>
 
 参考答案：
 
 ```js
 // 方法一
 function format(number) {
-  return number && number.replace(/(?!^)(?=(\d{3})+\.)/g, ",");
+    return number && number.replace(/(?!^)(?=(\d{3})+\.)/g, ",");
 }
 // 方法二
 function format1(number) {
-  return Intl.NumberFormat().format(number)
+    return Intl.NumberFormat().format(number)
 }
 // 方法三
 function format2(number) {
-  return number.toLocaleString('en')
+    return number.toLocaleString('en')
 }
 ```
 
@@ -6971,7 +6992,7 @@ var regex = /^[a-zA-Z\$][a-zA-Z0-9_\$]{4,16}$/;
 // （1）使用数组 sort 方法对数组元素随机排序，让 Math.random() 出来的数与 0.5 比较，如果大于就返回 1 交换位置，如果小于就返回 -1，不交换位置。
 
 function randomSort(a, b) {
-  return Math.random() > 0.5 ? -1 : 1;
+    return Math.random() > 0.5 ? -1 : 1;
 }
 
 //  缺点：每个元素被派到新数组的位置不是随机的，原因是 sort() 方法是依次比较的。
@@ -6979,49 +7000,49 @@ function randomSort(a, b) {
 // （2）随机从原数组抽取一个元素，加入到新数组
 
 function randomSort(arr) {
-  var result = [];
+    var result = [];
 
-  while (arr.length > 0) {
-    var randomIndex = Math.floor(Math.random() * arr.length);
-    result.push(arr[randomIndex]);
-    arr.splice(randomIndex, 1);
-  }
+    while (arr.length > 0) {
+        var randomIndex = Math.floor(Math.random() * arr.length);
+        result.push(arr[randomIndex]);
+        arr.splice(randomIndex, 1);
+    }
 
-  return result;
+    return result;
 }
 
 // （3）随机交换数组内的元素（洗牌算法类似）
 
 function randomSort(arr) {
-  var index,
-    randomIndex,
-    temp,
-    len = arr.length;
+    var index,
+        randomIndex,
+        temp,
+        len = arr.length;
 
-  for (index = 0; index < len; index++) {
-    randomIndex = Math.floor(Math.random() * (len - index)) + index;
+    for (index = 0; index < len; index++) {
+        randomIndex = Math.floor(Math.random() * (len - index)) + index;
 
-    temp = arr[index];
-    arr[index] = arr[randomIndex];
-    arr[randomIndex] = temp;
-  }
+        temp = arr[index];
+        arr[index] = arr[randomIndex];
+        arr[randomIndex] = temp;
+    }
 
-  return arr;
+    return arr;
 }
 
 // es6
 function randomSort(array) {
-  let length = array.length;
+    let length = array.length;
 
-  if (!Array.isArray(array) || length <= 1) return;
+    if (!Array.isArray(array) || length <= 1) return;
 
-  for (let index = 0; index < length - 1; index++) {
-    let randomIndex = Math.floor(Math.random() * (length - index)) + index;
+    for (let index = 0; index < length - 1; index++) {
+        let randomIndex = Math.floor(Math.random() * (length - index)) + index;
 
-    [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
-  }
+        [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
+    }
 
-  return array;
+    return array;
 }
 ```
 
@@ -7092,23 +7113,23 @@ function randomSort(array) {
 
 ```js
 function Person(name) {
-  this.name = name;
+    this.name = name;
 }
 
 Person.prototype.sayName = function() {
-  console.log("My name is " + this.name + ".");
+    console.log("My name is " + this.name + ".");
 };
 
 function Student(name, grade) {
-  Person.call(this, name);
-  this.grade = grade;
+    Person.call(this, name);
+    this.grade = grade;
 }
 
 Student.prototype = Object.create(Person.prototype);
 Student.prototype.constructor = Student;
 
 Student.prototype.sayMyGrade = function() {
-  console.log("My grade is " + this.grade + ".");
+    console.log("My grade is " + this.grade + ".");
 };
 ```
 
@@ -7144,13 +7165,13 @@ this 是执行上下文中的一个属性，它指向最后一次调用这个方
 式来判断。
 ```
 
-- 1.第一种是函数调用模式，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。
+* 1. 第一种是函数调用模式，当一个函数不是一个对象的属性时，直接作为函数来调用时，this 指向全局对象。
 
-- 2.第二种是方法调用模式，如果一个函数作为一个对象的方法来调用时，this 指向这个对象。
+* 2. 第二种是方法调用模式，如果一个函数作为一个对象的方法来调用时，this 指向这个对象。
 
-- 3.第三种是构造器调用模式，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。
+* 3. 第三种是构造器调用模式，如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象。
 
-- 4.第四种是 apply 、 call 和 bind 调用模式，这三个方法都可以显示的指定调用函数的 this 指向。其中 apply 方法接收两个参数：一个是 this 绑定的对象，一个是参数数组。call 方法接收的参数，第一个是 this 绑定的对象，后面的其余参数是传入函数执行的参数。也就是说，在使用 call() 方法时，传递给函数的参数必须逐个列举出来。bind 方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this 指向除了使用 new 时会被改变，其他情况下都不会改变。
+* 4. 第四种是 apply 、 call 和 bind 调用模式，这三个方法都可以显示的指定调用函数的 this 指向。其中 apply 方法接收两个参数：一个是 this 绑定的对象，一个是参数数组。call 方法接收的参数，第一个是 this 绑定的对象，后面的其余参数是传入函数执行的参数。也就是说，在使用 call() 方法时，传递给函数的参数必须逐个列举出来。bind 方法通过传入一个对象，返回一个 this 绑定了传入对象的新函数。这个函数的 this 指向除了使用 new 时会被改变，其他情况下都不会改变。
 
 ```
 这四种方式，使用构造器调用模式的优先级最高，然后是 apply 、 call 和 bind 调用模式，然后是方法调用模式，然后
@@ -7204,56 +7225,56 @@ on 对象、navigator 对象、screen 对象等子对象，并且 DOM 的最根�
 
 ```js
 const EventUtils = {
-  // 视能力分别使用dom0||dom2||IE方式 来绑定事件
-  // 添加事件
-  addEvent: function(element, type, handler) {
-    if (element.addEventListener) {
-      element.addEventListener(type, handler, false);
-    } else if (element.attachEvent) {
-      element.attachEvent("on" + type, handler);
-    } else {
-      element["on" + type] = handler;
+    // 视能力分别使用dom0||dom2||IE方式 来绑定事件
+    // 添加事件
+    addEvent: function(element, type, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+
+    // 移除事件
+    removeEvent: function(element, type, handler) {
+        if (element.removeEventListener) {
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent) {
+            element.detachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = null;
+        }
+    },
+
+    // 获取事件目标
+    getTarget: function(event) {
+        return event.target || event.srcElement;
+    },
+
+    // 获取 event 对象的引用，取到事件的所有信息，确保随时能使用 event
+    getEvent: function(event) {
+        return event || window.event;
+    },
+
+    // 阻止事件（主要是事件冒泡，因为 IE 不支持事件捕获）
+    stopPropagation: function(event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+
+    // 取消事件的默认行为
+    preventDefault: function(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
     }
-  },
-
-  // 移除事件
-  removeEvent: function(element, type, handler) {
-    if (element.removeEventListener) {
-      element.removeEventListener(type, handler, false);
-    } else if (element.detachEvent) {
-      element.detachEvent("on" + type, handler);
-    } else {
-      element["on" + type] = null;
-    }
-  },
-
-  // 获取事件目标
-  getTarget: function(event) {
-    return event.target || event.srcElement;
-  },
-
-  // 获取 event 对象的引用，取到事件的所有信息，确保随时能使用 event
-  getEvent: function(event) {
-    return event || window.event;
-  },
-
-  // 阻止事件（主要是事件冒泡，因为 IE 不支持事件捕获）
-  stopPropagation: function(event) {
-    if (event.stopPropagation) {
-      event.stopPropagation();
-    } else {
-      event.cancelBubble = true;
-    }
-  },
-
-  // 取消事件的默认行为
-  preventDefault: function(event) {
-    if (event.preventDefault) {
-      event.preventDefault();
-    } else {
-      event.returnValue = false;
-    }
-  }
 };
 ```
 
@@ -7266,11 +7287,11 @@ const EventUtils = {
 
 参考答案：
 
-- 1.事件是用户操作网页时发生的交互动作，比如 click/move， 事件除了用户触发的动作外，还可以是文档加载，窗口滚动和大小调整。事件被封装成一个 event 对象，包含了该事件发生时的所有相关信息（ event 的属性）以及可以对事件进行的操作（ event 的方法）。
+* 1. 事件是用户操作网页时发生的交互动作，比如 click/move， 事件除了用户触发的动作外，还可以是文档加载，窗口滚动和大小调整。事件被封装成一个 event 对象，包含了该事件发生时的所有相关信息（ event 的属性）以及可以对事件进行的操作（ event 的方法）。
 
-- 2.事件处理机制：IE 支持事件冒泡、Firefox 同时支持两种事件模型，也就是：事件冒泡和事件捕获。
+* 2. 事件处理机制：IE 支持事件冒泡、Firefox 同时支持两种事件模型，也就是：事件冒泡和事件捕获。
 
-- 3.event.stopPropagation() 或者 ie 下的方法 event.cancelBubble = true;
+* 3.event.stopPropagation() 或者 ie 下的方法 event.cancelBubble = true; 
 
 详细资料可以参考：
 [《Javascript 事件模型系列（一）事件及事件的三种模型》](https://www.cnblogs.com/lvdabao/p/3265870.html)
@@ -7321,14 +7342,13 @@ const EventUtils = {
 ```
 parseInt() 函数能解析一个字符串，并返回一个整数，需要两个参数 (val, radix)，其中 radix 表示要解析的数字的基数。（该值介于 2 ~ 36 之间，并且字符串中的数字不能大于 radix 才能正确返回数字结果值）。
 
-
 此处 map 传了 3 个参数 (element, index, array)，默认第三个参数被忽略掉，因此三次传入的参数分别为 "1-0", "2-1", "3-2"
 
 因为字符串的值不能大于基数，因此后面两次调用均失败，返回 NaN ，第一次基数为 0 ，按十进制解析返回 1。
 ```
 
 详细资料可以参考：
-[《为什么 ["1", "2", "3"].map(parseInt) 返回 [1,NaN,NaN]？》](https://blog.csdn.net/justjavac/article/details/19473199)
+[《为什么 ["1", "2", "3"].map(parseInt) 返回 [1, NaN, NaN]？》](https://blog.csdn.net/justjavac/article/details/19473199)
 
 </details>
 
@@ -7368,16 +7388,16 @@ use strict 是一种 ECMAscript5 添加的（严格）运行模式，这种模�
 设立"严格模式"的目的，主要有以下几个：
 ```
 
-- 消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为;
-- 消除代码运行的一些不安全之处，保证代码运行的安全；
-- 提高编译器效率，增加运行速度；
-- 为未来新版本的 Javascript 做好铺垫。
+* 消除 Javascript 语法的一些不合理、不严谨之处，减少一些怪异行为; 
+* 消除代码运行的一些不安全之处，保证代码运行的安全；
+* 提高编译器效率，增加运行速度；
+* 为未来新版本的 Javascript 做好铺垫。
 
 区别：
 
-- 1.禁止使用 with 语句。
-- 2.禁止 this 关键字指向全局对象。
-- 3.对象不能有重名的属性。
+* 1. 禁止使用 with 语句。
+* 2. 禁止 this 关键字指向全局对象。
+* 3. 对象不能有重名的属性。
 
 回答：
 
@@ -7420,16 +7440,16 @@ use strict 指的是严格运行模式，在这种模式对 js 的使用添加�
 // 实现：
 
 function myInstanceof(left, right) {
-  let proto = Object.getPrototypeOf(left), // 获取对象的原型
-    prototype = right.prototype; // 获取构造函数的 prototype 对象
+    let proto = Object.getPrototypeOf(left), // 获取对象的原型
+        prototype = right.prototype; // 获取构造函数的 prototype 对象
 
-  // 判断构造函数的 prototype 对象是否在对象的原型链上
-  while (true) {
-    if (!proto) return false;
-    if (proto === prototype) return true;
+    // 判断构造函数的 prototype 对象是否在对象的原型链上
+    while (true) {
+        if (!proto) return false;
+        if (proto === prototype) return true;
 
-    proto = Object.getPrototypeOf(proto);
-  }
+        proto = Object.getPrototypeOf(proto);
+    }
 }
 ```
 
@@ -7451,28 +7471,28 @@ function myInstanceof(left, right) {
 // 实现:
 
 function objectFactory() {
-  let newObject = null,
-    constructor = Array.prototype.shift.call(arguments),
-    result = null;
+    let newObject = null,
+        constructor = Array.prototype.shift.call(arguments),
+        result = null;
 
-  // 参数判断
-  if (typeof constructor !== "function") {
-    console.error("type error");
-    return;
-  }
+    // 参数判断
+    if (typeof constructor !== "function") {
+        console.error("type error");
+        return;
+    }
 
-  // 新建一个空对象，对象的原型为构造函数的 prototype 对象
-  newObject = Object.create(constructor.prototype);
+    // 新建一个空对象，对象的原型为构造函数的 prototype 对象
+    newObject = Object.create(constructor.prototype);
 
-  // 将 this 指向新建对象，并执行函数
-  result = constructor.apply(newObject, arguments);
+    // 将 this 指向新建对象，并执行函数
+    result = constructor.apply(newObject, arguments);
 
-  // 判断返回对象
-  let flag =
-    result && (typeof result === "object" || typeof result === "function");
+    // 判断返回对象
+    let flag =
+        result && (typeof result === "object" || typeof result === "function");
 
-  // 判断返回结果
-  return flag ? result : newObject;
+    // 判断返回结果
+    return flag ? result : newObject;
 }
 
 // 使用方法
@@ -7535,7 +7555,7 @@ JSON 是一种基于文本的轻量级的数据交换格式。它可以被任何
 
 </details>
 
-<b><details><summary>253. `[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~</summary></b>
+<b><details><summary>253. `[].forEach.call($$("*"), function(a){a.style.outline="1px solid #"+(~~</summary></b>
 
 参考答案：(Math.random()*(1<<24))).toString(16)})` 能解释一下这段代码的意思吗？
 
@@ -7566,11 +7586,11 @@ js 延迟加载，也就是等页面加载完成之后再加载 JavaScript 文�
 
 一般有以下几种方式：
 
-- defer 属性
-- async 属性
-- 动态创建 DOM 方式
-- 使用 setTimeout 延迟方法
-- 让 JS 最后加载
+* defer 属性
+* async 属性
+* 动态创建 DOM 方式
+* 使用 setTimeout 延迟方法
+* 让 JS 最后加载
 
 回答：
 
@@ -7590,7 +7610,7 @@ js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希�
 
 详细资料可以参考：
 [《JS 延迟加载的几种方式》](https://blog.csdn.net/meijory/article/details/76389762)
-[《HTML 5 `<script>` `async` 属性》](http://www.w3school.com.cn/html5/att_script_async.asp)
+[《HTML 5 `<script>`  `async` 属性》](http://www.w3school.com.cn/html5/att_script_async.asp)
 
 </details>
 
@@ -7605,12 +7625,12 @@ js 的加载、解析和执行会阻塞页面的渲染过程，因此我们希�
 
 具体来说，AJAX 包括以下几个步骤。
 
-- 1.创建 XMLHttpRequest 对象，也就是创建一个异步调用对象
-- 2.创建一个新的 HTTP 请求，并指定该 HTTP 请求的方法、URL 及验证信息
-- 3.设置响应 HTTP 请求状态变化的函数
-- 4.发送 HTTP 请求
-- 5.获取异步调用返回的数据
-- 6.使用 JavaScript 和 DOM 实现局部刷新
+* 1. 创建 XMLHttpRequest 对象，也就是创建一个异步调用对象
+* 2. 创建一个新的 HTTP 请求，并指定该 HTTP 请求的方法、URL 及验证信息
+* 3. 设置响应 HTTP 请求状态变化的函数
+* 4. 发送 HTTP 请求
+* 5. 获取异步调用返回的数据
+* 6. 使用 JavaScript 和 DOM 实现局部刷新
 
 一般实现：
 
@@ -7624,19 +7644,19 @@ xhr.open("GET", SERVER_URL, true);
 
 // 设置状态监听函数
 xhr.onreadystatechange = function() {
-  if (this.readyState !== 4) return;
+    if (this.readyState !== 4) return;
 
-  // 当请求成功时
-  if (this.status === 200) {
-    handle(this.response);
-  } else {
-    console.error(this.statusText);
-  }
+    // 当请求成功时
+    if (this.status === 200) {
+        handle(this.response);
+    } else {
+        console.error(this.statusText);
+    }
 };
 
 // 设置请求失败时的监听函数
 xhr.onerror = function() {
-  console.error(this.statusText);
+    console.error(this.statusText);
 };
 
 // 设置请求头信息
@@ -7649,41 +7669,41 @@ xhr.send(null);
 // promise 封装实现：
 
 function getJSON(url) {
-  // 创建一个 promise 对象
-  let promise = new Promise(function(resolve, reject) {
-    let xhr = new XMLHttpRequest();
+    // 创建一个 promise 对象
+    let promise = new Promise(function(resolve, reject) {
+        let xhr = new XMLHttpRequest();
 
-    // 新建一个 http 请求
-    xhr.open("GET", url, true);
+        // 新建一个 http 请求
+        xhr.open("GET", url, true);
 
-    // 设置状态的监听函数
-    xhr.onreadystatechange = function() {
-      if (this.readyState !== 4) return;
+        // 设置状态的监听函数
+        xhr.onreadystatechange = function() {
+            if (this.readyState !== 4) return;
 
-      // 当请求成功或失败时，改变 promise 的状态
-      if (this.status === 200) {
-        resolve(this.response);
-      } else {
-        reject(new Error(this.statusText));
-      }
-    };
+            // 当请求成功或失败时，改变 promise 的状态
+            if (this.status === 200) {
+                resolve(this.response);
+            } else {
+                reject(new Error(this.statusText));
+            }
+        };
 
-    // 设置错误监听函数
-    xhr.onerror = function() {
-      reject(new Error(this.statusText));
-    };
+        // 设置错误监听函数
+        xhr.onerror = function() {
+            reject(new Error(this.statusText));
+        };
 
-    // 设置响应的数据类型
-    xhr.responseType = "json";
+        // 设置响应的数据类型
+        xhr.responseType = "json";
 
-    // 设置请求头信息
-    xhr.setRequestHeader("Accept", "application/json");
+        // 设置请求头信息
+        xhr.setRequestHeader("Accept", "application/json");
 
-    // 发送 http 请求
-    xhr.send(null);
-  });
+        // 发送 http 请求
+        xhr.send(null);
+    });
 
-  return promise;
+    return promise;
 }
 ```
 
@@ -7757,15 +7777,15 @@ o-store ，用来指定资源不能够被缓存，no-cache 代表该资源能够
 
 参考答案：
 
-- 1.在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since","0")。
+* 1. 在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since", "0")。
 
-- 2.在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("Cache-Control","no-cache")。
+* 2. 在 ajax 发送请求前加上 anyAjaxObj.setRequestHeader("Cache-Control", "no-cache")。
 
-- 3.在 URL 后面加上一个随机数： "fresh=" + Math.random();。
+* 3. 在 URL 后面加上一个随机数： "fresh=" + Math.random(); 。
 
-- 4.在 URL 后面加上时间戳："nowtime=" + new Date().getTime();。
+* 4. 在 URL 后面加上时间戳："nowtime=" + new Date().getTime(); 。
 
-- 5.如果是使用 jQuery，直接这样就可以了\$.ajaxSetup({cache:false})。这样页面的所有 ajax 都会执行这条语句就是不需要保存缓存记录。
+* 5. 如果是使用 jQuery，直接这样就可以了\$.ajaxSetup({cache:false})。这样页面的所有 ajax 都会执行这条语句就是不需要保存缓存记录。
 
 详细资料可以参考：
 [《Ajax 中浏览器的缓存问题解决方法》](https://www.cnblogs.com/cwzqianduan/p/8632009.html)
@@ -7828,15 +7848,15 @@ script 脚本请求都不会有跨域的限制，这是因为这些操作都不�
 
 相关知识点：
 
-- 1. 通过 jsonp 跨域
-- 2. document.domain + iframe 跨域
-- 3. location.hash + iframe
-- 4. window.name + iframe 跨域
-- 5. postMessage 跨域
-- 6. 跨域资源共享（CORS)
-- 7. nginx 代理跨域
-- 8. nodejs 中间件代理跨域
-- 9. WebSocket 协议跨域
+* 1. 通过 jsonp 跨域
+* 2. document.domain + iframe 跨域
+* 3. location.hash + iframe
+* 4. window.name + iframe 跨域
+* 5. postMessage 跨域
+* 6. 跨域资源共享（CORS)
+* 7. nginx 代理跨域
+* 8. nodejs 中间件代理跨域
+* 9. WebSocket 协议跨域
 
 回答：
 
@@ -7967,21 +7987,21 @@ js 中现在比较成熟的有四种模块加载方案。
 ```js
 // CMD
 define(function(require, exports, module) {
-  var a = require("./a");
-  a.doSomething();
-  // 此处略去 100 行
-  var b = require("./b"); // 依赖可以就近书写
-  b.doSomething();
-  // ...
+    var a = require("./a");
+    a.doSomething();
+    // 此处略去 100 行
+    var b = require("./b"); // 依赖可以就近书写
+    b.doSomething();
+    // ...
 });
 
 // AMD 默认推荐
 define(["./a", "./b"], function(a, b) {
-  // 依赖必须一开始就写好
-  a.doSomething();
-  // 此处略去 100 行
-  b.doSomething();
-  // ...
+    // 依赖必须一开始就写好
+    a.doSomething();
+    // 此处略去 100 行
+    b.doSomething();
+    // ...
 });
 ```
 
@@ -7994,9 +8014,9 @@ define(["./a", "./b"], function(a, b) {
 
 参考答案：
 
-- 1.CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。
+* 1. CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。CommonJS 模块输出的是值的拷贝，也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。
 
-- 2.CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。CommonJS 模块就是对象，即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
+* 2. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。CommonJS 模块就是对象，即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
 
 </details>
 
@@ -8073,8 +8093,8 @@ createTextNode(text);
 ```js
 appendChild(node)
 removeChild(node)
-replaceChild(new,old)
-insertBefore(new,old)
+replaceChild(new, old)
+insertBefore(new, old)
 ```
 
 （3）查找
@@ -8219,7 +8239,7 @@ fill 方法接受三个参数 value，start 以及 end，start 和 end 参数是
 
 </details>
 
-<b><details><summary>277. [,,,] 的长度？</summary></b>
+<b><details><summary>277. [, , , ] 的长度？</summary></b>
 
 参考答案：
 
@@ -8257,10 +8277,10 @@ cript 2017），又将其添加到函数参数中。但是 JSON 不支持尾后�
 
 参考答案：
 
-- 1.使用位运算代替一些简单的四则运算。
-- 2.避免使用过深的嵌套循环。
-- 3.不要使用未定义的变量。
-- 4.当需要多次访问数组长度时，可以用变量保存起来，避免每次都会去进行属性查找。
+* 1. 使用位运算代替一些简单的四则运算。
+* 2. 避免使用过深的嵌套循环。
+* 3. 不要使用未定义的变量。
+* 4. 当需要多次访问数组长度时，可以用变量保存起来，避免每次都会去进行属性查找。
 
 详细资料可以参考：
 [《如何编写高性能的 Javascript？》](https://zhuanlan.zhihu.com/p/34780474)
@@ -8307,10 +8327,10 @@ v8 的垃圾回收机制基于分代回收机制，这个机制又基于世代�
 
 相关知识点：
 
-- 1.意外的全局变量
-- 2.被遗忘的计时器或回调函数
-- 3.脱离 DOM 的引用
-- 4.闭包
+* 1. 意外的全局变量
+* 2. 被遗忘的计时器或回调函数
+* 3. 脱离 DOM 的引用
+* 4. 闭包
 
 回答：
 
@@ -8385,9 +8405,9 @@ typeof window === 'undefined' ? 'node' : 'browser';
 
 有三种办法来解决这个问题：
 
-- 1.通过 meta 标签禁用网页的缩放。
-- 2.通过 meta 标签将网页的 viewport 设置为 ideal viewport。
-- 3.调用一些 js 库，比如 FastClick
+* 1. 通过 meta 标签禁用网页的缩放。
+* 2. 通过 meta 标签将网页的 viewport 设置为 ideal viewport。
+* 3. 调用一些 js 库，比如 FastClick
 
 ```
 click 延时问题还可能引起点击穿透的问题，就是如果我们在一个元素上注册了 touchStart 的监听事件，这个事件会将这个元素隐藏掉，我们发现当这个元素隐藏后，触发了这个元素下的一个元素的点击事件，这就是点击穿透。
@@ -8482,7 +8502,7 @@ Polyfill 指的是用于实现浏览器并不支持的原生 API 的代码。
 
 // String.prototype.slice() 从上面计算的索引处提取文件的扩展名。如果索引比文件名的长度大，结果为""。
 function getFileExtension(filename) {
-  return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
+    return filename.slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2);
 }
 ```
 
@@ -8504,40 +8524,40 @@ function getFileExtension(filename) {
 
 // 函数防抖的实现
 function debounce(fn, wait) {
-  var timer = null;
+    var timer = null;
 
-  return function() {
-    var context = this,
-      args = arguments;
+    return function() {
+        var context = this,
+            args = arguments;
 
-    // 如果此时存在定时器的话，则取消之前的定时器重新记时
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
+        // 如果此时存在定时器的话，则取消之前的定时器重新记时
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
 
-    // 设置定时器，使事件间隔指定事件后执行
-    timer = setTimeout(() => {
-      fn.apply(context, args);
-    }, wait);
-  };
+        // 设置定时器，使事件间隔指定事件后执行
+        timer = setTimeout(() => {
+            fn.apply(context, args);
+        }, wait);
+    };
 }
 
 // 函数节流的实现;
 function throttle(fn, delay) {
-  var preTime = Date.now();
+    var preTime = Date.now();
 
-  return function() {
-    var context = this,
-      args = arguments,
-      nowTime = Date.now();
+    return function() {
+        var context = this,
+            args = arguments,
+            nowTime = Date.now();
 
-    // 如果两次时间间隔超过了指定时间，则执行函数。
-    if (nowTime - preTime >= delay) {
-      preTime = Date.now();
-      return fn.apply(context, args);
-    }
-  };
+        // 如果两次时间间隔超过了指定时间，则执行函数。
+        if (nowTime - preTime >= delay) {
+            preTime = Date.now();
+            return fn.apply(context, args);
+        }
+    };
 }
 ```
 
@@ -8583,7 +8603,7 @@ Object.is 应被认为有其特殊的用途，而不能用它认为它比其它�
 
 </details>
 
-<b><details><summary>293. escape,encodeURI,encodeURIComponent 有什么区别？</summary></b>
+<b><details><summary>293. escape, encodeURI, encodeURIComponent 有什么区别？</summary></b>
 
 参考答案：
 
@@ -8605,7 +8625,7 @@ escape 和 encodeURI 的作用相同，不过它们对于 unicode 编码为 0xff
 ```
 
 详细资料可以参考：
-[《escape,encodeURI,encodeURIComponent 有什么区别?》](https://www.zhihu.com/question/21861899)
+[《escape, encodeURI, encodeURIComponent 有什么区别?》](https://www.zhihu.com/question/21861899)
 
 </details>
 
@@ -8664,36 +8684,36 @@ UTF-8 是一种对 Unicode 的编码方式，它是一种变长的编码方式�
 // 浅拷贝的实现;
 
 function shallowCopy(object) {
-  // 只拷贝对象
-  if (!object || typeof object !== "object") return;
+    // 只拷贝对象
+    if (!object || typeof object !== "object") return;
 
-  // 根据 object 的类型判断是新建一个数组还是对象
-  let newObject = Array.isArray(object) ? [] : {};
+    // 根据 object 的类型判断是新建一个数组还是对象
+    let newObject = Array.isArray(object) ? [] : {};
 
-  // 遍历 object，并且判断是 object 的属性才拷贝
-  for (let key in object) {
-    if (object.hasOwnProperty(key)) {
-      newObject[key] = object[key];
+    // 遍历 object，并且判断是 object 的属性才拷贝
+    for (let key in object) {
+        if (object.hasOwnProperty(key)) {
+            newObject[key] = object[key];
+        }
     }
-  }
 
-  return newObject;
+    return newObject;
 }
 
 // 深拷贝的实现;
 
 function deepCopy(object) {
-  if (!object || typeof object !== "object") return object;
+    if (!object || typeof object !== "object") return object;
 
-  let newObject = Array.isArray(object) ? [] : {};
+    let newObject = Array.isArray(object) ? [] : {};
 
-  for (let key in object) {
-    if (object.hasOwnProperty(key)) {
-      newObject[key] = deepCopy(object[key]);
+    for (let key in object) {
+        if (object.hasOwnProperty(key)) {
+            newObject[key] = deepCopy(object[key]);
+        }
     }
-  }
 
-  return newObject;
+    return newObject;
 }
 ```
 
@@ -8720,77 +8740,77 @@ function deepCopy(object) {
 ```js
 // call函数实现
 Function.prototype.myCall = function(context) {
-  // 判断调用对象
-  if (typeof this !== "function") {
-    console.error("type error");
-  }
+    // 判断调用对象
+    if (typeof this !== "function") {
+        console.error("type error");
+    }
 
-  // 获取参数
-  let args = [...arguments].slice(1),
-    result = null;
+    // 获取参数
+    let args = [...arguments].slice(1),
+        result = null;
 
-  // 判断 context 是否传入，如果未传入则设置为 window
-  context = context || window;
+    // 判断 context 是否传入，如果未传入则设置为 window
+    context = context || window;
 
-  // 将调用函数设为对象的方法
-  context.fn = this;
+    // 将调用函数设为对象的方法
+    context.fn = this;
 
-  // 调用函数
-  result = context.fn(...args);
+    // 调用函数
+    result = context.fn(...args);
 
-  // 将属性删除
-  delete context.fn;
+    // 将属性删除
+    delete context.fn;
 
-  return result;
+    return result;
 };
 
 // apply 函数实现
 
 Function.prototype.myApply = function(context) {
-  // 判断调用对象是否为函数
-  if (typeof this !== "function") {
-    throw new TypeError("Error");
-  }
+    // 判断调用对象是否为函数
+    if (typeof this !== "function") {
+        throw new TypeError("Error");
+    }
 
-  let result = null;
+    let result = null;
 
-  // 判断 context 是否存在，如果未传入则为 window
-  context = context || window;
+    // 判断 context 是否存在，如果未传入则为 window
+    context = context || window;
 
-  // 将函数设为对象的方法
-  context.fn = this;
+    // 将函数设为对象的方法
+    context.fn = this;
 
-  // 调用方法
-  if (arguments[1]) {
-    result = context.fn(...arguments[1]);
-  } else {
-    result = context.fn();
-  }
+    // 调用方法
+    if (arguments[1]) {
+        result = context.fn(...arguments[1]);
+    } else {
+        result = context.fn();
+    }
 
-  // 将属性删除
-  delete context.fn;
+    // 将属性删除
+    delete context.fn;
 
-  return result;
+    return result;
 };
 
 // bind 函数实现
 Function.prototype.myBind = function(context) {
-  // 判断调用对象是否为函数
-  if (typeof this !== "function") {
-    throw new TypeError("Error");
-  }
+    // 判断调用对象是否为函数
+    if (typeof this !== "function") {
+        throw new TypeError("Error");
+    }
 
-  // 获取参数
-  var args = [...arguments].slice(1),
-    fn = this;
+    // 获取参数
+    var args = [...arguments].slice(1),
+        fn = this;
 
-  return function Fn() {
-    // 根据调用方式，传入不同绑定值
-    return fn.apply(
-      this instanceof Fn ? this : context,
-      args.concat(...arguments)
-    );
-  };
+    return function Fn() {
+        // 根据调用方式，传入不同绑定值
+        return fn.apply(
+            this instanceof Fn ? this : context,
+            args.concat(...arguments)
+        );
+    };
 };
 ```
 
@@ -8798,30 +8818,30 @@ Function.prototype.myBind = function(context) {
 
 call 函数的实现步骤：
 
-- 1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
-- 2.判断传入上下文对象是否存在，如果不存在，则设置为 window 。
-- 3.处理传入的参数，截取第一个参数后的所有参数。
-- 4.将函数作为上下文对象的一个属性。
-- 5.使用上下文对象来调用这个方法，并保存返回结果。
-- 6.删除刚才新增的属性。
-- 7.返回结果。
+* 1. 判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
+* 2. 判断传入上下文对象是否存在，如果不存在，则设置为 window 。
+* 3. 处理传入的参数，截取第一个参数后的所有参数。
+* 4. 将函数作为上下文对象的一个属性。
+* 5. 使用上下文对象来调用这个方法，并保存返回结果。
+* 6. 删除刚才新增的属性。
+* 7. 返回结果。
 
 apply 函数的实现步骤：
 
-- 1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
-- 2.判断传入上下文对象是否存在，如果不存在，则设置为 window 。
-- 3.将函数作为上下文对象的一个属性。
-- 4.判断参数值是否传入
-- 4.使用上下文对象来调用这个方法，并保存返回结果。
-- 5.删除刚才新增的属性
-- 6.返回结果
+* 1. 判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
+* 2. 判断传入上下文对象是否存在，如果不存在，则设置为 window 。
+* 3. 将函数作为上下文对象的一个属性。
+* 4. 判断参数值是否传入
+* 4. 使用上下文对象来调用这个方法，并保存返回结果。
+* 5. 删除刚才新增的属性
+* 6. 返回结果
 
 bind 函数的实现步骤：
 
-- 1.判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
-- 2.保存当前函数的引用，获取其余传入参数值。
-- 3.创建一个函数返回
-- 4.函数内部使用 apply 来绑定函数调用，需要判断函数作为构造函数的情况，这个时候需要传入当前函数的 this 给 apply 调用，其余情况都传入指定的上下文对象。
+* 1. 判断调用对象是否为函数，即使我们是定义在函数的原型上的，但是可能出现使用 call 等方式调用的情况。
+* 2. 保存当前函数的引用，获取其余传入参数值。
+* 3. 创建一个函数返回
+* 4. 函数内部使用 apply 来绑定函数调用，需要判断函数作为构造函数的情况，这个时候需要传入当前函数的 this 给 apply 调用，其余情况都传入指定的上下文对象。
 
 详细资料可以参考：
 [《手写 call、apply 及 bind 函数》](https://juejin.im/book/5bdc715fe51d454e755f75ef/section/5bdd0d8e6fb9a04a044073fe)
@@ -8837,33 +8857,33 @@ bind 函数的实现步骤：
 // 函数柯里化指的是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术。
 
 function curry(fn, args) {
-  // 获取函数需要的参数长度
-  let length = fn.length;
+    // 获取函数需要的参数长度
+    let length = fn.length;
 
-  args = args || [];
+    args = args || [];
 
-  return function() {
-    let subArgs = args.slice(0);
+    return function() {
+        let subArgs = args.slice(0);
 
-    // 拼接得到现有的所有参数
-    for (let i = 0; i < arguments.length; i++) {
-      subArgs.push(arguments[i]);
-    }
+        // 拼接得到现有的所有参数
+        for (let i = 0; i < arguments.length; i++) {
+            subArgs.push(arguments[i]);
+        }
 
-    // 判断参数的长度是否已经满足函数所需参数的长度
-    if (subArgs.length >= length) {
-      // 如果满足，执行函数
-      return fn.apply(this, subArgs);
-    } else {
-      // 如果不满足，递归返回科里化的函数，等待参数的传入
-      return curry.call(this, fn, subArgs);
-    }
-  };
+        // 判断参数的长度是否已经满足函数所需参数的长度
+        if (subArgs.length >= length) {
+            // 如果满足，执行函数
+            return fn.apply(this, subArgs);
+        } else {
+            // 如果不满足，递归返回科里化的函数，等待参数的传入
+            return curry.call(this, fn, subArgs);
+        }
+    };
 }
 
 // es6 实现
 function curry(fn, ...args) {
-  return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
+    return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
 }
 ```
 
@@ -9133,7 +9153,7 @@ loader 可以理解为 webpack 的编译器，它使得 webpack 可以处理一�
 
 </details>
 
-<b><details><summary>311. offsetWidth/offsetHeight,clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？</summary></b>
+<b><details><summary>311. offsetWidth/offsetHeight, clientWidth/clientHeight 与 scrollWidth/scrollHeight 的区别？</summary></b>
 
 参考答案：
 
@@ -9156,7 +9176,6 @@ scrollLeft 属性返回的是元素滚动条到元素左边的距离。
 [《用 Javascript 获取页面元素的位置》](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
 
 </details>
-
 
 <b><details><summary>312. js 语句末尾分号是否可以省略？</summary></b>
 
@@ -9197,7 +9216,7 @@ Math.floor() === 向下取整，函数返回一个小于或等于给定数字的
 
 ```js
 for (var i = 0, j = 0; i < 5, j < 9; i++, j++) {
-  console.log(i, j);
+    console.log(i, j);
 }
 
 // 当判断语句含有多个语句时，以最后一个判断语句的值为准，因此上面的代码会执行 10 次。
@@ -9316,10 +9335,10 @@ JavaScript 的动画正好弥补了这两个缺点，控制能力很强，可以
 实际上 HTTP 协议从未规定 GET/POST 的请求长度限制是多少。对 get 请求参数的限制是来源与浏览器或web 服务器，浏览器或 web 服务器限制了 url 的长度。为了明确这个概念，我们必须再次强调下面几点:
 ```
 
-- 1.HTTP 协议未规定 GET 和 POST 的长度限制
-- 2.GET 的最大长度显示是因为浏览器和 web 服务器限制了 URI 的长度
-- 3.不同的浏览器和 WEB 服务器，限制的最大长度不一样
-- 4.要支持 IE，则最大长度为 2083byte，若只支持 Chrome，则最大长度 8182byte
+* 1. HTTP 协议未规定 GET 和 POST 的长度限制
+* 2. GET 的最大长度显示是因为浏览器和 web 服务器限制了 URI 的长度
+* 3. 不同的浏览器和 WEB 服务器，限制的最大长度不一样
+* 4. 要支持 IE，则最大长度为 2083byte，若只支持 Chrome，则最大长度 8182byte
 
 </details>
 
@@ -9457,24 +9476,24 @@ clientX，clientY 标识的是鼠标的坐标，分别标识横坐标和纵坐�
 // 思路是使用递归函数，不断地去执行 setTimeout 从而达到 setInterval 的效果
 
 function mySetInterval(fn, timeout) {
-  // 控制器，控制定时器是否继续执行
-  var timer = {
-    flag: true
-  };
+    // 控制器，控制定时器是否继续执行
+    var timer = {
+        flag: true
+    };
 
-  // 设置递归函数，模拟定时器执行。
-  function interval() {
-    if (timer.flag) {
-      fn();
-      setTimeout(interval, timeout);
+    // 设置递归函数，模拟定时器执行。
+    function interval() {
+        if (timer.flag) {
+            fn();
+            setTimeout(interval, timeout);
+        }
     }
-  }
 
-  // 启动定时器
-  setTimeout(interval, timeout);
+    // 启动定时器
+    setTimeout(interval, timeout);
 
-  // 返回控制器
-  return timer;
+    // 返回控制器
+    return timer;
 }
 ```
 
@@ -9496,10 +9515,10 @@ setInterval 的作用是每隔一段指定时间执行一个函数，但是这�
 
 参考答案：
 
-- 1.声明的变量只在声明时的代码块内有效
-- 2.不存在声明提升
-- 3.存在暂时性死区，如果在变量声明前使用，会报错
-- 4.不允许重复声明，重复声明会报错
+* 1. 声明的变量只在声明时的代码块内有效
+* 2. 不存在声明提升
+* 3. 存在暂时性死区，如果在变量声明前使用，会报错
+* 4. 不允许重复声明，重复声明会报错
 
 </details>
 
@@ -9527,12 +9546,12 @@ rest 参数（形式为...变量名），用于获取函数的多余参数。
 
 参考答案：
 
-- 1.Symbol 函数前不能使用 new 命令，否则会报错。
-- 2.Symbol 函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。
-- 3.Symbol 作为属性名，该属性不会出现在 for...in、for...of 循环中，也不会被 Object.keys()、Object.getOwnPropertyNames()、JSON.stringify() 返回。
-- 4.Object.getOwnPropertySymbols 方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
-- 5.Symbol.for 接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。
-- 6.Symbol.keyFor 方法返回一个已登记的 Symbol 类型值的 key。
+* 1. Symbol 函数前不能使用 new 命令，否则会报错。
+* 2. Symbol 函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。
+* 3. Symbol 作为属性名，该属性不会出现在 for...in、for...of 循环中，也不会被 Object.keys()、Object.getOwnPropertyNames()、JSON.stringify() 返回。
+* 4. Object.getOwnPropertySymbols 方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。
+* 5. Symbol.for 接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。
+* 6. Symbol.keyFor 方法返回一个已登记的 Symbol 类型值的 key。
 
 </details>
 
@@ -9540,8 +9559,8 @@ rest 参数（形式为...变量名），用于获取函数的多余参数。
 
 参考答案：
 
-- 1.ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
-- 2.WeakSet 结构与 Set 类似，也是不重复的值的集合。但是 WeakSet 的成员只能是对象，而不能是其他类型的值。WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
+* 1. ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+* 2. WeakSet 结构与 Set 类似，也是不重复的值的集合。但是 WeakSet 的成员只能是对象，而不能是其他类型的值。WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
 
 </details>
 
@@ -9549,8 +9568,8 @@ rest 参数（形式为...变量名），用于获取函数的多余参数。
 
 参考答案：
 
-- 1.Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
-- 2.WeakMap 结构与 Map 结构类似，也是用于生成键值对的集合。但是 WeakMap 只接受对象作为键名（ null 除外），不接受其他类型的值作为键名。而且 WeakMap 的键名所指向的对象，不计入垃圾回收机制。
+* 1. Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+* 2. WeakMap 结构与 Map 结构类似，也是用于生成键值对的集合。但是 WeakMap 只接受对象作为键名（ null 除外），不接受其他类型的值作为键名。而且 WeakMap 的键名所指向的对象，不计入垃圾回收机制。
 
 </details>
 
@@ -9570,10 +9589,10 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 参考答案：
 
-- 1.将 Object 对象的一些明显属于语言内部的方法（比如 Object.defineProperty，放到 Reflect 对象上。
-- 2.修改某些 Object 方法的返回结果，让其变得更合理。
-- 3.让 Object 操作都变成函数行为。
-- 4.Reflect 对象的方法与 Proxy 对象的方法一一对应，只要是 Proxy 对象的方法，就能在 Reflect 对象上找到对应的方法。这就让 Proxy 对象可以方便地调用对应的 Reflect 方法，完成默认行为，作为修改行为的基础。也就是说，不管 Proxy 怎么修改默认行为，你总可以在 Reflect 上获取默认行为。
+* 1. 将 Object 对象的一些明显属于语言内部的方法（比如 Object.defineProperty，放到 Reflect 对象上。
+* 2. 修改某些 Object 方法的返回结果，让其变得更合理。
+* 3. 让 Object 操作都变成函数行为。
+* 4. Reflect 对象的方法与 Proxy 对象的方法一一对应，只要是 Proxy 对象的方法，就能在 Reflect 对象上找到对应的方法。这就让 Proxy 对象可以方便地调用对应的 Reflect 方法，完成默认行为，作为修改行为的基础。也就是说，不管 Proxy 怎么修改默认行为，你总可以在 Reflect 上获取默认行为。
 
 </details>
 
@@ -9641,106 +9660,106 @@ const RESOLVED = "resolved";
 const REJECTED = "rejected";
 
 function MyPromise(fn) {
-  // 保存初始化状态
-  var self = this;
+    // 保存初始化状态
+    var self = this;
 
-  // 初始化状态
-  this.state = PENDING;
+    // 初始化状态
+    this.state = PENDING;
 
-  // 用于保存 resolve 或者 rejected 传入的值
-  this.value = null;
+    // 用于保存 resolve 或者 rejected 传入的值
+    this.value = null;
 
-  // 用于保存 resolve 的回调函数
-  this.resolvedCallbacks = [];
+    // 用于保存 resolve 的回调函数
+    this.resolvedCallbacks = [];
 
-  // 用于保存 reject 的回调函数
-  this.rejectedCallbacks = [];
+    // 用于保存 reject 的回调函数
+    this.rejectedCallbacks = [];
 
-  // 状态转变为 resolved 方法
-  function resolve(value) {
-    // 判断传入元素是否为 Promise 值，如果是，则状态改变必须等待前一个状态改变后再进行改变
-    if (value instanceof MyPromise) {
-      return value.then(resolve, reject);
+    // 状态转变为 resolved 方法
+    function resolve(value) {
+        // 判断传入元素是否为 Promise 值，如果是，则状态改变必须等待前一个状态改变后再进行改变
+        if (value instanceof MyPromise) {
+            return value.then(resolve, reject);
+        }
+
+        // 保证代码的执行顺序为本轮事件循环的末尾
+        setTimeout(() => {
+            // 只有状态为 pending 时才能转变，
+            if (self.state === PENDING) {
+                // 修改状态
+                self.state = RESOLVED;
+
+                // 设置传入的值
+                self.value = value;
+
+                // 执行回调函数
+                self.resolvedCallbacks.forEach(callback => {
+                    callback(value);
+                });
+            }
+        }, 0);
     }
 
-    // 保证代码的执行顺序为本轮事件循环的末尾
-    setTimeout(() => {
-      // 只有状态为 pending 时才能转变，
-      if (self.state === PENDING) {
-        // 修改状态
-        self.state = RESOLVED;
+    // 状态转变为 rejected 方法
+    function reject(value) {
+        // 保证代码的执行顺序为本轮事件循环的末尾
+        setTimeout(() => {
+            // 只有状态为 pending 时才能转变
+            if (self.state === PENDING) {
+                // 修改状态
+                self.state = REJECTED;
 
-        // 设置传入的值
-        self.value = value;
+                // 设置传入的值
+                self.value = value;
 
-        // 执行回调函数
-        self.resolvedCallbacks.forEach(callback => {
-          callback(value);
-        });
-      }
-    }, 0);
-  }
+                // 执行回调函数
+                self.rejectedCallbacks.forEach(callback => {
+                    callback(value);
+                });
+            }
+        }, 0);
+    }
 
-  // 状态转变为 rejected 方法
-  function reject(value) {
-    // 保证代码的执行顺序为本轮事件循环的末尾
-    setTimeout(() => {
-      // 只有状态为 pending 时才能转变
-      if (self.state === PENDING) {
-        // 修改状态
-        self.state = REJECTED;
-
-        // 设置传入的值
-        self.value = value;
-
-        // 执行回调函数
-        self.rejectedCallbacks.forEach(callback => {
-          callback(value);
-        });
-      }
-    }, 0);
-  }
-
-  // 将两个方法传入函数执行
-  try {
-    fn(resolve, reject);
-  } catch (e) {
-    // 遇到错误时，捕获错误，执行 reject 函数
-    reject(e);
-  }
+    // 将两个方法传入函数执行
+    try {
+        fn(resolve, reject);
+    } catch (e) {
+        // 遇到错误时，捕获错误，执行 reject 函数
+        reject(e);
+    }
 }
 
 MyPromise.prototype.then = function(onResolved, onRejected) {
-  // 首先判断两个参数是否为函数类型，因为这两个参数是可选参数
-  onResolved =
-    typeof onResolved === "function"
-      ? onResolved
-      : function(value) {
-          return value;
+    // 首先判断两个参数是否为函数类型，因为这两个参数是可选参数
+    onResolved =
+        typeof onResolved === "function" ?
+        onResolved :
+        function(value) {
+            return value;
         };
 
-  onRejected =
-    typeof onRejected === "function"
-      ? onRejected
-      : function(error) {
-          throw error;
+    onRejected =
+        typeof onRejected === "function" ?
+        onRejected :
+        function(error) {
+            throw error;
         };
 
-  // 如果是等待状态，则将函数加入对应列表中
-  if (this.state === PENDING) {
-    this.resolvedCallbacks.push(onResolved);
-    this.rejectedCallbacks.push(onRejected);
-  }
+    // 如果是等待状态，则将函数加入对应列表中
+    if (this.state === PENDING) {
+        this.resolvedCallbacks.push(onResolved);
+        this.rejectedCallbacks.push(onRejected);
+    }
 
-  // 如果状态已经凝固，则直接执行对应状态的函数
+    // 如果状态已经凝固，则直接执行对应状态的函数
 
-  if (this.state === RESOLVED) {
-    onResolved(this.value);
-  }
+    if (this.state === RESOLVED) {
+        onResolved(this.value);
+    }
 
-  if (this.state === REJECTED) {
-    onRejected(this.value);
-  }
+    if (this.state === REJECTED) {
+        onRejected(this.value);
+    }
 };
 ```
 
@@ -9875,23 +9894,23 @@ error 统计使用浏览器的 window.error 事件。
 
 ```js
 function getType(value) {
-  // 判断数据是 null 的情况
-  if (value === null) {
-    return value + "";
-  }
+    // 判断数据是 null 的情况
+    if (value === null) {
+        return value + "";
+    }
 
-  // 判断数据是引用类型的情况
-  if (typeof value === "object") {
-    let valueClass = Object.prototype.toString.call(value),
-      type = valueClass.split(" ")[1].split("");
+    // 判断数据是引用类型的情况
+    if (typeof value === "object") {
+        let valueClass = Object.prototype.toString.call(value),
+            type = valueClass.split(" ")[1].split("");
 
-    type.pop();
+        type.pop();
 
-    return type.join("").toLowerCase();
-  } else {
-    // 判断数据是基本数据类型的情况和函数的情况
-    return typeof value;
-  }
+        return type.join("").toLowerCase();
+    } else {
+        // 判断数据是基本数据类型的情况和函数的情况
+        return typeof value;
+    }
 }
 ```
 
@@ -9906,7 +9925,7 @@ function getType(value) {
 
 ```js
 function checkNullObj(obj) {
-  return Object.keys(obj).length === 0 && Object.getOwnPropertySymbols(obj).length === 0;
+    return Object.keys(obj).length === 0 && Object.getOwnPropertySymbols(obj).length === 0;
 }
 ```
 
@@ -9915,26 +9934,26 @@ function checkNullObj(obj) {
 
 </details>
 
-<b><details><summary>349. 使用闭包实现每隔一秒打印 1,2,3,4</summary></b>
+<b><details><summary>349. 使用闭包实现每隔一秒打印 1, 2, 3, 4</summary></b>
 
 参考答案：
 
 ```js
 // 使用闭包实现
 for (var i = 0; i < 5; i++) {
-  (function(i) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000);
-  })(i);
+    (function(i) {
+        setTimeout(function() {
+            console.log(i);
+        }, i * 1000);
+    })(i);
 }
 
 // 使用 let 块级作用域
 
 for (let i = 0; i < 5; i++) {
-  setTimeout(function() {
-    console.log(i);
-  }, i * 1000);
+    setTimeout(function() {
+        console.log(i);
+    }, i * 1000);
 }
 ```
 
@@ -9946,39 +9965,39 @@ for (let i = 0; i < 5; i++) {
 
 ```js
 function jsonp(url, params, callback) {
-  // 判断是否含有参数
-  let queryString = url.indexOf("?") === -1 ? "?" : "&";
+    // 判断是否含有参数
+    let queryString = url.indexOf("?") === -1 ? "?" : "&";
 
-  // 添加参数
-  for (var k in params) {
-    if (params.hasOwnProperty(k)) {
-      queryString += k + "=" + params[k] + "&";
+    // 添加参数
+    for (var k in params) {
+        if (params.hasOwnProperty(k)) {
+            queryString += k + "=" + params[k] + "&";
+        }
     }
-  }
 
-  // 处理回调函数名
-  let random = Math.random()
-      .toString()
-      .replace(".", ""),
-    callbackName = "myJsonp" + random;
+    // 处理回调函数名
+    let random = Math.random()
+        .toString()
+        .replace(".", ""),
+        callbackName = "myJsonp" + random;
 
-  // 添加回调函数
-  queryString += "callback=" + callbackName;
+    // 添加回调函数
+    queryString += "callback=" + callbackName;
 
-  // 构建请求
-  let scriptNode = document.createElement("script");
-  scriptNode.src = url + queryString;
+    // 构建请求
+    let scriptNode = document.createElement("script");
+    scriptNode.src = url + queryString;
 
-  window[callbackName] = function() {
-    // 调用回调函数
-    callback(...arguments);
+    window[callbackName] = function() {
+        // 调用回调函数
+        callback(...arguments);
 
-    // 删除这个引入的脚本
-    document.getElementsByTagName("head")[0].removeChild(scriptNode);
-  };
+        // 删除这个引入的脚本
+        document.getElementsByTagName("head")[0].removeChild(scriptNode);
+    };
 
-  // 发起请求
-  document.getElementsByTagName("head")[0].appendChild(scriptNode);
+    // 发起请求
+    document.getElementsByTagName("head")[0].appendChild(scriptNode);
 }
 ```
 
@@ -9994,49 +10013,49 @@ function jsonp(url, params, callback) {
 
 ```js
 var events = (function() {
-  var topics = {};
+    var topics = {};
 
-  return {
-    // 注册监听函数
-    subscribe: function(topic, handler) {
-      if (!topics.hasOwnProperty(topic)) {
-        topics[topic] = [];
-      }
-      topics[topic].push(handler);
-    },
+    return {
+        // 注册监听函数
+        subscribe: function(topic, handler) {
+            if (!topics.hasOwnProperty(topic)) {
+                topics[topic] = [];
+            }
+            topics[topic].push(handler);
+        },
 
-    // 发布事件，触发观察者回调事件
-    publish: function(topic, info) {
-      if (topics.hasOwnProperty(topic)) {
-        topics[topic].forEach(function(handler) {
-          handler(info);
-        });
-      }
-    },
+        // 发布事件，触发观察者回调事件
+        publish: function(topic, info) {
+            if (topics.hasOwnProperty(topic)) {
+                topics[topic].forEach(function(handler) {
+                    handler(info);
+                });
+            }
+        },
 
-    // 移除主题的一个观察者的回调事件
-    remove: function(topic, handler) {
-      if (!topics.hasOwnProperty(topic)) return;
+        // 移除主题的一个观察者的回调事件
+        remove: function(topic, handler) {
+            if (!topics.hasOwnProperty(topic)) return;
 
-      var handlerIndex = -1;
-      topics[topic].forEach(function(item, index) {
-        if (item === handler) {
-          handlerIndex = index;
+            var handlerIndex = -1;
+            topics[topic].forEach(function(item, index) {
+                if (item === handler) {
+                    handlerIndex = index;
+                }
+            });
+
+            if (handlerIndex >= 0) {
+                topics[topic].splice(handlerIndex, 1);
+            }
+        },
+
+        // 移除主题的所有观察者的回调事件
+        removeAll: function(topic) {
+            if (topics.hasOwnProperty(topic)) {
+                topics[topic] = [];
+            }
         }
-      });
-
-      if (handlerIndex >= 0) {
-        topics[topic].splice(handlerIndex, 1);
-      }
-    },
-
-    // 移除主题的所有观察者的回调事件
-    removeAll: function(topic) {
-      if (topics.hasOwnProperty(topic)) {
-        topics[topic] = [];
-      }
-    }
-  };
+    };
 })();
 ```
 
@@ -10051,44 +10070,44 @@ var events = (function() {
 
 ```js
 class EventEmitter {
-  constructor() {
-    this.events = {};
-  }
+    constructor() {
+        this.events = {};
+    }
 
-  on(event, callback) {
-    let callbacks = this.events[event] || [];
-    callbacks.push(callback);
-    this.events[event] = callbacks;
+    on(event, callback) {
+        let callbacks = this.events[event] || [];
+        callbacks.push(callback);
+        this.events[event] = callbacks;
 
-    return this;
-  }
+        return this;
+    }
 
-  off(event, callback) {
-    let callbacks = this.events[event];
-    this.events[event] = callbacks && callbacks.filter(fn => fn !== callback);
+    off(event, callback) {
+        let callbacks = this.events[event];
+        this.events[event] = callbacks && callbacks.filter(fn => fn !== callback);
 
-    return this;
-  }
+        return this;
+    }
 
-  emit(event, ...args) {
-    let callbacks = this.events[event];
-    callbacks.forEach(fn => {
-      fn(...args);
-    });
+    emit(event, ...args) {
+        let callbacks = this.events[event];
+        callbacks.forEach(fn => {
+            fn(...args);
+        });
 
-    return this;
-  }
+        return this;
+    }
 
-  once(event, callback) {
-    let wrapFun = (...args) => {
-      callback(...args);
+    once(event, callback) {
+        let wrapFun = (...args) => {
+            callback(...args);
 
-      this.off(event, wrapFun);
-    };
-    this.on(event, wrapFun);
+            this.off(event, wrapFun);
+        };
+        this.on(event, wrapFun);
 
-    return this;
-  }
+        return this;
+    }
 }
 ```
 
@@ -10100,22 +10119,23 @@ class EventEmitter {
 
 ```js
 function Foo() {
-  getName = function() {
-    alert(1);
-  };
-  return this;
+    getName = function() {
+        alert(1);
+    };
+    return this;
 }
 Foo.getName = function() {
-  alert(2);
+    alert(2);
 };
 Foo.prototype.getName = function() {
-  alert(3);
+    alert(3);
 };
 var getName = function() {
-  alert(4);
+    alert(4);
 };
+
 function getName() {
-  alert(5);
+    alert(5);
 }
 
 //请写出以下输出结果：
@@ -10203,12 +10223,12 @@ var pageLoadTime = t.loadEventEnd - t.navigationStart;
 
 参考答案：
 
-- 1.管道通信
-- 2.消息队列通信
-- 3.信号量通信
-- 4.信号通信
-- 5.共享内存通信
-- 6.套接字通信
+* 1. 管道通信
+* 2. 消息队列通信
+* 3. 信号量通信
+* 4. 信号通信
+* 5. 共享内存通信
+* 6. 套接字通信
 
 详细资料可以参考：
 [《进程间 8 种通信方式详解》](https://blog.csdn.net/violet_echo_0908/article/details/51201278)
