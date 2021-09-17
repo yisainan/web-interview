@@ -16,6 +16,8 @@
 
 3、默认部署了 Iterator 的数据有 Array、Map、Set、String、TypedArray、arguments、NodeList 对象，ES6 中有的是 Set、Map、
 
+解析：[参考](https://es6.ruanyifeng.com/#docs/iterator)
+
 [参与互动](https://github.com/yisainan/web-interview/issues/332)
 
 </details>
@@ -139,6 +141,7 @@ let v_parent = new Parent();
 console.log(v_parent); // {name: "小白"}  没有tell方法和type属性
 ```
 
+解析：[参考](https://es6.ruanyifeng.com/#docs/class)
 [参与互动](https://github.com/yisainan/web-interview/issues/333)
 
 </details>
@@ -611,16 +614,16 @@ console.log(s); //s === Boolean.prototype.toString
 
 </details>
 
-<b><details><summary>6. Array. from() 与 Array. reduce()</summary></b>
+<b><details><summary>6. Array.from() 与 Array.reduce()</summary></b>
 
 参考答案：
 
-Array. from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组
-Array. reduce()方法对累加器和数组中的每个元素 (从左到右)应用一个函数，将其减少为单个值。
+Array.from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组
+Array.reduce()方法对累加器和数组中的每个元素 (从左到右)应用一个函数，将其减少为单个值。
 
 解析：
 
-### Array. from()
+### Array.from()
 
 ```js
 // 那么什么是类数组对象呢？所谓类数组对象，最基本的要求就是具有length属性的对象。
@@ -686,7 +689,7 @@ console.log(Array.from([12, 45, 47, 56, 213, 4654, 154]));
 
 [参考](https://www.cnblogs.com/jf-67/p/8440758.html)
 
-### Array. reduce()
+### Array.reduce()
 
 ```
 
@@ -787,8 +790,52 @@ initialValue：可选项，累加器的初始值。没有时，累加器第一�
 
 参考答案：
 
-解析：[参考](https://blog.csdn.net/zoelinjf/article/details/79618688)
+```js
+//使用var声明，得到3个3
+var a = [];
+for (var i = 0; i < 3; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[0](); //3
+a[1](); //3
+a[2](); //3
 
+//使用let声明，得到0,1,2
+var a = [];
+for (let i = 0; i < 3; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[0](); //0
+a[1](); //1
+a[2](); //2
+```
+
+```js
+for(var i=0;i<5;i++){
+   setTimeout(()=>{
+        console.log(i);//5个5
+    },100)
+}
+console.log(i);//5
+console.log('=============')
+
+for(let j=0;j<5;j++){
+   setTimeout(()=>{
+        console.log(j);//0,1,2,3,4
+    },100)
+}
+console.log(j);//报错 j is not defined
+```
+
+var是全局作用域，有变量提升的作用，所以在for中定义一个变量，全局可以使用，循环中的每一次给变量i赋值都是给全局变量i赋值。
+
+let是块级作用域,只能在代码块中起作用，在js中一个{}中的语句我们也称为叫一个代码块，每次循环会产生一个代码块，每个代码块中的都是一个新的变量i;
+
+解析：[参考](https://www.cnblogs.com/fanfanZhao/p/12179508.html)
 [参与互动](https://github.com/yisainan/web-interview/issues/338)
 
 </details>
@@ -1363,6 +1410,30 @@ function*foo(x, y) { ··· }
 <b><details><summary>32.什么是yield 表达式</summary></b>
 
 参考答案：由于 Generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数。yield表达式就是暂停标志。
+
+</details>
+
+<b><details><summary>33.ES6 引入Symbol的原因</summary></b>
+
+参考答案：ES5 的对象属性名都是字符串，这容易造成属性名的冲突。
+
+比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。
+
+ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
+
+解析：[参考](https://es6.ruanyifeng.com/#docs/symbol)
+
+</details>
+
+<b><details><summary>34.</summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
 
 </details>
 
