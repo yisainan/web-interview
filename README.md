@@ -10,7 +10,7 @@
 // 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣
 -->
 
-🚀 欢迎`Star`，后续会不断更新。[gitee版本阅读更流畅，点击阅读](https://gitee.com/qiilee/web-interview)  
+🚀 欢迎`Star`与分享，后续会不断更新。[gitee版本阅读更流畅，点击阅读](https://gitee.com/qiilee/web-interview)  
 🇨🇳 最后更新日期：2️⃣0️⃣2️⃣1️⃣`/`0️⃣9️⃣`/`1️⃣4️⃣
    
 
