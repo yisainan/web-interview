@@ -1,6 +1,6 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1. 你如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
+<b><details><summary>1. 如何获取浏览器 URL 中查询字符串中的参数？</summary></b>
 
 参考答案：
 
@@ -130,6 +130,9 @@ setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用�
 
 一. 冒泡排序
 
+> 它是最慢的排序算法之一，但也是一种最容易实现的排序算法。
+> 之所以叫冒泡排序是因为使用这种排序算法排序时，数据值会像气泡一样从数组的一端漂浮到另一端。假设正在将一组数字按照升序排列，较大的值会浮动到数组的右侧，而较小的值则会浮动到数组的左侧。之所以会产生这种现象是因为算法会多次在数组中移动，比较相邻的数据，当左侧值大于右侧值时将它们进行互换。
+
 ``` js
 function BubbleSort(array) {
     var length = array.length;
@@ -174,6 +177,8 @@ console.log(result);
 ```
 
 二. 选择排序
+
+> 选择排序从数组的开头开始，将第一个元素和其他元素进行比较。检查完所有元素后，最小的元素会被放到数组的第一个位置，然后算法会从第二个位置继续。这个过程一直进行，当进行到数组的倒数第二个位置时，所有数据便完成了排序。
 
 ``` js
 function SelectionSort(array) {
@@ -231,6 +236,8 @@ console.log(result);
 
 三. 插入排序
 
+> 插入排序有两个循环。外循环将数组元素挨个移动，而内循环则对外循环中选中的元素进行比较。如果外循环中选中的元素比内循环中选中的元素小，那么数组元素会向右移动，为内循环中的这个元素腾出位置。
+
 ``` js
 function InsertionSort(array) {
     var length = array.length;
@@ -277,8 +284,123 @@ console.log(result);
 ```
 
 四. 希尔排序
+
+> 希尔排序(Shell's Sort)是插入排序的一种又称“缩小增量排序”（Diminishing Increment Sort），是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。该方法因D.L.Shell于1959年提出而得名。
+
+```js
+function shellSort(arr) {
+  let len = arr.length;
+  // gap 即为增量
+  for (let gap = Math.floor(len / 2); gap > 0; gap = Math.floor(gap / 2)) {
+    for (let i = gap; i < len; i++) {
+      let j = i;
+      let current = arr[i];
+      while(j - gap >= 0 && current < arr[j - gap]) {
+        arr[j] = arr[j - gap];
+        j = j - gap;
+      }
+      arr[j] = current;
+    }
+    console.log(arr);
+    console.log("-----------------------");
+  }
+}
+
+var arr = [3,5,7,1,4,56,12,78,25,0,9,8,42,37];
+shellSort(arr);
+
+/*
+[3, 5, 0, 1, 4, 42, 12, 78, 25, 7, 9, 8, 56, 37]
+-----------------------
+[1, 4, 0, 3, 5, 8, 7, 9, 25, 12, 37, 42, 56, 78]
+-----------------------
+[0, 1, 3, 4, 5, 7, 8, 9, 12, 25, 37, 42, 56, 78]
+-----------------------
+*/
+```
+
 五. 归并排序
+
+> 归并排序把一系列排好序的子序列合并成一个大的完整有序序列。我们需要两个排好序的子数组，然后通过比较数据大小，从最小的数据开始插入，最后合并得到第三个数组。然而，在实际情况中，归并排序还有一些问题，我们需要更大的空间来合并存储两个子数组。
+
+```js
+var array = [3,5,7,1,4,56,12,78,25,0,9,8,42,37];
+console.log(array);
+console.log("-----------------------");
+var len = array.length;
+sort(0,len);
+console.log(array);
+function sort(begin,end) {
+    if (end - begin < 2) {
+        return;
+    }
+    let mid = (begin + end) >> 1;
+    sort(begin, mid);
+    sort(mid, end);
+    merge(begin,mid,end);
+}
+function merge(begin,mid,end) {
+    let li = 0,le = mid - begin;
+    let ri = mid,re = end;
+    let ai = begin;
+    let leftArray = [];
+    for (let i = li;i<le;i++) {
+        leftArray[i] = array[begin + i];
+    }
+    while(li < le){
+        if(ri < re && array[ri] < leftArray[li]){
+            array[ai++] = array[ri++];
+        }else{
+            array[ai++] = leftArray[li++];
+        }
+    }
+}
+/*
+[3, 5, 7, 1, 4, 56, 12, 78, 25, 0, 9, 8, 42, 37]
+-----------------------
+[0, 1, 3, 4, 5, 7, 8, 9, 12, 25, 37, 42, 56, 78]
+*/
+```
+
 六. 快速排序
+
+> 快速排序是处理大数据集最快的排序算法之一。它是一种分而治之的算法，通过递归的方法将数据依次分解为包含较小元素和较大元素的不同子序列。该算法不断重复这个步骤直到所有数据都是有序的。
+这个算法首先要在列表中选择一个元素作为基准值(pivot)。数据排序围绕基准值进行，将列表中小于基准值的元素移到数组的底部，将大于基准值的元素移到数组的顶部。
+
+```js
+function quickSort(arr, i, j) {
+  if(i < j) {
+    let left = i;
+    let right = j;
+    let pivot = arr[left];
+    while(i < j) {
+      while(arr[j] >= pivot && i < j) {  // 从后往前找比基准小的数
+        j--;
+      }
+      if(i < j) {
+        arr[i++] = arr[j];
+      }
+      while(arr[i] <= pivot && i < j) {  // 从前往后找比基准大的数
+        i++;
+      }
+      if(i < j) {
+        arr[j--] = arr[i];
+      }
+    }
+    arr[i] = pivot;
+    quickSort(arr, left, i-1);
+    quickSort(arr, i+1, right);
+    return arr;
+  }
+}
+
+let arr = [2, 10, 4, 1, 0, 9, 5 ,2];
+console.log(quickSort(arr, 0 , arr.length-1));
+/*
+[0, 1, 2, 2, 4, 5, 9, 10]
+*/
+```
+
 
 [参与互动](https://github.com/yisainan/web-interview/issues/551)
 
@@ -340,7 +462,9 @@ Array.prototype.distinct = function() {
     }
     return ret;
 };
-console.log(["a", "b", "c", "d", "b", "a", "e"].distinct()); // ["a", "b"]
+let arr = ["a", "b", "c", "d", "b", "a", "e"];
+console.log(arr.distinct()); // ['a', 'b']
+console.log(arr); // ['a', 'b', 'c', 'd', 'e']
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/553)
