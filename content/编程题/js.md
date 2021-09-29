@@ -444,7 +444,7 @@ checkphonenumber(number) {
 
 </details>
 
-<b><details><summary>5. 请给 Array 本地对象增加一个原型方法，他的用途是删除数组中重复的条目并按升序排序，最后返回新数组。</summary></b>
+<b><details><summary>5. 请给 Array 本地对象增加一个原型方法，用于删除数组中重复的条目并按升序排序，返回值是被删除条目的新数组</summary></b>
 
 参考答案：
 
@@ -509,18 +509,18 @@ serialize({
 <b><details><summary>8. 设计一道 JavaScript 的 range 算法如下：</summary></b>
 
 range(1, 10, 3) 返回 [1, 4, 7, 10]; 
-range('A', 'F', 2) 返回 ['A', 'C', 'E']
+range('A', 'F', 2) 返回 ['A', 'C', 'E']; 
 请使用 JavaScript 语言实现该功能（可以使用 ES6）
 
 参考答案：
 
 ``` js
 function range() {
-    var args = [].slice.call(arguments);
+    var args = [].slice.call(arguments); // 相当于Array.slice.call(arguments)，目的是将arguments对象的数组提出来转化为数组，arguments本身并不是数组而是对象
     var str = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     var result = [];
     if (args.length > 2) {
-        if (typeof args[0] === 'number') {
+        if (typeof args[0] === 'number') { // 如果是number型数据
             for (var i = args[0]; i <= args[1]; i = i + args[2]) {
                 result.push(i);
             }
@@ -532,6 +532,9 @@ function range() {
     }
     return result;
 }
+
+range(1, 10, 3); //  [1, 4, 7, 10]
+// range('A', 'F', 2); // ['A', 'C', 'E']
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/556)
@@ -579,6 +582,23 @@ function range() {
 
 参考答案：
 
+第一次弹出2，第二个弹出1
+
+``` 
+// 变量提升之后的代码：
+(function() {
+    function fn() {
+        alert(2)
+    }
+    var fn;
+    fn();
+    fn = function() {
+        alert(1);
+    }
+    fn();
+})()
+```
+
 [参与互动](https://github.com/yisainan/web-interview/issues/558)
 
 </details>
@@ -607,17 +627,19 @@ c) 直接执行 doSomething()
 var obj = {};
 var events = { m1: "clicked", m2: "changed"};
 for(e in events) {
+    
     obj[e] = function() {
-        alert(events[e])
+        var aValue = e;
+        console.log(events[aValue])
     }
 }
 
-alert(obj.m1 == obj.m2);
+console.log(obj.m1 == obj.m2);
 obj.m1();
 obj.m2();
 ```
 
-参考答案：
+参考答案：false changed changed
 
 [参与互动](https://github.com/yisainan/web-interview/issues/560)
 
