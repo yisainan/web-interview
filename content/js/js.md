@@ -10235,3 +10235,45 @@ var pageLoadTime = t.loadEventEnd - t.navigationStart;
 [《进程与线程的一个简单解释》](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
 
 </details>
+
+<b><details><summary>358. Js中prototype、[[prototype]]和__proto__的区别和用法</summary></b>
+
+参考答案：
+
+一.显式原型&隐式原型
+显式原型：prototype
+隐式原型：__proto__
+
+1.1 Important
+__proto__是每个对象都具有的属性
+prototype是Function独有的属性
+
+1.2 Tips
+对象的隐式原型的值为其对应构造函数的显式原型的值
+fn.__proto__ === Function.prototype
+函数的prototype属性是定义时自动添加的。默认为{}
+对象的__proto__属性是创建对象时自动添加的，默认值为其构造函数的prototype
+Object.prototype.__proto__ === null
+
+1.3 说了这么多和[[prototype]]有什么关系?
+其实[[prototype]]和__proto__意义相同，均表示对象的内部属性，其值指向对象原型。前者在一些书籍、规范中表示一个对象的原型属性，后者则是在浏览器实现中指向对象原型。
+
+二.作用
+
+作用方面来讲当然是实现继承了。其中最经典的共享属性方法的原型链继承。其中必不可少的属性就是__proto__和prototype。
+
+我们举个栗子
+```js
+function Son(){}
+function Father(){}
+Son.prototype = new Father();
+```
+如此即实现了继承
+我们可以写代码进行验证
+```js
+Foo.prototype.__proto__ === Bar.prototype  //true
+```
+符合上述第三条规则，所以可以通过此方法完成函数的继承。
+注意，此为原型链继承，其中的方法与属性为此链上的所有实例所共享
+
+</details>

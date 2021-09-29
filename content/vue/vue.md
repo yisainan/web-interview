@@ -3045,3 +3045,57 @@ Object.defineProperty 函数一共有三个参数，第一个参数是需要定�
 ```
 
 </details>
+
+<b><details><summary>148. v-model的实现原理</summary></b>
+
+参考答案：
+
+v-model用于表单数据的双向绑定，其实它就是一个语法糖，这个背后就做了两个操作：
+v-bind绑定一个value属性；
+v-on指令给当前元素绑定input事件。
+
+解析：
+
+```
+<template>
+  <div id="app">
+    {{username}} <br/>
+    <input type="text" v-model="username">
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+  data(){
+    return {
+      username:''
+    }
+  }
+}
+</script>
+```
+v-model其实是个语法糖，它实际上是做了两步动作：
+1、绑定数据value
+2、触发输入事件input
+也就是说，v-model等同于：
+```
+<template>
+  <div id="app">
+    {{username}} <br/>
+    <input type="text" :value="username" @input="username=$event.target.value">
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+  data(){
+    return {
+      username:''
+    }
+  }
+}
+</script>
+```
+</details>
