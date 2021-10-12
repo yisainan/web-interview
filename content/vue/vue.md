@@ -3099,3 +3099,63 @@ export default {
 </script>
 ```
 </details>
+
+<b><details><summary>149. 说下vue 中的h函数</summary></b>
+
+参考答案：h函数就是vue中的createElement方法，这个函数作用就是创建虚拟dom，追踪dom变化的
+
+解析：
+
+在讲h函数之前，我们先来了解下虚拟dom：
+
+虚拟dom简单来说就是一个普通的JavaScript对象，包含tag，props，children三个属性。。。
+
+```js
+<div id="app">
+  <p className="text">lxc</p>
+</div>
+```
+上边的HTML代码转为虚拟DOM如下：
+```js
+{
+    tag:"div",
+    props:{
+        id:"app"
+    },
+    children:[
+        {
+            tag:"p",
+            props:{
+                className:"text"
+            },
+            children:[
+                "lxc"
+            ]
+        }
+    ]
+}
+```
+
+该对象就是所谓的虚拟dom，因为dom对象是属性结构，所以使用JavaScript对象就可以简单表示。而原生dom有许多属性、事件，即使创建一个空div也要付出昂贵的代价。而虚拟dom提升性能的点在于DOM发生变化的时候，通过diff算法对比，计算出需要更改的DOM，只对变化的DOM进行操作，而不是更新整个视图。。。
+
+在vue脚手架中，我们经常会看到这样一段代码：
+```js
+  const app = new Vue({
+    ··· ···
+    render: h => h(App)
+  })
+```
+这个render方法也可以写成这样：
+```js
+  const app = new Vue({
+    ··· ···
+    render:function(createElement){
+        return createElment(App)
+    }
+  })
+```
+所以h函数就是vue中的createElement方法，这个函数作用就是创建虚拟dom，追踪dom变化的
+
+参考地址：https://blog.csdn.net/qq_42778001/article/details/95959531
+
+</details>

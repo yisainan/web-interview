@@ -1258,21 +1258,21 @@ console.log('script end')
 
 ```js
 async function async1() {
-    console.log('async1 start'); //2
+    console.log('async1 start');
 
     await async2();
-    console.log('async1 end') //5
+    console.log('async1 end')
 
 }
 async function async2() {
 
-    console.log('async2') //3
+    console.log('async2')
 
 }
 
-console.log('script start'); //1
+console.log('script start');
 async1();
-console.log('script end') //4
+console.log('script end')
 
 // 输出顺序：
 
@@ -1288,9 +1288,7 @@ async 函数返回一个 Promise 对象，当函数执行的时候，一旦遇�
 
 举个例子：
 
-`
-``
-js
+```js
 async function func1() {
     return 1
 }
