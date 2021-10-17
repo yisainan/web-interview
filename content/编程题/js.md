@@ -623,23 +623,62 @@ c) 直接执行 doSomething()
 
 <b><details><summary>12. 请写出以下代码的执行结果</summary></b>
 
-``` 
-var obj = {};
-var events = { m1: "clicked", m2: "changed"};
-for(e in events) {
-    
-    obj[e] = function() {
-        var aValue = e;
-        console.log(events[aValue])
-    }
-}
+例1：
 
-console.log(obj.m1 == obj.m2);
-obj.m1();
-obj.m2();
+```js
+var obj = new Object();
+var events = {m1: 'clicked', m2: 'changed'};
+
+for (var e in events) {
+    (function() {
+        var aValue = e;
+        obj[e] = function() {
+            // var aValue = e;
+            console.log(events[aValue]);
+        };
+    }());
+};
+
+console.log(obj.m1 === obj.m2); // false
+
+obj.m1(); // clicked
+obj.m2(); // changed
 ```
 
-参考答案：false changed changed
+例2：
+
+```js
+var obj = new Object();
+var events = {m1: 'clicked', m2: 'changed'};
+
+for (var e in events) {
+    (function() {
+        // var aValue = e;
+        obj[e] = function() {
+            var aValue = e;
+            console.log(events[aValue]);
+        };
+    }());
+};
+
+console.log(obj.m1 === obj.m2); // false
+
+obj.m1(); // changed
+obj.m2(); // changed
+```
+
+参考答案：
+
+例1：false clicked changed
+例2：false changed changed
+
+解析：
+
+以上两个例子中，除了var aValue = e;这一句位置不同：例1位于外层匿名函数中、例2位于内层匿名函数中，其他部分完全相同。为什么结果不同？
+
+例1：for 循环进行的过程中，就把当时的 e 像拍照一样封存在了aValue变量里（注意，这里每一次循环都产生了一个新的闭包，所以循环了几次就有几个aValue同时存在，本例是2个，它们的值分别是'm1' 和 'm2'），当你调用obj.m1() 时，取的是闭包中的aValue，而不是现在的 e 了。
+
+例2：内层函数obj.m1和obj.m2是在循环结束后才执行的，此时循环变量e的值为'm2'（注意 e 是 for 循环的循环变量，而当你调用 obj.m1() 和 obj.m2()的时候，for循环早已结束了，因此它的循环变量 e 已经永远地停留在了 'm2'），因此obj.m1和obj.m2中的局部变量aValue的值只能是'm2'。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/560)
 
