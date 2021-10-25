@@ -3159,3 +3159,51 @@ export default {
 参考地址：https://blog.csdn.net/qq_42778001/article/details/95959531
 
 </details>
+
+<b><details><summary>150. vue.component和vue.use的区别</summary></b>
+
+参考答案：
+
+Vue.use()注册与Vue.component()注册区别就在于一个insatll方法。
+
+Vue.component()：注册一个组件在全局使用；
+Vue.use()： 可以一次性注册多个组件或添加全局方法或属性；
+
+
+```
+Vue.use( plugin )
+
+    参数：
+        {Object | Function} plugin
+
+    用法：
+
+    安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
+
+    该方法需要在调用 new Vue() 之前被调用。
+
+    当 install 方法被同一个插件多次调用，插件将只会被安装一次。
+
+    参考：插件
+
+Vue.component( id, [definition] )
+
+    参数：
+        {string} id
+        {Function | Object} [definition]
+
+    用法：
+
+    注册或获取全局组件。注册还会自动使用给定的 id 设置组件的名称
+
+    // 注册组件，传入一个扩展过的构造器
+    Vue.component('my-component', Vue.extend({ /* ... */ }))
+
+    // 注册组件，传入一个选项对象 (自动调用 Vue.extend)
+    Vue.component('my-component', { /* ... */ })
+
+    // 获取注册的组件 (始终返回构造器)
+    var MyComponent = Vue.component('my-component')
+```
+
+</details>

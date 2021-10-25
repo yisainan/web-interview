@@ -205,7 +205,7 @@
 - [Go 语言学习资料索引](https://github.com/unknwon/go-study-index)
 
 #### 其他
-- [各平台付费知识](https://github.com/small-sweet)
+- [各平台付费课程](https://github.com/small-sweet)
 - [程序员考公指南](https://github.com/coder2gwy/coder2gwy)
 - [开源项目挣钱实用手册](https://github.com/wizicer/FinancialSupportForOpenSource)
 - [程序员如何优雅的挣零花钱](https://github.com/easychen/howto-make-more-money)
