@@ -3164,7 +3164,7 @@ export default {
 
 参考答案：
 
-Vue.use()注册与Vue.component()注册区别就在于一个insatll方法。
+Vue.use()注册与Vue.component()注册区别就在于一个install方法。
 
 Vue.component()：注册一个组件在全局使用；
 Vue.use()： 可以一次性注册多个组件或添加全局方法或属性；

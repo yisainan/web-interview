@@ -2247,3 +2247,9 @@ body {
 解析：[参考](https://blog.csdn.net/weixin_50339217/article/details/113387229?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.searchformbaiduhighlight&spm=1001.2101.3001.4242)
 
 </details>
+
+<b><details><summary>113. 你有使用过MediaRecorder吗？说说它的运用场景有哪些？</summary></b>
+
+参考答案：录屏
+
+</details>

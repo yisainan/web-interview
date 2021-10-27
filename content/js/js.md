@@ -10345,8 +10345,19 @@ define(function(require, exports, module) {
 
 </details>
 
-<b><details><summary>360. </summary></b>
+<b><details><summary>360. 微信的JSSDK都有哪些内容？如何接入？</summary></b>
 
 参考答案：
+
+```
+微信JS-SDK：是开发者在网页上通过JavaScript代码使用微信原生功能的工具包，开发者可以使用它在网页上录制和播放微信语音、监听微信分享、上传手机本地图片、拍照等许多能力。
+
+JSSDK使用步骤
+步骤一：绑定域名
+步骤二：引入JS文件
+步骤三：通过config接口注入权限验证配置
+步骤四：通过ready接口处理成功验证
+步骤五：通过error接口处理失败验证
+```
 
 </details>
