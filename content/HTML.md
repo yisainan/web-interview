@@ -2253,3 +2253,27 @@ body {
 参考答案：录屏
 
 </details>
+
+<b><details><summary>114.H5的哪些特性需要https支持呢？</summary></b>
+
+参考答案：service workers
+
+```
+service worker 是什么？
+
+一个服务器与浏览器之间的中间人角色，如果网站中注册了service worker那么它可以拦截当前网站所有的请求，并且可以让开发者自己控制管理缓存的内容以及版本
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>

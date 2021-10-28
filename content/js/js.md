@@ -10361,3 +10361,23 @@ JSSDK使用步骤
 ```
 
 </details>
+
+<b><details><summary>361.H5页面在微信中如何禁止分享给好友和朋友圈？</summary></b>
+
+参考答案：
+
+```
+利用JSBridge实现调用微信提供的一些原生功能，可以通过调用隐藏操作菜单来实现禁用分享。
+代码如下：
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.call('hideOptionMenu');
+});
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
