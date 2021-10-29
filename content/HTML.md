@@ -2266,6 +2266,102 @@ service worker 是什么？
 
 </details>
 
+<b><details><summary>115.你知道短链接的生成原理吗？</summary></b>
+
+参考答案：
+
+```
+目的将长度较长的链接压缩成较短的链接，并通过跳转的方式，将用户请求由短链接重定向到长链接上去
+
+1.二种方式生成短链
+
+    hash-可能会重复
+    发号器发号压缩 URL
+
+2.短链跳转方式
+
+    301 - 用户第一次访问某个短链接后，如果服务器返回301状态码，则这个用户在后续多次访问统一短链接，浏览器会直接请求跳转地址，而不是短链接地址，这样一来服务器端就无法收到用户的请求
+    缺点：有缓存情况下直接跳转原地址，无法记录准确的访问
+
+    302-浏览器不缓存短链接请求，那么用户每次访问短链接，都会先去短链接服务端取回长链接地址，然后在跳转。
+    缺点：服务器压力大
+```
+
+</details>
+
+<b><details><summary>116.HTML5拖拽事件的顺序是什么？</summary></b>
+
+参考答案：
+
+```
+ondragstart ：源对象开始被拖动
+ondrag：源对象被拖动过程中
+ondragend：源对象被拖动结束
+
+ondragenter：源对象拖动着进入目标对象
+ondragover：源对象拖动着悬停在目标对方上方
+ondragleave：源对象拖动着离开了目标对象
+ondrop：源对象拖动着目标对象上方释放
+```
+
+</details>
+
+<b><details><summary>117. 为什么我们要使用web workers？</summary></b>
+
+参考答案：
+
+```
+因为js是单线程，如果存在大数据运算的时候会影响用户使用体验，出现卡顿的情况。
+使用web workers 可以开启一个线程，在运算的同时，不影响用户体验。
+web workers的几个使用场景可以参考下：
+
+    当大图片canvas转base64的时候非常耗时，就可以使用wokers
+    端对端加密的时候，要大量计算，可以使用wokers
+    拼写检查，检索的所有工作可以让wokers来完成，不会阻塞UI
+    indexdb ，在网络不稳定情况下,使用indexdb api的时候，可以交给wokers，这样不会阻塞主线UI
+```
+
+</details>
+
+<b><details><summary>118. 使用svg画一个微信的logo</summary></b>
+
+参考答案：
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <!--绿色大椭圆下的小尾巴-->
+  <polygon points="70,92 85,97 65,107"
+  style="fill:#84d845;"/>
+  <!--绿色大椭圆-->
+  <ellipse cx="100" cy="60" rx="50" ry="42" style="fill:#84d845;" />
+  <!--灰色小椭圆下的小尾巴-->
+  <polygon points="150,115 160,110 165,120"
+  style="fill:#f1f2f4;"/>
+  <!--灰色小椭圆-->
+  <ellipse cx="135" cy="85" rx="40" ry="32" style="fill:#f1f2f4;" />
+  <!--两只大眼睛-->
+  <ellipse cx="82" cy="45" rx="5" ry="5" style="fill:#136f1a;" />
+  <ellipse cx="115" cy="45" rx="5" ry="5" style="fill:#136f1a;" />
+  <!--两只小眼睛-->
+  <ellipse cx="120" cy="75" rx="4" ry="4" style="fill:#797d7e;" />
+  <ellipse cx="145" cy="75" rx="4" ry="4" style="fill:#797d7e;" />
+</svg>
+```
+
+</details>
+
+<b><details><summary>119. 如何在不同的端口间共享cookie？</summary></b>
+
+参考答案：根据同源策略，cookie是区分端口的，但是浏览器实现来说，“cookie区分域，而不区分端口，也就是说，同一个ip下的多个端口下的cookie是共享的。
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 参考答案：

@@ -330,19 +330,44 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>19. 异步加载和延迟加载</summary></b>
+<b><details><summary>19. 同步加载、异步加载、延迟加载、预加载的区别</summary></b>
 
 参考答案：
 
-1. 异步加载的方案： 动态插入 script 标签
+一、同步加载
 
-2. 通过 ajax 去获取 js 代码，然后通过 eval 执行
+　　平常默认用的都是同步加载。如：<script src="http://yourdomain.com/script.js"></script> 
+　　同步模式又称阻塞模式，会阻止浏览器的后续处理，停止了后续的文件的解析，执行，如图像的渲染。流览器之所以会采用同步模式，是因为加载的js文件中有对dom的操作，重定向，输出document等默认行为，所以同步才是最安全的。通常会把要加载的js放到body结束标签之前，使得js可在页面最后加载，尽量减少阻塞页面的渲染。这样可以先让页面显示出来
 
-3. script 标签上添加 defer 或者 async 属性
+二、异步加载
 
-4. 创建并插入 iframe，让它异步执行 js
+```js
+(function() {
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.async = true;
+s.src = 'http://yourdomain.com/script.js';
+var x = document.getElementsByTagName('script')[0];
+ x.parentNode.insertBefore(s, x);
+})();
+```
 
-5. 延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。
+异步加载也叫非阻塞模式加载，浏览器在下载js的同时，同时还会执行后续的页面处理。
+在script标签内，用js创建一个script元素并插入到document中，这种就是异步加载js文件了。
+
+同步加载流程是瀑布模型，异步加载流程是并发模型。
+
+三、延迟加载（lazy loading）
+
+前面解决了异步加载（async loading）问题，再谈谈什么是延迟加载。
+延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的。延迟加载就是一开始并不加载这些暂时不用的js，而是在需要的时候或稍后再通过js 的控制来异步加载。
+也就是将 js 切分成许多模块，页面初始化时只加载需要立即执行的 js ，然后其它 js 的加载延迟到第一次需要用到的时候再加载。
+特别是页面有大量不同的模块组成，很多可能暂时不用或根本就没用到。
+就像图片的延迟加载，在图片出现在可视区域内时（在滚动条下拉）才加载显示图片
+
+四、预加载
+
+预加载是一种浏览器机制，使用浏览器空闲时间来预先下载/加载用户接下来很可能会浏览的页面/资源，当用户访问某个预加载的链接时，如果从缓存命中,页面就得以快速呈现。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/80)
 
@@ -484,7 +509,7 @@ JSON 的速度要远远快于 XML。
 
 </details>
 
-<b><details><summary>27. RESTful</summary></b>
+<b><details><summary>27. 什么是RESTful？</summary></b>
 
 参考答案：REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
 

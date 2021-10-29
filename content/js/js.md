@@ -10376,6 +10376,26 @@ document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
 </details>
 
+<b><details><summary>362. 什么是本地存储的有效期？</summary></b>
+
+参考答案：
+
+```
+本地存储的四种方式：cookie，localStorage, sessionStorage, indexDB
+cookie: 通过 expires / max-age 设置过期时间。如不指定，则为 session cookie, 即一次会话有效。
+localStorage: 持久存储，需主动清除
+sessionStorage: 会话存储，会话结束（浏览器，标签页关闭）自动清除。
+indexDB: 持久存储，需主动删除。
+```
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
 <b><details><summary></summary></b>
 
 参考答案：
