@@ -3207,3 +3207,97 @@ Vue.component( id, [definition] )
 ```
 
 </details>
+
+<b><details><summary>151.如果将axios异步请求同步化处理？</summary></b>
+
+参考答案：async await
+
+```js
+// 统一处理axios请求
+    async getHistoryData (data) {
+      try {
+        let res = await axios.get('/api/survey/list/', {
+          params: data
+        })
+        this.tableData = res.data.result
+        this.totalData = res.data.count
+      } catch (err) {
+        console.log(err)
+        alert('请求出错！')
+      }
+    }
+  }
+```
+
+</details>
+
+<b><details><summary>152.vue组件里的定时器要怎么销毁？</summary></b>
+
+参考答案：
+
+```js
+const timer = setInterval(() =>{
+// 某些定时器操作
+}, 500);
+// 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
+this.$once('hook:beforeDestroy', () => {
+clearInterval(timer);
+})
+```
+
+</details>
+
+<b><details><summary>153.`＜template＞＜/template＞`有什么用？</summary></b>
+
+参考答案：
+
+```
+包裹嵌套其它元素，使元素具有区域性，自身具有三个特点：
+*隐藏性：不会显示在页面中
+*任意性：可以写在页面的任意地方
+*无效性： 没有一个根元素包裹，任何HTML内容都是无效的
+```
+
+</details>
+
+<b><details><summary>154.vue组件会在什么时候下被销毁？</summary></b>
+
+参考答案：页面关闭、路由跳转、v-if和改变key值
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
