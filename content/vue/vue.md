@@ -3266,33 +3266,50 @@ clearInterval(timer);
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>155.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？</summary></b>
 
-参考答案：
-
-</details>
-
-<b><details><summary></summary></b>
-
-参考答案：
+参考答案：需要，原生DOM事件必须要手动销毁，否则会造成内存泄漏
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>156.说说你对Object.defineProperty的理解</summary></b>
 
-参考答案：
+参考答案：Object.defineProperty定义新属性或修改原有的属性；
+vue的数据双向绑定的原理就是用的Object.defineProperty这个方法，里面定义了setter和getter方法，通过观察者模式（发布订阅模式）来监听数据的变化，从而做相应的逻辑处理。
 
-</details>
-
-<b><details><summary></summary></b>
-
-参考答案：
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>157.在组件中怎么访问到根实例？</summary></b>
+
+参考答案：this.$root
+
+</details>
+
+<b><details><summary>158.vue中什么是递归组件？举个例子说明下？</summary></b>
+
+参考答案：组件自己调用自己，场景有用于生成树形结构菜单
+
+</details>
+
+<b><details><summary>159.使用vue写一个tab切换</summary></b>
 
 参考答案：
+
+v-for循环，利用下标和v-show显示
+
+`<div id="app">
+    <ul class="tabs">
+        <li class="li-tab" v-for="(item,index) in tabsParam" 
+        @click="toggleTabs(index)" 
+        :class="index===nowIndex?'active':''">{{item}}</li>
+    </ul>
+    <div class="divTab" v-show="nowIndex===0">我是tab1</div>
+    <div class="divTab" v-show="nowIndex===1">我是tab2</div>
+    <div class="divTab" v-show="nowIndex===2">我是tab3</div>
+    <div class="divTab" v-show="nowIndex===3">我是tab4</div>
+</div>`
+
 
 </details>
 

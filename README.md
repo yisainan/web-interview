@@ -59,6 +59,7 @@
 <b><details><summary>🐰 Vue + React</summary></b>
 
 - [Vue](./content/vue/vue.md)
+- [vue-fe-interview](./content/vue/fe-interview.md)
 - [React](./content/react/React.md)
 - [reactjs-interview-questions](./content/react/reactjs-interview-questions.md)
 
