@@ -3208,7 +3208,7 @@ Vue.component( id, [definition] )
 
 </details>
 
-<b><details><summary>151.如果将axios异步请求同步化处理？</summary></b>
+<b><details><summary>151.如何将axios异步请求同步化处理？</summary></b>
 
 参考答案：async await
 
