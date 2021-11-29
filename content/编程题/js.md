@@ -750,29 +750,31 @@ alert(obj.key0) // 输出 0
 参考答案：
 
 ```js
-function findSymmetryNum(s,o){
-	var arr=[];
-	for(var i=s;i<=o;i++){
-		var str=''+i,sl=str.length,middle=0,flag=true;
-		if(sl%2===0){
-			middle=sl/2;			
-			}else{
-				middle = (sl-1)/2;
-				}
-		
-		for(var m=0;m<middle;m++){ 
-			if(str.substr(0+m,1)!==str.substr(-1-m,1)){
-				flag = false;
-				}
-			}
-		flag&&arr.push(i);
-		
+function findSymmetryNum(s, o) {
+	var arr = [];
+	for (var i = s; i <= o; i++) {
+		var str = '' + i,
+		sl = str.length,
+		middle = 0,
+		flag = true;
+        // 字符串分割成两半，记录中间数值middle
+		if (sl % 2 === 0) {
+			middle = sl / 2;
+		} else {
+			middle = (sl - 1) / 2;
 		}
-	
-	console.log(arr);
-		return arr;
+        // 判断middle左右的数是否对称
+		for (var m = 0; m < middle; m++) {
+			if (str.substr(0 + m, 1) !== str.substr( - 1 - m, 1)) {
+				flag = false;
+			}
+		}
+		flag && arr.push(i);
 	}
-	findSymmetryNum(1,10000);
+	console.log(arr);
+	return arr;
+}
+findSymmetryNum(1, 10000);
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/568)

@@ -5206,6 +5206,7 @@ let obj = {}
 obj.__proto__ === Object.prototype // true
 
 function Test(){}
+var test = new Test()
 test.__proto__ == Test.prototype // true
 ```
 
@@ -5218,7 +5219,7 @@ function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
 
-Object. prototype. __proto__指向 null
+Object.prototype.__proto__指向 null
 
 ```
 

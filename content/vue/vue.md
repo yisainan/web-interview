@@ -420,7 +420,7 @@ Vue与React、Angular的不同是，它是渐进的：
 
 </details>
 
-<b><details><summary>10. vue. js 的两个核心是什么？</summary></b>
+<b><details><summary>10. vue.js 的两个核心是什么？</summary></b>
 
 参考答案：数据驱动和组件化思想
 
