@@ -913,25 +913,41 @@ function flatten(arr) {
 
 <b><details><summary>21. 如何解决数组塌陷问题</summary></b>
 
+什么叫数组塌陷？
+
+一个数组在进行删除数据单元操作的时候，删除掉这个单元之后，后面的数据单元会自动的补充的这个位置上来，造成数组长度的减少，这种情况被称之为数组塌陷。
+
+例：循环删除数组中的数据，每循环一次，删除一个数据单元
+
+``` js
+var arr = [0,1,2,3,4,5,6,7,8,9];
+for (var i = 0; i < arr.length; i++) {
+    arr.splice(i, 1);
+}
+console.log(arr) // [1, 3, 5, 7, 9]
+```
+
+那么 现在的输出是 [1, 3, 5, 7, 9] 还剩 5 个 单元 ，也就是还有一半没有删除。
+
+因为：我们使用for 循环遍历 arr, 当i = 0的时候, 我们删除了位置为 0 的元素,此时位置为 1 的元素接替了位置 0 , 但同时 i 也累加了, 下次执行删除操作的时候 i 变为 1,再次执行删除操作,其实是删除了现在位置为 1 的元素, 中间跳过了, 所以最后的结果只删除了一半。
+
+如何解决数组塌陷问题呢？
+
 参考答案：
 
 ``` js
-// 1 使用i--
+// 方法1 使用i--
 for (var i = 0; i < arr.length; i++) {
-    if (arr[i] === 4) {
-        arr.splice(i, 1);
-        i--;
-    }
+    arr.splice(i, 1);
+    i--;
 }
-console.log(arr);
+console.log(arr); // []
 
-// 2 从数组的末尾一项开始遍历
-for (var i = arr.length; i >= 0; i--) {
-    if (arr[i] === 4) {
-        arr.splice(i, 1);
-    }
+// 方法2 从数组的末尾一项开始遍历
+for (var i = arr.length - 1; i >= 0; i--) {
+    arr.splice(i, 1);
 }
-console.log(arr);
+console.log(arr); // []
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/571)
