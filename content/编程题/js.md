@@ -954,36 +954,61 @@ console.log(arr); // []
 
 </details>
 
-<b><details><summary>22. 计算打印结果</summary></b>
-
-参考答案：
+<b><details><summary>22. 大部分人都会做错的经典 JS 闭包面试题</summary></b>
 
 ``` js
-function fun(n, o) {
-    console.log(o);
-    return {
-        fun: function(m) {
-            return fun(m, n);
-        }
-    };
+function fun(n,o) {
+　　console.log(o)
+　　return {
+       fun:function(m){
+　　　　   　return fun(m,n);
+　　    }
+　　};
 }
-// var a = fun(0);
-// a.fun(1);
-// a.fun(2);
-// a.fun(3);
-
-// 打印
-// undefined 0 0 0
-
-// var b = fun(0).fun(1).fun(2).fun(3)
-// 打印 undefined 0 1 2
-
-var c = fun(0).fun(1);
-c.fun(2);
-c.fun(3);
-// 打印
-// undefined 0 1 1
+var a = fun(0); a.fun(1); a.fun(2); a.fun(3); // undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3); // undefined,?,?,?
+var c = fun(0).fun(1); c.fun(2); c.fun(3); // undefined,?,?,?
 ```
+问:三行a,b,c的输出分别是什么？
+
+这是一道非常典型的JS闭包问题。其中嵌套了三层fun函数，搞清楚每层fun的函数是那个fun函数尤为重要。
+
+可以先在纸上或其他地方写下你认为的结果，然后展开看看正确答案是什么？
+
+参考答案：
+a: undefined,0,0,0
+b: undefined,0,1,2
+c: undefined,0,1,1
+
+
+1、第一行a
+
+var a = fun(0); a.fun(1); a.fun(2); a.fun(3);
+　　可以得知，第一个fun(0)是在调用第一层fun函数。第二个fun(1)是在调用前一个fun的返回值的fun函数，所以：第后面几个fun(1),fun(2),fun(3),函数都是在调用第二层fun函数。
+
+遂：在第一次调用fun(0)时，o为undefined；第二次调用fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；第三次调用fun(2)时m为2，但依然是调用a.fun，所以还是闭包了第一次调用时的n，所以内部调用第一层的fun(2,0);所以o为0；第四次同理；
+
+即：最终答案为undefined,0,0,0
+
+2、第二行b
+
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+先从fun(0)开始看，肯定是调用的第一层fun函数；而他的返回值是一个对象，所以第二个fun(1)调用的是第二层fun函数，后面几个也是调用的第二层fun函数。 
+
+遂：在第一次调用第一层fun(0)时，o为undefined；第二次调用 .fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；第三次调用 .fun(2)时m为2，此时当前的fun函数不是第一次执行的返回对象，而是第二次执行的返回对象。而在第二次执行第一层fun函数时时(1,0)所以n=1,o=0,返回时闭包了第二次的n，遂在第三次调用第三层fun函数时m=2,n=1，即调用第一层fun函数fun(2,1)，所以o为1；第四次调用 .fun(3)时m为3，闭包了第三次调用的n，同理，最终调用第一层fun函数为fun(3,2)；所以o为2；
+
+ 即最终答案：undefined,0,1,2
+
+3、第三行c
+
+var c = fun(0).fun(1); c.fun(2); c.fun(3);//undefined,?,?,?
+根据前面两个例子，可以得知：fun(0)为执行第一层fun函数，.fun(1)执行的是fun(0)返回的第二层fun函数，这里语句结束，遂c存放的是fun(1)的返回值，而不是fun(0)的返回值，所以c中闭包的也是fun(1)第二次执行的n的值。c.fun(2)执行的是fun(1)返回的第二层fun函数，c.fun(3)执行的也是fun(1)返回的第二层fun函数。
+
+遂：在第一次调用第一层fun(0)时，o为undefined；第二次调用 .fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；第三次调用 .fun(2)时m为2，此时fun闭包的是第二次调用的n=1，即m=2，n=1，并在内部调用第一层fun函数fun(2,1);所以o为1；第四次.fun(3)时同理，但依然是调用的第二次的返回值，遂最终调用第一层fun函数fun(3,1)，所以o还为1
+
+ 即最终答案：undefined,0,1,1
+
+解析：[参考](https://www.cnblogs.com/lilistyle/p/13791398.html)、
 
 [参与互动](https://github.com/yisainan/web-interview/issues/572)
 
@@ -993,24 +1018,96 @@ c.fun(3);
 
 参考答案：
 
-``` js
-var arr = [1, 2, 3, 3, 4, 4, 5, 5, 6, 1, 9, 3, 25, 4];
+1、利用ES6 Set去重（ES6中最常用）
 
-function deRepeat() {
-    var newArr = [];
-    var obj = {};
-    var index = 0;
-    var l = arr.length;
-    for (var i = 0; i < l; i++) {
-        if (obj[arr[i]] == undefined) {
-            obj[arr[i]] = 1;
-            newArr[index++] = arr[i];
-        } else if (obj[arr[i]] == 1) continue;
-    }
-    return newArr;
+```js
+var arr = [1,1,8,8,12,12,15,15,16,16];
+function unique (arr) {
+  return Array.from(new Set(arr))
 }
-var newArr2 = deRepeat(arr);
-alert(newArr2); //输出1,2,3,4,5,6,9,25
+
+console.log(unique(arr)) //[1,8,12,15,16]
+```
+不考虑兼容性，这种去重的方法代码最少。这种方法还无法去掉“{}”空对象，后面的高阶方法会添加去掉重复“{}”的方法。
+
+2、利用for嵌套for，然后splice去重（ES5中最常用）
+
+```js
+var arr = [1, 1, 8, 8, 12, 12, 15, 15, 16, 16];
+
+function unlink(arr) {
+    for (var i = 0; i < arr.length; i++) {    // 首次遍历数组
+        for (var j = i + 1; j < arr.length; j++) {   // 再次遍历数组
+            if (arr[i] == arr[j]) {          // 判断连个值是否相等
+                arr.splice(j, 1);           // 相等删除后者
+                j--;
+            }
+        }
+    }
+    return arr
+}
+console.log(unlink(arr));
+// NaN和{}没有去重，两个null直接消失了
+```
+
+
+双层循环，外层循环元素，内层循环时比较值。值相同时，则删去这个值。
+
+3、利用indexOf去重
+
+```js
+var arr = [1, 1, 8, 8, 12, 12, 15, 15, 16, 16];
+function unlink(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('错误！')
+        return
+    }
+    var array = [];
+    for (var i = 0; i < arr.length; i++) {    // 首次遍历数组
+        if (array.indexOf(arr[i]) === -1) {   // 判断索引有没有等于
+            array.push(arr[i])
+        }
+    }
+    return array
+}
+console.log(unlink(arr));
+// NaN、{}没有去重
+```
+
+
+新建一个空的结果数组，for 循环原数组，判断结果数组是否存在当前元素，如果有相同的值则跳过，不相同则push进数组。
+
+4、利用includes
+
+```js
+var arr = [1, 1, 8, 8, 12, 12, 15, 15, 16, 16];
+function unique(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    var array =[];
+    for(var i = 0; i < arr.length; i++) {
+        if( !array.includes( arr[i]) ) {//includes 检测数组是否有某个值
+            array.push(arr[i]);
+        }
+    }
+    return array
+}
+console.log(unique(arr))
+```
+
+5、利用filter
+
+```js
+var arr = [1, 1, 8, 8, 12, 12, 15, 15, 16, 16];
+function unlink(arr) {
+    return arr.filter(function (item, index, arr) {
+        //当前元素，在原始数组中的第一个索引==当前索引值，否则返回当前元素
+        return arr.indexOf(item, 0) === index;
+    });
+}
+console.log(unlink(arr));
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/573)
@@ -1042,6 +1139,7 @@ for (var i = 0; i < len; i++) {
         ckList.push(domList[i]);
     }
 }
+console.log(ckList)
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/575)
@@ -1098,13 +1196,13 @@ console.log(combo(string));
 
 </details>
 
-<b><details><summary>29. 看下面代码，给出输出结果</summary></b>
+<b><details><summary>29. 看下面代码，如何输出1 2 3</summary></b>
 
 ``` js
 for (var i = 1; i <= 3; i++) {
     console.log(i);
 }
-// 1 2 3
+// 输出 1 2 3
 ```
 
 但是
@@ -1116,7 +1214,7 @@ for (var i = 1; i <= 3; i++) {
         console.log(i);
     }, 0);
 }
-// 4 4 4
+// 输出 4 4 4
 ```
 
 如何输出 1 2 3
@@ -1172,7 +1270,9 @@ for (var i = 1; i <= 3; i++) {
 
 </details>
 
-<b><details><summary>32. 用最简单的方式，求一个数组中最大的元素，例如 arr=[5, 7, 9, 42, 18, 29]</summary></b>
+<b><details><summary>32. 用最简单的方式，求一个数组中最大的元素</summary></b>
+
+例如 arr = [5, 7, 9, 42, 18, 29]
 
 参考答案：
 
@@ -1191,7 +1291,7 @@ alert(Math.min.apply(null, a)); //最小值
 参考答案：
 
 ``` js
-//重写trim方法
+// 重写trim方法
 if (!String.prototype.trim) {
     String.prototype.trim = function() {
         return this.replace(/^\s+/, "").replace(/\s+$/, "");
@@ -1205,8 +1305,6 @@ if (!String.prototype.trim) {
 
 <b><details><summary>34. 运算符面试题</summary></b>
 
-参考答案：
-
 ``` js
 var a = 10,
     b = 20,
@@ -1214,7 +1312,18 @@ var a = 10,
 ++a;
 a++;
 e = ++a + ++b + c++ + a++;
-console.log(e); // 77
+console.log(e);
+```
+
+参考答案：77
+
+解析：
+
+1：后置++ 是将自身的值赋给变量，之后自身再加1；
+2：前置++ 是将自身+1 后的值赋给变量，同时自身加1；
+
+```js
+e = 13 + 21 + 30 + 13
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/584)
@@ -1228,9 +1337,9 @@ console.log(e); // 77
 ``` 
  this指向了谁？
  看函数在执行的时候是如何调用的，
- 1 如果这个函数是用普通函数调用模式来进行调用，它内部的this指向了window
- 2如果一个函数在调用的时候是通过对象方法模式来进行调用，则它内部的this就是我们的对象
- 3 如果一个函数在调用的时候通过构造函数模式调用，则它内部的this指向了生成的实例
+ 1 如果这个函数是用普通函数调用模式来进行调用，它内部的this指向了window;
+ 2 如果一个函数在调用的时候是通过对象方法模式来进行调用，则它内部的this就是我们的对象;
+ 3 如果一个函数在调用的时候通过构造函数模式调用，则它内部的this指向了生成的实例;
  4 如果这个函数是通过方法借用模式调用，则这个函数内部的this就是我们手动指定this。
 ```
 
@@ -1253,8 +1362,8 @@ var o = {
         console.log(this.__proto__ === o[2].prototype);
     }
 };
-o.f(); //o   对象调用模式
-o[2](); //o  对象调用模式
+o.f(); // o   对象调用模式
+o[2](); // o  对象调用模式
 new o[2](); //存疑，存在着优先级的问题 {}  通过构造函数模式进行调用
 o.f.call([1, 2]); //[1,2]   call方法进行方法借用。
 o[2].call([1, 2, 3, 4]); // [1,2,3,4]  call方法进行方法借用
@@ -1432,29 +1541,27 @@ console.log(sub.sayWhat());
 参考答案：
 
 ``` js
-function New(func) {
-    var res = {};
-    if (func.prototype !== null) {
-        res.__proto__ = func.prototype;
-    }
-    var ret = func.apply(res, Array.prototype.slice.call(arguments, 1));
-    if ((typeof ret === "object" || typeof ret === "function") && ret !== null) {
-        return;
-        ret;
-    }
-    return;
-    res;
+function realizeNew () {
+    //创建一个新对象
+    let obj  = {};
+    //获得构造函数
+    let Con = [].shift.call(arguments);
+    //链接到原型（给obj这个新生对象的原型指向它的构造函数的原型）
+    obj.__proto__ = Con.prototype;
+    //绑定this
+    let result = Con.apply(obj,arguments);
+    //确保new出来的是一个对象
+    return typeof result === "object" ? result : obj
 }
-var obj = New(A, 1, 2);
-// equals to
-var obj = new A(1, 2);
 ```
 
+
+[参考](https://blog.csdn.net/q1424966670/article/details/92839918)、
 [参与互动](https://github.com/yisainan/web-interview/issues/586)
 
 </details>
 
-<b><details><summary>37. 实现一个 call 或 apply</summary></b>
+<b><details><summary>37. 用js实现一个 call 或 apply 方法</summary></b>
 
 参考答案：
 
@@ -1504,7 +1611,7 @@ Function.prototype.apply2 = function(context, arr) {
 
 </details>
 
-<b><details><summary>38. 实现一个 Function. bind</summary></b>
+<b><details><summary>38. 实现一个 Function.bind</summary></b>
 
 参考答案：
 
