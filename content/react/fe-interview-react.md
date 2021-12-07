@@ -1,4 +1,4 @@
-[转载自 haizlin/fe-interview](https://github.com/haizlin/fe-interview/blob/master/lib/React.md)
+> [转载自 haizlin/fe-interview](https://github.com/haizlin/fe-interview/blob/master/lib/React.md)
 
 # React面试题
 > 鼓励PR，持续更新（React v16.6.0）

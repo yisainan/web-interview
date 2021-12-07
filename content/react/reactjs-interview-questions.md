@@ -1,4 +1,4 @@
-[转载自 semlinker/reactjs-interview-questions](https://github.com/semlinker/reactjs-interview-questions)
+> [转载自 semlinker/reactjs-interview-questions](https://github.com/semlinker/reactjs-interview-questions)
 
 # React 面试题 & 回答
 

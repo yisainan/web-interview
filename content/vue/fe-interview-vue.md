@@ -1,4 +1,4 @@
-[转载自 haizlin/fe-interview](https://github.com/haizlin/fe-interview/blob/master/lib/Vue.md)
+> [转载自 haizlin/fe-interview](https://github.com/haizlin/fe-interview/blob/master/lib/Vue.md)
 
 
 # vue面试题
