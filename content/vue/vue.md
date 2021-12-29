@@ -68,7 +68,7 @@
 
 Vue2 与Vue3的生命周期对比
 
-| 变量                                      | 实例化(次数)                                |
+| Vue2                                   | Vue3                               |
 | ----------------------------------------- | ------------------------------------------- |
 | beforeCreate(组件创建之前)                | setup(组件创建之前)                         |
 | created(组件创建完成)                     | setup(组件创建完成)                         |
@@ -87,9 +87,9 @@ Vue2 与Vue3的生命周期对比
 
 参考答案：
 
-VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的。
+Vue2.0 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的。
 
-Vue3.0 将用原生 Proxy 替换 Object.defineProperty
+Vue3.0 用原生 Proxy 替换 Object.defineProperty。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/394)
 
