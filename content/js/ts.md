@@ -302,21 +302,30 @@ class Student {
 
 </details>
 
-<b><details><summary>17. </summary></b>
+<b><details><summary>17. 本地Javascript支持模块吗？</summary></b>
 
-参考答案：
-
-</details>
-
-<b><details><summary>1. </summary></b>
-
-参考答案：
+参考答案：不。目前，本地JavaScript不支持模块。为了在Javascript中创建和使用模块，我们需要一个像CommonJS这样的外部模块。
 
 </details>
 
-<b><details><summary>1. </summary></b>
+<b><details><summary>18. TypeScript支持哪些面向对象的术语？</summary></b>
 
 参考答案：
+
+TypeScript支持以下面向对象的术语。
+
+  *  模块
+  *  类
+  *  接口
+  *  继承
+  *  数据类型
+  *  成员函数
+
+</details>
+
+<b><details><summary>19、如何从TypeScript的子类调用基类构造函数？</summary></b>
+
+参考答案：super()函数的作用是: 从子类中调用父类或基类构造函数。
 
 </details>
 
