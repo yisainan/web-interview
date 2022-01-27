@@ -423,3 +423,55 @@ Feature，每个功能都应留在自己的分支中开发，可以推送到 dev
    [《git merge 与 git rebase 的区别》](https://blog.csdn.net/liuxiaoheng1992/article/details/79108233)
 
 </details>
+
+<b><details><summary>27. 删除/添加远程地址</summary></b>
+
+参考答案：
+
+```
+删除远程地址
+git remote rm origin
+
+添加远程地址
+git remote add origin git@github.com:qiilee/vue3.git
+```
+
+</details>
+
+<b><details><summary>28. 只是提交信息里有一个单词写错了，可以使用以下命令进行修补</summary></b>
+
+git commit --amend -m “xxx”
+
+</details>
+
+<b><details><summary>29. 撤销提交历史中的某一次指定的提交</summary></b>
+
+git revert 711bb0b
+
+</details>
+
+<b><details><summary>30. 合并出现冲突时，撤销合并操作</summary></b>
+
+git merge --abort
+
+</details>
+
+<b><details><summary>31. 暂存区的文件加多了，想移除，又不想删掉本地的文件</summary></b>
+
+git rm --cached src/test.md
+
+</details>
+
+<b><details><summary>32. 分支重命名</summary></b>
+
+git br -m [old_br] [new_br]
+
+</details>
+
+<b><details><summary>33. </summary></b>
+
+</details>
+
+<b><details><summary>34. </summary></b>
+
+</details>
