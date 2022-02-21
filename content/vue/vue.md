@@ -3076,8 +3076,8 @@ export default {
 </script>
 ```
 v-model其实是个语法糖，它实际上是做了两步动作：
-1、绑定数据value
-2、触发输入事件input
+1、绑定数据value（v-bind）
+2、触发输入事件input（v-on）
 也就是说，v-model等同于：
 ```
 <template>
