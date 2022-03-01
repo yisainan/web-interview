@@ -3325,3 +3325,23 @@ v-for循环，利用下标和v-show显示
 6. Fragment, Teleport(Protal): 更先进的组件 ;
 
 </details>
+
+<b><details><summary>161.在compositionAPI中如何使用生命周期函数？</summary></b>
+
+参考答案：
+
+需要用到哪个生命周期函数，就将对应函数的import进来，接着在setup中调用即可
+
+</details>
+
+<b><details><summary>162.vue3如何通过ref属性获取界面上的元素?</summary></b>
+
+参考答案：
+
+在template中的写法跟vue2一样，给元素添加个ref='xxx'
+在setup中，先创建一个响应式数据，并且要把响应式数据暴露出去
+当元素被创建出来的适合，就会给对应的响应数据赋值
+当响应式数据被赋值之后，就可以利用生命周期方法，在生命周期方法中获取对应的响应式数据，即DOM元素
+
+
+</details>
