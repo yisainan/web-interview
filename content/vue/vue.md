@@ -440,9 +440,16 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 </details>
 
-<b><details><summary>12.vue 常用的修饰符</summary></b>
+<b><details><summary>12.Vue常用的修饰符及使用的场景</summary></b>
 
 参考答案：
+
+vue中修饰符分为：表单修饰符、事件修饰符、鼠标按键修饰符、键值修饰符、v-bind修饰符
+
+1. 表单修饰符包括：lazy trim number
+2. 事件修饰符包括：stop prevent self once capture passive native
+3. 鼠标按钮修饰符包括：left right middle
+4. 键盘修饰符包括：
 
 解析：[参考](https://blog.csdn.net/qq_42238554/article/details/86592295)
 
@@ -764,7 +771,9 @@ Vue.nextTick(callback) 使用原理：
 在 new Vue() 中，data 是可以作为一个对象进行操作的，然而在 component 中，data 只能以函数的形式存在，不能直接将对象赋值给它，这并非是 Vue 自身如此设计，而是跟 JavaScript 特性相关，我们来回顾下 JavaScript 的原型链
 
 ``` js
-var Component = function() {};
+var Component = function() {
+  this.data = this.data
+};
 Component.prototype.data = {
     message: "Love"
 };
@@ -3320,9 +3329,9 @@ v-for循环，利用下标和v-show显示
 1. performance: 性能比vue2.x块1.2~2倍;
 2. Tree shaking support: 按需编译，体积比vue2.x更小;
 3. Composition API: 组合API（类似React Hooks）;
-4. Better TypeScript support: 更好的 ts 支持;
-5. Custom Render API: 暴露了自定义渲染的API ;
-6. Fragment, Teleport(Protal): 更先进的组件 ;
+4. Fragment, Teleport, Suspense: 更先进的组件;
+5. Better TypeScript support: 更好的 ts 支持;
+6. Custom Render API: 暴露了自定义渲染的API;
 
 </details>
 
