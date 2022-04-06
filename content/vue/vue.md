@@ -3169,51 +3169,45 @@ export default {
 
 </details>
 
-<b><details><summary>150. vue.component和vue.use的区别</summary></b>
+<b><details><summary>150. Vue.prototype、Vue.component和Vue.use的区别</summary></b>
 
 参考答案：
 
-Vue.use()注册与Vue.component()注册区别就在于一个insatll方法。
+1、Vue.prototype
 
-Vue.component()：注册一个组件在全局使用；
-Vue.use()： 可以一次性注册多个组件或添加全局方法或属性；
+  * 在很多组件里用到数据/实用工具，但是不想污染全局作用域。这种情况下，你可以通过在原型上定义它们使其在每个 Vue 的实例中可用
+  * $ 是在 Vue 所有实例中都可用的 property 的一个简单约定。这样做会避免和已被定义的数据、方法、计算属性产生冲突
+  * 常用于方法与变量
 
-
+```js
+import pinyin from 'js-pinyin';
+Vue.prototype.$pinyin = pinyin;
 ```
-Vue.use( plugin )
 
-    参数：
-        {Object | Function} plugin
+2、vue.component
 
-    用法：
+  * 注册全局组件
+  * 第一个参数是调用组件时写的组件名
+  * 第二个参数是引入组件时写的标签名称
+  * 常用于注册自定义组件
 
-    安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
-
-    该方法需要在调用 new Vue() 之前被调用。
-
-    当 install 方法被同一个插件多次调用，插件将只会被安装一次。
-
-    参考：插件
-
-Vue.component( id, [definition] )
-
-    参数：
-        {string} id
-        {Function | Object} [definition]
-
-    用法：
-
-    注册或获取全局组件。注册还会自动使用给定的 id 设置组件的名称
-
-    // 注册组件，传入一个扩展过的构造器
-    Vue.component('my-component', Vue.extend({ /* ... */ }))
-
-    // 注册组件，传入一个选项对象 (自动调用 Vue.extend)
-    Vue.component('my-component', { /* ... */ })
-
-    // 获取注册的组件 (始终返回构造器)
-    var MyComponent = Vue.component('my-component')
+```js
+import JsTree from '@/components/JsTree';
+Vue.component('JsTree', JsTree);
 ```
+
+3、Vue.use
+
+  * 注册全局插件
+  * 会自动阻止多次注册相同插件，届时即使多次调用也只会注册一次该插件
+  * 插件应该暴露一个 install 方法。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象
+  * 常用于注册第三方插件
+
+```js
+import VueContextMenu from 'vue-contextmenu';
+Vue.use(VueContextMenu);
+```
+
 
 </details>
 
