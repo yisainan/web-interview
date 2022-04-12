@@ -3341,10 +3341,34 @@ v-for循环，利用下标和v-show显示
 
 参考答案：
 
-在template中的写法跟vue2一样，给元素添加个ref='xxx'
-在setup中，先创建一个响应式数据，并且要把响应式数据暴露出去
-当元素被创建出来的适合，就会给对应的响应数据赋值
-当响应式数据被赋值之后，就可以利用生命周期方法，在生命周期方法中获取对应的响应式数据，即DOM元素
+在vue2.x中，可以通过给元素添加ref='xxx'属性，然后在代码中通过this.$refs.xxx获取到对应的元素;
 
+
+在vue3中，
+1. 在template中的写法跟vue2一样，给元素添加个ref='xxx'
+2. 在setup中，先创建一个响应式数据，并且要把响应式数据暴露出去
+3. 当元素被创建出来的时候，就会给对应的响应数据赋值
+4. 当响应式数据被赋值之后，就可以利用生命周期方法onMounted中获取对应的响应式数据，即DOM元素
+5. 这样做原因很简单，在setup执行时，template中的元素还没挂载到页面上，所以必须在mounted之后才能获取到元素。
+
+```
+<template>
+  <div ref='box'>I am DIV</div>
+</template>
+<script>
+import { onMounted, ref } from 'vue';
+export default{
+  setup(){
+    let box = ref(null);
+    onMounted(()=>{
+      console.log(box.value)
+    });
+    return {box}
+  }
+}
+</script>
+```
+
+[参考地址](https://mp.weixin.qq.com/s?__biz=MzIwODg5MjExNQ==&mid=2247484984&idx=1&sn=da3c13cadce525003756894e6283fe62&chksm=977d7f84a00af69240b36c27790d8afb2765204cc2caf1d7b156f5b6eeaba260b23d7997336f&token=342321736&lang=zh_CN#rd)
 
 </details>
