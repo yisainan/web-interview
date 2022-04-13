@@ -6028,8 +6028,285 @@ Mon Aug 12 2019 09:39:07 GMT+0800 (中国标准时间) 5
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>230.前端开发都应该懂的事件循环（event loop）以及异步执行顺序（setTimeout、promise和async/await）</summary></b>
 
-参考答案：
+参考答案：按着参考地址的文章，很容易
+
+> 来自文章结语
+1. JS是单线程执行的，同一时间只能处理一件事。但是浏览器是有多个线程的，JS引擎通过分发这些耗时的异步事件（AJAX请求、DOM操作等）给Wep APIs线程处理，因此避免了单线程被耗时的异步事件阻塞的问题。
+
+2. Web APIs线程会将接收到的所有事件中已完成的事件根据类别分别将它们添加到相应的任务队列中。其中任务队列分以下两种：
+
+    1. 宏任务队列（macrotask queue）：其实是叫任务队列，ES5称task queue，也即本文图中的callback queue，macrotask是我们给它的别名，原因只是为了与ES6新增的microtask队列作区分而这样称呼，HTML标准中并没有macrotask这种说法。它存放的是DOM事件、AJAX事件、setTimeout事件等。
+    2. 微任务队列（microtask queue）：它存放的是Promise事件、nextTick事件等。优先级比macrotask高。
+
+3. 事件循环（event loop） 机制是为了协调事件（events）、用户交互（user interaction）、JS脚本（scripts）、页面渲染（rendering）、网络请求（networking）等等事件的有序执行而设置（定义由HTML标准给出，实现方式是靠各个浏览器厂商自己实现）。事件循环的过程如下：
+
+    1. JS引擎执行一个事件，当遇到异步事件时则将其交给浏览器的Web APIs线程处理，然后该事件继续执行，永远不会被抢占，一直执行到该事件结束为止（run to complete）。
+    2. 当JS引擎执行完当前事件（即执行栈变为空）之后，它会先去查看microtask队列，将microtask队列中的所有待执行事件全部执行完毕。
+    3. 等微任务事件全部执行完毕后，再进行页面的渲染，此时表明一轮事件循环的过程结束。然后再去查看macrotask队列，取出一个宏事件添加到执行栈执行，开始一轮新的事件，执行完毕后再去执行所有微任务事件…如此往复。此即事件循环的执行过程。
+
+打个比方帮助理解：宏任务事件就像是普通用户，而微任务事件就像是VIP用户，执行栈要先把所有在等待的VIP用户服务好了以后才能给在等待的普通用户服务，而且每次服务完一个普通用户以后都要先看看有没有VIP用户在等待，若有，则VIP用户优先（PS：人民币玩家真的可以为所欲为，hah…）。当然，执行栈正在给一个普通用户服务的时候，这时即使来了VIP用户，他也是需要等待执行栈服务完该普通用户后才能轮到他。
+
+4. setTimeout设置的时间其实只是最小延迟时间，并不是确切的等待时间。实际上最小延时 >=4ms，小于4ms的会被当做4ms。
+
+5. promise 对象是由关键字 new 及Promise构造函数来创建的。该构造函数会把一个叫做“处理器函数”（executor function）的函数作为它的参数（即 new Promise(...)中的...的内容）。这个“处理器函数”是在promise创建时是自动执行的，.then之后的内容才是异步内容，会交给Web APIs处理，然后被添加到微任务队列。
+
+6. async/await：async函数其实是Generator函数的语法糖（解释一下“语法糖”：就是添加标准以外的语法以方便开发人员使用，本质上还是基于已有标准提供的语法进行封装来实现的），async function 声明用于定义一个返回 AsyncFunction 对象的异步函数。执行async函数时，遇到await关键字时，await 语句产生一个promise，await 语句之后的代码被暂停执行，等promise有结果（状态变为settled）以后再接着执行。
+
+
+> 以下是文章中的练习题
+
+4.1 简单融合
+
+```js
+//请写出输出内容
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    console.log('async1 end');
+}
+async function async2() {
+	console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function() {
+    console.log('setTimeout');
+}, 0)
+
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+});
+
+console.log('script end');
+
+```
+
+```
+输出的结果：
+
+script start
+async1 start
+async2
+promise1
+script end
+async1 end
+promise2
+setTimeout
+```
+
+自己打印成功
+
+
+4.2 变形1
+
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    console.log('async1 end');
+}
+async function async2() {
+    //async2做出如下更改：
+    new Promise(function(resolve) {
+	    console.log('promise1');
+	    resolve();
+	}).then(function() {
+	    console.log('promise2');
+    });
+}
+
+console.log('script start');
+
+setTimeout(function() {
+    console.log('setTimeout');
+}, 0)
+
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise3');
+    resolve();
+}).then(function() {
+    console.log('promise4');
+});
+
+console.log('script end');
+
+```
+
+```
+输出的结果：
+
+script start
+async1 start
+promise1
+promise3
+script end
+promise2
+async1 end
+promise4
+setTimeout
+
+```
+
+```
+自己的打印
+
+script start
+async1 start
+promise1
+promise3
+script end
+async1 end
+promise2
+promise4
+setTimeout
+
+
+
+async1 end
+promise2
+位置不对
+```
+
+4.3 变形2
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    //更改如下：
+    setTimeout(function() {
+        console.log('setTimeout1')
+    },0)
+}
+async function async2() {
+    //更改如下：
+	setTimeout(function() {
+		console.log('setTimeout2')
+	},0)
+}
+
+console.log('script start');
+
+setTimeout(function() {
+    console.log('setTimeout3');
+}, 0)
+
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+});
+
+console.log('script end');
+```
+```
+输出的结果：
+
+script start
+async1 start
+promise1
+script end
+promise2
+setTimeout3
+setTimeout2
+setTimeout1
+```
+```
+自己的打印，后部分错了
+
+script start
+async1 start
+promise1
+script end
+setTimeout2
+setTimeout1
+setTimeout3
+promise2
+```
+
+
+4.4 变形3
+
+```js
+async function a1 () {
+    console.log('a1 start')
+    await a2()
+    console.log('a1 end')
+}
+async function a2 () {
+    console.log('a2')
+}
+
+console.log('script start')
+
+setTimeout(() => {
+    console.log('setTimeout')
+}, 0)
+
+Promise.resolve().then(() => {
+    console.log('promise1')
+})
+
+a1()
+
+let promise2 = new Promise((resolve) => {
+    resolve('promise2.then')
+    console.log('promise2')
+})
+
+promise2.then((res) => {
+    console.log(res)
+    Promise.resolve().then(() => {
+        console.log('promise3')
+    })
+})
+console.log('script end')
+
+```
+
+```
+输出的结果：
+
+script start
+a1 start
+a2
+promise2
+script end
+promise1
+a1 end
+promise2.then
+promise3
+setTimeout
+```
+
+```
+自己的打印：后部分错了
+
+
+script start
+a1 start
+a2
+promise2
+script end
+promise1
+promise2.then
+promise3
+a1 end
+setTimeout
+```
+
+[参考地址](https://blog.csdn.net/cc18868876837/article/details/97107219)
 
 </details>

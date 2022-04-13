@@ -355,7 +355,7 @@ function CustomForm ({handleSubmit}) {
 
 Redux是将整个应用状态存储到一个地方上称为store, 里面保存着一个状态树store tree, 组件可以派发(dispatch)行为(action)给store, 而不是直接通知其他组件，组件内部通过订阅store中的状态state来刷新自己的视图。
 
-![redux工作流](../images/react_001.png)
+![redux工作流](../../images/react_001.png)
 
 3、Redux三大原则
 
@@ -786,7 +786,7 @@ React.cloneElement(element, [props], [...children]);
 
 1. 受控组件
 
-在HTML中，标签<input>、<textarea>、<select>的值的改变通常是根据用户输入进行更新。在React中，可变状态通常保存在组件的状态属性中，并且只能使用 setState() 更新，而呈现表单的React组件也控制着在后续用户输入时该表单中发生的情况，以这种由React控制的输入表单元素而改变其值的方式，称为：“受控组件”。
+在HTML中，标签`<input>、<textarea>、<select>`的值的改变通常是根据用户输入进行更新。在React中，可变状态通常保存在组件的状态属性中，并且只能使用 setState() 更新，而呈现表单的React组件也控制着在后续用户输入时该表单中发生的情况，以这种由React控制的输入表单元素而改变其值的方式，称为：“受控组件”。
 
 2. 不受控组件
 
@@ -834,6 +834,39 @@ React.cloneElement(
 * 第一个参数为必选参数：TYPE（ReactElement），用于克隆的母体React元素。
 * 第二个参数为可选参数：[PROPS（object）]，为克隆后生成的React元素添加新的props或覆盖从母体中克隆而来的部分或全部props。
 * 第三个参数为可选参数：[CHILDREN（ReactElement）]，为新生成的React元素添加新的children，取代从母体中克隆而来的children。
+
+</details>
+
+<b><details><summary>41. JSX 的本质是什么，它和 JS 之间到底是什么关系？</summary></b>
+
+参考答案：JSX 的本质其实是React.createElement这个 JavaScript 调用的语法糖。
+
+这个描述的意思是使用JSX语法可以扩展JavaScript 的功能：在JavaScript 中可以像写HTML一样来构建UI（原生JS是不具备这种能力的），但编译后最终其实还是纯JS代码。JSX 的定位是 JavaScript 的“扩展”，而非 JavaScript 的“某个版本”，所以浏览器并不会像天然支持 JavaScript 一样地支持 JSX。要使JSX在JavaScript中生效，我们需要借助Babel（Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。类似的，Babel 也具备将 JSX 语法转换为 JavaScript 代码的能力。）进行编译：JSX 会被编译为 React.createElement()， React.createElement() 将返回一个叫作“React Element”的 JS 对象。
+
+
+如下一个Babel编译的例子：
+
+可以看到，所有的 JSX 标签都被转化成了 React.createElement 调用，这也就意味着，我们写的 JSX 其实写的就是 React.createElement。
+
+![Babel编译的例子](../../images/react_003.png)
+
+这里我们可以得出结论：JSX 的本质其实是React.createElement这个 JavaScript 调用的语法糖。
+
+解析：[参考地址](https://chen-cong.blog.csdn.net/article/details/111920385)
+
+</details>
+
+<b><details><summary>42. 为什么要用 JSX？不用会有什么后果？</summary></b>
+
+参考答案：JSX 语法糖允许前端开发者使用我们最为熟悉的类 HTML 标签语法来创建虚拟 DOM，在降低学习成本的同时，也提升了研发效率与研发体验。
+
+</details>
+
+<b><details><summary>43. JSX 背后的功能模块是什么，这个功能模块都做了哪些事情？</summary></b>
+
+参考答案：JSX 背后的功能模块是React.createElement，该函数并没有做很多复杂的事情，基本上是在进行格式化数据的操作，执行到最后会 return 一个针对 ReactElement 的调用。
+
+解析：[参考地址](https://chen-cong.blog.csdn.net/article/details/111920385)
 
 </details>
 

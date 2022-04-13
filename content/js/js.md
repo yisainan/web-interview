@@ -5756,6 +5756,11 @@ for-of总是得到对象的value或数组、字符串的值，另外还可以用
 
 参考答案：
 
+
+宏任务队列（大家称之为macrotask queue，即callback queue）：按HTML标准严格来说，其实没有macrotask queue这种说法，它也就是ES5中的事件队列，该队列存放的是：DOM事件、AJAX事件、setTimeout事件等的回调。可以通过setTimeout(func)即可将func函数添加到宏任务队列中（使用场景：将计算耗时长的任务切分成小块，以便于浏览器有空处理用户事件，以及显示耗时进度）。
+
+微任务队列（microtask queue）：存放的是Promise事件、nextTick事件（Node.js）等。有一个特殊的函数queueMicrotask(func)可以将func函数添加到微任务队列中。
+
 ```js
 /*
  * 宏任务

@@ -3159,7 +3159,7 @@ export default {
   const app = new Vue({
     ··· ···
     render:function(createElement){
-        return createElment(App)
+        return createElement(App)
     }
   })
 ```
