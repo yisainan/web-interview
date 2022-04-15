@@ -2,17 +2,49 @@
 
 <b><details><summary>1.document load 和 document ready 的区别</summary></b>
 
-参考答案：
+参考答案：文档解析过程中，ready在加载图片等外部资源前触发，load在之后触发。如果页面中要是没有图片之类的媒体文件的话ready与load是差不多的，但是页面中有文件就不一样了，所以还是推荐大家在工作中用ready
 
-```
+解析：
+
+DOM文档解析：
+
+1. 解析html结构
+2. 加载脚本和样式文件
+3. 解析并执行脚本
+4. 构造html的DOM模型 // ready
+5. 加载图片等外部资源文件
+6. 页面加载完毕 // load
 
 页面加载完成有两种事件
 
 1.load是当页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数
-问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
+
+缺点：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响
+
+代码形式：
+
+```js
+//document load
+$(document).load(function(){
+    ...code...
+})
+```
 
 2.$(document).ready()是当DOM文档树加载完成后执行一个函数 （不包含图片，css等）所以会比load较快执行
-在原生的js中不包括ready()这个方法，只有load方法也就是onload事件
+
+在原生的jS中不包括ready()这个方法，Jquery才有，jquery中有 $().ready(function)。
+
+代码形式为：
+
+```js
+//document ready
+$(document).ready(function(){
+    ...code...
+})
+//document ready 简写
+$(function(){
+    ...code...
+})
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/170)
@@ -499,6 +531,7 @@ var person1 = new Person('Nike', 20, 'teacher');
 解析：
 
 ![js_001](../../images/js_001.png)
+![js_005](../../images/js_005.png)
 
 [参与互动](https://github.com/yisainan/web-interview/issues/180)
 
@@ -10434,9 +10467,16 @@ ES6 的第一个版本，就这样在 2015 年 6 月发布了，正式名称就�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>365.prototype、__proto__与constructor的关系</summary></b>
 
 参考答案：
+
+1. 我们需要牢记两点：①__proto__和constructor属性是对象所独有的；② prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。
+2. __proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，再往上找就相当于在null上取值，会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。
+3. prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.__proto__ === Foo.prototype。
+4. constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。
+
+原文链接：https://blog.csdn.net/cc18868876837/article/details/81211729
 
 </details>
 
