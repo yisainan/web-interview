@@ -190,7 +190,7 @@
 
 #### 前端
 - [新蜂商城Vue3 版本](https://github.com/newbee-ltd/newbee-mall-vue3-app)
-- [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)
+- [国内首个国密前后分离低代码快速开发平台-Snowy](https://doc.xiaonuo.vip/)
 - [前端技能汇总](https://github.com/JacksonTian/fks)
 - [微信小程序开发资源汇总](https://github.com/justjavac/awesome-wechat-weapp)
 - [Vue相关开源项目库汇总](https://github.com/opendigg/awesome-github-vue)

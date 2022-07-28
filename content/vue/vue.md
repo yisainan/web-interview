@@ -3372,3 +3372,45 @@ export default{
 [参考地址](https://mp.weixin.qq.com/s?__biz=MzIwODg5MjExNQ==&mid=2247484984&idx=1&sn=da3c13cadce525003756894e6283fe62&chksm=977d7f84a00af69240b36c27790d8afb2765204cc2caf1d7b156f5b6eeaba260b23d7997336f&token=342321736&lang=zh_CN#rd)
 
 </details>
+
+<b><details><summary>163.说说你对keep-alive的理解是什么？</summary></b>
+
+</details>
+
+<b><details><summary>164.怎么缓存当前的组件？</summary></b>
+
+</details>
+
+<b><details><summary>165.缓存后如何获取数据？（缓存后怎么更新？）</summary></b>
+
+解决方案可以有以下两种：
+
+* beforeRouteEnter
+* actived
+
+#### beforeRouteEnter
+
+每次组件渲染的时候，都会执行beforeRouteEnter
+
+```js
+beforeRouteEnter(to, from, next){
+    next(vm=>{
+        console.log(vm)
+        // 每次进入路由执行
+        vm.getData()  // 获取数据
+    })
+},
+```
+
+#### activated
+
+在keep-alive缓存的组件被激活的时候，都会执行activated钩子
+
+```js
+activated(){
+   this.getData() // 获取数据
+},
+```
+注意：服务器端渲染期间activated不被调用
+
+</details>
