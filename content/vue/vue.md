@@ -3383,6 +3383,8 @@ export default{
 
 <b><details><summary>165.缓存后如何获取数据？（缓存后怎么更新？）</summary></b>
 
+参考答案：
+
 解决方案可以有以下两种：
 
 * beforeRouteEnter
@@ -3412,5 +3414,18 @@ activated(){
 },
 ```
 注意：服务器端渲染期间activated不被调用
+
+</details>
+
+<b><details><summary>166. v3（Vue2）到 v4（Vue3）Vue Router 的变化？</summary></b>
+
+参考答案：
+```
+new Router 变成 createRouter
+废除了mode选项配置
+取消（*）通配符路由
+<keep-alive>写法变更
+新增useRoute、useRouter
+```
 
 </details>
