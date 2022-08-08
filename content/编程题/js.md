@@ -1277,10 +1277,14 @@ for (var i = 1; i <= 3; i++) {
 参考答案：
 
 ``` js
-var a = [1, 2, 3, 5];
-alert(Math.max.apply(null, a)); //最大值
-alert(Math.min.apply(null, a)); //最小值
+var a = [5, 7, 9, 42, 18, 29];
+console.log(Math.max.apply(null, a)); // 42
+console.log(Math.min.apply(null, a)); // 5
 ```
+
+大家都知道，apply方法，第一个参数是对象this，第二个参数是一个数组集合。为什么在这里第一个参数是null? 
+
+那是因为没有对象去调用这个方法，只需要用这个方法运算，得到返回的结果就行了
 
 [参与互动](https://github.com/yisainan/web-interview/issues/582)
 
@@ -1297,6 +1301,10 @@ if (!String.prototype.trim) {
         return this.replace(/^\s+/, "").replace(/\s+$/, "");
     };
 }
+
+// test the function
+var str = " \t\n test string ".trim(); 
+console.log(str == "test string"); // true
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/583)

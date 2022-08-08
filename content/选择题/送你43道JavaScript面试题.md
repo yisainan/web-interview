@@ -3176,10 +3176,7 @@ console.log(name())
 ###### 100. 输出什么?
 
 ```javascript
-// 🎉✨ This is my 100th question! ✨🎉
-
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`
+const output = `${[] && 'Im'}possible!You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
