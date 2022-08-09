@@ -3429,3 +3429,38 @@ new Router 变成 createRouter
 ```
 
 </details>
+
+<b><details><summary>167. 对象新增属性为什么不更新？</summary></b>
+
+```
+data  () {
+  return  {
+    obj: {
+      a: 1
+    }
+  }
+}
+
+methods: {
+  update () {
+    this.obj.b = 2
+  }
+}
+
+```
+
+参考答案：
+
+上面的伪代码，当我们执行 update 更新 obj 时，我们预期视图是要随之更新的，实际是并不会
+
+这个其实很好理解，我们先要明白 vue 中 data init 的时机，data init 是在生命周期 created 之前的操作，会对 data 绑定一个观察者 Observer，之后 data 中的字段更新都会通知依赖收集器Dep触发视图更新
+
+然后我们回到 defineProperty 本身，是对对象上的属性做操作，而非对象本身
+
+一句话来说就是，在 Observer data 时，新增属性并不存在，自然就不会有 getter, setter，也就解释了为什么新增视图不更新，解决有很多种，Vue 提供的全局$set 本质也是给新增的属性手动 observer
+
+
+解析：[参考](https://vue3js.cn/es6/#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8proxy%E9%87%8D%E6%9E%84)
+
+
+</details>
