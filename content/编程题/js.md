@@ -6318,3 +6318,51 @@ setTimeout
 [参考地址](https://blog.csdn.net/cc18868876837/article/details/97107219)
 
 </details>
+
+<b><details><summary>230.下面代码输出什么？</summary></b>
+
+```js
+  console.log("同步任务1");
+  function asyn(mac) {
+      console.log("同步任务2");
+      if (mac) {
+          console.log(mac);
+      }
+      return new Promise((resolve, reject) => {
+          console.log("Promise中的同步任务");
+          resolve("Promise中回调的异步微任务")
+      })
+  }
+  setTimeout(() => {
+      console.log("异步任务中的宏任务");
+      setTimeout(() => {
+          console.log("定时器中的定时器（宏任务）");
+      }, 0)
+      asyn("定时器传递任务").then(res => {
+          console.log('定时器中的:', res);
+      })
+  }, 0)
+  asyn().then(res => {
+      console.log(res);
+  })
+  console.log("同步任务3")
+```         
+
+参考答案：
+
+同步任务1
+同步任务2
+Promise中的同步任务
+同步任务3
+Promise中回调的异步微任务
+异步任务中的宏任务
+同步任务2
+定时器传递任务
+Promise中的同步任务
+定时器中的: Promise中回调的异步微任务
+定时器中的定时器（宏任务）
+
+
+[参考地址](https://blog.csdn.net/dandan_zhang/article/details/121722923)
+
+</details>
