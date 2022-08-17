@@ -329,15 +329,30 @@ TypeScript支持以下面向对象的术语。
 
 </details>
 
-<b><details><summary>1. </summary></b>
+<b><details><summary>20. 什么是超集？</summary></b>
 
-参考答案：
+参考答案：超集是集合论的术语
+
+说到超集，不得不说另一个，子集，怎么理解这两个概念呢，举个例子
+
+如果一个集合A里面的的所有元素集合B里面都存在，那么我们可以理解集合B是集合A的超集，反之集合A为集合B的子集
+
+现在我们就能理解为 Typescript 里包含了 Javascript 的所有特性，这也意味着我们可以将.js后缀直接命名为.ts文件跑到TypeScript的编绎系统中
 
 </details>
 
-<b><details><summary>1. </summary></b>
+<b><details><summary>21. Typescript 解决了什么问题</summary></b>
 
-参考答案：
+参考答案：回答这个问题之前，我们有必要先来了解一下 Typescript 的工作理念
+
+本质上是在 JavaScript 上增加一套静态类型系统（编译时进行类型分析），强调静态类型系统是为了和运行时的类型检查机制做区分，TypeScript 的代码最终会被编译为 JavaScript
+
+我们再回到问题本身，缩小一下范围，Typescript 创造的价值大部分是在开发时体现的(编译时)，而非运行时，如
+
+  *  强大的编辑器智能提示 (研发效率，开发体验)
+  *  代码可读性增强 (团队协作，开发体验)
+  *  编译时类型检查 (业务稳健，前端项目中Top10 的错误类型低级的类型错误占比达到70%)
+
 
 </details>
 
