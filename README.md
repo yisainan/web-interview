@@ -84,7 +84,7 @@
 <b><details><summary>🐎 选择题</summary></b>
 
 - [详情](./content/选择题/js.md)
-- [JavaScript专项练习](./content/选择题/JavaScript专项练习.md)
+- [JavaScript进阶问题列表](./content/选择题/JavaScript进阶问题列表.md)
 
 </details>
 
