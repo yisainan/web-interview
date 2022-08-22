@@ -1203,9 +1203,9 @@ window.addEventListener("message", function(event) {
 
 参考答案：
 
-* 1、defer 和 async 的网络加载过程是一致的，都是异步执行。
-* 2、区别在于加载完成之后什么时候执行，可以看出 defer 是文档所有元素解析完成之后才执行的。
-* 3、如果存在多个 defer 脚本，那么它们是按照顺序执行脚本的，而 async，无论声明顺序如何，只要加载完成就立刻执行
+* defer 和 async 的网络加载过程是一致的，都是异步执行；
+* 区别在于加载完成之后什么时候执行, defer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行。async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染；
+* 一句话，defer是“渲染完再执行”，async是“下载完就执行”。另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的；
 
 解析：
 
@@ -1434,7 +1434,7 @@ JavaScript 中变量可能包含两种不同的数据类型的值：基本类型
 
 </details>
 
-<b><details><summary>29.JS 严格模式和正常模式</summary></b>
+<b><details><summary>29.JS 严格模式和正常模式的区别</summary></b>
 
 参考答案：严格模式使用"use strict"; 
 
@@ -1857,40 +1857,40 @@ function package(protected) { // 语法错误
 3\.tap 事件在移动端，代替 click 作为点击事件，tap 事件被很多框架（如 zepto）封装，来减少这延迟问题， tap 事件不是原生的，所以是封装的，那么具体是如何实现的呢？
 
 ```js
-  < script >
-      function tap(ele, callback) {
-          // 记录开始时间
-          var startTime = 0,
-              // 控制允许延迟的时间
-              delayTime = 200,
-              // 记录是否移动，如果移动，则不触发tap事件
-              isMove = false;
+<script>
+  function tap(ele, callback) {
+      // 记录开始时间
+      var startTime = 0,
+          // 控制允许延迟的时间
+          delayTime = 200,
+          // 记录是否移动，如果移动，则不触发tap事件
+          isMove = false;
 
-          // 在touchstart时记录开始的时间
-          ele.addEventListener('touchstart', function(e) {
-              startTime = Date.now();
-          });
+      // 在touchstart时记录开始的时间
+      ele.addEventListener('touchstart', function(e) {
+          startTime = Date.now();
+      });
 
-          // 如果touchmove事件被触发，则isMove为true
-          ele.addEventListener('touchmove', function(e) {
-              isMove = true;
-          });
+      // 如果touchmove事件被触发，则isMove为true
+      ele.addEventListener('touchmove', function(e) {
+          isMove = true;
+      });
 
-          // 如果touchmove事件触发或者中间时间超过了延迟时间，则返回，否则，调用回调函数。
-          ele.addEventListener('touchend', function(e) {
-              if (isMove || (Date.now() - startTime > delayTime)) {
-                  return;
-              } else {
-                  callback(e);
-              }
-          })
-      }
+      // 如果touchmove事件触发或者中间时间超过了延迟时间，则返回，否则，调用回调函数。
+      ele.addEventListener('touchend', function(e) {
+          if (isMove || (Date.now() - startTime > delayTime)) {
+              return;
+          } else {
+              callback(e);
+          }
+      })
+  }
 
   var btn = document.getElementById('btn');
   tap(btn, function() {
       alert('taped');
-  }); <
-  /script>
+  }); 
+</script>
 ```
 
 拓展：
@@ -1959,9 +1959,9 @@ tap(ele, function() {
 
 ```js
 // map
-//作用：对数组进行遍历
-//返回值：新的数组
-// 是否改变：否
+// 作用：对数组进行遍历
+// 返回值：新的数组
+// 是否改变原有数组：不会
 var arr = [2, 5, 3, 4];
 var ret = arr.map(function(value) {
     return value + 1;
@@ -1976,7 +1976,7 @@ console.log(arr); //[2,5,3,4]
 // forEach 方法
 // 作用：遍历数组的每一项
 // 返回值：undefined
-// 是否改变：否
+// 是否改变原有数组：不会
 var arr = [2, 5, 3, 4];
 var ret = arr.forEach(function(value) {
     console.log(value); // 2, 5, 3, 4
@@ -1991,7 +1991,7 @@ console.log(arr); //[2,5,3,4]
 // reduce 方法
 // 作用：对数组进行迭代，然后两两进行操作，最后返回一个值
 // 返回值：return出来的结果
-// 是否改变：不会
+// 是否改变原有数组：不会
 var arr = [1, 2, 3, 4];
 var ret = arr.reduce(function(a, b) {
     return a * b;
@@ -2036,7 +2036,8 @@ JS 中作用域有：全局作用域、函数作用域。没有块作用域的�
 解析：
 
 ```js
-< script type = "text/javascript" > {
+<script type = "text/javascript"> 
+{
     var a = 1;
     console.log(a); // 1
 }
@@ -2057,7 +2058,7 @@ console.log(c); // 3
 for (var i = 0; i < 4; i++) {
     var d = 5;
 };
-console.log(i); // 4   (循环结束i已经是4，所以此处i为4)
+console.log(i); // 4  (循环结束i已经是4，所以此处i为4)
 console.log(d); // 5
 // if语句和for语句中用var定义的变量可以在外面访问到，
 // 可见，if语句和for语句属于块作用域，不属于函数作用域。
@@ -2066,7 +2067,6 @@ console.log(d); // 5
     var a = 1;
     let b = 2;
     const c = 3;
-
     {
         console.log(a); // 1	子作用域可以访问到父作用域的变量
         console.log(b); // 2	子作用域可以访问到父作用域的变量
@@ -2078,10 +2078,10 @@ console.log(d); // 5
     }
 
     console.log(aa); // 11	// 可以跨块访问到子 块作用域 的变量
-    // console.log(bb);	// 报错	bb is not defined
-    // console.log(cc);	// 报错	cc is not defined
-} <
-/script>
+    console.log(bb); // 报错	bb is not defined
+    console.log(cc); // 报错	cc is not defined
+} 
+</script>
 ```
 
 拓展：
@@ -2094,28 +2094,26 @@ var、let、const 的区别
 * 同一个变量只能使用一种方式声明，不然会报错
 
 ```js
-< script type = "text/javascript" >
-    // 块作用域
-    {
-        var a = 1;
-        let b = 2;
-        const c = 3;
-        // c = 4; // 报错
-
-        // let a = 'a';	// 报错  注：是上面 var a = 1; 那行报错
-        // var b = 'b';	// 报错：本行报错
-        // const a = 'a1';	// 报错  注：是上面 var a = 1; 那行报错
-        // let c = 'c';	// 报错：本行报错
-
-        var aa;
-        let bb;
-        // const cc; // 报错
-        console.log(a); // 1
-        console.log(b); // 2
-        console.log(c); // 3
-        console.log(aa); // undefined
-        console.log(bb); // undefined
-    }
+<script type = "text/javascript">
+// 块作用域
+{
+    var a = 1;
+    let b = 2;
+    const c = 3;
+    // c = 4; // 报错
+    // let a = 'a';	// 报错  注：是上面 var a = 1; 那行报错
+    // var b = 'b';	// 报错：本行报错
+    // const a = 'a1';	// 报错  注：是上面 var a = 1; 那行报错
+    // let c = 'c';	// 报错：本行报错
+    var aa;
+    let bb;
+    // const cc; // 报错
+    console.log(a); // 1
+    console.log(b); // 2
+    console.log(c); // 3
+    console.log(aa); // undefined
+    console.log(bb); // undefined
+}
 console.log(a); // 1
 // console.log(b); // 报错
 // console.log(c); // 报错
@@ -2132,8 +2130,7 @@ console.log(a); // 1
 // console.log(d); // 报错
 // console.log(e); // 报错
 // console.log(f); // 报错
-<
-/script>
+</script>
 ```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/202)
@@ -2376,32 +2373,17 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 </details>
 
-<b><details><summary>37.发布订阅设计模式</summary></b>
+<b><details><summary>37.观察者模式和发布订阅者模式</summary></b>
 
 参考答案：
 
-发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JavaScript开发中，我们一般用事件模型来替代传统的发布—订阅模式。
+观察者模式：观察者（Observer）直接订阅（Subscribe）主题（Subject），而当主题被激活的时候，会触发（Fire Event）观察者里的事件。
 
-解析：
+发布订阅模式：订阅者（Subscriber）把自己想订阅的事件注册（Subscribe）到调度中心（Topic），当发布者（Publisher）发布该事件（Publish topic）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。
 
-#### 发布订阅模式的构成
+![js_006](../../images/js_006.png)
 
-最常见的发布订阅模式就是咱们DOM事件，仔细回想一下我们要给一个按钮，绑定一个事件，当我点击按钮的时候我要让他的颜色变了，并且页面弹出一个弹出框
-
-我们分析一下这个流程：首先，我们得知道给哪个按钮的时候绑定事件，然后我们得知道触发事件以后需要干什么？
-
-那么在这其中谁是发布者？
-
-是DOM中的按钮，因为是在它身上绑定了事件，当我们点击按钮的时候它便向订阅者发布了这个消息
-
-那么谁是订阅者？
-
-是click事件，当点击按钮时，dom发布了一条消息，而事件订阅了它，所以当它被点击的时候，订阅者会接收到消息
-
-#### 简单例子
-
-上大学的时候甲要打游戏，下午的课不准备去了，然后甲跟乙说，如果下午老师问我去哪了，你就发信息告诉我。然后果然不出所料，下午老师来了，并且问了甲去哪了？然后乙发信息给甲，甲收到信息后干什么乙不知道，乙只是负责如果老师问了就发短信给甲。
-
+[参考](https://www.cnblogs.com/LChenglong/p/13219669.html)
 [参与互动](https://github.com/yisainan/web-interview/issues/206)
 
 </details>
