@@ -2414,15 +2414,17 @@ Google Chrome 浏览器提供了非常强大的 JS 调试工具，Memory 视图 
 
 ```js
 /*
-兼容低版本IE，ele为需要绑定事件的元素，
-eventName为事件名（保持addEventListener语法，去掉on），fun为事件响应函数
+  兼容低版本IE，ele为需要绑定事件的元素，eventName为事件名，fun为事件响应函数
 */
 
 function addEvent(ele, eventName, fun) {
+    // 看是否有addEventListener 
     if (ele.addEventListener) {
+        // 大部分浏览器
         ele.addEventListener(eventName, fun, false);
     } else {
-        ele.attachEvent("on" + eventNme, fun);
+        // IE8及以下
+        ele.attachEvent("on" + eventName, fun);
     }
 }
 ```
@@ -2488,8 +2490,10 @@ split()：用于把一个字符串通过指定的分隔符进行分隔成数组
 解析：
 
 ```js
-if (a instanceof Person) {
-    alert("yes");
+class Person {}
+var p = new Person()
+if (p instanceof Person) {
+    console.log("yes");
 }
 ```
 
@@ -2546,26 +2550,71 @@ Test.call(obj)
 
 </details>
 
-<b><details><summary>46.call() 和 apply() 的含义和区别？</summary></b>
+<b><details><summary>46.call()与apply()的作用与区别？</summary></b>
 
 参考答案：
 
-首先说明两个方法的含义：
+1. 概念
 
-* call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1, args2); 即 A 对象调用 B 对象的方法。
-* apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments); 即 A 对象应用 B 对象的方法。
+每个函数都包含两个非继承而来的方法：apply()和call()。
+call与apply都属于Function.prototype的一个方法，所以每个function实例都有call、apply属性；
 
-call 与 apply 的相同点：
+2. 作用
 
-* 方法的含义是一样的，即方法功能是一样的；
-* 第一个参数的作用是一样的；
+call()方法和apply()方法的作用相同：改变this指向。
 
-call 与 apply 的不同点：两者传入的列表形式不一样
+3. 区别
 
-* call 可以传入多个参数；
-* apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入
+他们的区别在于接收参数的方式不同：
+call()：第一个参数是this值没有变化，变化的是其余参数都直接传递给函数。在使用call()方法时，传递给函数的参数必须逐个列举出来。
+apply()：传递给函数的是参数数组
 
-想一想哪个性能更好一些呢？
+4. 应用
+```js
+  var name = "Evan";
+  var age = 20;
+
+  var person = {
+    name: "Hillary",
+    age: 19,
+    sayIntroduce: function () {
+      return (
+        "Hello, My name is " + this.name +" and I'm " +this.age +" years old."
+      );
+    },
+    sayHobby: function (val1, val2) {
+        return "I'm " + this.name + ", I like " + val1 + " and " + val2 + ".";
+    }
+  };
+
+  
+  var person1 = {
+    name: "Coy",
+  };
+
+  
+  console.log(person.sayIntroduce()); 
+  // Hello, My name is Hillary and I'm 19 years old.
+  
+  // 当我们通过 call 和 apply 来this的指向时，不传任何参数，则默认为将this指向修改为 windows
+  console.log(person.sayIntroduce.call()); 
+  // Hello, My name is Evan and I'm 20 years old.
+  console.log(person.sayIntroduce.apply()); 
+  // Hello, My name is Evan and I'm 20 years old.
+  
+  // 有参数时，this 指向第一个参数：将this指向 person1，由于person1中没有age属性，因此为 undefined
+  console.log(person.sayIntroduce.call(person1)); 
+  // Hello, My name is Coy and I'm undefined years old.
+  console.log(person.sayIntroduce.apply(person1)); 
+  // Hello, My name is Coy and I'm undefined years old.
+  
+  // 当需要传递参数时，call可以直接写多个参数，apply需要用数组方式传递：
+  console.log(person.sayHobby.call(person1, 'swimming', 'hiking')); 
+  // I'm Coy, I like swimming and hiking. 
+  console.log(person.sayHobby.apply(person1, ['swimming', 'hiking'])); 
+  // I'm Coy, I like swimming and hiking. 
+
+```
 
 [参与互动](https://github.com/yisainan/web-interview/issues/215)
 
