@@ -69,7 +69,7 @@ console.log(getQueryString("categoryId"));
 
 问题描述：
 
-1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console. log 一个数字，每次数字增幅 1
+1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅 1
 2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作
 3、第一个数需要立即输出
 
@@ -485,7 +485,7 @@ console.log(arr); // ['a', 'b', 'c', 'd', 'e']
 
 </details>
 
-<b><details><summary>7. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求 1. 尽量和 json 兼容，2. 支持不可序列化的值，如 undefined/NaN/Infinify-Infinity，3. 支持特殊对象，如正则、Date 等</summary></b>
+<b><details><summary>7. 实现一个 js 对象序列化函数，将 js 对象序列化为可反序列化的代码，要求 1.尽量和 json 兼容，2.支持不可序列化的值，如 undefined/NaN/Infinify-Infinity，3.支持特殊对象，如正则、Date 等</summary></b>
 
 参考答案：
 
@@ -2130,7 +2130,7 @@ markyun.Event = {
 
 参考答案：
 
-伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName, document. childNodes 之类的, 它们都返回 NodeList 对象都属于伪数组。可以使用 Array. prototype. slice. call(fakeArray)将数组转化为真正的 Array 对象。
+伪数组（类数组）：无法直接调用数组方法或期望 length 属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的 argument 参数，还有像调用 getElementsByTagName, document.childNodes 之类的, 它们都返回 NodeList 对象都属于伪数组。可以使用 Array.prototype.slice.call(fakeArray)将数组转化为真正的 Array 对象。
 
 假设我们要给每个 log 方法添加一个"(app)"前缀，比如'hello world!' ->'(app)hello world!'。方法如下：
 
@@ -2341,7 +2341,7 @@ console.log(f1()); //3
 ```
 
 解析：   
-     这道题让我重新认识了对象和函数，首先看代码（1），这里实例话化了 f1 这个类。相当于执行了 f1 函数。所以这个时候 A 会输出 1， 而 B 这个时候的 this 代表的是 实例化的当前对象 obj B 输出 3. 。 代码（2）毋庸置疑会输出 3， 重点 代码（3）首先这里将不再是一个类，它只是一个函数。那么 A 输出 1， B 呢？这里的 this 代表的其实就是 window 对象，那么 this. x 就是一个全局变量 相当于在外部 的一个全局变量。所以 B 输出 3。最后代码由于 f 没有返回值那么一个函数如果没返回值的话，将会返回 underfined ，所以参考答案就是 ： 1， 3， 3， 1， 3， underfined 。
+     这道题让我重新认识了对象和函数，首先看代码（1），这里实例话化了 f1 这个类。相当于执行了 f1 函数。所以这个时候 A 会输出 1， 而 B 这个时候的 this 代表的是 实例化的当前对象 obj B 输出 3.。 代码（2）毋庸置疑会输出 3， 重点 代码（3）首先这里将不再是一个类，它只是一个函数。那么 A 输出 1， B 呢？这里的 this 代表的其实就是 window 对象，那么 this.x 就是一个全局变量 相当于在外部 的一个全局变量。所以 B 输出 3。最后代码由于 f 没有返回值那么一个函数如果没返回值的话，将会返回 underfined ，所以参考答案就是 ： 1， 3， 3， 1， 3， underfined 。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/640)
 
@@ -2458,7 +2458,7 @@ sayColor.call(o); //blue
 
 </details>
 
-<b><details><summary>68. 精度问题: JS 精度不能精确到 0. 1 所以  。。。。同时存在于值和差值中</summary></b>
+<b><details><summary>68. 精度问题: JS 精度不能精确到 0.1 所以  。。。。同时存在于值和差值中</summary></b>
 
 参考答案：
 
@@ -2787,7 +2787,7 @@ alert(a.value);
 
 <b><details><summary>83. 已知数组 var stringArray = ["This", "is", "Baidu", "Campus"]，Alert 出"This is Baidu Campus"。</summary></b>
 
-参考答案：alert(stringArray. join(""))
+参考答案：alert(stringArray.join(""))
 
 [参与互动](https://github.com/yisainan/web-interview/issues/660)
 
@@ -2814,7 +2814,7 @@ var e="abcd";
 
 参考答案：
 
-e. split(''). join('+')
+e.split('').join('+')
 
 [参与互动](https://github.com/yisainan/web-interview/issues/662)
 
@@ -3713,7 +3713,7 @@ function foo() {
 
 </details>
 
-<b><details><summary>113. console. log( 8 | 1 ); 输出值是多少？</summary></b>
+<b><details><summary>113. console.log( 8 | 1 ); 输出值是多少？</summary></b>
 
 参考答案：9
 
@@ -3721,7 +3721,7 @@ function foo() {
 
 </details>
 
-<b><details><summary>114. 只允许使用 + - _ / 和 Math. _ ，求一个函数 y = f(x, a, b); 当 x > 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用|, ?:, 数组。</summary></b>
+<b><details><summary>114. 只允许使用 + - _ / 和 Math._ ，求一个函数 y = f(x, a, b); 当 x > 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用|, ?:, 数组。</summary></b>
 
 参考答案：
 
@@ -3737,7 +3737,7 @@ console.log(f(-10, 1, 2));
 
 </details>
 
-<b><details><summary>115. JavaScript alert(0. 4\*0. 2); 结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
+<b><details><summary>115. JavaScript alert(0.4\*0.2); 结果是多少？和你预期的一样吗？如果不一样该如何处理？</summary></b>
 
 参考答案：有误差，应该比准确结果偏大。 一般我会将小数变为整数来处理。当前之前遇到这个问题时也上网查询发现有人用 try catch return 写了一个函数，
 当然原理也是一致先转为整数再计算。看起来挺麻烦的，我没用过。
@@ -3750,8 +3750,8 @@ console.log(f(-10, 1, 2));
 
 参考答案：
 
-dom. style. display="none"; 
-dom. style. display="block"; 
+dom.style.display="none"; 
+dom.style.display="block"; 
 
 [参与互动](https://github.com/yisainan/web-interview/issues/693)
 
@@ -3885,7 +3885,7 @@ if (window.addEventListener) {
 ```
 
 *　不应该在 if 和 else 语句中声明 addListener 函数，应该先声明；
-*　不需要使用 window. addEventListener 或 document. all 来进行检测浏览器，应该使用能力检测； \*　由于 attachEvent 在 IE 中有 this 指向问题，所以调用它时需要处理一下
+*　不需要使用 window.addEventListener 或 document.all 来进行检测浏览器，应该使用能力检测； \*　由于 attachEvent 在 IE 中有 this 指向问题，所以调用它时需要处理一下
 
 改进如下：
 
@@ -3911,7 +3911,7 @@ function addEvent(elem, type, handler) {
 
 <b><details><summary>123. 对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</summary></b>
 
-参考答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。? 如 func. call(func1, var1, var2, var3)对应的 apply 写法为：func. apply(func1, [var1, var2, var3]) 。
+参考答案：但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数：?apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。? 如 func.call(func1, var1, var2, var3)对应的 apply 写法为：func.apply(func1, [var1, var2, var3]) 。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/700)
 
@@ -3957,7 +3957,7 @@ String.prototype.spacify = function() {
 
 <b><details><summary>127. 请写一个正则表达式：要求最短 6 位数，最长 20 位，阿拉伯数和英文字母（不区分大小写）组成</summary></b>
 
-参考答案：^(?=. *\d)(?=. *[a-z])(?=. *[A-Z])[a-zA-Z\d]{6, 20}$
+参考答案：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6, 20}$
 
 [参与互动](https://github.com/yisainan/web-interview/issues/704)
 
@@ -4013,7 +4013,7 @@ countDigitOne(40000000000)
 
 </details>
 
-<b><details><summary>131. 定义一个 log 方法，让它可以代理 console. log 的方法。</summary></b>
+<b><details><summary>131. 定义一个 log 方法，让它可以代理 console.log 的方法。</summary></b>
 
 参考答案：
 
@@ -4038,7 +4038,7 @@ function log() {
 
 对于 apply 和 call 两者在作用上是相同的，即是调用一个对象的一个方法，以另一个对象替换当前对象。将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
 
-但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。  如 func. call(func1, var1, var2, var3)对应的 apply 写法为：func. apply(func1, [var1, var2, var3]) 。
+但两者在参数上有区别的。对于第一个参数意义都一样，但对第二个参数： apply 传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而 call 则作为 call 的参数传入（从第二个参数开始）。  如 func.call(func1, var1, var2, var3)对应的 apply 写法为：func.apply(func1, [var1, var2, var3]) 。
 
 [参与互动](https://github.com/yisainan/web-interview/issues/708)
 
@@ -4300,12 +4300,12 @@ function reverseArry(arry) {
 
 </details>
 
-<b><details><summary>140. 原生 JS 的 window. onload 与 Jquery 的\$(document). ready(function(){})有什么不同？如何用原生 JS 实现 Jq 的 ready 方法？</summary></b>
+<b><details><summary>140. 原生 JS 的 window.onload 与 Jquery 的\$(document).ready(function(){})有什么不同？如何用原生 JS 实现 Jq 的 ready 方法？</summary></b>
 
 参考答案：
 
-window. onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
-\$(document). ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。
+window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
+\$(document).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。
 
 ``` js
 /*
@@ -4400,7 +4400,7 @@ console.log(func()); // what?
 
 解析：
 
-继续追问，那么如何确保 Uesr 总是能访问到 func 的上下文，即正确返回 1。正确的方法是使用 Function. prototype. bind。兼容各个浏览器完整代码如下：
+继续追问，那么如何确保 Uesr 总是能访问到 func 的上下文，即正确返回 1。正确的方法是使用 Function.prototype.bind。兼容各个浏览器完整代码如下：
 
 ``` js
 Function.prototype.bind =
@@ -4587,7 +4587,7 @@ console.log(func());
 
 </details>
 
-<b><details><summary>170. 模拟实现一个 Promise. finally</summary></b>
+<b><details><summary>170. 模拟实现一个 Promise.finally</summary></b>
 
 参考答案：
 
@@ -4683,7 +4683,7 @@ console.log(func());
 
 </details>
 
-<b><details><summary>186. 说下 [1, 2, 3]. map(parseInt) 结果</summary></b>
+<b><details><summary>186. 说下 [1, 2, 3].map(parseInt) 结果</summary></b>
 
 参考答案：[1, NaN, NaN]
 
@@ -4725,13 +4725,13 @@ console.log(func());
 
 </details>
 
-<b><details><summary>193. 实现一个JSON. parse</summary></b>
+<b><details><summary>193. 实现一个JSON.parse</summary></b>
 
 参考答案：
 
 </details>
 
-<b><details><summary>194. 实现一个JSON. stringify</summary></b>
+<b><details><summary>194. 实现一个JSON.stringify</summary></b>
 
 参考答案：
 
@@ -4885,7 +4885,7 @@ var output = (function() {
 console.log(output);
 ```
 
-参考答案：输出是 undefined。x虽然是全局变量，但是它是一个object。delete作用在x. foo上，成功的将x. foo删去。所以返回undefined
+参考答案：输出是 undefined。x虽然是全局变量，但是它是一个object。delete作用在x.foo上，成功的将x.foo删去。所以返回undefined
 
 </details>
 
