@@ -5820,43 +5820,33 @@ for-of总是得到对象的value或数组、字符串的值，另外还可以用
 
 参考答案：
 
+事件循环是一个宏观的表述，其实异步任务之间并不完全相同，其执行时机有所区别。细分来说的话异步任务分为两种：microtask 与 macrotask
 
-宏任务队列（大家称之为macrotask queue，即callback queue）：按HTML标准严格来说，其实没有macrotask queue这种说法，它也就是ES5中的事件队列，该队列存放的是：DOM事件、AJAX事件、setTimeout事件等的回调。可以通过setTimeout(func)即可将func函数添加到宏任务队列中（使用场景：将计算耗时长的任务切分成小块，以便于浏览器有空处理用户事件，以及显示耗时进度）。
+宏任务macrotask 主要有：setTimeout,setInterval,setImmediate,requestAnimationFrame,UI rendeing，nodeJS 中的 I/O
 
-微任务队列（microtask queue）：存放的是Promise事件、nextTick事件（Node.js）等。有一个特殊的函数queueMicrotask(func)可以将func函数添加到微任务队列中。
+微任务microtask 主要有：process.nextTick,Promises,Object.observe(废弃),MutationObserver
 
 ```js
-/*
- * 宏任务
- *   分类： setTimeout setInterval requrestAnimationFrame
- *   1.宏任务所处的队列就是宏任务队列
- *   2.第一个宏任务队列中只有一个任务： 执行主线程的js代码
- *   3.宏任务队列可以有多个
- *   4.当宏任务队列的中的任务全部执行完以后会查看是否有微任务队列如果有先执行微任务队列中的所有任务，如果没有就查看是否有宏任务队列
- *
- * 微任务
- *   分类： new Promise().then(回调) process.nextTick
- *   1.微任务所处的队列就是微任务队列
- *   2.只有一个微任务队列
- *   3.在上一个宏任务队列执行完毕后如果有微任务队列就会执行微任务队列中的所有任务
- * */
+// 首先执行的是script任务，也就是全局任务，属于宏任务。
+// script任务执行完后，开始执行所有的微任务
+// 微任务执行完毕，再取任务队列中的一个宏任务执行
 
-console.log('----------------- start -----------------');
-
+console.log('start');
 setTimeout(() => {
     console.log('setTimeout');
 }, 0)
-
 new Promise((resolve, reject) => {
     for (var i = 0; i < 5; i++) {
         console.log(i);
     }
-    resolve(); // 修改promise实例对象的状态为成功的状态
-}).then(() => {
-    console.log('promise实例成功回调执行');
+    resolve(6); // 修改promise实例对象的状态为成功的状态
+}).then((res) => {
+    console.log(res);
 })
+console.log('end');
 
-console.log('----------------- end -----------------');
+// start 0 1 2 3 4 end 6 setTimeout
+// start 0 1 2 3 4 end 都是同步代码。同步任务执行完，开始判断微任务是否为空。显然现在还有一个微任务Promise，那么开始执行Promise，输出6；执行完Promise，微任务清空，微任务队列也为空了，然后重新渲染，再次判断任务队列中是否有任务。此时任务队列中有setTimeout宏任务，开始执行，于是最后输出setTimeout
 ```
 
 </details>
@@ -10511,15 +10501,133 @@ ES6 的第一个版本，就这样在 2015 年 6 月发布了，正式名称就�
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>366. setTimeout和setImmediate以及process.nextTick的区别</summary></b>
 
 参考答案：
+
+　　在javascript中我们了解到了setTimeout和setInterval函数事件队列（任务队列）的相关知识，除了setTimeout和setInterval这两个方法外，Node.js还提供了另外两个与"任务队列"有关的方法：process.nextTick和setImmediate。它们可以帮助我们加深对"任务队列"的理解。
+
+　　setTimeout()
+
+　　首先我们看看setTimeout（setInterval和setTimeout函数区别只是执行次数）函数，需要注意的是，setTimeout()只是将事件插入了"任务队列"，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。
+
+```js
+setTimeout(function(){console.log('0')},0);//意思是回调函数加入事件队列的队尾，主线程和事件队列的函数执行完成之后立即执行定时器的回调函数，如果定时器的定时是相同的，就按定时器回调函数的先后顺序来执行。
+console.log(1);
+setTimeout(function(){console.log(2);},1000);
+setTimeout(function(){console.log(4);},1000);
+console.log(3);
+//1 3 0 2 4
+```
+
+　setImmediate()
+
+　　setImmediate()是将事件插入到事件队列尾部，主线程和事件队列的函数执行完成之后立即执行setImmediate指定的回调函数，和setTimeout(fn,0)的效果差不多，但是当他们同时在同一个事件循环中时，执行顺序是不定的。另外setTimeout和setImmediate也有一定的区别（还在探索...），在实际工作中我们其实她们的区别貌似不明显，请高手指出感激不尽
+
+```js
+console.log('1');
+
+setImmediate(function () {
+    console.log('2');
+});
+
+setTimeout(function () {
+   console.log('3');
+},0);
+
+process.nextTick(function () {
+    console.log('4');
+});
+
+//1 4 2 3也可能是1 4 3 2
+```
+
+　　process.nextTick()
+
+　　process.nextTick()方法可以在当前"执行栈"的尾部-->下一次Event Loop（主线程读取"任务队列"）之前-->触发process指定的回调函数。也就是说，它指定的任务总是发生在所有异步任务之前，当前主线程的末尾。（nextTick虽然也会异步执行，但是不会给其他io事件执行的任何机会）
+
+```JS
+process.nextTick(function A() {
+  console.log(1);
+  process.nextTick(function B(){console.log(2);});
+});
+
+setTimeout(function C() {
+  console.log(3);
+}, 0)
+// 1
+// 2
+// 3
+```
+
+当然这样也是一样的：
+
+```js
+setTimeout(function C() {
+    console.log(3);
+}, 0)
+process.nextTick(function A() {
+    console.log(1);
+    process.nextTick(function B(){console.log(2);});
+});
+// 1
+// 2
+// 3
+```
+
+当然这样还是一样的：
+
+```js
+setTimeout(function C() {
+    console.log(3);
+}, 0)
+process.nextTick(function A() {
+    process.nextTick(function B(){console.log(2);});
+    console.log(1);
+});
+// 1
+// 2
+// 3
+```
+
+ 最后process.maxTickDepth()的缺省值是1000，如果超过会报exceed callback stack。官方认为在递归中用process.nextTick会造成饥饿event loop，因为nextTick没有给其他异步事件执行的机会，递归中推荐用setImmediate
+
+```js
+foo = function(bar) {
+    console.log(bar);
+    return process.nextTick(function() {
+                return f(bar + 1);
+    });
+};
+setImmediate(function () {
+      console.log('1001');
+});
+foo(1);//注意这样不会输出1001，当递归执行到1000次是就会报错exceed callback stack，/*
+foo = function(bar) {
+    console.log(bar);
+    if(bar>1000){ return; }
+    return process.nextTick(function() {
+        return f(bar + 1);
+    });
+};
+setImmediate(function () {
+    console.log('1001');
+});
+foo(1);*/
+```
+
+原文链接：https://www.cnblogs.com/cdwp8/p/4065846.html
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>367. JS运行机制（Event Loop）</summary></b>
 
-参考答案：
+参考答案：JS执行是单线程的，它是基于事件循环的。
+
+1. 所有同步任务都在主线程上执行，形成一个执行栈。
+2. 主线程之外，会存在一个任务队列，只要异步任务有了结果，就在任务队列中放置一个事件。
+3. 当执行栈中的所有同步任务执行完后，就会读取任务队列。那些对应的异步任务，会结束等待状态，进入执行栈。
+4. 主线程不断重复第三步。
 
 </details>
 

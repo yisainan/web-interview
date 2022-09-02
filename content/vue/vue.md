@@ -3462,5 +3462,35 @@ methods: {
 
 解析：[参考](https://vue3js.cn/es6/#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8proxy%E9%87%8D%E6%9E%84)
 
+</details>
+
+<b><details><summary>168. Vue的数据为什么频繁变化但只会更新一次</summary></b>
+
+或者这样问：Vue在一个tick中多次更新数据页面只会更新一次（主线程的执行过程就是一个tick）
+
+参考答案：
+
+* 检测到数据变化
+* 开启一个队列
+* 在同一事件循环中缓冲所有数据改变
+* 如果同一个 watcher (watcherId相同)被多次触发，只会被推入到队列中一次
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
+
+</details>
+
+<b><details><summary></summary></b>
+
+参考答案：
 
 </details>
