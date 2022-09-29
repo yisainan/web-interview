@@ -1352,15 +1352,15 @@ e = 13 + 21 + 30 + 13
 ```
 
 ``` js
-//第1题
+// 第1题
 function Fn() {
     console.log(this);
 }
-Fn(); //window 普通函数调用模式
-new Fn(); //{}  构造函数调用模式
+Fn(); // window   普通函数调用模式
+new Fn(); // {}   构造函数调用模式
 Fn.apply(Fn); // Fn的函数体   方法借用模式
 
-//第2题
+// 第2题
 var o = {
     f: function() {
         console.log(this);
@@ -1371,12 +1371,12 @@ var o = {
     }
 };
 o.f(); // o   对象调用模式
-o[2](); // o  对象调用模式
-new o[2](); //存疑，存在着优先级的问题 {}  通过构造函数模式进行调用
-o.f.call([1, 2]); //[1,2]   call方法进行方法借用。
-o[2].call([1, 2, 3, 4]); // [1,2,3,4]  call方法进行方法借用
+o[2](); // o   对象调用模式
+new o[2](); // {}   通过构造函数模式进行调用
+o.f.call([1, 2]); // [1,2]   call方法进行方法借用
+o[2].call([1, 2, 3, 4]); // [1,2,3,4]   call方法进行方法借用
 
-//第3题
+// 第3题
 var name = "out";
 var obj = {
     name: "in",
@@ -1388,16 +1388,15 @@ var obj = {
     }
 };
 
-console.log(obj.prop.getName()); //对象调用模式来进行调用  obj.prop.name  'inside'
-var test = obj.prop.getName; // 把test这个变量指向了obj.prop.getName所在的内存地址。
-console.log(test()); //普通函数模式来进行调用  window 'out'
-console.log(obj.prop.getName.apply(window)); //方法借用模式  'out'
-console.log(obj.prop.getName.apply(this)); //方法借用模式  'out'
-console.log(this === window); //true
+console.log(obj.prop.getName()); // 对象调用模式来进行调用  obj.prop.name，打印 'inside'
+var test = obj.prop.getName; // 把test这个变量指向了obj.prop.getName所在的内存地址
+console.log(test()); // 普通函数模式来进行调用，this指向window，打印 'out'
+console.log(obj.prop.getName.apply(window)); // 方法借用模式，打印 'out'
+console.log(obj.prop.getName.apply(this)); // 方法借用模式，打印 'out'
+console.log(this === window); // true
 
-//第4题
+// 第4题
 var length = 10;
-
 function fn() {
     console.log(this.length);
 }
@@ -1405,21 +1404,24 @@ var obj = {
     length: 5,
     method: function(f) {
         console.log(this);
-        f(); // f在调用的时候是什么调用模式？普通函数调用模式  window.length  10
-        arguments[0](); // 通过什么模式来进行调用的。执行之前有[]和.就是对象调用模式。
-        //arguments是一个类数组，也就是一个对象，就是通过arguments来进行调用的
-        //arguments.length实参的数量。实参长度是1
-        //通过arguments对象进行调用，因此函数内部的this是  arguments
-        // 如果一个函数在调用的时候它前面有call和apply那么就肯定是方法借用模式调用
+        f(); // f在调用的时候是什么调用模式？普通函数调用模式  window.length，打印 10
+
+        arguments[0](); 
+        // 通过什么模式来进行调用的。执行之前有[]和.就是对象调用模式。
+        // arguments是一个类数组，也就是一个对象，就是通过arguments来进行调用的
+        // 通过arguments对象进行调用，因此函数内部的this是 arguments
+        // arguments.length实参的数量。实参长度是1，所以打印 1
+
         arguments[0].call(this);
+        // 如果一个函数在调用的时候它前面有call和apply那么就肯定是方法借用模式调用
         // 调用method方法是通过obj.method 因此在这里的this就是 obj
-        //通过call方法把fn内的this指向了obj
-        // 输出obj.length  5
+        // 通过call方法把fn内的this指向了obj
+        // 输出obj.length，打印 5
     }
 };
 obj.method(fn);
 
-//第5题
+// 第5题
 function Foo() {
     getName = function() {
         console.log(1);
@@ -1435,107 +1437,62 @@ Foo.prototype.getName = function() {
 var getName = function() {
     console.log(4);
 };
-
 function getName() {
     console.log(5);
 }
-//请写出以下输出结果：
-Foo.getName(); //2
-getName(); //4
-Foo().getName(); //1
-getName(); //1
-new Foo.getName(); //2
-new Foo().getName(); //3
-new new Foo().getName(); //3
-// new Foo()创建了一个构造函数，然后这个函数再去访问getName这个函数，
-//对它进行调用
-/*console.log(new Foo().getName)*/
-/*var o = new new Foo().getName(); //
-    console.log(o.__proto__===Foo.prototype.getName.prototype)*/
-//用new Foo创建出来了一个实例，然后这个实例去访问 (new Foo().getName)
+// 请写出以下输出结果：
+Foo.getName(); // 2
+getName(); // 4
+Foo().getName(); // 1
+getName(); // 1
+new Foo.getName(); // 2
+new Foo().getName(); // 3
+new new Foo().getName(); // 3
 
-/*console.log(new new Foo().getName())
-
-    console.log(new Foo().getName())*/
-
-/*function Foo() {
-        getName = function () {
-            console.log(1);
-        };
-        return this;
-    }
-    var getName;
-    Foo.getName = function () {
-        console.log(2);
-    };
-    Foo.prototype.getName = function () {
-        console.log(3);
-    };
-    getName = function () {
-        console.log(4);
-    };
-    //请写出以下输出结果：
-    Foo.getName();// 2
-    getName();//4
-/!*    Foo().getName();//!*!/
-    window.getName()//1
-    getName();//1
-  /!*  var o = new Foo.getName();//2
-    console.log(o);// {}
-    console.log(o.__proto__===Foo.getName.prototype)//true*!/
-    new Foo.getName();// 2
-    new Foo().getName();//
-    new new Foo().getName();*/
-
-//第6题
+// 第6题
 var obj = {
     fn: function() {
         console.log(this);
     }
 };
-obj.fn(); //obj
+obj.fn(); // obj
 var f = obj.fn;
-f(); //window
+f(); // window
 console.log(f === obj.fn); // true
-
 // f和obj.fn是同一个函数，但是他们在调用的时候使用的函数调用模式不同，因此，它们内部的this指向也就不同。
 
-// #7题
+// 第7题
 var arr = [
     function() {
         console.log(this);
     }
 ];
-arr[0](); //数组本身
-//数组也是一个复杂数据类型，也是一个对象，那用数组去调用函数，使用的模式就是对象方法调用模式。
+arr[0](); // 数组本身
+// 数组也是一个复杂数据类型，也是一个对象，那用数组去调用函数，使用的模式就是对象方法调用模式。
 function f() {
     console.log(this);
 }
-
 function fn() {
-    console.log(arguments); // 类数组，也是就一个对象    [0:function f(){}]
+    console.log(arguments); // 类数组，也是就一个对象   [0:function f(){}]
     console.log(this); // window
     arguments[0]();
-    console.log(arguments[0]); //内部的this就是arguments
+    console.log(arguments[0]); // 内部的this就是arguments
     // 通过arguments对f这个方法进行调用，使用的是对象方法调用模式。
 }
 fn(f);
 
-// #8题
+// 第8题
 function SuperClass() {
     this.name = "women";
     this.bra = ["a", "b"];
 }
-
 SuperClass.prototype.sayWhat = function() {
     console.log("hello");
 };
-
 function SubClass() {
     this.subname = "you sister";
     SuperClass.call(this);
 }
-
 var sub = new SubClass();
 console.log(sub.sayWhat());
 ```
@@ -1750,7 +1707,7 @@ p.then(function(x) {
 
 </details>
 
-<b><details><summary>41. 手写防抖(Debouncing)和节流(Throttling)</summary></b>
+<b><details><summary>41. 手写防抖(debounce)和节流(throttle)</summary></b>
 
 参考答案：
 
@@ -1767,13 +1724,17 @@ function debounce(fn, wait) {
 }
 
 // （参考博客https://segmentfault.com/a/1190000018428170）
+/*
+* fn [function] 需要防抖的函数
+* delay [number] 毫秒，防抖期限值
+*/
 function debounce(fn, delay) {
-    let timer = null //借助闭包
+    let timer = null // 借助闭包
     return function() {
         if (timer) {
             clearTimeout(timer)
         }
-        timer = setTimeout(fn, delay) // 简化写法
+        timer = setTimeout(fn, delay)
     }
 }
 ```
@@ -1793,18 +1754,22 @@ function throttle(fn, wait) {
 }
 
 // 通过setTimeout的返回的标记当做判断条件实现（参考博客https://segmentfault.com/a/1190000018428170）
+/*
+* fn [function] 需要节流的函数
+* delay [number] 毫秒，节流期限值
+*/
 function throttle(fn, delay) {
-    let valid = true
+    let flag = true
     return function() {
-        if (!valid) {
-            //休息时间 暂不接客
+        if (!flag) {
+            // 休息时间 暂不接客
             return false
         }
         // 工作时间，执行函数并且在间隔期内把状态位设为无效
-        valid = false
+        flag = false
         setTimeout(() => {
             fn()
-            valid = true;
+            flag = true;
         }, delay)
     }
 }
