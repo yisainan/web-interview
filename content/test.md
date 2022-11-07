@@ -1,22 +1,37 @@
-* new Vue发生什么？vue实例化，调用init方法。初始化data compouted等
+# vue
 
-* Vue的数据为什么频繁变化但只会更新一次？利用的异步渲染，nexttick队列中只能有一个相同id的watch加入
+* new Vue发生什么？
 
-* Vue组件为什么采用异步渲染？一个组件依赖多个data的话，每个变化都会导致页面渲染，浪费性能
+* Vue的数据为什么频繁变化但只会更新一次？
 
-* 异步渲染原理是什么？利用nexttick
+* Vue组件为什么采用异步渲染？
 
-* nextTick的原理？利用优先级。。。
+* 异步渲染原理是什么？
 
-* vue父子组件挂载顺序?父beforecreate 父created 子 beforecreate 子 created 父 beforemount 子 beforemount 父 mounted 子 mounted 父 beforeupdate 子 befoeupdate 子 undated 父 updated 父 beforedistory 子 beforedistory 子 distoryed 父 distoryed
-以上错误
+* nextTick的原理？利用优先级promise MutationObserver setImmdate setTimeout
+
+* vue父子组件挂载顺序?
 
     加载过程 父 父 父 子 子 子 子 父
     更新过程 父 子 子 父
     销毁过程 父 子 子 父 
 
 
-* process.nextTick和Vue.nextTick的区别？
+* process.nextTick和Vue.nextTick的区别？【不清楚】
+    1.先说Vue.nextTick，任务在宏任务 微任务执行
+    2.process.nextTick 是在下个事件循环之前执行,加在微任务前面。优先级高于其他的微任务
+
+
+    如果你希望异步任务尽可能快地执行，那就使用 process.nextTick
+
+```
+process.nextTick(() => console.log(1)); 
+Promise.resolve().then(() => console.log(2)); 
+process.nextTick(() => console.log(3)); 
+Promise.resolve().then(() => console.log(4));
+
+```
+会输出 1324
 
 * vue组件watch中deep和immediate的作用？
     deep深度监听、immediate立即执行的意思
@@ -24,7 +39,7 @@
 * vue如何实现自定义指令？
     directive
 
-* Vue.use方法的使用？安装插件，插件需要有install方法
+* Vue.use方法的使用？使用插件，插件需要有install方法
 
 * vue和react的区别是什么？
     vue template模板 react jsx语法
@@ -56,7 +71,11 @@
 
 * nextTick的作用?
 
+* Vue如何给一个对象添加新的属性？vue有个$set方法
 
+* vue组件data用箭头函数行不行？可以使用箭头函数，但是需要注意this指向。
+
+* vue怎么检测到数组的变化？Vue2通过重写数组方法实现，Vue3通过Proxy数据代理实现。
 
 以上答案见(https://zhuanlan.zhihu.com/p/507020019)
 
@@ -88,7 +107,7 @@ Vue响应式原理？核心就是数据监听
 // script任务执行完后，开始执行所有的微任务
 // 微任务执行完毕，再取任务队列中的一个宏任务执行
 
-宏任务macrotask 主要有：setTimeout,setInterval,setImmediate,requestAnimationFrame,UI rendeing，nodeJS 中的 I/O
+宏任务macrotask 主要有：setTimeout,setInterval,setImmediate,requestAnimationFrame,UI rendeing，nodeJS 中的 I/O，script（整体代码）
 
 微任务microtask 主要有：process.nextTick,Promises,MutationObserver
 
@@ -159,11 +178,44 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 
 5.Vue.js 源码是基于 Rollup 构建的，Rollup 跟webpack一样是构建工具；vue3用的vite启动，vite的主要优势在开发阶段
 
-6.
+* vue性能优化？代码优化。打包优化。
+
+* keep-alive的生命周期
+1.activated： 页面第一次进入的时候，钩子触发的顺序是created->mounted->activated
+2.deactivated: 页面退出的时候会触发deactivated，当再次前进或者后退的时候只触发activated
+
+* vue渲染模板时怎么保留模板中的HTML注释呢？设置comments属性，官网默认为舍弃注释`<template comments> ... <template>`
 
 
 
+# react
 
+
+# html
+
+* HTML 与 XHTML? xhtml必须有闭合的标签、属性小写、
+
+
+# 浏览器
+
+* 浏览器的渲染过程
+
+
+* 
+
+* 
+
+* 
+
+* 
+
+* 
+
+* 
+
+* 
+
+* 
 
 
 
