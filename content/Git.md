@@ -462,7 +462,48 @@ git br -m [old_br] [new_br]
 
 </details>
 
-<b><details><summary>33. </summary></b>
+<b><details><summary>33. git提交规范</summary></b>
+
+```
+1、提交前缀规范（区分类别）
+
+(1) feat：新增功能或页面；
+(2) delete：删除功能或文件；
+(3) fix：修复bug、解决冲突（尽量避免）；
+(4) modify：修改功能；
+(5) docs：修改文档；
+(6) refactor：代码重构，未新增任何功能和修复任何bug；
+(7) build：改变构建流程，新增依赖库、工具等（例如webpack修改）；
+(8) style：仅仅修改了空格、缩进、注释等，不改变代码逻辑的变动；
+(9) perf：改善性能和体现的修改；
+(10) chore：非src和test的修改；
+(11) test：测试用例的新增、修改；
+(12) ci：自动化流程配置修改；
+(13) revert：回滚到上一个版本；
+(14) scope：【可选】用于说明commit的影响范围
+(15) subject：commit的简要说明，尽量简短
+
+2、提交文字规范
+
+格式：提交前缀：动作行为+问题内容
+示例：
+（1）feat：新增xx页面
+（2）feat：新增xx页面xx功能
+（3）fix：修复xx页面xx bug
+（4）modify：修改xx页面xx功能
+（5）delete：删除xx页面
+（6）refactor：重构xx页面xx功能
+（7）style：删除多余注释代码/控制台打印代码
+（8）refactor：迁移xx文件到xx目录
+
+3、单次提交注意事项
+
+1、提交问题必须为同一类别；
+2、提交问题不能超过3个；
+3、提交的commit发现不符合规范，git commit --amend -m "新的提交信息"或 git reset --hard HEAD^ 重新提交一次
+
+```
+
 
 </details>
 

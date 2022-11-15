@@ -1,6 +1,6 @@
 # vue
 
-* new Vue发生什么？
+* new Vue发生什么？【基本掌握】
 
 * Vue的数据为什么频繁变化但只会更新一次？
 
@@ -10,14 +10,15 @@
 
 * nextTick的原理？利用优先级promise MutationObserver setImmdate setTimeout
 
-* vue父子组件挂载顺序?
+* vue父子组件挂载顺序?【记住最后一个是父 倒数第二往前都是子】
 
     加载过程 父 父 父 子 子 子 子 父
     更新过程 父 子 子 父
-    销毁过程 父 子 子 父 
+    销毁过程 父 子 子 父
 
 
-* process.nextTick和Vue.nextTick的区别？【不清楚】
+* process.nextTick和Vue.nextTick的区别？【process.nextTick是node环境下的，在微任务之前执行。vue.nextTick是vue提供的在宏任务或微任务中执行】
+
     1.先说Vue.nextTick，任务在宏任务 微任务执行
     2.process.nextTick 是在下个事件循环之前执行,加在微任务前面。优先级高于其他的微任务
 
@@ -25,13 +26,18 @@
     如果你希望异步任务尽可能快地执行，那就使用 process.nextTick
 
 ```
-process.nextTick(() => console.log(1)); 
-Promise.resolve().then(() => console.log(2)); 
-process.nextTick(() => console.log(3)); 
+process.nextTick(() => console.log(1));
+Promise.resolve().then(() => console.log(2));
+process.nextTick(() => console.log(3));
 Promise.resolve().then(() => console.log(4));
 
 ```
 会输出 1324
+
+
+Process.nextTick 在下次事件循环微任务之前；vue.nexttick [就是在宏任务微任务中执行，没记住]
+
+
 
 * vue组件watch中deep和immediate的作用？
     deep深度监听、immediate立即执行的意思
@@ -91,7 +97,7 @@ Vue响应式原理？核心就是数据监听
 
 收集依赖 所谓的依赖，其实就是Watcher。
 
-* 
+*
 
 * loader的工作原理？有一些webpack不认识的模块，通过
 
@@ -111,26 +117,10 @@ Vue响应式原理？核心就是数据监听
 
 微任务microtask 主要有：process.nextTick,Promises,MutationObserver
 
+* Promise的两个特点
 
-* 
+* vue3 6大特性？快 小 ts 三个新的api【teltport Fragment】 compostionApi
 
-* Promise的两个特点 ：1.外界无法改变其状态 2：状态一经改变就不会在变
-
-* vue3 6大特性？
-
-* 
-
-* 
-
-* 
-
-* 
-
-* 
-
-* 
-
-* 
 
 * CSRF? A网站登录状态，B网站接口响应里请求A网站接口
 
@@ -142,16 +132,11 @@ Vue响应式原理？核心就是数据监听
 * 整个更新渲染的过程是？data属性发生变化，watcher加入更新队列，
 nexttick清空队列，执行watcher中回调渲染页面
 
-  
 
-* Vue是如何实现上面的效果的呢？new Vue之后，遍历整个组件树，模板会编
-译成render函数，render函数执行获得虚拟dom。子组件也同样操作，最后形成
-虚拟dom树。
 
-* 
+* Vue是如何实现上面的效果的呢？new Vue之后，遍历整个组件树，模板会编译成render函数，render函数执行获得虚拟dom。子组件也同样操作，最后形成虚拟dom树。
 
 *
-
 
 window.URL.createObjectURL() 创建对象URL
 
@@ -190,6 +175,40 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 
 # react
 
+* setState发生了啥？把当前状态与原始进行融合，这是异步的过程
+
+* umi createReactapp
+
+* 功能组件：类组件？？不清楚【大多数使用的类组件，能用生命周期函数；函数组件没办法用】
+
+* key就是方便diff运算的
+
+* 优势就是1.引入了虚拟dom，可有效减少频繁的dom操作2.生态比较完善【速度快、模块化、兼容性好】
+
+* setState是异步的，需要等执行完状态才都更新完，这是再渲染
+
+* diff原理就是虚拟dom树一层一层由根层向上比对，
+
+* 生命周期 render componetnwillmount componetDidmount shouldCompontentupdate  
+  compontentwillupdate stateinit defaultProps
+
+* shouldComponentUpdate 判断组件是否可以更新
+
+* 虚拟dom减少了频繁的真实dom操作导致的重拍重绘。
+
+* refs 操作dom时使用
+
+* 12 setState会与之前状态值进行融合。replaceState 直接就是替换了
+
+* 13 redux优缺点都不知道
+
+* 14 flux
+
+* 41 jsx就是语法糖，最终生成虚拟dom。两者是相辅相成的【回答错误：应该说jsx本质就是js中的React.createElement】
+
+* 42 jsx比较简洁，更易于开发者开发代码。不用也可以，就是写法上更麻烦【大概意思对，但不准确，Jsx语法糖 类html标签语法 虚拟dom】
+
+* 43 【不清楚jsx背后的模块】【其实就是React.createElement】
 
 # html
 
@@ -198,24 +217,42 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 
 # 浏览器
 
-* 浏览器的渲染过程
+* 浏览器的渲染过程?dom文档对象模型 cssom渲染 接下来就是js动态渲染
 
+# 安全
 
-* 
+* 水平越权。垂直越权。【回答正确】
 
-* 
+# 大厂
 
-* 
+* 1 方便diff运算的
 
-* 
+* 2 【记不住。】
 
-* 
+* 3 防抖就是防止手抖短时间触发多次点击等事件。节流就是没隔一段时间执行一次。区别就是防抖规定间隔时间2s，只要前后两个事件间隔少于这个事件，就只执行最后一次；节流是你点了第一个事件，2s内再次点就不会触发了，2s后点击的才生效【基本正确】
 
-* 
+* 4 【记不清】
 
-* 
+* 5 深度优先就是不撞南墙不回头，根节点加入有5个子节点，他会先把第一个遍历完了，在开始第二个；而广度有限是先把5子节点遍历完，再去孙子节点，再到重孙。。。【基本正确】
 
-* 
+* 8 setTimeout 延时计时器 、promise本身是同步，。then是异步。状态一经改变，不会在变；外界无法改变promise内部的状态；Async await 是genner函数的语法糖，需要配合使用，async函数内写await函数，实现同步执行 【基本正确】
 
+* 9 【不太懂】其实就是generater函数的语法糖，利用generater同步写法实现异步
 
+* 10 script start =》async1 start》promise1》 script end 》 async2 》 async1 end 》 promise2 》 setTimeout 【async2打印时间错误】
 
+错误原因：遇到了await时，会将await后面的表达式执行一遍
+
+变式1：script start》async1 start》promise1》promise2 》promise3》script end》async1 end》promise4》setTimeout【promise2打印时间错误】
+
+变式2：【后面再练习】
+
+*
+
+*
+
+*
+
+*
+
+*

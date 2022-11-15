@@ -5822,7 +5822,7 @@ for-of总是得到对象的value或数组、字符串的值，另外还可以用
 
 事件循环是一个宏观的表述，其实异步任务之间并不完全相同，其执行时机有所区别。细分来说的话异步任务分为两种：microtask 与 macrotask
 
-宏任务macrotask 主要有：setTimeout,setInterval,setImmediate,requestAnimationFrame,UI rendeing，nodeJS 中的 I/O，script（整体代码）
+宏任务macrotask 主要有：script(整体代码)、setTimeout、setInterval、I/O、UI交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)
 
 微任务microtask 主要有：process.nextTick,Promises【new Promise().then(回调)】,MutationObserver(html5 新特性)
 
