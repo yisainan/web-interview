@@ -61,15 +61,31 @@ IE盒模型和W3C标准盒模型的区别：
 
 参考答案：
 
-Opacity: 元素本身依然占据它自己的位置并对网页的布局起作用。它也将响应用户交互; 
+1、display:none;
 
-Visibility: 与 opacity 唯一不同的是它不会响应任何用户交互。此外，元素在读屏软件中也会被隐藏; 
+display翻译成中文是显示、展览的意思；将display的属性改为none可以实现元素的隐藏，元素和盒子模型也不生成，被隐藏的元素不占位置，看不见摸不着，它会导致浏览器的重排和重绘。
 
-Display:display 设为 none 任何对该元素直接打用户交互操作都不可能生效。此外，读屏软件也不会读到元素的内容。这种方式产生的效果就像元素完全不存在; 
+2、visibility:hidden;
 
-Position: 不会影响布局，能让元素保持可以操作; 
+visibility翻译成中文是能见、可见性的意思；hidden翻译成中文的是隐藏、不易察觉的意思。将visibility的属性改成hidden可以实现元素的隐藏，和display:none的区别是它占位置，看不见但是摸得着，所以它只会导致浏览器重绘而不会重排。
 
-Clip-path:clip-path 属性还没有在 IE 或者 Edge 下被完全支持。如果要在你的 clip-path 中使用外部的 SVG 文件，浏览器支持度还要低; 
+3、opacity:0;
+
+opacity翻译成中文是透明度、不透明的意思；将opacity的属性改成0那就是透明度等于0看不见元素，但是这种方法也是只能隐藏看不见元素，和visibility:hidden一样，元素依然存在页面中。
+
+4、position；
+
+利用定位将元素的top和left值设为足够大的负数，使它移出屏幕在屏幕上看不见。
+
+5、overflow:hidden；
+
+overflow翻译成中文是漫出、溢出的意思；将overflow的属性设置hidden可以实现元素隐藏，但是这个是超出盒子的部分隐藏，有局限性。
+
+总：常用的方法就是display:none 和visibility:hidden。
+
+————————————————
+版权声明：本文为CSDN博主「simple-xiao」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/simple_Xsg/article/details/124065694
 
 [参与互动](https://github.com/yisainan/web-interview/issues/24)
 
@@ -105,7 +121,7 @@ b 外部标签：只能将浮动盒子的影响清除，但是不会撑开盒子
 注意：每个元素都有自己的伪元素
 
 .clearfix:after {
-    content:"";
+    content:""; 
     height:0;
     line-height:0;
     display:block;

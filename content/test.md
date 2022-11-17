@@ -209,11 +209,34 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 * 42 jsx比较简洁，更易于开发者开发代码。不用也可以，就是写法上更麻烦【大概意思对，但不准确，Jsx语法糖 类html标签语法 虚拟dom】
 
 * 43 【不清楚jsx背后的模块】【其实就是React.createElement】
+可以联想到vue中的h函数，本质就是vue中的createElement方法。
+```
+  const app = new Vue({
+    ··· ···
+    render:function(createElement){
+        return createElement(App)
+    }
+  })
+```
 
 # html
 
 * HTML 与 XHTML? xhtml必须有闭合的标签、属性小写、
 
+# css
+
+* 2 css盒子模型就是？【回答不准确】应该这样说：盒模型包含content+padding+border+margin。W3C盒模型（content-box）width和hight只是包含content；IE盒模型（border-box），包含content+border+padding
+
+* 3 隐藏元素？display：none； opratity：0；【就想出这两个】
+还有visibility：hidden；position；overflow：hidden
+
+* 清除浮动？clear：both；【记不清】
+
+*
+
+*
+
+*
 
 # 浏览器
 
@@ -247,12 +270,36 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 
 变式2：【后面再练习】
 
-*
+* 13 【回答正确】
 
 *
 
-*
+*  
+
+*  
+
+*  
+
+*  
 
 *
+
+*  
+
+*  
+
+*  
+
+*  
+
+*  
+
+*  
+
+*  
+
+*  
+
+*  
 
 *
