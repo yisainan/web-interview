@@ -3477,20 +3477,794 @@ methods: {
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>169. vue computed和watch的区别【网易,京东,拼多多】</summary></b>
 
-参考答案：
+知识点 computed和watch的区别
+
+题目
+
+讲一下vue组件的computed和watch的区别。
+
+答案
+
+应用场景不同
+
+computed用在根据data属性或者其他computed计算得到一个新值的情况，computed的值一般被用在渲染中。 watch用在监听数据变化，然后做一些有副作用的操作的场景。
+
+执行过程不同
+
+在依赖的data属性变化后，computed并不会重新计算新的值，而是等到访问的时候再判断，如果依赖的data有改动则重新计算并返回结果，如果依赖的data没有改动，就不计算，直接返回当前结果。 依赖的数据变化后就会执行watch的回调。
+</details>
+
+<b><details><summary>170. v-if和v-show的区别【百度,网易,腾讯,字节,美团,快手,拼多多】</summary></b>
+
+知识点 v-if VS v-show
+
+题目
+
+vue中的v-if指令和v-show指令区别是什么？
+
+答案
+
+行为不同：v-if指令在满足条件时候才会渲染DOM，v-show一开始就渲染DOM，满足条件时候才设置CSS的display属性让元素显示出来。
+
+应用场景不同：一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。
+</details>
+
+<b><details><summary>171. vue常用指令【京东】</summary></b>
+
+知识点 Vue指令
+
+题目
+
+vue常用指令有哪些？
+
+答案
+
+v-show // 控制元素是否展示
+
+v-if、v-else-if、v-else // if表达式控制元素展示
+
+v-for // 循环渲染
+
+v-bind // 绑定数据
+
+v-model // 双向绑定
+
+v-on // 绑定事件
+</details>
+
+<b><details><summary>172. vue父子组件挂载顺序？【百度】</summary></b>
+
+知识点 父子组件挂载顺序
+
+题目
+
+vue父子组件挂载顺序是什么？
+
+答案
+
+加载渲染过程
+
+父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created ->子 beforeMount -> 子 mounted -> 父 mounted
+
+更新过程
+
+父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+
+销毁过程
+
+父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
+</details>
+
+<b><details><summary>173. v-model的作用【滴滴】</summary></b>
+
+知识点 v-model
+
+题目
+
+v-model的作用是什么？
+
+答案
+
+这个指令用于给Vue组件实现双向绑定，状态的改变会同步到组件上，组件的值的变化也会同步到状态上。
+</details>
+
+<b><details><summary>174. v-for和v-if放在一起用好吗【网易】</summary></b>
+
+知识点 避免 v-if 和 v-for 用在一起
+
+题目
+
+v-for和v-if放在一起用好吗
+
+答案
+
+v-if和v-for不要同时使用，因为会在每次渲染时候都要遍历列表并判断是否需要渲染，这个遍历操作其实是有一部分冗余或者完全不必要的。 应该用以下方式替换v-if和v-for同时使用的方案： 1. 如果是为了过滤一个列表中的项目（v-for循环，v-if过滤条件），可以将列表作为计算属性，在computed中过滤出需要渲染的列表，再进行渲染。这样避免了每次渲染都计算（只在computed依赖的属性变化时候才计算），同时渲染列表是过滤了的，那么循环的次数也可能减少。 2. 如果是为了控制整个列表的展示和隐藏（v-for循环，v-if判断整个列表是否需要展示），可以将判断条件放到父元素（ul、ol）上。这样展示和隐藏的判断只需要执行一次（在列表最开始）。
+
+Vue3修改了v-if和v-for的优先级，v-if没有权限访问v-for的变量，这个需要注意。
+</details>
+
+<b><details><summary>175. vue组件样式污染【腾讯】</summary></b>
+
+知识点 style标签中的scoped属性
+
+题目
+
+如何避免vue组件的样式污染？
+
+答案
+
+在style标签中添加“scoped”属性，可以避免当前组件的CSS污染全局。
+
+添加了这个属性后，vue-loader会给组件的每个元素添加一个data属性，并且将CSS代码编译，添加这个data属性的选择器。
+</details>
+
+<b><details><summary>176. Vue如何给一个对象添加新的属性【腾讯,美团,快手】</summary></b>
+
+知识点 深入响应式原理.检测变化的注意事项.对于对象
+
+题目
+
+Vue如何给一个对象添加新的属性？
+
+答案
+
+使用Vue.set(object, propertyName, value)或者vm.$set((object, propertyName, value)。这两个方法相同。
+</details>
+
+<b><details><summary>177. vue的keep-alive组件【字节,京东,拼多多】</summary></b>
+
+知识点 keep-alive组件
+
+题目
+
+讲一下vue的keep-alive组件，什么时候会用到？
+
+答案
+
+keep-alive是一个内置组件，它所包裹的组件会在不同的渲染中缓存状态。用在需要让自定义组件在不同的渲染中保持状态不变的场景。例如一些表单组件，如果已经填写好一些内容，然后切到其他组件，再切换回表单时候，应该保持已经填写好的内容，这时候可以选择使用keep-alive。
+</details>
+
+<b><details><summary>178. process.nextTick和Vue.nextTick【字节】</summary></b>
+
+知识点 nextTick
+
+题目
+
+process.nextTick和Vue.nextTick的区别？
+
+答案
+
+Vue.nextTick是将任务加入到宏任务队列或者微任务队列。
+
+process.nextTick并未将任务加入到宏任务队列或者微任务队列，它是将任务加到下次事件循环之前。
+</details>
+
+<b><details><summary>179. vue组件watch中deep和immediate的作用【美团】</summary></b>
+
+知识点 watch
+
+题目
+
+vue组件watch中deep和immediate的作用
+
+答案
+
+watch有两个选项：deep和immediate，deep决定是否深度监听，即是否监听多层对象数据，immediate决定是否立即执行，如果为true，会在绑定时候（初始时候）立即执行，如果为false，只在监听的值变更时候执行。默认为false。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>180. slot【滴滴,京东,快手】</summary></b>
 
-参考答案：
+知识点 slot
+
+题目
+
+讲讲slot？有什么作用？
+
+答案
+
+插槽是Vue 实现的一套内容分发的 API，它支持在渲染一个自定义组件时候，向它“插入”一些内容。这个自定义组件会将起始标签和结束标签之间的内容渲染到自己模板中“slot”组件所在的位置上。
+
+Vue的插槽和React的render props的作用相同，React也会将自定义组件开始和闭合标签之间的内容作为children属性挂载到props上，从而在自定义组件中渲染处理。
+
+插槽（和render props）提供了更灵活的组件组合和复用方式，在布局等应用场景让代码更直观和易于维护。
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>181. vue如何实现自定义指令【京东】</summary></b>
 
-参考答案：
+知识点 自定义指令
 
+题目
+
+vue如何实现自定义指令？
+
+答案
+
+使用Vue.diractive全局注册或者在组件的directive属性中，通过钩子来实现自定义指令。 详细说明请参考知识点和官网。
+
+</details>
+
+<b><details><summary>182. Vue.use方法的使用【京东】</summary></b>
+
+知识点 Vue插件
+
+题目
+
+Vue.use方法的使用？
+
+答案
+
+通过调用Vue.use()方法来安装插件，插件是一个构造函数，它必须实现一个install方法，Vue会调用install方法，并传入Vue变量，让插件可以使用Vue来向Vue添加全局功能。
+
+</details>
+
+<b><details><summary>183. vue和react的区别【阿里,美团,京东,拼多多】</summary></b>
+
+知识点 对比其他框架 Vue和React的对比
+
+题目
+
+vue和react的区别是什么？
+
+答案
+
+React和Vue在框架设计上有很多相同点 1. 使用 Virtual DOM 2. 提供了响应式 (Reactive) 和组件化 (Composable) 的视图组件。 3. 将注意力集中保持在核心库，而将其他功能如路由和全局状态管理交给相关的库。 性能、包体积大小也都不是决定因素。 它们在编码风格和使用细节上存在差别： 1. React的API简洁，Vue的API更多，因此使用Vue编写代码可能更少。 2. Vue更容易上手（因为帮开发者做了很多事情，computed、双向绑定等），React要实现相同功能需要用户手操作，例如需要通过受控组件来实现表单的数据同步，不如Vue的v-model语法糖更便捷。而且Vue的模板语法更贴近原生，因而更容易接受和理解。 3. React虽然API简单，但也因此在某些场景需要一些实践来优化，如shouldComponentUpdate，Vue使用数据劫持，能够做到改变了才触发渲染，更精准。 4. 模板语法 VS JSX语法，其实Vue也可以支持JSX，JSX表达能力更强，模板语法更直观。 5. React有一些主张，例如纯函数等，对编写项目有一定的限制，有的观点认为React规范能尽可能保证项目少出bug，所以更适合大型项目。 6. react社区较大，Vue及周边都主要是官方在维护，更稳定一些。 7. 超大规模的首屏渲染上React有一些优势，因为Vue需要做一些初始化工作。 8. React组件是继承React.Component，Vue是对象，因此React可以实现基于继承的组件复用（虽然并不推荐），而Vue不行。 在响应式原理上也存在差别： React和Vue在响应式的原理上有所不同，Vue是通过数据劫持，实现当数据变化时候响应式更新，React是在setState时候diff组件树。
+
+</details>
+
+<b><details><summary>184. vue父子组件通信，兄弟组件通信【百度,字节,美团,滴滴,京东,网易,拼多多】</summary></b>
+
+知识点 vue组件通信
+
+题目
+
+vue父子组件如何通信？兄弟组件如何通信？如何使用eventBus通信？
+
+答案
+
+父子组件通信有3种方式： 1. props 2. 事件 3. ref 兄弟组件通信有2种常用方式： 1. eventBus 2. vuex
+
+eventBus就是一个vue实例，使用它提供的$on和$emit就能够很容易地实现发布订阅模式，从而实现兄弟组件间的通信。
+
+</details>
+
+<b><details><summary>185. vue的eventbus的实现【字节,滴滴,京东,拼多多】</summary></b>
+
+知识点 eventBus
+
+题目
+
+eventBus原理是什么？为什么可以实现组件间的状态共享？ 它是什么模式？发布者订阅者分别是做什么的？ vue的eventbus如何实现？
+
+答案
+
+eventBus是一个典型的发布-订阅模式，当状态改变时候，改变方通过eventBus发布状态改变事件，关心这个状态的组件可以通过订阅该事件来获知最新的状态，这样就实现组件通信，即组件间的状态共享。 Vue项目中可以通过简单地实例化一个Vue对象来实现一个eventBus：
+
+const eventBus = new Vue();
+
+然后使用实例提供的$on()方法订阅，使用$emit()方法实现发布。 另外可以通过$off()解绑事件。
+
+</details>
+
+<b><details><summary>186. React、Vue和JQuery的选型【阿里,拼多多】</summary></b>
+
+知识点 Vue和React的对比
+
+题目
+
+React、Vue和JQuery在不同场景下怎么选型？
+
+答案
+
+首先，Vue和React在很多地方都是相似的，对于大部分场景，并没有React能做到而Vue不能做到，或者Vue能做到，而React不能做到的事情。所以决定Vue和React之间的选型的因素更多是团队成员的熟练程度、老项目的情况、整个公司的环境、团队的沉淀、甚至领导的个人偏好。 至于JQuery，一般已经不使用了。
+
+</details>
+
+<b><details><summary>187. vue和jquery的区别【字节,美团,京东,网易】</summary></b>
+
+知识点 Vue和JQuery对比
+
+题目
+
+vue和jquery的区别是什么？为什么jquery被淘汰了？
+
+答案
+
+    目标不同，JQuery关注简化js的DOM操作和浏览器兼容性处理，帮助开发者更简单地操作DOM，Vue关注用户如何组织代码，让开发者不需要操作DOM，可以更好地组织代码，提升项目的可读性和可维护性。对于大型项目JQuery未规定代码组织形式，未提供组件化的标准，因此多人开发时候不同风格代码混杂，很容易造成代码混乱，相对而言，Vue就更适合大型的项目。如果需要在项目中引入组件库的话，Vue项目的组件库更标准化，JQuery的组件库则形式多样，很难和自己的项目风格保持一致。跨平台，Vue使用声明式渲染，通过虚拟DOM映射到真实DOM，可以实现跨平台，而JQuery没有这种能力。由于Vue支持声明式渲染，因此可以做到服务端渲染和客户端代码同构，降低项目复杂度和学习成本（不需要再学习一门模板语言）。JQuery项目实现服务端渲染还要依赖一个后端的模板语言。发展趋势不同，随着浏览器标准化和前端项目的复杂度逐步提升，JQuery的应用场景在一点点减少，Vue作为新一代前端框架正在蒸蒸日上。
+
+</details>
+
+<b><details><summary>188. computed和watch的区别【快手,京东,阿里,腾讯,滴滴】</summary></b>
+knowledge
+
+computed和watch的区别
+
+题目
+
+computed和watch的区别？
+
+答案
+
+    场景不同，computed是计算属性，用在渲染或者其他获取计算属性值的地方，watch是定义的订阅者，订阅数据改变，执行回调。使用方式不同，computed是直接取值，watch是监听改变，执行回调。computed方法不应该有副作用，watch方法则无此要求。computed是惰性求值，只有依赖的数据发生改变，并且其他地方使用到了这个值，才会调用方法进行计算；watch则是每次依赖的数据改变，都会触发执行。
+
+</details>
+
+<b><details><summary>189. computed和method的区别【快手】</summary></b>
+
+题目
+
+computed和method的区别？
+
+答案
+
+虽然它们都是定义了方法，但是computed和method有很大区别 1. 场景不同，computed是计算属性，用在渲染或者其他获取计算属性值的地方，method是定义的方法，用在声明周期、交互回调等地方。 2. 使用方式不同，computed是直接取值，method是调用方法。 3. computed方法不应该有副作用，method则无此要求。 4. computed是惰性求值，只有依赖的数据发生改变，并且其他地方使用到了这个值，才会调用方法进行计算；method是每次调用会立刻执行。
+
+</details>
+
+<b><details><summary>190. vue组件的生命周期【阿里,腾讯,京东,网易,拼多多】</summary></b>
+
+知识点 组件生命周期钩子
+
+题目
+
+一、讲一下vue的生命周期钩子？什么是生命周期钩子？
+
+二、有哪些常用的生命周期钩子？
+
+三、在这些常用的生命周期钩子中一般会做哪些操作？
+
+四、3.0新加了哪些？
+
+五、父子组件生命周期先后顺序？
+
+答案
+
+一、生命周期钩子说明：
+
+在组件被加载后，在应用运行过程中，组件可能会经历挂载、数据更新、销毁等各个阶段，称为组件的生命周期。每个阶段会执行相应的生命周期钩子，用户可以在生命周期钩子中处理业务逻辑。
+
+二、Vue的生命周期钩子 1、创建：beforeCreate、created
+
+2、挂载：beforeMount、mounted
+
+3、更新：beforeUpdate、updated
+
+4、销毁：beforeDestroy、destroyed（Vue3中被更改为 beforeUnmount、mounted）
+
+三、在这些常用的生命周期钩子中一般会做哪些操作？
+
+通常我们会在初始化（created/mounted）中绑定事件、启动定时器，相应地，在beforeDestroyed中解绑事件、停止定时器。
+
+在updated中执行一些依赖新状态，或者依赖新的DOM的操作，例如一个聊天面板组件中，收到消息后更新数据，在update中需要判断，如果当前面板的列表是向上滚动的状态，即用户正在会看之前的消息，就给一个提示“有新消息”，如果列表处在底部，就自动向上滚动，展示出最新消息。
+
+四、Vue3.0增加了beforeUnmount、mounted，用来代替beforeDestroy、destroyed。
+
+五、父子组件生命周期顺序：
+
+加载渲染过程
+
+父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted。
+
+更新过程
+
+父beforeUpdate->子beforeUpdate->子updated->父updated。
+
+销毁过程
+
+父beforeDestroy->子beforeDestroy->子destroyed->父destroyed。
+
+</details>
+
+<b><details><summary>191. vue组件data为什么是函数【网易,美团,滴滴】</summary></b>
+
+题目
+
+vue组件data为什么是函数?
+
+答案
+
+如果data不是一个函数，或者函数中不是返回一个对象字面量，那么实例化多个组件的话，不同组件间会共享同一个data，data的改变会影响到每个实例，这是不符合预期的。
+</details>
+
+<b><details><summary>192. vue组件data用箭头函数行不行？【快手】</summary></b>
+
+知识点 data
+
+题目
+
+vue组件data用箭头函数行不行？
+
+答案
+
+可以使用箭头函数，但是需要注意this指向。
+
+如果使用箭头函数，data函数中的this不会指向vue实例，如果需要访问vue实例，可以通过data函数的参数来实现。
+
+data: vm => ({ a: vm.myProp })
+
+</details>
+
+<b><details><summary>193. vue响应式原理【阿里,美团,滴滴】</summary></b>
+
+知识点 Vue响应式原理
+
+题目
+
+讲一下vue响应式原理？
+
+答案
+
+Vue通过数据代理改变组件的数据访问和设置的行为，在访问时候收集依赖，在设置时候通知订阅者。 更详细的说明请参考知识点。
+
+</details>
+
+<b><details><summary>194. vue的compile过程【阿里】</summary></b>
+
+知识点 模板编译原理
+
+题目
+
+说一下vue的compile的过程。
+
+答案
+
+Vue在实例化组件时候会生成虚拟DOM，Vue先判断是否有render函数，如果有的话调用render生成虚拟DOM；如果没有render函数，则获取template选项，template选项可以是选择器、模版字符串、dom元素，Vue根据template选项进行模板编译；如果没有template，则获取el以及其子内容作为模版。
+
+模板编译有三个步骤 1. 将模板解析为AST。（Abstract Syntax Tree，抽象语法树）。 2. 遍历AST标记静态节点。 3. 使用AST生成渲染函数。
+
+</details>
+
+<b><details><summary>195. vue的computed和watch的实现原理【阿里,美团】</summary></b>
+
+知识点 computed watch
+
+题目
+
+讲一下vue的computed和watch的实现原理？computed是怎么收集依赖的？
+
+答案
+
+computed：
+
+computed是data属性的一个订阅者，它在初始化时候被data属性收集依赖，当computed依赖的data属性改变后，标记该computed为dirty，即数据更改过，当渲染使用到computed时候，再计算出computed的值从而得到最新的正确的值。
+
+watch：
+
+在组件初始化时候，遍历所有的watch，对每个watch创建订阅者，绑定依赖的data属性，当data属性改变后发布给订阅者，然后会执行相应地回调。
+
+更详细的说明请参考知识点。
+
+</details>
+
+<b><details><summary>196. vue的模板渲染【百度】</summary></b>
+
+知识点 模板渲染原理
+
+题目
+
+介绍一下vue中模板渲染原理？
+
+答案
+
+Vue会根据将模板编译成render函数，调用render函数生成虚拟dom，然后将虚拟dom映射成真实dom。 当数据变化时候，Vue会触发更新视图，调用render函数返回新的虚拟dom，对比新旧虚拟dom，修改真实dom，从而更新界面
+
+</details>
+
+<b><details><summary>197. vue数据双向绑定原理【网易,百度,阿里,腾讯,美团,滴滴,快手,拼多多】</summary></b>
+
+知识点 双向绑定 把data设置为响应式 数据代理
+
+题目
+
+讲一下vue数据双向绑定原理，依赖收集的过程，vue2数据绑定缺点是什么？vue3是怎么解决的？
+
+答案
+
+双向绑定原理 请参考知识点《双向绑定》
+
+依赖收集过程 请参考知识点《把data设置为响应式》
+
+Vue2数据绑定缺点和Vue3解决方法 请参考知识点《数据代理》
+
+</details>
+
+<b><details><summary>198. vue怎么检测到数组的变化【腾讯,拼多多】</summary></b>
+
+知识点 数据代理
+
+题目
+
+给数组添加元素时候，vue是怎么检测到数据的变化的？
+
+答案
+
+Vue2通过重写数组方法实现，Vue3通过Proxy数据代理实现。
+
+</details>
+
+<b><details><summary>199. Vue的diff算法【百度,腾讯,滴滴】</summary></b>
+
+知识点 diff算法
+
+题目
+
+vue的虚拟dom是如何做diff的？
+
+答案
+
+diff算法的大体过程是，从组件根节点开始对比两棵虚拟DOM树。
+
+判断新旧节点是否值得比较，值得比较的话，就进行对比操作，否则用新的节点替换旧的节点。新旧节点比较完后，如果有子节点，还要比较子节点（child），在旧的child中找到和新的child匹配的节点，如果找到（说明这两个child“值得比较”）并且顺序不同则调整顺序，然后再对两个child执行对比操作。 “值得比较”是个很重要的概念，值得比较意味着Vue认为旧节点经过更新就可以得到新的节点，而不需要完全用新的节点代替旧的节点： // 是否值得比较
+
+function sameVnode(oldVnode, vnode){
+    return vnode.key === oldVnode.key && vnode.sel === oldVnode.sel
+}
+
+新旧节点比较的过程： 1. 如果新旧节点的引用一致，可以认为没有变化。 2. 比较新旧节点文本，需要修改的话，则更新文本。 3. 如果新节点没有子节点，老节点有子节点，直接删除老的子节点。 4. 如果新节点有子节点，老节点没有子节点，则创建新的子节点。 5. 新旧节点都有子节点，而且新旧节点的子节点引用不一样，会调用updateChildren函数比较子节点。
+
+</details>
+
+<b><details><summary>200. vue nextTick【腾讯,快手】</summary></b>
+
+知识点 nextTick
+
+题目
+
+vue的nextTick方法的原理及使用场景？
+
+答案
+
+Vue使用MutationObserver/Promise/setTimeout实现nextTick。Vue判断浏览器兼容性，按照MutationObserver -> Promise -> setTimeout的优先级实现nextTick。
+
+场景是在修改数据之后，想要访问修改后的DOM时候，可以用Vue.nextTick，在下个循环中访问，这样才能访问到修改后的结果。
+
+</details>
+
+<b><details><summary>201. Vue的数据为什么频繁变化但只会更新一次【阿里】</summary></b>
+
+知识点 异步渲染
+
+题目
+
+Vue的数据为什么频繁变化但只会更新一次？
+
+答案
+
+Vue可以响应数据变化，数据变化后会自动更新视图，如果每次修改都触发视图更新，会导致多次重复和不必要的渲染操作，例如一个组件使用了两个data的属性，更新两个属性如果触发两次渲染的话，会影响性能。因此Vue采取异步更新。
+
+每次更新响应的属性之后，会将渲染的watcher放到一个队列中，在下个事件循环中再执行。
+
+</details>
+
+<b><details><summary>202. vue异步渲染、nextTick【京东】</summary></b>
+
+知识点 异步渲染和nextTick
+
+题目
+
+Vue组件为什么采用异步渲染？异步渲染原理是什么？nextTick的原理？
+
+答案
+
+Vue可以响应数据变化，数据变化后会自动更新视图，如果每次修改都触发视图更新，会导致多次重复和不必要的渲染操作，例如一个组件使用了两个data的属性，更新两个属性如果触发两次渲染的话，会影响性能。因此Vue采取异步更新。
+
+每次更新响应的属性之后，会将渲染的watcher放到一个队列中，在下个事件循环中再执行。
+
+整个更新渲染的过程是： 1. data的属性更新 2. 通知依赖的render 3. render的watcher加入队列（队列去重） 4. nextTick清空watcher队列，执行各watcher中的回调
+
+Vue使用MutationObserver/Promise/setTimeout实现nextTick。Vue判断浏览器兼容性，按照MutationObserver -> Promise -> setTimeout的优先级实现nextTick。
+
+</details>
+
+<b><details><summary>203. 为什么Vue是渐进式框架【京东】</summary></b>
+
+知识点 Vue渐进式
+
+题目
+
+为什么Vue是渐进式框架？
+
+答案
+
+渐进式的概念：分层设计，每层可选，不同层可以灵活接入其他方案。 那么Vue的设计分这样几层 1. declarative rendering（声明式渲染） 2. component system（组件系统） 3. client-side routing（前端路由） 4. state management（状态管理） 5. build system（构建系统） 使用Vue时候可以只用它核心的视图层，也可以使用其路由、状态管理、脚手架等，如果用户有个人偏好也可以接入其他解决方案，因此Vue是渐进式的框架。
+
+</details>
+
+<b><details><summary>204. vue框架原理【阿里,字节,网易】</summary></b>
+
+知识点 Vue框架原理
+
+题目
+
+讲一下vue框架的原理？
+
+答案
+
+我们使用Vue开发应用，实际上是编写若干Vue组件，实现模板、data、生命周期钩子等，然后执行new Vue()，将根组件挂载到指定的DOM节点上面，当我们编写的组件中生命周期钩子里面的或者在模板的元素事件中改变数据时候，视图会响应地更新。这样就实现了应用。
+
+那么Vue是如何实现上面的效果的呢？
+
+new Vue()之后，Vue会从根组件开始，遍历整个组件树，对每个组件进行处理。
+
+对于一个Vue组件，Vue首先会进行模板编译，将模板编译为render函数，render函数返回虚拟DOM，如果遇到子组件，也对子组件做同样操作，最终形成一个虚拟DOM树。
+
+Vue会把虚拟DOM映射到真实DOM并渲染到指定节点上，这样就实现了视图的渲染。
+
+Vue在组件初始化时候还会设置数据为响应式，并将依赖于数据的渲染方法、computed、watch收集起来。
+
+当数据改变后，Vue会根据初始化时候收集的依赖，更新视图，这时候我们就看到最新的界面了。
+
+</details>
+
+<b><details><summary>205. vue-router中的路由守卫有哪些【京东】</summary></b>
+
+知识点 vue-router导航守卫 官网
+
+题目
+
+vue-router中的路由守卫有哪些
+
+答案
+
+全局守卫，路由独享守卫和组件内守卫
+
+</details>
+
+<b><details><summary>206. vue-router原理以及两种模式区别【网易,百度,字节,美团,快手,拼多多】</summary></b>
+
+知识点 两种历史记录模式
+
+题目
+
+路由有哪两种模式？默认是哪种模式？ 两种模式区别是什么？ 讲一下vue-router原理？
+
+答案
+
+前端路由有两种模式，HTML5和hash，这两种模式本质是不同的底层浏览器技术，但是上层Vue Router做了统一化的封装，因此在我们开发组件和配置路由时候使用这两种模式的区别并不大。默认是hash模式。
+
+这两种模式有几个主要区别 1. HTML5模式的路由没有"#"字符，而是在域名后直接写路径，更加优雅 2. 由于#后面的字符不会发给服务器，因此hash路由SEO比较差 3. HTML5需要服务器在访问不同的路径时候都能fallback到index.html，因此相对麻烦
+
+前端路由的原理关键有2点 1. 可以修改url，但不会引起刷新，从而在不刷新的页面的情况下跳转路由。 2. 监听url改变，根据url渲染对应组件。
+
+hash模式和history模式的原理都是基于这两点。hash是通过浏览器提供的location API修改url，通过onhashchange方法监听hash改变；history通过浏览器提供的history.pushState或者history.replacestate修改url，通过popState事件监听url改变。
+
+</details>
+
+<b><details><summary>207. vue-router用法【快手,拼多多】</summary></b>
+
+知识点 vue-router
+
+题目
+
+说说vue-router的用法，如何动态传参？
+
+答案
+
+通过createRouter方法，传入配置创建路由，并通过Vue的use方法注册到Vue组件中。
+
+// main.js
+import { createApp } from 'vue';
+import {createRouter, createWebHistory} from 'vue-router';
+import routerConfig from './route.config';
+import App from './App';
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: routerConfig
+});
+
+createApp(App).use(router).mount('#app');
+
+// route.config.js
+import Home from './pages/home';
+import User from './pages/user';
+
+export default [
+    {
+        path: '/home',
+        component: Home
+    },
+    {
+        path: '/user',
+        component: User
+    }
+];
+
+通过配置可以指定路由对应的渲染组件。 动态路由配置的语法是
+
+{
+    // http://localhost:8080/user/123
+    path: '/user/:id',
+    component: User
+}
+
+组件中通过
+
+$route.params.id
+
+访问动态路由
+
+
+<template>
+    <div>user: {{$route.params.id}}</div>
+</template>
+
+<script>
+    export default {};
+</script>
+
+更详细用法参考知识点。
+
+</details>
+
+<b><details><summary>208. Vue3和Vue2的区别【腾讯,网易,拼多多】</summary></b>
+
+知识点 迁移构建版本
+
+题目
+
+vue3.0有哪些变化？Vue3.0和Vue2.0的区别？
+
+答案
+
+新增组合式API，更好地聚合功能代码。
+
+全局Vue API更改为使用应用程序实例，createApp创建一个应用实例。例如Vue.use()改为createApp().use()。
+
+同一元素上的v-if和v-for的优先级发生改变，v-if无法访问v-for的变量。
+
+等等
+
+更多变化请见知识点中官网的说明。
+
+</details>
+
+<b><details><summary>209. vuex的使用【字节,网易,快手,拼多多】</summary></b>
+
+知识点 vuex
+
+题目
+
+讲讲vuex的作用和使用。
+
+mutation和action的区别？
+
+getters的作用？
+
+答案
+
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式 + 库。它采用集中式存储管理应用的所有组件的状态。 它主要有以下API 1. state 2. getters 3. mutations 4. actions 5. module 6. 辅助函数：mapState、mapGetters、mapMutations、mapActions 7. createStore
+
+其中state和getters用来保存状态；mutations和actions用来改变状态；监听状态用的是Vue组件中的computed属性；module是用来组织整个应用的状态管理代码，使状态划分模块，更易于管理；辅助函数用来在监听状态时候简化代码，createStore则用来创建状态管理对象。
+
+mutations和actions有区别，mutations不应该用于异步修改状态，因为这样做的话，Vuex是无法知道修改state.count的时机的，因为它是在异步回调里面指定的，因此Vuex无法在调试工具中打印出我们实际改变state的操作。 而actions中可以异步更新状态。
+
+getters和state的关系类似于Vue组件data属性和computed属性的关系，getters根据state或者其他getters计算出另一个变量的值，当其依赖的数据变化时候，它也会实时更新。
+
+</details>
+
+<b><details><summary>210. Vuex工作机制【阿里,京东】</summary></b>
+
+知识点 vuex 官网介绍
+
+题目
+
+vuex的数据流向？vuex整个触发过程（actions，state，view）？
+
+vuex的工作原理？
+
+答案
+
+Vuex的数据流是组件中触发action，action提交mutations，mutations修改states。 组件根据 states或getters来渲染页面。
+
+Vuex是个状态管理器。
+
+它Vuex通过createStore创建了一个数据中心，然后通过发布-订阅模式来让订阅者监听到数据改变。 Vuex的store注入 vue的实例组件的方式，是通过vue的 mixin机制，借助vue组件的生命周期钩子beforeCreate 完成的。这样Vue组件就能通过this.$store获取到store了。
+
+Vuex使用vue中的reactive方法将state设置为响应式，这样组件就可以通过computed来监听状态的改变了。
+编辑于 2022-04-29 09:04
+Vue.js
 </details>
