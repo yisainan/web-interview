@@ -401,13 +401,13 @@ var person2 = new Person("Arvin", 20, "student");
 4\.终于可以识别的对象的类型。对于检测对象类型，我们应该使用 instanceof 操作符，我们来进行自主检测：
 
 ```js
-alert(person1 instanceof Object); //ture
+alert(person1 instanceof Object); //true
 
-alert(person1 instanceof Person); //ture
+alert(person1 instanceof Person); //true
 
-alert(person2 instanceof Object); //ture
+alert(person2 instanceof Object); //true
 
-alert(person2 instanceof Object); //ture
+alert(person2 instanceof Object); //true
 ```
 
 同时我们也应该明白，按照惯例，构造函数始终要应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。
