@@ -1,21 +1,16 @@
 # vue
 
-* new Vue发生什么？vue的实例化，底层调用init方法，初始化数据和方法之类的
+* new Vue发生什么？
 
 * Vue的数据为什么频繁变化但只会更新一次？
 
 * Vue组件为什么采用异步渲染？
 
-* 异步渲染原理是什么？
+* 异步渲染原理是什么？数据更新，watcher加入队列，在nexttick中把任务队列清空
 
-* nextTick的原理？利用优先级promise MutationObserver setImmdate setTimeout
+* nextTick的原理？按着浏览器兼容性 promise moutationObserve serimmdate settimeout 这个顺序
 
 * vue父子组件挂载顺序?【记住最后一个是父 倒数第二往前都是子】
-
-    加载过程 父 父 父 子 子 子 子 父
-    更新过程 父 子 子 父
-    销毁过程 父 子 子 父
-
 
 * process.nextTick和Vue.nextTick的区别？【process.nextTick是node环境下的，在微任务之前执行。vue.nextTick是vue提供的在宏任务或微任务中执行】
 
@@ -225,16 +220,33 @@ Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob
 
 * 2 css盒子模型就是？【回答不准确】应该这样说：盒模型包含content+padding+border+margin。W3C盒模型（content-box）width和hight只是包含content；IE盒模型（border-box），包含content+border+padding
 
-* 3 隐藏元素？display：none； opratity：0；【就想出这两个】
+* 3 隐藏元素？display：none； opratity：0；
 还有visibility：hidden；position；overflow：hidden
 
-* 清除浮动？clear：both；【记不清】
+* 清除浮动？伪元素  clear：both；【记不清】
 
-*
+*  display:flex； 
+容器：flex-direction ： row row-reserve clumn clumn-reserve 
+flex-wrap ：no-wrap wrap wrap-reserve
+flex-flow：就是flex-direction 和 flex-wrap的集合
+justify-content：flex-sart flex-end center space-between space-around
+align-item：center 【flex-start | flex-end | center | baseline | stretch】
+align-content。类比justify-content
 
-*
 
-*
+
+子元素：flex-grow 放大 flex-shinrk 缩小 flex order flex-basis align-self
+
+
+
+
+项目上：flex   order   flex-shrink flex-grow flex-basis align-self
+
+flex 布局时，如何固定一栏宽度？flex: 0 0 200px;
+
+* 2栏布局 大类分为3种 ：浮动  定位 flex：1 
+
+* 3栏布局：大类分为几种： 1.左右绝对 中间margin 2.flex 3.左右浮动 4.圣杯 5.双飞翼 【圣杯是左右浮动、中间padding；双飞是左右浮动、中间margin】
 
 # 浏览器
 

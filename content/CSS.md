@@ -4057,7 +4057,12 @@ CSS后处理器是对CSS进行处理，并最终生成CSS的预处理器，它�
 
 参考答案：
 
+一、单列布局（一栏布局）
+二、两列自适应布局：1.float+overflow:hidden 2.Flex布局 3.grid布局（网格布局）
+三、三栏布局：圣杯布局、双飞翼布局
+
 详细的资料可以参考：
+
 [《几种常见的 CSS 布局》](https://juejin.im/post/5bbcd7ff5188255c80668028#heading-12)
 
 </details>
@@ -4688,7 +4693,8 @@ p:after {
 参考答案：
 
 ```css
-利用绝对定位实现body {
+利用绝对定位实现
+body {
   padding: 0;
   margin: 0;
 }
@@ -4799,9 +4805,7 @@ body {
 }
 
 .right {
-  flex: auto;
-  /*11auto*/
-
+  flex: 1 1 auto;
   background: gold;
 }
 
@@ -5112,7 +5116,7 @@ body {
   height: 0;
   border-width: 100px;
   border-style: solid;
-  border-color: tomatotransparenttransparenttransparent;
+  border-color: tomato transparent transparent transparent;
 }
 ```
 

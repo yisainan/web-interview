@@ -58,9 +58,17 @@ git pull --rebase = git fetch + git rebase
 这与其他操作（例如：合并（merge）、变基（rebase））形成鲜明对比，后者通常是把许多提交应用到其他分支中。
 
 ```
-
 git cherry-pick <commit-hash>
 ```
+
+步骤：
+
+1.先使用 git log 命令（或 git reflog ）获取提交的记录，然后找到我们对应想要的那个 commit 的 SHA 。
+2.再使用 git checkout 命令切换到我们需要提交这个 commit 的新分支。
+3.最后再使用 git cherry-pick xxxxxxxxx 将你想要的那个 commit 的内容合并到新分支即可
+————————————————
+版权声明：本文为CSDN博主「码飞_CC」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/cc18868876837/article/details/108402798
 
 [参与互动](https://github.com/yisainan/web-interview/issues/1001)
 

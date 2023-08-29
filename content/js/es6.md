@@ -1423,15 +1423,62 @@ ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。�
 
 </details>
 
-<b><details><summary>34.</summary></b>
+<b><details><summary>34.Promise.all（只要失败一个就不会走then）的解决方案</summary></b>
 
-参考答案：
+参考答案：代码 解决：在catch里面resolve就行了
+
+```
+    // 代码 解决：在catch里面resolve就行了
+    // 测试了下 解决方式还能实现
+    var p1 = new Promise(resolve => {
+        let p1Data = b;
+        resolve(p1Data)
+    }).catch(err => {
+        return Promise.resolve("P1 无数据")
+    })
+
+    var p2 = new Promise(resolve => {
+        let p2Data = 'p2的有数据';
+        resolve(p2Data)
+    }).catch(err => {
+        return Promise.resolve("P2 无数据")
+    })
+
+    Promise.all([p1, p2]).then(res => {
+        console.log(res);
+    }).catch(err => {
+        throw new Error("Promise 执行错误", err)
+    })
+
+```
 
 </details>
 
-<b><details><summary></summary></b>
+<b><details><summary>35.Promise.race 用过吗</summary></b>
 
-参考答案：
+参考答案：Promse.race 特性就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
+
+```
+  let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('success')
+  },1000)
+})
+
+let p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('failed')
+  }, 500)
+})
+
+Promise.race([p1, p2]).then((result) => {
+  console.log(result)
+}).catch((error) => {
+  console.log(error)     // 打开的是 'failed'
+})
+
+```
+不管成功或失败，只返回第一个执行结束的
 
 </details>
 
