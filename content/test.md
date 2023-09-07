@@ -1,8 +1,8 @@
 # vue
 
-* new Vue发生什么？
+* new Vue发生什么？其实就是vue的实例化，遍历整个组件树，把template转义为render函数，生成虚拟dom树，最后渲染为真实dom。
 
-* Vue的数据为什么频繁变化但只会更新一次？
+* Vue的数据为什么频繁变化但只会更新一次？同一个watchid被放入队列不能重复的，只有最新的会被加入渲染队列
 
 * Vue组件为什么采用异步渲染？
 
@@ -60,7 +60,7 @@ Process.nextTick 在下次事件循环微任务之前；vue.nexttick [就是在�
 
 * vue的computed和watch的实现原理？
 
-* computed是怎么收集依赖的？ 主要是被data收集依赖，
+* computed是怎么收集依赖的？ 主要是被data收集依赖，比如data中的属性a，如果computed使用到了a，就会被收集
 
 * vue-router中的路由守卫有哪些？独享 全局 组件内
 

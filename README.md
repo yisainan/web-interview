@@ -11,7 +11,7 @@
 -->
 
 🚀 欢迎`Star`与分享，后续会不断更新。[gitee版本阅读更流畅，点击阅读](https://gitee.com/qiilee/web-interview)  
-🇨🇳 最后更新日期：2️⃣0️⃣2️⃣3️⃣`/`0️⃣8️⃣`/`2️⃣9️⃣
+🇨🇳 最后更新日期：2️⃣0️⃣2️⃣3️⃣`/`0️⃣9️⃣`/`0️⃣7️⃣
    
 
 ## 目录
@@ -35,7 +35,6 @@
 <b><details><summary>🐭 HTML</summary></b>
 
 - [详情](./content/HTML.md)
-- [浏览器](./content/浏览器.md)
 
 </details>
 
@@ -81,19 +80,23 @@
 
 </details>
 
-<b><details><summary>🐎 选择题</summary></b>
+<b><details><summary>🐎 选择题 & 编程题</summary></b>
 
-- [详情](./content/选择题/js.md)
-- [JavaScript进阶问题列表](./content/选择题/JavaScript进阶问题列表.md)
+- 选择题
+  - [详情](./content/选择题/js.md)
+  - [JavaScript进阶问题列表](./content/选择题/JavaScript进阶问题列表.md)
+
+- 编程题
+  - [js 基础](./content/编程题/js.md)
+  - [js 原型](./content/编程题/prototype.md)
+  - [es6](./content/编程题/es6.md)
+  - [变量提升](./content/编程题/变量提升.md)
 
 </details>
 
-<b><details><summary>🐐 编程题</summary></b>
+<b><details><summary>🐐 浏览器</summary></b>
 
-- [js 基础](./content/编程题/js.md)
-- [js 原型](./content/编程题/prototype.md)
-- [es6](./content/编程题/es6.md)
-- [变量提升](./content/编程题/变量提升.md)
+- [详情](./content/浏览器.md)
 
 </details>
 
